@@ -1,0 +1,53 @@
+{
+  "id": 1621,
+  "name": "Split Out Binary Data",
+  "description": "This workflows helps with processing binary data.\n\nYou'll often have binary objects with keys such as attachment_0, attachment_1, attachment_2, etc. attached to your items, for example when reading an incoming email.\n\nThis binary data is hard to process because it's not an array you can simply loop through.\n\nThis workflow solves this problem by providing a Function node that takes all incoming items and all their binary data and then returning a single item for each file with a data key containing your binary file.\n\nIncoming binary data:\n\n\nProcessed binary data:\n",
+  "totalViews": 4477,
+  "source": "official",
+  "user": {
+    "id": 21240,
+    "name": "Tom",
+    "username": "mutedjam",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://github.com/that-one-tom/\"]",
+    "avatar": "https://gravatar.com/avatar/7a3710173e907baffaf7ed7ebffc37955c9cdeadb8612200225a34a2e056aa17?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Compression",
+      "type": "n8n-nodes-base.compression",
+      "categories": [
+        "Core Nodes",
+        "Data & Storage"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Files",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2022-05-05T09:25:45.069Z",
+  "path": "official/template_1621/workflow.json"
+}

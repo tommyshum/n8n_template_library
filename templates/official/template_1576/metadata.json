@@ -1,0 +1,38 @@
+{
+  "id": 1576,
+  "name": "Push your public IP to Namecheaps Dynamic DNS",
+  "description": "Template to get your public IP address and push it to Namecheaps Dynamic DNS per subdomain.\n\nOpen \"yourdomain.com\"\nInsert your domain and your Namecheap DDNS password\nOpen \"subdomains\"\nReplaces and insert your subdomains\nExecute Workflow\n\nHave fun!",
+  "totalViews": 674,
+  "source": "official",
+  "user": {
+    "id": 33000,
+    "name": "Mario",
+    "username": "mariosemes",
+    "bio": null,
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/e69bd78bd7f5bb88e1aebd86b2d6c6adb09d7ecfce096fbb21a7922662b42fdf?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2022-04-06T11:47:55.700Z",
+  "path": "official/template_1576/workflow.json"
+}

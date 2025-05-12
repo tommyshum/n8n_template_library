@@ -1,0 +1,66 @@
+{
+  "id": 3904,
+  "name": "Search LinkedIn companies, Score with AI and add them to Google Sheet CRM",
+  "description": "Search LinkedIn companies, Score with AI and add them to Google Sheet CRM\n\nWho is this for?\nThis template is ideal for sales teams, business development professionals, and marketers looking to build a targeted prospect database with automatic qualification. Perfect for agencies, consultants, and B2B companies wanting to identify and prioritize the most promising potential clients.\n\nWhat problem does this workflow solve?\nManually researching companies on LinkedIn, evaluating their fit for your services, and tracking them in your CRM is time-consuming and subjective. This automation streamlines lead generation by automatically finding, scoring, and importing qualified prospects into your database.\n\nWhat this workflow does\nThis workflow automatically searches for companies on LinkedIn based on your criteria, retrieves detailed information about each company, filters them based on quality indicators, uses AI to score how well they match your ideal customer profile, and adds them to your Google Sheet CRM while preventing duplicates.\n\nSetup\nCreate a Ghost Genius API account and get your API key\nConfigure HTTP Request nodes with Header Auth credentials\nCreate a copy of the provided Google Sheet template\nSet up your Google Sheet and OpenAI credentials following n8n documentation\nCustomize the \"Set Variables\" node to match your target audience and scoring criteria\n\nHow to customize this workflow\nModify search parameters to target different industries, locations, or company sizes\nAdjust the follower count threshold based on your qualification criteria\nCustomize the AI scoring system to align with your specific product or service offering\nAdd notification nodes to alert you when high-scoring companies are identified",
+  "totalViews": 1247,
+  "source": "official",
+  "user": {
+    "id": 94057,
+    "name": "Matthieu",
+    "username": "yaznow",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/0087102f41989fc3569adf570c8b0417d9c27884311ec012ce71b0dc2a80b11a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-05-06T16:14:52.314Z",
+  "path": "official/template_3904/workflow.json"
+}

@@ -1,0 +1,57 @@
+{
+  "id": 2039,
+  "name": "Qualify replies from Pipedrive persons with AI",
+  "description": "About the workflow\nThe workflow reads every reply that is received from a cold email campaign and qualifies if the lead is interested in a meeting. If the lead is interested, a deal is made in pipedrive. You can add as many email inboxes as you need!\n\nSetup:\nAdd credentials to the Gmail, OpenAI and Pipedrive Nodes.\nAdd a in_campaign field in Pipedrive for persons. In Pipedrive click on your credentials at the top right, go to company settings &gt; Data fields &gt; Person and click on add custom field. Single option [TRUE/FALSE].\nIf you have only one email inbox, you can delete one of the Gmail nodes.\nIf you have more than two email inboxes, you can duplicate a Gmail node as many times as you like. Just connect it to the Get email node, and you are good to go!\nIn the Gmail inbox nodes, select Inbox under label names and uncheck Simplify.",
+  "totalViews": 1446,
+  "source": "official",
+  "user": {
+    "id": 91381,
+    "name": "Mark de Jonge",
+    "username": "mark-linkedup",
+    "bio": null,
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/d331db19420b5da7436508ced5c6e73d13820ffbf1e2bf7efe908fc55a5137b0?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Sales",
+    "Development",
+    "Core Nodes",
+    "Utility"
+  ],
+  "nodes": [
+    {
+      "name": "Pipedrive",
+      "type": "n8n-nodes-base.pipedrive",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "n8n-nodes-base.openAi",
+      "categories": [
+        "Utility"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-01-03T09:46:08.412Z",
+  "path": "official/template_2039/workflow.json"
+}

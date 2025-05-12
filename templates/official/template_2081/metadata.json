@@ -1,0 +1,44 @@
+{
+  "id": 2081,
+  "name": "Synchronize your Google Sheets with Postgres",
+  "description": "Sync your Google Sheets Data with your Postgres database table, requiring minimal adjustments. Follow these steps:\n\nRetrieve Data: Pull data from Google Sheets and PostgreSQL.\nCompare Datasets: Identify differences, focusing on new or updated entries.\nUpdate PostgreSQL: Apply changes to ensure both platforms mirror each other.\n\nAutomate this process to regularly synchronize data. \n\nBefore starting, grant necessary access to both Google Sheets and PostgreSQL, and specify the data details for synchronization. This streamlined workflow enhances data consistency across platforms.\n\nThis example is a one-way synchronization from Google Sheets into your Postgres. With small adjustments, you can make it the other way around, or 2-way.",
+  "totalViews": 5565,
+  "source": "official",
+  "user": {
+    "id": 91415,
+    "name": "Bela",
+    "username": "bwiertz",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://n8n-automation.com/our-services/\"]",
+    "avatar": "https://gravatar.com/avatar/9ee80c295a2f128e898348c2b2349f369b065d504f5b214ced40800eb3b6a46d?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Postgres",
+      "type": "n8n-nodes-base.postgres",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-02-04T12:53:46.127Z",
+  "path": "official/template_2081/workflow.json"
+}

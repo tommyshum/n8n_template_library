@@ -1,0 +1,96 @@
+{
+  "id": 3277,
+  "name": "Smart Email Auto-Responder Template using AI",
+  "description": "Smart Email Auto-Responder with AI Classification  \nAutomatically Categorize and Reply to Emails using LangChain + Google Gemini + Gmail + SMTP + Brevo\n \nThis n8n workflow is designed to intelligently manage incoming emails and automatically send personalized responses based on the content. It classifies emails using LangChain's Text Classifier, sends HTML responses depending on the category, and updates Gmail and Brevo CRM accordingly.\n\nKey Features  \n\nTriggers and Classifies Emails  \nListens for new Gmail messages every hour  \nUses AI-based classification to identify the type of inquiry For Example:  \n  Guest Post  \n  YouTube Review  \n  Udemy Course Inquiry\n\nResponds Automatically  \nSends professional HTML replies customized for each type  \nUses SMTP to deliver emails from your domain  \n\nEnhances Workflow with Automation  \nMarks processed emails as read  \nApplies Gmail labels  \nAdds sender to Brevo contact list  \n\nOptional AI Chat Integration  \nUses Google Gemini (PaLM 2) to enhance classification or summarization  \n\nTools & Integrations Required  \n\nGmail account (OAuth2)\nLangChain (Text Classifier node)\nGoogle Gemini API account\nSMTP credentials (e.g., Gmail SMTP, Brevo, etc.)\nBrevo/Sendinblue account and API key\n\nStep-by-Step Node Guide  \n\n1. Gmail Trigger  \nPolls Gmail every hour for new emails.  \nFilters out internal addresses (e.g., @syncbricks.com).  \nAvoids replying to already-responded emails (Re: subject filter).\n\n2. LangChain Text Classifier  \nUses AI to categorize the content of the email based on pre-defined categories:  \nGuest Post**  \nYoutube**  \nUdemy Courses**\n\n3. Google Gemini (PaLM) Chat Model (Optional)  \nProvides additional AI support to enhance classification accuracy.  \nCan be used to summarize or enrich the context if needed.\n\n4. Email Send Nodes  \nEach response category has a separate SMTP node with a custom HTML email:\nGuest Post Inquiry**  \nYouTube Video Inquiry**  \nUdemy Course Inquiry**\n\n5. Gmail: Mark as Read  \nMarks the email so it isn’t processed again.\n\n6. Gmail: Apply Label  \nAdds a label (e.g., Handled by Bot) for organization.\n\n7. Brevo: Create/Update Contact  \nSaves the sender to your CRM for future communication or marketing.\n\nEmail Templates Included\n\nGuest Post Template  \nIncludes pricing, website list, submission guidelines, and payment instructions.\n\nYouTube Review Template  \nIncludes package pricing, review samples, video thumbnails, and inquiry instructions.  \nStep by Step Tutorial\n\nGET n8n Now  \n\nN8N COURSE  \nn8n Book  \n \n \n\nMore courses:  \nhttp://lms.syncbricks.com\n\nYouTube Channel:  \nhttps://youtube.com/@syncbricks\n\nHow to Use\n\nImport the template into your n8n instance.\nConfigure your Gmail OAuth2 and SMTP credentials.\nSet up your LangChain Text Classifier and Google Gemini API credentials.\nUpdate label ID in the Gmail node and ensure all custom fields like from.value[0].name match your use case.\nRun the workflow and watch it respond intelligently to new inquiries.\n\nBest Practices\n\nAlways test with mock emails first.\nKeep the Google Gemini node optional if you want to reduce cost/API calls.\nUse Gmail filters to auto-label certain types of emails.\nMonitor your Brevo contacts to track new leads.\n\nAttribution & Support\n\nDeveloped by Amjid Ali  \nThis template took extensive time and effort to build. If you find it useful, please consider supporting my work.\n\nBuy My Book:  \nMastering n8n on Amazon\n\nFull Courses & Tutorials:  \nhttp://lms.syncbricks.com\n\nFollow Me Online:  \nLinkedIn: https://linkedin.com/in/amjidali  \nWebsite: https://amjidali.com  \nYouTube: https://youtube.com/@syncbricks  \n",
+  "totalViews": 9000,
+  "source": "official",
+  "user": {
+    "id": 92318,
+    "name": "Amjid Ali",
+    "username": "amjid",
+    "bio": "**Amjid Ali** is an automation expert and AI enthusiast specializing in creating intelligent workflows using low-code platforms like **n8n**. With a passion for simplifying complex processes, he designs solutions that enhance productivity and streamline operations. As an active contributor to the **n8n Creator Hub**, Amjid shares innovative use cases, practical templates, and best practices, empowering the community to unlock the full potential of workflow automation.",
+    "verified": true,
+    "links": "[\"https://amjidali.com\"]",
+    "avatar": "https://gravatar.com/avatar/8760ed64a38ed65da42983737659c7e295e4a7f14b59ed5ce1b0b1077435f573?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Core Nodes",
+    "Marketing",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "categories": [
+        "Communication",
+        "HITL",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Brevo",
+      "type": "n8n-nodes-base.sendInBlue",
+      "categories": [
+        "Marketing",
+        "Communication"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Text Classifier",
+      "type": "@n8n/n8n-nodes-langchain.textClassifier",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-03-21T14:03:18.184Z",
+  "path": "official/template_3277/workflow.json"
+}

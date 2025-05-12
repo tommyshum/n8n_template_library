@@ -1,0 +1,38 @@
+{
+  "id": 2159,
+  "name": "🚨 Report n8n workflow errors to Telegram",
+  "description": "Use case\nError workflows are an important part of running workflows in production. Make sure to set them up for all your important workflows. The message links directly to the execution.\n\nHow to setup\nAdd Telegram creds\nSet chat id in Telegram node\nAdd this error workflow to other workflows\nhttps://docs.n8n.io/flow-logic/error-handling/#create-and-set-an-error-workflow\n",
+  "totalViews": 2921,
+  "source": "official",
+  "user": {
+    "id": 91243,
+    "name": "Mutasem",
+    "username": "mutasem",
+    "bio": "Team lead @ n8n",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/mutasemdmour/\"]",
+    "avatar": "https://gravatar.com/avatar/16d9c92db78317b6af7d0935bee34a47c522cb81d35c234ff76ea580ff1f6c29?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-03-01T14:24:50.991Z",
+  "path": "official/template_2159/workflow.json"
+}

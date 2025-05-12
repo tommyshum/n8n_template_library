@@ -1,0 +1,93 @@
+{
+  "id": 2961,
+  "name": "Automate Crypto News Posting to X & Telegram with AI Summarization",
+  "description": "Automate Crypto News Posting to X & Telegram with AI Summarization\n\nThis n8n template automates the process of curating and sharing the latest cryptocurrency news on X (formerly Twitter) and Telegram. By leveraging AI for content summarization, this workflow allows you to effortlessly maintain an active social media presence, keeping your audience informed about the dynamic crypto market without manual effort.\n\nWho is this for?\n\nThis template is ideal for:\n\nContent Creators & Marketers:** Aiming to consistently share valuable news and engage their audience without manual content curation.\nCrypto Influencers & Educators:** Looking to provide timely news updates to their followers across multiple platforms.\nCrypto Communities & DAOs:** Seeking to automate news dissemination within their Telegram channels and wider X audience.\nAnyone interested in automated news monitoring and sharing.**\n\nWhat problem is this workflow solving?\n\nManually tracking, summarizing, and posting crypto news across different social media platforms is time-consuming and requires constant effort. This workflow eliminates these manual tasks, allowing users to:\n\nSave Time & Effort:** Automate the entire news curation and posting process.\nMaintain Consistent Presence:** Ensure a regular flow of valuable crypto news updates on X and Telegram.\nIncrease Audience Engagement:** Provide timely and summarized news to keep your audience informed and engaged.\nFocus on Strategy:** Free up time to focus on broader content strategy and audience growth instead of repetitive manual posting.\n\nWhat this workflow does:\n\nThis workflow automates the following key steps:\n\nScheduled News Retrieval: Uses a Schedule Trigger to run every 90 minutes (configurable), initiating the news gathering process.\nReal-time Crypto News Aggregation: Fetches the latest cryptocurrency news from the CryptoPanic API.\nRecent News Filtering: Filters news articles to include only those published within the last 30 minutes, ensuring timely updates.\nContent Extraction from News URLs: Visits individual news URLs and extracts the full article content.\nAI-Powered Content Summarization: Leverages GPT or other LLMs to extract the core content from news articles.\nContent Aggregation: Merges content from multiple news articles into a single input for summarization.\nAI-Driven Social Media Content Generation: Utilizes GPT or other LLMs to summarize the aggregated news and create two distinct outputs:\n    Concise & Engaging X Post: Optimized for Twitter's character limit, designed to be attention-grabbing.\n    Detailed Telegram Report: A more comprehensive summary suitable for a Telegram channel or group.\nAutomated Posting to X (Twitter): Automatically posts the generated X summary to your connected Twitter account.\nAutomated Delivery to Telegram: Automatically sends the detailed Telegram report to your specified Telegram chat ID.\n\nSetup:\n\nTo get started, you will need to configure the following services and credentials:\n\nCryptoPanic API Token:\n\n    Obtain a free API token from the CryptoPanic website: https://cryptopanic.com/\n    In n8n, navigate to the \"HTTP Request\" node (named \"HTTP Request\").\n    In the node parameters, locate the \"URL\" field and replace \"YOURTOKEN\" in the URL with your obtained CryptoPanic API token.\n\nOpenAI API Key:\n\n    Obtain an API key from OpenAI: https://platform.openai.com/\n    For Content Extraction: In n8n, connect your OpenAI account to the \"ContentExtraction GPT3.5\" node (named \"ContentExtraction GPT3.5\"). Use your OpenAI API key for the credentials.\n    For News Summarization & Social Media Content Generation: In n8n, connect your OpenAI account to the \"Summary news GPT\" node (named \"Summary news GPT\"). Use your OpenAI API key for the credentials.\n\nX (Twitter) Developer Credentials:\n\n    Create a developer account and project on the X Developer Portal: https://developer.twitter.com/\n    Obtain the necessary API keys and tokens for your X app.\n    In n8n, connect your X Developer account credentials to the \"X\" node (named \"X\").\n\nTelegram Bot and Chat ID:\n\n    Create a Telegram bot using BotFather on Telegram. Obtain your bot's API token.\n    Obtain the Chat ID of the Telegram chat where you want to send news reports.\n    In n8n, connect your Telegram Bot API token to the \"Telegram\" node (named \"Telegram\").\n    In the \"Telegram\" node parameters, replace \"YOUR_TELEGRAM_CHAT_ID\" with your Telegram Chat ID.\n\nHow to customize this workflow:\nAdapt to ANY Topic:**  Change the \"HTTP Request\" node to use a news API for your desired topic (AI, Sports, World News, etc.).  Critically, adjust the prompts in the \"Summary news GPT\" node to be relevant to your chosen topic so the AI generates appropriate summaries and social media content.\nAdjust Scheduling Frequency:** Modify the \"Schedule Trigger\" node to change how often the workflow runs and posts news.\nAdjust Scheduling Frequency:** Modify the \"Schedule Trigger\" node to change the frequency of news updates (e.g., change the interval from 90 minutes to a different value).\nModify News Filtering:** Customize the Python code in the \"Extract Meta\" node to adjust the news filtering criteria. You can change the time window (currently 30 minutes) or filter based on other criteria from the CryptoPanic API response.\nExperiment with GPT Models:** In the \"Summary news GPT\" node, try different OpenAI models (e.g., gpt-4, gpt-3.5-turbo-16k) to see how they affect the summarization quality and output. Note that more advanced models may incur higher API costs.\nCustomize AI Prompts:** Fine-tune the system and user prompts in the \"Summary news GPT\" node to alter the tone, style, or format of the generated X and Telegram content. You can adjust the persona of the AI blogger, the desired level of detail in summaries, or specific keywords to include.\nExtend to Other Platforms:** Add nodes to post to other social media platforms like LinkedIn, Facebook, or Discord by adapting the \"Summary news GPT\" prompts and integrating relevant n8n nodes for those platforms.\n\nCategory:\n\nMarketing, Social Media, AI, News Automation, Content Creation\n\nWorkflow by: Tianyi (muzi)\nn8n Creators Profile: https://n8n.io/creators/muzi/",
+  "totalViews": 2204,
+  "source": "official",
+  "user": {
+    "id": 92701,
+    "name": "Tianyi",
+    "username": "muzi",
+    "bio": "Ph.D. in Machine Learning from the University of Toulouse.\nExperienced automation consultant specializing in optimizing workflows for Content creation and Marketing teams. ",
+    "verified": true,
+    "links": "[\"www.linkedin.com/in/tianyi-li-v\"]",
+    "avatar": "https://gravatar.com/avatar/43163225998120af2d88664551ec779ceb7518ef30b5a6c27f81649a0fb641d0?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "Marketing",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "X (Formerly Twitter)",
+      "type": "n8n-nodes-base.twitter",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-02-21T07:39:52.106Z",
+  "path": "official/template_2961/workflow.json"
+}

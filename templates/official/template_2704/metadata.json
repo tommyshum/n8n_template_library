@@ -1,0 +1,48 @@
+{
+  "id": 2704,
+  "name": "ServiceNow Incident Notifications to Slack Workflow",
+  "description": "Who is this for?\n\nThis workflow is ideal for IT operations teams or system administrators who use ServiceNow to track incidents and Slack for team communication. It provides real-time updates on new ServiceNow incidents directly in a designated Slack channel, ensuring timely response and collaboration.\n\nWhat problem is this workflow solving? / Use case\n\nManually monitoring ServiceNow for new incidents can be time-consuming and prone to delays. This workflow automates the process, ensuring that team members are instantly notified of new incidents, complete with all relevant details, in a Slack channel. It enhances operational efficiency and incident response time.\n\nWhat this workflow does\n\nSchedule or Manual Trigger: The workflow can be triggered manually or set to run automatically every 5 minutes.\nRetrieve New Incidents: Fetches incidents created in ServiceNow within the last 5 minutes.\nError Handling: Posts an error message in Slack if there are issues connecting to ServiceNow.\nIncident Processing:\n    If new incidents are found, they are sorted in ascending order by their number.\n    Detailed incident information is formatted and sent to a specified Slack channel.\nNo Incidents: If no new incidents are found, the workflow does nothing.\n\nSetup\n\nServiceNow API Credentials: Configure ServiceNow Basic Authentication in the workflow to connect to your ServiceNow instance.\nSlack API Credentials: Add your Slack API credentials to enable message posting.\nSlack Channel Configuration:\n    Define the Slack channel where notifications should be sent.\n    Ensure the channel ID is correctly set in the Slack node.\nAdjust the Schedule: Modify the schedule in the Schedule Trigger node to suit your requirements.\n\nHow to customize this workflow to your needs\n\nNotification Format:\n    Customize the Slack message format to include additional or fewer details.\n    Update the Blocks section in the Slack node for personalized messages.\nIncident Query Parameters:\n    Adjust the sysparm_query parameter in the ServiceNow node to filter incidents based on specific criteria.\nError Handling:\n    Modify the error message in the Slack node for more detailed troubleshooting information.\n\nFeatures\n\nReal-Time Notifications**: Immediate updates on new ServiceNow incidents.\nError Handling**: Alerts in Slack if the workflow encounters issues connecting to ServiceNow.\nCustomizable Notifications**: Flexibility to modify incident details sent to Slack.\n\nThis workflow streamlines incident management and fosters collaboration by delivering actionable updates directly to your team.",
+  "totalViews": 1707,
+  "source": "official",
+  "user": {
+    "id": 16588,
+    "name": "Angel Menendez",
+    "username": "djangelic",
+    "bio": "Angel Menendez is a Staff Developer Advocate at n8n.io, specializing in low-code tools for cybersecurity workflows. From Puerto Rico, Angel's tech journey began by helping his father translate technical books. He later started a web development business and transitioned from a career as a flight attendant to cybersecurity engineering. His workflows have saved companies significant time. Outside work, Angel enjoys time with his two sons, riding electric bikes, reading, and exploring new places.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/fdbe38425d21378d8c9ba8916e1eb0b320add299f12cc23fcd4961d4e6e00bec?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "ServiceNow",
+      "type": "n8n-nodes-base.serviceNow",
+      "categories": [
+        "Productivity",
+        "Communication"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-01-07T17:36:49.670Z",
+  "path": "official/template_2704/workflow.json"
+}

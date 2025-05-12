@@ -1,0 +1,40 @@
+{
+  "id": 1118,
+  "name": "Sync Google Calendar tasks to Trello every day",
+  "description": "This workflow will allow you at the beginning of each day to copy your google calendar events into Trello so you can take notes, label, or automate your tasks. \n\nWhen deploying this, don't forget to change:\nLabel ID for meeting type under \"Create Trello Cards\". You should be able to find instructions Here on how to find the label ID. \nDescription for Trello cards under \"Create Trello Cards\". I currently pull in notes but it should be simple to change to pull the Gcal description instead.\nYou can change the trigger time to fire at a different time. ",
+  "totalViews": 3064,
+  "source": "official",
+  "user": {
+    "id": 16588,
+    "name": "Angel Menendez",
+    "username": "djangelic",
+    "bio": "Angel Menendez is a Staff Developer Advocate at n8n.io, specializing in low-code tools for cybersecurity workflows. From Puerto Rico, Angel's tech journey began by helping his father translate technical books. He later started a web development business and transitioned from a career as a flight attendant to cybersecurity engineering. His workflows have saved companies significant time. Outside work, Angel enjoys time with his two sons, riding electric bikes, reading, and exploring new places.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/fdbe38425d21378d8c9ba8916e1eb0b320add299f12cc23fcd4961d4e6e00bec?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "Trello",
+      "type": "n8n-nodes-base.trello",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Google Calendar",
+      "type": "n8n-nodes-base.googleCalendar",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2021-06-09T00:45:59.531Z",
+  "path": "official/template_1118/workflow.json"
+}

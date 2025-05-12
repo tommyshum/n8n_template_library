@@ -1,0 +1,39 @@
+{
+  "id": 3119,
+  "name": "Create a REST API for PDF Digital Signatures with Webhooks",
+  "description": "Overview\nAn automation workflow that creates a complete REST API for digitally signing PDF documents using n8n webhooks. This service demonstrates how to implement secure document signing functionality through standardized API endpoints with file upload and download capabilities.\n\nUse Case\nThis workflow is designed for developers and automation specialists who need to implement digital document signing. It's particularly useful for:\nIntegrating PDF signing capabilities into existing document workflows\nAPI-based automation of signature processes\nCreating proof-of-concept implementations for document verification systems\nLearning n8n's webhook capabilities and file handling techniques\nTesting PDF signing in development environments before production implementation\n\nWhat This Workflow Does\n\nAPI-Based Document Management\nExposes RESTful webhook endpoints for all document operations\nHandles multipart/form-data uploads for PDF documents\nProcesses JSON payloads for signing configuration\nProvides download functionality for completed documents\n\nDigital Certificate Handling\nUploads existing PFX/PKCS#12 digital certificates\nGenerates new certificates with customizable attributes\nSecurely manages certificate storage and access\nAssociates certificates with signing operations\n\nCryptographic PDF Signing\nApplies digital signatures using industry-standard cryptographic methods\nEmbeds signature information within PDF document structure\nValidates document integrity through cryptographic verification\nPreserves original document while adding signature elements\n\nWebhook Integration System\nRoutes different API methods to appropriate handlers\nValidates request payloads and file content\nManages authentication through webhook paths\nReturns structured responses for integration with other systems\n\nTechnical Architecture\n\nComponents\nAPI Gateway: n8n webhook nodes that receive external requests\nRequest Router: Switch nodes that direct operations based on method parameters\nDocument Processor: Function nodes for PDF manipulation and verification\nCertificate Manager: Specialized nodes for cryptographic key operations\nStorage Interface: File operation nodes for document persistence\nResponse Formatter: Nodes that structure API responses\n\nIntegration Flow\nClient Request → Webhook Endpoint → Method Router → \nProcessing Engine → Digital Signing → Storage → \nResponse Generation → Client Response\n\nSetup Instructions\n\nPrerequisites\nn8n installation (minimum version 0.214.0)\nNode.js 14 or higher\nRequired environment variable:\n    NODE_FUNCTION_ALLOW_EXTERNAL: \"node-forge,@signpdf/signpdf,@signpdf/signer-p12,@signpdf/placeholder-plain\"\nConfiguration Steps\nImport Workflow\n   Import the workflow JSON into your n8n instance\n   Activate the workflow to enable the webhooks\n\nConfigure Storage\n   Set the storage path variables in the workflow\n   Ensure proper permissions on the storage directories\n\nTest API Endpoints\n   Use the included test scripts to verify functionality\n   Test PDF upload, certificate generation, and signing\n\nIntegration\n   Document the webhook URLs for integration with other systems\n   Configure error handling according to your requirements\n\nTesting Methods\nTest the workflow functionality using various HTTP requests and JSON data:\nUpload PDF documents to the document processing endpoint\nUpload or generate digital certificates\nExecute PDF signing operations\nDownload signed documents from the download endpoint\n\nWebhook Endpoints\n\nThe workflow exposes two primary webhook endpoints that form a complete API for PDF digital signing operations:\n\n1. Document Processing Endpoint (/webhook/docu-digi-sign)\n\nThis endpoint handles all document and certificate operations:\n\nMethod: Upload PDF\nHTTP: POST\nContent-Type: multipart/form-data\nParameters: method, uploadType, fileName, fileData\n\nMethod: Upload Certificate\nHTTP: POST\nContent-Type: multipart/form-data\nParameters: method, uploadType, fileName, fileData\n\nMethod: Generate Certificate\nHTTP: POST\nContent-Type: application/json\nParameters: method, subjectCN, issuerCN, serialNumber, validFrom, validTo, password\n\nMethod: Sign PDF\nHTTP: POST\nContent-Type: application/json\nParameters: method, inputPdf, pfxFile, pfxPassword\n\n2. Document Download Endpoint (/webhook/docu-download)\n\nThis endpoint handles the retrieval of processed documents:\n\nMethod: Download Signed PDF\nHTTP: GET\nContent-Type: application/json\nParameters: method, fileType, fileName\n\nKey Workflow Sections\nThe workflow is organized into logical sections with clear responsibilities:\nRequest Processing**: Parses incoming webhook data\nMethod Routing**: Directs requests to appropriate handlers\nDocument Management**: Handles file operations and storage\nCryptographic Operations**: Manages signing and certificate functions\nResponse Formatting**: Structures and returns results\n",
+  "totalViews": 3727,
+  "source": "official",
+  "user": {
+    "id": 92759,
+    "name": "Ferenc Erb",
+    "username": "fefehun",
+    "bio": "With 30+ years in IT and 20+ years in leadership, I specialize in no-code automation with n8n, optimizing workflows and integrating systems efficiently. As an Agile Coach and Project Manager, I’ve led teams, managed R&D, and driven IT transformations. Skilled in n8n, Java, Node.js, and cloud solutions, I help businesses streamline operations. Let’s connect if you need an n8n expert for automation!",
+    "verified": true,
+    "links": "[\"www.it-coach.hu\"]",
+    "avatar": "https://gravatar.com/avatar/89eb1e65e00f5f62ee56498ca48f434eb1abddc9a863699ac96d7a3089eb5ab8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-03-10T08:43:05.527Z",
+  "path": "official/template_3119/workflow.json"
+}

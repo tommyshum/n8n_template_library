@@ -1,0 +1,202 @@
+{
+  "id": 1466,
+  "name": "Extract expenses from emails and add to Google Sheets",
+  "totalViews": 9963,
+  "purchaseUrl": null,
+  "user": {
+    "id": 25789,
+    "name": "Jonathan",
+    "username": "jon-n8n",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/5240094f838126182ceefb50ca4a3cf75cc7dc0808efd4b9920d792e41bfc45e?r=pg&d=retro&size=200"
+  },
+  "description": "This workflow will check a mailbox for new emails and if the Subject contains Expenses or Reciept it will send the attachment to Mindee for processing then it will update a Google sheet with the values.\n\nTo use this node you will need to set the Email Read node to use your mailboxes credentials and configure the Mindee and Google Sheets nodes to use your credentials.",
+  "createdAt": "2022-02-17T15:08:01.861Z",
+  "nodes": [
+    {
+      "id": 18,
+      "icon": "file:googleSheets.svg",
+      "name": "n8n-nodes-base.googleSheets",
+      "codex": {
+        "data": {
+          "alias": [
+            "CSV",
+            "Sheet",
+            "Spreadsheet",
+            "GS"
+          ],
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/love-at-first-sight-ricardos-n8n-journey/",
+                "icon": "❤️",
+                "label": "Love at first sight: Ricardo’s n8n journey"
+              },
+              {
+                "url": "https://n8n.io/blog/why-business-process-automation-with-n8n-can-change-your-daily-life/",
+                "icon": "🧬",
+                "label": "Why business process automation with n8n can change your daily life"
+              },
+              {
+                "url": "https://n8n.io/blog/automatically-adding-expense-receipts-to-google-sheets-with-telegram-mindee-twilio-and-n8n/",
+                "icon": "🧾",
+                "label": "Automatically Adding Expense Receipts to Google Sheets with Telegram, Mindee, Twilio, and n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/supercharging-your-conference-registration-process-with-n8n/",
+                "icon": "🎫",
+                "label": "Supercharging your conference registration process with n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/creating-triggers-for-n8n-workflows-using-polling/",
+                "icon": "⏲",
+                "label": "Creating triggers for n8n workflows using polling"
+              },
+              {
+                "url": "https://n8n.io/blog/no-code-ecommerce-workflow-automations/",
+                "icon": "store",
+                "label": "6 e-commerce workflows to power up your Shopify s"
+              },
+              {
+                "url": "https://n8n.io/blog/migrating-community-metrics-to-orbit-using-n8n/",
+                "icon": "📈",
+                "label": "Migrating Community Metrics to Orbit using n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/automate-google-apps-for-productivity/",
+                "icon": "💡",
+                "label": "15 Google apps you can combine and automate to increase productivity"
+              },
+              {
+                "url": "https://n8n.io/blog/your-business-doesnt-need-you-to-operate/",
+                "icon": " 🖥️",
+                "label": "Hey founders! Your business doesn't need you to operate"
+              },
+              {
+                "url": "https://n8n.io/blog/how-honest-burgers-use-automation-to-save-100k-per-year/",
+                "icon": "🍔",
+                "label": "How Honest Burgers Use Automation to Save $100k per year"
+              },
+              {
+                "url": "https://n8n.io/blog/how-a-digital-strategist-uses-n8n-for-online-marketing/",
+                "icon": "💻",
+                "label": "How a digital strategist uses n8n for online marketing"
+              },
+              {
+                "url": "https://n8n.io/blog/why-this-product-manager-loves-workflow-automation-with-n8n/",
+                "icon": "🧠",
+                "label": "Why this Product Manager loves workflow automation with n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/sending-automated-congratulations-with-google-sheets-twilio-and-n8n/",
+                "icon": "🙌",
+                "label": "Sending Automated Congratulations with Google Sheets, Twilio, and n8n "
+              },
+              {
+                "url": "https://n8n.io/blog/how-a-membership-development-manager-automates-his-work-and-investments/",
+                "icon": "📈",
+                "label": "How a Membership Development Manager automates his work and investments"
+              },
+              {
+                "url": "https://n8n.io/blog/aws-workflow-automation/",
+                "label": "7 no-code workflow automations for Amazon Web Services"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googlesheets/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/google/oauth-single-service/"
+              }
+            ]
+          },
+          "categories": [
+            "Data & Storage",
+            "Productivity"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\",\"output\"]",
+      "defaults": {
+        "name": "Google Sheets"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGZpbGw9IiMyOEI0NDYiIGQ9Ik0zNS42OSAxIDUyIDE3LjIyNXYzOS4wODdhMy42NyAzLjY3IDAgMCAxLTEuMDg0IDIuNjFBMy43IDMuNyAwIDAgMSA0OC4yOTMgNjBIMTIuNzA3YTMuNyAzLjcgMCAwIDEtMi42MjMtMS4wNzhBMy42NyAzLjY3IDAgMCAxIDkgNTYuMzEyVjQuNjg4YTMuNjcgMy42NyAwIDAgMSAxLjA4NC0yLjYxQTMuNyAzLjcgMCAwIDEgMTIuNzA3IDF6Ii8+PHBhdGggZmlsbD0iIzZBQ0U3QyIgZD0iTTM1LjY5IDEgNTIgMTcuMjI1SDM5LjM5N2MtMi4wNTQgMC0zLjcwNy0xLjgyOS0zLjcwNy0zLjg3MnoiLz48cGF0aCBmaWxsPSIjMjE5QjM4IiBkPSJNMzkuMjExIDE3LjIyNSA1MiAyMi40OHYtNS4yNTV6Ii8+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTIwLjEyIDMxLjk3NWMwLS44MTcuNjYyLTEuNDc1IDEuNDgzLTEuNDc1aDE3Ljc5NGMuODIxIDAgMS40ODIuNjU4IDEuNDgyIDEuNDc1djE1LjQ4N2MwIC44MTgtLjY2MSAxLjQ3NS0xLjQ4MiAxLjQ3NUgyMS42MDNhMS40NzYgMS40NzYgMCAwIDEtMS40ODItMS40NzRWMzEuOTc0em0yLjIyNSAxLjQ3NWg2LjY3MnYyLjIxMmgtNi42NzJ6bTAgNS4xNjJoNi42NzJ2Mi4yMTNoLTYuNjcyem0wIDUuMTYzaDYuNjcydjIuMjEyaC02LjY3MnptOS42MzgtMTAuMzI1aDYuNjcydjIuMjEyaC02LjY3MnptMCA1LjE2Mmg2LjY3MnYyLjIxM2gtNi42NzJ6bTAgNS4xNjNoNi42NzJ2Mi4yMTJoLTYuNjcyeiIvPjxwYXRoIGZpbGw9IiMyOEI0NDYiIGQ9Ik0zNC42OSAwIDUxIDE2LjIyNXYzOS4wODdhMy42NyAzLjY3IDAgMCAxLTEuMDg0IDIuNjFBMy43IDMuNyAwIDAgMSA0Ny4yOTMgNTlIMTEuNzA3YTMuNyAzLjcgMCAwIDEtMi42MjMtMS4wNzhBMy42NyAzLjY3IDAgMCAxIDggNTUuMzEyVjMuNjg4YTMuNjcgMy42NyAwIDAgMSAxLjA4NC0yLjYxQTMuNyAzLjcgMCAwIDEgMTEuNzA3IDB6Ii8+PHBhdGggZmlsbD0iIzZBQ0U3QyIgZD0iTTM0LjY5IDAgNTEgMTYuMjI1SDM4LjM5N2MtMi4wNTQgMC0zLjcwNy0xLjgyOS0zLjcwNy0zLjg3MnoiLz48cGF0aCBmaWxsPSIjMjE5QjM4IiBkPSJNMzguMjExIDE2LjIyNSA1MSAyMS40OHYtNS4yNTV6Ii8+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTE5LjEyIDMwLjk3NWMwLS44MTcuNjYyLTEuNDc1IDEuNDgzLTEuNDc1aDE3Ljc5NGMuODIxIDAgMS40ODIuNjU4IDEuNDgyIDEuNDc1djE1LjQ4N2MwIC44MTgtLjY2MSAxLjQ3NS0xLjQ4MiAxLjQ3NUgyMC42MDNhMS40NzYgMS40NzYgMCAwIDEtMS40ODItMS40NzRWMzAuOTc0em0yLjIyNSAxLjQ3NWg2LjY3MnYyLjIxMmgtNi42NzJ6bTAgNS4xNjJoNi42NzJ2Mi4yMTNoLTYuNjcyem0wIDUuMTYzaDYuNjcydjIuMjEyaC02LjY3MnptOS42MzgtMTAuMzI1aDYuNjcydjIuMjEyaC02LjY3MnptMCA1LjE2Mmg2LjY3MnYyLjIxM2gtNi42NzJ6bTAgNS4xNjNoNi42NzJ2Mi4yMTJoLTYuNjcyeiIvPjwvZz48L3N2Zz4="
+      },
+      "displayName": "Google Sheets",
+      "typeVersion": 5,
+      "nodeCategories": [
+        {
+          "id": 3,
+          "name": "Data & Storage"
+        },
+        {
+          "id": 4,
+          "name": "Productivity"
+        }
+      ]
+    },
+    {
+      "id": 374,
+      "icon": "file:mindee.svg",
+      "name": "n8n-nodes-base.mindee",
+      "codex": {
+        "data": {
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/building-an-expense-tracking-app-in-10-minutes/",
+                "icon": "📱",
+                "label": "Building an expense tracking app in 10 minutes"
+              },
+              {
+                "url": "https://n8n.io/blog/learn-to-build-powerful-api-endpoints-using-webhooks/",
+                "icon": "🧰",
+                "label": "Learn to Build Powerful API Endpoints Using Webhooks"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.mindee/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/mindee/"
+              }
+            ]
+          },
+          "categories": [
+            "Utility"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "Mindee"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiI+PHBhdGggZmlsbD0iI0ZEMzI0NiIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMTguMzI5IDBoMTMuNzQ2djMySDE4LjMzdi00LjU3aDkuMTY0VjQuNTcySDE4LjMzek00LjU4MiAxMy43MTRWMjcuNDNoOS4xNjVWMzJIMFYwaDEzLjc0N3Y0LjU3MUg0LjU4MnptNC41ODIgMHYtNC41N2gxMy43NDd2NC41N3ptMCA5LjE0M3YtNC41NzFoNC41ODN2NC41NzF6Ii8+PC9zdmc+"
+      },
+      "displayName": "Mindee",
+      "typeVersion": 3,
+      "nodeCategories": [
+        {
+          "id": 7,
+          "name": "Utility"
+        }
+      ]
+    }
+  ]
+}

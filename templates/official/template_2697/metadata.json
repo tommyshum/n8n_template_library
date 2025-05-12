@@ -1,0 +1,97 @@
+{
+  "id": 2697,
+  "name": "Learn Anything from HN - Get Top Resource Recommendations from Hacker News",
+  "description": "Learning something new? Endlessly searching to find the best resources? This workflow finds top community-recommended learning resources on any topic from Hacker News, delivered to your inbox.\n\nHow it works\nUser submits a topic they want to learn via a simple form.\nThe workflow searches for relevant \"Ask HN\" posts on Hacker News and extracts top-level comments.\nAn LLM analyzes the comments and identifies the best learning resources.\nA personalized email is sent to the user with a Markdown formatted list of top recommendations, categorized by resource type (e.g., book, course, article) and difficulty level.\n\nSet up steps\n\nAdd your Google Gemini API credentials. You'll need to create a project and enable the Generative Language API.\nAdd your SMTP credentials for sending emails.\nCustomize the Form and email subject (optional)\nActivate the workflow\n\nScreenshots for Workflow, Form and Email\n\n\n\nBuilt on Day-03 as part of the #100DaysOfAgenticAi\nFork it, tweak it, have fun!",
+  "totalViews": 2610,
+  "source": "official",
+  "user": {
+    "id": 92350,
+    "name": "ibrhdotme",
+    "username": "ibrhdotme",
+    "bio": "",
+    "verified": false,
+    "links": "[\"https://github.com/ibrhdotme\"]",
+    "avatar": "https://gravatar.com/avatar/9677ed66172a6ac7b8323e5dea43721431eb50bef74915490ee8393784074a2f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Core Nodes",
+    "Development",
+    "Marketing",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "categories": [
+        "Communication",
+        "HITL",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Hacker News",
+      "type": "n8n-nodes-base.hackerNews",
+      "categories": [
+        "Communication",
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-01-05T01:31:45.526Z",
+  "path": "official/template_2697/workflow.json"
+}

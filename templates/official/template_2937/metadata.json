@@ -1,0 +1,97 @@
+{
+  "id": 2937,
+  "name": "Chat with your event schedule from Google Sheets in Telegram",
+  "description": "What it is\n\nChat with your event schedule from Google Sheets in Telegram:\n\n\"When is the next meetup?\"\n\"How many events are there next month?\"\n\"Who presented most often?\"\n\"Which future meetups have no presenters yet?\"\n\nThis workflow lets you chat with a telegram bot about past, present and future events that are scheduled in a Google Spreadsheet.\n\n(Info: This proof-of-concept was created as a demo for a hackathon of an AI & Developer Meetup in Da Nang (Vietnam) that uses a telegram group to organize)\n\nWho it is for\n\nIf you want an easy way for your audience to get information about your events, you can us this workflow for the same purpose, or easily adapt it to your needs and different use-cases where you want to query smaller amounts of tabular data in natural language.\n\nHow it works\n\nUpon getting triggered by a chat message to a telegram bot, the schedule of meetups is retrieved from Google Spreadsheets, converted into a markdown table syntax and fed into the system prompt of an LLM (we're using OpenRouter in this example), whose output is posted back as answer into the same telegram chat.\n\nSetup steps\n\nTO REVIEWING IN ACTION\n\nAs the reviewer of this workflow, you can temporarily use it via an existing telegram bot, simply point your telegram client to https://t.me/AiDaNangBot and start to ask questions like:\n\"When is the next meetup?\"\n\"What future meetings do not have presenters?\"\n\"Who presented on Future of Human Relationships?\"\n\nTo build upon this workflow:\n\nImport the workflow\nCustomize the Google Docs credentials for your individual access\nCreate a telegram bot and connect it to the workflow by entering its API token into the credentials used in the telegram trigger node\nIn the \"Settings\" node, replace the \"scheduleURL\" with the URL of your own copy of the Google Spreadsheet or a copy of the Event Schedule Template Sheet to spin off your own – whereby the structure of the spreadsheet doesn't matter, it's just important that you semantically structure your information in dedicated columns clearly labeled in the header row.",
+  "totalViews": 3772,
+  "source": "official",
+  "user": {
+    "id": 92666,
+    "name": "Daniel Nolde",
+    "username": "dnolde",
+    "bio": "",
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/d086ae47fe6c069e1dd7c9c76cd4ecb7a86eb59a00c19b3dd5a4abb3e8932b24?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Communication",
+    "HITL",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-02-18T14:16:36.763Z",
+  "path": "official/template_2937/workflow.json"
+}

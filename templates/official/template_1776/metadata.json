@@ -1,0 +1,57 @@
+{
+  "id": 1776,
+  "name": "Sync payment and customer data between Stripe and Pipedrive",
+  "description": "This workflow combines customers' details with their payment data and passes the input to Pipedrive as a note to the organization.\n\nPrerequisites\n\nStripe account and Stripe credentials\nPipedrive account and Pipedrive credentials\n\nHow it works\nCron node triggers the workflow every day at 8 a.m.\nHTTP Request node searches for payments in Stripe.\nThe Item Lists node creates separate items from a list of payment data.\nMerge node takes in the payment data as an input 1.\nStripe node gets all the customers data.\nSet node renames customer-related data fields and keeps only needed fields.\nMerge node takes in the customer data as an input 2.\nMerge node combines the payment data with the customers one.\nPipedrive node searches for the organization and creates a note with payment data.",
+  "totalViews": 1418,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Sales",
+    "Finance & Accounting"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Pipedrive",
+      "type": "n8n-nodes-base.pipedrive",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Stripe",
+      "type": "n8n-nodes-base.stripe",
+      "categories": [
+        "Finance & Accounting",
+        "Sales"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2022-08-23T11:48:02.202Z",
+  "path": "official/template_1776/workflow.json"
+}

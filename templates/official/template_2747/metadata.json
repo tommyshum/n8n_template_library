@@ -1,0 +1,50 @@
+{
+  "id": 2747,
+  "name": "🎨 Interactive Image Editor with FLUX.1 Fill Tool for Inpainting",
+  "description": "&gt; Like this template? Connect with Eduard via LinkedIn.\n\nThis workflow is a prototype of an AI-powered image editing interface, similar to Photoshop's Generative Fill feature, but running entirely in the browser. It provides a web-based editor that allows users to:\n\nSelect areas in images using an adjustable brush tool\nInput text prompts to guide the AI generation\nCompare original and generated images side by side\nIterate on edits with different prompts and settings\nSave or reuse generated images\n\n&gt; 🎨 Perfect for product catalog management, seasonal content updates, and creative image editing tasks!\n\n📋 Requirements\nFLUX API Access: You'll need API credentials from FLUX to use this workflow.\nConfigure the HTTP Header Auth credential in n8n with your FLUX API key\n\n\n🔧 Key Components\nFLUX Fill API for AI-powered image generation\nKonva.js for canvas manipulation\nimg-comparison-slider for result visualization\nCustom CSS/JS for editor functionality\n\n\nSimple Editor Interface\n   HTML page with an editor is served on the Webhook call\n   Adjustable brush selection tool\n   Provides several mock examples and allows uploading custom images\n   Basic prompt and FLUX model parameter controls\n\nImage Processing Pipeline\n   Handles image and mask separately\n   Processes FLUX Fill API requests\n   Delivers results back to the editor\n\nResult Viewer\n   Split-screen comparison of original and generated images\n   Interactive slider for before/after comparison\n   Options to save or continue editing\n   Support for multiple iteration cycles\n\n🎯 Use Cases\nThis prototype is particularly useful for:\n\nTesting AI-powered image editing concepts\nQuick product visualization experiments\nExploring creative image variations\nDemonstrating inpainting capabilities\n\n&gt; 💡 Pro Tip: Save masks for frequently edited areas to quickly generate variations with different prompts!\n\nThe workflow can be extended to integrate with various data sources and can be customized for specific business needs.",
+  "totalViews": 16088,
+  "source": "official",
+  "user": {
+    "id": 21242,
+    "name": "Eduard",
+    "username": "eduard",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/parsadanyan/\"]",
+    "avatar": "https://gravatar.com/avatar/a551e67c6fe7affd5f882a527dee154bb6c3ac90cf878326accb3fb3ec77c8a6?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-01-17T12:45:15.799Z",
+  "path": "official/template_2747/workflow.json"
+}

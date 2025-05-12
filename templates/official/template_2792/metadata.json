@@ -1,0 +1,108 @@
+{
+  "id": 2792,
+  "name": "Scrape Trustpilot Reviews with DeepSeek, Analyze Sentiment with OpenAI",
+  "description": "Workflow Overview  \nThis workflow automates the process of scraping Trustpilot reviews, extracting key details, analyzing sentiment, and saving the results to Google Sheets. It uses OpenAI for sentiment analysis and HTML parsing for review extraction.\n\nHow It Works  \n\n1. Scrape Trustpilot Reviews   \nHTTP Request**:  \n  Fetches review pages from Trustpilot (https://it.trustpilot.com/review/{{company_id}}).  \n  Paginates through pages (up to max_page limit).  \nHTML Parsing**:  \n  Extracts review URLs using CSS selectors\n  Splits the URLs into individual review links.  \n\n2. Extract Review Details   \nInformation Extractor**:  \n  Uses DeepSeek to extract structured data from the review:  \n    Author: Name of the reviewer.  \n    Rating: Numeric rating (1-5).  \n    Date: Review date in YYYY-MM-DD format.  \n    Title: Review title.  \n    Text: Full review text.  \n    Total Reviews: Number of reviews by the user.  \n    Country: Reviewer’s country (2-letter code).  \n\n3. Sentiment Analysis  \nSentiment Analysis Node**:  \n  Uses OpenAI to classify the review text as Positive, Neutral, or Negative.  \n  Example output:  \n        {  \n      \"category\": \"Positive\",  \n      \"confidence\": 0.95  \n    }  \n4. Save to Google Sheets  \nGoogle Sheets Node**:  \n  Appends or updates the extracted data to a Google Sheet \n\nSet Up Steps  \n\n1. Configure Trustpilot Scraping  \nEdit Fields1 Node**:  \n  Set company_id to the Trustpilot company name \n  Set max_page to limit the number of pages scraped.  \n\n2. Configure Google Sheets  \nGoogle Sheets Node**:  \n  Update the documentId with your Google Sheet ID \n  Ensure the sheet has the required columns (Id, Data, Nome, etc.).  \n\n3. Configure OpenAI  \nOpenAI Chat Model Node**:  \n  Add your OpenAI API key.  \nSentiment Analysis Node**:  \n  Ensure the categories match your desired sentiment labels (Positive, Neutral, Negative).  \n\nKey Components  \nNodes**:  \n  HTTP Request/HTML: Scrape and parse Trustpilot reviews.  \n  Information Extractor: Extract structured review data using DeepSeek.  \n  Sentiment Analysis: Classify review sentiment.  \n  Google Sheets: Save and update review data.  \nCredentials**:  \n  OpenAI API key. \n  DeepSeek API key.  \n  Google Sheets OAuth2.  ",
+  "totalViews": 9611,
+  "source": "official",
+  "user": {
+    "id": 92207,
+    "name": "Davide",
+    "username": "n3witalia",
+    "bio": "Full-stack Web Developer based in Italy specialising in Marketing & AI-powered automations. For business enquiries, send me an email at info@n3w.it or add me on Linkedin.com/in/davideboizza",
+    "verified": true,
+    "links": "[\"https://n3w.it\"]",
+    "avatar": "https://gravatar.com/avatar/d41b8a0aa81139243509c58870f5b4be292824a507ab57d10ed066d8628ed8da?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Sentiment Analysis",
+      "type": "@n8n/n8n-nodes-langchain.sentimentAnalysis",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Information Extractor",
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-01-24T14:51:16.882Z",
+  "path": "official/template_2792/workflow.json"
+}

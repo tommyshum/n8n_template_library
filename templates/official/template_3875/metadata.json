@@ -1,0 +1,163 @@
+{
+  "id": 3875,
+  "name": "🌍 AI Interpreter and Translator for WhatsApp – Translate Voice & Text",
+  "description": "\n🌍 AI WhatsApp Translator – Multilingual Voice & Text Translator for n8n\n\nHi! I'm Bruno — I’ve been building AI-powered workflows for n8n and Make for 2+ years, focused on smart automation and real conversational agents.\n\nThis powerful workflow allows you to receive WhatsApp messages (text or audio), automatically detect the sender’s language using their phone prefix, translate the content using GPT-4o via LangChain, and reply instantly via WhatsApp — all with native tone and cultural fluency.\n\nIt’s ideal for international support, global communities, multilingual bots, and agencies managing clients from different countries.\n\n🔧 How it works\n\nMessage (text or voice) is received via webhook (WhatsApp API or Evolution API)\nSender's prefix is mapped to a country/language\nAudio messages are transcribed using OpenAI Whisper\nThe text is translated using LangChain agent with GPT-4o\nThe reply is structured in JSON and sent back via WhatsApp\n\n🧰 Nodes & Tech Used\n\nHTTP Request** (Webhook & API calls)\nOpenAI Whisper** (Audio transcription)\nLangChain + GPT-4o** (LLM for translation)\nIf, Set, Merge** (Routing and logic)\nCustom JSON response** for WhatsApp formats\n\n📌 What you’ll need\n\nOpenAI API key  \nWhatsApp API or Evolution API access  \nn8n (Cloud or self-hosted)  \n(Optional) Typebot, Airtable, CRM for integration\n\n🛒 Want to use it?\n\n❤️ Buy workflows: https://iloveflows.com  \n☁️ Try n8n Cloud: https://n8n.partnerlinks.io/amanda\n",
+  "totalViews": 262,
+  "source": "official",
+  "user": {
+    "id": 92905,
+    "name": "Bruno Dias",
+    "username": "brunodias",
+    "bio": "Especialista em automações, IA e marketing digital. #n8n #IA #automacao #make",
+    "verified": true,
+    "links": "[\"https://instagram.com/obrunopdias\"]",
+    "avatar": "https://gravatar.com/avatar/fc33cf1042c48f04b5ea2d6e16e641a427b1117e5b6b465e0d7c4cae32fda8c8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Calculator",
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Groq Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Text Classifier",
+      "type": "@n8n/n8n-nodes-langchain.textClassifier",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Think Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolThink",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 9,
+  "createdAt": "2025-05-05T11:45:24.432Z",
+  "path": "official/template_3875/workflow.json"
+}

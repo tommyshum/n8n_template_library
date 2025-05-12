@@ -1,0 +1,47 @@
+{
+  "id": 1093,
+  "name": "Build a self-hosted URL shortener with a dashboard",
+  "description": "This workflow creates an automatic self-hosted URL shortener. It consists of three sub-workflows:\n\nShort URL creation for extracting the provided long URL, generating an ID, and saving the record in the database. It returns a short link as a result.\nRedirection for extracting the ID value, validating the existence of its correspondent record in the database, and returning a redirection page after updating the visits (click) count.\nDashboard for calculating simple statistics about the saved record and displaying them on a dashboard.\n\nRead more about this use case and how to set up the workflow in the blog post How to build a low-code, self-hosted URL shortener in 3 steps.\n\nPrerequisites\n\nA local proxy set up that redirects the n8n.ly domain to your n8n instance\nAn Airtable account and credentials\nBasic knowledge of JavaScript, HTML, and CSS\n\nNodes\n\nWebhook nodes trigger the sub-workflows on calls to a specified link.\nIF nodes route the workflows based on specified query parameters.\nSet nodes set the required values returned by the previous nodes (id, longUrl, and shortUrl).\nAirtable nodes retrieve records (values) from or append records to the database.\nFunction node calculates statistics on link clicks to be displayed on the dashboard, as well as its design.\nCrypto node generates a SHA256 hash.",
+  "totalViews": 5034,
+  "source": "official",
+  "user": {
+    "id": 15997,
+    "name": "mohamed ali",
+    "username": "dali",
+    "bio": null,
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/f48c2016cc4933603989a1448d2ced781e53ca0ade0ffb76d08e77cafa83cd21?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Crypto",
+      "type": "n8n-nodes-base.crypto",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2021-05-24T15:34:17.911Z",
+  "path": "official/template_1093/workflow.json"
+}

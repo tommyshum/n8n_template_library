@@ -1,0 +1,64 @@
+{
+  "id": 3715,
+  "name": "Convert Gumroad Sales to Beehiiv Subscribers with Sheets & Telegram Alerts",
+  "description": "Turn Gumroad buyers into newsletter subscribers on Beehiiv, log to Google Sheets and get notified on Telegram\n\nRequirements\n\nGumroad account**  \nGumroad application* + *API key**  \nProduct listed** on Gumroad  \nBeehiiv account**  \nPublication created** on Beehiiv  \nBeehiiv API key**  \nGoogle Sheets access** (with API credentials)\nTelegram Bot** created + Bot Token  \nTelegram Channel** created and Bot added as admin\n\nSet Up\n\n1. Trigger on a New Gumroad Sale\nCreate a new application in Gumroad (Settings &gt; Advanced).\nCopy your API key (access token).\nPaste it into the Gumroad Sale Trigger node.\n\n2. Connect to Beehiiv Newsletter\nCreate a publication inside Beehiiv.\nGenerate and copy your Beehiiv API key.\nUse it to list publications and post a new subscription.\n\n3. Load Into CRM (Google Sheets)\nSet up your Google Sheets API credentials\nAppend the subscriber's data into your CRM\n\n4. Send a Telegram Message\nCreate a Telegram Bot and get your Bot Token.\nAdd the Bot to your Telegram Channel and make it an admin.\nIn the Telegram Send Message node:\n  Use your Bot Token.\n  Set your Channel Username or Chat ID.\n  Customize the message content (e.g., \"New Sale from {{customerEmail}} 🎉\").\n\nFurther Optimizations\n\nAdd more data to Beehiiv**:  \n  Include optional fields like first name, last name, custom tags, etc., when posting the subscription.\n\nCustomize your Telegram message**:  \n  Personalize the message with product name, sale amount, or customer name.\n\nEnhance CRM data**:  \n  Add additional sale details into Google Sheets, like product ID, purchase timestamp, or affiliate code if available.\n\nError Handling**:  \n  Add an error workflow to retry failed Beehiiv or Google Sheets updates automatically or log the error messages in your team chat in Slack or Microsoft Teams.\n\n✅ That's it!  \nEvery time a new sale happens, the customer is added to your Beehiiv newsletter, saved in your CRM, and you receive an instant notification on Telegram!\n\nGet in touch with us\nContact us at https://1node.ai\n\n",
+  "totalViews": 60,
+  "source": "official",
+  "user": {
+    "id": 94008,
+    "name": "Aitor | 1node.ai",
+    "username": "aitoralonso",
+    "bio": "Hi, I’m Aitor, cofounder of 1node.ai. We help businesses integrate full-scale AI solutions that save time, cut costs, and increase revenue. Guaranteed. Need help building smarter workflows? Visit 1node.ai and let's connect.",
+    "verified": true,
+    "links": "[\"https://1node.ai\"]",
+    "avatar": "https://gravatar.com/avatar/2f850f7b4c218087a3e7d9775daf6bd8dad05b5eb5ea82242d4bfd1a97465455?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-04-26T12:49:04.255Z",
+  "path": "official/template_3715/workflow.json"
+}

@@ -1,0 +1,32 @@
+{
+  "id": 2223,
+  "name": "Set credentials dynamically using expressions",
+  "description": "How it works\n\nThis workflow shows how to set credentials dynamically using expressions. It accepts an API key via a form, then uses it in the NASA node to authenticate a request.\n\nSetup steps\n\nFirst, set up your NASA credential: \n\nCreate a new NASA credential.\nHover over API Key.\nToggle Expression on.\nIn the API Key field, enter {{ $json[\"Enter your NASA API key\"] }}.\n\n\nThen, test the workflow:\n\nGet an API key from NASA\nSelect Test workflow\nEnter your key using the form.\nThe workflow runs and sends you to the NASA picture of the day.\n\n\nFor more information on expressions, refer to n8n documentation | Expressions.",
+  "totalViews": 2742,
+  "source": "official",
+  "user": {
+    "id": 29319,
+    "name": "Deborah",
+    "username": "deborah",
+    "bio": "Technical writer",
+    "verified": true,
+    "links": "[\"https://github.com/StarfallProjects\"]",
+    "avatar": "https://gravatar.com/avatar/8ed14c592510a0627ebe55fdad3a42a3917a77a9e081b93209ce05ecf3c2ba8f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Miscellaneous"
+  ],
+  "nodes": [
+    {
+      "name": "NASA",
+      "type": "n8n-nodes-base.nasa",
+      "categories": [
+        "Miscellaneous"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-04-10T14:40:44.805Z",
+  "path": "official/template_2223/workflow.json"
+}

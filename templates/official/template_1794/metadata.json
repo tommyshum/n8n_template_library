@@ -1,0 +1,49 @@
+{
+  "id": 1794,
+  "name": "Create Salesforce accounts based on Excel File data",
+  "description": "This workflow shows a no code approach to creating Salesforce accounts and contacts based on data coming from an Excel file. For Excel 365 (the online version of Microsoft Excel) check out this workflow instead.\n\n\n\nTo run the workflow:\n\nMake sure your Salesforce account is authenticated with n8n.\nHave a Microsoft Excel workbook with contacts and their account names ready. The workflow uses this example file, but you probably want to use your own data instead.\n\nHit the Execute Workflow button at the bottom of the n8n canvas.\n\nHere is how it works:\n\nThe workflow first searches for existing Salesforce accounts by name. It then branches out depending on whether the account already exists in Salesforce or not. If an account does not exist yet, it will be created. The data is then normalised before both branches converge again. Finally the contacts are created or updated as needed in Salesforce.\n\n\n\n",
+  "totalViews": 1791,
+  "source": "official",
+  "user": {
+    "id": 21240,
+    "name": "Tom",
+    "username": "mutedjam",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://github.com/that-one-tom/\"]",
+    "avatar": "https://gravatar.com/avatar/7a3710173e907baffaf7ed7ebffc37955c9cdeadb8612200225a34a2e056aa17?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Sales",
+    "Communication"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Salesforce",
+      "type": "n8n-nodes-base.salesforce",
+      "categories": [
+        "Sales",
+        "Communication"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2022-09-14T08:28:39.762Z",
+  "path": "official/template_1794/workflow.json"
+}

@@ -1,0 +1,85 @@
+{
+  "id": 3539,
+  "name": "Extract & Summarize Wikipedia Data with Bright Data and Gemini AI",
+  "description": "Who this is for?\nThis workflow automates the process of Wikipedia data extraction using the Bright Data Web Unlocker, parsing and cleaning the data, and then sending the results to a specified webhook URL for downstream processing, reporting, or integration.\n\nWhat problem is this workflow solving?\n\nResearchers who need structured information from Wikipedia pages regularly.\n\nData Engineers building knowledge bases or enriching datasets with factual data.\n\nDigital Marketers or Content Writers automating fact-checking or content sourcing.\n\nAutomation Enthusiasts who want to trigger external systems with rich context from Wikipedia.\n\nWhat this workflow does\n\nThis workflow addresses the challenges of manually retrieving, structuring, and using data from Wikipedia at scale.\n\nWorkflow Breakdown\n\nTrigger\nType: Scheduled or Manual\nPurpose: Starts the workflow either on a fixed schedule (e.g., daily) or on-demand via a manual trigger or incoming webhook.\n\nBright Data Wikipedia Scraping\nTool Used: Bright Data Web Unlocker\nAction: Scrape the HTML content of one or multiple Wikipedia article URLs.\n\nParse & Extract Structured Data\nThe Basic LLM Chain node is responsible for producing a human readable content.\n\nSummarization\nSummarize the Wikipedia content by utilizing the Summarization Chain node.\n\nSend to Webhook\nInitiates a Webhook notification to the specified URL as part of the \"Summary Webhook Notifier\" node.\n\nSetup\n\nSign up at Bright Data.\nNavigate to Proxies & Scraping and create a new Web Unlocker zone by selecting Web Unlocker API under Scraping Solutions.\nIn n8n, configure the Header Auth account under Credentials (Generic Auth Type: Header Authentication).\n\nThe Value field should be set with the\nBearer XXXXXXXXXXXXXX. The XXXXXXXXXXXXXX should be replaced by the Web Unlocker Token.\nIn n8n, configure the Google Gemini(PaLM) Api account with the Google Gemini API key (or access through Vertex AI or proxy).\nUpdate the Set Wikipedia URL with Bright Data Zone node with the Wikipedia URL and Bright Data Zone.\nUpdate the Summary Webhook Notifier node with the Webhook endpoint of your choice.\n\nHow to customize this workflow to your needs\n\nUpdate Wikipedia URL\nReplace with your own Wikipedia URL of your interest.\nMake sure to set the Wikipedia URL as part of the \"Set Wikipedia URL with Bright Data Zone\" node.\nModify Data Extraction Logic\nExtract entire article content or just specific sections by extending the \"LLM Data Extractor\" node prompt.\nExtend AI Summarization\nExtract key bullet points or entities.\nCreate short-form summaries by extending the \"Concise Summary Generator\" node.\nExtend Summary Webhook Notifier\nSend to Slack, Discord, Telegram, MS Teams via the Webhook notification mechanism.\nConnect to your internal database/API via the Webhook notification mechanism.",
+  "totalViews": 158,
+  "source": "official",
+  "user": {
+    "id": 93657,
+    "name": "Ranjan Dailata",
+    "username": "ranjancse",
+    "bio": "",
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/7b74fe44a7ad32db7c783b972deb5848a4b1f043377bce4039737ed66da8305f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Summarization Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainSummarization",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-04-13T10:36:32.089Z",
+  "path": "official/template_3539/workflow.json"
+}

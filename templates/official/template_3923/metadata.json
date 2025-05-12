@@ -1,0 +1,78 @@
+{
+  "id": 3923,
+  "name": "Sync HubSpot Contacts with LinkedIn URLs, Detect Changes & Send Gmail Alerts",
+  "description": "This n8n workflow automates the process of syncing your HubSpot contacts, enriching them with LinkedIn profile URLs, detecting if they've update a post or their position and sending alert emails via Gmail. It is ideal for businesses that want to keep their contact information up-to-date and automate the process of tracking LinkedIn profiles for their contacts.\n\nWho is this for?\nCustomer Success managers (CSM), Sales and Marketing teams who need to keep their HubSpot contact database enriched with LinkedIn profile URLs.\nBusinesses looking to automate the process of updating and monitoring their contact information.\nTeams who want to receive automated alerts when contact information or LinkedIn profiles are updated.\n\nWhat problem is this workflow solving?\nThis workflow eliminates the manual effort of:\nSearching for LinkedIn profile URLs of contacts.\nRegularly updating contact information in HubSpot.\nReceiving alerts when LinkedIn profiles are updated.\n\nWith this workflow, you ensure your HubSpot database is enriched with LinkedIn profile information, improving your sales and marketing effectiveness.\n\nWhat this workflow does\nSettings Initialization:\n\tSet up your email for sending alerts via Gmail.\n\tConfigure your HubSpot API for secure access.\n\nHubSpot API Connection:\n\tFetches a list of HubSpot contact owners (users with access to these contacts).\n\tIdentifies the current owner for the workflow run.\n\nClient Fetching:\n\tIf the owner has multiple clients, the workflow fetches all associated clients using pagination.\n\nLinkedIn URL Search:\n\tSearches for LinkedIn profiles using contact names.\n\tMerges profile URLs into the contact records.\n\tIf LinkedIn URLs are missing, it attempts a secondary search by profile link.\n\nProfile Updates:\n\tTracks LinkedIn profile updates.\n\tCompares new information with the existing record.\n\tIf an update is detected, it updates the record.\n\nEmail Notification:\n\tGenerates an email alert text for any updated LinkedIn profiles.\n\tSends the alert email via Gmail.\n\nSetup\n\nHubSpot API Setup:\n\tObtain your API key from HubSpot and enter it in the workflow.\n\tEnsure you have the necessary permissions to access contact information.\n\nGmail Integration:\n\tConnect your Gmail account in n8n to enable email notifications.\n\nLinkedIn Profile Search API Key:\n\tSet up an API key for rapidAPI LinkedIn profile search service.\n\nGoogle Sheet:\n\tConnect a Google Sheet and specify the sheet for storing contact information.\n\nHow to customize this workflow to your needs\nLinkedIn Profile Search**: \n\tAdjust the search criteria for LinkedIn profiles (e.g., name, company) to improve accuracy.\nClient List Filtering**:\n\tModify the filter criteria for which clients to include.\nEmail Alerts**:\n\tCustomize the email alert text in the “Generate the email text” node.\n\tAdjust the recipient email address for the alerts.\nHubSpot Field Mapping**:\n\tAdd or remove fields to be fetched or updated in the HubSpot contact records.\nError Handling**:\n\tAdd additional conditions for error handling or re-running failed updates.\n\nThis template is perfect for teams that want to keep their HubSpot contact data fresh and reliable without manual maintenance.",
+  "totalViews": 88,
+  "source": "official",
+  "user": {
+    "id": 92501,
+    "name": "PollupAI",
+    "username": "zeerobug",
+    "bio": "We create bespoke AI solutions, automations and agents that help your business as it scales.",
+    "verified": true,
+    "links": "[\"https://pollup.ai\"]",
+    "avatar": "https://gravatar.com/avatar/6d3d2053279bc63e9be7bf4cd3fb74e13e7cc1309d32eab0b72140332cff577e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-05-07T15:29:02.022Z",
+  "path": "official/template_3923/workflow.json"
+}

@@ -1,0 +1,96 @@
+{
+  "id": 2442,
+  "name": "🚀 Local Multi-LLM Testing & Performance Tracker",
+  "description": "🚀 Local Multi-LLM Testing & Performance Tracker\n\nThis workflow is perfect for developers, researchers, and data scientists benchmarking multiple LLMs with LM Studio. It dynamically fetches active models, tests prompts, and tracks metrics like word count, readability, and response time, logging results into Google Sheets. Easily adjust temperature 🔥 and top P 🎯 for flexible model testing.\n\nLevel of Effort:  \n🟢 Easy – Minimal setup with customizable options.\n\nSetup Steps:\nInstall LM Studio and configure models.\nUpdate IP to connect to LM Studio.\nCreate a Google Sheet for result tracking.\n\nKey Outcomes:\nBenchmark LLM performance.\nAutomate results in Google Sheets for easy comparison.\n\n\nVersion 1.0",
+  "totalViews": 3066,
+  "source": "official",
+  "user": {
+    "id": 91729,
+    "name": "Wildkick",
+    "username": "davidmoneil",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/224b2ea6bf6168f6e9a45eac284df92505003f742d5f4175045c85e71a42885a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2024-09-28T19:28:58.189Z",
+  "path": "official/template_2442/workflow.json"
+}

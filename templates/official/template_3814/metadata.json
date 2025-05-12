@@ -1,0 +1,182 @@
+{
+  "id": 3814,
+  "name": "Generate AI Songs + Music Videos Using Suno API, Flux, Runway and Creatomate",
+  "description": "This automation is designed to help you generate AI-powered music tracks, cover art, and fully rendered music videos — all triggered from a simple Telegram chat and managed via Google Sheets.\n\nSample Audio Generated: Youtube Link\n\n⚠️ Note: This is only a summary. The full setup guide (with detailed steps, API setup, code snippets, and integrations) is included in a PDF on the Gumroad download page. Follow it to configure everything seamlessly.\n\n⚙️ What This Workflow Does\n\nLets users interact with an AI agent on Telegram to submit song ideas.\nAutomatically logs ideas in Google Sheets.\nGenerates lyrics, music, cover images, and looping video backgrounds using AI APIs.\nMerges audio + video into a polished final clip.\nUploads everything to Google Drive and sends a final video link back to the Telegram user.\n\n🔗 Built with 3 Modular Workflows\n\nTelegram & Sheet Logger  \n   Collects ideas from users, stores them in a Google Sheet, and saves their chat ID for later notifications.\n\nAI Generation Engine  \n   Handles lyrics creation, music generation, image prompts, artwork, video background generation, and uploads.\n\nFinal Render + Delivery  \n   Merges audio and video, uploads to cloud storage, updates the Sheet, and sends the finished video to Telegram.\n\n🧩 Integrations Used\n\nGoogle Sheets  \nTelegram Bot API  \nMultiple AI APIs (for music, images, video, and compression)  \nGoogle Apps Script  \nCreatomate for video rendering  \nCloud storage (via Google Drive)\n\n🚀 How to Set It Up\n\nImport the .json file into your n8n instance.\nCopy the included Google Sheets and Creatomate templates.\nSet up the Google Apps Script using the included code.\nReplace all placeholder API keys and folder IDs.\nTest everything end-to-end using your Telegram bot.\n\n✅ Tip: No coding experience needed — just follow the step-by-step documentation PDF provided in your Gumroad download. Everything is laid out clearly to get you running fast.\n\n💰Costs Song generation costs (suno): $5 gets you 1000 credits, 1 song generation costs 12 credits, every api call for one song generates two versions by default. Check the song generation node to see the two versions. You can update the GSheet to append the two versions and send back to you to choose one. Flux Image gen cost is $0.04 per image. Runway cost is $0.16 per 10 seconds of video.\n\n",
+  "totalViews": 251,
+  "source": "official",
+  "user": {
+    "id": 93572,
+    "name": "Joseph",
+    "username": "mjomba",
+    "bio": "Automation expert specializing in building smart, scalable workflows using tools like n8n, Make, and Airtable. I help businesses save time, reduce manual work, and grow faster with tailored automation solutions. Feel free to reach out at joseph@uppfy.com to discuss your project.",
+    "verified": true,
+    "links": "[\"https://x.com/juppfy\"]",
+    "avatar": "https://gravatar.com/avatar/460cadca403550e24f9e17a9ee3f4670046503b32fb59618a1b390378b803162?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "SerpApi (Google Search)",
+      "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 11,
+  "createdAt": "2025-05-01T07:13:34.261Z",
+  "path": "official/template_3814/workflow.json"
+}

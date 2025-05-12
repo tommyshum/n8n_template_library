@@ -1,0 +1,40 @@
+{
+  "id": 1349,
+  "name": "Create an issue on GitLab on every GitHub release",
+  "description": "For every release on GitHub this workflow will create an issue on GitLab.\n\nCopy workflow to your n8n\nFill in missing fields (credentials & repo names)\n\nBased on Cron node to be able to track github repos you're not a member of (as you won't be able to create a webhook).\nIf you do own the repo, you could replace Cron & GH node with a GitHub Trigger.",
+  "totalViews": 1163,
+  "source": "official",
+  "user": {
+    "id": 24063,
+    "name": "Manu",
+    "username": "tennox",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://txlab.io\"]",
+    "avatar": "https://gravatar.com/avatar/2d81612cea16a74b43a68c932b1519d95d075a9176396649fdd837c68e2de12b?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "GitHub",
+      "type": "n8n-nodes-base.github",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "GitLab",
+      "type": "n8n-nodes-base.gitlab",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2021-12-01T18:16:33.817Z",
+  "path": "official/template_1349/workflow.json"
+}

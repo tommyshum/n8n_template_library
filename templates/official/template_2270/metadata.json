@@ -1,0 +1,34 @@
+{
+  "id": 2270,
+  "name": "Prevent simultaneous workflow executions with Redis",
+  "description": "Purpose\nThis ensures that executions of scheduled workflows do not overlap when they take longer than expected.\n\nHow it works\nThis is a separate workflow which monitors the execution of the main workflow\nStores a flag in Redis (key dynamically named after workflow ID) which indicates if the main workflow is running or idle\nOnly calls the main workflow if the last execution has finished\n\nSetup\nUpdate the credentials suitable for your Redis instance\nReplace the Schedule Trigger of your main workflow by an Execute Workflow Trigger\nCopy the workflow ID from the URL\nPaste the workflow ID in the Execute Workflow Node of this workflow\nConfigure the Schedule Trigger Node\n",
+  "totalViews": 1149,
+  "source": "official",
+  "user": {
+    "id": 91699,
+    "name": "Mario",
+    "username": "octionic",
+    "bio": "Workflow Optimization Expert | Software Architect. Use my link to book an initial consultation for custom built workflows using n8n.",
+    "verified": true,
+    "links": "[\"https://octionic.com\"]",
+    "avatar": "https://gravatar.com/avatar/48bf351cec848d87566d8cc78c9a783ec4807408366648de04cfe955d7a5ba21?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "Redis",
+      "type": "n8n-nodes-base.redis",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-05-18T20:15:12.777Z",
+  "path": "official/template_2270/workflow.json"
+}

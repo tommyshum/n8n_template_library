@@ -1,0 +1,47 @@
+{
+  "id": 1934,
+  "name": "Telegram AI Chatbot",
+  "description": "The workflow starts by listening for messages from Telegram users. The message is then processed, and based on its content, different actions are taken. If it's a regular chat message, the workflow generates a response using the OpenAI API and sends it back to the user. If it's a command to create an image, the workflow generates an image using the OpenAI API and sends the image to the user. If the command is unsupported, an error message is sent. Throughout the workflow, there are additional nodes for displaying notes and simulating typing actions.\n\n",
+  "totalViews": 127969,
+  "source": "official",
+  "user": {
+    "id": 21242,
+    "name": "Eduard",
+    "username": "eduard",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/parsadanyan/\"]",
+    "avatar": "https://gravatar.com/avatar/a551e67c6fe7affd5f882a527dee154bb6c3ac90cf878326accb3fb3ec77c8a6?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Utility"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "n8n-nodes-base.openAi",
+      "categories": [
+        "Utility"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2023-07-05T21:30:46.456Z",
+  "path": "official/template_1934/workflow.json"
+}

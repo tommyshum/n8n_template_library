@@ -1,0 +1,124 @@
+{
+  "id": 3860,
+  "name": "Automate Employee Onboarding with Slack, Jira, and Google Workspace Integration",
+  "description": "Who is this for?\n\nThis template is ideal for HR teams, startup founders, operations leads, remote-first companies, and freelancers managing onboarding manually or across multiple tools.\n\nWhether you’re hiring your first intern or streamlining onboarding for dozens of new team members, this workflow automates the entire trigger → task creation → onboarding delivery process using no-code tools connected via n8n.\n\nWhat problem does this solve?\n\nEmployee onboarding is often fragmented and error-prone — involving Jira tasks, Slack DMs, file sharing, and email templates spread across different apps.\n\nThis workflow connects it all, letting you create tasks, notify people, share folders, and message hires instantly — right when they’re marked as “Hired” in a Google Sheet or added to Slack.\n\nNo more bouncing between 5 tabs. This is onboarding as a system.\n\nWhat this workflow does\n\n✅ Watches a Google Sheet (or Slack trigger) for new hires  \n📋 Creates a Jira onboarding Epic with role-based subtasks  \n📂 Generates a Google Drive folder and shares it with the new hire  \n📬 Sends a personalized, HTML-formatted welcome email via Gmail  \n💬 Posts a Slack message in the #onboarding channel + DM to the hire  \n📊 Logs onboarding activity back to the Sheet (status, links, etc.)  \n🔁 Modular subtasks based on role/team (e.g. Dev vs Marketing vs Student)  \n🧠 Expressions, fallback logic, and Slack→Jira user ID mapping built-in\n\nSetup\n\nCreate API credentials for:\n   Slack\n   Google Sheets\n   Google Drive\n   Jira Cloud\n   Gmail (API or SMTP)\n\nImport the .json workflow into your n8n instance (Cloud or self-hosted)  \nReplace placeholder values (e.g. Project ID, Issue Type ID, folder path)  \nCustomize onboarding messages, email HTML, and task logic  \nTest with included mock data (sample hire, Slack user, Jira user)  \nActivate your flow and start onboarding with one click\n\n🗒 Color-coded workflow notes\n\nThis workflow uses Innovatio’s sticky note system to guide you visually:\n\n🟩 Green Notes → Main automation steps  \n🟦 Blue Notes → What to customize (IDs, prompts, expressions)  \n🟨 Yellow Notes → Optional logic and future upgrades  \n🟫 Gray Notes → Welcome + final “next steps” CTA\n\nEvery group includes pre-filled nodes, dynamic expressions, and mock outputs so you can test quickly and scale confidently.\n\nHow to customize this workflow?\n\n📂 Swap Google Sheets for Airtable (better for teams or approvals)  \n📅 Add 30/60/90-day check-ins via Google Calendar  \n🤖 Plug in OpenAI to generate onboarding subtasks by role  \n📬 Auto-assign mentors or SlackBot reminders after 7 days  \n📊 Push Sheet logs into Notion or your HR dashboard\n\nNeed custom logic? Email me at velebit@innovatio.design\n\nFinal notes\n\nThis template was created by Velebit from Innovatio with modularity, scalability, and team experience in mind.\n\nAll links included are official. No affiliate tracking, no sponsored content.\n\n📜 A separate commercial license applies to the purchase via Gumroad, which includes extended rights, usage for client work, and scaling strategies.\n",
+  "totalViews": 310,
+  "source": "official",
+  "user": {
+    "id": 93571,
+    "name": "Velebit from Innovatio",
+    "username": "innovatio",
+    "bio": "I design modular (no-code, low-code, AI) automation workflows for creators, marketers, and lean SaaS teams.  \nFounder of [Innovatio](https://innovatio.design) — empowering humans with AI-powered systems that save time, boost revenue, and scale with heart.\n\n🚀 Want custom automation? Let's talk → velebit@innovatio.design",
+    "verified": true,
+    "links": "[\"https://innovatio.design/\"]",
+    "avatar": "https://gravatar.com/avatar/6278fbac6a13365966261d4fa900b7b75ade5437ec61e3022d4549b8466d4685?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Jira Software",
+      "type": "n8n-nodes-base.jira",
+      "categories": [
+        "Development",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 8,
+  "createdAt": "2025-05-04T14:15:15.411Z",
+  "path": "official/template_3860/workflow.json"
+}

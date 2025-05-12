@@ -1,0 +1,121 @@
+{
+  "id": 2822,
+  "name": "AI-Generated Summary Block for WordPress Posts  ",
+  "description": "What is this workflow?  \nThis n8n template automates the process of adding an AI-generated summary at the top of your WordPress posts.  \nIt retrieves, processes, and updates your posts dynamically, ensuring efficiency and flexibility without relying on a heavy WordPress plugin.  \n\nExample of AI Summary Section\n\nHow It Works  \nTriggers → Runs on a scheduled interval or via a webhook when a new post is published.  \nRetrieves posts → Fetches content from WordPress and converts HTML to Markdown for AI processing.  \nAI Summary Generation → Uses OpenAI to create a concise summary.  \nPost Update → Inserts the summary at the top of the post while keeping the original excerpt intact.  \nData Logging & Notifications → Saves processed posts to Google Sheets and notifies a Slack channel.  \n\nWhy use this workflow?  \n✅ No need for a WordPress plugin → Keeps your site lightweight.  \n✅ Highly flexible → Easily connect with Google Sheets, Slack, or other services.  \n✅ Customizable → Adapt AI prompts, formatting, and integrations to your needs.  \n✅ Smart filtering → Ensures posts are not reprocessed unnecessarily.  \n\n💡 Check the detailed sticky notes for setup instructions and customization options!  \n",
+  "totalViews": 2119,
+  "source": "official",
+  "user": {
+    "id": 91734,
+    "name": "Dataki",
+    "username": "dataki",
+    "bio": "I am passionate about transforming complex processes into seamless automations with n8n. My expertise spans across creating ETL pipelines, sales automations, and data & AI-driven workflows. As an avid problem solver, I thrive on optimizing workflows to drive efficiency and innovation.",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/nicolas-aknin/\"]",
+    "avatar": "https://gravatar.com/avatar/0437c659b1ec6916896ebb30cc237391f0e1de89df5465c103e12d2cb12ce42d?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "Marketing",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Wordpress",
+      "type": "n8n-nodes-base.wordpress",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Text Classifier",
+      "type": "@n8n/n8n-nodes-langchain.textClassifier",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-01-30T15:04:16.233Z",
+  "path": "official/template_2822/workflow.json"
+}

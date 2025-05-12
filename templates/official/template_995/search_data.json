@@ -1,0 +1,18 @@
+{
+  "id": 995,
+  "name": "Split In Batches node noItemsLeft example",
+  "totalViews": 4672,
+  "purchaseUrl": null,
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "description": "This workflow demonstrates how to use noItemsLeft to check if there are items left to be processed by the SplitInBatches node.\n\n\n\nFunction node: This node generates mock data for the workflow. Replace it with the node whose data you want to split into batches.\n\nSplitInBatches node: This node splits the data with the batch size equal to 1. Based on your use-case, set the value of the Batch Size.\n\nIF node: This node check if all the data by the SplitInBatches are not processed or not. It uses the expression {{$node[\"SplitInBatches\"].context[\"noItemsLeft\"]}} which returns a boolean value.\nIf there is data yet to be processed, the expression will return false, otherwise true.\n\nSet node: This node prints a message No Items Left. Based on your use-case, connect the false output of the IF node to the input of the node you want to execute, after the data is processed by the SplitInBatches node.",
+  "createdAt": "2021-03-19T13:38:52.204Z",
+  "nodes": []
+}

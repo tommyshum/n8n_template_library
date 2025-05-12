@@ -1,0 +1,67 @@
+{
+  "id": 3330,
+  "name": "Monitor USDT ERC-20 Wallet Balance with Etherscan and Telegram Notifications",
+  "description": "\nOverview\n\nThis n8n workflow is specifically designed to monitor the USDT ERC-20 balance within a specific wallet. It uses Etherscan's public blockchain database, which does not require API authentication, to periodically check and process transaction data. This workflow is ideal for users who need an automated solution to track ERC-20 wallet transactions.\n\nFeatures\nAutomatic Monitoring**: Executes every 5 minutes to capture new transactions.\nCustomizable Filters**: Customize tracking based on parameters like transaction duration and wallet addresses.\nData Aggregation**: Compiles transaction data into a single, structured list.\nFormatted Outputs**: Presents processed data in an organized format.\nTelegram Tracking**: Tracks wallet balances via Telegram notifications using the bot.\n\nRequirements\nn8n Setup**: Requires a self-hosted or cloud-based n8n instance.\nBasic Understanding**: Basic knowledge of n8n workflows and nodes.\n\nInstallation and Configuration\n\nImport Workflow: Load the provided JSON workflow into your n8n instance.\nConfigure the User Data Node:\n   Enter your ERC-20 Wallet Address in the 'Your Wallet Address' field.\n   Enter your Etherscan API Key in the “Your Etherscan API Key” field.\n   Enter your USDT ERC-20 Contract Address in the \"Your ERC-20 USDT Contract Address\" field (0xdAC17F958D2ee523a2206206994597C13D831ec7). You can also monitor another token by entering a different contract address.\n   \nConfigure the Telegram Node:\n   Go to Telegram and search for \"BotFather\".\n   \n   Select /newbot from the BotFather menu to create your bot.\n   Get the API key BotFather provides.\n   Go to Telegram and search for \"Get My ChatID\".\n   \n   Start the conversation and get your ChatID.\n   Use this information to configure the Telegram Node.\n\nSchedule Trigger Node: By default, the workflow is triggered every 5 minutes. Adjust this according to your needs.\n\nTest the Workflow: Execute the workflow manually to ensure everything is working as expected.\n\nHow It Works\n\nSchedule Trigger: Starts the workflow at predetermined intervals.\nEdit Fields: Sets the wallet address, Etherscan API key, and USDT ERC-20 token address.\nEdit Telegram Settings: Create a bot via BotFather. Configure the API key and Telegram Chat ID.\nEtherscan Data Import: Collects transaction data from the ERC-20 wallet using Etherscan's public database.\nFinal Results: Organizes and formats the transaction data for review.\nTelegram Bot Message Sending: If there is a balance change, it sends a formatted message about the balance change. If there is no balance change, it sends a message that your balance has not changed. You can configure it to avoid sending a message when there is no change.\n",
+  "totalViews": 737,
+  "source": "official",
+  "user": {
+    "id": 93430,
+    "name": "FORK SOFTWARE TECHNOLOGIES INC.",
+    "username": "fork",
+    "bio": "Blockchain and Web3 Consulting: NFT and STO development, Enterprise Blockchain solutions, Smart Contract development and auditing, DApp development. Custom Software Development: Tailored solutions to streamline your business processes. Web Development and UI/UX Design: Creating user-friendly, functional, and aesthetically pleasing websites. QA & Software Testing: Delivering flawless, high-performance software solutions. Empower your crypto projects with ICO and secure MLM software services!",
+    "verified": false,
+    "links": "[\"https://fork.com.tr\"]",
+    "avatar": "https://gravatar.com/avatar/df8ae9c4d0c22e1311570275ec59c831b1d3a3511185d78eb3e5f46029fb34e2?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-03-26T09:00:34.592Z",
+  "path": "official/template_3330/workflow.json"
+}

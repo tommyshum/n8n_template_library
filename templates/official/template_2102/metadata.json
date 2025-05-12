@@ -1,0 +1,32 @@
+{
+  "id": 2102,
+  "name": "Save new Files received on Telegram to Google Drive",
+  "description": "Effortlessly optimize your workflow by automatically save all files you are receiving on Telegram to a Google Drive Folder.\n\nHow it works\n\nRetrieve a message sent to your Telegram Bot containing a file\nUpload the file to your Google Drive Folder\n\nSet up Steps\n\nCreate a Telegram Account and a Telegram Bot and connect your Telegram Bot to n8n by following the official n8n instructions\nCreate a Google Drive Folder\nConnect your Google Drive with n8n following the official n8n instructions\nSet the right folder in the Google Drive node\n\nUse case examples\n\nBackup and Recovery\nCross-Platform Access\nFile Organization and Management\nFile Collaboration and Sharing\nStorage Space Management",
+  "totalViews": 8453,
+  "source": "official",
+  "user": {
+    "id": 91454,
+    "name": "Manuel",
+    "username": "automate-everything",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://www.malt.de/profile/manuelvoppmann\"]",
+    "avatar": "https://gravatar.com/avatar/a7d9f6e327b76615463e40984ce452c61b426d599f75373aade121b309f0924d?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-02-16T15:05:45.629Z",
+  "path": "official/template_2102/workflow.json"
+}

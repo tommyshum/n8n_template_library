@@ -1,0 +1,47 @@
+{
+  "id": 2730,
+  "name": "Get Daily Weather and Save It in Airtable",
+  "description": "This smart automation workflow created by the AI development team at WeblineIndia, helps with the daily collection and storage of weather data. Using the OpenWeatherMap API and Airtable, this solution gathers vital weather details such as temperature, humidity, and wind speed. The automation ensures daily updates, creating a dependable historical record of weather patterns for future reference and analysis.\n\nSteps:\n\nSet Schedule Trigger\nConfigure a Cron node to trigger the workflow daily, for example, at 7 AM.\n\nFetch Weather Data (HTTP Request)\n\nUse the HTTP Request node to retrieve weather data from the OpenWeatherMap API.\nInclude your API key and query parameters (e.g., q=London, unit=metric) to specify the city and desired units.\n\nParse Weather Data\n\nUtilize a JSON Parse node to extract key weather details, such as temperature, humidity, and wind speed, from the API response.\n\nStore Data in Airtable\n\nUse the Airtable node to insert the parsed data into the designated Airtable table. Ensure proper mapping of fields like temperature, humidity, and wind speed.\n\nSave and Execute\n\nSave the workflow and activate it to ensure weather data is fetched and stored automatically every day.\n\nOutcome\nThis robust solution, developed by WeblineIndia, reliably collects and archives daily weather data, providing businesses and individuals with an accessible record of weather trends for analysis and decision-making.\n\nAbout WeblineIndia\nWe specialize in creating custom automation solutions and innovative software workflows to help businesses streamline operations and achieve efficiency. This weather data fetcher is just one example of our expertise in delivering value through technology.",
+  "totalViews": 945,
+  "source": "official",
+  "user": {
+    "id": 92407,
+    "name": "WeblineIndia",
+    "username": "weblineindia",
+    "bio": "A Leading Software Engineering, Consulting & Outsourcing Services Company in USA & India serving Clients Globally since 1999.",
+    "verified": true,
+    "links": "[\"https://www.weblineindia.com/\"]",
+    "avatar": "https://gravatar.com/avatar/a229d43aefca4588581583c58bb37b4773aebbdf4c1fef86a08bb1d38eae91fa?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-01-15T08:26:21.852Z",
+  "path": "official/template_2730/workflow.json"
+}

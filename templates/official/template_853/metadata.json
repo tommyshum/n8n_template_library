@@ -1,0 +1,41 @@
+{
+  "id": 853,
+  "name": "Weekly Coffee Chat (Mattermost Version)",
+  "description": "A workflow to automatically create groups of three based on a Mattermost channel and send out invitations to each group member.",
+  "totalViews": 670,
+  "source": "official",
+  "user": {
+    "id": 4031,
+    "name": "jason",
+    "username": "tephlon",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/ee7788870e9ab8d34c979c940727f579ecc3c3e8f60069d1297d51eb30af831e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "Mattermost",
+      "type": "n8n-nodes-base.mattermost",
+      "categories": [
+        "Communication"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Google Calendar",
+      "type": "n8n-nodes-base.googleCalendar",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2020-12-28T12:53:47.567Z",
+  "path": "official/template_853/workflow.json"
+}

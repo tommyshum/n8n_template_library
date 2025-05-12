@@ -1,0 +1,138 @@
+{
+  "id": 3192,
+  "name": "IT Support Chatbot with Google Drive, Pinecone & Gemini | AI Doc Processing",
+  "description": "This n8n template empowers IT support teams by automating document ingestion and instant query resolution through a conversational AI. It integrates Google Drive, Pinecone, and a Chat AI agent (using Google Gemini/OpenRouter) to transform static support documents into an interactive, searchable knowledge base. With two interlinked workflows—one for processing support documents and one for handling chat queries—employees receive fast, context-aware answers directly from your support documentation.\n\nOverview\n\nDocument Ingestion Workflow\nGoogle Drive Trigger:** Monitors a specified folder for new file uploads (e.g., updated support documents).\nFile Download & Extraction:** Automatically downloads new files and extracts text content.\nData Cleaning & Text Splitting:** Utilizes a Code node to remove line breaks, trim extra spaces, and strip special characters, while a text splitter segments the content into manageable chunks.\nEmbedding & Storage:** Generates text embeddings using Google Gemini and stores them in a Pinecone vector store for rapid similarity search.\n\nChat Query Workflow\nChat Trigger:** Initiates when an employee sends a support query.\nVector Search & Context Retrieval:** Retrieves the top relevant document segments from Pinecone based on similarity scores.\nPrompt Construction:** A Code node combines the retrieved document snippets with the user’s query into a detailed prompt.\nAI Agent Response:** The constructed prompt is sent to an AI agent (using OpenRouter Chat Model) to generate a clear, step-by-step solution.\n\nKey Benefits & Use Case\n\nImagine a large organization where every IT support document—from troubleshooting guides to system configurations—is stored in a single Google Drive folder. When an employee encounters an issue (e.g., “How do I reset my VPN credentials?”), they simply type the query into a chat interface. Instantly, the workflow retrieves the most relevant context from the ingested documents and provides a detailed, actionable answer. This process reduces resolution times, enhances support consistency, and significantly lightens the load on IT staff.\n\nPrerequisites\nA valid Google Drive account with access to the designated folder.\nA Pinecone account for storing and retrieving text embeddings.\nGoogle Gemini* (or *OpenRouter**) credentials to power the Chat AI agent.\nAn operational n8n instance configured with the necessary nodes and credentials.\n\nWorkflow Details\n\n1 Document Ingestion Workflow\nGoogle Drive Trigger Node:**  \n   Listens for file creation events in the specified folder.\nGoogle Drive Download Node:**  \n   Downloads the newly added file.\nExtract from File Node:**  \n   Extracts text content from the downloaded file.\nCode Node (Data Cleaning):**  \n   Cleans the extracted text by removing line breaks, trimming spaces, and eliminating special characters.\nRecursive Text Splitter Node:**  \n   Segments the cleaned text into manageable chunks.\nPinecone Vector Store Node:**  \n   Generates embeddings (via Google Gemini) and uploads the chunks to Pinecone.\n\n2 Chat Query Workflow\nChat Trigger Node:**  \n   Receives incoming user queries.\nPinecone Vector Store Node (Query):**  \n   Searches for relevant document chunks based on the query.\nCode Node (Context Builder):**  \n   Sorts the retrieved documents by relevance and constructs a prompt merging the context with the query.\nAI Agent Node:**  \n   Sends the prompt to the Chat AI agent, which returns a detailed answer.\n\nHow to Use\n\nImport the Template:  \n   Import the template into your n8n instance.\nConfigure the Google Drive Trigger:  \n   Set the folder ID (e.g., 1RQvAHIw8cQbtwI9ZvdVV0k0x6TM6H12P) and connect your Google Drive credentials.\nSet Up Pinecone Nodes:  \n   Enter your Pinecone index details and credentials.\nConfigure the Chat AI Agent:  \n   Provide your Google Gemini (or OpenRouter) API credentials.\nTest the Workflows:  \n   Validate the document ingestion workflow by uploading a sample support document.\n   Validate the chat query workflow by sending a test query and verifying the returned support information.\n\nAdditional Notes\n\nEnsure all credentials (Google Drive, Pinecone, and Chat AI) are correctly set up and tested before deploying the workflows in production.\nThe template is fully customizable. Adjust the text cleaning, splitting parameters, or the number of document chunks retrieved based on your support documentation's size and structure.\nThis template not only enhances IT support efficiency but also offers a scalable solution for managing and leveraging growing volumes of support content.",
+  "totalViews": 9106,
+  "source": "official",
+  "user": {
+    "id": 93003,
+    "name": "AI Incarnation",
+    "username": "ai-incarnation",
+    "bio": "AI Incarnation is a visionary automation expert dedicated to revolutionizing the way businesses and individuals streamline their workflows. With a passion for harnessing the power of artificial intelligence and cutting-edge automation, we specialize in creating intelligent, user-friendly solutions using n8n. Our mission is to simplify complex processes and unlock new opportunities for productivity and innovation—one node at a time.\n\nLet's build the future together!",
+    "verified": false,
+    "links": "[\"https://www.youtube.com/@AI-Incarnation\"]",
+    "avatar": "https://gravatar.com/avatar/a6064a7ae05e982d351e0309d9b8c9c692b6ecd2befa8db0ba56e214c3b9ecff?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Recursive Character Text Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Pinecone Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    },
+    {
+      "name": "Embeddings Google Gemini",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    },
+    {
+      "name": "OpenRouter Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 8,
+  "createdAt": "2025-03-17T06:34:44.037Z",
+  "path": "official/template_3192/workflow.json"
+}

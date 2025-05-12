@@ -1,0 +1,53 @@
+{
+  "id": 2511,
+  "name": "Qualys Vulnerability Trigger Scan SubWorkflow",
+  "description": "This workflow is triggered by a parent workflow initiated via a Slack shortcut. Upon activation, it collects input from a modal window in Slack and initiates a vulnerability scan using the Qualys API.\n\nKey Features\nTrigger:** Launched by a parent workflow through a Slack shortcut with modal input.\nAPI Integration:** Utilizes the Qualys API for vulnerability scanning.\nData Conversion:** Converts XML scan results to JSON for further processing.\nLoop Mechanism:** Continuously checks the scan status until completion.\nSlack Notifications:** Posts scan summary and detailed results to a specified Slack channel.\n\nWorkflow Nodes\nStart VM Scan in Qualys: Initiates the scan with specified parameters.\nConvert XML to JSON: Converts the scan results from XML format to JSON.\nFetch Scan Results: Retrieves scan results from Qualys.\nCheck if Scan Finished: Verifies whether the scan is complete.\nLoop Mechanism: Handles the repetitive checking of the scan status.\nSlack Notifications: Posts updates and results to Slack.\n\n\nRelevant Links\nQualys API Documentation\nQualys Platform Documentation\nParent workflow link\nLink to Report Generator Subworkflow\n",
+  "totalViews": 1924,
+  "source": "official",
+  "user": {
+    "id": 16588,
+    "name": "Angel Menendez",
+    "username": "djangelic",
+    "bio": "Angel Menendez is a Staff Developer Advocate at n8n.io, specializing in low-code tools for cybersecurity workflows. From Puerto Rico, Angel's tech journey began by helping his father translate technical books. He later started a web development business and transitioned from a career as a flight attendant to cybersecurity engineering. His workflows have saved companies significant time. Outside work, Angel enjoys time with his two sons, riding electric bikes, reading, and exploring new places.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/fdbe38425d21378d8c9ba8916e1eb0b320add299f12cc23fcd4961d4e6e00bec?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-10-31T00:18:38.836Z",
+  "path": "official/template_2511/workflow.json"
+}

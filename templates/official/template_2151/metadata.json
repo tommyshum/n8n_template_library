@@ -1,0 +1,47 @@
+{
+  "id": 2151,
+  "name": "Automatically document n8n workflows directly in Notion database",
+  "description": "Use case\nn8n workflows can go out of hand when you're automating as much as we do at n8n. We needed a place to document them and keep track of who owns and maintains them. To facilitate this we use this n8n workflow to automatically sync workflows directly to a Notion database if it has the tag sync-to-notion.\n\nHow to setup\nAdd your n8n api creds\nAdd your Notion creds \nCreate notion database with fields env id as text, isActive (dev) as boolean, URL (dev) as url, Workflow created at as date, Workflow updated at as date, Error workflow setup as boolean \n (Make sure page is connected)\nAdd tag sync-to-notion to some workflows",
+  "totalViews": 4028,
+  "source": "official",
+  "user": {
+    "id": 91243,
+    "name": "Mutasem",
+    "username": "mutasem",
+    "bio": "Team lead @ n8n",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/mutasemdmour/\"]",
+    "avatar": "https://gravatar.com/avatar/16d9c92db78317b6af7d0935bee34a47c522cb81d35c234ff76ea580ff1f6c29?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-02-28T20:05:08.622Z",
+  "path": "official/template_2151/workflow.json"
+}

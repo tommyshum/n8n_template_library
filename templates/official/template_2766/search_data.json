@@ -1,0 +1,212 @@
+{
+  "id": 2766,
+  "name": "Extract personal data with self-hosted LLM Mistral NeMo",
+  "totalViews": 4681,
+  "purchaseUrl": null,
+  "user": {
+    "id": 91386,
+    "name": "Yulia",
+    "username": "yulia",
+    "bio": "Let's connect! ",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/yulia-dmitrievna-1112361b5/\"]",
+    "avatar": "https://gravatar.com/avatar/d29a8262aa8835d430919f8002957a77169f8da987dee0740aa494ae67a061b7?r=pg&d=retro&size=200"
+  },
+  "description": "This workflow shows how to use a self-hosted Large Language Model (LLM) with n8n's LangChain integration to extract personal information from user input. This is particularly useful for enterprise environments where data privacy is crucial, as it allows sensitive information to be processed locally.\n\n📖 For a detailed explanation and more insights on using open-source LLMs with n8n, take a look at our comprehensive guide on open-source LLMs.\n\n🔑 Key Features\n\nLocal LLM\n   Connect Ollama to run Mistral NeMo LLM locally\n   Provide a foundation for compliant data processing, keeping sensitive information on-premises\n\nData extraction\n   Convert unstructured text to a consistent JSON format\n   Adjust the JSON schema to meet your specific data extraction needs.\n\nError handling\n   Implement auto-fixing for LLM outputs\n   Include error output for further processing\n\n⚙️ Setup and сonfiguration\n\nPrerequisites\n\nn8n AI Starter Kit installed\n\nConfiguration steps\n\nAdd the Basic LLM Chain node with system prompts.\nSet up the Ollama Chat Model with optimized parameters.\nDefine the JSON schema in the Structured Output Parser node.\n\n🔍 Further resources\nRun LLMs locally with n8n\nVideo tutorial on using local AI with n8n\n\nApply the power of self-hosted LLMs in your n8n workflows while maintaining control over your data processing pipeline!\n",
+  "createdAt": "2025-01-21T10:08:30.509Z",
+  "nodes": [
+    {
+      "id": 1123,
+      "icon": "fa:link",
+      "name": "@n8n/n8n-nodes-langchain.chainLlm",
+      "codex": {
+        "data": {
+          "alias": [
+            "LangChain"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.chainllm/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Chains",
+              "Root Nodes"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Basic LLM Chain",
+        "color": "#909298"
+      },
+      "iconData": {
+        "icon": "link",
+        "type": "icon"
+      },
+      "displayName": "Basic LLM Chain",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1151,
+      "icon": "file:ollama.svg",
+      "name": "@n8n/n8n-nodes-langchain.lmChatOllama",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatollama/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Language Models",
+              "Root Nodes"
+            ],
+            "Language Models": [
+              "Chat Models (Recommended)"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Ollama Chat Model"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNDEuMzMzIiBoZWlnaHQ9IjM0MS4zMzMiIHZlcnNpb249IjEuMCIgdmlld0JveD0iMCAwIDE4MSAyNTYiPjxnIGZpbGw9IiM3RDdEODciPjxwYXRoIGQ9Ik0zNy43IDE5LjVjLTUuMiAxLjgtOC4zIDQuOS0xMS43IDExLjYtNC41IDguOS02LjIgMTkuMi01LjggMzUuNWwuMyAxNC4yLTUuOCA2LjFjLTE0LjggMTUuNS0xOC41IDM4LjctOS4yIDU3LjRsMy40IDYuOS0yIDQuNGMtMy40IDguMi01IDE2LjQtNSAyNi4zIDAgMTAuOCAxLjggMTkgNS44IDI2LjJsMi42IDQuOC0yLjEgNC45Yy0xLjIgMi43LTIuNiA3LjEtMy4yIDkuOC0xLjQgNi4yLTEuNSAyMi4xLS4xIDI1LjcgMSAyLjYgMS40IDIuNyA3LjYgMi43IDcuMyAwIDcgLjQgNS4zLTguNi0xLjUtOC4yLjItMTguOCA0LjItMjYuNiAzLjctNyAzLjgtMTAuNC41LTE0LjgtNC43LTYuNC02LjgtMTMuNi02LjktMjQtLjEtMTAuMyAxLjQtMTYgNi42LTI2LjEgMy4xLTYuMSAyLjktOC43LTEtMTIuMi0xLjEtMS0zLjEtNC4yLTQuMy03LTEuOS00LjItMi40LTYuOS0yLjMtMTQuMiAwLTExLjQgMi41LTE4LjMgOS41LTI2IDctNy42IDE0LjItMTEgMjMuOS0xMS4yIDQuMSAwIDcuOC0uMiA4LjItLjIuNC0uMSAxLjctMi4yIDIuOS00LjcgMy01LjkgOS42LTExLjkgMTYuNy0xNS4yIDQuOS0yLjMgNy0yLjcgMTQuNy0yLjcgNy45IDAgOS43LjQgMTQuOSAyLjkgNi44IDMuMyAxMy4zIDkuNCAxNS45IDE0LjggMSAyIDIuMyA0LjEgMyA0LjUuNi40IDQuNi44IDguNy44IDYuNy4xIDguMy41IDE0IDMuNiAxMi4zIDYuOCAxOS4zIDE4LjcgMTkuMyAzMy40LjEgNi43LS40IDktMi43IDE0LjItMS42IDMuNS0zLjUgNi44LTQuMyA3LjUtMy40IDIuOC0zLjUgNS44LS41IDExLjcgNS4yIDEwLjEgNi43IDE1LjggNi42IDI2LjEtLjEgMTAuNC0yLjIgMTcuNi02LjkgMjQtMy4zIDQuNC0zLjIgNy44LjUgMTQuOCA0IDcuOCA1LjcgMTguNCA0LjIgMjYuNi0xLjcgOS0yIDguNiA1LjMgOC42IDYuMiAwIDYuNi0uMSA3LjYtMi43IDEuNC0zLjYgMS4zLTE5LjUtLjEtMjUuNy0uNi0yLjctMi03LjEtMy4yLTkuOGwtMi4xLTQuOSAyLjYtNC44YzcuNi0xMy45IDcuOS0zNS45LjYtNTIuOGwtMi00LjcgMi41LTQuNmM5LjktMTguMyA2LjQtNDMuOS04LjEtNTkuMWwtNS44LTYuMS4zLTE0LjJjLjQtMTYuNC0xLjMtMjYuNi01LjgtMzUuNy02LjQtMTIuNi0xNy4yLTE1LjktMjYuMy03LjktNS40IDQuNy05LjIgMTMuOC0xMi4zIDI5LjgtLjMgMS40LTEgMi4yLTEuNyAxLjgtMTguMi04LTI5LjctOC41LTQ0LjMtMi4xTDY1IDU0LjlsLS40LTIuMkM2MSAzNC4yIDU2LjEgMjQuMiA0OSAyMC41Yy00LjMtMi4xLTcuNC0yLjQtMTEuMy0xbTcuNyAxNi44YzQuMiA3LjEgOC4xIDMwLjEgNS43IDMzLjYtLjUuOC0zLjEgMS42LTUuOCAxLjgtMi42LjItNi4yLjgtOCAxLjNsLTMuMS44LS43LTQuOWMtLjgtNS45LjItMTcuMiAyLjItMjQuOEMzNy4xIDM4LjQgNDAuNSAzMiA0MiAzMmMuNSAwIDIgMS45IDMuNCA0LjNtOTYuNS0xYzQgNi41IDYuOSAyMy45IDUuNiAzMy42bC0uNyA0LjktMy4xLS44Yy0xLjgtLjUtNS40LTEuMS04LTEuMy0yLjctLjItNS4zLTEtNS44LTEuOC0xLjItMS43LS4zLTE0LjEgMS43LTIyLjkgMS41LTYuNCA1LjctMTUgNy40LTE1IC40IDAgMS44IDEuNSAyLjkgMy4zIi8+PHBhdGggZD0iTTc3LjggMTE5LjljLTcuMyAyLjQtMTEuNiA1LjEtMTYuNSAxMC40LTUuNSA2LTcuNiAxMi03LjEgMjAuMS41IDcuNiAzLjUgMTIuOSAxMC42IDE4LjMgNi4yIDQuNyAxMi43IDYuMyAyNS43IDYuMyAxNy4yIDAgMjUuOC0zLjYgMzIuOS0xMy44IDQuMi01LjkgNC44LTE1LjUgMS42LTIzLTIuOS02LjgtMTEuMS0xNC4zLTE4LjgtMTcuMy04LTMuMS0yMC43LTMuNi0yOC40LTFtMjUuNyAxMGMxNi4xIDcuMSAxOS40IDIzLjIgNi42IDMxLjgtNC45IDMuMy05LjQgNC4zLTE5LjYgNC4zcy0xNC43LTEtMTkuNi00LjNjLTE3LjgtMTItMy4yLTM1LjYgMjEuMS0zNC4zIDMuOS4yIDguNiAxLjIgMTEuNSAyLjUiLz48cGF0aCBkPSJNODMuOCAxNDAuMWMtMi41IDEuNC0yLjIgNC40LjcgNi43IDIgMS42IDIuNCAyLjYgMS45IDQuOS0uNyAzLjYgMS41IDUuOCA1LjEgNC45IDIuMS0uNSAyLjUtMS4yIDIuNS00LjYgMC0yLjkuNS00LjIgMi01IDIuNy0xLjUgMi43LTYuNiAwLTcuNS0xLS4zLTIuOC0uMS00IC41LTEuNC43LTIuNi44LTMuOSAwLTIuMy0xLjItMi4yLTEuMi00LjMuMW0tNDQuMS0xOC45Yy0uOS43LTIuMyAzLTMuMiA1LTIuMSA1LjMtLjEgMTAuMyA0LjcgMTEuNiA0LjMgMS4xIDYgLjYgOS4yLTIuNyA0LTQuMSA0LjMtOC4xIDEuMS0xMS45LTIuMS0yLjUtMy40LTMuMi02LjQtMy4yLTIgMC00LjUuNi01LjQgMS4ybTg5LjggMmMtMy4yIDMuOC0yLjkgNy44IDEuMSAxMS45IDMuMiAzLjMgNC45IDMuOCA5LjIgMi43IDQuOS0xLjMgNi44LTYuMiA0LjYtMTEuOC0xLjktNC43LTMuOC02LTguNy02LTIuNyAwLTQuMS43LTYuMiAzLjIiLz48L2c+PC9zdmc+"
+      },
+      "displayName": "Ollama Chat Model",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1175,
+      "icon": "fa:tools",
+      "name": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.outputparserautofixing/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Output Parsers"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Auto-fixing Output Parser"
+      },
+      "iconData": {
+        "icon": "tools",
+        "type": "icon"
+      },
+      "displayName": "Auto-fixing Output Parser",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1179,
+      "icon": "fa:code",
+      "name": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "codex": {
+        "data": {
+          "alias": [
+            "json",
+            "zod"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.outputparserstructured/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Output Parsers"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Structured Output Parser"
+      },
+      "iconData": {
+        "icon": "code",
+        "type": "icon"
+      },
+      "displayName": "Structured Output Parser",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    }
+  ]
+}

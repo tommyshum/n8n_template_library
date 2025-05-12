@@ -1,0 +1,143 @@
+{
+  "id": 2094,
+  "name": "Allow your AI to call an API to fetch data",
+  "description": "Use n8n to bring data from any API to your AI. This workflow uses the Chat Trigger to provide the chat interface, and the Custom n8n Workflow Tool to call a second workflow that calls the API. \n\nThe second workflow uses AI functionality to refine the API request based on the user's query. It then makes an API call, and returns the response to the main workflow.\n\nThis workflow is used in Advanced AI examples | Call an API to fetch data in the documentation.\n\nTo use this workflow:\n\nLoad it into your n8n instance.\nAdd your credentials as prompted by the notes.\n\nRequires n8n 1.28.0 or above\n",
+  "totalViews": 19894,
+  "source": "official",
+  "user": {
+    "id": 29319,
+    "name": "Deborah",
+    "username": "deborah",
+    "bio": "Technical writer",
+    "verified": true,
+    "links": "[\"https://github.com/StarfallProjects\"]",
+    "avatar": "https://gravatar.com/avatar/8ed14c592510a0627ebe55fdad3a42a3917a77a9e081b93209ce05ecf3c2ba8f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Auto-fixing Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 8,
+  "createdAt": "2024-02-14T12:40:39.968Z",
+  "path": "official/template_2094/workflow.json"
+}

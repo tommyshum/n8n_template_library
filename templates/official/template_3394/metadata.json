@@ -1,0 +1,60 @@
+{
+  "id": 3394,
+  "name": "Airtable Batch Update / Insert rows (send faster + save API call requests)",
+  "description": "This workflow allows you to batch update/insert Airtable rows in groups of 10, significantly reducing the number of API calls and increasing performance.\n\n🚀 How It Works\n\nCopy the 3 Nodes  \n   Copy the three nodes inside the red note box into your workflow.\n\nSet Your Fields  \n   In the Set Fields node, define the fields you want to update.  \n   ➤ Only include fields that match column names in your Airtable table.  \n   ➤ Make sure the field names are spelled exactly as they appear in Airtable.\n   ➤ Make sure the field type are correctly set. So numbers columns in Airtable need numbers type set as the field.\n\nConfigure the Airtable Batch Node  \n   Enter your Airtable Base ID\n     The part with app... in the URL:\nairtable\\.com / app8pqOLeka1Cglwg / tblnXZOdy8VtkAAJD/...\n   Enter your Airtable Table ID\n     The part with tbl... in the URL:\nairtable\\.com / app8pqOLeka1Cglwg / tblXXZOdy8VtkAAJD /...\n   Set Matching Fields (fieldsToMergeOn)  \n   Provide a string array that tells Airtable how to match existing rows. Examples:\n     Match by one field (e.g. TaskID):  \n     {{[\"TaskID\"]}}\n     Match by multiple fields (e.g. firstname and lastname):  \n     {{[\"firstname\", \"lastname\"]}}\n\n   Choose the Mode (mode field)  \n   Available options:\n     upsert: Update if a record exists, otherwise insert a new one\n     insert: Always insert as new records\n     update: Only update existing records (you must provide a field named id)\n",
+  "totalViews": 14,
+  "source": "official",
+  "user": {
+    "id": 93533,
+    "name": "Simon Mayerhofer",
+    "username": "s3n",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/ba8c74e40cd454cd81304ab8b3e9d90fa02d07009109f52077aa04884310c4bd?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "DebugHelper",
+      "type": "n8n-nodes-base.debugHelper",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-04-01T08:53:00.311Z",
+  "path": "official/template_3394/workflow.json"
+}

@@ -1,0 +1,56 @@
+{
+  "id": 3637,
+  "name": "Build your own Youtube MCP server",
+  "description": "This n8n demonstrates how to build a simple Youtube MCP server to look up videos on Youtube and download their transcripts for research purposes.\n\nYoutube videos are a great source of new and updated information on a variety of cutting edge developments but they''re are not always simple to understand and lengthy videos may take too much time. Using this MCP server, you extract and feed their transcripts for your AI agents which then allows it to breakdown the content into manageble learnings and insights.\n\nHow it works\nA MCP server trigger is used and connected to 3 custom workflow tools: Youtube Search, Youtube Transcripts and Usage Reports.\nBoth Youtube tools use an external scraping service called APIFY.com. This is my preference as it's a much simpler interface and there are no rate limits.  \nThe Youtube Search fetches 10 results based on the user's query.\nThe Youtube Transcripts downloads the subtitles from one or more given URL.\nThe usage reports pulls in your monthly APIFY.com monthly spending and limits as a way to check your account.\n\nHow to use\nThis Apify Youtube MCP server allows any compatible MCP client to research YouTube videos for any desired topic. An Apify account is required however to connect and use the service.\nConnect your MCP client by following the n8n guidelines here - https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-langchain.mcptrigger/#integrating-with-claude-desktop\nAlternatively, connect any n8n AI agent with the MCP client tool.\nTry the following queries in your MCP client:\n  \"what is MCP?\"\n  \"How can I use MCP in n8n?\"\n  \"How can I use Apify's official MCP server?\"\n\nRequirements\nAPIFY.com for Youtube Scraping. This is a paid service but there is a $5 free tier which is ample for this template.\nMCP Client or Agent for usage such as Claude Desktop - https://claude.ai/download\n\nCustomising this workflow\nAdd as many APIFY.com actors as required for your use-case or users. Consider using Apify's official MCP server for 4000+ available tools.\nRemember to set the MCP server to require credentials before going to production and sharing this MCP server with others!",
+  "totalViews": 1805,
+  "source": "official",
+  "user": {
+    "id": 91804,
+    "name": "Jimleuk",
+    "username": "jimleuk",
+    "bio": "Freelance consultant based in the UK specialising in AI-powered automations. I work with select clients tackling their most challenging projects. For business enquiries, send me an email at hello@jimle.uk\n\nLinkedIn: https://www.linkedin.com/in/jimleuk/\nX/Twitter: https://x.com/jimle_uk",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4ab99e51473df76838beeaac908747f7928c625f869794815cabe34016967d51?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-04-21T10:19:42.144Z",
+  "path": "official/template_3637/workflow.json"
+}

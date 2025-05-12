@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>n8n Template Library</title>
+    <link rel="stylesheet" href="/web/styles.css" onerror="this.href='styles.css'">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>n8n Template Library</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="filters">
+            <div class="filter-group">
+                <select id="category-filter">
+                    <option value="all">All Categories</option>
+                    <!-- Categories will be populated by JavaScript -->
+                </select>
+            </div>
+            <div class="filter-group">
+                <select id="source-filter">
+                    <option value="all">All Sources</option>
+                    <!-- Sources will be populated by JavaScript -->
+                </select>
+            </div>
+            <div class="filter-group">
+                <input type="text" id="search" placeholder="Search templates...">
+            </div>
+        </div>
+
+        <!-- Table Layout -->
+        <table class="templates-table" id="templates-table">
+            <thead>
+                <tr>
+                    <th data-sort="name">Name</th>
+                    <th data-sort="categories">Categories</th>
+                    <th data-sort="nodeCount">Nodes</th>
+                    <th data-sort="views">Views</th>
+                    <th data-sort="createdAt">Created</th>
+                </tr>
+            </thead>
+            <tbody id="templates-tbody">
+                <!-- Templates will be populated by JavaScript -->
+                <tr>
+                    <td colspan="5" class="loading">Loading templates...</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Pagination and Per Page -->
+        <div class="pagination-container">
+            <div class="page-info" id="page-info">Showing 0 of 0 templates</div>
+            <div class="pagination-controls">
+                <div class="pagination" id="pagination">
+                    <!-- Pagination will be populated by JavaScript -->
+                </div>
+                <div class="per-page-container">
+                    <select id="per-page">
+                        <option value="10">10</option>
+                        <option value="25" selected>25</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats">
+            <div id="total-templates">Loading...</div>
+            <div id="total-categories">Loading...</div>
+            <div id="total-sources">Loading...</div>
+        </div>
+
+        <!-- Keep the grid container for compatibility -->
+        <div class="templates-grid" id="templates-container" style="display: none;">
+            <!-- Templates will be populated by JavaScript -->
+        </div>
+    </main>
+
+    <div id="template-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modal-title"></h2>
+            <div class="modal-details">
+                <div class="modal-info">
+                    <p id="modal-description"></p>
+                    <div class="modal-metadata">
+                        <div class="metadata-item">
+                            <div class="metadata-label">Author</div>
+                            <div id="modal-author"></div>
+                        </div>
+                        <div class="metadata-item">
+                            <div class="metadata-label">Categories</div>
+                            <div id="modal-categories"></div>
+                        </div>
+                        <div class="metadata-item">
+                            <div class="metadata-label">Nodes</div>
+                            <div id="modal-nodes"></div>
+                        </div>
+                        <div class="metadata-item">
+                            <div class="metadata-label">Created</div>
+                            <div id="modal-created"></div>
+                        </div>
+                        <div class="metadata-item">
+                            <div class="metadata-label">Views</div>
+                            <div id="modal-views"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <a id="modal-download" href="#" class="button">Download Workflow</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 n8n Template Library</p>
+        </div>
+    </footer>
+
+    <script src="/web/script.js" onerror="this.src='script.js'"></script>
+</body>
+</html>

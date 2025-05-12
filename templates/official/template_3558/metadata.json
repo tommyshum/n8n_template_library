@@ -1,0 +1,87 @@
+{
+  "id": 3558,
+  "name": "Support Automation with GPT-4o Chatbot in Intercom & Discord Thread Reports",
+  "description": "If you have any question, or difficulty, feel free to come discuss about it on my Telegram (you might find something there 🎁)\n\n\n\nThis workflow connects your Intercom chat system with your own AI Agent and sends a complete log of each conversation to Discord using threads. It allows you to run a fully automated support system while maintaining full visibility of the bot's behavior in real time.\n\nFor every new conversation in Intercom, a thread is created in a specified Discord channel. Each message from the user, the AI, and even manual human responses is logged to the thread, offering full traceability and transparency.\n\nYou also have fine-grained control over the AI agent. By simply clicking the ⭐️ star in Intercom’s UI, support agents can instantly pause or resume AI responses for a specific chat — no coding or config changes needed.\n\nRequirements\n\nA working n8n instance\nAn Intercom account with permission to set up webhooks\nA Discord bot with the following permissions:\n  Send Messages\n  Create Public/Private Threads\n  Manage Threads\nAPI credentials for your preferred LLM (OpenAI is used by default)\nGoogle Chrome or any browser to access Intercom’s UI\n\nSetup\n\nIntercom:\n   Go to Intercom’s webhook settings.\n   Add a webhook that listens to new incoming messages and points to the Webhook URL in this n8n workflow.\n   Make sure to send full conversation data.\n\nDiscord:\n   Create a Discord bot and invite it to your server with the required permissions.\n   In the Discord + Token node at the top of the workflow:\n     Add your bot token\n     Add the ID of the channel where threads should be created\n\nLLM / AI Agent:\n   By default, the workflow uses OpenAI via HTTP Request.\n   You can substitute it with any LLM provider of your choice.\n   Make sure to set up your credentials in n8n and select them in the HTTP nodes.\n\nHTTP Authentication Tips:\n   For both Intercom and Discord API calls, it's recommended to create credentials in n8n's Credential Manager.\n   Then, assign those credentials inside each HTTP Request node for a cleaner setup.\n\nUsage\n\nWhen a new conversation starts in Intercom, a Discord thread is created automatically.\nEach message — user input, AI response, and human reply — is logged into the Discord thread in real time.\nThe AI replies automatically unless the ⭐️ star is checked in Intercom:\n  ☆ Unchecked = AI replies enabled\n  ⭐️ Checked = AI replies disabled, human takeover enabled\n\n\n\nThis gives you on-the-fly control of each conversation’s automation level directly from the Intercom inbox.\n\nCustomization\n\nYou can replace OpenAI with any LLM that provides a compatible API.\nDiscord channel ID, thread naming, and message formatting can be customized to match your team’s preferences.\nYou can expand the workflow to handle events like conversation closure or satisfaction ratings for deeper analytics.",
+  "totalViews": 169,
+  "source": "official",
+  "user": {
+    "id": 93650,
+    "name": "Niten Musa",
+    "username": "nitenmusa",
+    "bio": "Just like every business has its own processes, every business will have its own AI agents — I sell and teach that transition\n\nFrom France 🇫🇷 — Discipline, Humility, Benevolence",
+    "verified": true,
+    "links": "[\"https://www.bonzai.pro/niten-musa\"]",
+    "avatar": "https://gravatar.com/avatar/7c12ff05ad25ca88cd977720280c51c995d53c91fe572a7a90a6b5a4b8660118?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-04-15T09:29:57.081Z",
+  "path": "official/template_3558/workflow.json"
+}

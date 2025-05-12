@@ -1,0 +1,45 @@
+{
+  "id": 3251,
+  "name": "Sync Squarespace Newsletter Signups to Mailchimp via Google Sheets",
+  "description": "This workflow captures Squarespace newsletter signups in a Google Sheet and automatically creates new Mailchimp contacts in the selected audience.  \n\nIt overcomes the limitation in Squarespace’s native Mailchimp integration, which only supports new, empty audiences.  \n\nYou can trigger the workflow manually or schedule it for continuous synchronization.  \n\nStep-by-step tutorial\nFirst, you need to connect Squarespace newsletter block submission to Google Drive\nIn Mailchimp node, choose your targeted audience in List Name or ID\nConnect a Squarespace Form to Google Drive  \nTo connect a form to Google Drive:  \n\nIn the form's storage options, click Connect on Google Drive.  \nLog into your Google account.  \nClick Allow to permit Squarespace to connect to Google Drive.  \nEnter a Spreadsheet Name. This creates a new spreadsheet for your form submissions.  \n\nColumns in my sheet:  \nSubmitted On  \nEmail Address  \nName  \n\nThis structure is inspired by Squarespace’s newsletter block connection, but you can modify it based on your preferred data format.  \n\n👉 Clone my Google Sheets template  \n\nRequirements  \n\nCredentials  \n\nTo use this workflow, you need:  \n\nMailchimp API Key** – Required to add contacts to Mailchimp.  \nGoogle Sheets API credentials** – Required to retrieve signups from the spreadsheet.  \n\n📌 Mailchimp API Authentication Guide  \n\nExplore More Templates  \n\n👉 Check out my other n8n templates\n",
+  "totalViews": 187,
+  "source": "official",
+  "user": {
+    "id": 92981,
+    "name": "bangank36",
+    "username": "bangank36",
+    "bio": "Automation specialist with 10+ years of experience helping SME website owners streamline their workflows—specializing in Squarespace, Shopify, and WordPress. Book an initial consultation for custom n8n automation using my link.",
+    "verified": true,
+    "links": "[\"https://beyondspace.studio\"]",
+    "avatar": "https://gravatar.com/avatar/499b5f6868bff3f56c51a6650bf87b946b25b2e17d353e3c9bbf5b34d2bd5bf4?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Marketing",
+    "Communication"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Mailchimp",
+      "type": "n8n-nodes-base.mailchimp",
+      "categories": [
+        "Marketing",
+        "Communication"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-03-21T00:14:00.216Z",
+  "path": "official/template_3251/workflow.json"
+}

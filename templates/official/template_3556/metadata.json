@@ -1,0 +1,63 @@
+{
+  "id": 3556,
+  "name": "💰 Automate Currency Rates Update in Invoices with Google Sheet, ExchangeRate API",
+  "description": "Tags: Automation, Finance, Google Sheets, API\n\nNote: This workflow uses the Exchange rate API and requires a valid API key.\n\nContext\nI’m a Supply Chain Data Scientist who builds automations to streamline operations, reduce manual tasks, and boost decision-making through real-time data.\n\nIn this workflow, I automated the task of fetching live currency exchange rates, updating a Google Sheet with the latest values, and archiving historical records — all without writing any code.\n\n&gt; Improve your productivity by automating admin tasks with n8n!\n\n📬 For business inquiries, you can add me on LinkedIn\n\nWho is this template for?\nThis template is perfect for:\nFinance teams** tracking multi-currency cashflows\nAnalysts** building dashboards or models requiring updated FX data\nAnyone working with spreadsheets** who needs up-to-date exchange rates\n\nIt updates:\nA live sheet with the latest USD-based exchange rates\nAn archive tab to track historical changes over time\n\nHow does it work?\nThis workflow runs in N8N and performs the following steps:\n\n🌐 Calls the ExchangeRate API to get the latest rates based on USD\n🧠 Extracts and formats key fields: base currency, timestamp, and conversion values\n📊 Updates a main Google Sheet with the latest data (using upsert logic)\n🗂️ Appends all rates to a second Google Sheet tab for historical tracking\n\nYou can schedule this workflow to run daily, hourly, or on-demand.\n\nWhat do I need to start?\nYou don’t need to write a single line of code.\nPrerequisites:\nA Google Sheet with two tabs: Rate Sheet and Archives (Link of the publicly available example in the template)\nA valid Exchangerate API key\nGoogle Sheets API** connected via OAuth2\n\nNext Steps\nUse the sticky notes in the workflow to understand how to:\nAdd your Exchangerate API key\nMap the fields to match your Google Sheet layout\nSchedule the run frequency using the Cron node\nOptionally add Slack or email alerts if the base rate changes\n\nFor more information, check my tutorial:\n\n\n🎥 Watch My Tutorial\n\n🚀 Want to build finance automation workflows like this?\n📬 Let’s connect on LinkedIn\n\nNotes\nYou can adapt this template for other currencies by changing the API endpoint\n\n\nThis workflow was built using *n8n 1.85.4**\nSubmitted: April 15th, 2025*\n",
+  "totalViews": 498,
+  "source": "official",
+  "user": {
+    "id": 93233,
+    "name": "Samir Saci",
+    "username": "samirsaci",
+    "bio": "Automation, AI and Analytics for Supply Chain & Business Optimization\nHelping businesses streamline operations using n8n, AI agents, and data science to enhance efficiency and sustainability. \nLinkedin: www.linkedin.com/in/samir-saci",
+    "verified": true,
+    "links": "[\"https://linktr.ee/samirsaci\"]",
+    "avatar": "https://gravatar.com/avatar/d3644476a59e5813c5f00a7933977e2be8805cbdc574958b9cc6a53b45bedd6a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-04-15T07:24:16.306Z",
+  "path": "official/template_3556/workflow.json"
+}

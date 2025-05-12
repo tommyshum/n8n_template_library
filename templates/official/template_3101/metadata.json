@@ -1,0 +1,85 @@
+{
+  "id": 3101,
+  "name": "Monitor competitors' websites for changes with OpenAI and Firecrawl",
+  "description": "Who is this template for?\nThis workflow template is designed for people seeking alerts when certain specific changes are made to any web page. Leveraging agentic AI, it analyzes the page every day and autonomously decides whether to send you an e-mail notification.\n\nExample use cases\nTrack price changes on [competitor's website]. Notify me when the price drops below €50.\nMonitor new blog posts on [industry leader's website] and summarize key insights.\nCheck [competitor's job page] for new job postings related to software development.\nWatch for new product launches on [e-commerce site] and send me a summary.\nDetect any changes in the terms and conditions of [specific website].\nTrack customer reviews for [specific product] on [review site] and extract key themes.\n\nHow it works\nWhen clicking 'test workflow' in the editor, a new browser tab will open where you can fill in the details of your espionage assignment\nMake sure you be as concise as possible when instructing AI. Instruct specific and to the point (see examples at the bottom).\nAfter submission, the flow will start off by extracting both the relevant website url and an optimized prompt. OpenAI's structured outputs is utilized, followed by a code node to parse the results for further use.\nFrom here on, the endless loop of daily checks will begin:\nInitial scrape \n1 day delay\nSecond scrape\nAI agent decides whether or not to notify you \nBack to step 1\nYou can cancel an espionage assignment at any time in the executions tab\n\nSet up steps\nInsert your OpenAI API key in the structured outputs node (second one)\nCreate a Firecrawl account and connect your Firecrawl API key in both 'Scrape page'-nodes\nConnect your OpenAI account in the AI agents' model node\nConnect your Gmail account in the AI agents' Gmail tool node\n",
+  "totalViews": 7780,
+  "source": "official",
+  "user": {
+    "id": 93098,
+    "name": "Sleak",
+    "username": "sleak",
+    "bio": "Met Sleak maak je binnen no-time een AI agent om website bezoekers te woord te staan. \n\nVia deze pagina inspireren en helpen we je met allerlei andere (agentic) AI workflows om jouw werk makkelijker én leuker te maken. ",
+    "verified": false,
+    "links": "[\"https://www.sleak.chat?utm_source=n8n&utm_medium=profile\"]",
+    "avatar": "https://gravatar.com/avatar/0b2d05d4de3603014172182807cb4731f757a856204cd5486faef8a79f6c0e0f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-03-06T16:14:34.088Z",
+  "path": "official/template_3101/workflow.json"
+}

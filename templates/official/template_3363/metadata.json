@@ -1,0 +1,126 @@
+{
+  "id": 3363,
+  "name": "Automated Interview Scheduling with GPT-4o and Google Calendar Chat Bot",
+  "description": "✨ Overview\n\nThis workflow allows candidates to schedule interviews through a conversational AI assistant. It integrates with your Google Calendar to check for existing events and generates a list of available 30-minute weekday slots between 9 AM and 5 PM Eastern Time. Once the candidate selects a suitable time and provides their contact information, the AI bot automatically books the meeting on your calendar and confirms the appointment.\n\n⚡ Prerequisites\n\nTo use this workflow, you need an OpenAI account with access to the GPT-4o model, a Google account with a calendar that can be accessed through the Google Calendar API, and an active instance of n8n—either self-hosted or via n8n cloud. Within n8n, you must have two credential configurations ready: one for Google Calendar using OAuth2 authentication, and another for your OpenAI API key.\n\n🔐 API Credentials Setup\n\nFor Google Calendar, go to the Google Cloud Console and create a new project. Enable the Google Calendar API, then create OAuth2 credentials by selecting “Web Application” as the application type. Add http://localhost:5678/rest/oauth2-credential/callback as the redirect URI if using local n8n. After that, go to n8n, navigate to the Credentials section, and create a new Google Calendar OAuth2 credential using your account. For OpenAI, visit platform.openai.com to retrieve your API key. Then go to the n8n Credentials page, create a new credential for OpenAI, paste your key, and name it for reference.\n\n🔧 How to Make This Workflow Yours\n\nTo customize the workflow for your use, start by replacing all instances of the calendar email rbreen.ynteractive@gmail.com with your own Google Calendar email. This email is referenced in multiple places, including Google Calendar nodes and the ToolWorkflow JSON for the node named \"Run Get Availability.\" Also update any instances where the Google Calendar credential is labeled as Google Calendar account to match your own credential name within n8n. Do the same for the OpenAI credential label, replacing OpenAi account with the name of your own credential.\n\nNext, go to the node labeled Candidate Chat and copy the webhook URL. This is the public chat interface where candidates will engage with the bot—share this URL with them through email, your website, or anywhere you want to allow access. Optionally, you can also tweak the system message in the Interview Scheduler node to modify the tone, language, or logic used during conversations. If you want to add branding, update the title, subtitle, and inputPlaceholder in the Candidate Chat node, and consider modifying the final confirmation message in Final Response to User to reflect your brand voice. You can also update the business rules such as time zone, working hours, or default duration by editing the logic in the Generate 30 Minute Timeslots code node.\n\n🧩 Workflow Explanation\n\nThis workflow begins with the Candidate Chat node, which triggers when a user visits the public chat URL. The Interview Scheduler node acts as an AI agent, guiding the user through providing their email, phone number, and preferred interview time. It checks availability using the Run Get Availability tool, which in turn reads your calendar and compares it with generated free time slots from the Generate 30 Minute Timeslots node. The check day names tool helps the AI interpret natural language date expressions like “next Tuesday.”\n\nThe schedule is only populated with 30-minute weekday slots from 9 AM to 5 PM Eastern Time, and no events are scheduled if they overlap with existing ones. When a suitable time is confirmed, the AI formats the result into structured JSON, creates an event on your Google Calendar, and sends a confirmation back to the user with all relevant meeting details.\n\n🚀 Deployment Steps\n\nTo deploy the interview scheduler, import the provided workflow JSON into your n8n instance. Update the Google Calendar email, OpenAI and Google credential labels, system prompts, and branding as needed. Test the connections to ensure the API credentials are working correctly. Once everything is configured, copy and share the public chat URL from the Candidate Chat node. When candidates engage with the chat, the workflow will walk them through the interview booking process, check your availability, and finalize the booking automatically.\n\n💡 Additional Tips\n\nBy default, the workflow avoids scheduling interviews on weekends and outside of 9–5 EST. Each interview lasts exactly 30 minutes, and overlapping with existing events is prevented. The assistant does not reveal details about other meetings. You can customize every part of this workflow to fit your use case, including subworkflows like Get Availability and check day names, or even white-label it for client use. This workflow is ready to become your AI-powered interview scheduling assistant.\n\n",
+  "totalViews": 4801,
+  "source": "official",
+  "user": {
+    "id": 93498,
+    "name": "Robert Breen",
+    "username": "rbreen",
+    "bio": "Professional services consultant with over 10 years of experience solving complex business problems across industries. I specialize in n8n and process automation—designing custom workflows that integrate tools like Google Calendar, Airtable, GPT, and internal systems. Whether you need to automate scheduling, sync data, or streamline operations, I build solutions that save time and drive results.",
+    "verified": false,
+    "links": "[\"https://ynteractive.com/\"]",
+    "avatar": "https://gravatar.com/avatar/15bb5ad97bad47ca2079e1fa123a8287000c72c86498c90043f70ec2adab05f3?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Calendar",
+      "type": "n8n-nodes-base.googleCalendar",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-03-30T03:22:28.201Z",
+  "path": "official/template_3363/workflow.json"
+}

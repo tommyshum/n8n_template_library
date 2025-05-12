@@ -1,0 +1,61 @@
+{
+  "id": 2565,
+  "name": "Summarize SERPBear data with AI (via Openrouter) and save it to Baserow",
+  "description": "Who's this for?\nIf you own a website and need to analyze your keyword rankings\nIf you need to create a keyword report on your rankings\nIf you want to grow your keyword positions\n\nSerpBear is an opensourced SEO tool specifically for keyword analytics.\n\nClick here to read details of how I use it\n\n\n\n\n\nExample output of A.I.\nKey Observations about Ranking Performance:\n\nThe top-performing keyword is “Openrouter N8N” with a current position of 7 and an improving trend.\nTwo keywords, “Best Docker Synology” and “Bitwarden Synology”, are not ranking in the top 100 and have a stable trend.\nThree keywords, “Obsidian Second Brain”, “AI Generated Reference Letter”, and “Actual Budget Synology”, and “N8N Workflow Generator” are not ranking well and have a declining trend.\n\nKeywords showing the most improvement:\n\n“Openrouter N8N” has an improving trend and a relatively high ranking of 7.\n\nKeywords needing attention:\n\n“Obsidian Second Brain” has a declining trend and a low ranking of 69.\n“AI Generated Reference Letter” has a declining trend and a low ranking of 84.\n“Actual Budget Synology”, “N8N Workflow Generator”, “Best Docker Synology”, and “Bitwarden Synology” are not ranking in the top 100.\n\nUse case\nInstead of hiring an SEO expert, I run this report weekly. It checks the keyword rankings of the past week and gives me recommendations on what to improve.\n\nHow it works\nThe workflow gathers SerpBear analytics for the past 7 days.\nIt passes the data to openrouter.ai for A.I. analysis.\nFinally it saves to baserow.\n\nHow to use this\nInput your SerpBearcredentials\nEnter your domain name\nInput your Openrouter.ai credentials\nInput your baserow credentials\nYou will need to create a baserow database with columns: Date, Note, Blog\n\nCreated by Rumjahn",
+  "totalViews": 559,
+  "source": "official",
+  "user": {
+    "id": 92000,
+    "name": "Keith Rumjahn",
+    "username": "rumjahn",
+    "bio": "I create automations with A.I. for SEO content and other smart automations.",
+    "verified": true,
+    "links": "[\"https://rumjahn.com/\"]",
+    "avatar": "https://gravatar.com/avatar/e037c9d6e16284c4cf5149094a1725ed92f76e61813b8f8c32c1b83dcf4f9f4b?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Baserow",
+      "type": "n8n-nodes-base.baserow",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-11-22T12:55:27.465Z",
+  "path": "official/template_2565/workflow.json"
+}

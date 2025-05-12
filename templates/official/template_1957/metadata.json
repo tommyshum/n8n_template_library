@@ -1,0 +1,82 @@
+{
+  "id": 1957,
+  "name": "Force AI to use a specific output format",
+  "description": "This workflow is for anyone looking to automatically fetch, validate, and parse complex language-based queries into a structured format. Its unique capability lies in not only processing language but also fixing invalid outputs before structuring them.\n\nNote that to use this template, you need to be on n8n version 1.19.4 or later.",
+  "totalViews": 13511,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Auto-fixing Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2023-10-03T15:04:22.243Z",
+  "path": "official/template_1957/workflow.json"
+}

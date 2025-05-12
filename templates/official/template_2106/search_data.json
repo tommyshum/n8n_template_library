@@ -1,0 +1,158 @@
+{
+  "id": 2106,
+  "name": "Reach out via Email to new form submissions that meet a certain criteria",
+  "totalViews": 1524,
+  "purchaseUrl": null,
+  "user": {
+    "id": 91250,
+    "name": "Niklas Hatje",
+    "username": "nik8n",
+    "bio": "Product Manager at n8n - Responsible for the creator program",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/niklashatje/\"]",
+    "avatar": "https://gravatar.com/avatar/e16a4426e166713c34626bdde856b1cd15bb6787481a7ead9b74318f19e6259d?r=pg&d=retro&size=200"
+  },
+  "description": "Use case\nWhen collecting new leads via a form, you need to follow up on new submissions. Often, this required a lot of manual work that includes reviewing each submission, checking if they meet your criteria and then outreaching. With this workflow you can do all of that fully automatically and save a lot of your valuable time.\nWhat this workflow does\nThis workflow runs every time you're receiving a new submission from an n8n form. It then filters out typical personal emails (such as Gmail, Hotmail, Yahoo etc.) before enriching the submission via Clearbit. It then checks, if the company of the submitter is a B2B company and has more than 499 employees. If it does, it sends an email via Gmail to the user.\nSetup\nAdd the Clearbit and Gmail credentials\nClick on Test Workflow\nEnter your own email (which needs to be a business email to work) in the Form\nCheck your email\nOnce you're happy don't forget to activate this workflow\nHow to adjust this template\nReplace the form trigger with your form provider of choice (e.g. Typeform, SurveyMonkey, Google Forms etc.)\nAdjust the criteria to your needs via the If node\nAdjust the email you're sending in the Gmail node",
+  "createdAt": "2024-02-21T10:45:02.202Z",
+  "nodes": [
+    {
+      "id": 218,
+      "icon": "file:clearbit.svg",
+      "name": "n8n-nodes-base.clearbit",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.clearbit/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/clearbit/"
+              }
+            ]
+          },
+          "categories": [
+            "Sales"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"output\"]",
+      "defaults": {
+        "name": "Clearbit"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3MiIgaGVpZ2h0PSI3MiI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJhIiB4MT0iNTAlIiB4Mj0iMTAwJSIgeTE9IjAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI0RFRjJGRSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI0RCRjFGRSIvPjwvbGluZWFyR3JhZGllbnQ+PGxpbmVhckdyYWRpZW50IGlkPSJiIiB4MT0iMCUiIHgyPSI1MCUiIHkxPSIwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiM1N0JDRkQiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM1MUI1RkQiLz48L2xpbmVhckdyYWRpZW50PjxsaW5lYXJHcmFkaWVudCBpZD0iYyIgeDE9IjM3LjUlIiB4Mj0iNjIuNSUiIHkxPSIwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMxQ0E3RkQiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxNDhDRkMiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGZpbGw9InVybCgjYSkiIGQ9Ik03MiAzNnYxNi43N2wtLjAwNC44NjhjLS4wNiA2LjAzNS0uNzUgOC4zNTMtMiAxMC42ODhhMTMuNjMgMTMuNjMgMCAwIDEtNS42NyA1LjY3bC0uMzI2LjE3MUM2MS42NTggNzEuMzY0IDU5LjE2IDcyIDUyLjc3IDcySDM2VjM2eiIvPjxwYXRoIGZpbGw9InVybCgjYikiIGQ9Ik02NC4zMjYgMi4wMDNhMTMuNjMgMTMuNjMgMCAwIDEgNS42NyA1LjY3bC4xNzEuMzI3QzcxLjM2NCAxMC4zNDIgNzIgMTIuODQgNzIgMTkuMjNWMzZIMzZWMGgxNi43N2M2LjY4NyAwIDkuMTEyLjY5NiAxMS41NTYgMi4wMDMiLz48cGF0aCBmaWxsPSJ1cmwoI2MpIiBkPSJNMzYgMHY3MkgxOS4yM2wtLjg2OC0uMDA0Yy02LjAzNS0uMDYtOC4zNTMtLjc1LTEwLjY4OC0yYTEzLjYzIDEzLjYzIDAgMCAxLTUuNjctNS42N0wxLjgzMiA2NEMuNjM2IDYxLjY1OCAwIDU5LjE2IDAgNTIuNzdWMTkuMjNjMC02LjY4Ny42OTYtOS4xMTIgMi4wMDMtMTEuNTU2YTEzLjYzIDEzLjYzIDAgMCAxIDUuNjctNS42N0w4IDEuODMyQzEwLjM0Mi42MzYgMTIuODQgMCAxOS4yMyAweiIvPjwvZz48L3N2Zz4="
+      },
+      "displayName": "Clearbit",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 2,
+          "name": "Sales"
+        }
+      ]
+    },
+    {
+      "id": 356,
+      "icon": "file:gmail.svg",
+      "name": "n8n-nodes-base.gmail",
+      "codex": {
+        "data": {
+          "alias": [
+            "email",
+            "human",
+            "form",
+            "wait",
+            "hitl",
+            "approval"
+          ],
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/why-business-process-automation-with-n8n-can-change-your-daily-life/",
+                "icon": "🧬",
+                "label": "Why business process automation with n8n can change your daily life"
+              },
+              {
+                "url": "https://n8n.io/blog/supercharging-your-conference-registration-process-with-n8n/",
+                "icon": "🎫",
+                "label": "Supercharging your conference registration process with n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/no-code-ecommerce-workflow-automations/",
+                "icon": "store",
+                "label": "6 e-commerce workflows to power up your Shopify s"
+              },
+              {
+                "url": "https://n8n.io/blog/how-to-get-started-with-crm-automation-and-no-code-workflow-ideas/",
+                "icon": "👥",
+                "label": "How to get started with CRM automation (with 3 no-code workflow ideas"
+              },
+              {
+                "url": "https://n8n.io/blog/automate-google-apps-for-productivity/",
+                "icon": "💡",
+                "label": "15 Google apps you can combine and automate to increase productivity"
+              },
+              {
+                "url": "https://n8n.io/blog/your-business-doesnt-need-you-to-operate/",
+                "icon": " 🖥️",
+                "label": "Hey founders! Your business doesn't need you to operate"
+              },
+              {
+                "url": "https://n8n.io/blog/using-automation-to-boost-productivity-in-the-workplace/",
+                "icon": "💪",
+                "label": "Using Automation to Boost Productivity in the Workplace"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.gmail/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/google/oauth-single-service/"
+              }
+            ]
+          },
+          "categories": [
+            "Communication",
+            "HITL"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0",
+          "subcategories": {
+            "HITL": [
+              "Human in the Loop"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Gmail"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNTYiIGhlaWdodD0iMTkzIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCI+PHBhdGggZmlsbD0iIzQyODVGNCIgZD0iTTU4LjE4MiAxOTIuMDVWOTMuMTRMMjcuNTA3IDY1LjA3NyAwIDQ5LjUwNHYxMjUuMDkxYzAgOS42NTggNy44MjUgMTcuNDU1IDE3LjQ1NSAxNy40NTV6Ii8+PHBhdGggZmlsbD0iIzM0QTg1MyIgZD0iTTE5Ny44MTggMTkyLjA1aDQwLjcyN2M5LjY1OSAwIDE3LjQ1NS03LjgyNiAxNy40NTUtMTcuNDU1VjQ5LjUwNWwtMzEuMTU2IDE3LjgzNy0yNy4wMjYgMjUuNzk4eiIvPjxwYXRoIGZpbGw9IiNFQTQzMzUiIGQ9Im01OC4xODIgOTMuMTQtNC4xNzQtMzguNjQ3IDQuMTc0LTM2Ljk4OUwxMjggNjkuODY4bDY5LjgxOC01Mi4zNjQgNC42NyAzNC45OTItNC42NyA0MC42NDRMMTI4IDE0NS41MDR6Ii8+PHBhdGggZmlsbD0iI0ZCQkMwNCIgZD0iTTE5Ny44MTggMTcuNTA0VjkzLjE0TDI1NiA0OS41MDRWMjYuMjMxYzAtMjEuNTg1LTI0LjY0LTMzLjg5LTQxLjg5LTIwLjk0NXoiLz48cGF0aCBmaWxsPSIjQzUyMjFGIiBkPSJtMCA0OS41MDQgMjYuNzU5IDIwLjA3TDU4LjE4MiA5My4xNFYxNy41MDRMNDEuODkgNS4yODZDMjQuNjEtNy42NiAwIDQuNjQ2IDAgMjYuMjN6Ii8+PC9zdmc+"
+      },
+      "displayName": "Gmail",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 6,
+          "name": "Communication"
+        },
+        {
+          "id": 28,
+          "name": "HITL"
+        }
+      ]
+    }
+  ]
+}

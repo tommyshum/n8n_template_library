@@ -1,0 +1,47 @@
+{
+  "id": 1940,
+  "name": "Sync Discord scheduled events to Google Calendar",
+  "description": "This workflow syncs Discord scheduled events to Google Calendar. On a specified schedule, a request to Discord's API is made to get the scheduled events on a particular server. Only the events that have not been created or have recently been updated will be sent to Google Calendar.\n\nPrerequisites\nDiscord account and Discord credentials.\nGoogle account and Google credentials.\n\nHow it works\nTriggers off on the On schedule node.\nGets the scheduled events from Discord.\nThe IDs of the Discord scheduled events are used to get the events from Google Calendar, since the IDs are the same on creation of the Google Calendar event.\nWe can now determine which events are new or have been updated.\nThe new or updated events are created or updated in Google Calendar.",
+  "totalViews": 1459,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Calendar",
+      "type": "n8n-nodes-base.googleCalendar",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2023-08-03T09:09:20.414Z",
+  "path": "official/template_1940/workflow.json"
+}

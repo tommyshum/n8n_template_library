@@ -1,0 +1,97 @@
+{
+  "id": 2413,
+  "name": "Notion knowledge base AI assistant",
+  "description": "Who is this for\nThis workflow is perfect for teams and individuals who manage extensive data in Notion and need a quick, AI-powered way to interact with their databases. If you're looking to streamline your knowledge management, automate searches, and get faster insights from your Notion databases, this workflow is for you. It’s ideal for support teams, project managers, or anyone who needs to query specific data across multiple records or within individual pages of their Notion setup.\n\nCheck out the Notion template this Assistant is set up to use: https://www.notion.so/templates/knowledge-base-ai-assistant-with-n8n\n\nHow it works\nThe Notion Database Assistant uses an AI Agent built with Retrieval-Augmented Generation (RAG) to query this Knowledge Base style Notion database. The assistant can search across multiple properties like tags or question and retrieves content from inside individual Notion pages for additional context.\n\nKey features include:\n\nQuerying the database with flexible filters.\nSearching within individual Notion pages and extracting relevant blocks.\nProviding a reference link to the exact Notion pages used to inform its responses, ensuring transparency and easy verification.\nThis assistant uses two HTTP request tools—one for querying the Notion database and another for pulling data from within specific pages. It streamlines knowledge retrieval, offering a conversational, AI-driven way to interact with large datasets.\n\nSet up\nFind basic set up instructions inside the workflow itself or watch a quickstart video 👇\n\n\n",
+  "totalViews": 32599,
+  "source": "official",
+  "user": {
+    "id": 91246,
+    "name": "Max Tkacz",
+    "username": "max-n8n",
+    "bio": "Principal Product Designer @ n8n",
+    "verified": true,
+    "links": "[\"https://n8n.io\"]",
+    "avatar": "https://gravatar.com/avatar/c8f1965a9ff2bef51826e127081be880010ce5f0e3a3fc8ffd54e944d58bd2df?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Productivity",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2024-09-13T12:46:14.899Z",
+  "path": "official/template_2413/workflow.json"
+}

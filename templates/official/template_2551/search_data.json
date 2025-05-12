@@ -1,0 +1,61 @@
+{
+  "id": 2551,
+  "name": "Add new clients from Notion to Clockify",
+  "totalViews": 455,
+  "purchaseUrl": null,
+  "user": {
+    "id": 91454,
+    "name": "Manuel",
+    "username": "automate-everything",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://www.malt.de/profile/manuelvoppmann\"]",
+    "avatar": "https://gravatar.com/avatar/a7d9f6e327b76615463e40984ce452c61b426d599f75373aade121b309f0924d?r=pg&d=retro&size=200"
+  },
+  "description": "Who is this template for?\n\nThis workflow template is ideal for anyone using Notion for project management and Clockify for time tracking. The workflow automatically adds all new clients from Notion to Clockify.\n\nHow it works\nScans your Notion client table every minute for new clients\nAdds all new clients to your Clockify workspace\n\nSet up Steps\nSet up the Notion trigger node by adding your Notion API credentials as described in the n8n Notion docs.\nGo to your Notion clients page/table and give your integration permission to acces the data on this page.  \nGo back to n8n and select your Notion client page in the Notion trigger node.\nSet up the Clockify node by adding your Clockify API credentials as described in the n8n Clockify docs, select your Clockify workspace and map your client name column from Notion to the Clockify \"Client Name\" field.",
+  "createdAt": "2024-11-16T14:08:29.825Z",
+  "nodes": [
+    {
+      "id": 371,
+      "icon": "file:clockify.svg",
+      "name": "n8n-nodes-base.clockify",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.clockify/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/clockify/"
+              }
+            ]
+          },
+          "categories": [
+            "Productivity"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Clockify"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yNS44MDA1IDEzLjc0ODRMMzQuOTg0NCA0LjU1ODcyTDM3LjYxMzMgNy4xODczMUwyOC40MjkzIDE2LjM3NzJMMjUuODAwNSAxMy43NDg0Wk0yMi4wNzkxIDIzLjEzOThDMjAuMjgxOCAyMy4xMzk4IDE4LjgyNTcgMjEuNjc3MyAxOC44MjU3IDE5Ljg3MTRDMTguODI1NyAxOC4wNjczIDIwLjI4MTggMTYuNjAyOSAyMi4wNzkxIDE2LjYwMjlDMjMuODc2NSAxNi42MDI5IDI1LjMzMjYgMTguMDY3MyAyNS4zMzI2IDE5Ljg3MTRDMjUuMzMyNiAyMS42NzczIDIzLjg3NjUgMjMuMTM5OCAyMi4wNzkxIDIzLjEzOThaTTM3LjY1NjIgMzIuNjMyTDM1LjAyNzQgMzUuMjYyNUwyNS44NDMzIDI2LjA3MjVMMjguNDcyMiAyMy40NDJMMzcuNjU2MiAzMi42MzJaIiBmaWxsPSIjMjIyMjIyIi8+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMjIuMTczOSAzNC4wMDU4QzI0LjAyNTIgMzQuMDA1OCAyNS43ODg5IDMzLjYzNjQgMjcuNDA1NSAzMi45Nzk3TDMxLjg5MTEgMzcuNDcwM0MyOS4wMTQ0IDM5LjA3NjQgMjUuNzAzMSA0MCAyMi4xNzM5IDQwQzExLjEzNjYgNDAgMi4xODc1IDMxLjA0NTIgMi4xODc1IDIwLjAwMDlDMi4xODc1IDguOTU0ODQgMTEuMTM2NyAwIDIyLjE3MzkgMEMyNS42Njc4IDAgMjguOTQ5MiAwLjkwMTA5NCAzMS44MDUzIDIuNDc3NUwyNy4zOTQyIDYuODkzMjhDMjUuNzc5NyA2LjI0MDMxIDI0LjAyMTYgNS44NzA5NCAyMi4xNzM5IDUuODcwOTRDMTQuNDQ0MiA1Ljg3MDk0IDguMTc3ODEgMTIuMTY5MiA4LjE3NzgxIDE5LjkzOTRDOC4xNzc4MSAyNy43MDc1IDE0LjQ0NDEgMzQuMDA1OCAyMi4xNzM5IDM0LjAwNThaIiBmaWxsPSIjMDNBOUY0Ii8+Cjwvc3ZnPgo="
+      },
+      "displayName": "Clockify",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 4,
+          "name": "Productivity"
+        }
+      ]
+    }
+  ]
+}

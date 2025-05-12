@@ -1,0 +1,73 @@
+{
+  "id": 2025,
+  "name": "OpenAI assistant with custom tools",
+  "description": "This workflow shows how you can get your OpenAI assistant to call an n8n workflow as a tool. Since you can put almost any functionality in an n8n workflow, this means you can give your assistant access to almost any data source.\n\nNote that to use this template, you need to be on n8n version 1.19.4 or later.\n",
+  "totalViews": 11000,
+  "source": "official",
+  "user": {
+    "id": 14122,
+    "name": "David Roberts",
+    "username": "davidn8n",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/4cda9c7c1c24fdb61896cac588296d1dad03655a439ab71ef34f4c62c0ba8524?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Code Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolCode",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2023-12-15T14:38:30.522Z",
+  "path": "official/template_2025/workflow.json"
+}

@@ -1,0 +1,81 @@
+{
+  "id": 2610,
+  "name": "Smartlead to HubSpot Performance Analytics",
+  "description": "\n*Smartlead to HubSpot Performance Analytics\nA streamlined workflow to analyze your Smartlead performance metrics by tracking lifecycle stages in HubSpot and generating automated reports.*\n\nWho is this for?\n\n(Outbound) Automation Agencies, Sales and marketing teams using Smartlead for outreach campaigns who want to track their performance metrics and lead progression in HubSpot.\n\nWhat problem does this workflow solve?\n\nManual tracking of lead performance across Smartlead and HubSpot is time-consuming and error-prone. This workflow automates performance reporting by connecting your Smartlead data with HubSpot lifecycle stages, providing clear insights into your outreach campaign effectiveness.\n\nWhat this workflow does\n\nAutomatically pulls performance data from your Smartlead campaigns\nCross-references contact status with HubSpot lifecycle stages\nGenerates comprehensive performance reports in Google Sheets\nProvides customizable reporting schedules to match your team's needs\n\nSetup Requirements\n\nPostgreSQL Database\n\nSet up your PostgreSQL instance (includes $300 free GCP credits)\nFollow our step-by-step setup guide: Find a step-by-step guide here\n\nGoogle Account Integration\n\nConnect your Google Account to n8n\nFind the guide here\n\nSmartlead Configuration\n\nConnect your Smartlead instance:\nDetailed connection guide included in workflow\n\nHow to customize this workflow\n\nConfigure the Trigger node to adjust report frequency\nModify the Google Sheets template to match your specific KPIs\nCustomize HubSpot lifecycle stage mapping in the Function node\nAdjust PostgreSQL queries to track additional metrics\n\nNeed assistance or have suggestions? \nlmk here",
+  "totalViews": 1309,
+  "source": "official",
+  "user": {
+    "id": 91703,
+    "name": "victor de coster",
+    "username": "vliegendepater",
+    "bio": "",
+    "verified": false,
+    "links": "[\"https://www.linkedin.com/in/victordecoster/\"]",
+    "avatar": "https://gravatar.com/avatar/b30d31c33606cb6d6809c7f88d7eaf5b8bdd2b50dcbd3287f2f9fc0c769ecd90?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Sales"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Postgres",
+      "type": "n8n-nodes-base.postgres",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HubSpot",
+      "type": "n8n-nodes-base.hubspot",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2024-12-05T13:51:28.938Z",
+  "path": "official/template_2610/workflow.json"
+}

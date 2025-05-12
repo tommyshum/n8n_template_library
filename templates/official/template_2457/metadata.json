@@ -1,0 +1,110 @@
+{
+  "id": 2457,
+  "name": "Multi-Agent PDF-to-Blog Content Generation",
+  "description": "Purpose of workflow:\n\nThe purpose of this workflow is to automatically transform complex, lengthy PDFs into concise, insightful blog posts. This process aims to make dense information more accessible and understandable to a broader audience.\n\nHow it works:\n\nMulti-agent team:\n\nWorking together to transform PDF to insightful blog\nContent Analyst: Extracts key information and structure from the PDF.\nProject Planner: Organizes the workflow and ensures efficient processing.\nWriters: Multiple agents that craft engaging content based on the analyzed information.\nEditor: Polishes the final output for accuracy, reliability, and readability.\n\n\nStep by step\nUser inputs parameters via a n8n form (tone, word count, sections, PDF file).\nSystem extracts text from the PDF.\nContent Analyst AI agent analyzes the extracted text, identifying main topics and key points.\nProject Planner AI agent organizes the workflow, creating a structure for the blog post.\nMultiple Writer AI agents (based on the number of sections specified) each write a portion of the blog post.\nEditor AI agent combines all sections and polishes the final draft.\nGenerates a title for the blog post.\nFinal content is uploaded to a publishing Ghost platform\n",
+  "totalViews": 13084,
+  "source": "official",
+  "user": {
+    "id": 91384,
+    "name": "Derek Cheung",
+    "username": "derekcheungsa",
+    "bio": "Derek is an engineer, instructor, and investor based in Canada. He is publicly building AI applications to solve real-world problems, leveraging his technical expertise to develop practical solutions.",
+    "verified": true,
+    "links": "[\"https://www.youtube.com/@derekcheungsa\"]",
+    "avatar": "https://gravatar.com/avatar/1d8dbb30401a76425734d4319abbaa38548b7572064ca080740bbfe60324772a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Marketing",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Ghost",
+      "type": "n8n-nodes-base.ghost",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2024-10-09T03:22:17.862Z",
+  "path": "official/template_2457/workflow.json"
+}

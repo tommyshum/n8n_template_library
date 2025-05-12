@@ -1,0 +1,52 @@
+{
+  "id": 2818,
+  "name": "Fetch Scriptures Dynamically from get Bible API",
+  "description": "Overview\nThe Get Bible Query Workflow is a modular and self-standing workflow designed to retrieve scriptures dynamically based on structured input. It serves as an intermediary layer that extracts references, queries the GetBible API, and returns scriptures in a standardized JSON format.\n\nThis workflow is fully prepared for integration—simply call it from another workflow with the required JSON input, and it will return the requested scripture data.\n\nWho Is This For?\nThis workflow is ideal for developers, Bible study apps, research tools, and dynamic scripture-based projects that need seamless access to scriptural content without direct API interaction.\n\n✅ Use Cases:\nBible Study Apps** → Embed scripture retrieval functionality.\nResearch & Theology Tools** → Fetch structured verse data.\nDynamic Content Generation** → Integrate real-time scripture references.\nSermon Preparation** → Automate scripture lookups.\n\nHow It Works\nTrigger Workflow → This workflow is designed to be called from another workflow with a structured JSON input.\nReceive Input → Accepts a JSON object containing references, translation, and API version.\nExtract References → Parses single verses, comma-separated lists, and ranged passages.\nQuery API → Sends structured requests to the GetBible API.\nFormat Response → Returns structured JSON output, maintaining API response consistency.\n\nJSON Input Structure\nReferences** → Should include the book name, chapter, and verse(s).\nMultiple Verses** → Separated by commas (e.g., John 3:16,18).\nVerse Ranges** → Defined with a dash (e.g., John 3:16-18).\nTranslation** → Choose from the supported translations.\nAPI Version** → Currently supports v2.\n\nExample JSON Input\n{\n  \"references\": [\n    \"1 John 3:16\",\n    \"Jn 3:16\",\n    \"James 3:16\",\n    \"Rom 3:16\"\n  ],\n  \"translation\": \"kjv\",\n  \"version\": \"v2\"\n}\n\nExample API Response\n{\n  \"result\": {\n    \"kjv_62_3\": {\n      \"translation\": \"King James Version\",\n      \"abbreviation\": \"kjv\",\n      \"book_name\": \"1 John\",\n      \"chapter\": 3,\n      \"ref\": [\"1 John 3:16\"],\n      \"verses\": [\n        {\n          \"chapter\": 3,\n          \"verse\": 16,\n          \"name\": \"1 John 3:16\",\n          \"text\": \"Hereby perceive we the love of God, because he laid down his life for us: and we ought to lay down our lives for the brethren.\"\n        }\n      ]\n    }\n  }\n}\n\n💡 Fully structured and formatted response – ready for seamless integration.\n\nIntegration and Usage\nThe GetBible Query Workflow is designed for immediate use. Simply call it from another workflow and pass the appropriate JSON object as input, and it will return the requested scripture passages.\n\n✔️ No additional configuration is required.\n✔️ Designed for fast, reliable, and structured scripture retrieval.\n✔️ Fully compatible with GetBible API responses.\n\nWhy Use This Workflow?\n✔️ Fast & Reliable → Direct API integration for efficient queries.\n✔️ Flexible Queries → Supports single, multi-verse, and ranged requests.\n✔️ Agent-Compatible → Easily integrates into automated workflows.\n✔️ No Code Needed → Just configure the JSON input and run the workflow.\n\nNext Steps\n🔗 API Support\n📖 API Documentation\n💬 Need help? Join the community for support! 🚀",
+  "totalViews": 435,
+  "source": "official",
+  "user": {
+    "id": 92555,
+    "name": "getBible",
+    "username": "christian",
+    "bio": "The Bible API",
+    "verified": false,
+    "links": "[\"https://git.vdm.dev/getBible\"]",
+    "avatar": "https://gravatar.com/avatar/7c968e718e8b77357e9cea690a2e1f1e829218c1f660e4ce790bfd8a0e455c87?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-01-29T13:42:38.278Z",
+  "path": "official/template_2818/workflow.json"
+}

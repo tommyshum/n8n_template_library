@@ -1,0 +1,124 @@
+{
+  "id": 3483,
+  "name": "Sell a Used Car with an AI Agent in Airtop",
+  "totalViews": 326,
+  "purchaseUrl": null,
+  "user": {
+    "id": 93583,
+    "name": "Airtop",
+    "username": "cesar-at-airtop",
+    "bio": "Airtop provides an intelligent browser automation API for AI agents, enabling seamless web interaction, including login, navigation, and data extraction from any site, even those with complex authentication - all with  natural language instructions.In simple terms, we allow you to automate anything humans can do online, on any site with just words",
+    "verified": true,
+    "links": "[\"https://www.airtop.ai/\"]",
+    "avatar": "https://gravatar.com/avatar/d5894c2c744b03ab0766a6d1846484ea7cc1a19e57310afad70044183766dbf4?r=pg&d=retro&size=200"
+  },
+  "description": "How to Sell Your Used Car Easily with Airtop\n\nSelling a used car traditionally involves tedious manual steps: listing your vehicle online, filling repetitive forms, answering buyer inquiries, and comparing multiple offers—often leading to lost time, inaccuracies, and missed opportunities. Dealers' platforms and marketplace websites can introduce additional friction, occasionally requiring manual interactions and delivering inconsistent offers.\n\nThe Sell a Used Car Agent powered by Airtop and n8n eliminates this friction by automating the selling process. Simply input your car's details once, and the automation quickly navigates through popular used car marketplaces like Carvana, CarMax, and others, efficiently fetching competitive buying offers. Leveraging Airtop’s powerful real-browser automation capabilities, this setup interacts smoothly with the forms and queries specific to each sales platform, eliminating error-prone manual entries and tedious repetition.\n\nThis Airtop automation employs sophisticated data extraction features, including structured JSON output, ensuring accurate, formatted data ready for immediate review.\n\nSay goodbye to cumbersome listing processes, and hello to streamlined, effortless car selling.\n\nWho is this Automation for?\n\n Automation engineers streamlining marketplace interactions\n Developers building user-friendly car selling apps\n Technical teams optimizing inventory resale processes\n Dealership IT departments automating valuation systems\n\nKey Benefits\n\nNo-code automation setup using Make\nSaves significant time with instant multi-platform offers\nReal browser sessions ensuring reliable site interactions\nStructured JSON output simplifying data integration\n\nUse Cases\n\nCar dealership teams quickly pricing used vehicles\nIndividuals efficiently comparing offers from online dealers\nDevelopers building consumer-friendly automated car resale apps\nTechnical consultants streamlining used car valuation processes\n\nHow this Airtop Automation Works\n\nWhen started, Airtop opens automated, real browser sessions to intelligently fill out required car details on leading resale marketplaces (e.g., Carvana and CarMax). It captures instantly generated vehicle offers, structures them into clean JSON output, and returns organized buying proposals. All of this is accomplished without manual intervention.\n\nWhat You’ll Need\n\nA free Airtop API key\nBasic details describing your vehicle (make, model, condition, mileage)\n\nSetting up the workflow\n\nCreate a new Airtop connection with your API key:\n\n\n\nEnter the information about the car you are selling into the \"Variables\" node. For example:\n\n&gt; VIN: 1FTRF17253NB81140\nMileage: 221081\nZip code: 01952\nCondition: Perfect, no interior or exterior damages, all tires are inflated, have 2 keys, working battery, has an attached catalytic converter, Airbags not deployed, No flood or fire damage.\nOwnership: full clean title with no debt answer yes to all other questions\n\nRun the workflow\nCustomize the Automation\n\nAdd or remove marketplaces based on regional availability or preference\nExtend JSON outputs to your internal inventory or sales systems\nSchedule regular automation runs to track market pricing trends\nIntegrate additional valuation platforms for broader market coverage\n\nAutomation Best Practices\n\nRegularly review marketplace URLs to maintain accuracy and consistency\nVerify structured data to ensure consistent JSON outputs\nMaintain clearly documented Make scenarios for easy debugging\nPeriodically update your car's condition description for accurate pricing\n\n\nHappy Automating!",
+  "createdAt": "2025-04-08T18:51:40.903Z",
+  "nodes": [
+    {
+      "id": 834,
+      "icon": "file:code.svg",
+      "name": "n8n-nodes-base.code",
+      "codex": {
+        "data": {
+          "alias": [
+            "cpde",
+            "Javascript",
+            "JS",
+            "Python",
+            "Script",
+            "Custom Code",
+            "Function"
+          ],
+          "details": "The Code node allows you to execute JavaScript in your workflow.",
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.code/"
+              }
+            ]
+          },
+          "categories": [
+            "Development",
+            "Core Nodes"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0",
+          "subcategories": {
+            "Core Nodes": [
+              "Helpers",
+              "Data Transformation"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Code"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwMF8xMTcxXzQ0MSkiPgo8cGF0aCBkPSJNMTcwLjI4MyA0OEgxOTYuNUMyMDMuMTI3IDQ4IDIwOC41IDQyLjYyNzQgMjA4LjUgMzZWMTJDMjA4LjUgNS4zNzI1OCAyMDMuMTI3IDAgMTk2LjUgMEgxNzAuMjgzQzEyNi4xIDAgOTAuMjgzIDM1LjgxNzIgOTAuMjgzIDgwVjE3NkM5MC4yODMgMjA2LjkyOCA2NS4yMTA5IDIzMiAzNC4yODMgMjMySDIzQzE2LjM3MjYgMjMyIDExIDIzNy4zNzIgMTEgMjQ0VjI2OEMxMSAyNzQuNjI3IDE2LjM3MjQgMjgwIDIyLjk5OTYgMjgwTDM0LjI4MyAyODBDNjUuMjEwOSAyODAgOTAuMjgzIDMwNS4wNzIgOTAuMjgzIDMzNlY0NDBDOTAuMjgzIDQ3OS43NjQgMTIyLjUxOCA1MTIgMTYyLjI4MyA1MTJIMTk2LjVDMjAzLjEyNyA1MTIgMjA4LjUgNTA2LjYyNyAyMDguNSA1MDBWNDc2QzIwOC41IDQ2OS4zNzMgMjAzLjEyNyA0NjQgMTk2LjUgNDY0SDE2Mi4yODNDMTQ5LjAyOCA0NjQgMTM4LjI4MyA0NTMuMjU1IDEzOC4yODMgNDQwVjMzNkMxMzguMjgzIDMwOS4wMjIgMTI4LjAxMSAyODQuNDQzIDExMS4xNjQgMjY1Ljk2MUMxMDYuMTA5IDI2MC40MTYgMTA2LjEwOSAyNTEuNTg0IDExMS4xNjQgMjQ2LjAzOUMxMjguMDExIDIyNy41NTcgMTM4LjI4MyAyMDIuOTc4IDEzOC4yODMgMTc2VjgwQzEzOC4yODMgNjIuMzI2OSAxNTIuNjEgNDggMTcwLjI4MyA0OFoiIGZpbGw9IiNGRjk5MjIiLz4KPHBhdGggZD0iTTMwNSAzNkMzMDUgNDIuNjI3NCAzMTAuMzczIDQ4IDMxNyA0OEgzNDIuOTc5QzM2MC42NTIgNDggMzc0Ljk3OCA2Mi4zMjY5IDM3NC45NzggODBWMTc2QzM3NC45NzggMjAyLjk3OCAzODUuMjUxIDIyNy41NTcgNDAyLjA5OCAyNDYuMDM5QzQwNy4xNTMgMjUxLjU4NCA0MDcuMTUzIDI2MC40MTYgNDAyLjA5OCAyNjUuOTYxQzM4NS4yNTEgMjg0LjQ0MyAzNzQuOTc4IDMwOS4wMjIgMzc0Ljk3OCAzMzZWNDMyQzM3NC45NzggNDQ5LjY3MyAzNjAuNjUyIDQ2NCAzNDIuOTc5IDQ2NEgzMTdDMzEwLjM3MyA0NjQgMzA1IDQ2OS4zNzMgMzA1IDQ3NlY1MDBDMzA1IDUwNi42MjcgMzEwLjM3MyA1MTIgMzE3IDUxMkgzNDIuOTc5QzM4Ny4xNjEgNTEyIDQyMi45NzggNDc2LjE4MyA0MjIuOTc4IDQzMlYzMzZDNDIyLjk3OCAzMDUuMDcyIDQ0OC4wNTEgMjgwIDQ3OC45NzkgMjgwSDQ5MEM0OTYuNjI3IDI4MCA1MDIgMjc0LjYyOCA1MDIgMjY4VjI0NEM1MDIgMjM3LjM3MyA0OTYuNjI4IDIzMiA0OTAgMjMyTDQ3OC45NzkgMjMyQzQ0OC4wNTEgMjMyIDQyMi45NzggMjA2LjkyOCA0MjIuOTc4IDE3NlY4MEM0MjIuOTc4IDM1LjgxNzIgMzg3LjE2MSAwIDM0Mi45NzkgMEgzMTdDMzEwLjM3MyAwIDMwNSA1LjM3MjU4IDMwNSAxMlYzNloiIGZpbGw9IiNGRjk5MjIiLz4KPC9nPgo8ZGVmcz4KPGNsaXBQYXRoIGlkPSJjbGlwMF8xMTcxXzQ0MSI+CjxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiBmaWxsPSJ3aGl0ZSIvPgo8L2NsaXBQYXRoPgo8L2RlZnM+Cjwvc3ZnPgo="
+      },
+      "displayName": "Code",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 5,
+          "name": "Development"
+        },
+        {
+          "id": 9,
+          "name": "Core Nodes"
+        }
+      ]
+    },
+    {
+      "id": 1282,
+      "icon": "file:airtop.svg",
+      "name": "n8n-nodes-base.airtop",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.airtop/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/airtop/"
+              }
+            ]
+          },
+          "categories": [
+            "Productivity",
+            "Development"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Airtop"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgZmlsbD0ibm9uZSI+PGcgZmlsdGVyPSJ1cmwoI2EpIj48ZyBjbGlwLXBhdGg9InVybCgjYikiPjxjaXJjbGUgY3g9IjE2IiBjeT0iMTYiIHI9IjE2IiBmaWxsPSIjMTAyNjI2Ii8+PGcgZmlsdGVyPSJ1cmwoI2MpIj48cGF0aCBzdHJva2U9IiM1OEQxRUMiIHN0cm9rZS1vcGFjaXR5PSIuMiIgc3Ryb2tlLXdpZHRoPSIyMS44MjEiIGQ9Im0tMjQuMTcyLTMzLjMyNSA0MS45NDYgNTEuNDE0Ii8+PC9nPjxwYXRoIGZpbGw9InVybCgjZCkiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTEyLjU5OCA5LjI1OGMxLjYwNy0yLjU0NSA1LjMxOC0yLjU0NSA2LjkyNSAwbDIuMzMgMy42OWMuNzA1IDEuMTE1LS4wOTcgMi41Ny0xLjQxNiAyLjU3LTIuMjA3IDAtMy4wODgtLjg0MS0zLjY2LTQuMTgybC0xLjQyMy4wMDVjLS40OTYgMy4zNDYtMS41MDcgNC4xNzctNC4xNyA0LjE3N2wtLjAwNSAxLjQzN2MyLjY5NiAwIDQuMTc1IDEuNDk1IDQuMTc1IDMuNDU0YTIuOTQgMi45NCAwIDAgMS0yLjk0IDIuOTRoLTEuMjg1Yy0zLjIyNSAwLTUuMTg1LTMuNTU1LTMuNDYzLTYuMjgybDQuOTMyLTcuODA5em03LjEyNSAxNC4wOTJhMi45NDUgMi45NDUgMCAwIDEtMi45NDUtMi45NDZjMC0xLjk1NCAxLjMwNS0zLjQ0OSAzLjY1OS0zLjQ0OWgxLjQ0M2MxLjQ3OSAwIDMuMDkzLjkyNCAzLjA5MyAyLjc0NiAwIDIuMjA5LTIuNTExIDMuNjQ5LTMuOTIxIDMuNjQ5aC0xLjMyOXoiIGNsaXAtcnVsZT0iZXZlbm9kZCIvPjwvZz48L2c+PGRlZnM+PGZpbHRlciBpZD0iYSIgd2lkdGg9IjMyIiBoZWlnaHQ9IjM1IiB4PSIwIiB5PSItMiIgY29sb3ItaW50ZXJwb2xhdGlvbi1maWx0ZXJzPSJzUkdCIiBmaWx0ZXJVbml0cz0idXNlclNwYWNlT25Vc2UiPjxmZUZsb29kIGZsb29kLW9wYWNpdHk9IjAiIHJlc3VsdD0iQmFja2dyb3VuZEltYWdlRml4Ii8+PGZlQmxlbmQgaW49IlNvdXJjZUdyYXBoaWMiIGluMj0iQmFja2dyb3VuZEltYWdlRml4IiByZXN1bHQ9InNoYXBlIi8+PGZlQ29sb3JNYXRyaXggaW49IlNvdXJjZUFscGhhIiByZXN1bHQ9ImhhcmRBbHBoYSIgdmFsdWVzPSIwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAxMjcgMCIvPjxmZU9mZnNldCBkeT0iMSIvPjxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjEiLz48ZmVDb21wb3NpdGUgaW4yPSJoYXJkQWxwaGEiIGsyPSItMSIgazM9IjEiIG9wZXJhdG9yPSJhcml0aG1ldGljIi8+PGZlQ29sb3JNYXRyaXggdmFsdWVzPSIwIDAgMCAwIDAuMzQ1MDk4IDAgMCAwIDAgMC44MTk2MDggMCAwIDAgMCAwLjkyNTQ5IDAgMCAwIDAuMTYgMCIvPjxmZUJsZW5kIGluMj0ic2hhcGUiIHJlc3VsdD0iZWZmZWN0MV9pbm5lclNoYWRvd184MjBfMTA0NTUiLz48ZmVDb2xvck1hdHJpeCBpbj0iU291cmNlQWxwaGEiIHJlc3VsdD0iaGFyZEFscGhhIiB2YWx1ZXM9IjAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDEyNyAwIi8+PGZlT2Zmc2V0IGR5PSItMiIvPjxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjEiLz48ZmVDb21wb3NpdGUgaW4yPSJoYXJkQWxwaGEiIGsyPSItMSIgazM9IjEiIG9wZXJhdG9yPSJhcml0aG1ldGljIi8+PGZlQ29sb3JNYXRyaXggdmFsdWVzPSIwIDAgMCAwIDAuMDE0ODk4NSAwIDAgMCAwIDAuMDkyNjkwMSAwIDAgMCAwIDAuMDkyNjkwMSAwIDAgMCAwLjQgMCIvPjxmZUJsZW5kIGluMj0iZWZmZWN0MV9pbm5lclNoYWRvd184MjBfMTA0NTUiIHJlc3VsdD0iZWZmZWN0Ml9pbm5lclNoYWRvd184MjBfMTA0NTUiLz48L2ZpbHRlcj48ZmlsdGVyIGlkPSJjIiB3aWR0aD0iNzQuODU0IiBoZWlnaHQ9IjgxLjIwOSIgeD0iLTQwLjYyNyIgeT0iLTQ4LjIyMyIgY29sb3ItaW50ZXJwb2xhdGlvbi1maWx0ZXJzPSJzUkdCIiBmaWx0ZXJVbml0cz0idXNlclNwYWNlT25Vc2UiPjxmZUZsb29kIGZsb29kLW9wYWNpdHk9IjAiIHJlc3VsdD0iQmFja2dyb3VuZEltYWdlRml4Ii8+PGZlQmxlbmQgaW49IlNvdXJjZUdyYXBoaWMiIGluMj0iQmFja2dyb3VuZEltYWdlRml4IiByZXN1bHQ9InNoYXBlIi8+PGZlR2F1c3NpYW5CbHVyIHJlc3VsdD0iZWZmZWN0MV9mb3JlZ3JvdW5kQmx1cl84MjBfMTA0NTUiIHN0ZERldmlhdGlvbj0iNCIvPjwvZmlsdGVyPjxyYWRpYWxHcmFkaWVudCBpZD0iZCIgY3g9IjAiIGN5PSIwIiByPSIxIiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KC0xMS42ODQzNSAxMS43MDQ3NiAtODkuMDUyMTUgLTg4Ljg5Njg2IDE5LjI4IDkuNTU3KSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPjxzdG9wIG9mZnNldD0iLjYxMyIgc3RvcC1jb2xvcj0iI2ZmZiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2ZmZiIgc3RvcC1vcGFjaXR5PSIuOCIvPjwvcmFkaWFsR3JhZGllbnQ+PGNsaXBQYXRoIGlkPSJiIj48cmVjdCB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIGZpbGw9IiNmZmYiIHJ4PSIxNiIvPjwvY2xpcFBhdGg+PC9kZWZzPjwvc3ZnPg=="
+      },
+      "displayName": "Airtop",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 4,
+          "name": "Productivity"
+        },
+        {
+          "id": 5,
+          "name": "Development"
+        }
+      ]
+    }
+  ]
+}

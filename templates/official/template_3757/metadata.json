@@ -1,0 +1,122 @@
+{
+  "id": 3757,
+  "name": "Automate Microsoft Teams Meeting Analysis with GPT-4.1, Outlook & Mem.ai",
+  "description": "Template Overview: Automate Microsoft Teams Meeting Analysis with GPT-4.1, Outlook & Mem.ai\n\n🚨 Important Prerequisites\n\n⚠️ Administrator consent is required\n \nThis template requires a Microsoft 365 Global Administrator or Application Administrator to grant admin consent to a set of Microsoft Graph and SharePoint API scopes.  \n\n⚙️ Basic Azure App Registration knowledge is required:  \n\nYou need to set up an Azure App Registration manually, configure OAuth2 authentication, and assign specific API permissions.\n\nA setup guide is included, but familiarity with:\nApp registrations\nAPI permissions\nClient secrets\nOAuth2 flows  \n\nis highly recommended.\n\n⚠️ Knowledge of Postgres is required\nThe template includes a SQL script to create the required Postgres table.\n\nYou are responsible for hosting your own database (You can use Supabase with the Postgres connection string).\n\n🚀 Template Overview\n\nThis advanced n8n template automates Microsoft Teams meeting analysis, knowledge base creation, and email drafting directly from meeting recordings and transcripts.\n\nIt provides end-to-end automation for the following use cases:\n\n🎥 Meeting Analysis\nConnects to Microsoft Graph to retrieve meeting recordings, chat messages, and transcripts.\nAnalyses meeting content using AI models.\nExtracts key points, action items, questions, and themes from meetings automatically.\n\n🌐 AI-Powered Web App\nAutomatically creates a detailed report from past meetings.\nStores meeting summaries, metadata, and insights into an easy-to-browse frontend.\nNew meetings are added dynamically without manual work.\n\n📚 Knowledge Base Indexing (via Mem.ai)\nUploads extracted meeting data into a structured knowledge base.\nSupports categorization, search and chat functionality across meetings.\n\n✉️ Draft Follow-Up Emails\nDrafts personalised follow-up emails for meeting participants.\nEmail drafts include:\n  Meeting summary\n  Key decisions\n  Action items\nEmails can be sent manually with human in the loop context via Microsoft Outlook integration.\n\n⚡ Core Components\nMicrosoft Graph API** for accessing meetings, chats, files, and user profiles.\nSharePoint API** for file storage and search.\nn8n Webhooks** to trigger processes dynamically.\nGeneric OAuth2 authentication** for seamless Microsoft access.\nJavaScript Code Nodes** for flexible, intelligent parsing and structuring of meeting data.\nAI/LLM nodes** for summarisation and content creation.\n\n✅ Designed to be scalable, modular, and easily customisable for different organisation sizes and industries.\n\n🛡️ Note\nFailure to correctly configure Azure permissions will prevent the template from functioning.  \nEnsure admin approval is fully completed during setup.",
+  "totalViews": 380,
+  "source": "official",
+  "user": {
+    "id": 91547,
+    "name": "Wayne Simpson",
+    "username": "nocodecreative",
+    "bio": "I’m Wayne, an AI, automation & low-code consultant, passionate about helping businesses unlock their potential through smart, practical solutions.\n\nContact me at https://www.nocodecreative.io",
+    "verified": true,
+    "links": "[\"https://www.nocodecreative.io\"]",
+    "avatar": "https://gravatar.com/avatar/4411649cc7663c2b65bc85988745080d5a677931114ea9e85f02b66a74d2e323?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Postgres",
+      "type": "n8n-nodes-base.postgres",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Microsoft Outlook",
+      "type": "n8n-nodes-base.microsoftOutlook",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-04-27T11:15:32.310Z",
+  "path": "official/template_3757/workflow.json"
+}

@@ -1,0 +1,34 @@
+{
+  "id": 2702,
+  "name": "Save Hotmart events to Google Sheets",
+  "description": "Português\n\nAcompanhe todos os seus eventos do Hotmart em um só lugar e mantenha seus dados organizados para análise.\n\nCom este fluxo você pode registrar compras, reembolsos, eventos de assinatura e abandono de carrinho diretamente no Google Sheets.\n\nComo funciona\n\nO fluxo recebe os eventos da Hotmart e registra automaticamente no Google Sheets.\n\nPor exemplo:\n\nCompras são registradas com informações como nome do produto, valor pago e dados do comprador.\nAbandono de carrinho registra informações sobre o produto visualizado, dados de contato do cliente e horários.\nEventos de assinatura mostram atualizações como cancelamentos ou renovações.\n\nPara quem é?\n\nCriadores, empreendedores e negócios que usam o Hotmart e precisam de uma forma clara e automatizada de acompanhar suas vendas e dados de assinatura.\n\nRemova a necessidade de transferir dados manualmente – este fluxo de trabalho faz isso por você, economizando tempo e reduzindo erros.\n\nConfira meus outros templates\n\n👉 https://n8n.io/creators/solomon/\n\nEnglish\n\nTrack all your Hotmart events in one place and keep your data organized for analysis.\n\nWith this workflow, you can register purchases, refunds, subscription events, and cart abandonment directly in Google Sheets.\n\nHow it works\n\nThe workflow listens for events from Hotmart and automatically records the details in Google Sheets.\n\nFor example:\n\nPurchases are logged with details like product name, amount paid, and buyer information.\nCart abandonment records include the product viewed, customer contact details, and timestamps.\nSubscription events show updates like cancellations or renewals.\n\nWho is this for?\n\nCreators, entrepreneurs, and businesses using Hotmart who need a clear and automated way to track their sales and subscription data.\n\nNo need to manually transfer data – this workflow does it for you, saving time and reducing errors.\n\nCheck out my other templates\n\n👉 https://n8n.io/creators/solomon/",
+  "totalViews": 416,
+  "source": "official",
+  "user": {
+    "id": 91663,
+    "name": "Solomon",
+    "username": "solomon",
+    "bio": "Freelance consultant from Brazil, specializing in automations and data analysis. I work with select clients, addressing their toughest projects.\n\nFor business inquiries, email me at automations.solomon@gmail.com or message me on Telegram for a faster response.",
+    "verified": true,
+    "links": "[\"https://t.me/salomaoguilherme\"]",
+    "avatar": "https://gravatar.com/avatar/79aa147f090807fe0f618fb47a1de932669e385bb0c84bf3a7f891ae7d174256?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-01-06T23:55:50.691Z",
+  "path": "official/template_2702/workflow.json"
+}

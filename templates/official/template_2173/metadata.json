@@ -1,0 +1,32 @@
+{
+  "id": 2173,
+  "name": "Auto document your n8n workflows",
+  "description": "Who is this for?\n\nThis workflow is designed for n8n users and developers who need to automate the documentation process of their n8n workflows. It's particularly useful for teams looking to streamline their documentation efforts and ensure consistency across their workflow documentation.\n\nWhat problem is this workflow solving? / Use case\n\nThe primary problem this workflow addresses is the manual and time-consuming process of creating documentation for n8n workflows. It automates the generation of concise, clear, and comprehensive documentation directly from the workflow's JSON, making it easier for both technical and non-technical users to understand what the workflow does and how it operates.\n\nWhat this workflow does\n\nUpon receiving a form submission with the workflow title and JSON, this workflow automatically generates documentation that includes:\nA brief introduction to the workflow.\nThe trigger mechanism (webhook URLs for test and production environments, or cron schedules).\nSetup requirements, including necessary credentials and external dependencies.\n\nSetup\n\nCredentials Setup: Ensure you have OpenAI API credentials configured in n8n to use the GPT model for generating documentation text.\nForm Submission: Users must submit the form with the workflow title and JSON. The form is accessible via:\n   Test URL: domain/form-test/{webhookId}\n   Production URL: domain/form/{webhookId}\n\nHow to customize this workflow to your needs\n\nModify Trigger URLs**: Adjust the webhook or form URLs based on your domain and specific n8n setup.\nCustomize Documentation Template**: Edit the OpenAI node's prompt to change the structure or details of the generated documentation.\nExtend Functionality**: Add nodes to integrate with other systems (e.g., automatically publishing the documentation to a wiki or sending it via email).\n\nThis workflow simplifies the documentation process, making it accessible and manageable for teams of all sizes and technical abilities. By automating documentation, it ensures that all workflows are properly documented, enhancing understanding and efficiency within teams.",
+  "totalViews": 8480,
+  "source": "official",
+  "user": {
+    "id": 91546,
+    "name": "Marvin Wu",
+    "username": "marvinwu",
+    "bio": "",
+    "verified": false,
+    "links": "[\"https://www.airo.hk\"]",
+    "avatar": "https://gravatar.com/avatar/2c6867650c2d48a836e37ecf4824fca9e9dc55a0ac441447089245772bf8915e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Utility"
+  ],
+  "nodes": [
+    {
+      "name": "OpenAI",
+      "type": "n8n-nodes-base.openAi",
+      "categories": [
+        "Utility"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-03-14T09:43:03.527Z",
+  "path": "official/template_2173/workflow.json"
+}

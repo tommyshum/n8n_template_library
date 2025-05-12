@@ -1,0 +1,189 @@
+{
+  "id": 3790,
+  "name": "Automated Stock Analysis Reports with Technical & News Sentiment using GPT-4o",
+  "description": "Stock Analysis Agent (Hebrew, RTL, GPT-4o)\n\nOverview\n\nGet comprehensive stock analysis with this AI-powered workflow that provides actionable insights for your investment decisions. On a weekly basis, this workflow:\n\nAnalyzes stock data from multiple sources (Chart-img, Twelve Data API, Alphavantage)\nPerforms technical analysis using advanced indicators (RSI, MACD, Bollinger Bands, Resistance and Support Levels)\nScans financial news from Alpha Vantage to capture market sentiment\nUses OpenAI's GPT-4o to identify patterns, trends, and trading opportunities\nGenerates a fully styled, responsive HTML email (with proper RTL layout) in Hebrew\nSends detailed recommendations directly to your inbox\n\nPerfect for investors, traders, and financial analysts who want data-driven stock insights - combining technical indicators with news sentiment for more informed decisions.\n\nSetup Instructions\n\nEstimated setup time:\n15 minutes\n\nRequired credentials:\nOpenAI API Key\nChart-img API Key (free tier)\nTwelve Data API Key (free tier)\nAlpha Vantage API Key (free tier)\nSMTP credentials (for email delivery)\n\nSteps:\n\nImport this template into your n8n instance.\nAdd your API keys under credentials.\nConfigure the SMTP Email node with: Host (e.g., smtp.gmail.com), Port (465 or 587), Username (your email), Password (app-specific password or login).\nActivate the workflow.\nFill in the Form.\nEnjoy! (Check your Spam mailbox)\n\nCustomization Tips\n\nModify the analysis timeframe (daily, weekly, monthly)\nAdd integrations with trading platforms or portfolio management tools\nAdjust the recommendation criteria based on your risk tolerance\n\nWhy Use This?\nThis is more than just stock data. It's an intelligent financial assistant that combines technical analysis with market sentiment to provide actionable recommendations - automatically.\n\nImportant Note:\nThis report is being generated automatically and does not constitute an investment recommendation. Please consult a licensed investment advisor before making any investment decisions.",
+  "totalViews": 10034,
+  "source": "official",
+  "user": {
+    "id": 93820,
+    "name": "Elay Guez",
+    "username": "elay96",
+    "bio": "Finance related n8n Builder",
+    "verified": false,
+    "links": "[\"https://www.linkedin.com/in/elay-g\"]",
+    "avatar": "https://gravatar.com/avatar/781e87029e4a7d11be463acd014686df7502fe4e7e906a3d5c5e6be73fc7ee56?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Core Nodes",
+    "Development",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "categories": [
+        "Communication",
+        "HITL",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Think Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolThink",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 11,
+  "createdAt": "2025-04-29T17:33:05.653Z",
+  "path": "official/template_3790/workflow.json"
+}

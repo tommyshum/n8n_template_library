@@ -1,0 +1,52 @@
+{
+  "id": 1916,
+  "name": "Merge binary objects on multiple items into a single item",
+  "description": "This workflow is the opposite of this one. It transforms multiple different items with one binary object named data  into a single item with multiple binary objects:\n\n\n\nThis can be useful when creating a single .zip archive for example. It uses the updated Code node instead of the older Function node.",
+  "totalViews": 1393,
+  "source": "official",
+  "user": {
+    "id": 21240,
+    "name": "Tom",
+    "username": "mutedjam",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://github.com/that-one-tom/\"]",
+    "avatar": "https://gravatar.com/avatar/7a3710173e907baffaf7ed7ebffc37955c9cdeadb8612200225a34a2e056aa17?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2023-05-11T13:52:04.087Z",
+  "path": "official/template_1916/workflow.json"
+}

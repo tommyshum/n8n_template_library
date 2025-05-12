@@ -1,0 +1,34 @@
+{
+  "id": 968,
+  "name": "Create an event in PostHog when a request is made to a webhook URL",
+  "description": "This workflow automatically creates an event in PostHog when a request is made to a webhook URL.\n\nPrerequisites\n\nA PostHog account and credentials\n\nNodes\n\nWebhook node triggers the workflow when a URL is accessed.\nPostHog node creates a new event in PostHog.",
+  "totalViews": 1040,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Analytics",
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "PostHog",
+      "type": "n8n-nodes-base.postHog",
+      "categories": [
+        "Analytics",
+        "Development"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2021-03-03T12:27:30.560Z",
+  "path": "official/template_968/workflow.json"
+}

@@ -1,0 +1,18 @@
+{
+  "id": 1053,
+  "name": "Git backup of workflows and credentials",
+  "totalViews": 12015,
+  "purchaseUrl": null,
+  "user": {
+    "id": 14520,
+    "name": "Allan Daemon",
+    "username": "allandaemon",
+    "bio": null,
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/1687c83a4fb8808fac61e4c2caa35aeb9e7953516a53a3d4bbfb380b83c48291?r=pg&d=retro&size=200"
+  },
+  "description": "This creates a git backup of the workflows and credentials.\n\nIt uses the n8n export command with git diff, so you can run as many times as you want, but only when there are changes they will create a commit.\n\nSetup\nYou need some access to the server.\n\nCreate a repository in some remote place to host your project, like Github, Gitlab, or your favorite private repo.\n\nClone the repository in the server in a place that the n8n has access. In the example, it's the ., and the repository name is repo. Change it in the commands and in the workflow commands (you can set it as a variable in the wokflow). Checkout to another branch if you won't use the master one.\n\ncd .\ngit clone repository\n\nOr you could git init and then add the remote (git remote add origin YOUR_REPO_URL), whatever pleases you more.\n\nAs the server, check if everything is ok for beeing able to commit. Very likely you'll need to setup the user email and name. Try to create a commit, and push it to upstream, and everything you need (like config a user to comit) will appear in way. I strong suggest testing with exporting the commands to garantee it will work too.\n\ncd ./repo\n\ngit commit -c \"Initial commmit\" --allow-empty\n\n-u is the same as --set-upstream\n\ngit push -u origin master \n\nTesting to push to upstream with the first exported data\n\nnpx n8n export:workflow --backup --output ./repo/workflows/\nnpx n8n export:credentials --backup --output repo/credentials/\n\ncd ./repo\ngit add .\ngit commit -c \"manual backup: first export\"\ngit push\n\nAfter that, if everything is ok, the workflow should work just fine.\n\nAdjustments\n\nAdjust the path in used in the workflow. See the the git -C PATH command is the same as cd PATH; git ....\n\nAlso, adjust the cron to run as you need. As I said in the beginning, you can run it even for every minute, but it will create commits only when there are changes.\n\nCredentials encryption\n\nThe default for exporting the credentials is to do them encrypted. You can add the flag --decrypted to the n8n export:credentials command if you need to save them in plain. But as general rule, it's better to save the encryption key, that you only need to do that once, and them export it safely encrypted.",
+  "createdAt": "2021-04-22T19:30:19.923Z",
+  "nodes": []
+}

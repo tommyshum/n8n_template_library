@@ -1,0 +1,38 @@
+{
+  "id": 3105,
+  "name": "Automate Audio/Video Transcription in Any Language with the New ElevenLabs Model",
+  "description": "How it works  🗣️&gt; 📖\n\nI set up this workflow to convert any audio or video file into structured text using the new ElevenLabs Scribe model, one of the best Speech-to-Text AIs, available in 99+ languages. This workflow integrates seamlessly with n8n and leverages the ElevenLabs Scribe API to:\n\nThis workflow seamlessly integrates with n8n to:\n✅ Upload audio/video files automatically\n✅ Transcribe them with industry-leading accuracy in any language\n✅ Export the text for further processing (summaries, subtitles, SEO content, etc.)\n\n👉 Try the new ElevenLabs Scribe model now: Convert speech to text instantly\n\nBusiness Cases\n\n🔹 Podcast Transcriptions – Convert podcast episodes into blog posts for SEO and accessibility\n🔹 YouTube Subtitles – Generate captions automatically for increased engagement\n🔹 Legal & Compliance – Accurately transcribe meetings, interviews, or customer calls\n🔹 E-learning – Turn lectures and webinars into structured course notes\n🔹 SEO & Content Marketing – Repurpose videos into articles, quotes, and social media content\n\n💡 Boost your productivity with the new Scribe model → Start with ElevenLabs Scribe\n\nSet up steps\n\n🚀 Quick & simple setup in n8n – Upload your file, select the model (scribe_v1), and let the AI handle the rest via the ElevenLabs API.\n\n⸻\n\n📢 Why I Chose the New ElevenLabs Scribe Model?\nI wanted the most accurate and reliable transcription tool for my workflow. After testing different options, Scribe outperformed Google Gemini & OpenAI Whisper in independent benchmarks. It delivers high-quality transcriptions, even in underserved languages like Serbian, Mongolian, and many more.\n\n✅ Transcribes in 99+ languages\n✅ Fast, accurate, and easy to integrate\n✅ Suitable for content creators, businesses, and professionals\n\n\n🔗 Get started now and revolutionize your workflow with the new Scribe model →  Try Scribe AI today 🚀\n\nPhil | Inforeole",
+  "totalViews": 3242,
+  "source": "official",
+  "user": {
+    "id": 92304,
+    "name": "phil",
+    "username": "phil",
+    "bio": "Accélérateur de Chiffre d'Affaires : Automatisez votre entreprise pour la rendre plus visible sur Google, pour trouver de nouveaux Clients, pour gagner du temps",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/philippe-eveilleau-inforeole/\"]",
+    "avatar": "https://gravatar.com/avatar/e3fa7358cdb3b5be9c63e79d3d76a9a3f31efed6ea3611ec7bc18c0f34464d16?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-03-07T16:52:54.770Z",
+  "path": "official/template_3105/workflow.json"
+}

@@ -1,0 +1,47 @@
+{
+  "id": 998,
+  "name": "Translate cocktail instructions using DeepL",
+  "description": "This workflow allows you to translate cocktail instructions using DeepL.\n\n\n\nHTTP Request node: This node will make a GET request to the API https://www.thecocktaildb.com/api/json/v1/1/random.php to fetch a random cocktail. This information gets passed on to the next node in the workflow. Based on your use case, replace the node with the node from where you might receive the data.\n\nDeepL node: This node will translate the cocktail instructions that we got from the previous node to French. To translate the instructions in your language, select your language instead.\n",
+  "totalViews": 949,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Utility"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "DeepL",
+      "type": "n8n-nodes-base.deepL",
+      "categories": [
+        "Utility"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2021-03-23T10:56:37.369Z",
+  "path": "official/template_998/workflow.json"
+}

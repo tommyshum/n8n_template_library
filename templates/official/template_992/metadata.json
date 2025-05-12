@@ -1,0 +1,32 @@
+{
+  "id": 992,
+  "name": "Manage transfers automatically in Wise",
+  "description": "This workflow allows you to create a quote and a transfer, execute the transfer and get the information of the transfer using the Wise node.\n\n\n\nWise node: This node will create a new quote in Wise.\n\nWise1 node: This node will create a new transfer for the quote that we created in the previous node.\n\nWise2 node: This node will execute the transfer that we created in the previous node.\n\nWise3 node: This node will return the information of the transfer that we executed in the previous node.",
+  "totalViews": 751,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Finance & Accounting"
+  ],
+  "nodes": [
+    {
+      "name": "Wise",
+      "type": "n8n-nodes-base.wise",
+      "categories": [
+        "Finance & Accounting"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2021-03-18T15:16:53.179Z",
+  "path": "official/template_992/workflow.json"
+}

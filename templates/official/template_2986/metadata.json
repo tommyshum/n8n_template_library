@@ -1,0 +1,127 @@
+{
+  "id": 2986,
+  "name": "All-in-One Telegram/Baserow AI Assistant 🤖🧠 Voice/Photo/Save Notes/Long Term Mem",
+  "description": "Telegram Personal Assistant with Long-Term Memory & Note-Taking\n\nThis n8n workflow transforms your Telegram bot into a powerful personal assistant that handles voice, photo, and text messages. The assistant uses AI to interpret messages, save important details as long-term memories or notes in a Baserow database, and recall information for future interactions.\n\n🌟 How It Works\n\nMessage Reception & Routing  \n   Telegram Integration: The workflow is triggered by incoming messages on your Telegram bot.  \n   Dynamic Routing: A switch node inspects the message to determine whether it's voice, text, or photo (with captions) and routes it for the appropriate processing.\n\nContent Processing  \n   Voice Messages: Audio files are retrieved and sent to an AI transcription node to convert spoken words into text.  \n   Text Messages: Text is directly captured and prepared for analysis.  \n   Photos: If an image is received, the bot fetches the file (and caption, if provided) and uses an AI-powered image analysis node to extract relevant details.\n\nAI-Powered Agent & Memory Management  \n   The core AI agent (powered by GPT-4o-mini) processes the incoming message along with any previous conversation history stored in PostgreSQL memory buffers.  \n   Long-Term Memory: When a message contains personal or noteworthy information, the assistant uses a dedicated tool to save this data as a long-term memory in Baserow.  \n   Note-Taking: For specific instructions or reminders, the assistant saves concise notes in a separate Baserow table.  \n   The AI agent follows defined rules to decide which details are saved as memories and which are saved as notes.\n\nResponse Generation  \n   After processing the message and updating memory/notes as needed, the AI agent crafts a contextual and personalized response.  \n   The response is sent back to the user via Telegram, ensuring smooth and natural conversation flow.\n\n🚀 Key Features\n\nMultimodal Input:**  \n  Seamlessly handles voice, photo (with captions), and text messages.\n\nLong-Term Memory & Note-Taking:**  \n  Uses a Baserow database to store personal details and notes, enhancing conversational context over time.\n\nAI-Driven Contextual Responses:**  \n  Leverages an AI agent to generate personalized, context-aware replies based on current input and past interactions.\n\nUser Security & Validation:**  \n  Incorporates validation steps to verify the user's Telegram ID before processing, ensuring secure and personalized interactions.\n\nEasy Baserow Setup:**  \n  Comes with a clear setup guide and sample configurations to quickly integrate Baserow for managing memories and notes.\n\n🔧 Setup Guide\n\nTelegram Bot Setup:  \n   Create your bot via BotFather and obtain the Bot Token.  \n   Configure the Telegram webhook in n8n with your bot's token and URL.\n\nBaserow Database Configuration:  \n   Memory Table:  \n     Create a workspace titled \"Memories and Notes\".  \n     Set up a table (e.g., \"Memory Table\") with at least two fields:  \n       Memory (long text)  \n       Date Added (US date format with time)  \n   Notes Table:  \n     Duplicate the Memory Table and rename it to \"Notes Table\".  \n     Change the first field's name from \"Memory\" to \"Notes\".\n\nn8n Workflow Import & Configuration:  \n   Import the workflow JSON into your n8n instance.  \n   Update credentials for Telegram, Baserow, OpenAI, and PostgreSQL (for memory buffering) as needed.\n   Adjust node settings if you need to customize AI agent prompts or memory management rules.\n\nTesting & Deployment:  \n   Test your bot by sending various message types (text, voice, photo) to confirm that the workflow processes them correctly, updates Baserow, and returns the appropriate response.  \n   Monitor logs to ensure that memory and note entries are correctly stored and retrieved.\n\n✨ Example Interactions\n\nVoice Message Processing:**  \n  User sends a voice note requesting a reminder.  \n  Bot Response: \"Thanks for your message! I've noted your reminder and saved it for future reference.\"\n\nPhoto with Caption:**  \n  User sends a photo with the caption \"Save this recipe for dinner ideas.\"  \n  Bot Response: \"Got it! I've saved this recipe along with the caption for you.\"\n\nText Message for Memory Saving:**  \n  User: \"I love hiking on weekends.\"  \n  Bot Response: \"Noted! I’ll remember your interest in hiking.\"\n\nRetrieving Information:**  \n  User asks: \"What notes do I have?\"  \n  Bot Response: \"Here are your latest notes: [list of saved notes].\"\n\n🛠️ Resources & Next Steps\n\nTelegram Bot Configuration:** Telegram BotFather Guide  \nn8n Documentation:** n8n Docs  \nCommunity Forums:** Join discussions and share your customizations!\n\nThis workflow not only streamlines message processing but also empowers users with a personal AI assistant that remembers details over time. Customize the rules and responses further to fit your unique requirements and enjoy a more engaging, intelligent conversation experience on Telegram!\n\n",
+  "totalViews": 21964,
+  "source": "official",
+  "user": {
+    "id": 92869,
+    "name": "Rod",
+    "username": "xxbean-sproutxx",
+    "bio": "Automation enthusiast and builder of real-world AI tools. I specialize in self-hosted n8n workflows. My projects focus on practical AI applications, from data enrichment and search automation to AI-driven contact management. Always exploring new ways to make automation simple, efficient, and FUN!",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/c55e999fa1ce8ff22d271cd65a3b884b3437b80ac77a3d5b0b4040d006a58fdd?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Data & Storage",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Baserow",
+      "type": "n8n-nodes-base.baserow",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Postgres Chat Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "Other memories"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-02-23T09:02:25.572Z",
+  "path": "official/template_2986/workflow.json"
+}

@@ -1,0 +1,112 @@
+{
+  "id": 2583,
+  "name": "Optimize & Update Printify Title and Description Workflow",
+  "description": "Printify Automation - Update Title and Description Workflow\n\nThis n8n workflow automates the process of retrieving products from Printify, generating optimized product titles and descriptions, and updating them back to the platform. It leverages OpenAI for content generation and integrates with Google Sheets for tracking and managing updates.\n\nFeatures\n\nIntegration with Printify**: Fetch shops and products through Printify's API.\nAI-Powered Optimization**: Generate engaging product titles and descriptions using OpenAI's GPT model.\nGoogle Sheets Tracking**: Log and manage updates in Google Sheets.\nCustom Brand Guidelines**: Ensure consistent tone by incorporating brand-specific instructions.\nLoop Processing**: Iteratively process each product in batches.\n\nWorkflow Structure\n\nNodes Overview\n\nManual Trigger: Manually start the workflow for testing purposes.\nPrintify - Get Shops: Retrieves the list of shops from Printify.\nPrintify - Get Products: Fetches product details for each shop.\nSplit Out: Breaks down the product list into individual items for processing.\nLoop Over Items: Iteratively processes products in manageable batches.\nGenerate Title and Desc: Uses OpenAI GPT to create optimized product titles and descriptions.\nGoogle Sheets Integration:\n   Trigger: Monitors Google Sheets for changes.\n   Log Updates: Records product updates, including old and new titles/descriptions.\nConditional Logic:\n   If Nodes: Ensure products are ready for updates and stop processing once completed.\nPrintify - Update Product: Sends updated titles and descriptions back to Printify.\nBrand Guidelines + Custom Instructions: Sets brand tone and seasonal instructions.\n\nSetup Instructions\n\nPrerequisites\n\nn8n Instance: Ensure n8n is installed and configured.\nPrintify API Key:\n   Obtain an API key from your Printify account.\n   Add it to n8n under HTTP Header Auth.\nOpenAI API Key:\n   Obtain an API key from OpenAI.\n   Add it to n8n under OpenAI API.\nGoogle Sheets Integration:\n   Share your Google Sheets with the Google API service account.\n   Configure Google Sheets credentials in n8n.\n\nWorkflow Configuration\n\nSet Brand Guidelines:\n   Update the Brand Guidelines + Custom Instructions node with your brand name, tone, and seasonal instructions.\nBatch Size:\n   Configure the Loop Over Items node for optimal batch sizes.\nGoogle Sheets Configuration:\n   Set the correct Google Sheets document and sheet names in the integration nodes.\nRun the Workflow:\n   Start manually or configure the workflow to trigger automatically.\n\nKey Notes\n\nCustomization**:\n  Modify API calls to support other platforms like Printful or Vistaprint.\nScalability**:\n  Use batch processing for efficient handling of large product catalogs.\nError Handling**:\n  Configure retries or logging for any failed nodes.\n\nOutput Examples\n\nOptimized Content Example\n\nInput Title**: \"Classic White T-Shirt\"\nGenerated Title**: \"Stylish Classic White Tee for Everyday Wear\"\nInput Description**: \"Plain white T-shirt made of cotton.\"\nGenerated Description**: \"Discover comfort and style with our classic white tee, crafted from premium cotton for all-day wear. Perfect for casual outings or layering.\"\n\nNext Steps\n\nMonitor Updates:\n   Use Google Sheets to review logs of updated products.\nExpand Integration:\n   Add support for more Printify shops or integrate with other platforms.\nEnhance AI Prompts:\n   Customize prompts for different product categories or seasonal needs.\n\nFeel free to reach out for additional guidance or troubleshooting!\n",
+  "totalViews": 1985,
+  "source": "official",
+  "user": {
+    "id": 91693,
+    "name": "Alex Kim",
+    "username": "alexk1919",
+    "bio": "n8n Ambassador & Verified Partner",
+    "verified": true,
+    "links": "[\"https://wot-ai.com\"]",
+    "avatar": "https://gravatar.com/avatar/2b74c7f530e250439f5d752f2623ead4921fbb8aef56343c922b2873ef8a619f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Calculator",
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Wikipedia",
+      "type": "@n8n/n8n-nodes-langchain.toolWikipedia",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2024-11-28T00:40:31.475Z",
+  "path": "official/template_2583/workflow.json"
+}

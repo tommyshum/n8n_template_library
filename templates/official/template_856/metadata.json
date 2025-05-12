@@ -1,0 +1,54 @@
+{
+  "id": 856,
+  "name": "Send daily recipe emails automatically ",
+  "description": "Not sure what to eat tonight? Have recipes emailed to you daily based on your criterial.\n\nTo run this workflow, you will need to have:\nA Recipe Search API key from Edamam\nAn active email account with configured credentials\n\nTo set up your credentials:\nSet your Edamam AppID and AppKey in the Search Criteria node\nSelect (or create) your email credentials in the Send Recipes node (and set up the to: and from: email addresses while you are at it)\n\nTo customize the recipes that you receive, open up the Search Criteria node and modify one or more of the following:\nRecipeCount** - the numner of recipes you would like to receive\nIngredientCount** - the maximum number of ingredients you would like each recipe to have\nCaloriesMin** - the minimum number of calories the recipe will have\nCaloriesMax** - the maximum number of calories the recipe will have\nTimeMin** - the minimum amount of time (in minutes) the recipe will take to prepare\nTimeMax** - the maximum amount of time (in minutes) the recipe will take to prepare\nDiet** - Select one of the following options:\n\tbalanced - Protein/Fat/Carb values in 15/35/50 ratio\n\thigh-fiber - More than 5g fiber per serving\n\thigh-protein - More than 50% of total calories from proteins\n\tlow-carb - Less than 20% of total calories from carbs\n\tlow-fat - Less than 15% of total calories from fat\n\tlow-sodium - Less than 140mg Na per serving\n\trandom - selects a different random diet each day\nHealth** - Select one of the following options:\n\talcohol-free - No alcohol used or contained\n\timmuno-supportive - Recipes which fit a science-based approach to eating to strengthen the immune system\n\tcelery-free - does not contain celery or derivatives\n\tcrustacean-free - does not contain crustaceans (shrimp, lobster etc.) or derivatives\n\tdairy-free - No dairy; no lactose\n\tegg-free - No eggs or products containing eggs\n\tfish-free - No fish or fish derivatives\n\tfodmap-free - Does not contain FODMAP foods\n\tgluten-free - No ingredients containing gluten\n\tketo-friendly - Maximum 7 grams of net carbs per serving\n\tkidney-friendly - per serving – phosphorus less than 250 mg AND potassium less than 500 mg AND sodium: less than 500 mg\n\tkosher - contains only ingredients allowed by the kosher diet. However it does not guarantee kosher preparation of the ingredients themselves\n\tlow-potassium - Less than 150mg per serving\n\tlupine-free - does not contain lupine or derivatives\n\tmustard-free - does not contain mustard or derivatives\n\tlow-fat-abs - Less than 3g of fat per serving\n\tno-oil-added - No oil added except to what is contained in the basic ingredients\n\tlow-sugar - No simple sugars – glucose, dextrose, galactose, fructose, sucrose, lactose, maltose\n\tpaleo - Excludes what are perceived to be agricultural products; grains, legumes, dairy products, potatoes, refined salt, refined sugar, and processed oils\n\tpeanut-free - No peanuts or products containing peanuts\n\tpecatarian - Does not contain meat or meat based products, can contain dairy and fish\n\tpork-free - does not contain pork or derivatives\n\tred-meat-free - does not contain beef, lamb, pork, duck, goose, game, horse, and other types of red meat or products containing red meat.\n\tsesame-free - does not contain sesame seed or derivatives\n\tshellfish-free - No shellfish or shellfish derivatives\n\tsoy-free - No soy or products containing soy\n\tsugar-conscious - Less than 4g of sugar per serving\n\ttree-nut-free - No tree nuts or products containing tree nuts\n\tvegan - No meat, poultry, fish, dairy, eggs or honey\n\tvegetarian - No meat, poultry, or fish\n\twheat-free - No wheat, can have gluten though\n\trandom - selects a different random health option each day\nSearchItem* - the general term that you are looking for e.g. *chicken\n\n",
+  "totalViews": 1749,
+  "source": "official",
+  "user": {
+    "id": 4031,
+    "name": "jason",
+    "username": "tephlon",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/ee7788870e9ab8d34c979c940727f579ecc3c3e8f60069d1297d51eb30af831e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Core Nodes",
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "categories": [
+        "Communication",
+        "HITL",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2020-12-28T18:30:16.954Z",
+  "path": "official/template_856/workflow.json"
+}

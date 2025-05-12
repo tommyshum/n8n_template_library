@@ -1,0 +1,55 @@
+{
+  "id": 2738,
+  "name": "Transform Image to Lego Style Using Line and Dall-E",
+  "description": "Who is this for?\nThis workflow is designed for:\nContent creators**, artists, or hobbyists looking to experiment with AI-generated art.\nSmall business owners* or *marketers** using LEGO-style designs for branding or promotions.\nDevelopers* or *AI enthusiasts** wanting to automate image transformations through messaging platforms like LINE.\n\nWhat problem is this workflow solving?\nSimplifies the process of creating custom AI-generated LEGO-style images.\nAutomates the manual effort of transforming user-uploaded images into AI-generated artwork.\nBridges the gap between messaging platforms (LINE) and advanced AI tools (DALL·E).\nProvides a seamless system for users to upload an image and receive an AI-transformed output without technical expertise.\n\nWhat this workflow does\nImage Upload via LINE:\n   Users send an image to the LINE chatbot.\nAI-Powered Prompt Creation:\n   GPT generates a prompt to describe the uploaded image for LEGO-style conversion.\nAI Image Generation:\n   DALL·E 3 processes the prompt and creates a LEGO-style isometric image.\nImage Delivery:\n   The generated image is returned to the user in LINE.\n\nSetup\n\nPrerequisites\nLINE Developer Account** with API credentials.\nAccess to OpenAI API with DALL·E and GPT-4 capabilities.\nA configured n8n instance to run this workflow.\n\nSteps\nEnvironment Setup:\n   Add your LINE API Token and OpenAI credentials as environment variables (LINE_API_TOKEN, OPENAI_API_KEY) in n8n.\nConfigure LINE Webhook:\n   Point the LINE webhook to your n8n instance.\nConnect OpenAI:\n   Set up OpenAI API credentials in the workflow nodes for GPT-4 and DALL·E.\nTest Workflow:\n   Upload a sample image in LINE and ensure it returns the LEGO-style AI image.\n\nHow to customize this workflow to your needs\nLocalization**:\n  Modify response messages in LINE to fit your audience's language and tone.\nIntegration**:\n  Add nodes to send notifications through other platforms like Slack or email.\nImage Style**:\n  Replace the LEGO-style image prompt with other artistic styles or themes.\n\nAdvanced Use Cases\nArt Contests:\n   Users upload images and receive AI-enhanced outputs for community voting or branding.\nMarketing Campaigns:\n   Quickly generate creative visual content for ads and promotions using customer-submitted photos.\nEducation:\n   Use the workflow to teach students about AI-generated art and automation through a hands-on approach.\n\nTips for Optimization\nError Handling**:\n  Add fallback nodes to handle invalid images or API errors gracefully.\nLogging**:\n  Implement a logging mechanism to track requests and outputs for debugging and analytics.\nScalability**:\n  Use queue-based systems or cloud scaling to handle large volumes of image requests.\n\nEnhancements\nAdd sticky notes in n8n to provide inline instructions for configuring each node.\nCreate a tutorial video or documentation for first-time users to set up and customize the workflow.\nInclude advanced filters to allow users to select from multiple styles beyond LEGO (e.g., pixel art, watercolor).\n\nThis workflow enables seamless interaction between messaging platforms and advanced AI capabilities, making it highly versatile for various creative and business applications.",
+  "totalViews": 1227,
+  "source": "official",
+  "user": {
+    "id": 92308,
+    "name": "Boriwat Chanruang",
+    "username": "boriwatopal",
+    "bio": "Automation consultant specializing in Data, AI, and Automation, founder of hundredtimesfaster.com and No Code AI community. Currently AI & Data Solutions Lead at Assetwise PCL, with a proven track record of driving innovation and efficiency in leading firms. Author of Practical Data Visualization & Analytics with Looker Studio. Book a consultation to explore custom solutions!",
+    "verified": true,
+    "links": "[\"https://hundredtimesfaster.com/\"]",
+    "avatar": "https://gravatar.com/avatar/ae61960d666686cc5f29cd88b208cf65fbe9b9232e268fe438dae2473474a116?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-01-17T03:33:28.196Z",
+  "path": "official/template_2738/workflow.json"
+}

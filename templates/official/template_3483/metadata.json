@@ -1,0 +1,49 @@
+{
+  "id": 3483,
+  "name": "Sell a Used Car with an AI Agent in Airtop",
+  "description": "How to Sell Your Used Car Easily with Airtop\n\nSelling a used car traditionally involves tedious manual steps: listing your vehicle online, filling repetitive forms, answering buyer inquiries, and comparing multiple offers—often leading to lost time, inaccuracies, and missed opportunities. Dealers' platforms and marketplace websites can introduce additional friction, occasionally requiring manual interactions and delivering inconsistent offers.\n\nThe Sell a Used Car Agent powered by Airtop and n8n eliminates this friction by automating the selling process. Simply input your car's details once, and the automation quickly navigates through popular used car marketplaces like Carvana, CarMax, and others, efficiently fetching competitive buying offers. Leveraging Airtop’s powerful real-browser automation capabilities, this setup interacts smoothly with the forms and queries specific to each sales platform, eliminating error-prone manual entries and tedious repetition.\n\nThis Airtop automation employs sophisticated data extraction features, including structured JSON output, ensuring accurate, formatted data ready for immediate review.\n\nSay goodbye to cumbersome listing processes, and hello to streamlined, effortless car selling.\n\nWho is this Automation for?\n\n Automation engineers streamlining marketplace interactions\n Developers building user-friendly car selling apps\n Technical teams optimizing inventory resale processes\n Dealership IT departments automating valuation systems\n\nKey Benefits\n\nNo-code automation setup using Make\nSaves significant time with instant multi-platform offers\nReal browser sessions ensuring reliable site interactions\nStructured JSON output simplifying data integration\n\nUse Cases\n\nCar dealership teams quickly pricing used vehicles\nIndividuals efficiently comparing offers from online dealers\nDevelopers building consumer-friendly automated car resale apps\nTechnical consultants streamlining used car valuation processes\n\nHow this Airtop Automation Works\n\nWhen started, Airtop opens automated, real browser sessions to intelligently fill out required car details on leading resale marketplaces (e.g., Carvana and CarMax). It captures instantly generated vehicle offers, structures them into clean JSON output, and returns organized buying proposals. All of this is accomplished without manual intervention.\n\nWhat You’ll Need\n\nA free Airtop API key\nBasic details describing your vehicle (make, model, condition, mileage)\n\nSetting up the workflow\n\nCreate a new Airtop connection with your API key:\n\n\n\nEnter the information about the car you are selling into the \"Variables\" node. For example:\n\n&gt; VIN: 1FTRF17253NB81140\nMileage: 221081\nZip code: 01952\nCondition: Perfect, no interior or exterior damages, all tires are inflated, have 2 keys, working battery, has an attached catalytic converter, Airbags not deployed, No flood or fire damage.\nOwnership: full clean title with no debt answer yes to all other questions\n\nRun the workflow\nCustomize the Automation\n\nAdd or remove marketplaces based on regional availability or preference\nExtend JSON outputs to your internal inventory or sales systems\nSchedule regular automation runs to track market pricing trends\nIntegrate additional valuation platforms for broader market coverage\n\nAutomation Best Practices\n\nRegularly review marketplace URLs to maintain accuracy and consistency\nVerify structured data to ensure consistent JSON outputs\nMaintain clearly documented Make scenarios for easy debugging\nPeriodically update your car's condition description for accurate pricing\n\n\nHappy Automating!",
+  "totalViews": 326,
+  "source": "official",
+  "user": {
+    "id": 93583,
+    "name": "Airtop",
+    "username": "cesar-at-airtop",
+    "bio": "Airtop provides an intelligent browser automation API for AI agents, enabling seamless web interaction, including login, navigation, and data extraction from any site, even those with complex authentication - all with  natural language instructions.In simple terms, we allow you to automate anything humans can do online, on any site with just words",
+    "verified": true,
+    "links": "[\"https://www.airtop.ai/\"]",
+    "avatar": "https://gravatar.com/avatar/d5894c2c744b03ab0766a6d1846484ea7cc1a19e57310afad70044183766dbf4?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Airtop",
+      "type": "n8n-nodes-base.airtop",
+      "categories": [
+        "Productivity",
+        "Development"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-04-08T18:51:40.903Z",
+  "path": "official/template_3483/workflow.json"
+}

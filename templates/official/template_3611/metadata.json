@@ -1,0 +1,49 @@
+{
+  "id": 3611,
+  "name": "Telegram giveaways among channel subscribers (Module \"Giveaway\")",
+  "description": "Who is this for?\nThis workflow is ideal for businesses or individuals who want to run Telegram-based giveaways that require users to subscribe to certain channels in order to participate.\n\nWhat problem is this workflow solving?\nRunning a fair and trackable giveaway on Telegram can be difficult without a system that verifies subscriptions and manages participants. This workflow simplifies that process, ensuring only eligible users are included and enabling a smooth drawing process.\n\nWhat this workflow does\nThe giveaway organizer specifies a list of Telegram channels for participants to must subscribe to.\nThe organizer shares a bot link with users.\nUsers start the bot, confirming their participation in the giveaway.\nThe bot tracks eligible participants.\nThe administrator complete the giveaway and select winners.\n\nSetup\nCreate tables in your Postgres database  \n   Open the provided SQL script.\n   Replace \"n8n\" with your schema name.\n   Execute the script in your Postgres DB.\n\nAdd credentials in n8n  \n   Telegram credentials (Bot token, etc.)  \n   Postgres database credentials\n\nHow to customize this workflow to your needs\nModify the SQL script to match your database schema if needed.\nCustomize the Telegram bot messages and logic using the n8n Telegram nodes.\nAdd additional nodes if you want to notify winners or log data in other services.",
+  "totalViews": 62,
+  "source": "official",
+  "user": {
+    "id": 93883,
+    "name": "Andrew",
+    "username": "boanse",
+    "bio": "Analyst-Developer",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/61d84d897d0411ddab1209f44480478b3e19bc319b0a3b69dd0419d51b2fbdd3?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Data & Storage",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Postgres",
+      "type": "n8n-nodes-base.postgres",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-04-19T16:04:43.183Z",
+  "path": "official/template_3611/workflow.json"
+}

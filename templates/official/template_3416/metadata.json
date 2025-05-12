@@ -1,0 +1,130 @@
+{
+  "id": 3416,
+  "name": "Generate AI YouTube Shorts with Flux, Runway, Eleven Labs and Creatomate",
+  "description": "Automated Video Creation Workflow Using n8n  \n\nThis workflow automates the creation and publishing of animated videos based on ideas listed in a Google Sheet. It processes one idea at a time, generating text prompts, images, animations, sound effects, and merging them into a final video before uploading it to YouTube.  \n\nTable of Contents  \nPre-conditions and Requirements  \nGoogle Sheets Setup  \nStep-by-Step Workflow Explanation  \nCustomization Guide  \n\nPre-conditions and Requirements  \n\n1. API Keys Required  \nTo run this workflow, you'll need API access to the following services:  \nAnthropic Claude or Google Gemini** (for text prompt generation)  \nFlux AI** (RapidAPI) (for AI-generated images)  \nRunwayML** (API Documentation) (for AI video animation)  \nElevenLabs** (for AI-generated voiceovers and sound effects)  \nCreatomate** (Website) (for video/audio merging and rendering)  \nYouTube API** (for video upload and posting)  \n\n2. n8n Instance Setup  \nUse cloud (n8n.io) or Install and run n8n (Official Guide)  \nSet up credentials for each API in n8n’s settings  \n\nGoogle Sheets Setup  \n\nBefore running the workflow, ensure your Google Sheet is structured as follows:  \n\n| Column Name  | Description  |  \n|------------------|----------------|  \n| title         | Video title (e.g., \"Elijah's Fiery Chariot\") |  \n| bibleverse    | Corresponding Bible verse reference |  \n| idea         | Brief description of the scene |  \n| style        | Animation style (e.g., cinematic, vibrant, etc.) |  \n| caption      | Suggested caption for social media |  \n| videoStatus  | Status of video creation (To Do, Created) |  \n| publishStatus| Publishing status (Not Processed, Processed) |  \n\nStep-by-Step Workflow Explanation  \n\n1. Extract an Idea from Google Sheets  \nThe workflow retrieves the first row where videoStatus = \"To Do\".  \nMarks it as Processing to avoid duplicate processing.  \n\n2. Generate a Prompt for AI Image Creation and Sound Effects/Audio  \nUses Anthropic Claude or Google Gemini to generate prompts.  \n\n3. Generate an AI Image with Flux AI  \nSends the prompt to Flux AI to create a high-quality image.  \n\n4. Animate the Image Using RunwayML  \nThe generated image is sent to RunwayML, which animates the image.  \n\n5. Generate Sound Effects and Voiceover with ElevenLabs  \nElevenLabs produces a realistic narration based on the video content.  \nBackground sound effects (e.g., storm sounds, fire crackling) are also generated.  \n\n6. Merge Video and Audio Using Creatomate  \nCreatomate** compiles the animated video with the audio.  \n\n7. Upload and Publish to YouTube  \nThe finalized video is automatically uploaded to YouTube using the YouTube API.  \n\n8. Update Google Sheet Status  \nMarks videoStatus as Created.  \nMarks publishStatus as Processed.  \n\nCustomization Guide  \n\nModifying the Animation Style  \nUpdate the style column in Google Sheets with custom animation preferences (e.g., cinematic, slow-motion).  \nModify the prompt generation step in n8n to incorporate different styles.  \n\nChanging the Video Length  \nAdjust the RunwayML settings to control animation speed and length.  \nModify the Creatomate rendering step to adjust clip duration.  \n\nAdding Subtitles  \nModify the Creatomate step to include AI-generated subtitles from ElevenLabs' text output.  \n\nPublishing to Other Platforms  \nAdd additional steps to post to TikTok, Instagram, or Facebook using their respective APIs.  \n\nThis workflow ensures a fully automated video creation pipeline, reducing manual effort and optimizing content production. 🚀",
+  "totalViews": 2613,
+  "source": "official",
+  "user": {
+    "id": 93572,
+    "name": "Joseph",
+    "username": "mjomba",
+    "bio": "Automation expert specializing in building smart, scalable workflows using tools like n8n, Make, and Airtable. I help businesses save time, reduce manual work, and grow faster with tailored automation solutions. Feel free to reach out at joseph@uppfy.com to discuss your project.",
+    "verified": true,
+    "links": "[\"https://x.com/juppfy\"]",
+    "avatar": "https://gravatar.com/avatar/460cadca403550e24f9e17a9ee3f4670046503b32fb59618a1b390378b803162?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Marketing",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "YouTube",
+      "type": "n8n-nodes-base.youTube",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Anthropic Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 8,
+  "createdAt": "2025-04-03T10:42:08.131Z",
+  "path": "official/template_3416/workflow.json"
+}

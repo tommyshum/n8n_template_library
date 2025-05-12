@@ -1,0 +1,238 @@
+{
+  "id": 2850,
+  "name": "BambooHR AI-Powered Company Policies and Benefits Chatbot",
+  "description": "How it works\nThis workflow enables companies to provide instant HR support by automating responses to employee queries about policies and benefits:  \nRetrieves company policies, benefits, and HR documents from BambooHR.  \nUses AI to analyze and answer employee questions based on company records.  \nIdentifies the most relevant contact person for escalations.  \nSeamlessly integrates with company systems to provide real-time HR assistance.\nSet up steps:  \nEstimated time: ~20 minutes\nConnect your BambooHR account to allow policy retrieval.  \nConfigure AI parameters and access control settings.  \n(Optional) Set up the employee lookup tool for personalized responses.  \nTest the chatbot to ensure accurate responses and seamless integration.  \n\nBenefits\nThis workflow is perfect for HR teams looking to enhance employee support while reducing manual inquiries.\n\nOutperform BambooHR's \"Ask BambooHR\" Chatbot\n\n#1. Superior specificity of replies to general inquiries\n\n\n\n\n#2.  More appropriate escalations when responding to sensitive employee concerns\n\n\n\n",
+  "totalViews": 2452,
+  "source": "official",
+  "user": {
+    "id": 91565,
+    "name": "Ludwig",
+    "username": "ludwig",
+    "bio": "If you have any questions about any of the templates I've built, please reach out to me on LinkedIn (https://www.linkedin.com/in/ludwiggerdes) or via my website down below. 👇",
+    "verified": true,
+    "links": "[\"https://www.lwwg.me\"]",
+    "avatar": "https://gravatar.com/avatar/85fa5dd88d3b3b71e5719184d2d889fe3c0fba02e925b2b9ad4ba34d9a774002?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Miscellaneous",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "BambooHR",
+      "type": "n8n-nodes-base.bambooHr",
+      "categories": [
+        "Miscellaneous"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Auto-fixing Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Recursive Character Text Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    },
+    {
+      "name": "Supabase Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    },
+    {
+      "name": "Text Classifier",
+      "type": "@n8n/n8n-nodes-langchain.textClassifier",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Vector Store Question Answer Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolVectorStore",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Information Extractor",
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 15,
+  "createdAt": "2025-02-05T07:19:48.368Z",
+  "path": "official/template_2850/workflow.json"
+}

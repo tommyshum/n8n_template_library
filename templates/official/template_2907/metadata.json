@@ -1,0 +1,87 @@
+{
+  "id": 2907,
+  "name": "A Very Simple \"Human in the Loop\" Email Response System Using AI and IMAP",
+  "description": "Functionality\nThis workflow automates the handling of incoming emails by summarizing their content, generating appropriate responses, and validating the responses through a \"Human-in-the-Loop\" system. It integrates with IMAP email services (e.g., Gmail, Outlook) and uses AI models to streamline the email response process.\n\nThe workflow ensures that all AI-generated responses are reviewed by a human before being sent, maintaining a high level of professionalism and accuracy. This approach is particularly useful for businesses that receive a high volume of emails and need to respond quickly while ensuring quality control.\n\nHow It Works\nEmail Trigger:\n   The workflow starts with the Email Trigger (IMAP) node, which monitors an email inbox for new messages. When a new email arrives, it triggers the workflow.\n\nEmail Preprocessing:\n   The Markdown node converts the email's HTML content into plain text for easier processing by the AI models.\n\nEmail Summarization:\n   The Email Summarization Chain node uses an AI model (OpenAI) to generate a concise summary of the email. The summary is limited to 100 words and is written in a professional tone.\n\nEmail Response Generation:\n   The Write email node uses an AI model (OpenAI) to draft a professional response to the email. The response is based on the email content and is limited to 100 words.\n\nHuman-in-the-Loop Approval:\n   The Set Email text node prepares the drafted response for approval.\n   The Approve Email node sends the drafted response to a human approver (e.g., an internal email address) for review. The email includes:\n     The original message.\n     The AI-generated response.\n   The Approved? node checks if the response has been approved by the human reviewer. If approved, the workflow proceeds to send the response; otherwise, it stops.\n\nSending the Response:\n   The Send Email node sends the approved response back to the original sender.\n\nKey Features\nAutomated Email Summarization**: Summarizes incoming emails to provide a quick overview of the content.\nAI-Powered Response Generation**: Drafts professional responses to emails using AI.\nHuman-in-the-Loop Approval**: Ensures all AI-generated responses are reviewed and approved by a human before being sent.\nIMAP Integration**: Works with IMAP email services like Gmail and Outlook.\nEfficient Email Management**: Reduces the time and effort required to handle incoming emails while maintaining high-quality responses.\n\nThis workflow is ideal for businesses looking to automate their email response process while maintaining control over the quality of outgoing communications. It leverages AI to handle repetitive tasks and ensures that all responses are reviewed by a human, providing a balance between automation and human oversight.",
+  "totalViews": 10216,
+  "source": "official",
+  "user": {
+    "id": 92207,
+    "name": "Davide",
+    "username": "n3witalia",
+    "bio": "Full-stack Web Developer based in Italy specialising in Marketing & AI-powered automations. For business enquiries, send me an email at info@n3w.it or add me on Linkedin.com/in/davideboizza",
+    "verified": true,
+    "links": "[\"https://n3w.it\"]",
+    "avatar": "https://gravatar.com/avatar/d41b8a0aa81139243509c58870f5b4be292824a507ab57d10ed066d8628ed8da?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "categories": [
+        "Communication",
+        "HITL",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Summarization Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainSummarization",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-02-14T16:31:27.525Z",
+  "path": "official/template_2907/workflow.json"
+}

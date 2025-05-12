@@ -1,0 +1,88 @@
+{
+  "id": 2692,
+  "name": "Integrating AI with Open-Meteo API for Enhanced Weather Forecasting",
+  "description": "\nUse case\n\nWorkshop\n\nWe are using this workflow in our workshops to teach how to use Tools a.k.a functions with artificial intelligence. In this specific case, we will use a generic \"AI Agent\" node to illustrate that it could use other models from different data providers.\n\nEnhanced Weather Forecasting\n\nIn this small example, it's easy to demonstrate how to obtain weather forecast results from the Open-Meteo site to accurately display the upcoming days.\n\nThis can be used to plan travel decisions, for example.\n\nWhat this workflow does\n\nWe will make an HTTP request to find out the geographic coordinates of a city.\nThen, we will make other HTTP requests to discover the weather for the upcoming days.\n\nIn this workshop, we demonstrate that the AI will be able to determine which tool to call first—it will first call the geolocation tool and then the weather forecast tool. All of this within a single client conversation call.\n\nSetup\n\nInsert an OpenAI Key and activate the workflow.\n\nby Davi Saranszky Mesquita\nhttps://www.linkedin.com/in/mesquitadavi/",
+  "totalViews": 2022,
+  "source": "official",
+  "user": {
+    "id": 92352,
+    "name": "Davi Saranszky Mesquita",
+    "username": "frkr",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/mesquitadavi/\"]",
+    "avatar": "https://gravatar.com/avatar/65b677cfeb637f0494ad146d60c9f06b30db75d2eb8bd08707a3f80698c6f808?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-01-02T19:36:50.723Z",
+  "path": "official/template_2692/workflow.json"
+}

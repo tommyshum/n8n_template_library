@@ -1,0 +1,78 @@
+{
+  "id": 2976,
+  "name": "Automatically Create YouTube Metadata with AI",
+  "description": "This n8n workflow automates YouTube video metadata generation using AI. It extracts video transcripts, analyzes content, and produces optimized titles, descriptions, tags, hashtags, and call-to-action elements. Additionally, the workflow integrates affiliate and promotional links to enhance overall video performance.\n\nKey Features\n\nAutomated Metadata Generation\nUtilizes an AI agent integrated with OpenAI GPT-4 to generate engaging metadata based on the provided video transcript.\n\nSEO and Engagement Optimization\nCreates keyword-rich, well-structured content that boosts search engine visibility and audience engagement.\n\nAffiliate and Promotional Integration\nRetrieves pre-set promotional and affiliate links using a Google Docs integration.\n\nDirect YouTube Update\nAutomatically updates video details on YouTube via the YouTube API.\n\nCustomization\nAllows you to modify the AI prompt to tailor metadata for your specific niche.\n\nWorkflow Breakdown\n\nUser Submission\nUsers supply the YouTube video link, transcript, and optionally, focus keywords.\n\nVideo ID Extraction\nThe workflow converts the YouTube URL into a video ID to streamline automation.\n\nLink Retrieval\nAffiliate and course links are fetched from a designated Google Docs file.\n\nAI-Powered Metadata Generation\nThe AI agent generates the video title, description, tags, hashtags, and call-to-action elements.\n\nMetadata Formatting and Update\nThe generated metadata is structured and directly updated on YouTube.\n\nConfirmation\nA success message is displayed upon completion of the update process.\n\nSetup and Configuration\n\nDeploying the Workflow\nDeploy the workflow in n8n and ensure all integrations are properly set up.\n\nConfiguring Integrations\nGoogle Docs:** Configure credentials to retrieve affiliate and promotional links.\nOpenAI (GPT-4):** Set up credentials for AI-powered metadata generation.\nYouTube API:** Enter your API credentials to enable automatic video updates.\n\nUser Input Requirements\nProvide a valid YouTube video link and its corresponding transcript. Optionally, include focus keywords to further enhance metadata accuracy.\n\nIdeal For\n\nYouTube Content Creators:** Automate video descriptions and boost SEO.\nDigital Marketers:** Enhance content for improved search rankings and audience engagement.\nAffiliate Marketers:** Simplify the insertion of promotional and affiliate links.\nAI & Automation Enthusiasts:** Explore the integration of AI into automated workflows.\n\nAdditional Resources\n\nFor further guidance, refer to the tutorial video on this workflow. More courses and resources are available on the SyncBricks website. For support or inquiries, contact Amjid Ali at info@syncbricks.com. You can also support this work via PayPal donations and subscribe for additional AI and automation workflows.\n\nWatch the Tutorial:** YouTube Video on This Workflow\nMore Courses & Resources:**\n  SyncBricks LMS\n  Full Course on ERPNext & AI Automation\nConnect:**\n  Email: info@syncbricks.com\n  Website: SyncBricks\n  YouTube: SyncBricks Channel\n  LinkedIn: Amjid Ali\nSupport & Subscribe:**\n  Donate via PayPal\n  Subscribe for More AI & Automation Workflows",
+  "totalViews": 5978,
+  "source": "official",
+  "user": {
+    "id": 92318,
+    "name": "Amjid Ali",
+    "username": "amjid",
+    "bio": "**Amjid Ali** is an automation expert and AI enthusiast specializing in creating intelligent workflows using low-code platforms like **n8n**. With a passion for simplifying complex processes, he designs solutions that enhance productivity and streamline operations. As an active contributor to the **n8n Creator Hub**, Amjid shares innovative use cases, practical templates, and best practices, empowering the community to unlock the full potential of workflow automation.",
+    "verified": true,
+    "links": "[\"https://amjidali.com\"]",
+    "avatar": "https://gravatar.com/avatar/8760ed64a38ed65da42983737659c7e295e4a7f14b59ed5ce1b0b1077435f573?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Marketing",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "YouTube",
+      "type": "n8n-nodes-base.youTube",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-02-22T14:11:44.009Z",
+  "path": "official/template_2976/workflow.json"
+}

@@ -1,0 +1,71 @@
+{
+  "id": 2975,
+  "name": "Build Your Own Counseling Chatbot on LINE to Support Mental Health Conversations",
+  "description": "Are you looking to create a counseling chatbot that provides emotional support and mental health guidance through the LINE messaging platform ? This guide will walk you through connecting LINE with powerful AI language models like GPT-4 to build a chatbot that supports users in navigating their emotions, offering 24/7 conversational therapy and accessible mental health resources .\n\nBy leveraging LINE's webhook integration and Azure OpenAI , this template allows you to design a chatbot that is both empathetic and efficient, ensuring users receive timely and professional responses. Whether you're a developer, counselor, or business owner, this guide will help you create a customizable counseling chatbot tailored to your audience's needs.\n\nWho Is This Template For?\nDevelopers who want to integrate AI-powered chatbots into the LINE platform for mental health applications.\nCounselors & Therapists looking to expand their reach and provide automated emotional support to clients outside of traditional sessions.\nBusinesses & Organizations focused on improving mental health accessibility and offering innovative solutions to their users.\nEducators & Nonprofits seeking tools to provide free or low-cost counseling services to underserved communities.\n\nHow this work?\nLine Webhook to receive new message\nSend loading animation in Line\nCheck if the input is text or not\nSend the text as prompt in chat model (GPT 4o)\nReply the message to user (you'll need  'edit field' to format it before reply)\n\nPre-Requisites\nYou have access to the LINE Developers Console.\nAn Azure OpenAI account with necessary credentials.\n\nSet-up\nTo receive messages from LINE, configure your webhook:\nSet up a webhook in  LINE Developer Console.\nCopy the Webhook URL from the Line Chatbot node and paste it into the LINE Console.\nEnsure to remove any 'test' part when moving to production.\nThe loading animation reassures users that the system is processing their request.\nAuthorize using header authorization\nMessage Handling\nUse the Check Message Type IsText? node to verify if the incoming message is text.\nIf the message type is text, proceed with ChatGPT processing; otherwise, send a reply indicating non-text inputs are not supported.\nAI Agent Configuration\nDefine the system message within the AI Agent node to guide the conversation based on desired interaction principles.\nConnect the Azure OpenAI Chat Model to the AI Agent.\nFormatting Responses\nEnsure responses are properly formatted before sending them back to the user.\nReply Message\nUse the ReplyMessage - Line node to send the formatted response.\nEnsure proper header authorization using Bearer tokens.\n",
+  "totalViews": 3135,
+  "source": "official",
+  "user": {
+    "id": 92858,
+    "name": "lin@davoy.tech",
+    "username": "linlinmhee",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4e38af5bc6715cea4e86e60c03e21e287cea3cdb5ceba78b3003e6404743fd32?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Azure OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatAzureOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-02-22T09:35:59.969Z",
+  "path": "official/template_2975/workflow.json"
+}

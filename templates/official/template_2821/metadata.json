@@ -1,0 +1,95 @@
+{
+  "id": 2821,
+  "name": "Domain Outbound : Automate Lead Extraction, and Targeted Outreach",
+  "description": "Domain Outbound Machine: Automate Lead Generation, Email Extraction, and Targeted Outreach with n8n\n\nDescription  \nDomain Outbound Machine is an n8n workflow designed to fully automate the domain sales process: lead generation, email extraction, personalized outreach, and automated email sending. It also stores extracted email addresses and sent emails in an Excel file for tracking and follow-up.\n\nHow It Works?\n\n1. Domain Input  \nYou provide the domain name you want to sell. The workflow takes this domain as the starting point.\n\n2. Google Maps Query Generation  \nThe workflow automatically generates 100 Google Maps queries based on the domain's niche or industry. This ensures you target businesses or individuals who might be interested in acquiring the domain.\n\n3. Web Scraping for Emails  \nUsing the generated queries, the workflow scrapes relevant websites to extract email addresses. This step ensures you have a targeted list of potential buyers.\n\n4. Email Enrichment  \nFor each extracted email, the workflow gathers publicly available information (e.g., LinkedIn, company websites) to enhance personalization.\n\n5. Personalized Email Creation  \nBased on the enriched data, the workflow crafts a custom email for each lead, emphasizing the domain’s value, its relevance to their business, and a compelling call-to-action.\n\n6. Email Sending via Gmail  \nThe workflow sends the personalized emails directly through your Gmail account, ensuring timely and professional outreach.\n\n7. Email & Lead Tracking in Excel  \nAll extracted email addresses and sent messages are automatically stored in an Excel file, allowing you to track responses and manage follow-ups efficiently.\n\nKey Features\n✅ Automated Lead Generation – Saves time by automatically finding and extracting potential leads.  \n✅ Personalized Outreach – Boosts engagement by tailoring each email to the recipient.  \n✅ Seamless Integration – Uses n8n’s automation to connect Google Maps, web scraping tools, and Gmail in one workflow.  \n✅ Scalable & Trackable – Adjust the number of queries or emails as needed, while keeping track of everything in Excel.  \n\nDomain Outbound Machine is perfect for domain investors, digital marketers, and anyone looking to sell domains efficiently. By automating the tedious tasks, you can focus on closing deals and growing your business.\n",
+  "totalViews": 2709,
+  "source": "official",
+  "user": {
+    "id": 92022,
+    "name": "Badr",
+    "username": "b4dr",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/035184cdd91cc274d7293ceaed93c97d64e57fc49fc4ba8346956a812dc35b3e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-01-30T13:57:48.318Z",
+  "path": "official/template_2821/workflow.json"
+}

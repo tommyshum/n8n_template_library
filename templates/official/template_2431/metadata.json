@@ -1,0 +1,112 @@
+{
+  "id": 2431,
+  "name": "Ultimate Scraper Workflow for n8n",
+  "description": "What this template does\nThe Ultimate Scraper for n8n uses Selenium and AI to retrieve any information displayed on a webpage. You can also use session cookies to log in to the targeted webpage for more advanced scraping needs.\n\n⚠️ Important: This project requires specific setup instructions. Please follow the guidelines provided in the GitHub repository: n8n Ultimate Scraper Setup : https://github.com/Touxan/n8n-ultimate-scraper/tree/main.\n\nThe workflow version on n8n and the GitHub project may differ; however, the most up-to-date version will always be the one available on the GitHub repository : https://github.com/Touxan/n8n-ultimate-scraper/tree/main.\n\nHow to use \nDeploy the project with all the requirements and request your webhook.\n\nExample of request:\ncurl -X POST http://localhost:5678/webhook-test/yourwebhookid \\\n-H \"Content-Type: application/json\" \\\n-d '{\n  \"subject\": \"Hugging Face\",\n  \"Url\": \"github.com\",\n  \"Target data\": [\n    {\n      \"DataName\": \"Followers\",\n      \"description\": \"The number of followers of the GitHub page\"\n    },\n    {\n      \"DataName\": \"Total Stars\",\n      \"description\": \"The total numbers of stars on the different repos\"\n    }\n  ],\n  \"cookie\": []\n}'\n\nOr to just scrap a url :\ncurl -X POST http://localhost:5678/webhook-test/67d77918-2d5b-48c1-ae73-2004b32125f0 \\\n-H \"Content-Type: application/json\" \\\n-d '{\n  \"Target Url\": \"https://github.com\",\n  \"Target data\": [\n    {\n      \"DataName\": \"Followers\",\n      \"description\": \"The number of followers of the GitHub page\"\n    },\n    {\n      \"DataName\": \"Total Stars\",\n      \"description\": \"The total numbers of stars on the different repo\"\n    }\n  ],\n  \"cookies\": []\n}'\n`",
+  "totalViews": 36411,
+  "source": "official",
+  "user": {
+    "id": 91989,
+    "name": "Pablo",
+    "username": "pablobarrier",
+    "bio": "",
+    "verified": false,
+    "links": "[\"https://www.linkedin.com/in/pablo-barrier-207a79228/\"]",
+    "avatar": "https://gravatar.com/avatar/c53be5ed56daf9f2fb432eadd0b4e2ba9582424d902efe3a33b46382e04a3cd5?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Information Extractor",
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2024-09-25T13:38:27.505Z",
+  "path": "official/template_2431/workflow.json"
+}

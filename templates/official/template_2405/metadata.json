@@ -1,0 +1,116 @@
+{
+  "id": 2405,
+  "name": "AI Voice Chat using Webhook, Memory Manager, OpenAI, Google Gemini & ElevenLabs",
+  "description": "Who is this for?\nThis workflow is designed for businesses or developers looking to integrate voice-based chat applications with dynamic responses and conversational memory.\n\nWhat problem does this solve?\nIt automates AI-powered voice conversations, maintaining context between sessions and converting speech-to-text and text-to-speech.\n\nWhat this workflow does:\nThe workflow receives audio input, transcribes it using OpenAI, and processes the conversation using Google Gemini Chat Model (you can use OpenAI Chat Model). Responses are converted back to speech using ElevenLabs.\n\nPrerequisites:\nYou'll need API keys for:\nOpenAI (you can obtain it from OpenAI website)\nElevenLabs (you can obtain it from their website)\nGoogle Gemini (You can obtain it from Google AI Studio)\n\nSetup:\nConfigure you API keys\nEnsure that the value (voice_message) in the \"Path\" parameter  in the Webhook node is used as the name of the parameter that will contain the voice message you are sending via the HTTP Post request.",
+  "totalViews": 28929,
+  "source": "official",
+  "user": {
+    "id": 91919,
+    "name": "Ayoub",
+    "username": "ayoub-n8n",
+    "bio": "",
+    "verified": false,
+    "links": "[\"https://www.linkedin.com/in/ayoubelherichi/\"]",
+    "avatar": "https://gravatar.com/avatar/61c88b3ee7bb97f3b81963575152ce0696e4a7fd38f05291ff67b2396f3d61ca?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Chat Memory Manager",
+      "type": "@n8n/n8n-nodes-langchain.memoryManager",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2024-09-07T22:03:36.548Z",
+  "path": "official/template_2405/workflow.json"
+}

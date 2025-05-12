@@ -1,0 +1,46 @@
+{
+  "id": 3096,
+  "name": "Restore your workflows from GitHub",
+  "description": "This workflow restores all n8n instance workflows from GitHub backups using the n8n API node. It complements the Backup Your Workflows to GitHub template by allowing users to seamlessly restore previously saved workflows.\n\nHow It Works\nThe workflow fetches workflows stored in a GitHub repository and imports them into your n8n instance. \n\nSetup Instructions\nTo configure the workflow, update the Globals node with the following values:\n\nrepo.owner** – Your GitHub username\nrepo.name** – The name of your GitHub repository storing the workflows\nrepo.path** – The folder path within the repository where workflows are stored\n\nFor example, if your GitHub username is john-doe, your repository is named n8n-backups, and workflows are stored in a workflows/ folder, you would set:\n\nrepo.owner → john-doe\nrepo.name → n8n-backups\nrepo.path → workflows/\n\nRequired Credentials\nGitHub API** – Access to your repository  \nn8n API** – To import workflows into your n8n instance  \n\nWho Is This For?\nThis template is ideal for users who want to restore their workflows from GitHub backups, ensuring easy migration and recovery in case of data loss.\n\nCheck out my other templates:  \n👉 My n8n Templates\n",
+  "totalViews": 904,
+  "source": "official",
+  "user": {
+    "id": 92981,
+    "name": "bangank36",
+    "username": "bangank36",
+    "bio": "Automation specialist with 10+ years of experience helping SME website owners streamline their workflows—specializing in Squarespace, Shopify, and WordPress. Book an initial consultation for custom n8n automation using my link.",
+    "verified": true,
+    "links": "[\"https://beyondspace.studio\"]",
+    "avatar": "https://gravatar.com/avatar/499b5f6868bff3f56c51a6650bf87b946b25b2e17d353e3c9bbf5b34d2bd5bf4?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "GitHub",
+      "type": "n8n-nodes-base.github",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-03-06T12:58:23.781Z",
+  "path": "official/template_3096/workflow.json"
+}

@@ -1,0 +1,102 @@
+{
+  "id": 3772,
+  "name": "Automatically Classify and Label Gmail Emails with Google Gemini AI",
+  "description": "Description\nQuickly organize your inbox with AI!\nThis simple workflow automatically classifies incoming emails into different categories — like High Priority, Work Related, or Promotions — and applies Gmail labels accordingly.\nSetup takes less than 2 minutes, and it runs 24/7, helping you stay focused on what matters most without manual sorting.\n\nTools/Services Needed\nGmail: To trigger the workflow and label emails.\nGoogle Gemini (or any LLM Model): To intelligently classify email content.\n\nHow It Works\nGmail Trigger: Detects every new incoming email.\n\n\nText Classifier Node: Classifies the email content into predefined categories.\n\n\nGoogle Gemini Chat Model: Provides the AI-powered understanding behind the classification.\nConditional Labeling:\nIf the email is High Priority, label it accordingly.\nIf it’s Work Related (e.g., internal emails), apply the work label.\nIf it’s a Promotion, sort it into the promotions label.\nGmail Labeling: Automatically adds the correct label to the email.\n\nSetup Instructions\nConnect your Gmail account to n8n.\nConnect your Google Gemini (or other LLM) credentials.\nCustomize the categories and labels if needed.\nActivate the workflow — and that's it!\n\nNotes\nYou can easily add more categories (like \"Finance,\" \"Newsletters,\" etc.) by adjusting the classification prompt.\nWorks best with a clean and minimal set of categories to avoid overlap.\nCan be adapted to work with any other large language model (OpenAI, Claude, etc.) if preferred.",
+  "totalViews": 1009,
+  "source": "official",
+  "user": {
+    "id": 93887,
+    "name": "Jakkrapat Ampring",
+    "username": "guitarpmacc",
+    "bio": "Working as a marketer in a bilingual school in Phuket with no coding background. I am a lazy person so I constantly looking for a way to make me work less. Been learning about AI stuff for around 2 years now.",
+    "verified": true,
+    "links": "[\"https://www.jakkrapat.com\"]",
+    "avatar": "https://gravatar.com/avatar/1285e20f29afd682de2f36205a83b3fa214858859b54db627975915ff9720a26?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Groq Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Text Classifier",
+      "type": "@n8n/n8n-nodes-langchain.textClassifier",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-04-28T12:57:37.035Z",
+  "path": "official/template_3772/workflow.json"
+}

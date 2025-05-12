@@ -1,0 +1,32 @@
+{
+  "id": 2551,
+  "name": "Add new clients from Notion to Clockify",
+  "description": "Who is this template for?\n\nThis workflow template is ideal for anyone using Notion for project management and Clockify for time tracking. The workflow automatically adds all new clients from Notion to Clockify.\n\nHow it works\nScans your Notion client table every minute for new clients\nAdds all new clients to your Clockify workspace\n\nSet up Steps\nSet up the Notion trigger node by adding your Notion API credentials as described in the n8n Notion docs.\nGo to your Notion clients page/table and give your integration permission to acces the data on this page.  \nGo back to n8n and select your Notion client page in the Notion trigger node.\nSet up the Clockify node by adding your Clockify API credentials as described in the n8n Clockify docs, select your Clockify workspace and map your client name column from Notion to the Clockify \"Client Name\" field.",
+  "totalViews": 455,
+  "source": "official",
+  "user": {
+    "id": 91454,
+    "name": "Manuel",
+    "username": "automate-everything",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://www.malt.de/profile/manuelvoppmann\"]",
+    "avatar": "https://gravatar.com/avatar/a7d9f6e327b76615463e40984ce452c61b426d599f75373aade121b309f0924d?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "Clockify",
+      "type": "n8n-nodes-base.clockify",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-11-16T14:08:29.825Z",
+  "path": "official/template_2551/workflow.json"
+}

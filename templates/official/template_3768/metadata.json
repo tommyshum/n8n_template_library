@@ -1,0 +1,32 @@
+{
+  "id": 3768,
+  "name": "Automatically Create Google Tasks from Gmail Labeled Emails",
+  "description": "Automatically create Google Tasks from new Gmail emails labeled \"To-Do\"\n\nWho is this for?\nThis template is perfect for individuals and teams who want to boost their productivity by automatically converting important emails into actionable tasks in Google Tasks.\n\nWhat problem is this workflow solving?\nManually managing emails and creating tasks can be tedious. This workflow ensures you never miss a follow-up by instantly turning important emails into tasks without switching between apps.\n\nWhat this workflow does?\nWatches for new emails in Gmail with the label \"To-Do\".\nCreates a new Google Task with the email subject as the task title and the email snippet as notes.\nSets the task due date to 24 hours after the email is received.\n\nSetup\nCreate a label \"To-Do\" in your Gmail account if it doesn't already exist.\nConnect your Gmail and Google Tasks accounts to n8n using OAuth2 credentials.\nImport the workflow into n8n and activate it.\n\nHow to customize this workflow to your needs?\nChange the Gmail label to a different one (e.g., \"Important\", \"Follow-up\").\nModify the due date logic in the expression if you want more/less time to complete tasks:\n{{ $now.add(2, 'days').toISOString() }}\nAdd additional Gmail filters (like only unread emails) to refine which emails create tasks.\n\n",
+  "totalViews": 193,
+  "source": "official",
+  "user": {
+    "id": 93633,
+    "name": "Aayushman Sharma",
+    "username": "ajstyle0411",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/0e0256718cceba1e7d5067e428cc2c6e737fbba135f113f7f4b9258858a25691?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "Google Tasks",
+      "type": "n8n-nodes-base.googleTasks",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-04-28T08:08:03.684Z",
+  "path": "official/template_3768/workflow.json"
+}

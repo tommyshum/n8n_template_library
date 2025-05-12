@@ -1,0 +1,107 @@
+{
+  "id": 2634,
+  "name": "Spotify Sync Liked Songs to Playlist",
+  "totalViews": 443,
+  "purchaseUrl": null,
+  "user": {
+    "id": 92260,
+    "name": "Dustin",
+    "username": "dh2io",
+    "bio": "",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/c9c34b45689935ea0b9c1f6516deb7bd4249ce786d107bb5d2b06ae8c06e98b5?r=pg&d=retro&size=200"
+  },
+  "description": "Short an simple:\nThis Workflow will sync (add and delete) your Liked Songs to an custom playlist that can be shared.\n\nSetup:\nCreate an app on the Spotify Developer Dashboard.\nCreate Spotify Credentials - Just click on one of the Spotify Nodes in the Workflow an click on \"create new credentials\" and follow the guide.\nCreate the Spotify Playlist that you want to sync to.\nCopy the exact name of you playlist, go into Node \"Edit set Vars\" and replace the value \"CHANGE MEEEE\" with your playlist name.\nSet your Spotify Credentiels on every Spotify Node. (Should be marekd with Yellow and Red Notes)\n\nDo you use Gotify?\n- No: Delete the Gotify Nodes (all the way to the right end of the Workflow)\n- Yes: Customize the Gotify Nodes to your needs.",
+  "createdAt": "2024-12-11T21:47:10.634Z",
+  "nodes": [
+    {
+      "id": 335,
+      "icon": "file:spotify.svg",
+      "name": "n8n-nodes-base.spotify",
+      "codex": {
+        "data": {
+          "alias": [
+            "Music",
+            "Song"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.spotify/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/spotify/"
+              }
+            ]
+          },
+          "categories": [
+            "Miscellaneous"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "Spotify"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiB2aWV3Qm94PSIwIDAgNjYgNjUiPjx1c2UgeGxpbms6aHJlZj0iI2EiIHg9Ii41IiB5PSIuNSIvPjxzeW1ib2wgaWQ9ImEiIG92ZXJmbG93PSJ2aXNpYmxlIj48cGF0aCBmaWxsPSIjMWVkNzYwIiBmaWxsLXJ1bGU9Im5vbnplcm8iIHN0cm9rZT0ibm9uZSIgZD0iTTMyIDBDMTQuMyAwIDAgMTQuMzM3IDAgMzJjMCAxNy43IDE0LjMzNyAzMiAzMiAzMiAxNy43IDAgMzItMTQuMzM3IDMyLTMyUzQ5LjY2MyAwIDMyIDBtMTQuNjggNDYuMTg0Yy0uNTczLjk1Ni0xLjc5NyAxLjIyMy0yLjc1My42NS03LjUzMi00LjU4OC0xNi45NzUtNS42Mi0yOC4xNC0zLjA5Ny0xLjA3LjIzLTIuMTQtLjQyLTIuMzctMS41cy40Mi0yLjE0IDEuNS0yLjM3YzEyLjE5Ni0yLjggMjIuNjctMS42MDYgMzEuMDgyIDMuNTU2YTIgMiAwIDAgMSAuNjg4IDIuNzUzem0zLjktOC43MTdjLS43MjYgMS4xODUtMi4yNTYgMS41My0zLjQ0Ljg0LTguNjAyLTUuMjc2LTIxLjcxNi02LjgwNS0zMS44ODUtMy43NDctMS4zMzguMzgyLTIuNzE0LS4zNDQtMy4wOTctMS42NDQtLjM4Mi0xLjMzOC4zNDQtMi43MTQgMS42ODItMy4wOTcgMTEuNjIyLTMuNTE3IDI2LjA3NC0xLjgzNSAzNS45NzYgNC4yNDQgMS4xNDcuNjg4IDEuNSAyLjIxNy43NjUgMy40MDN6bS4zNDQtOS4xYy0xMC4zMjMtNi4xMTctMjcuMzM2LTYuNy0zNy4yLTMuNzA4LTEuNTY4LjQ5Ny0zLjI1LS40Mi0zLjc0Ny0xLjk4OHMuNDItMy4yNSAxLjk4OC0zLjc0N2MxMS4zMTctMy40NCAzMC4xMjctMi43NTMgNDEuOTggNC4yODIgMS40MTUuODQgMS44NzMgMi42NzYgMS4wMzIgNC4xLS43NjUgMS40NTMtMi42MzggMS45MTItNC4wNTMgMS4wN3oiLz48L3N5bWJvbD48L3N2Zz4="
+      },
+      "displayName": "Spotify",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 11,
+          "name": "Miscellaneous"
+        }
+      ]
+    },
+    {
+      "id": 401,
+      "icon": "file:gotify.png",
+      "name": "n8n-nodes-base.gotify",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.gotify/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/gotify/"
+              }
+            ]
+          },
+          "categories": [
+            "Communication"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "Gotify"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/png;base64,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"
+      },
+      "displayName": "Gotify",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 6,
+          "name": "Communication"
+        }
+      ]
+    }
+  ]
+}

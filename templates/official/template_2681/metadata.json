@@ -1,0 +1,111 @@
+{
+  "id": 2681,
+  "name": "AI-Powered Social Media Amplifier",
+  "description": "&gt; Reach out to me  for any setup help/consulting.\n\n\nAutomate the curation and sharing of trending GitHub discussions from Hacker News to Twitter and LinkedIn. This workflow leverages AI to generate engaging posts, streamlining your social media content creation and distribution.\n\nHow it Works\n\nCrawl Hacker News for GitHub Posts: The workflow fetches trending GitHub-related discussions from Hacker News.\nExtract Key Information: Relevant data such as post titles, URLs, and metadata are extracted and filtered to focus only on unposted content.\nFetch Additional Details: For each GitHub post, the workflow retrieves extra information from the GitHub repository page to enrich the post content.\nGenerate Social Media Posts: Using AI, the workflow automatically generates tailored posts for Twitter and LinkedIn based on the collected data.\nPost to Twitter & LinkedIn: The generated content is posted to your Twitter and LinkedIn accounts.\nTrack and Log Posts: Each post is logged in Airtable for tracking, and its status is updated to ensure no duplicate posts are made.\nTelegram Notification: After posting, a summary of the posts is sent to your Telegram chat for real-time updates.\n\nRequirements\n\nn8n Account**: Set up and configured. Sign up here.\nAPI Credentials**: Valid keys for LinkedIn, Twitter, Airtable, OpenAI, and Telegram.\nAirtable Base**: Configured with fields such as Title, URL, Post Content, Status, and Timestamp. Get started with Airtable.\nTelegram Chat ID**: For receiving real-time notifications.\n\n\nSet Up Steps\n\nClone the Workflow: Import the workflow into your n8n environment using the provided JSON.\nConfigure API Credentials: Enter your API keys for LinkedIn, Twitter, Airtable, OpenAI, and Telegram into the respective nodes.\nSet Up Airtable Base: Create an Airtable base with fields such as Title, URL, Post Content, Status, and Timestamp.\nCustomize Telegram Chat ID: Modify the 'Ping me' node with your Telegram chat ID to receive notifications.\nRun the Workflow: Activate the workflow to start the automated content curation and posting process.\n\nAdditional Resources\n\nn8n AI Agentic Workflows Guide\nn8n AI Workflow Tutorial\nn8n Community Tutorial on Building an AI-Powered Telegram Bot\n\n\n&gt; Note: Chat GPT prompt should/can be tweaked in the step to give the desired behaviour.\n\nSample Posts from my X and LinkedIn -** \n\n\n\n",
+  "totalViews": 15031,
+  "source": "official",
+  "user": {
+    "id": 92332,
+    "name": "Mudit Juneja",
+    "username": "beingmudit",
+    "bio": "I build and break things.",
+    "verified": false,
+    "links": "[\"https://weplaydos.games\"]",
+    "avatar": "https://gravatar.com/avatar/fc88986a628c1484542b7b83434d503c88c81b99285c8d5770ce35ec5657fa36?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "Marketing",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "X (Formerly Twitter)",
+      "type": "n8n-nodes-base.twitter",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "LinkedIn",
+      "type": "n8n-nodes-base.linkedIn",
+      "categories": [
+        "Marketing",
+        "Communication"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2024-12-29T21:28:30.325Z",
+  "path": "official/template_2681/workflow.json"
+}

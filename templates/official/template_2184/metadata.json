@@ -1,0 +1,34 @@
+{
+  "id": 2184,
+  "name": "Validate email format from a Wordpress form and save a contact in Mautic",
+  "description": "When you collect leads from a form, you need to format the incoming data such as the lead's name and also apply a basic validation of the email entered.\n\nLucky for us, N8N offers all of these features with simple expressions that can easily be applied to data.\n\nThis workflow aims to show how you can process your lead data before saving it in Mautic.\n\nHow it Works\n\nThis workflow receives data from a Wordpress form;\napplies name formatting and basic validation to the email;\nCreates the contact in Mautic;\nIf e-mail is invalid, add the lead in Dot Not Contact list.\n\nSetup Steps\n\nSet up credentials when you first open the workflow. You'll need a Mautic account.\nYou need to configure a form in Wordpress (Elementor, WPForms, etc.) and send it to the N8N Webhook address;\nNow map the fields you need to apply formatting and validation.\nAfter testing your workflow, swap the Test URL to Production URL in Discourse and activate your workflow\n\n",
+  "totalViews": 1107,
+  "source": "official",
+  "user": {
+    "id": 91572,
+    "name": "Promovaweb",
+    "username": "promovaweb",
+    "bio": "Ferramentas, Treinamento e Mentoria para SUA EMPRESA VENDER MAIS.\nNossa missão é ajudar você a vender mais através de treinamento, mentoria e comunidade usando ferramentas LowCode.",
+    "verified": false,
+    "links": "[\"https://promovaweb.com/n8n/courses\"]",
+    "avatar": "https://gravatar.com/avatar/f515e410a57c69410edac8f680d8453ac3335ed6cbcd58734905dd9e2e861f0d?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Marketing",
+    "Communication"
+  ],
+  "nodes": [
+    {
+      "name": "Mautic",
+      "type": "n8n-nodes-base.mautic",
+      "categories": [
+        "Marketing",
+        "Communication"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-03-20T00:53:49.339Z",
+  "path": "official/template_2184/workflow.json"
+}

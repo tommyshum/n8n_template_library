@@ -1,0 +1,49 @@
+{
+  "id": 2251,
+  "name": "Verify mailing address deliverability of contacts in Keap/Infusionsoft Using Lob",
+  "description": "Description\nThis n8n workflow verifies the deliverability of mailing addresses stored in Keap/Infusionsoft by integrating with Lob’s address verification service.\n\nWho is this for?\nThis template is designed for Keap/Infusionsoft users who need to ensure the accuracy of mailing addresses stored in their CRM systems.\n\nWhat problem is this workflow solving? / Use Case\nThis workflow addresses the challenge of maintaining accurate mailing addresses in CRM databases by verifying the deliverability of addresses.\n\nWhat this workflow does\nA new contact is created in Keap/Infusionsoft\nWebhook sent to n8n\nVerify if the address is deliverable via LOB\nReport back to Keap/Infusionsoft\n\nSet Up Steps\n\nWatch this setup video:\nhttps://www.youtube.com/watch?v=T7Baopubc-0\nTakes 10-30 minutes to set up\n\nAccounts Needed:\nKeap/Infusionsoft\nLOB Account (https://www.lob.com $0.00/mo 300 US addresses Verifications)\nn8n\n\nBefore using this template, ensure you have API keys for your Keap/Infusionsoft app and Lob. Set up authentication for both services within n8n.\n\nHow to customize this workflow to your needs\nYou can customize this workflow by adjusting the trigger settings to match Keap/Infusionsoft’s workflow configuration. Additionally, you can modify the actions taken based on the deliverability outcome, such as updating custom fields or sending notifications.",
+  "totalViews": 314,
+  "source": "official",
+  "user": {
+    "id": 91424,
+    "name": "Belmont Digital",
+    "username": "belmontdigital",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/e16a25175384524ab2777c59b72db4a647cff6c79e6216eedd357533f50055c8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Sales",
+    "Communication"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Keap",
+      "type": "n8n-nodes-base.keap",
+      "categories": [
+        "Sales",
+        "Communication"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-05-01T01:48:52.110Z",
+  "path": "official/template_2251/workflow.json"
+}

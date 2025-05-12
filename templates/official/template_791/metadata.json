@@ -1,0 +1,41 @@
+{
+  "id": 791,
+  "name": "Get product feedback and create ticket on Trello",
+  "description": "",
+  "totalViews": 1011,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Trello",
+      "type": "n8n-nodes-base.trello",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2020-11-23T12:37:29.765Z",
+  "path": "official/template_791/workflow.json"
+}

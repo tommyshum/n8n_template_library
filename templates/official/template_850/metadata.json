@@ -1,0 +1,32 @@
+{
+  "id": 850,
+  "name": "Verify an email recipient with uProc",
+  "description": "Do you want to avoid bounces in your Email Marketing campaigns? \n\nThis workflow verifies emails using the uProc.io email verifier.\n\n\n\nYou need to add your credentials (Email and API Key - real -) located at Integration section to n8n.\n\nNode \"Create Email Item\" can be replaced by any other supported service with email value, like Mailchimp, Calendly, MySQL, or Typeform.\n\nThe \"uProc\" node returns a status per checked email (deliverable, undeliverable, spamtrap, softbounce,...). \n\n\"If\" node checks if \"deliverable\" status exists. If value is not present, you can mark email as invalid to discard bounces. If \"deliverable\" status is present, you can use email in your Email Marketing campaigns.\n\nIf you need to know detailed indicators of any email, you can use the tool \"Communication\" > \"Check Email Exists (Extended)\" to get advanced information.\n\n",
+  "totalViews": 514,
+  "source": "official",
+  "user": {
+    "id": 5774,
+    "name": "Miquel Colomer",
+    "username": "mcolomer",
+    "bio": "As a passionate developer and AI agent creator, I’ve been at the forefront of automation, pioneering workflows and training AI to handle complex tasks seamlessly. I’m an early adopter and expert of n8n, having worked with its powerful capabilities to create automation solutions for diverse industries. I founded n8nhackers, the first AI-powered agency focused on n8n, where we help businesses transform their workflows with cutting-edge automation.",
+    "verified": true,
+    "links": "[\"https://n8nhackers.com\"]",
+    "avatar": "https://gravatar.com/avatar/c4974f5be3985d7f30465d2d963967905bcb2f9b8a8ecaf8ba4396bfbd034db2?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "uProc",
+      "type": "n8n-nodes-base.uproc",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2020-12-27T18:04:34.256Z",
+  "path": "official/template_850/workflow.json"
+}

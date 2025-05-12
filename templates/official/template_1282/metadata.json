@@ -1,0 +1,43 @@
+{
+  "id": 1282,
+  "name": "Send a file from S3 to AWS Textract",
+  "description": "This workflow shows how to download an image file from S3 and pass it on to Textract for text extraction.\n\n\n\nThe workflow uses two nodes:\nAWS S3**: This node will download a receipt file from S3\nAWS Textract**: This node connects to Aamazon's Textract service to extract text from the receipt file",
+  "totalViews": 1867,
+  "source": "official",
+  "user": {
+    "id": 21240,
+    "name": "Tom",
+    "username": "mutedjam",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://github.com/that-one-tom/\"]",
+    "avatar": "https://gravatar.com/avatar/7a3710173e907baffaf7ed7ebffc37955c9cdeadb8612200225a34a2e056aa17?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Data & Storage",
+    "Utility"
+  ],
+  "nodes": [
+    {
+      "name": "AWS S3",
+      "type": "n8n-nodes-base.awsS3",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AWS Textract",
+      "type": "n8n-nodes-base.awsTextract",
+      "categories": [
+        "Utility"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2021-10-25T12:06:24.118Z",
+  "path": "official/template_1282/workflow.json"
+}

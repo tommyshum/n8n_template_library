@@ -1,0 +1,67 @@
+{
+  "id": 2371,
+  "name": "Request and Receive Zigbee backup from zigbee2mqtt and save it via SFTP",
+  "description": "A single workflow with 2 flows/paths that combine to handle the backup sequence for Zigbee device configuration from HomeAssistant / zigbee2mqtt.  This provides a way to automate a periodic capture of Zigbee coordinators and device pairings to speed the recovery process when/if the HomeAssistant instance needs to be rebuilt.  Setting up similar automation without n8n (e.g. shell scripts and system timers) is consiterably more challenging.  n8n makes it easy and this template should remove any other excuse not to do it.\n\nFlow 1\nTriggered by Cron/Timer\n  set whatever interval for backups\n  sends mqtt message to request zigbee2mqtt backup (via separate message)\n\nFlow 2\nTriggered by zigbee2mqtt backup message\nExtracts zip file from the message and stores somewhere, with a date-stamp in the filename, via sftp\n\nSetup\nCreate a MQTT connection named \"MQTT Account\" with the appropriate protocol (mqtt), host, port (1883), username, and password\nCreate an sftp connection named \"SFTP Zigbee Backups\" with the appropriate host, port (22), username, and password or key.\n\nReference\nThis article describes the mqtt parts.\n",
+  "totalViews": 1363,
+  "source": "official",
+  "user": {
+    "id": 91880,
+    "name": "Hubschrauber",
+    "username": "hubschrauber",
+    "bio": "Software developer specializing in \"back-end plumbing\" to connect and sync data between large corporate systems, enabling application distribution/migration, scaling, and containerization.  Using n8n for various orchestration tasks both at home and \"on the job.\"",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/937647d994a5af6961d76103821d84448e970d74e6d0d303e8a76b56fd1da695?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Core Nodes",
+    "Data & Storage",
+    "Development",
+    "Utility",
+    "Communication"
+  ],
+  "nodes": [
+    {
+      "name": "FTP",
+      "type": "n8n-nodes-base.ftp",
+      "categories": [
+        "Core Nodes",
+        "Data & Storage",
+        "Development",
+        "Utility"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Files",
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "MQTT",
+      "type": "n8n-nodes-base.mqtt",
+      "categories": [
+        "Development",
+        "Communication"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-08-03T00:26:43.219Z",
+  "path": "official/template_2371/workflow.json"
+}

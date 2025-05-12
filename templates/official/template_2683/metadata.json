@@ -1,0 +1,96 @@
+{
+  "id": 2683,
+  "name": "AI Agent for project management and meetings with Airtable and Fireflies",
+  "description": "Video Guide\n\nI prepared a comprehensive guide detailing how to create a Smart Agent that automates meeting task management by analyzing transcripts, generating tasks in Airtable, and scheduling follow-ups when necessary.\n\n\n\nYoutube Link\n\nWho is this for?\nThis workflow is ideal for project managers, team leaders, and business owners looking to enhance productivity during meetings. It is particularly helpful for those who need to convert discussions into actionable items swiftly and effectively.\n\nWhat problem does this workflow solve?\nManaging action items from meetings can often lead to missed tasks and poor follow-up. This automation alleviates that issue by automatically generating tasks from meeting transcripts, keeping everyone informed about their responsibilities and streamlining communication.\n\nWhat this workflow does\nThe workflow leverages n8n to create a Smart Agent that listens for completed meeting transcripts, processes them using AI, and generates tasks in Airtable. Key functionalities include:\nCapturing completed meeting events through webhooks.\nExtracting relevant meeting details such as transcripts and participants using API calls.\nGenerating structured tasks from meeting discussions and sending notifications to clients.\n\nWebhook Integration: Listens for meeting completion events to trigger subsequent actions.\nAPI Requests for Data: Pulls necessary details like transcripts and participant information from Fireflies.\nTask and Notification Generation: Automatically creates tasks in Airtable and notifies clients of their responsibilities.\n\nSetup\n\nN8N Workflow\nConfigure the Webhook: \n   Set up a webhook to capture meeting completion events and integrate it with Fireflies.\n\nRetrieve Meeting Content: \n   Use GraphQL API requests to extract meeting details and transcripts, ensuring appropriate authentication through Bearer tokens.\n\nAI Processing Setup: \n   Define system messages for AI tasks and configure connections to the AI chat model (e.g., OpenAI's GPT) to process transcripts.\n\nTask Creation Logic: \n   Create structured tasks based on AI output, ensuring necessary details are captured and records are created in Airtable.\n\nClient Notifications: \n   Use an email node to notify clients about their tasks, ensuring communications are client-specific.\n\nScheduling Follow-Up Calls: \n   Set up Google Calendar events if follow-up meetings are required, populating details from the original meeting context.\n",
+  "totalViews": 6669,
+  "source": "official",
+  "user": {
+    "id": 92018,
+    "name": "Mark Shcherbakov",
+    "username": "lowcodingdev",
+    "bio": "I am a business analyst with a development background, dedicated to helping small businesses and entrepreneurs leverage cloud services for increased efficiency. My expertise lies in automating manual workflows, integrating data from multiple cloud service providers, creating insightful dashboards, and building custom CRM systems.\n\nhttps://www.linkedin.com/in/marklowcoding/",
+    "verified": true,
+    "links": "[\"https://www.skool.com/5minai-pro\"]",
+    "avatar": "https://gravatar.com/avatar/3055cd5035cfb1030d9d1923b60646d1a156927eead957956bea71f88c5186cd?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2024-12-30T10:31:08.754Z",
+  "path": "official/template_2683/workflow.json"
+}

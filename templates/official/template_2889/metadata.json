@@ -1,0 +1,41 @@
+{
+  "id": 2889,
+  "name": "Export WordPress Posts to CSV and Upload to Google Drive",
+  "description": "Overview  \nThis n8n workflow automates the process of extracting published WordPress posts, converting them into a CSV file, and uploading it to Google Drive. It’s perfect for content backups, SEO audits, and data migration.  \n\nFeatures  \nFetches all published posts from a WordPress website  \nExtracts key post details (ID, Title, Link)  \nConverts the extracted data into a CSV file  \nUploads the CSV file to Google Drive for easy access and storage  \n\nUse Cases  \nSEO Optimization**: Export post data for keyword analysis and performance tracking  \nAutomated Content Backup**: Store WordPress post details in Google Drive. You can add more fields to the Csv file if needed  \n\nWorkflow Steps  \n\n1. Trigger Workflow Manually  \nThe workflow starts when triggered manually in n8n.  \n\n2. Retrieve WordPress Posts  \nThe workflow fetches all published posts using the WordPress API. It extracts:  \nPost ID  \nTitle  \nLink  \nRendered Content\n\n3. Format Data  \nThe retrieved data is structured to ensure correct CSV formatting.  \n\n4. Convert to CSV File  \nThe formatted data is transformed into a downloadable CSV file.  \n\n5. Upload to Google Drive  \nThe CSV file is automatically uploaded to a specified Google Drive folder for easy access and storage.  \n\nHow to Use  \nConnect your WordPress and Google Drive accounts to n8n.  \nRun the workflow manually or set up a scheduled trigger.  \nAccess the CSV file from your Google Drive folder.  \n",
+  "totalViews": 1081,
+  "source": "official",
+  "user": {
+    "id": 92547,
+    "name": "Codez & AI",
+    "username": "codez",
+    "bio": "Building automations and AI agents for businesses",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/896ac5706f22050261dab53648aed193ebdf79040118c0a0ab0d3378dd5bd9f1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Marketing"
+  ],
+  "nodes": [
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Wordpress",
+      "type": "n8n-nodes-base.wordpress",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-02-12T11:24:39.213Z",
+  "path": "official/template_2889/workflow.json"
+}

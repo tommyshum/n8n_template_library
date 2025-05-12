@@ -1,0 +1,121 @@
+{
+  "id": 3073,
+  "name": "⚛️🐋🤖 Extract Data from YAPE Receipts via Telegram OCR and Store in Google Sheets",
+  "description": "Detailed Technical Description\nThis n8n workflow automates Yape payment receipt processing, integrating Telegram bot, AI-powered OCR, and Google Sheets automation. By leveraging ChatGPT Vision Computing, it extracts and structures transaction details, eliminating the need for manual entry. Ideal for freelancers, businesses, and finance teams, this workflow ensures error-free, real-time financial tracking. The AI agent powered by DeepSeek refines and formats the extracted text, storing it in Google Sheets for easy accessibility and reporting. Users can track payments, monitor cash flow, and generate financial reports without any manual work. This seamless integration boosts efficiency, reduces errors, and automates financial record-keeping with 100% accuracy.\n\n🛠️ Technologies Used:\n✅n8n – Workflow orchestrator.\n✅Telegram – Handles image reception and notifications.\n✅Google Drive – Manages file creation and storage.\n✅Google Sheets – Automatically logs extracted data into spreadsheets.\n\n🤖Artificial Intelligence:\n✅ChatGPT Vision Computing – Performs OCR on payment receipts.\n✅DeepSeek AI – Organizes and converts extracted data into a structured format.\n\n📌 pre-conditions:\n📩 A Telegram Bot – Must be created to receive images. Setup Guide\n🔑 Google Sheets API Key – Required to store extracted data. Setup Guide\n⚛️ ChatGPT API Key – Used for OCR and AI text extraction. Get it here\n🐋 DeepSeek API Key – Processes extracted text into structured data. Get it here\n1️⃣ Image Reception & OCR Processing 📩\nThe user attaches a Yape payment receipt image to the Telegram bot conversation. 🤳🏻\n\n2️⃣ Analyze Image (OCR) 👁️‍🗨️\nA ⚛️ChatGPT Vision Computing model processes the image and extracts all visible text, ensuring high-accuracy OCR for structured data extraction.\n\n3️⃣ Analyze and format text\nIntelligent Data Processing with AI 🤖\nThe extracted text is sent to a 🐋DeepSeek-based AI agent that:\nIdentifies and structures key transaction details (amount, date, sender, transaction ID, etc.).\nConverts the data into a structured JSON format.\n\n4️⃣ Data Storage in Google Sheets 📊\nGoogle Drive integration is established.\nIf the Google Sheets file does not exist, it is automatically created.\n\nExtracted data is automatically recorded in the corresponding spreadsheet, enabling effortless tracking and streamlined financial organization.\n\n🚀 Benefits:\n✅ Time-saving – Eliminates manual payment processing.\n✅ Error-free data entry – Reduces human mistakes in record-keeping.\n✅ 100% automation – No manual intervention required.\n✅ Seamless integration – Easily connects with other workflows.\n\n\n\n\n\n💡NOTE: The extracted transaction data will be stored in a Google Sheets file with the following columns:\n\n|      Column Name      | Description                                               |\n|:---------------------:|-----------------------------------------------------------|\n| id                | Unique identifier for each transaction.                   |\n| beneficiaryName   | Name of the recipient of the payment.                     |\n| amount            | Payment amount in the specified currency.                 |\n| currency          | Currency used for the transaction (e.g., PEN, USD).       |\n| company           | The entity or service handling the transaction.           |\n| date              | Date of the transaction in a human-readable format.       |\n| hour              | Time of the transaction.                                  |\n| originalDate      | The exact date extracted from the receipt.                |\n| dateToISO         | Standardized ISO 8601 date format.                        |\n| operation         | Type of financial operation (e.g., deposit, transfer).    |\n| operationNumber   | Unique operation number provided by the payment system.   |\n| beneficiaryNumber | Account or phone number of the recipient.                 |\n| commission        | Any commission or fee charged for the transaction.        |\n| account           | Account number or reference used for the payment.         |\n| channel           | Payment method used (e.g., app, POS, bank transfer).      |\n| agentCode         | Identifier of the agent or entity processing the payment. |\n\nThis workflow is perfect for businesses, freelancers, and individuals who need a fully automated solution to process Yape payment receipts efficiently. By leveraging AI-powered OCR and structured data extraction, it eliminates manual effort, reduces errors, and ensures that all transactions are accurately logged in Google Sheets. Whether you're managing personal finances, freelance payments, or business transactions, this system provides a seamless, hands-free approach to financial tracking, allowing you to focus on what truly matters.",
+  "totalViews": 1263,
+  "source": "official",
+  "user": {
+    "id": 92386,
+    "name": "Jesús Pérez ",
+    "username": "jasp402",
+    "bio": "JASP402 | Developer Fullstack y QA Automation | Apasionado por la automatización con n8n. Creo workflows personalizados y eficientes para optimizar tus procesos. He desarrollado frameworks y librerías para potenciar la automatización. ¡Conecta conmigo para descubrir cómo puedo ayudarte!",
+    "verified": false,
+    "links": "[\"https://www.linkedin.com/in/jasp402/\"]",
+    "avatar": "https://gravatar.com/avatar/1fbe8700ca8225bd9bf5662fa0d42724df65b1788cb1040cc9ea17ec25c6abb8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Communication",
+    "HITL",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "DeepSeek Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatDeepSeek",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-03-03T15:59:09.485Z",
+  "path": "official/template_3073/workflow.json"
+}

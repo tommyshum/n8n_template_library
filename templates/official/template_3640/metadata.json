@@ -1,0 +1,80 @@
+{
+  "id": 3640,
+  "name": "🧑‍🦯Improve your Website Accessibility with GPT-4o and Google Sheet",
+  "description": "Tags: Accessibility, SEO, Blogging, Marketing, Automation, AI, Web Auditing\n\nContext\n\nHey! I’m Samir, a Supply Chain Engineer and Data Scientist from Paris, and the founder of LogiGreen Consulting.\n\nIn my personal blog, I share insights on how to use AI, automation, and data analytics to improve logistics, operations, and digital sustainability practices.\n\n\n\n&gt; Have you heard about accessibility?\n\nIn this workflow, I use n8n to improve the quality of alternative texts for images on my personal website.\n\n📬 For business inquiries, you can connect with me on LinkedIn\n\nWho is this template for?\n\nThis workflow is for:\nBloggers* and *website owners* who want to *improve accessibility**\nSEO professionals** looking to boost page performance\nWeb developers* and *product teams** automating web audits\n\nWhat does it do?\n\nThis n8n workflow:\n🔍 Downloads the HTML of a blog or web page  \n🖼️ Extracts all ` tags and their alt` attributes  \n📉 Detects missing or too-short alt texts  \n🤖 Sends those images to GPT-4o (with vision) to generate new alt descriptions  \n📄 Saves the results into a Google Sheet, updating the alt text when needed  \n\nHow it works\n\n\n\nSet a page URL using the Set node  \nDownload HTML content  \nExtract image src and alt using a Code node  \nStore results in a Google Sheet  \nFilter images with altLength &lt; 50  \nSend image URL to GPT-4o \nUpdate the Google Sheet with the newly generated newAlt text\n\nThe AI alt texts are concise, descriptive, and accessibility-compliant.\n\nWhat do I need to get started?\n\nYou’ll need:\nA Google Sheet to store the audit results\nAn OpenAI account with GPT-4o access\n\nFollow the Guide!\nFollow the sticky notes in the workflow or check my tutorial to configure each node and start using AI to improve the accessibility of your website.\n\n\n\n🎥 Watch My Tutorial\n\nNotes\n\nGPT-generated alt texts are limited to ~125–150 characters for best results\nUse this to comply with WCAG and improve Google indexing\nEasily adapt it to audit multiple domains or e-commerce catalogues\n\nThis workflow was built using n8n version 1.85.4  \nSubmitted: April 21, 2025\n",
+  "totalViews": 975,
+  "source": "official",
+  "user": {
+    "id": 93233,
+    "name": "Samir Saci",
+    "username": "samirsaci",
+    "bio": "Automation, AI and Analytics for Supply Chain & Business Optimization\nHelping businesses streamline operations using n8n, AI agents, and data science to enhance efficiency and sustainability. \nLinkedin: www.linkedin.com/in/samir-saci",
+    "verified": true,
+    "links": "[\"https://linktr.ee/samirsaci\"]",
+    "avatar": "https://gravatar.com/avatar/d3644476a59e5813c5f00a7933977e2be8805cbdc574958b9cc6a53b45bedd6a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-04-21T14:01:46.813Z",
+  "path": "official/template_3640/workflow.json"
+}

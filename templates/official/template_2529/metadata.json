@@ -1,0 +1,62 @@
+{
+  "id": 2529,
+  "name": "Automatic Background Removal for Images in Google Drive",
+  "description": "This n8n workflow simplifies the process of removing backgrounds from images stored in Google Drive. By leveraging the PhotoRoom API, this template enables automatic background removal, padding adjustments, and output formatting, all while storing the updated images back in a designated Google Drive folder.\n\nThis workflow is very useful for companies or individuals that are spending a lot of time into removing the background from product images.\n\nHow it Works\n\n    The workflow begins with a Google Drive Trigger node that monitors a specific folder for new image uploads.\n    Upon detecting a new image, the workflow downloads the file and extracts essential metadata, such as the file size.\n    Configurations are set for background color, padding, output size, and more, which are all customizable to match specific requirements.\n    The PhotoRoom API is called to process the image by removing its background and adding padding based on the settings.\n    The processed image is saved back to Google Drive in the specified output folder with an updated name indicating the background has been removed.\n\nRequirements\n\n    PhotoRoom API Key\n    Google Drive API Access\n\nCustomizing the Workflow\n\n    Easily adjust the background color, padding, and output size using the configuration node.\n    Modify the output folder path in Google Drive or replace Google Drive with another storage service if needed.\n    For advanced use cases, integrate further image processing steps, such as adding captions or analyzing content using AI.",
+  "totalViews": 12076,
+  "source": "official",
+  "user": {
+    "id": 92124,
+    "name": "Simon",
+    "username": "simonfes",
+    "bio": "I am an E-commerce entrepreneur specializing in spare parts, with a strong passion for automation and AI.\n\nI leverage n8n to build complex workflows, integrating tools like SeaTable, Supabase with various E-com platforms. \n\nI'm dedicated to continuously improving workflow processes, particularly in the e-commerce sector.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/602c41571e8b6e23ec9804f20339d7d817476d734532baa8b52326e7b5eab5f3?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Marketing",
+    "Core Nodes",
+    "Development",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "Edit Image",
+      "type": "n8n-nodes-base.editImage",
+      "categories": [
+        "Marketing",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Files",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-11-05T10:13:13.396Z",
+  "path": "official/template_2529/workflow.json"
+}

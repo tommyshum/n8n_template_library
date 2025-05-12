@@ -1,0 +1,52 @@
+{
+  "id": 3809,
+  "name": "Generate Comprehensive SEO Audit Reports with DataForSEO and Google Search Console",
+  "description": "Introduction\nThe Content SEO Audit Workflow is a powerful automated solution that generates comprehensive SEO audit reports for websites. \n\nBy combining the crawling capabilities of DataForSEO with the search performance metrics from Google Search Console, this workflow delivers actionable insights into content quality, technical SEO issues, and performance optimization opportunities. \n\nThe workflow crawls up to 1,000 pages of a website, analyzes various SEO factors including metadata, content quality, internal linking, and search performance, and then generates a professional, branded HTML report that can be shared directly with clients. \n\nThe entire process is automated, transforming what would typically be hours of manual analysis into a streamlined workflow that produces consistent, thorough results. \n\nThis workflow bridges the gap between technical SEO auditing and practical, client-ready deliverables, making it an invaluable tool for SEO professionals and digital marketing agencies.\n\nWho is this for?\nThis workflow is designed for SEO consultants, digital marketing agencies, and content strategists who need to perform comprehensive content audits for clients or their own websites. It's particularly valuable for professionals who:\n\nRegularly conduct SEO audits as part of their service offerings\nNeed to provide branded, professional reports to clients\nWant to automate the time-consuming process of content analysis\nRequire data-driven insights to inform content strategy decisions\n\nUsers should have basic familiarity with SEO concepts and metrics, as well as a basic understanding of how to set up API credentials in n8n. \n\nWhile no coding knowledge is required to run the workflow, users should be comfortable with configuring workflow parameters and following setup instructions.\n\nWhat problem is this workflow solving?\nContent audits are essential for SEO strategy but are traditionally labor-intensive and time-consuming. This workflow addresses several key challenges:\n\nManual Data Collection: Gathering data from multiple sources (crawlers, Google Search Console, etc.) typically requires hours of work. This workflow automates the entire data collection process.\n\nInconsistent Analysis: Manual audits can suffer from inconsistency in methodology. This workflow applies the same comprehensive analysis criteria to every page, ensuring thorough and consistent results.\n\nReport Generation: Creating professional, client-ready reports often requires additional design work after the analysis is complete. This workflow generates a fully branded HTML report automatically.\n\nData Integration: Correlating technical SEO issues with actual search performance metrics is difficult when working with separate tools. This workflow seamlessly integrates crawl data with Google Search Console metrics.\n\nScale Limitations: Manual audits become increasingly difficult with larger websites. This workflow can efficiently process up to 1,000 pages without additional effort.\n\nWhat this workflow does\nOverview\nThe Content SEO Audit Workflow crawls a specified website, analyzes its content for various SEO issues, retrieves performance data from Google Search Console, and generates a comprehensive HTML report. \n\nThe workflow identifies issues in five key categories: status issues (404 errors, redirects), content quality (thin content, readability), metadata SEO (title/description issues), internal linking (orphan pages, excessive click depth), and performance (underperforming content). \n\nThe final report includes executive summaries, detailed issue breakdowns, and actionable recommendations, all branded with your company's colors and logo.\n\nProcess\nInitial Configuration: The workflow begins by setting parameters including the target domain, crawl limits, company information, and branding colors.\n\nWebsite Crawling: The workflow creates a crawl task in DataForSEO and periodically checks its status until completion.\n\nData Collection: Once crawling is complete, the workflow:\n   Retrieves the raw audit data from DataForSEO\n   Extracts all URLs with status code 200 (successful pages)\n   Queries Google Search Console API for each URL to get clicks and impressions data\n   Identifies 404 and 301 pages and retrieves their source links\n\nData Analysis: The workflow analyzes the collected data to identify issues including:\n   Technical issues: 404 errors, redirects, canonicalization problems\n   Content issues: thin content, outdated content, readability problems\n   SEO metadata issues: missing/duplicate titles and descriptions, H1 problems\n   Internal linking issues: orphan pages, excessive click depth, low internal links\n   Performance issues: underperforming pages based on GSC data\n\nReport Generation: Finally, the workflow:\n   Calculates a health score based on the severity and quantity of issues\n   Generates prioritized recommendations\n   Creates a comprehensive HTML report with interactive tables and visualizations\n   Customizes the report with your company's branding\n   Provides the report as a downloadable HTML file\n\nSetup\nTo set up this workflow, follow these steps:\n\nImport the workflow: Download the JSON file and import it into your n8n instance.\n\nConfigure DataForSEO credentials:\n   Create a DataForSEO account at https://app.dataforseo.com/api-access (they offer a free $1 credit for testing)\n   Add a new \"Basic Auth\" credential in n8n following the HTTP Request Authentication guide\n   Assign this credential to the \"Create Task\", \"Check Task Status\", \"Get Raw Audit Data\", and \"Get Source URLs Data\" nodes\n\nConfigure Google Search Console credentials:\n   Add a new \"Google OAuth2 API\" credential following the Google OAuth guide\n   Ensure your Google account has access to the Google Search Console property you want to analyze\n   Assign this credential to the \"Query GSC API\" node\n\nUpdate the \"Set Fields\" node with:\n   dfs_domain: The website domain you want to audit\n   dfs_max_crawl_pages: Maximum number of pages to crawl (default: 1000)\n   dfs_enable_javascript: Whether to enable JavaScript rendering (default: false)\n   company_name: Your company name for the report branding\n   company_website: Your company website URL\n   company_logo_url: URL to your company logo\n   brand_primary_color: Your primary brand color (hex code)\n   brand_secondary_color: Your secondary brand color (hex code)\n   gsc_property_type: Set to \"domain\" or \"url\" depending on your Google Search Console property type\n\nRun the workflow: Click \"Start\" and wait for it to complete (approximately 20 minutes for 500 pages).\n\nDownload the report: Once complete, download the HTML file from the \"Download Report\" node.\n\nHow to customize this workflow to your needs\nThis workflow can be adapted in several ways to better suit your specific requirements:\n\nAdjust crawl parameters: Modify the \"Set Fields\" node to change:\n   The maximum number of pages to crawl (dfs_max_crawl_pages). This workflow supports up to 1000 pages.\n   Whether to enable JavaScript rendering for JavaScript-heavy sites (dfs_enable_javascript)\n\nCustomize issue detection thresholds: In the \"Build Report Structure\" code node, you can modify:\n   Word count thresholds for thin content detection (currently 1500 words)\n   Click depth thresholds (currently flags pages deeper than 4 clicks)\n   Title and description length parameters (currently 40-60 chars for titles, 70-155 for descriptions)\n   Readability score thresholds (currently flags Flesch-Kincaid scores below 55)\n\nModify the report design: In the \"Generate HTML Report\" code node, you can:\n   Adjust the HTML/CSS to change the report layout and styling\n   Add or remove sections from the report\n   Change the recommendations logic\n   Modify the health score calculation algorithm\n\nAdd additional data sources: You could extend the workflow by:\n   Adding Pagespeed Insights data for performance metrics\n   Incorporating backlink data from other APIs\n   Adding keyword ranking data from rank tracking APIs\n\nImplement automated delivery: Add nodes after the \"Download Report\" to:\n   Send the report directly to clients via email\n   Upload it to cloud storage\n   Create a PDF version of the report",
+  "totalViews": 340,
+  "source": "official",
+  "user": {
+    "id": 93195,
+    "name": "Custom Workflows AI",
+    "username": "customworkflowsai",
+    "bio": "We specializes in crafting tailored automation solutions that help businesses streamline their operations and boost productivity. With expertise in creating custom n8n workflows, we transform complex business processes into seamless, automated systems that save time and reduce manual effort.",
+    "verified": true,
+    "links": "[\"https://customworkflows.ai\"]",
+    "avatar": "https://gravatar.com/avatar/8b94720cd9c980204474d25605eb1bd96393f7e0bf0cb9c6e2b36b92262fa778?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-04-30T19:12:11.896Z",
+  "path": "official/template_3809/workflow.json"
+}

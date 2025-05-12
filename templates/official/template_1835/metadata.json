@@ -1,0 +1,42 @@
+{
+  "id": 1835,
+  "name": "Sync Notion database pages as ClickUp tasks",
+  "description": "This workflow creates/updates ClickUp tasks when Notion database pages are created/updated. All fields in the Notion database are mapped to a ClickUp property.\n\nNotion database will require setup before the workflow can be used. See the list of fields available in the setup below.\n\nPrerequisites\n\nNotion account and Notion credentials.\nClickUp account and ClickUp credentials.\n\nHow it works\n\nWhen a new database page is created in Notion, the workflow creates a new task in ClickUp with all required fields.\nThe new ClickUp task's ID is saved in the Notion database page's \"ClickUp ID\" field.\nThen, when the database page is updated in Notion, the workflow updates the specific ClickUp task identified by the \"ClickUp ID\" field in Notion.\n\nSetup\n\nThis workflow requires that you set up a Notion database. To do so, follow the steps below:\n\nIn Notion, create a new database.\nAdd the following columns to the database:\n    Task name (renamed from \"Name\")\n    Status (with type \"Select\" with the following options: \"to do\", \"in progress\", \"review\", \"revision\", \"complete\")\n    Deadline (with type \"Date\")\n    ClickUp ID (with type \"Text\")\n    Add any other fields you require.\nShare the database to n8n.\nBy default, the workflow will fill all the fields provided above, except for any other additional fields you add.",
+  "totalViews": 2161,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Productivity",
+    "Communication"
+  ],
+  "nodes": [
+    {
+      "name": "ClickUp",
+      "type": "n8n-nodes-base.clickUp",
+      "categories": [
+        "Productivity",
+        "Communication"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2022-12-09T09:46:31.068Z",
+  "path": "official/template_1835/workflow.json"
+}

@@ -1,0 +1,34 @@
+{
+  "id": 2190,
+  "name": "Create new Clickup Tasks from Slack commands",
+  "description": "Create new Clickup Tasks from Slack commands\nThis workflow aims to make it easy to create new tasks on Clickup from normal Slack messages using simple slack command. \n\nFor example We can have a slack command as \n\n/newTask Set task to update new contacts on CRM and assign them to the sales team\nThis will have an new task on Clickup with the same title and description on Clickup \n\nFor most teams, getting tasks from Slack to Clickup involves manually entering the new tasks into Clickup. What if we could do this with a simple slash command?\n\nStep 1\nThe first step is to Create an endpoint URL for your slack command by creating an events API from the link [below] https://api.slack.com/apps/)\n\nSTEP 2 \nNext step is defining the endpoint for your URL\nCreate a new webhook endpoint from your n8n with a POST and paste the endpoint URL to your event API. This will send all slash commands associated with the Slash to the desired endpoint\n\nStep 3\nLog on to slack API (https://api.slack.com/) and create an application. This is the one we use to run all automation and commands from Slack. Once your app is ready, navigate to the Slash Commands and create a new command\n \n\nThis will include the command, the webhook URL and a description of what the slash command is all about\n\n\nNow that this is saved you can do a test by sending a demo task to your endpoint\n\nOnce you have tested the webhook slash command is working with the webhook, create a new Clickup API that can be used to create new tasks in ClickUp\n\n\n\nThis workflow creates a new task with the start dates on Clikup that can be assigned to the respective team members\n\nMore details about the document setup can be found on this document below\n\nHappy Productivity\n",
+  "totalViews": 1626,
+  "source": "official",
+  "user": {
+    "id": 91335,
+    "name": "Imperol",
+    "username": "imperolq",
+    "bio": "Automation expert with years of experience helping businesses improve their efficiency and productivity with smart automations that are affordable, scalable, and flexible. ",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/zacharia-kimotho/\"]",
+    "avatar": "https://gravatar.com/avatar/13b050fd63dc0c9242774c4b8769c4788df8b47268c1fb183d6f1da085b9e6e2?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Productivity",
+    "Communication"
+  ],
+  "nodes": [
+    {
+      "name": "ClickUp",
+      "type": "n8n-nodes-base.clickUp",
+      "categories": [
+        "Productivity",
+        "Communication"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-03-23T21:45:18.164Z",
+  "path": "official/template_2190/workflow.json"
+}

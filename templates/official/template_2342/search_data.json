@@ -1,0 +1,517 @@
+{
+  "id": 2342,
+  "name": "Handling Appointment Leads and Follow-up With Twilio, Cal.com and AI",
+  "totalViews": 17963,
+  "purchaseUrl": null,
+  "user": {
+    "id": 91804,
+    "name": "Jimleuk",
+    "username": "jimleuk",
+    "bio": "Freelance consultant based in the UK specialising in AI-powered automations. I work with select clients tackling their most challenging projects. For business enquiries, send me an email at hello@jimle.uk\n\nLinkedIn: https://www.linkedin.com/in/jimleuk/\nX/Twitter: https://x.com/jimle_uk",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4ab99e51473df76838beeaac908747f7928c625f869794815cabe34016967d51?r=pg&d=retro&size=200"
+  },
+  "description": "This n8n workflow builds an appointment scheduling AI agent which can\nTake enquiries from prospective customers and help them book an appointment by checking appointment availability\nWhere no appointment is booked, the Agent is able to send follow-up messages to re-engage leads.\nAfter an appointment is booked, the agent is able reschedule or even cancel the booking for the user without human intervention.\n\nFor small outfits, this workflow could contribute the necessary \"man-power\" required to increase business sales.\n\nThe sample Airtable can be found here: https://airtable.com/appO2nHiT9XPuGrjN/shroSFT2yjf87XAox\n\n2024-10-22 Updated to Cal.com API v2.\n\nHow it works\n\nThe customer sends an enquiry via SMS to trigger our workflow. For this trigger, we'll use a Twilio webhook.\nThe prospective or existing customer's number is logged in an Airtable Base which we'll be using to track all our enquries.\nNext, the message is sent to our AI Agent who can reply to the user and decide if an appointment booking can be made. The reply is made via SMS using Twilio.\nA scheduled trigger which runs every day, checks our chat logs for a list of prospective customers who have yet to book an appointment but still show interest.\nThis list is sent to our AI Agent to formulate a personalised follow-up message to each lead and ask them if they want to continue with the booking.\nThe follow-up interaction is logged so as to not to send too many messages to the customer.\n\nRequirements\nA Twilio account to receive customer messages.\nAn Airtable account and Base to use as our datastore for enquiries.\nCal.com account to use as our scheduling service.\nOpenAI account for our AI model.\n\nCustomising this workflow\n\nNot using Airtable? Swap this out for your CRM of choice such as hubspot or your own service.\n\nNot using Cal.com? Swap this out for API-enabled services such as Acuity Scheduling or your own service.",
+  "createdAt": "2024-07-11T11:02:06.795Z",
+  "nodes": [
+    {
+      "id": 2,
+      "icon": "file:airtable.svg",
+      "name": "n8n-nodes-base.airtable",
+      "codex": {
+        "data": {
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/2021-goals-level-up-your-vocabulary-with-vonage-and-n8n/",
+                "icon": "🎯",
+                "label": "2021 Goals: Level Up Your Vocabulary With Vonage and n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/2021-the-year-to-automate-the-new-you-with-n8n/",
+                "icon": "☀️",
+                "label": "2021: The Year to Automate the New You with n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/how-to-build-a-low-code-self-hosted-url-shortener/",
+                "icon": "🔗",
+                "label": "How to build a low-code, self-hosted URL shortener in 3 steps"
+              },
+              {
+                "url": "https://n8n.io/blog/how-to-get-started-with-crm-automation-and-no-code-workflow-ideas/",
+                "icon": "👥",
+                "label": "How to get started with CRM automation (with 3 no-code workflow ideas"
+              },
+              {
+                "url": "https://n8n.io/blog/automate-google-apps-for-productivity/",
+                "icon": "💡",
+                "label": "15 Google apps you can combine and automate to increase productivity"
+              },
+              {
+                "url": "https://n8n.io/blog/building-an-expense-tracking-app-in-10-minutes/",
+                "icon": "📱",
+                "label": "Building an expense tracking app in 10 minutes"
+              },
+              {
+                "url": "https://n8n.io/blog/why-this-product-manager-loves-workflow-automation-with-n8n/",
+                "icon": "🧠",
+                "label": "Why this Product Manager loves workflow automation with n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/learn-to-build-powerful-api-endpoints-using-webhooks/",
+                "icon": "🧰",
+                "label": "Learn to Build Powerful API Endpoints Using Webhooks"
+              },
+              {
+                "url": "https://n8n.io/blog/sending-sms-the-low-code-way-with-airtable-twilio-programmable-sms-and-n8n/",
+                "icon": "📱",
+                "label": "Sending SMS the Low-Code Way with Airtable, Twilio Programmable SMS, and n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/automating-conference-organization-processes-with-n8n/",
+                "icon": "🙋‍♀️",
+                "label": "Automating Conference Organization Processes with n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/benefits-of-automation-and-n8n-an-interview-with-hubspots-hugh-durkin/",
+                "icon": "🎖",
+                "label": "Benefits of automation and n8n: An interview with HubSpot's Hugh Durkin"
+              },
+              {
+                "url": "https://n8n.io/blog/how-goomer-automated-their-operations-with-over-200-n8n-workflows/",
+                "icon": "🛵",
+                "label": "How Goomer automated their operations with over 200 n8n workflows"
+              },
+              {
+                "url": "https://n8n.io/blog/aws-workflow-automation/",
+                "label": "7 no-code workflow automations for Amazon Web Services"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.airtable/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/airtable/"
+              }
+            ]
+          },
+          "categories": [
+            "Data & Storage"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "Airtable"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMTcwIj48cGF0aCBmaWxsPSIjZmNiNDAwIiBkPSJNODkgNC44IDE2LjIgMzQuOWMtNC4xIDEuNy00IDcuNC4xIDkuMWw3My4yIDI5YzYuNCAyLjYgMTMuNiAyLjYgMjAgMGw3My4yLTI5YzQuMS0xLjYgNC4xLTcuNC4xLTkuMWwtNzMtMzAuMUMxMDMuMiAyIDk1LjcgMiA4OSA0LjgiLz48cGF0aCBmaWxsPSIjMThiZmZmIiBkPSJNMTA1LjkgODguOXY3Mi41YzAgMy40IDMuNSA1LjggNi43IDQuNWw4MS42LTMxLjdjMS45LS43IDMuMS0yLjUgMy4xLTQuNVY1Ny4yYzAtMy40LTMuNS01LjgtNi43LTQuNUwxMDkgODQuM2MtMS45LjgtMy4xIDIuNi0zLjEgNC42Ii8+PHBhdGggZmlsbD0iI2Y4MmI2MCIgZD0ibTg2LjkgOTIuNi0yNC4yIDExLjctMi41IDEuMkw5LjEgMTMwYy0zLjIgMS42LTcuNC0uOC03LjQtNC40VjU3LjVjMC0xLjMuNy0yLjQgMS42LTMuM3EuNi0uNiAxLjItLjljMS4yLS43IDMtLjkgNC40LS4zbDc3LjUgMzAuN2M0IDEuNSA0LjMgNy4xLjUgOC45Ii8+PHBhdGggZmlsbD0iI2JhMWU0NSIgZD0ibTg2LjkgOTIuNi0yNC4yIDExLjctNTkuNC01MHEuNi0uNiAxLjItLjljMS4yLS43IDMtLjkgNC40LS4zbDc3LjUgMzAuN2M0IDEuNCA0LjMgNyAuNSA4LjgiLz48L3N2Zz4="
+      },
+      "displayName": "Airtable",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 3,
+          "name": "Data & Storage"
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "icon": "file:twilio.svg",
+      "name": "n8n-nodes-base.twilio",
+      "codex": {
+        "data": {
+          "alias": [
+            "SMS",
+            "Phone",
+            "Voice"
+          ],
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/love-at-first-sight-ricardos-n8n-journey/",
+                "icon": "❤️",
+                "label": "Love at first sight: Ricardo’s n8n journey"
+              },
+              {
+                "url": "https://n8n.io/blog/database-monitoring-and-alerting-with-n8n/",
+                "icon": "📡",
+                "label": "Database Monitoring and Alerting with n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/automatically-adding-expense-receipts-to-google-sheets-with-telegram-mindee-twilio-and-n8n/",
+                "icon": "🧾",
+                "label": "Automatically Adding Expense Receipts to Google Sheets with Telegram, Mindee, Twilio, and n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/tracking-time-spent-in-meetings-with-google-calendar-twilio-and-n8n/",
+                "icon": "🗓",
+                "label": "Tracking Time Spent in Meetings With Google Calendar, Twilio, and n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/creating-error-workflows-in-n8n/",
+                "icon": "🌪",
+                "label": "Creating Error Workflows in n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/sending-automated-congratulations-with-google-sheets-twilio-and-n8n/",
+                "icon": "🙌",
+                "label": "Sending Automated Congratulations with Google Sheets, Twilio, and n8n "
+              },
+              {
+                "url": "https://n8n.io/blog/learn-to-build-powerful-api-endpoints-using-webhooks/",
+                "icon": "🧰",
+                "label": "Learn to Build Powerful API Endpoints Using Webhooks"
+              },
+              {
+                "url": "https://n8n.io/blog/sending-sms-the-low-code-way-with-airtable-twilio-programmable-sms-and-n8n/",
+                "icon": "📱",
+                "label": "Sending SMS the Low-Code Way with Airtable, Twilio Programmable SMS, and n8n"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.twilio/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/twilio/"
+              }
+            ]
+          },
+          "categories": [
+            "Communication",
+            "Development"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Twilio"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiB2aWV3Qm94PSIwIDAgNjUgNjUiPjx1c2UgeGxpbms6aHJlZj0iI2EiIHg9Ii41IiB5PSIuNSIvPjxzeW1ib2wgaWQ9ImEiIG92ZXJmbG93PSJ2aXNpYmxlIj48ZyBmaWxsPSIjZTMxZTI2IiBmaWxsLXJ1bGU9Im5vbnplcm8iIHN0cm9rZT0ibm9uZSI+PHBhdGggZD0iTTMxLjk1MyAwQzE0LjMzNyAwIDAgMTQuMzM3IDAgMzEuOTUzczE0LjMzNyAzMS45NTMgMzEuOTUzIDMxLjk1M0M0OS42NjMgNjQgNjQgNDkuNjYzIDY0IDMxLjk1M1M0OS42NjMgMCAzMS45NTMgMG0wIDU1LjU2N2MtMTIuOTMxIDAtMjMuNTItMTAuNTg5LTIzLjUyLTIzLjYxNCAwLTEyLjkzMSAxMC41ODktMjMuNTIgMjMuNTItMjMuNTIgMTMuMDI1IDAgMjMuNjE0IDEwLjU4OSAyMy42MTQgMjMuNTIgMCAxMy4wMjUtMTAuNTg5IDIzLjYxNC0yMy42MTQgMjMuNjE0Ii8+PHVzZSB4bGluazpocmVmPSIjYiIvPjx1c2UgeGxpbms6aHJlZj0iI2IiIHk9IjE1LjkzIi8+PHBhdGggZD0iTTE3LjMzNSAzOS45MThhNi42NCA2LjY0IDAgMCAxIDYuNjUzLTYuNjUzIDYuNjUzIDYuNjUzIDAgMSAxIDAgMTMuMzA2IDYuNjQgNi42NCAwIDAgMS02LjY1My02LjY1M20wLTE1LjkzYTYuNjQgNi42NCAwIDAgMSA2LjY1My02LjY1MyA2LjY0IDYuNjQgMCAwIDEgNi42NTMgNi42NTMgNi42NCA2LjY0IDAgMCAxLTYuNjUzIDYuNjUzIDYuNjQgNi42NCAwIDAgMS02LjY1My02LjY1MyIvPjwvZz48L3N5bWJvbD48ZGVmcz48cGF0aCBpZD0iYiIgZD0iTTMzLjI2NSAyMy45ODhhNi42NCA2LjY0IDAgMSAxIDEzLjMwNiAwIDYuNjQgNi42NCAwIDEgMS0xMy4zMDYgMCIvPjwvZGVmcz48L3N2Zz4="
+      },
+      "displayName": "Twilio",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 5,
+          "name": "Development"
+        },
+        {
+          "id": 6,
+          "name": "Communication"
+        }
+      ]
+    },
+    {
+      "id": 1119,
+      "icon": "fa:robot",
+      "name": "@n8n/n8n-nodes-langchain.agent",
+      "codex": {
+        "data": {
+          "alias": [
+            "LangChain",
+            "Chat",
+            "Conversational",
+            "Plan and Execute",
+            "ReAct",
+            "Tools"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Agents",
+              "Root Nodes"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "AI Agent",
+        "color": "#404040"
+      },
+      "iconData": {
+        "icon": "robot",
+        "type": "icon"
+      },
+      "displayName": "AI Agent",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1123,
+      "icon": "fa:link",
+      "name": "@n8n/n8n-nodes-langchain.chainLlm",
+      "codex": {
+        "data": {
+          "alias": [
+            "LangChain"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.chainllm/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Chains",
+              "Root Nodes"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Basic LLM Chain",
+        "color": "#909298"
+      },
+      "iconData": {
+        "icon": "link",
+        "type": "icon"
+      },
+      "displayName": "Basic LLM Chain",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1153,
+      "icon": "file:openAiLight.svg",
+      "name": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatopenai/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Language Models",
+              "Root Nodes"
+            ],
+            "Language Models": [
+              "Chat Models (Recommended)"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "OpenAI Chat Model"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTM2Ljg2NzEgMTYuMzcxOEMzNy43NzQ2IDEzLjY0OCAzNy40NjIxIDEwLjY2NDIgMzYuMDEwOCA4LjE4NjYxQzMzLjgyODIgNC4zODY1MyAyOS40NDA3IDIuNDMxNDkgMjUuMTU1NiAzLjM1MTUxQzIzLjI0OTMgMS4yMDM5NiAyMC41MTA1IC0wLjAxNzMxNDggMTcuNjM5MiAwLjAwMDE4NTUzM0MxMy4yNTkxIC0wLjAwOTgxNDY4IDkuMzcyNzMgMi44MTAyNSA4LjAyNTIgNi45Nzc4M0M1LjIxMTM5IDcuNTU0MSAyLjc4MjU4IDkuMzE1MzggMS4zNjEzIDExLjgxMTdDLTAuODM3NDkzIDE1LjYwMTggLTAuMzM2MjMyIDIwLjM3OTQgMi42MDEzMyAyMy42Mjk0QzEuNjkzODEgMjYuMzUzMiAyLjAwNjMyIDI5LjMzNzEgMy40NTc2IDMxLjgxNDZDNS42NDAxNSAzNS42MTQ3IDEwLjAyNzcgMzcuNTY5NyAxNC4zMTI4IDM2LjY0OTdDMTYuMjE3OSAzOC43OTczIDE4Ljk1NzkgNDAuMDE4NSAyMS44MjkyIDM5Ljk5OThDMjYuMjExOCA0MC4wMTEgMzAuMDk5NCAzNy4xODg1IDMxLjQ0NjkgMzMuMDE3MUMzNC4yNjA4IDMyLjQ0MDkgMzYuNjg5NiAzMC42Nzk2IDM4LjExMDggMjguMTgzM0M0MC4zMDcxIDI0LjM5MzIgMzkuODA0NiAxOS42MTk0IDM2Ljg2ODMgMTYuMzY5M0wzNi44NjcxIDE2LjM3MThaTTIxLjgzMTcgMzcuMzg2QzIwLjA3OCAzNy4zODg1IDE4LjM3OTIgMzYuNzc0NyAxNy4wMzI5IDM1LjY1MDlDMTcuMDk0MSAzNS42MTg0IDE3LjIwMDQgMzUuNTU5NyAxNy4yNjkxIDM1LjUxNzJMMjUuMjM0MyAzMC45MTcxQzI1LjY0MTggMzAuNjg1OCAyNS44OTE4IDMwLjI1MjEgMjUuODg5MyAyOS43ODMzVjE4LjU1NDNMMjkuMjU1NyAyMC40OTgxQzI5LjI5MTkgMjAuNTE1NiAyOS4zMTU3IDIwLjU1MDYgMjkuMzIwNyAyMC41OTA2VjI5Ljg4OTZDMjkuMzE1NyAzNC4wMjQ3IDI1Ljk2NjggMzcuMzc3MiAyMS44MzE3IDM3LjM4NlpNNS43MjY0IDMwLjUwNzFDNC44NDc2MyAyOC45ODk2IDQuNTMxMzcgMjcuMjEwOCA0LjgzMjYzIDI1LjQ4NDVDNC44OTEzOCAyNS41MTk1IDQuOTk1MTMgMjUuNTgzMiA1LjA2ODg4IDI1LjYyNTdMMTMuMDM0MSAzMC4yMjU4QzEzLjQzNzggMzAuNDYyMSAxMy45Mzc4IDMwLjQ2MjEgMTQuMzQyOCAzMC4yMjU4TDI0LjA2NjggMjQuNjEwN1YyOC40OTgzQzI0LjA2OTMgMjguNTM4MyAyNC4wNTA1IDI4LjU3NyAyNC4wMTkzIDI4LjYwMkwxNS45Njc5IDMzLjI1MDlDMTIuMzgxNSAzNS4zMTU5IDcuODAxNDQgMzQuMDg4NCA1LjcyNzY1IDMwLjUwNzFINS43MjY0Wk0zLjYzMDEgMTMuMTIwNUM0LjUwNTEyIDExLjYwMDQgNS44ODY0IDEwLjQzNzkgNy41MzE0NCA5LjgzNDE1QzcuNTMxNDQgOS45MDI5IDcuNTI3NjkgMTAuMDI0MiA3LjUyNzY5IDEwLjEwOTJWMTkuMzEwNkM3LjUyNTE5IDE5Ljc3ODEgNy43NzUxOSAyMC4yMTE5IDguMTgxNDUgMjAuNDQzMUwxNy45MDU0IDI2LjA1N0wxNC41MzkxIDI4LjAwMDhDMTQuNTA1MyAyOC4wMjMzIDE0LjQ2MjggMjguMDI3IDE0LjQyNTMgMjguMDEwOEw2LjM3MjY2IDIzLjM1ODJDMi43OTM4MyAyMS4yODU2IDEuNTY2MzEgMTYuNzA2OCAzLjYyODg1IDEzLjEyMTdMMy42MzAxIDEzLjEyMDVaTTMxLjI4ODIgMTkuNTU2OUwyMS41NjQyIDEzLjk0MTdMMjQuOTMwNiAxMS45OTkyQzI0Ljk2NDMgMTEuOTc2NyAyNS4wMDY4IDExLjk3MjkgMjUuMDQ0MyAxMS45ODkyTDMzLjA5NyAxNi42MzhDMzYuNjgyMSAxOC43MDkzIDM3LjkxMDggMjMuMjk1NyAzNS44Mzk1IDI2Ljg4MDhDMzQuOTYzMyAyOC4zOTgzIDMzLjU4MzIgMjkuNTYwOCAzMS45Mzk1IDMwLjE2NThWMjAuNjg5NEMzMS45NDMyIDIwLjIyMTkgMzEuNjk0NSAxOS43ODk0IDMxLjI4OTQgMTkuNTU2OUgzMS4yODgyWk0zNC42MzgzIDE0LjUxNDJDMzQuNTc5NSAxNC40NzggMzQuNDc1OCAxNC40MTU1IDM0LjQwMiAxNC4zNzNMMjYuNDM2OCA5Ljc3Mjg5QzI2LjAzMzEgOS41MzY2NCAyNS41MzMxIDkuNTM2NjQgMjUuMTI4MSA5Ljc3Mjg5TDE1LjQwNDEgMTUuMzg4VjExLjUwMDRDMTUuNDAxNiAxMS40NjA0IDE1LjQyMDQgMTEuNDIxNyAxNS40NTE2IDExLjM5NjdMMjMuNTAzIDYuNzUxNThDMjcuMDg5NCA0LjY4Mjc5IDMxLjY3NDUgNS45MTQwNiAzMy43NDIgOS41MDE2NEMzNC42MTU4IDExLjAxNjcgMzQuOTMyIDEyLjc5MDUgMzQuNjM1OCAxNC41MTQySDM0LjYzODNaTTEzLjU3NDEgMjEuNDQzMUwxMC4yMDY1IDE5LjQ5OTRDMTAuMTcwMiAxOS40ODE5IDEwLjE0NjUgMTkuNDQ2OCAxMC4xNDE1IDE5LjQwNjhWMTAuMTA3OUMxMC4xNDQgNS45Njc4MSAxMy41MDI4IDIuNjEyNzQgMTcuNjQyOSAyLjYxNTI0QzE5LjM5NDIgMi42MTUyNCAyMS4wODkyIDMuMjMwMjUgMjIuNDM1NSA0LjM1MDI4QzIyLjM3NDMgNC4zODI3OCAyMi4yNjkzIDQuNDQxNTMgMjIuMTk5MiA0LjQ4NDAzTDE0LjIzNDEgOS4wODQxM0MxMy44MjY2IDkuMzE1MzggMTMuNTc2NiA5Ljc0Nzg5IDEzLjU3OTEgMTAuMjE2N0wxMy41NzQxIDIxLjQ0MDZWMjEuNDQzMVpNMTUuNDAyOSAxNy41MDA2TDE5LjczNDIgMTQuOTk5M0wyNC4wNjU1IDE3LjQ5OTNWMjIuNTAwN0wxOS43MzQyIDI1LjAwMDdMMTUuNDAyOSAyMi41MDA3VjE3LjUwMDZaIiBmaWxsPSIjN0Q3RDg3Ii8+Cjwvc3ZnPgo="
+      },
+      "displayName": "OpenAI Chat Model",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1175,
+      "icon": "fa:tools",
+      "name": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.outputparserautofixing/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Output Parsers"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Auto-fixing Output Parser"
+      },
+      "iconData": {
+        "icon": "tools",
+        "type": "icon"
+      },
+      "displayName": "Auto-fixing Output Parser",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1179,
+      "icon": "fa:code",
+      "name": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "codex": {
+        "data": {
+          "alias": [
+            "json",
+            "zod"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.outputparserstructured/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Output Parsers"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Structured Output Parser"
+      },
+      "iconData": {
+        "icon": "code",
+        "type": "icon"
+      },
+      "displayName": "Structured Output Parser",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1268,
+      "icon": "file:httprequest.svg",
+      "name": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolhttprequest/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Tools"
+            ],
+            "Tools": [
+              "Recommended Tools"
+            ]
+          }
+        }
+      },
+      "group": "[\"output\"]",
+      "defaults": {
+        "name": "HTTP Request"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MCA0MCI+PHBhdGggZmlsbD0iIzAwMDRGNSIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNNDAgMjBDNDAgOC45NTMgMzEuMDQ3IDAgMjAgMFMwIDguOTUzIDAgMjBzOC45NTMgMjAgMjAgMjAgMjAtOC45NTMgMjAtMjBNMjAgMzYuOTQ2Yy0xLjExNSAwLTIuODYyLS45NzktNC41LTQuMjQ3LS43MDQtMS40MDctMS4zMDQtMy4xNTYtMS43NDctNS4wMTRIMjYuMTljLS4zODYgMS44NTUtLjk4NiAzLjYwNS0xLjY5IDUuMDE0LTEuNjM4IDMuMjY4LTMuMzg1IDQuMjQ3LTQuNSA0LjI0N00xMi45MDYgMjBjMCAxLjYxLjEwMyAzLjE2NC4yOTQgNC42M2gxMy42YTM2IDM2IDAgMCAwIC4yOTQtNC42M2MwLTEuNjEtLjEwMy0zLjE2NC0uMjk0LTQuNjNIMTMuMmEzNiAzNiAwIDAgMC0uMjk0IDQuNjNNMjAgMy4wNTRjMS4xMTUgMCAyLjg2Mi45NzcgNC41IDQuMjQ2LjcwNyAxLjQxNCAxLjMwNyAzLjEwNyAxLjY5MiA1LjAxNUgxMy43NWMuNDQzLTEuOTEgMS4wNDQtMy42MDIgMS43NS01LjAxNCAxLjYzOC0zLjI3IDMuMzg1LTQuMjQ3IDQuNS00LjI0N00zMC4xNDggMjBjMC0xLjU5LS4wOTQtMy4xMzgtLjMyNS00LjYzaDYuNDgxYy40MjEgMS40NzIuNjQyIDMuMDI2LjY0MiA0LjYzcy0uMjIgMy4xNTgtLjY0MiA0LjYzaC02LjQ4MWMuMjMxLTEuNDkyLjMyNS0zLjA0LjMyNS00LjYzTTI2LjI3NyA0LjI1NWMxLjM2IDIuMTA1IDIuNDM0IDQuODc3IDMuMSA4LjA2aDUuNzI4YTE2Ljk4IDE2Ljk4IDAgMCAwLTguODI4LTguMDZtLTE1LjY1NCA4LjA2aC01LjczYzEuODU4LTMuNjQ3IDUtNi41MzIgOC44My04LjA2LTEuMzYgMi4xMDUtMi40MzQgNC44NzctMy4xIDguMDZNMy4wNTQgMjBjMCAxLjYwMy4yMjMgMy4xNTcuNjQgNC42M2g2LjQyOGE0MCA0MCAwIDAgMS0uMjctNC42M2MwLTEuNTk0LjA5NC0zLjE0Mi4yNy00LjYzSDMuNjk1YTE3IDE3IDAgMCAwLS42NCA0LjYzbTIzLjIyMyAxNS43NDNjMS4zNi0yLjEwNCAyLjQzNC00Ljg3NSAzLjEtOC4wNThoNS43MjhhMTYuOTYgMTYuOTYgMCAwIDEtOC44MjggOC4wNThtLTEyLjU1NCAwYTE3IDE3IDAgMCAxLTguODMtOC4wNThoNS43M2MuNjY2IDMuMTgzIDEuNzQgNS45NTQgMy4xIDguMDU4IiBjbGlwLXJ1bGU9ImV2ZW5vZGQiLz48L3N2Zz4="
+      },
+      "displayName": "HTTP Request Tool",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    }
+  ]
+}

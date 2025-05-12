@@ -1,0 +1,124 @@
+{
+  "id": 2330,
+  "name": "Enrich Property Inventory Survey with Image Recognition and AI Agent",
+  "description": "This n8n workflow assists property managers and surveyors by reducing the time and effort it takes to complete property inventory surveys.\n\nIn such surveys, articles and goods within a property may need to be captured and reported as a matter of record. This can take a sizable amount of time if the property or number of items is big enough.\n\nOur solution is to delegate this task to a capable AI Agent who can identify and fill out the details of each item automatically.\n\nHow it works\n\nAn AirTable Base is used to capture just the image of an item within the property\nOur workflow monitoring this AirTable Base sends the photo to an AI image recognition model to describe the item for purpose of identification.\nOur AI agent uses this description and the help of Google's reverse image search in an attempt to find an online product page for the item.\nIf found, the product page is scraped for the item's specifications which are then used to fill out the rest of the details of the item in our Airtable.\n\nRequirements\n\nAirtable for capturing photos and product information\nOpenAI account to for image recognition service and AI for agent\nSerpAPI account for google reverse image search.\nFirecrawl.dev account for webspacing.\n\nCustomising this workflow\n\nTry building an internal inventory database to query and integrate into the workflow. This could save on costs by avoiding fetching new each time for common items.",
+  "totalViews": 4121,
+  "source": "official",
+  "user": {
+    "id": 91804,
+    "name": "Jimleuk",
+    "username": "jimleuk",
+    "bio": "Freelance consultant based in the UK specialising in AI-powered automations. I work with select clients tackling their most challenging projects. For business enquiries, send me an email at hello@jimle.uk\n\nLinkedIn: https://www.linkedin.com/in/jimleuk/\nX/Twitter: https://x.com/jimle_uk",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4ab99e51473df76838beeaac908747f7928c625f869794815cabe34016967d51?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2024-07-10T12:23:15.128Z",
+  "path": "official/template_2330/workflow.json"
+}

@@ -1,0 +1,54 @@
+{
+  "id": 3055,
+  "name": "Telegram Bot with Menu-Driven Commands",
+  "description": "This template provides a structured way to build Telegram bots that respond to specific commands and handle user input. It allows users to interact with your bot by selecting options from a Telegram bot menu, without needing to type out full instructions or rely on conversational AI. This approach offers precise control and predictable behavior for command-driven interactions.\n\nKey Features:\n\n🤖 Structured Command Handling: Unlike approaches that rely on conversational AI (like the \"AI Agent\" node), this template provides a deterministic way to handle specific commands triggered by users selecting options from a Telegram bot menu. Users do not need to write out full instructions.\n➕ Command-Based Interaction (Extensible): Ready to process three commands (/command1, /command2, /command3), and easily extensible to support additional commands.\n🚦 Clear Command Routing: Employs Switch nodes to efficiently route execution based on both the initial command and the current conversation state.\n💬 Content Requesting: Prompts the user to provide content after a command is received. This is handled by dedicated Telegram nodes.\n🛠️ Easy Customization: Includes placeholder (No Operation, do nothing) nodes where you can easily insert your own custom processing logic for each command.\n\nWhy This Template is Unique:\n\nn8n currently lacks a native, built-in mechanism for handling individual Telegram commands in a structured, non-conversational way. Many users resort to \"AI Agent\" nodes, which are designed for open-ended conversations. This template fills that gap by providing a framework for:\n\n✅ Predefined Commands: Users interact with your bot through a menu of predefined commands, eliminating the need for complex natural language processing.\n🧠 Deterministic Behavior: The workflow's response is predictable and directly tied to the selected command, unlike AI-driven approaches where responses can be less consistent.\n🖱️ Simplified Interaction: Users simply click a button in the Telegram menu, making the interaction intuitive and user-friendly.\n\nHow to Use:\n\nInitialization (One-Time): Execute the \"Temp to Initiate Static Data\" node once to create the necessary telegramStates object in the workflow's static data. This is crucial for state management.\nCustomize Processing Logic: Replace the NoOp nodes (Command1 processing, Command2 processing, Command3 processing) with your own nodes to handle the content received for each command. It is highly recommended to add input validation within your processing logic.\nTelegram Credentials: Configure the Telegram Trigger and Telegram nodes with your bot's API token.\n\nExample Use Case:\n\nThis template is ideal for creating bots that require a command followed by specific input, such as:\n\n📊 Data Collection: A command to initiate a form, followed by a request for the data.\n🛠️ Service Requests: A command to request a service, followed by a request for details.\n📚 Interactive Tutorials: A command to start a tutorial, followed by a request of completion.",
+  "totalViews": 16806,
+  "source": "official",
+  "user": {
+    "id": 92994,
+    "name": "Daniel Jimenez",
+    "username": "ldaniel-jmz",
+    "bio": "I specialize in building custom integrations for businesses, focusing on appointment systems, CRM-integrated chatbots, and data collection workflows. I streamline processes by connecting tools like calendars, CRMs, and messaging platforms (including WhatsApp and Voiceflow) to automate data gathering and user triage.",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/9e8e8a47325b92acedb7af9bae02af4122ab1e03271403fcec3859ddd8044c90?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-03-01T18:53:19.378Z",
+  "path": "official/template_3055/workflow.json"
+}

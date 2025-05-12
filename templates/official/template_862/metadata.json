@@ -1,0 +1,32 @@
+{
+  "id": 862,
+  "name": "Get DNS entries of any domain with uProc",
+  "description": "Do you want to control the DNS domain entries of your customers or servers?\n\nThis workflow gets DNS information of any domain using the uProc Get Domain DNS records tool.\n\nYou can use this workflow to check existing DNS records in real-time to ensure that any domain setup is correct.\n\n\n\nYou need to add your credentials (Email and API Key - real -) located at Integration section to n8n.\n\nYou can replace \"Create Domain Item\" with any integration containing a domain, like Google Sheets, MySQL, or Zabbix server.\n\nEvery \"uProc\" node returns multiple items with the next fields per every item:\ntype: Contains the DNS record type (A, ALIAS, AAAA, CERT, CNAME, MX, NAPTR, NS, PTR, SOA, SRV, TXT, URL).\nvalues: Contains the DNS record values.",
+  "totalViews": 1252,
+  "source": "official",
+  "user": {
+    "id": 5774,
+    "name": "Miquel Colomer",
+    "username": "mcolomer",
+    "bio": "As a passionate developer and AI agent creator, I’ve been at the forefront of automation, pioneering workflows and training AI to handle complex tasks seamlessly. I’m an early adopter and expert of n8n, having worked with its powerful capabilities to create automation solutions for diverse industries. I founded n8nhackers, the first AI-powered agency focused on n8n, where we help businesses transform their workflows with cutting-edge automation.",
+    "verified": true,
+    "links": "[\"https://n8nhackers.com\"]",
+    "avatar": "https://gravatar.com/avatar/c4974f5be3985d7f30465d2d963967905bcb2f9b8a8ecaf8ba4396bfbd034db2?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "uProc",
+      "type": "n8n-nodes-base.uproc",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2020-12-30T10:14:55.547Z",
+  "path": "official/template_862/workflow.json"
+}

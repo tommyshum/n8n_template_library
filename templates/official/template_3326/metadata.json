@@ -1,0 +1,71 @@
+{
+  "id": 3326,
+  "name": "Build Custom AI Agent with LangChain & Gemini (Self-Hosted)",
+  "description": "Overview  \nThis workflow leverages the LangChain code node to implement a fully customizable conversational agent. Ideal for users who need granular control over their agent's prompts while reducing unnecessary token consumption from reserved tool-calling functionality (compared to n8n's built-in Conversation Agent).  \n\nSetup Instructions  \nConfigure Gemini Credentials: Set up your Google Gemini API key (Get API key here if needed). Alternatively, you may use other AI provider nodes.  \nInteraction Methods:  \n   Test directly in the workflow editor using the \"Chat\" button  \n   Activate the workflow and access the chat interface via the URL provided by the When Chat Message Received node  \n\nCustomization Options  \nInterface Settings: Configure chat UI elements (e.g., title) in the When Chat Message Received node  \nPrompt Engineering:  \n   Define agent personality and conversation structure in the Construct & Execute LLM Prompt node's template variable  \n   ⚠️ Template must preserve {chat_history} and {input} placeholders for proper LangChain operation  \nModel Selection: Swap language models through the language model input field in Construct & Execute LLM Prompt  \nMemory Control: Adjust conversation history length in the Store Conversation History node  \n\nRequirements:  \n⚠️ This workflow uses the LangChain Code node, which only works on self-hosted n8n.  \n(Refer to LangChain Code node docs)\n",
+  "totalViews": 3218,
+  "source": "official",
+  "user": {
+    "id": 93359,
+    "name": "shepard",
+    "username": "shepard",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/817c459c4341406e8b06d803efbbcd482989fa13d615a43d261e717bb46ae06c?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "LangChain Code",
+      "type": "@n8n/n8n-nodes-langchain.code",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Miscellaneous"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-03-26T01:02:38.093Z",
+  "path": "official/template_3326/workflow.json"
+}

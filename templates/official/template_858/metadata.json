@@ -1,0 +1,47 @@
+{
+  "id": 858,
+  "name": "Create a website screenshot and send via Telegram Channel",
+  "description": "This workflow allows you to create a screenshot of a website and send it to a telegram channel.\n",
+  "totalViews": 2938,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "uProc",
+      "type": "n8n-nodes-base.uproc",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2020-12-29T10:32:17.211Z",
+  "path": "official/template_858/workflow.json"
+}

@@ -1,0 +1,95 @@
+{
+  "id": 2781,
+  "name": "Automated End-to-End Fine-Tuning of OpenAI Models with Google Drive Integration",
+  "description": "1. How it Works  \nThis n8n workflow automates fine-tuning OpenAI models through these key steps:  \nManual Trigger**:  \n  Starts with the \"When clicking ‘Test workflow’\" event to initiate the process.  \n  Downloads a .jsonl file from Google Drive   \nUpload to OpenAI**:  \n  Uploads the .jsonl file to OpenAI via the \"Upload File\" node (with purpose \"fine-tune\").  \nCreate Fine-tuning Job**:  \n  Sends a POST request to the endpoint https://api.openai.com/v1/fine_tuning/jobs with:  \n        {  \n      \"training_file\": \"{{ $json.id }}\",  \n      \"model\": \"gpt-4o-mini-2024-07-18\"  \n    }  \n      OpenAI automatically starts training the model based on the provided file.  \nInteraction with the Trained Model**:  \n  An \"AI Agent\" uses the custom model (e.g., ft:gpt-4o-mini-2024-07-18:n3w-italia::XXXX7B) to respond to chat messages.  \n\n2. Set up Steps  \nTo configure the workflow:  \nPrepare the Training File:  \n   Create a .jsonl file following the specified syntax (e.g., travel assistant Q/A examples).  \n   Upload it to Google Drive and update the ID in the \"Google Drive\" node.  \n\nConfigure Credentials:  \n   Google Drive: Connect an account via OAuth2 (googleDriveOAuth2Api).  \n   OpenAI: Add your API key in the \"OpenAI Chat Model\" and \"Upload File\" nodes.  \n\nCustomize the Model:  \n   In the \"OpenAI Chat Model\" node, specify the name of your fine-tuned model (e.g., ft:gpt-4o-mini-...).  \n   Update the HTTP request body (Create Fine-tuning Job) if needed (e.g., a different base model).  \n\nStart the Workflow:  \n   Use the manual trigger (\"Test workflow\") to begin the upload and training process.  \n   Test the model via the \"Chat Trigger\" (chat messages).  \n\nIntegrated Documentation:  \n   Follow the instructions in the Sticky Notes to:  \n     Properly format the .jsonl (Step 1).  \n     Monitor progress on OpenAI (Step 2, link: https://platform.openai.com/finetune/).  \n\nNote: Ensure the .jsonl file adheres to OpenAI’s required structure and that credentials are valid.",
+  "totalViews": 2897,
+  "source": "official",
+  "user": {
+    "id": 92207,
+    "name": "Davide",
+    "username": "n3witalia",
+    "bio": "Full-stack Web Developer based in Italy specialising in Marketing & AI-powered automations. For business enquiries, send me an email at info@n3w.it or add me on Linkedin.com/in/davideboizza",
+    "verified": true,
+    "links": "[\"https://n3w.it\"]",
+    "avatar": "https://gravatar.com/avatar/d41b8a0aa81139243509c58870f5b4be292824a507ab57d10ed066d8628ed8da?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-01-23T14:01:48.509Z",
+  "path": "official/template_2781/workflow.json"
+}

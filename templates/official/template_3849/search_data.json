@@ -1,0 +1,339 @@
+{
+  "id": 3849,
+  "name": "Extract Business Leads from Reddit using GPT-4.1-mini Analysis and Google Sheets",
+  "totalViews": 433,
+  "purchaseUrl": null,
+  "user": {
+    "id": 94243,
+    "name": "Ari Nakos",
+    "username": "just-aristides",
+    "bio": "Love SEO & AI",
+    "verified": true,
+    "links": "[\"https://cal.com/ari-nakos/intro\"]",
+    "avatar": "https://gravatar.com/avatar/aef5686f32cd60bff51808670debce4b1dd8d1ae83ca489cf1ec554a5979b9c4?r=pg&d=retro&size=200"
+  },
+  "description": "This n8n workflow automates lead generation by searching Reddit for relevant posts based on keywords, filtering them, using OpenRouter AI to analyze and summarize content, and logging the findings (link, summary, etc.) to Google Sheets.\n\nWatch the full setup tutorial on how I setup this ETL pipeline using n8n: \nhttps://youtu.be/F3-fbU3UmYQ\n\nRequired Authentication:\n\nTo run this workflow, you need to set up credentials in n8n for:\n\nReddit: Uses OAuth 2.0. Requires creating an app on Reddit to get a Client ID & Secret. (YT Tutorial for Reddit App Creation: https://youtu.be/zlGXtW4LAK8) \nOpenRouter: Uses an API Key. Generate this key directly from your OpenRouter account settings. (YT Tutorial : https://youtu.be/Cq5Y3zpEhlc)\nGoogle Sheets: Uses OAuth 2.0. Requires setup in Google Cloud Console (enable Sheets API, create OAuth Client ID with n8n redirect URI) to get a Client ID & Secret.\n\nEnsure these credentials are created and selected in the respective n8n nodes (Get Posts, OpenRouter Chat Model nodes, Output The Results).",
+  "createdAt": "2025-05-03T18:09:18.082Z",
+  "nodes": [
+    {
+      "id": 18,
+      "icon": "file:googleSheets.svg",
+      "name": "n8n-nodes-base.googleSheets",
+      "codex": {
+        "data": {
+          "alias": [
+            "CSV",
+            "Sheet",
+            "Spreadsheet",
+            "GS"
+          ],
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/love-at-first-sight-ricardos-n8n-journey/",
+                "icon": "❤️",
+                "label": "Love at first sight: Ricardo’s n8n journey"
+              },
+              {
+                "url": "https://n8n.io/blog/why-business-process-automation-with-n8n-can-change-your-daily-life/",
+                "icon": "🧬",
+                "label": "Why business process automation with n8n can change your daily life"
+              },
+              {
+                "url": "https://n8n.io/blog/automatically-adding-expense-receipts-to-google-sheets-with-telegram-mindee-twilio-and-n8n/",
+                "icon": "🧾",
+                "label": "Automatically Adding Expense Receipts to Google Sheets with Telegram, Mindee, Twilio, and n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/supercharging-your-conference-registration-process-with-n8n/",
+                "icon": "🎫",
+                "label": "Supercharging your conference registration process with n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/creating-triggers-for-n8n-workflows-using-polling/",
+                "icon": "⏲",
+                "label": "Creating triggers for n8n workflows using polling"
+              },
+              {
+                "url": "https://n8n.io/blog/no-code-ecommerce-workflow-automations/",
+                "icon": "store",
+                "label": "6 e-commerce workflows to power up your Shopify s"
+              },
+              {
+                "url": "https://n8n.io/blog/migrating-community-metrics-to-orbit-using-n8n/",
+                "icon": "📈",
+                "label": "Migrating Community Metrics to Orbit using n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/automate-google-apps-for-productivity/",
+                "icon": "💡",
+                "label": "15 Google apps you can combine and automate to increase productivity"
+              },
+              {
+                "url": "https://n8n.io/blog/your-business-doesnt-need-you-to-operate/",
+                "icon": " 🖥️",
+                "label": "Hey founders! Your business doesn't need you to operate"
+              },
+              {
+                "url": "https://n8n.io/blog/how-honest-burgers-use-automation-to-save-100k-per-year/",
+                "icon": "🍔",
+                "label": "How Honest Burgers Use Automation to Save $100k per year"
+              },
+              {
+                "url": "https://n8n.io/blog/how-a-digital-strategist-uses-n8n-for-online-marketing/",
+                "icon": "💻",
+                "label": "How a digital strategist uses n8n for online marketing"
+              },
+              {
+                "url": "https://n8n.io/blog/why-this-product-manager-loves-workflow-automation-with-n8n/",
+                "icon": "🧠",
+                "label": "Why this Product Manager loves workflow automation with n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/sending-automated-congratulations-with-google-sheets-twilio-and-n8n/",
+                "icon": "🙌",
+                "label": "Sending Automated Congratulations with Google Sheets, Twilio, and n8n "
+              },
+              {
+                "url": "https://n8n.io/blog/how-a-membership-development-manager-automates-his-work-and-investments/",
+                "icon": "📈",
+                "label": "How a Membership Development Manager automates his work and investments"
+              },
+              {
+                "url": "https://n8n.io/blog/aws-workflow-automation/",
+                "label": "7 no-code workflow automations for Amazon Web Services"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googlesheets/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/google/oauth-single-service/"
+              }
+            ]
+          },
+          "categories": [
+            "Data & Storage",
+            "Productivity"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\",\"output\"]",
+      "defaults": {
+        "name": "Google Sheets"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGZpbGw9IiMyOEI0NDYiIGQ9Ik0zNS42OSAxIDUyIDE3LjIyNXYzOS4wODdhMy42NyAzLjY3IDAgMCAxLTEuMDg0IDIuNjFBMy43IDMuNyAwIDAgMSA0OC4yOTMgNjBIMTIuNzA3YTMuNyAzLjcgMCAwIDEtMi42MjMtMS4wNzhBMy42NyAzLjY3IDAgMCAxIDkgNTYuMzEyVjQuNjg4YTMuNjcgMy42NyAwIDAgMSAxLjA4NC0yLjYxQTMuNyAzLjcgMCAwIDEgMTIuNzA3IDF6Ii8+PHBhdGggZmlsbD0iIzZBQ0U3QyIgZD0iTTM1LjY5IDEgNTIgMTcuMjI1SDM5LjM5N2MtMi4wNTQgMC0zLjcwNy0xLjgyOS0zLjcwNy0zLjg3MnoiLz48cGF0aCBmaWxsPSIjMjE5QjM4IiBkPSJNMzkuMjExIDE3LjIyNSA1MiAyMi40OHYtNS4yNTV6Ii8+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTIwLjEyIDMxLjk3NWMwLS44MTcuNjYyLTEuNDc1IDEuNDgzLTEuNDc1aDE3Ljc5NGMuODIxIDAgMS40ODIuNjU4IDEuNDgyIDEuNDc1djE1LjQ4N2MwIC44MTgtLjY2MSAxLjQ3NS0xLjQ4MiAxLjQ3NUgyMS42MDNhMS40NzYgMS40NzYgMCAwIDEtMS40ODItMS40NzRWMzEuOTc0em0yLjIyNSAxLjQ3NWg2LjY3MnYyLjIxMmgtNi42NzJ6bTAgNS4xNjJoNi42NzJ2Mi4yMTNoLTYuNjcyem0wIDUuMTYzaDYuNjcydjIuMjEyaC02LjY3MnptOS42MzgtMTAuMzI1aDYuNjcydjIuMjEyaC02LjY3MnptMCA1LjE2Mmg2LjY3MnYyLjIxM2gtNi42NzJ6bTAgNS4xNjNoNi42NzJ2Mi4yMTJoLTYuNjcyeiIvPjxwYXRoIGZpbGw9IiMyOEI0NDYiIGQ9Ik0zNC42OSAwIDUxIDE2LjIyNXYzOS4wODdhMy42NyAzLjY3IDAgMCAxLTEuMDg0IDIuNjFBMy43IDMuNyAwIDAgMSA0Ny4yOTMgNTlIMTEuNzA3YTMuNyAzLjcgMCAwIDEtMi42MjMtMS4wNzhBMy42NyAzLjY3IDAgMCAxIDggNTUuMzEyVjMuNjg4YTMuNjcgMy42NyAwIDAgMSAxLjA4NC0yLjYxQTMuNyAzLjcgMCAwIDEgMTEuNzA3IDB6Ii8+PHBhdGggZmlsbD0iIzZBQ0U3QyIgZD0iTTM0LjY5IDAgNTEgMTYuMjI1SDM4LjM5N2MtMi4wNTQgMC0zLjcwNy0xLjgyOS0zLjcwNy0zLjg3MnoiLz48cGF0aCBmaWxsPSIjMjE5QjM4IiBkPSJNMzguMjExIDE2LjIyNSA1MSAyMS40OHYtNS4yNTV6Ii8+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTE5LjEyIDMwLjk3NWMwLS44MTcuNjYyLTEuNDc1IDEuNDgzLTEuNDc1aDE3Ljc5NGMuODIxIDAgMS40ODIuNjU4IDEuNDgyIDEuNDc1djE1LjQ4N2MwIC44MTgtLjY2MSAxLjQ3NS0xLjQ4MiAxLjQ3NUgyMC42MDNhMS40NzYgMS40NzYgMCAwIDEtMS40ODItMS40NzRWMzAuOTc0em0yLjIyNSAxLjQ3NWg2LjY3MnYyLjIxMmgtNi42NzJ6bTAgNS4xNjJoNi42NzJ2Mi4yMTNoLTYuNjcyem0wIDUuMTYzaDYuNjcydjIuMjEyaC02LjY3MnptOS42MzgtMTAuMzI1aDYuNjcydjIuMjEyaC02LjY3MnptMCA1LjE2Mmg2LjY3MnYyLjIxM2gtNi42NzJ6bTAgNS4xNjNoNi42NzJ2Mi4yMTJoLTYuNjcyeiIvPjwvZz48L3N2Zz4="
+      },
+      "displayName": "Google Sheets",
+      "typeVersion": 5,
+      "nodeCategories": [
+        {
+          "id": 3,
+          "name": "Data & Storage"
+        },
+        {
+          "id": 4,
+          "name": "Productivity"
+        }
+      ]
+    },
+    {
+      "id": 445,
+      "icon": "file:reddit.svg",
+      "name": "n8n-nodes-base.reddit",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.reddit/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/reddit/"
+              }
+            ]
+          },
+          "categories": [
+            "Communication"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Reddit"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiB2aWV3Qm94PSIwIDAgNTEzIDUxNCI+PHVzZSB4bGluazpocmVmPSIjYSIgeD0iLjUiIHk9Ii41Ii8+PHN5bWJvbCBpZD0iYSIgb3ZlcmZsb3c9InZpc2libGUiPjxnIGZpbGwtcnVsZT0ibm9uemVybyIgc3Ryb2tlPSJub25lIj48cGF0aCBmaWxsPSIjZmY0NTAwIiBkPSJNMCA3Ni44QzAgMzQuMjUzIDM0LjI1MyAwIDc2LjggMGgzNTguNEM0NzcuNzQ3IDAgNTEyIDM0LjI1MyA1MTIgNzYuOHYzNTguNGMwIDQyLjU0Ny0zNC4yNTMgNzYuOC03Ni44IDc2LjhINzYuOEMzNC4yNTMgNTEyIDAgNDc3Ljc0NyAwIDQzNS4yeiIvPjxwYXRoIGQ9Ik03OSAzMDVjMC02OC4xNDIgNzguOTQyLTEyMyAxNzctMTIzczE3NyA1NC44NTggMTc3IDEyMy03OC45NDIgMTIzLTE3NyAxMjNTNzkgMzczLjE0MiA3OSAzMDUiLz48ZyBmaWxsPSIjZmY0NTAwIj48cGF0aCBkPSJNMTk5IDM0N2MzNSAyOSA3OSAyOSAxMTQgMGwxMiAxMWMtNDIgMzUtOTYgMzUtMTM4IDB6Ii8+PHVzZSB4bGluazpocmVmPSIjYiIvPjx1c2UgeGxpbms6aHJlZj0iI2IiIHg9Ii0xMTgiLz48L2c+PC9nPjxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiI+PHVzZSB4bGluazpocmVmPSIjYiIgeD0iNzUiIHk9Ii0xNjAiIHN0cm9rZS13aWR0aD0iMjUiLz48cGF0aCBzdHJva2Utd2lkdGg9IjIyIiBkPSJNODcgMjgyYy00NS0yMi01LTkyIDQwLTUwbTI5OCA1MGM0NS0yMiA1LTkyLTQwLTUwbS0xMjctNDUgMjQtODMgODAgMTYiLz48L2c+PC9zeW1ib2w+PGRlZnM+PHBhdGggaWQ9ImIiIGQ9Ik0yODcgMjg1YTI3Ljk0IDI3Ljk0IDAgMSAxIDU2IDAgMjcuOTQgMjcuOTQgMCAxIDEtNTYgMCIvPjwvZGVmcz48L3N2Zz4="
+      },
+      "displayName": "Reddit",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 6,
+          "name": "Communication"
+        }
+      ]
+    },
+    {
+      "id": 1121,
+      "icon": "fa:link",
+      "name": "@n8n/n8n-nodes-langchain.chainSummarization",
+      "codex": {
+        "data": {
+          "alias": [
+            "LangChain"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.chainsummarization/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Chains",
+              "Root Nodes"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Summarization Chain",
+        "color": "#909298"
+      },
+      "iconData": {
+        "icon": "link",
+        "type": "icon"
+      },
+      "displayName": "Summarization Chain",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1123,
+      "icon": "fa:link",
+      "name": "@n8n/n8n-nodes-langchain.chainLlm",
+      "codex": {
+        "data": {
+          "alias": [
+            "LangChain"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.chainllm/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Chains",
+              "Root Nodes"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Basic LLM Chain",
+        "color": "#909298"
+      },
+      "iconData": {
+        "icon": "link",
+        "type": "icon"
+      },
+      "displayName": "Basic LLM Chain",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1281,
+      "icon": "file:openrouter.svg",
+      "name": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatopenrouter/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Language Models",
+              "Root Nodes"
+            ],
+            "Language Models": [
+              "Chat Models (Recommended)"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "OpenRouter Chat Model"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjOTRBM0I4IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDI0IDI0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjx0aXRsZT5PcGVuUm91dGVyPC90aXRsZT48cGF0aCBkPSJNMTYuODA0IDEuOTU3bDcuMjIgNC4xMDV2LjA4N0wxNi43MyAxMC4yMWwuMDE3LTIuMTE3LS44MjEtLjAzYy0xLjA1OS0uMDI4LTEuNjExLjAwMi0yLjI2OC4xMS0xLjA2NC4xNzUtMi4wMzguNTc3LTMuMTQ3IDEuMzUyTDguMzQ1IDExLjAzYy0uMjg0LjE5NS0uNDk1LjMzNi0uNjguNDU1bC0uNTE1LjMyMi0uMzk3LjIzNC4zODUuMjMuNTMuMzM4Yy40NzYuMzE0IDEuMTcuNzk2IDIuNzAxIDEuODY2IDEuMTEuNzc1IDIuMDgzIDEuMTc3IDMuMTQ3IDEuMzUybC4zLjA0NWMuNjk0LjA5MSAxLjM3NS4wOTQgMi44MjUuMDMzbC4wMjItMi4xNTkgNy4yMiA0LjEwNXYuMDg3TDE2LjU4OSAyMmwuMDE0LTEuODYyLS42MzUuMDIyYy0xLjM4Ni4wNDItMi4xMzcuMDAyLTMuMTM4LS4xNjItMS42OTQtLjI4LTMuMjYtLjkyNi00Ljg4MS0yLjA1OWwtMi4xNTgtMS41YTIxLjk5NyAyMS45OTcgMCAwMC0uNzU1LS40OThsLS40NjctLjI4YTU1LjkyNyA1NS45MjcgMCAwMC0uNzYtLjQzQzIuOTA4IDE0LjczLjU2MyAxNC4xMTYgMCAxNC4xMTZWOS44ODhsLjE0LjAwNGMuNTY0LS4wMDcgMi45MS0uNjIyIDMuODA5LTEuMTI0bDEuMDE2LS41OC40MzgtLjI3NGMuNDI4LS4yOCAxLjA3Mi0uNzI2IDIuNjg2LTEuODUzIDEuNjIxLTEuMTMzIDMuMTg2LTEuNzggNC44ODEtMi4wNTkgMS4xNTItLjE5IDEuOTc0LS4yMTMgMy44MTQtLjEzOGwuMDItMS45MDd6Ij48L3BhdGg+PC9zdmc+Cg=="
+      },
+      "displayName": "OpenRouter Chat Model",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    }
+  ]
+}

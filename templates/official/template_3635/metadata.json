@@ -1,0 +1,64 @@
+{
+  "id": 3635,
+  "name": "Build your own Github MCP server",
+  "description": "This n8n demonstrates how to build your own Github MCP server to personalise it to your organisation's repositories, issues and pull requests.\n\nThis n8n implementation, though not as fully featured as the official MCP server offered by Github, allows you to control precisely what access and/or functionality is granted to users which can make MCP use simpler and in some cases, more secure. The use-case in this template is to simply view and comment on issues within a specific repository but can be extended to meet the needs of your team.\n\nThis MCP example is based off an official MCP reference implementation which can be found here https://github.com/modelcontextprotocol/servers/tree/main/src/github\n\nHow it works\nA MCP server trigger is used and connected to 3 custom workflow tools. We're using custom workflow tools as there is quite a few nodes required for each task.\nBehind these tools are regular Github nodes although preconfigured with credentials and targeted repository.\nThe \"Get Issue Comments\" and \"Create Issue Comment\" tools depend on obtaining an Issue Number first. The agent should call the \"Get Latest Issues\" tool for this.\n\nHow to use\nThis Github MCP server allows any compatible MCP client to view and comment on Github Issues. You will need to have a Github account and repository access available before you can use this server.\nConnect your MCP client by following the n8n guidelines here - https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-langchain.mcptrigger/#integrating-with-claude-desktop\nTry the following queries in your MCP client:\n  \"Can you get me the latest issues about MCP?\"\n  \"What is the current progress on Issue 12345?\"\n  \"Please can you add a comment to Issue 12345 that they should try installing the latest version and see if that works?\"\n\nRequirements\nGithub for account and repository access. The repository need not be your own but you'll still need to ensure you have the correct permissions.\nMCP Client or Agent for usage such as Claude Desktop - https://claude.ai/download\n\nCustomising this workflow\nExtend this template to interactive with pull requests or workflows within your own company's Github repositories. Alternatively,  pull in metrics and generate reports for programme managers.\nRemember to set the MCP server to require credentials before going to production and sharing this MCP server with others!",
+  "totalViews": 958,
+  "source": "official",
+  "user": {
+    "id": 91804,
+    "name": "Jimleuk",
+    "username": "jimleuk",
+    "bio": "Freelance consultant based in the UK specialising in AI-powered automations. I work with select clients tackling their most challenging projects. For business enquiries, send me an email at hello@jimle.uk\n\nLinkedIn: https://www.linkedin.com/in/jimleuk/\nX/Twitter: https://x.com/jimle_uk",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4ab99e51473df76838beeaac908747f7928c625f869794815cabe34016967d51?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "GitHub",
+      "type": "n8n-nodes-base.github",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-04-21T10:13:11.626Z",
+  "path": "official/template_3635/workflow.json"
+}

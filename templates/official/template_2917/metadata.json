@@ -1,0 +1,96 @@
+{
+  "id": 2917,
+  "name": "Allow Users to Send a Sequence of Messages to an AI Agent in Telegram",
+  "description": "Use Case\nWhen creating chatbots that interface through applications such as Telegram and WhatsApp, users can often sends multiple shorter messages in quick succession, in place of a single, longer message. This workflow accounts for this behaviour.\nWhat it Does\nThis workflow allows users to send several messages in quick succession, treating them as one coherent conversation instead of separate messages requiring individual responses. \nHow it Works\nWhen messages arrive, they are stored in a Supabase PostgreSQL table\nThe system waits briefly to see if additional messages arrive\nIf no new messages arrive within the waiting period, all queued messages are:\n   Combined and processed as a single conversation\n   Responded to with one unified reply\n   Deleted from the queue\nSetup\nCreate a table in Supabase called message_queue. It needs to have the following columns: user_id (uint8), message (text), and message_id (uint8)\nAdd your Telegram, Supabase, OpenAI, and PostgreSQL credentials\nActivate the workflow and test by sending multiple messages the Telegram bot in one go\nWait ten seconds after which you will receive a single reply to all of your messages\nHow to Modify it to Your Needs\nChange the value of Wait Amount in the Wait 10 Seconds node in order to to modify the buffering window \nAdd a System Message to the AI Agent to tailor it to your specific use case\nReplace the OpenAI sub-node to use a different language model",
+  "totalViews": 11023,
+  "source": "official",
+  "user": {
+    "id": 92742,
+    "name": "Chris Carr",
+    "username": "chriscarr",
+    "bio": "Freelance workflow and AI developer based in Cardiff, Wales. I work with SMEs to automate processes and eliminate human-error.",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/chrisdavidcarr/\"]",
+    "avatar": "https://gravatar.com/avatar/dfa8cbb7687f4d9a149258d2dd59e6f0131d835b4dc768858afe6bd1d497dc92?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Data & Storage",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Supabase",
+      "type": "n8n-nodes-base.supabase",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Postgres Chat Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "Other memories"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-02-16T12:03:51.655Z",
+  "path": "official/template_2917/workflow.json"
+}

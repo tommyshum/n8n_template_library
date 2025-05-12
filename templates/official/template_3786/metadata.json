@@ -1,0 +1,21 @@
+{
+  "id": 3786,
+  "name": "Automate Course Registration Leads from Facebook Ads to KlickTipp",
+  "description": "Community Node Disclaimer: This workflow uses community nodes and is compatible only with self-hosted n8n environments.\n\nHow It Works:  \n\nFacebook Lead Ads to KlickTipp Integration:  \nThis workflow automatically transfers lead information submitted via Facebook Lead Ads into KlickTipp. It is ideal for automating course registrations or similar campaigns, enabling targeted email sequences based on user input.  \n\nData Handling:  \nLead data from Facebook is received via webhook, matched to KlickTipp’s custom fields, and the contact is tagged for segmentation and automation.\n\n\nKey Features  \n\nWebhook Trigger for Facebook Lead Ads:  \nCaptures new lead form submissions from Facebook, including:\n  Name\n  Email address\n  Chosen course\n  Preferred payment method\n  Optional comments  \n\nData Mapping & Validation:  \nMaps Facebook field values to pre-defined custom fields in KlickTipp  \n\nSubscriber Management in KlickTipp:  \nAdds or updates leads as subscribers in KlickTipp  \nIncludes mapping to custom fields such as:\n  Facebook_Leads_Ads_Kursauswahl\n  Facebook_Leads_Ads_Zahlungsweise\n  Facebook_Leads_Ads_Kommentar  \nAssigns relevant tags for automated campaign triggers\n\n\nSetup Instructions  \n\n1. Prepare KlickTipp Custom Fields:  \nBefore using the workflow, create the following custom fields in KlickTipp under → Contacts → Custom fields:  \n\n| Name | Datentyp |\n| - | - |\n| Facebook_Leads_Ads_Kommentar | Zeile |\n| Facebook_Leads_Ads_Kursauswahl | Zeile |\n| Facebook_Leads_Ads_Zahlungsweise | Zeile |\n\n2. Facebook Lead Ads Setup:  \nCreate a lead form under Facebook Ads Manager  \nInclude custom fields for course interest, payment preference, and comments   \n\n3. Set Up Facebook Webhook in n8n:  \nUse the Facebook Lead Ads node to create a webhook  \nAuthenticate your Facebook account  \nChoose the Page and corresponding lead form  \nSave and activate the webhook  \n\n4. Map Data to KlickTipp Fields:  \nOpen the KlickTipp node to Authenticate with your credentials (username&password)  \nMap the fields from the Facebook webhook to the according custom fields in KlickTipp. \n\n\nTesting & Deployment  \n\nRun a Test:  \nUse Meta’s testing tool to generate a test lead  \nRun the n8n workflow once manually  \n\nNote: Facebook test email (e.g., test@fb.com) is invalid—expect an error in KlickTipp during testing. You can pin the output of the node and manipulate the address to a valid test-address.\n\n\nWorkflow Logic  \n\nWebhook Trigger from Facebook: Initiates workflow upon new lead form submission  \nAdd or Update Contact in KlickTipp: Submits mapped data into your KlickTipp account \n\n\nBenefits  \n\nAutomated Lead Management:  \nNo manual data transfers needed—new Facebook leads are instantly pushed to KlickTipp.  \n\nPersonalized Campaigns:  \nSegment leads based on selected course or payment method for targeted follow-up emails.   \n\n\nNotes:  \n\nCustomization:  \nAdjust field mappings in the KlickTipp node based on your lead form structure. Ensure all required fields (email, opt-in, etc.) are mapped correctly.  \n\nResource Tip:  \nUse the Meta Lead Ads Testing Tool to simulate lead submissions during setup.",
+  "totalViews": 188,
+  "source": "official",
+  "user": {
+    "id": 92256,
+    "name": "KlickTipp",
+    "username": "KlickTipp",
+    "bio": "Reach more people. 100% GDPR compliant. Quickly create automated email campaigns, SMS and marketing automations. Market your knowledge independently of Google & Co., sell lucrative products and activate your customers.",
+    "verified": true,
+    "links": "[\"https://www.klicktipp.com/\"]",
+    "avatar": "https://gravatar.com/avatar/38677fedcb7c47d414fa2b6ecabb1f51a1f0efaecd06f316971632d6c192e2ff?r=pg&d=retro&size=200"
+  },
+  "categories": [],
+  "nodes": [],
+  "nodeCount": 0,
+  "createdAt": "2025-04-29T13:22:51.792Z",
+  "path": "official/template_3786/workflow.json"
+}

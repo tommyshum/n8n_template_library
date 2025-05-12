@@ -1,0 +1,101 @@
+{
+  "id": 3503,
+  "name": "Generate Written Content with GPT-4o Recursive Writing & Editing Agents",
+  "description": "Who is this for?\nContent creators and writers that are experimenting with recursive AI agent writing and editing. \n\nWhat problem does this solve?\nAutomated writing and editing on loop (AKA recursive multi-agent framework). An AI Agent will write the content, then another AI Agent will edit the written content. This process will continue until the editor decides that their suggestions are adequately incorporated and the content is complete. \n\nHow it works\nThis is a foundational template that is meant to help creators and writers build more bespoke writing workflows.\n\nTriggered by a n8n chat message, which introduces the user’s topic. This is a basic starting point, but you can customize the trigger to recieve input from a webhook, a form, etc.\n\nA code node (handle edits) checks for any previously suggested edits and sets the default to an empty string if none exist. This is necessary to handle the recursive editing process.\n\nA Writing Agent receives the topic (and any available edits) to generate an initial blurb. The prompt should be updated based on your specific needs.\n\nAn Editing Agent reviews this blurb and suggests specific changes, outputting a JSON structure with two values: a status (set to “incomplete” if further revisions are needed) and the edits. The prompt and JSON output should be updated based on your specific needs.\n\nIf the status remains “incomplete”, the suggested edits are sent back to the Writing Agent, which revises the blurb accordingly.\n\nThis forms a recursive loop where the Writing and Editing Agents interact until the Editing Agent sets the status to “complete”.\n\nOnce approved, the final, edited blurb is output back to the n8n chat.\n\nSet up steps\n\nImport the Template into your workspace.\nConfigure API Credentials: Set up your API credentials for the LLM. This template uses OpenAI Chat Model (e.g., GPT‑4), but you can substitute your favorite LLM (Gemini, Claude, etc).\nCustomize Prompts (Optional): Adjust the prompts for both the Writing and Editing Agents if you wish to tailor the style or depth of the generated content.\n\n",
+  "totalViews": 54,
+  "source": "official",
+  "user": {
+    "id": 93557,
+    "name": "Matty Reed",
+    "username": "mattyreed1",
+    "bio": "Student and Teacher | Designer and Builder | Helping Founders Flourish",
+    "verified": false,
+    "links": "[\"https://x.com/mattyreed1\"]",
+    "avatar": "https://gravatar.com/avatar/080147b3167a484772fac4b097deee5a2f7bdb162777e46cb32b3d6fef6de022?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-04-09T18:37:06.860Z",
+  "path": "official/template_3503/workflow.json"
+}

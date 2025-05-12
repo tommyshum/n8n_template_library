@@ -1,0 +1,71 @@
+{
+  "id": 710,
+  "name": "Manage users using the G Suite Admin node",
+  "totalViews": 1918,
+  "purchaseUrl": null,
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "description": "",
+  "createdAt": "2020-10-09T12:27:48.732Z",
+  "nodes": [
+    {
+      "id": 373,
+      "icon": "file:gSuiteAdmin.svg",
+      "name": "n8n-nodes-base.gSuiteAdmin",
+      "codex": {
+        "data": {
+          "alias": [
+            "Workspaces"
+          ],
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/automate-google-apps-for-productivity/",
+                "icon": "💡",
+                "label": "15 Google apps you can combine and automate to increase productivity"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.gsuiteadmin/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/google/oauth-single-service/"
+              }
+            ]
+          },
+          "categories": [
+            "Utility"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "Google Workspace Admin"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDE5MiAxOTIiIGhlaWdodD0iMTkyIiB2aWV3Qm94PSIwIDAgMTkyIDE5MiIgd2lkdGg9IjE5MiI+PHJlY3QgZmlsbD0ibm9uZSIgaGVpZ2h0PSIxOTIiIHdpZHRoPSIxOTIiLz48Zz48Zz48cGF0aCBkPSJNMjQuNTMsMTMwbDIwLjY5LDM1Ljg0YzMuMjcsNS42Nyw5LjMyLDkuMTYsMTUuODYsOS4xNmg0NC4wNmwtNy45My0yNC4wN0w3OC4xNSwxMzBsLTI2LjgxLTQuNjYgTDI0LjUzLDEzMHoiIGZpbGw9IiMxOTY3RDIiLz48cGF0aCBkPSJNMTgyLjA2LDg2Ljg0bC0yMC4wOS0zNC44bC0xNy4yOCwxOS4xM0wxMzQuNDksOTZsMTEuMDgsMjYuNTdsMTYuMjcsMTcuNmwyMC4yMi0zNS4wMSBDMTg1LjMzLDk5LjQ5LDE4NS4zMyw5Mi41MSwxODIuMDYsODYuODR6IiBmaWxsPSIjMTk2N0QyIi8+PHBhdGggZD0iTTEwNS4xNSwxN0g2MS4wOWMtNi41NCwwLTEyLjU5LDMuNDktMTUuODYsOS4xNkwyNC41Myw2MmwyNi44MSw0LjY2TDc4LjE1LDYybDE5LjU3LTIwLjkzTDEwNS4xNSwxN3oiIGZpbGw9IiMxOTY3RDIiLz48cGF0aCBkPSJNNTcuNzUsOTZsMjAuNC0zNEgyNC41M0wxMC4xOSw4Ni44NGMtMy4yNyw1LjY3LTMuMjcsMTIuNjUsMCwxOC4zMkwyNC41MywxMzBoNTMuNjJMNTcuNzUsOTZ6IiBmaWxsPSIjNDI4NUY0Ii8+PHBhdGggZD0iTTExNC4wOSw2MmwyMC40LDM0bDI3LjQ3LTQzLjk2bC0xNC45NC0yNS44OGMtMy4yNy01LjY3LTkuMzItOS4xNi0xNS44Ni05LjE2aC0yNi4wMWwtMjcsNDVIMTE0LjA5eiIgZmlsbD0iIzQyODVGNCIvPjxwYXRoIGQ9Ik0xMTQuMDksMTMwSDc4LjE1bDI3LDQ1aDI2LjAxYzYuNTQsMCwxMi41OS0zLjQ5LDE1Ljg2LTkuMTZsMTQuODItMjUuNjdMMTM0LjQ5LDk2TDExNC4wOSwxMzB6IiBmaWxsPSIjNDI4NUY0Ii8+PC9nPjwvZz48L3N2Zz4="
+      },
+      "displayName": "Google Workspace Admin",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 7,
+          "name": "Utility"
+        }
+      ]
+    }
+  ]
+}

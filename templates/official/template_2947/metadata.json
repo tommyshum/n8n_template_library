@@ -1,0 +1,53 @@
+{
+  "id": 2947,
+  "name": "National Weather Service 7-Day Forecast in Slack",
+  "description": "Weather via Slack 🌦️💬\n\nOverview\nThis workflow provides real-time weather updates via Slack using a custom Slack command:  \n/weather [cityname]\n\nUsers can type this command in Slack (e.g., /weather New York), and the workflow will fetch and post the latest forecast, including temperature, wind conditions, and a short weather summary.\n\nWhile this workflow is designed for Slack, users can modify it to send weather updates via email, Discord, Microsoft Teams, or any other communication platform.\n\nHow It Works\nWebhook Trigger – The workflow is triggered when a user runs /weather [cityname] in Slack.\nGeocoding with OpenStreetMap – The city name is converted into latitude and longitude coordinates.\nWeather Data from NOAA – The coordinates are used to retrieve detailed weather data from the National Weather Service (NWS) API.\nFormatted Weather Report – The workflow extracts relevant weather details, such as:\n   Temperature (°F/°C)\n   Wind speed and direction\n   Short forecast summary\nSlack Notification – The weather forecast is posted back to the Slack channel in a structured format.\n\nRequirements\nA custom Slack app with:\n  The ability to create a Slash Command (/weather)\n  OAuth permissions to post messages in Slack\nAn n8n instance to host and execute the workflow\n\nCustomization\nReplace Slack messaging with email, Discord, Microsoft Teams, Telegram, or another service.\nModify the weather data format for different output preferences.\nSet up scheduled weather updates for specific locations.\n\nUse Cases\nInstantly check the weather for any location directly in Slack.\nAutomate weather reports for team members or projects.\nUseful for remote teams, outdoor event planning, or general weather tracking.\n\nSetup Instructions\nCreate a custom Slack app:\n   Go to api.slack.com/apps and create a new app.\n   Add a Slash Command (/weather) with the webhook URL from n8n.\n   Enable OAuth scopes for sending messages.\nDeploy the webhook – Ensure it can receive and process Slack commands.\nRun the workflow – Type /weather [cityname] in Slack and receive instant weather updates.\n",
+  "totalViews": 1244,
+  "source": "official",
+  "user": {
+    "id": 91693,
+    "name": "Alex Kim",
+    "username": "alexk1919",
+    "bio": "n8n Ambassador & Verified Partner",
+    "verified": true,
+    "links": "[\"https://wot-ai.com\"]",
+    "avatar": "https://gravatar.com/avatar/2b74c7f530e250439f5d752f2623ead4921fbb8aef56343c922b2873ef8a619f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-02-19T22:12:36.551Z",
+  "path": "official/template_2947/workflow.json"
+}

@@ -1,0 +1,119 @@
+{
+  "id": 3859,
+  "name": "AI Customer Support Assistant · WhatsApp Ready · Works for Any Business",
+  "description": "AI Customer-Support Assistant that auto-maps any business site, answers WhatsApp in real time, and lets you earn or save thousands by replacing pricey SaaS chat tools.\n\n⚡ What the workflow does\n\nLive “AI employee”* - the bot crawls pages on demand (products, policies, FAQs) so you *never** upload documents or fine-tune a model.\nNo-code setup** - Drop in API keys, paste your domain, publish the webhook—ready in \\~15 min.\nChat memory** - each conversation turn is written to Supabase/Postgres and automatically replayed into the next prompt, letting the assistant remember context so follow-up questions feel natural and coherent even across long sessions.\nWhatsApp ready** - Free-form replies inside the 24-hour service window, automatically switches to a template when required (recommended by Meta).\n\n🚀 Why you’ll love it\n\n| Benefit                   | Impact                                                                |\n| ------------------------- | --------------------------------------------------------------------- |\n| Zero content training | Point the AI Agent at any domain → go live.                            |\n| Save or earn money    | Replace pricey SaaS chat tools or sell white-label bots to clients. |\n| Channel-agnostic      | Ships with WhatsApp; swap one node for Telegram, Slack, or web chat.  |\n| Flexible voice        | Adjust tone & language by editing one prompt line.                    |\n\n🧰 Prerequisites (all free-tier friendly)\n\nOpenAI key\nMeta WhatsApp Cloud API number + permanent token (easy setup)\nSupabase (or Postgres) URL for chat memory (easy setup)\n\n🛠 5-step setup\n\nImport the template into n8n.\nAdd credentials for OpenAI, WhatsApp, and Supabase.\nEnter your root domain in the root\\_url variable.\nPoint Meta’s Webhook to the n8n URL.\nHit Execute Trigger and send “Hi” from WhatsApp—watch the bot answer with live data.\n\n🔄 Easy to extend\n\nVoice & language** – change wording in the System Prompt.\nEscalation** – add an “If fallback” branch → Zendesk, email, live agents.\nExtra channels** – duplicate the reply node for Telegram or Slack.\nCommerce API hooks** – plug in Shopify, Woo, Stripe for order status or payments.\n\n💡 Monetization ideas\n\nReplace costly SaaS seats.* Deploy the bot on your own server and *stop paying \\$300–\\$500 every month for third-party “AI support” platforms.\nSell it as a service.* Spin up a branded instance for local shops, clinics, or e-commerce stores and *charge each client \\$300–\\$500 per month**—setup time is under 15 minutes.\nUpsell premium coverage (24/7 human hand-off) once the bot handles routine questions.\nEmbed product links in answers and earn affiliate or upsell revenue automatically.\n\nSpin it up, connect a domain and a phone number, and you—or your customers—get enterprise-grade support without code, training, or ongoing licence fees.\n",
+  "totalViews": 3635,
+  "source": "official",
+  "user": {
+    "id": 92893,
+    "name": "Mateo Fiorito Rocha",
+    "username": "lemolex",
+    "bio": "Passionate about AI-driven automation, LLMs, and intelligent systems that enhance efficiency and engagement. Let’s build smarter workflows, send me a message!",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/mateofioritorocha/\"]",
+    "avatar": "https://gravatar.com/avatar/1547577657bcdb579dd2c1946c4382029800b8e23e112916e4fe11cc66a6f9fa?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "WhatsApp Business Cloud",
+      "type": "n8n-nodes-base.whatsApp",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Postgres Chat Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "Other memories"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-05-04T13:37:44.027Z",
+  "path": "official/template_3859/workflow.json"
+}

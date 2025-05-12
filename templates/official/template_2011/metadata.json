@@ -1,0 +1,52 @@
+{
+  "id": 2011,
+  "name": "Verify an email adress with Icypeas (single)",
+  "description": "This template can be used to verify an email address with Icypeas. Be sure to have an active account to use this template. \n\n\n\nHow it works\nThis workflow can be divided into three steps :\nThe workflow initiates with a manual trigger (On clicking 'execute').\nIt connects to your Icypeas account.\nIt performs an HTTP request to verify an email address.\n\nSet up steps\nYou will need a working icypeas account to run the workflow and get your API Key, API Secret and User ID.\nYou will need an email address to perform the verification.\n\n",
+  "totalViews": 579,
+  "source": "official",
+  "user": {
+    "id": 91350,
+    "name": "Corentin Ribeyre",
+    "username": "corentinribeyre",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/f64d48cad119716a23e6c996611fe994d642daddcf5f01b23d2958047f001084?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2023-12-11T15:36:28.707Z",
+  "path": "official/template_2011/workflow.json"
+}

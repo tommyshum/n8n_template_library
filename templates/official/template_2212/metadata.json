@@ -1,0 +1,64 @@
+{
+  "id": 2212,
+  "name": "Zalando Price Patrol: Monitor price evolution with email notification",
+  "description": "🎉 Do you want to master AI automation, so you can save time and build cool stuff? \n\nI’ve created a welcoming Skool community for non-technical yet resourceful learners.\n\n👉🏻 Join the AI Atelier 👈🏻\n\nMonitor Zalando product pricing and get notified if a Zalando product price falls under a limit you have defined.\n\nThis n8n workflow lets you follow the evolution of the price of products you select. For each product, you define a minimal price.\n\nThe workflow automatically scrapes the price for you on a daily basis. If the price falls under your minimal price settings, you receive a notification.\n\nThis workflow is very easy to use. From a simple form, just paste the URL of the Zalando product you want to monitor and fill in the minimal price.\n\nFeatures\nMonitor Zalando Product price: follow the price evolution of your favorite Zalando products.\nEmail notification: set a minimal price, if the product price falls below this limit, you get notified by email.\nVisual price evolution: get a graphical overview of the product pricing evolutions.\nAutomated Daily check-up: this workflow automatically checks the price of your selected Zalando products on a daily basis.\n\nSet up\nCopy this workflow to your n8n interface.\nCreate a new Google Spreadsheet, copy this template\nSetup your workflow with your Google credential, your email, and your copy of the Spreadsheet.\nActivate the Workflow and start pasting Zalando product URLs.\n\nI hope you will enjoy this workflow that is probably one of the simplest ways to monitor the pricing evolution of your favorite Zalando products.\n\nFeel free to contact me should you have any questions or suggestions.\n\nCreated by the n8n.inja\n✨ follow on X\n📺 follow on YT",
+  "totalViews": 3311,
+  "source": "official",
+  "user": {
+    "id": 91529,
+    "name": "Emmanuel Bernard",
+    "username": "n8ninja",
+    "bio": "🎉 Do you want to master AI automation, so you can save time and build cool stuff?\n\nI’ve created a welcoming Skool community for non-technical yet resourceful learners.",
+    "verified": true,
+    "links": "[\"https://www.skool.com/the-ai-atelier\"]",
+    "avatar": "https://gravatar.com/avatar/6c38a38d8002fa989515b5c11340ca14512f929dfd15a5a57422950f58441b12?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-04-04T13:31:22.550Z",
+  "path": "official/template_2212/workflow.json"
+}

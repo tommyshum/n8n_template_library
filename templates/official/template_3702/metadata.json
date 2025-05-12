@@ -1,0 +1,115 @@
+{
+  "id": 3702,
+  "name": "Extract & Summarize Indeed Company Info with Bright Data and Google Gemini",
+  "description": "Who this is for?\nExtract & Summarize Indeed Company Info is an automated workflow that extracts the Indeed company profile information using Bright Data Web Unlocker, transform it using Google Gemini’s LLM, and forward the transformed response with the summary to a specified webhook for downstream use.\n\nThis workflow is tailored for:\n\nRecruiters and HR teams looking to assess companies quickly during talent sourcing.\n\nJob seekers researching potential employers and needing summarized company insights.\n\nMarket researchers and analysts monitoring competitor or industry players.\n\nWhat problem is this workflow solving?\nSearching and evaluating company profiles on Indeed manually can be time-consuming and inefficient, especially when dealing with large volumes of companies. Manually browsing, copying, and summarizing company descriptions, reviews, and ratings from Indeed hinders productivity and limits real-time insights.\n\nThis workflow solves this by:\n\nAutomating the extraction of company details from Indeed using Bright Data Web Unlocker.\n\nSummarizing the raw data using Google Gemini's language model for a quick, human-readable overview.\n\nSending the transformed response with the summary to a chosen endpoint, like Slack, Notion, Airtable, or a custom webhook.\n\nWhat this workflow does\n\nThis automated pipeline does the following:\n\nScrape Indeed company profile pages (e.g., ratings, description, reviews) using Bright Data’s Web Unlocker.\n\nTransform the scraped content into structured JSON using n8n’s built-in tools.\n\nSummarize and extract meaningful insights using Google Gemini's large language model.\n\nForward the summarized data to a specified webhook or app for real-time access, storage, or analysis.\n\nForward the formatted response to a specified webhook or app for real-time access, storage, or analysis.\n\nSetup\nSign up at Bright Data.\nNavigate to Proxies & Scraping and create a new Web Unlocker zone by selecting Web Unlocker API under Scraping Solutions.\nIn n8n, configure the Header Auth account under Credentials (Generic Auth Type: Header Authentication).\nIn n8n, configure the Google Gemini(PaLM) Api account with the Google Gemini API key (or access through Vertex AI or proxy).\nUpdate the search query, Bright Data zone by navigating to the Set Indeed Search Query node.\nUpdate the Webhook Notifier with the Webhook endpoint of your choice.\n\nHow to customize this workflow to your needs\n\nThis workflow is built to be flexible - whether you're a company or a market researcher, entrepreneur, or data analyst. Here’s how you can adapt it to fit your specific use case:\n\nChanging the data source**: \nReplace the Indeed search input with other job or business listing platforms if needed (e.g., Glassdoor, Crunchbase)\n\nRefining the LLM prompt**: \nTailor the Gemini prompt to transform or summarize the Indeed company information in a specific format.\n\nRouting the output to different destinations**: \nSend summaries or transformed response to Google Sheets, Airtable, or CRMs like HubSpot or Salesforce etc.\n",
+  "totalViews": 149,
+  "source": "official",
+  "user": {
+    "id": 93657,
+    "name": "Ranjan Dailata",
+    "username": "ranjancse",
+    "bio": "",
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/7b74fe44a7ad32db7c783b972deb5848a4b1f043377bce4039737ed66da8305f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Summarization Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainSummarization",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-04-24T23:22:33.673Z",
+  "path": "official/template_3702/workflow.json"
+}

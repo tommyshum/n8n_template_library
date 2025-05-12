@@ -1,0 +1,102 @@
+{
+  "id": 3495,
+  "name": "Loading JSON via FTP to Qdrant Vector Database Embedding Pipeline",
+  "description": "🧠 This workflow is designed for one purpose only, to bulk-upload structured JSON articles from an FTP server into a Qdrant vector database for use in LLM-powered semantic search, RAG systems, or AI assistants.\n\nThe JSON files are pre-cleaned and contain metadata and rich text chunks, ready for vectorization. This workflow handles\nDownloading from FTP\nParsing & splitting\nEmbedding with OpenAI-embedding\nStoring in Qdrant for future querying\n\nJSON structure format for blog articles\n{\n  \"id\": \"article_001\",\n  \"title\": \"reseguider\",\n  \"language\": \"sv\",\n  \"tags\": [\"london\", \"resa\", \"info\"],\n  \"source\": \"alltomlondon.se\",\n  \"url\": \"https://...\",\n  \"embedded_at\": \"2025-04-08T15:27:00Z\",\n  \"chunks\": [\n    {\n      \"chunk_id\": \"article_001_01\",\n      \"section_title\": \"Introduktion\",\n      \"text\": \"Välkommen till London...\"\n    },\n    ...\n  ]\n}\n\n🧰 Benefits\n✅ Automated Vector Loading\nHandles FTP → JSON → Qdrant in a hands-free pipeline.\n\n✅ Clean Embedding Input\nSupports pre-validated chunks with metadata: titles, tags, language, and article ID.\n\n✅ AI-Ready Format\nPerfect for Retrieval-Augmented Generation (RAG), semantic search, or assistant memory.\n\n✅ Flexible Architecture\nModular and swappable: FTP can be replaced with GDrive/Notion/S3, and embeddings can switch to local models like Ollama.\n\n✅ Community Friendly\nThis template helps others adopt best practices for vector DB feeding and LLM integration.",
+  "totalViews": 463,
+  "source": "official",
+  "user": {
+    "id": 93692,
+    "name": "Ghaith Alsirawan",
+    "username": "gsirawan",
+    "bio": "",
+    "verified": false,
+    "links": "[\"https://www.linkedin.com/in/ghaith-alsirawan/\"]",
+    "avatar": "https://gravatar.com/avatar/5625bdb1b13306110c60dab8ca87affdc58386c8f61165d0ebeb33bb7262a272?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Core Nodes",
+    "Data & Storage",
+    "Development",
+    "Utility",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "FTP",
+      "type": "n8n-nodes-base.ftp",
+      "categories": [
+        "Core Nodes",
+        "Data & Storage",
+        "Development",
+        "Utility"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Files",
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    },
+    {
+      "name": "Character Text Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterCharacterTextSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    },
+    {
+      "name": "Qdrant Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreQdrant",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-04-09T07:42:31.732Z",
+  "path": "official/template_3495/workflow.json"
+}

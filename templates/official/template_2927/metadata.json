@@ -1,0 +1,71 @@
+{
+  "id": 2927,
+  "name": "Generate multispeaker podcast 🎙️ with AI natural-sounding 🤖🧠 & Google Sheets",
+  "description": "This workflow automates the generation of multi-speaker podcasts using AI-powered text-to-speech technology. It starts by retrieving a podcast script from a Google Sheets document, where each speaker’s lines are clearly defined. The workflow then processes the script, generates a natural-sounding audio file with different voices for each speaker, and stores the final audio file in Google Drive.\n\nThe workflow is designed to save time and resources by automating the podcast production process, making it ideal for content creators, marketers, and businesses that need to produce high-quality audio content regularly.\n\nHow It Works\nTriggering the Workflow:\n   The workflow starts with the When clicking ‘Test workflow’ node, which can be triggered manually to begin the process.\n\nData Retrieval:\n   The Get Podcast text node retrieves data from a Google Sheets document containing the podcast script. The document includes columns for the speaker's name and the corresponding text.\n\nData Aggregation:\n   The Get all rows node aggregates the data from the Google Sheets document, combining the speaker names and their respective text into a single dataset.\n\nText Formatting:\n   The Full Podcast Text node processes the aggregated data, formatting it into a single string where each speaker's text is prefixed with their name.\n\nAudio Generation:\n   The Create Audio node sends a request to the API to generate a multi-speaker podcast audio file. The request includes the formatted text and specifies the voices for each speaker.\nWhen you register for the API service you will get 1$ for free. For continuous work add API credits to your account.\n\nStatus Check:\n   The Get status node checks the status of the audio generation request. If the status is \"COMPLETED\", the workflow proceeds; otherwise, it waits again.\n\nAudio Retrieval:\n   The Get Url Audio node retrieves the URL of the generated audio file.\n   The Get File Audio node downloads the audio file from the provided URL.\n\nAudio Storage:\n   The Upload Audio node uploads the generated audio file to a specified Google Drive folder for storage.\n\nKey Features\nMulti-Speaker Support**: Generates podcasts with different voices for each speaker, creating a more dynamic and engaging listening experience.\nGoogle Sheets Integration**: Retrieves podcast scripts from a Google Sheets document, making it easy to manage and update content.\nAI-Powered Text-to-Speech**: Uses advanced AI models to generate natural-sounding audio from text.\nAutomated Audio Generation**: Streamlines the process of creating podcast audio files, reducing the need for manual recording and editing.\nGoogle Drive Storage**: Automatically uploads the generated audio files to Google Drive for easy access and sharing.\n\nThis workflow is ideal for businesses and content creators looking to automate the production of multi-speaker podcasts. It leverages AI to handle the complex task of generating natural-sounding audio, allowing users to focus on creating compelling content.",
+  "totalViews": 1093,
+  "source": "official",
+  "user": {
+    "id": 92207,
+    "name": "Davide",
+    "username": "n3witalia",
+    "bio": "Full-stack Web Developer based in Italy specialising in Marketing & AI-powered automations. For business enquiries, send me an email at info@n3w.it or add me on Linkedin.com/in/davideboizza",
+    "verified": true,
+    "links": "[\"https://n3w.it\"]",
+    "avatar": "https://gravatar.com/avatar/d41b8a0aa81139243509c58870f5b4be292824a507ab57d10ed066d8628ed8da?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-02-17T15:49:59.027Z",
+  "path": "official/template_2927/workflow.json"
+}

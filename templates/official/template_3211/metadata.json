@@ -1,0 +1,38 @@
+{
+  "id": 3211,
+  "name": "Chinese Translator via Line x OpenRouter (Text & Image) ",
+  "description": "This workflow template, \"Chinese Translator via Line x OpenRouter (Text & Image)\" is designed to provide seamless Chinese translation services directly within the LINE messaging platform. By integrating with OpenRouter.ai and advanced language models like Qwen, this workflow translates text or images containing Chinese characters into pinyin and English translations, making it an invaluable tool for language learners, travelers, and businesses operating in multilingual environments.\n\nThis template is ideal for:\nLanguage Learners: Who want to practice Chinese by receiving instant translations of text or images.\nTravelers: Looking for quick translations of Chinese signs, menus, or documents while abroad.\nEducators: Teaching Chinese language courses and needing tools to assist students with translations.\nBusinesses: Operating in multilingual markets and requiring efficient communication tools.\nAutomation Enthusiasts: Seeking to build intelligent chatbots that can handle language translation tasks.\n\nWhat Problem Does This Workflow Solve?\nTranslating Chinese text or images into English and pinyin can be challenging, especially for beginners or those without access to reliable translation tools. This workflow solves that problem by:\nAutomatically detecting and translating text or images containing Chinese characters.\nProviding accurate translations in both pinyin and English for better comprehension.\nSupporting multiple input formats (text, images) to cater to diverse user needs.\nSending replies directly to users via the LINE messaging platform , ensuring accessibility and ease of use.\n\nWhat This Workflow Does\n1) Receive Messages via LINE Webhook\nThe workflow is triggered when a user sends a message (text, image, or other types) to the LINE bot.\n2) Display Loading Animation\nA loading animation is displayed to reassure the user that their request is being processed.\n3) Route Input Types\nThe workflow uses a Switch node to determine the type of input (text, image, or unsupported formats).\nIf the input is text , it is sent to the OpenRouter.ai API for translation.\nIf the input is an image , the workflow extracts the image content, converts it to base64, and sends it to the API for translation.\nUnsupported formats trigger a polite response indicating the limitation.\n4) Translate Content Using OpenRouter.ai\nThe workflow leverages Qwen models from OpenRouter.ai to generate translations:\nFor text inputs, it provides Chinese characters , pinyin , and English translations .\nFor images, it extracts and translates using the qwen-VL model which can take images\n5) Reply with Translations\nThe translated content is formatted and sent back to the user via the LINE Reply API.\n\nSetup Guide\nPre-Requisites\nAccess to the LINE Developers Console to configure your webhook and channel access token.\nAn OpenRouter.ai account with credentials to access Qwen models.\nBasic knowledge of APIs, webhooks, and JSON formatting.\n\nStep-by-Step Setup\n1) Configure the LINE Webhook:\nGo to the LINE Developers Console and set up a webhook to receive incoming messages.\nCopy the Webhook URL from the Line Webhook node and paste it into the LINE Console.\nRemove any \"test\" configurations when moving to production.\n2) Set Up OpenRouter.ai:\nCreate an account on OpenRouter.ai and obtain your API credentials.\nConnect your credentials to the OpenRouter nodes in the workflow.\n3) Test the Workflow:\nSimulate sending text or images to the LINE bot to verify that translations are processed and replied correctly.\n\nHow to Customize This Workflow to Your Needs \nAdd More Languages: Extend the workflow to support additional languages by modifying the API calls.\nEnhance Image Processing: Integrate more advanced OCR tools to improve text extraction from complex images.\nCustomize Responses: Modify the reply format to include additional details, such as grammar explanations or cultural context.\nExpand Use Cases: Adapt the workflow for specific industries, such as tourism or e-commerce, by tailoring the translations to relevant vocabulary.\n\nWhy Use This Template?\nReal-Time Translation: Provides instant translations of text and images, improving user experience and accessibility.\nMultimodal Support: Handles both text and image inputs, catering to diverse user needs.\nScalable: Easily integrate into existing systems or scale to support multiple users and workflows.\nCustomizable: Tailor the workflow to suit your specific audience or industry requirements.",
+  "totalViews": 535,
+  "source": "official",
+  "user": {
+    "id": 92858,
+    "name": "lin@davoy.tech",
+    "username": "linlinmhee",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4e38af5bc6715cea4e86e60c03e21e287cea3cdb5ceba78b3003e6404743fd32?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-03-18T17:36:10.863Z",
+  "path": "official/template_3211/workflow.json"
+}

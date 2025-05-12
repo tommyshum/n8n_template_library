@@ -1,0 +1,93 @@
+{
+  "id": 3899,
+  "name": "Automatically Create Linear Issues from Gmail Support Request Messages",
+  "description": "This n8n template watches a Gmail inbox for support messages and creates an equivalent issue item in Linear.\n\nHow it works\nA scheduled trigger fetches recent Gmail messages from the inbox which collects support requests.\nThese support requests are filtered to ensure they are only processed once and their HTML body is converted to markdown for easier parsing.\nEach support request is then triaged via an AI Agent which adds appropriate labels, assesses priority and summarises a title and description of the original request.\nFinally, the AI generated values are used to create an issue in Linear to be actioned.\n\nHow to use\nEnsure the messages fetched are solely support requests otherwise you'll need to classify messages before processing them.\nSpecify the labels and priorities to use in the system prompt of the AI agent.\n\nRequirements\nGmail for incoming support messages\nOpenAI for LLM\nLinear for issue management\n\nCustomising this workflow\nConsider automating more steps after the issue is created such as attempting issue resolution or capacity planning.",
+  "totalViews": 136,
+  "source": "official",
+  "user": {
+    "id": 91804,
+    "name": "Jimleuk",
+    "username": "jimleuk",
+    "bio": "Freelance consultant based in the UK specialising in AI-powered automations. I work with select clients tackling their most challenging projects. For business enquiries, send me an email at hello@jimle.uk\n\nLinkedIn: https://www.linkedin.com/in/jimleuk/\nX/Twitter: https://x.com/jimle_uk",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4ab99e51473df76838beeaac908747f7928c625f869794815cabe34016967d51?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Productivity",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Linear",
+      "type": "n8n-nodes-base.linear",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-05-06T14:28:52.150Z",
+  "path": "official/template_3899/workflow.json"
+}

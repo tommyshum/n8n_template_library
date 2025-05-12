@@ -1,0 +1,38 @@
+{
+  "id": 2523,
+  "name": "Elastic Alert Notification via Microsoft Graph API",
+  "description": "Who is this template for?\n\nThis template is for teams and administrators who use n8n to monitor Elastic alerts and want to receive automated email notifications when an alert is triggered. It leverages Microsoft Graph API to send emails and provides an efficient way to notify users about alerts directly in their inbox.\n\nHow it works?\n\nThe template connects to the Elastic API to retrieve alert data. When a new alert is detected, the workflow processes the alert content and sends an email notification via Microsoft Graph API. The email includes alert details such as the alert name, timestamp, severity, and a summary of the message, allowing for quick action or review.\n\nSetup steps\n\nStep 1: Set up OAuth2 Credentials in n8n for Microsoft Graph API with Mail.Send permission.\nStep 2: Configure your Elastic API endpoint in the HTTP Request node to retrieve alerts.\nStep 3: Modify the email recipients in the template to specify who will receive the alert notifications.\nStep 4: Customize the email format, if necessary, to include additional alert details or adjust the message.",
+  "totalViews": 808,
+  "source": "official",
+  "user": {
+    "id": 92099,
+    "name": "Aditya Gaur",
+    "username": "autom8r",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3f8b1a295dcc49fbb24e2a16b056e2f6d9771d189ee8141eca81be5ce7950e3?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-11-04T11:09:10.365Z",
+  "path": "official/template_2523/workflow.json"
+}

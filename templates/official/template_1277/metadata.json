@@ -1,0 +1,47 @@
+{
+  "id": 1277,
+  "name": "Send a daily summary of your Google Calendar events to Slack",
+  "description": "This workflow will trigger daily at 6am to retrieve your day's calendar events from Google Calendar and send them as a summary message to Slack.\n\nI've used a low-code method to filter the dates as I can't code much in JSON :)\n\n\n\nContact me on https://twitter.com/sami_abid if you have any questions!",
+  "totalViews": 4873,
+  "source": "official",
+  "user": {
+    "id": 22019,
+    "name": "Sami Abid",
+    "username": "samiabid",
+    "bio": null,
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/aa67919dee83d664ac6604c08babf244aa48af058937f0b7cbc91a9d98b9bc7d?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Google Calendar",
+      "type": "n8n-nodes-base.googleCalendar",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2021-10-21T22:27:44.770Z",
+  "path": "official/template_1277/workflow.json"
+}

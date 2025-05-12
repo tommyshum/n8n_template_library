@@ -1,0 +1,136 @@
+{
+  "id": 2988,
+  "name": "Get Daily Exercise Plan with Flex Message via LINE",
+  "description": "The YogiAI workflow automates sending daily yoga pose reminders and related information via Line Push Messages . This automation leverages data from a Google Sheets database containing yoga pose details such as names, image URLs, and links to ensure users receive personalized and engaging content every day.\n\nPurpose\nProvide users with daily yoga pose suggestions tailored to their practice.\nDeliver visually appealing and informative content through Line's Flex Messages, including images and clickable links.\nLog user interactions and preferences back into Google Sheets to refine future recommendations.\n\nKey Features\nAutomated Daily Reminders : Sends a curated list of yoga poses at a scheduled time (21:30 Bangkok time).\nDynamic Content Generation : Uses AI to rewrite and format messages in a user-friendly manner, complete with emojis and clear instructions.\nIntegration with Google Sheets : Pulls data from a predefined Google Sheet and logs interactions for continuous improvement.\nCustomizable Messaging : Ensures JSON outputs are properly formatted for Line’s Flex Message API, allowing for interactive and visually rich content.\n\n\nData Source\nGoogle Sheets Structure\nThe workflow relies on a Google Sheet structured as follows:\n\nPoseName : The name of the yoga pose.\nuri : The image URL representing the pose.\nurl : A clickable link directing users to more information about the pose.\n\nSample Data Layout\nSupine Angle\nhttps://example.com/SupineAngle-tn146.png\nhttps://example.com/pose/SupineAngle\nWarrior II\nhttps://example.com/WarriorII-tn146.png\nhttps://example.com/pose/WarriorII\n\n*Note : Ensure that you update the Google Sheet with your own data. Refer to this sample sheet for reference. *\n\nScheduled Trigger\nThe workflow is triggered daily at 21:30 (9:30 PM) Bangkok Time (Asia/Bangkok) . This ensures timely delivery of reminders to users, keeping them engaged with their yoga practice.\n\nWorkflow Process\nData Retrieval\nNode: Get PoseName\nFetches yoga pose details from the specified range in the Google Sheet.\nContent Generation\nNode: WritePosesToday\nUtilizes Azure OpenAI to craft user-friendly text, complete with emojis and clear instructions.\nNode: RewritePosesToday\nFormats the AI-generated text specifically for Line messaging, ensuring compatibility and visual appeal.\nJSON Formatting\nNode: WriteJSONflex\nGenerates JSON structures required for Line’s Flex Messages, enabling carousel displays of yoga pose images and links.\nNode: Fix JSON\nEnsures all JSON outputs are correctly formatted before being sent via Line.\nMessage Delivery\nNode: Line Push with Flex Bubble\nSends the final message, including both text and Flex Message carousels, directly to users via Line Push Messages.\nLogging Interactions\nNodes: YogaLog & YogaLog2\nLogs each interaction back into Google Sheets to track which poses were sent and how often they appear, refining future recommendations.\n\nSetup Prerequisites\nGoogle Sheets Account : Set up a Google Sheet with the required structure and populate it with your yoga pose data.\nLine Developer Account : Create a Line channel to obtain necessary credentials for sending push messages.\nAzure OpenAI Account : Configure access to Azure OpenAI services for generating and formatting content.\n\nIntended Audience\nThis workflow is ideal for:\nYoga Instructors : Seeking to engage students with daily pose suggestions.\nFitness Enthusiasts : Looking to maintain consistency in their yoga practice.\nContent Creators : Interested in automating personalized and visually appealing content distribution.\n \n",
+  "totalViews": 1638,
+  "source": "official",
+  "user": {
+    "id": 92858,
+    "name": "lin@davoy.tech",
+    "username": "linlinmhee",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4e38af5bc6715cea4e86e60c03e21e287cea3cdb5ceba78b3003e6404743fd32?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Auto-fixing Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Azure OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatAzureOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 8,
+  "createdAt": "2025-02-23T10:17:56.432Z",
+  "path": "official/template_2988/workflow.json"
+}

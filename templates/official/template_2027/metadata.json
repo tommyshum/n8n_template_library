@@ -1,0 +1,62 @@
+{
+  "id": 2027,
+  "name": "Low Stock & Sold Out Watcher for Shopify",
+  "description": "This n8n workflow automates the process of monitoring inventory levels for Shopify products, ensuring timely updates and efficient stock management. It is designed to alert users when inventory levels are low or out of stock, integrating with Shopify's webhook system and providing notifications through Discord (can be changed to any messaging platform) with product images and details.\n\nWorkflow Overview\n\nWebhook Node (Shopify Listener): This node is set up to listen for Shopify's inventory level webhook. It triggers the workflow whenever there is an update in the inventory levels. The webhook is configured in Shopify settings, where the n8n URL is specified to receive inventory level updates.\n\nFunction Node (Inventory Check): This node processes the data received from the Shopify webhook. It extracts the available inventory and the inventory item ID, and determines whether the inventory is low (less than 4 items) or out of stock.\n\nCondition Nodes (Inventory Level Check): Two condition nodes follow the function node. One checks if the inventory is low (low_inventory equals true), and the other checks if the inventory is out of stock (out_of_stock equals true).\n\nGraphQL Node (Product Details Retrieval): Connected to the condition nodes, this node fetches detailed information about the product using Shopify's GraphQL API. It retrieves the product variant, title, current inventory quantity, and the first product image.\n\nHTTP Node (Discord Notification): The final node in the workflow sends a notification to Discord. It includes an embed with the product title, a warning message (\"This product is running out of stock!\"), the remaining inventory quantity, product variant details, and the product image. The notification ensures that relevant stakeholders are immediately informed about critical inventory levels.",
+  "totalViews": 1477,
+  "source": "official",
+  "user": {
+    "id": 91366,
+    "name": "siyad",
+    "username": "salsiy",
+    "bio": "",
+    "verified": false,
+    "links": "[\"https://www.spiritofdevops.com\"]",
+    "avatar": "https://gravatar.com/avatar/0ea4a894fb1911782b1ed4cafb5f51dcd297452b71e077a91929b41e4461c244?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "GraphQL",
+      "type": "n8n-nodes-base.graphql",
+      "categories": [
+        "Data & Storage",
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2023-12-20T01:17:03.697Z",
+  "path": "official/template_2027/workflow.json"
+}

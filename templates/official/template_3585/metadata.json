@@ -1,0 +1,265 @@
+{
+  "id": 3585,
+  "name": "🤖 AI Restaurant Assistant for WhatsApp, Instagram & Messenger",
+  "description": "Hi, I’m Amanda! 💌\n\nThis workflow was created with so much love, care, and attention… especially for you, who runs a restaurant, a cozy little burger place, or a delivery business full of heart. 🥰\n\nI know how busy your days can be, so I made this sweet AI assistant to help you take care of your customers on WhatsApp, Instagram, Messenger (or Evolution API). It sends your beautiful menu, checks ZIP codes, creates payment links, and even notifies the kitchen when the order is ready. All gentle, all automatic, all with love. 💛\n\n💡 What this workflow does\n\nReplies to customers via WhatsApp API, Instagram Direct, Messenger, and Evolution API  \nChecks ZIP codes to see if delivery is available using Google Maps  \nSends your menu as images, because food should look as good as it tastes 🍕  \nCollects item selections and offers lovely upsells like drinks or extras  \nCreates payment links with the Asaas API  \nConfirms when the payment is complete and sends the order to the kitchen  \nStores all messages and session data safely in Supabase  \nUses OpenAI GPT-4o to talk naturally and kindly with your customers\n\n⚙️ How to set it up (I’ll guide you with care 🧸)\n\nConnect your webhook from WhatsApp, Instagram, Messenger, or Evolution API  \nCreate a Supabase table called n8n_workflow_followup  \n   You can use this ready-made template here:  \n     👉 Supabase Sheet Template  \nAdd your API keys (OpenAI, Supabase, Google Maps, and Asaas) securely in n8n  \nCustomize the AI prompt with your brand’s voice and sweet style 💫  \nSet your delivery radius (default is 10km, but you can change it!)  \nUpload your menu images (from Google Drive, your website, or any link)  \nThat’s it! Your assistant is now ready to serve with kindness and automation 💕\n\n🍯 Works with:\n\n✅ n8n Cloud and Self-Hosted n8n  \n🔐 All API credentials are safely stored using n8n’s secure credential manager\n\nWant something customized just for you?\nChat with me, I’d love to help 💻💛 Chat via WhatsApp (+55 17 99155-7874)\n.\n.\n.\nTradução em Português:\nOi, eu sou a Amanda! 💌\nEsse workflow foi feito com muito carinho, dedicação e cuidado... pensando especialmente em você, que tem um restaurante, lanchonete ou delivery cheio de amor pelo que faz. 🥰\n\nEu sei como o dia a dia pode ser corrido, e foi por isso que eu criei esse atendente com IA: pra te ajudar a responder clientes no WhatsApp, Instagram, Messenger (ou Evolution API), enviar cardápio com imagens lindas, calcular entregas, gerar links de pagamento e até avisar a cozinha. Tudo com jeitinho, sem complicação, e com muito coração. 💛\n\n💡 O que esse fluxo faz\n\nAtende clientes pelo WhatsApp API, Instagram Direct, Messenger e Evolution API  \nValida CEP e calcula se o cliente está dentro da área de entrega (usando Google Maps)  \nEnvia cardápio com imagens, porque comer começa pelos olhos 🍕  \nColeta os pedidos e também oferece bebidas e adicionais  \nGera link de pagamento automaticamente com a API do Asaas  \nConfirma o pagamento e avisa a cozinha quando estiver tudo certo  \nArmazena mensagens, horários e histórico no Supabase  \nUsa o GPT-4o da OpenAI pra conversar de forma educada e natural com seus clientes\n\n⚙️ Como configurar (com meu passo a passo cheio de cuidado 🧸)\n\nConecte seu webhook do WhatsApp, Instagram, Messenger ou Evolution API  \nCrie uma tabela no Supabase chamada n8n_workflow_followup  \n   Você pode usar esse modelo aqui:  \n     👉 Planilha modelo Supabase  \nAdicione suas chaves de API do OpenAI, Google Maps, Supabase e Asaas no gerenciador do n8n  \nPersonalize o prompt da IA com o nome do seu restaurante, estilo de fala e sua magia 💫  \nDefina a distância máxima de entrega (padrão: 10km)  \nColoque seus próprios links de imagens do cardápio (pode ser do Drive, site ou CDN)  \nProntinho! Agora o seu restaurante tem um atendente inteligente, gentil e muito eficiente 💕\n\n🍯 Funciona com:\n\n✅ n8n Cloud e n8n auto-hospedado  \n🔐 E suas credenciais ficam guardadinhas com segurança no próprio n8n, tá bom?\n\nQuer algo feito especialmente pra você?\nFala comigo com todo carinho 💻💛 Falar no WhatsApp (+55 17 99155-7874)",
+  "totalViews": 4122,
+  "source": "official",
+  "user": {
+    "id": 93865,
+    "name": "Amanda Benks",
+    "username": "amanda",
+    "bio": "Hi loves! I've been making workflows for n8n for two years, and I hope you like my flows <3",
+    "verified": true,
+    "links": "[\"https://iloveflows.com\"]",
+    "avatar": "https://gravatar.com/avatar/b3a5d488866a5de1fb28471770f11f0dab20e328d3b47e4fa0a379ef2a22c041?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Supabase",
+      "type": "n8n-nodes-base.supabase",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Recursive Character Text Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Calculator",
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Supabase Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Postgres Chat Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "Other memories"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    },
+    {
+      "name": "Vector Store Question Answer Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolVectorStore",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 17,
+  "createdAt": "2025-04-17T11:46:33.900Z",
+  "path": "official/template_3585/workflow.json"
+}

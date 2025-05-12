@@ -1,0 +1,51 @@
+{
+  "id": 3890,
+  "name": "Create Customized Google Slides Presentations from CSV Data for Cold Outreach 🚀",
+  "description": "👥 Who Is This For?\n\nSales and marketing teams seeking efficient, hands‑free generation of personalized slide decks for each prospect from CSV lead lists.\n\n🛠 What Problem Does This Solve?\n\nManually editing presentation decks for large lead lists is slow and error‑prone. This workflow fully automates:\n\nImporting and parsing CSV lead data\nLogging leads and outputs in Google Sheets\nDuplicating a master Slides template per lead\nInjecting lead‑specific variables into slides\n\n🔄 Node‑by‑Node Breakdown\n\n| Step | Node                                     | Purpose                                                  |\n| ---- | ---------------------------------------- | -------------------------------------------------------- |\n| 1    | New Leads Arrived                        | Detect new CSV uploads in Drive                          |\n| 2    | File Type?                               | Filter for .csv files only                             |\n| 3    | Download by ID                           | Download the CSV content                                 |\n| 4    | Create new Sheet                         | Create a Google Sheet to record lead data                |\n| 5    | Combine Empty New Document with CSV Data | Structure each lead record for slide creation            |\n| 6    | Merge Data for new Lead Document         | Map template placeholders to lead values                 |\n| 7    | Get all Leads                            | Retrieve sheet rows to iterate through each lead         |\n| 8    | MoveToLeadListFolder                     | Move processed CSV to an archive folder                  |\n| 9    | Copy Slides Template                     | Make a copy of the master Slides deck                    |\n| 10   | Create Custom Presentation               | Replace placeholders in the copied deck with lead data   |\n| 11   | Add Presentation ID to Lead              | Write the generated presentation URL back into the Sheet |\n\n⚙️ Pre‑conditions / Requirements\n\nn8n with Google Drive, Sheets, and Slides credentials\nA master Google Slides deck with placeholder tokens (e.g. {{Name}}, {{Company}})\nA Drive folder for incoming CSV lead files\n\n⚙️ Setup Instructions\n\nImport this workflow into your n8n instance.\nConfigure the New Leads Arrived node to watch your CSV folder.\nEnter your Google credentials in the Drive, Sheets, and Slides nodes.\nSpecify the master Slides template ID in the Copy Slides Template node.\nIn Create Custom Presentation, map slide tokens to sheet column names.\nDisable “Keep Binary Data” in Copy Slides Template to conserve memory.\nUpload a sample CSV (with headers like Name, Company, Metric) to test.\n\n🎨 How to Customize\n\nAdd or remove variables by editing the CSV headers and updating the mapping in Merge Data for new Lead Document.\nInsert an AI/natural‑language node before slide creation to generate more advanced and personalized text blocks.\nUse SplitInBatches to throttle API calls and avoid rate‑limit errors.\nAdd error‑handling branches to capture and log failed operations.\n\n🔐 Security and Privacy\n\nThe workflow uses placeholder variables for file and folder IDs, so no actual IDs are exposed in the template.\nEnsure OAuth scopes are limited to only the required Google APIs.\n",
+  "totalViews": 125,
+  "source": "official",
+  "user": {
+    "id": 93653,
+    "name": "JPres",
+    "username": "stardawnai",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://github.com/JimPresting/\"]",
+    "avatar": "https://gravatar.com/avatar/c1767436a4c7e4856114365bcac5df2f32cfb367c6dc607106edffd6d3df4b2e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Marketing"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Google Slides",
+      "type": "n8n-nodes-base.googleSlides",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-05-06T08:08:57.852Z",
+  "path": "official/template_3890/workflow.json"
+}

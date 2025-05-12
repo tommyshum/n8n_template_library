@@ -1,0 +1,131 @@
+{
+  "id": 2981,
+  "name": "✍️🌄 Your First Wordpress + AI Content Creator - Quick Start",
+  "description": "✍️🌄 WordPress + AI Content Creator\n\nThis workflow automates the creation and publishing of multi-reading-level content for WordPress blogs. It leverages AI to generate optimized articles, automatically creates featured images, and provides versions of the content at different reading levels (Grade 2, 5, and 9).\n\nHow It Works\n\nContent Generation & Processing 🎯\nStarts with a manual trigger and a user-defined blog topic\nUses AI to create a structured blog post with proper HTML formatting\nSeparates and validates the title and content components\nSaves a draft version to Google Drive for backup\n\nMulti-Reading Level Versions 📚\nAutomatically rewrites the content for different reading levels:\nGrade 9: Sophisticated language with appropriate metaphors\nGrade 5: Simplified with light humor and age-appropriate examples\nGrade 2: Basic language with simple metaphors and child-friendly explanations\n\nWordPress Integration 🌐\nCreates a draft post in WordPress with the Grade 9 version\nGenerates a relevant featured image using Pollinations.ai\nAutomatically uploads and sets the featured image\nSends success/error notifications via Telegram\n\nSetup Steps\n\nConfigure API Credentials 🔑\nSet up WordPress API connection\nConfigure OpenAI API access\nSet up Google Drive integration\nAdd Telegram bot credentials for notifications\n\nCustomize Content Parameters ⚙️\nAdjust reading level prompts as needed\nModify image generation settings\nSet WordPress post parameters\n\nTest and Deploy 🚀\nRun a test with a sample topic\nVerify all reading level versions\nCheck WordPress draft creation\nConfirm notification system\n\n\nThis workflow is perfect for content creators who need to maintain a consistent blog presence while catering to different audience reading levels. It's especially useful for educational content, news sites, or any platform that needs to communicate complex topics to diverse audiences.",
+  "totalViews": 10406,
+  "source": "official",
+  "user": {
+    "id": 92125,
+    "name": "Joseph LePage",
+    "username": "joe",
+    "bio": "As an AI Automation consultant based in Canada, I partner with forward-thinking organizations to implement AI solutions that streamline operations and drive growth.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/e7ca218dfc87b68344bbd66f40da01546d2f6fc1cf884267821e8a77e3e8410a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "Data & Storage",
+    "Marketing",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Wordpress",
+      "type": "n8n-nodes-base.wordpress",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 8,
+  "createdAt": "2025-02-23T01:20:13.550Z",
+  "path": "official/template_2981/workflow.json"
+}

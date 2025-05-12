@@ -1,0 +1,130 @@
+{
+  "id": 3443,
+  "name": "Scrape business leads from Google Maps using OpenAI and Google Sheets",
+  "description": "\nGoogle Maps Data Extraction Workflow for Lead Generation\n\nThis workflow is ideal for sales teams, marketers, entrepreneurs, and researchers looking to efficiently gather detailed business information from Google Maps for:\n\nLead generation  \nMarket analysis  \nCompetitive research\n\nWho Is This Workflow For?\n\nSales professionals** aiming to build targeted contact lists  \nMarketers** looking for localized business data  \nResearchers** needing organized, comprehensive business information  \n\nProblem This Workflow Solves\n\nManually gathering business contact details from Google Maps is:\n\nTedious  \nError-prone  \nTime-consuming  \n\nThis workflow automates data extraction to increase efficiency, accuracy, and productivity.\n\nWhat This Workflow Does\n\nAutomates extraction of business data (name, address, phone, email, website) from Google Maps  \nCrawls and extracts additional website content  \nIntegrates OpenAI to enhance data processing  \nStores structured results in Google Sheets for easy access and analysis  \nUses Google Search API to fill in missing information  \n\nSetup\n\nImport the provided n8n workflow JSON into your n8n instance.  \nSet your OpenAI and Google Sheets API credentials.  \nProvide your Google Maps Scraper and Website Content Crawler API keys.  \nEnsure SerpAPI is configured to enhance data completeness.  \n\nCustomizing This Workflow to Your Needs\n\nAdjust scraping parameters:\n  Location  \n  Business category  \n  Country code  \nCustomize Google Sheets output format to fit your current data structure  \nIntegrate additional AI processing steps or APIs for richer data enrichment  \n\nFinal Notes\n\nThis structured approach ensures:\n\nAccurate and compliant data extraction** from Google Maps  \nStreamlined lead generation  \nActionable and well-organized data ready for business use  \n\n📄 Documentation: Notion Guide\n\nDemo Video\n\n🎥 Watch the full tutorial here: YouTube Demo\n",
+  "totalViews": 15987,
+  "source": "official",
+  "user": {
+    "id": 93440,
+    "name": "Dr. Firas",
+    "username": "drfiras",
+    "bio": "Automation expert and certified trainer. I create hands-on courses to master automation with n8n. Contact me to access my exclusive training and start building powerful workflows today. 🚀",
+    "verified": true,
+    "links": "[\"https://www.youtube.com/@DRFIRASS\"]",
+    "avatar": "https://gravatar.com/avatar/988a46579257f9e8c522aeb7b906f1ee96e47c4298faa548e41b04957f455ae3?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "SerpApi (Google Search)",
+      "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-04-05T19:50:44.805Z",
+  "path": "official/template_3443/workflow.json"
+}

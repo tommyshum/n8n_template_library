@@ -1,0 +1,38 @@
+{
+  "id": 2153,
+  "name": "Add a bug to Linear via Slack command",
+  "description": "Use Case\nWhen building a product it's important to discover and eliminate bugs as quickly as possible. Since we're using our product at n8n a lot, we wanted to make it as easy as possible for everyone to add bugs with the needed level of detail. That's why we built this workflow that allows everyone to add bugs to our Linear account easily directly from Slack\nWhat this workflow does\nThis workflow waits for a webhook call within Slack, that gets fired when users use the /bug command on a bot that you will create as part of this template. It then adds the bug to Linear using a pre-defined description and a defined label. It then notifies the user about the newly added bug as you can see below:\n\nHow to create your Slack bot\nVisit https://api.slack.com/apps, click on New App and choose a name and workspace.\nClick on OAuth & Permissions and scroll down to Scopes -&gt; Bot token Scopes\nAdd the chat:write scope\nHead over to Slash Commands and click on Create New Command\nUse /bug as the command\nCopy the test URL from the Webhook node into Request URL\nAdd whatever feels best to the description and usage hint\nGo to Install app and click install\n\nSetup\nConfigure your Slack bot using the sticky to the left\nFill the Set me up node. You can find the IDs easily using the Helper nodes section\nMake sure to exchange the Request URL in your Slack with the Prod URL of the Webhook node before activating this workflow  \n\nHow to adjust it to your needs\nAdd zero, one, two or many labels when creating the new ticket\nChange the Slack message according to your needs\nChange the default description for a new bug ticket\nRename the Slack command as it works best for you\n\nHow to enhance this workflow\nAt n8n we use this workflow in combination with some others. E.g. we have the following things on top:\nWe're using AI to classify the bugs and move them to the right team as soon as they get added to Linear (see this template)\nWe also added other commands like /pain and /idea that allow us to submit other things to Notion. You can see the workflow for that here.",
+  "totalViews": 343,
+  "source": "official",
+  "user": {
+    "id": 91250,
+    "name": "Niklas Hatje",
+    "username": "nik8n",
+    "bio": "Product Manager at n8n - Responsible for the creator program",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/niklashatje/\"]",
+    "avatar": "https://gravatar.com/avatar/e16a4426e166713c34626bdde856b1cd15bb6787481a7ead9b74318f19e6259d?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-02-29T13:53:59.744Z",
+  "path": "official/template_2153/workflow.json"
+}

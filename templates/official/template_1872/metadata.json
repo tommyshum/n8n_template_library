@@ -1,0 +1,34 @@
+{
+  "id": 1872,
+  "name": "Convert SQL table into Excel spreadsheet",
+  "description": "This workflow demonstrates how easy it is to export SQL query to Excel automatically!\n\n\n\nBefore running the workflow please make sure you have access to a remote SQL server (MS SQL, MySQL, PostgreSQL etc.) with a sample table:\n\nDate,Band,ConcertName,Country,City,Location,LocationAddress,\n2023-05-28,Ozzy Osbourne,No More Tours 2 - Special Guest: Judas Priest,Germany,Berlin,Mercedes-Benz Arena Berlin,\"Mercedes-Platz 1, 10243 Berlin-Friedrichshain\",\n2023-05-08,Elton John,Farewell Yellow Brick Road Tour 2023,Germany,Berlin,Mercedes-Benz Arena Berlin,\"Mercedes-Platz 1, 10243 Berlin-Friedrichshain\",\n2023-05-26,Hans Zimmer Live,Europe Tour 2023,Germany,Berlin,Mercedes-Benz Arena Berlin,\"Mercedes-Platz 1, 10243 Berlin-Friedrichshain\",\n2023-07-07,Depeche Mode,Memento Mori World Tour 2023,Germany,Berlin,Olympiastadion Berlin,\"Olympischer Platz 3, 14053 Berlin-Charlottenburg\",\n\n\nThe detailed process is explained in the tutorial\nhttps://blog.n8n.io/export-sql-to-excel",
+  "totalViews": 4105,
+  "source": "official",
+  "user": {
+    "id": 21242,
+    "name": "Eduard",
+    "username": "eduard",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/parsadanyan/\"]",
+    "avatar": "https://gravatar.com/avatar/a551e67c6fe7affd5f882a527dee154bb6c3ac90cf878326accb3fb3ec77c8a6?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "MySQL",
+      "type": "n8n-nodes-base.mySql",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2023-01-22T21:31:40.838Z",
+  "path": "official/template_1872/workflow.json"
+}

@@ -1,0 +1,74 @@
+{
+  "id": 3480,
+  "name": "Get notified when your competitors change their pricing with Airtop and Slack",
+  "description": "About the Automation\n\nStaying on top of competitor pricing changes can be a full-time job. Manual price tracking is time-consuming and prone to errors, especially when dealing with complex pricing structures and multiple subscription tiers. Paid competitor price monitoring tools like Competera, Visualping and Fluxguard can be expensive. What if you could automate this process and get instant alerts when competitors adjust their pricing?\n\nHow to easily monitor competitor pricing\n\nWith this automation, you'll learn how to set up automated price monitoring system using Airtop's built-in node in n8n. By the end, your system will automatically track competitor pricing changes and notify you of any modifications.\n\nWhat You'll Need\n\nA free Airtop API Key\nGoogle Sheets account with a copy of this sheet\nURLs of competitors' pricing pages\n\nUnderstanding the Process\n\nThis automation continuously monitors competitor pricing pages and compares them against your baseline data. The workflow:\n\nTracks all different pricing plans (monthly, yearly, etc.).\nMonitors feature changes across different tiers.\nDetects and logs pricing structure modifications.\nAlerts you via Slack when changes are detected\n\nSetting Up Your Automation\n\nWe've created a ready-to-use blueprint for seamless price monitoring. Here's how to get started:\n\nConnect your Google Sheets\nSet up your Airtop API connection\nDefine update frequency\n\nCustomization Options\n\nEnhance the basic template with these popular modifications:\n\nAdd other notification channels (Email, Telegram, etc.).\nInclude feature comparison tracking.\nSet up threshold-based alerts for significant price changes\nTrack historical pricing trends\n\nReal-World Applications\n\nCase Study 1: A B2B SaaS company can use this automation to track competitors' pricing changes. When they identify a market-wide pricing shift, they can adjust their strategy proactively within minutes.\n\nCase Study 2: An online Ecommerce retailer automates monitoring of 100+ competitor products, maintaining optimal pricing positions and increasing profit margins.\n\nBest Practices\n\nTo ensure accurate tracking:\n\nInclude detailed baseline data for each pricing tier\nSpecify both monthly and annual pricing clearly\nList all features included in each plan\nUpdate your baseline data whenever you verify changes\nInclude any promotional pricing or special offers\nDocument currency and regional variations if applicable\n\nExample Structure in Google Sheets:\n\nCompetitor: Acme Tools\nBasic Plan:\nMonthly: $29\nAnnual: $290 ($24.17/mo)\nFeatures: 5 users, 10GB storage, basic support\nPro Plan:\nMonthly: $79\nAnnual: $790 ($65.83/mo)\nFeatures: 20 users, 50GB storage, priority support\n\nWhat's Next?\n\nAfter setting up your price monitoring automation, consider the following:\n\nCreating automated competitive analysis reports\nSetting up market trend analysis\nImplementing automatic pricing recommendations\nExpanding monitoring to feature changes\n\nHappy monitoring!",
+  "totalViews": 762,
+  "source": "official",
+  "user": {
+    "id": 93583,
+    "name": "Airtop",
+    "username": "cesar-at-airtop",
+    "bio": "Airtop provides an intelligent browser automation API for AI agents, enabling seamless web interaction, including login, navigation, and data extraction from any site, even those with complex authentication - all with  natural language instructions.In simple terms, we allow you to automate anything humans can do online, on any site with just words",
+    "verified": true,
+    "links": "[\"https://www.airtop.ai/\"]",
+    "avatar": "https://gravatar.com/avatar/d5894c2c744b03ab0766a6d1846484ea7cc1a19e57310afad70044183766dbf4?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Communication",
+    "HITL",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Airtop",
+      "type": "n8n-nodes-base.airtop",
+      "categories": [
+        "Productivity",
+        "Development"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-04-08T18:06:13.231Z",
+  "path": "official/template_3480/workflow.json"
+}

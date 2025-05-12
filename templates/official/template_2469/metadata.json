@@ -1,0 +1,48 @@
+{
+  "id": 2469,
+  "name": "Nightly n8n backup to Google Drive",
+  "description": "Description\nThis template creates a nightly backup of all n8n workflows and saves them to a Google Drive folder. Each night, the previous night's backups are moved to an “n8n_old” folder and renamed with the corresponding date.\n\nBackups older than a specified age are automatically deleted (this feature is active for 30 days, you can remove it if you don't want the backups to be deleted).\n\nPrerequisites\n\nGoogle Drive account and credentials Get from the following link. Link\nn8n version from v 1.63.4 to 1.70.1 or higher\nN8n api key Guide from the following link. Link\nA destination folder for backups:\n“n8n_old”\n“n8n_backups”\n(if it doesn't exist, create it)\n\nConfiguration\nUpdate all Google Drive nodes with your credentials.\nEdit the Schedule Trigger node with the desired time to run the backup.\n\nIf you want to automatically purge old backups.\nEdit the “PURGE DAYS” node to specify the age of the backups you want to delete.\nEnable the “PURGE DAYS” node and the 3 subsequent nodes.\nEnable the workflow to run on the specified schedule.\n\nLast updated\nJanuary 2025\n",
+  "totalViews": 6407,
+  "source": "official",
+  "user": {
+    "id": 92063,
+    "name": "Jeyson Orozco",
+    "username": "jeyson-orozco",
+    "bio": "Specialized professional in IT and technology management, as well as automation, with experience in PC maintenance, server administration, and user support. I’m proficient in multiple platforms, including Linux, Android, Windows, IoT, and data backups. I also have experience in web development, bots, APIs, and process automation. I offer efficient solutions for IT projects and remote user support, with a focus on technological optimization and security.",
+    "verified": false,
+    "links": "[\"https://x.com/Jeyson_Orozco\"]",
+    "avatar": "https://gravatar.com/avatar/8bbeda2e8bb195ece0437eda93a0c70dbfb377265ddf14a195e6cd224bfd79ec?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-10-18T23:12:10.766Z",
+  "path": "official/template_2469/workflow.json"
+}

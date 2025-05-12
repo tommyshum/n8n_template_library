@@ -1,0 +1,57 @@
+{
+  "id": 1363,
+  "name": "Join data from Postgres and MySQL",
+  "description": "query data from two different databases handle and unify in a single return",
+  "totalViews": 3063,
+  "source": "official",
+  "user": {
+    "id": 20571,
+    "name": "Hermilio",
+    "username": "alves",
+    "bio": null,
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/c503a106a646807cf279b3ffe632002c0aa8a09479d5456bedcbce3cfdb929f7?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Postgres",
+      "type": "n8n-nodes-base.postgres",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "MySQL",
+      "type": "n8n-nodes-base.mySql",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2021-12-15T11:54:41.597Z",
+  "path": "official/template_1363/workflow.json"
+}

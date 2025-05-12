@@ -1,0 +1,61 @@
+{
+  "id": 2319,
+  "name": "Better Oauth2.0 workflow for Pipedrive CRM with Supabase",
+  "description": "This workflow provides an OAuth 2.0 auth token refresh process for better control. Developers can utilize it as an alternative to n8n's built-in OAuth flow to achieve improved control and visibility. In this template, I've used Pipedrive API, but users can apply it with any app that requires the authorization_code for token access.\n\nThis resolves the issue of manually refreshing the OAuth 2.0 token when it expires, or when n8n's native OAuth stops working.\n\nWhat you need to replicate this\n\nYour database with a pre-existing table for storing authentication tokens and associated information. I'm using Supabase in this example, but you can also employ a self-hosted MySQL.\n\nHere's a quick video on setting up the Supabase table.\n\n\nCreate a client app for your chosen application that you want to access via the API.\n\nAfter duplicating the template:\n\na. Add credentials to your database and connect the DB nodes in all 3 workflows.\n\nEnable/Publish the first workflow, \"1. Generate and Save Pipedrive tokens to Database.\"\n\nOpen your client app and follow the Pipedrive instructions to authenticate.\n\nClick on Install and test.\n\n\nThis will save your initial refresh token and access token to the database.\n\nPlease watch the YouTube video for a detailed demonstration of the workflow:\n\nHow it operates\n\nWorkflow 1. Create a workflow to capture the authorization_code, generate the access_token, and refresh the token, and then save the token to the database.\n\nWorkflow 2. Develop your primary workflow to fetch or post data to/from your application. Observe the logic to include an if condition when an error occurs with an invalid token. This triggers the third workflow to refresh the token.\n\nWorkflow 3. This workflow will handle the token refresh. Remember to send the unique ID to the webhook to fetch the necessary tokens from your table.\n\nDetailed demonstration of the workflow:\nhttps://youtu.be/6nXi_yverss",
+  "totalViews": 1506,
+  "source": "official",
+  "user": {
+    "id": 91812,
+    "name": "Priya Jain",
+    "username": "processease",
+    "bio": "",
+    "verified": false,
+    "links": "[\"https://www.priyajain.tech\"]",
+    "avatar": "https://gravatar.com/avatar/3b27a0755c3e1570fc0885c2a140cda0abdf0dbdd2fa3085d7e9a14651bbe6fb?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Supabase",
+      "type": "n8n-nodes-base.supabase",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-07-06T18:28:02.254Z",
+  "path": "official/template_2319/workflow.json"
+}

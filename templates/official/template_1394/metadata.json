@@ -1,0 +1,52 @@
+{
+  "id": 1394,
+  "name": "Transcribe audio files from Cloud Storage",
+  "description": "This workflow transcribes audio files stored in AWS S3 and stores the information in Google Sheets.\n\n\n\nGoogle Drive Trigger node** triggers the workflow when a new file is uploaded in Google Drive.\nAWS S3 1 node** uploads the new file to an S3 bucket.\nAWS S3 2 node** gets the file from the S3 bucket.\nAWS Transcribe 1 node** creates a transciption job for the respective audio file.\nWait node** waits for the transcription job from the previous node to be complete before proceeding with the workflow (necessary in case the service is busy or the file to be transcribed is large, delaying the workflow).\nAWS Transcribe 2 node** gets the information of the transcription job.\nSet node** sets the necessary values to be included in the data set.\nGoogle Sheets node** adds the transcription information to a sheet that serves as data set.",
+  "totalViews": 7764,
+  "source": "official",
+  "user": {
+    "id": 12733,
+    "name": "Lorena",
+    "username": "lorenanda",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/df6358bcce2351cf878beab8f89b9f000f50588aaa728f7ea57127c1b85e7b06?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AWS S3",
+      "type": "n8n-nodes-base.awsS3",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AWS Transcribe",
+      "type": "n8n-nodes-base.awsTranscribe",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2022-01-11T12:18:44.837Z",
+  "path": "official/template_1394/workflow.json"
+}

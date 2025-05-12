@@ -1,0 +1,63 @@
+{
+  "id": 1931,
+  "name": "Report number of weekly created records in an app",
+  "description": "This template shows how you can create reports on data in an app and share a summary in another app.\n\nSpecifically, this example checks a Notion database for new submissions, filters for submissions with a specific tag, and then sends a Slack message with the number created this week.\n\nSetup instructions are located inside the workflow template. ",
+  "totalViews": 2039,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2023-07-03T11:20:47.198Z",
+  "path": "official/template_1931/workflow.json"
+}

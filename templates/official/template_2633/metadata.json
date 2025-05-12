@@ -1,0 +1,63 @@
+{
+  "id": 2633,
+  "name": "INSEE Company Data Enrichment for Agile CRM (For French companies only)",
+  "description": "How it works \n1) Extracts all company entries in Agile CRM\n2) Search for company name in French INSEE OpenData database to extract address and government ID (SIREN)\n3) Updates entries with data extracted from French Insee OpenData dabase\n\nWorkflow also has a readonly feature to make sure entry is not overwritten.\n\nSetup steps \nAdd your AgileCRM credentials\nAdd your INSEE OpenData credentials\nAdd two company custom fields in your Agile CRM (for SIREN data and ReadOnly support)\n\n",
+  "totalViews": 591,
+  "source": "official",
+  "user": {
+    "id": 92259,
+    "name": "Johan Denoyer",
+    "username": "jdenoy",
+    "bio": "",
+    "verified": false,
+    "links": "[\"https://www.johandenoyer.fr\"]",
+    "avatar": "https://gravatar.com/avatar/bb4ea060cf42901272e7ae43723adfcc879ee8fac0faf67caaabef0dd8c0e04e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Marketing",
+    "Sales"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Agile CRM",
+      "type": "n8n-nodes-base.agileCrm",
+      "categories": [
+        "Marketing",
+        "Sales"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-12-11T16:16:09.355Z",
+  "path": "official/template_2633/workflow.json"
+}

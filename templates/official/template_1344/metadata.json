@@ -1,0 +1,32 @@
+{
+  "id": 1344,
+  "name": "Save email attachments to Nextcloud",
+  "description": "This workflow will take all emails you put into a certain folder, upload any attachements to Nextcloud, and mark the emails as read (configurable).\n\nAttachements will be saved with automatically generated filenames:\n2021-01-01_From-Sender-Name_Filename-of-attachement.pdf\n\nInstructions:\nAllow lodash to be used in n8n (or rewrite the code...)\n  NODE_FUNCTION_ALLOW_EXTERNAL=lodash (environment variable)\nImport workflow\nSet credentials for Email & Nextcloud nodes\nConfigure to use correct folder / custom filters\nActivate\n\nCustom filter examples:\nOnly unread emails:\n  Custom Email Config = [\"UNSEEN\"]\nFilter emails by 'to' address:\n  Custom Email Config = [[\"TO\", \"example+invoices@posteo.de\"]]",
+  "totalViews": 7766,
+  "source": "official",
+  "user": {
+    "id": 24063,
+    "name": "Manu",
+    "username": "tennox",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://txlab.io\"]",
+    "avatar": "https://gravatar.com/avatar/2d81612cea16a74b43a68c932b1519d95d075a9176396649fdd837c68e2de12b?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "Nextcloud",
+      "type": "n8n-nodes-base.nextCloud",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2021-11-29T13:59:16.771Z",
+  "path": "official/template_1344/workflow.json"
+}

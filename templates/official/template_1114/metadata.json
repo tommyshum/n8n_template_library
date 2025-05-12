@@ -1,0 +1,32 @@
+{
+  "id": 1114,
+  "name": "Create, update and get a task in Microsoft To Do",
+  "description": "This workflow allows you to create, update and get a task in Microsoft To Do.\n\n\n\nMicrosoft To Do node: This node will create a task with the importance High in the Tasks list. You can select a different list as well as the importance level.\n\nMicrosoft To Do1 node: This node will update the status of the task that we created in the previous node.\n\nMicrosoft To Do2 node: This node will get the task that we created earlier.",
+  "totalViews": 2805,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "Microsoft To Do",
+      "type": "n8n-nodes-base.microsoftToDo",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2021-06-07T10:02:36.504Z",
+  "path": "official/template_1114/workflow.json"
+}

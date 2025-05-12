@@ -1,0 +1,46 @@
+{
+  "id": 2531,
+  "name": "Save Qualys Reports to TheHive",
+  "description": "\nAutomate Report Generation with n8n & Qualys\n\nIntroducing the Save Qualys Reports to TheHive Workflow—a robust solution designed to automate the retrieval and storage of Qualys reports in TheHive.\n\nThis workflow fetches reports from Qualys, filters out already processed reports, and creates cases in TheHive for the new reports. It runs every hour to ensure continuous monitoring and up-to-date vulnerability management, making it ideal for Security Operations Centers (SOCs).\n\nHow It Works:\n\nSet Global Variables:** Initializes necessary global variables like base_url and newtimestamp. This step ensures that the workflow operates with the correct configuration and up-to-date timestamps. Ensure to change the Global Variables to match your environment. \n  \nFetch Reports from Qualys:** Sends a GET request to the Qualys API to retrieve finished reports. Automating this step ensures timely updates and consistent data retrieval.\n  \nConvert XML to JSON:** Converts the XML response to JSON format for easier data manipulation. This transformation simplifies further processing and integration into TheHive.\n  \nFilter Reports:** Checks if the reports have already been processed using their creation timestamps. This filtering ensures that only new reports are handled, avoiding duplicates.\n  \nProcess Each Report:** Loops through the list of new reports, ensuring each is processed individually. This step-by-step handling prevents issues related to bulk processing and improves reliability.\n  \nCreate Case in TheHive:** Generates a new case in TheHive for each report, serving as a container for the report data. Automating case creation improves efficiency and ensures that all relevant data is captured.\n  \nDownload and Attach Report:** Downloads the report from Qualys and attaches it to the respective case in TheHive. This automation ensures that all data is properly archived and easily accessible for review.\n\n\nGet Started:\n\nEnsure your Qualys and TheHive integrations are properly set up.\nCustomize the workflow to fit your specific vulnerability management needs.\n\n\nNeed Help?\n\nJoin the discussion on our Forum or check out resources on Discord!\n\n\nDeploy this workflow to streamline your vulnerability management process, improve response times, and enhance the efficiency of your security operations.",
+  "totalViews": 715,
+  "source": "official",
+  "user": {
+    "id": 16588,
+    "name": "Angel Menendez",
+    "username": "djangelic",
+    "bio": "Angel Menendez is a Staff Developer Advocate at n8n.io, specializing in low-code tools for cybersecurity workflows. From Puerto Rico, Angel's tech journey began by helping his father translate technical books. He later started a web development business and transitioned from a career as a flight attendant to cybersecurity engineering. His workflows have saved companies significant time. Outside work, Angel enjoys time with his two sons, riding electric bikes, reading, and exploring new places.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/fdbe38425d21378d8c9ba8916e1eb0b320add299f12cc23fcd4961d4e6e00bec?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "TheHive 5",
+      "type": "n8n-nodes-base.theHiveProject",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-11-05T18:14:55.243Z",
+  "path": "official/template_2531/workflow.json"
+}

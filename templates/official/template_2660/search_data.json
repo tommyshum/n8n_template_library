@@ -1,0 +1,66 @@
+{
+  "id": 2660,
+  "name": "Upload files via n8n form and save them to Digital Ocean Spaces",
+  "totalViews": 2360,
+  "purchaseUrl": null,
+  "user": {
+    "id": 92077,
+    "name": "Alfred Nutile",
+    "username": "dailyaistudio",
+    "bio": "Software development expert with 25 years of enterprise application experience, now specializing in AI and automation solutions for the past 2-3 years. \n\nAs the founder of DailyAI.Studio, I bridge traditional development with modern AI-driven approaches, helping businesses transform their operations using tools like n8n and LLM agents. ",
+    "verified": false,
+    "links": "[\"https://www.youtube.com/@AlfredNutile\"]",
+    "avatar": "https://gravatar.com/avatar/434722a22655b2112631717622cb0f954ee7caeada1afaca831cd2ffe6d095a1?r=pg&d=retro&size=200"
+  },
+  "description": "How it works\nThis workflow provides a streamlined process for uploading files to Digital Ocean Spaces, making them publicly accessible. The process happens in three main steps:\n\nUser submits the form with file, in this case I needed it to upload images I use in my seo tags.\nFile is automatically uploaded to Digital Ocean Spaces using S3-compatible storage\nForm completion confirmation is provided\n\nSetup steps\nInitial setup typically takes 5-10 minutes\nConfigure your Digital Ocean Spaces credentials and bucket settings\nTest the upload functionality with a small sample file\nVerify public access permissions are working as expected\n\nImportant notes\nCredentials are tricky check the screenshot above for how I set the url, bucket etc.\nI am just using the S3 Node\nSet the ACL as seen below\n\nTroubleshooting\nBucket name might be incorrect\nRegion Wrong\nCheck Space permissions if uploads fail\nVerify API credentials are correctly configured\n\n\nYou can see a video here. (live in 24 hours)\nhttps://youtu.be/pYOpy3Ntt1o",
+  "createdAt": "2024-12-19T19:35:17.854Z",
+  "nodes": [
+    {
+      "id": 365,
+      "icon": "file:s3.png",
+      "name": "n8n-nodes-base.s3",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.s3/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/s3/"
+              }
+            ]
+          },
+          "categories": [
+            "Development",
+            "Data & Storage"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"output\"]",
+      "defaults": {
+        "name": "S3"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAMAAAANIilAAAABDlBMVEUAAAATbrMSbbQTbbQSbbQTbrQTbrQUbrQTbrQSbrQTbbQSbbQSbbQTbrMSbbQTbrQTbrQTbbQSbbMTbbQSbbQSbbQSbbQTbrQTbbQTbrQSbrQSbrQSbbQSbbMTbrQUbrQTbbMSbbQSbbQSbbQTbLQTbbQTbbQTbrQSbbQTbbQSbbQTbrQTbrQTbbQSbbQSbbQOarITbbQUbrT///8KaLEQa7MNarISbbN3q9MFZa+81uqfxOFyqNIbc7cUbrWNudsvf7wkd7m10ehin81IjsUIZ7H7/f71+fzw9vvd6vTE2+x9r9VrpNBVlslOksfR4vCnyeORu9uCsdc+iMI8h8Ho8PfL4O+ry+SSvNxnoc6vyMA5AAAAMnRSTlMACARbK/r177Z20ZlGk1HYxb9oYiQVEPfyy41LHBnr6KtlQTsvDOPeraKBem43Hob+sqyldq4AAALoSURBVEjH7ZbndqJAFICHKh1EsPfek4ygbjZuYkmvm+3v/yILKgITiPhrz9mT7989zuctDlfAB/8QLE9WCTbbOVE4uVkqFktNmVNOOlmWqJJ5DITTqKkiI9MwBFpmRLXWCDJxgedicC8xjhdwtFqCg5HJEL769TY8iLbuunkeHghf2MmkcqiskO6wJPowNy15hyZkDnEzgkfFk9a4mVI0s8RYw066mZNEzu68wiuxPb+ywlfsbnNE0lN1WtTW30IKfZHhYimK8joUlYpxjNgXyLWj8Wlv3ck0pMuEhm27wAr1qkSofdairxJStV7AtnViGlGmYTrpbToOLYpMNlHLg1DytUSWKU6sk3HfDc3uumpl2mIvkauRQ72BWTT0IVnLJXpiO9PaTeQIeJGgBdJmiqbTaZpO2QNAkHxy/aBbQtd9sn7YJdGBjw5EMD45jN/IHeCHhQhP99MN9ysTIrCILCFDmXweOfw2EDclIbLWCpXPUbmlAQQluqwAFD66zAOURHQ5AVBIKqpMkQAFa0aVmxh4QzmqXAZvYcPkr4jMBsgC9DG9O91w94DcTyFA1pAF+MUBXYBagNyIw0jEA/8nxWiyCIJQvU+jGSqrgXJ1s6JMczW9X859UzIn7uquBsq6DC2O5y83o9HV86Nrm7PlfFeJrINAmPXBxWjNzcrYtfF0tdwFDAjmyPrs8mG0ZTHbZVuMnmcTZOuiSHZzL458893YJn60ojMndS5ELtBW1acjh9XltuM7K7jdTpAuhMg4B034y3Gv7cxuI6+biMNBCLx19MyRTzc9j+c/1+HtxRjdIug2ceu+ftykMqa+hysRKg8oy75YXNmJlnYiO/zhtPHNqoQahMp52a5z9vR6/ufCgFt5erZhastyPlTGy+vzxrFpuPdr7LDeIjgIpQv30AXhDON7nuUheAesEi+GmcV4BQPvg9crWYaLoS/KTLZSx0EUsAI5yBEq2+t2e6xK5AZkAQP/D38B/zR2KYIltgQAAAAASUVORK5CYII="
+      },
+      "displayName": "S3",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 3,
+          "name": "Data & Storage"
+        },
+        {
+          "id": 5,
+          "name": "Development"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id": 1778,
+  "name": "Sync tasks automatically from Todoist to Notion",
+  "description": "This workflow checks if the task in Todoist has a specific label and based on that creates a new database page in Notion.\n\nPrerequisites\n\nTodoist account and Todoist credentials\nNotion account and Notion credentials\n\nHow it works\n\nTo start the workflow add a task to Todoist and mark it with a label, e.g. “send-to-n8n”.\nWait a maximum of 30 seconds.\nTodoist node identifies the tasks marked as “send-to-n8n”.\nNotion node creates a new Notion database page. Notice Notion has a new task now with the same name as in Todoist.",
+  "totalViews": 4973,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "Todoist",
+      "type": "n8n-nodes-base.todoist",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2022-08-26T08:55:49.537Z",
+  "path": "official/template_1778/workflow.json"
+}

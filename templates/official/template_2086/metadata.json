@@ -1,0 +1,48 @@
+{
+  "id": 2086,
+  "name": "Retrieve a Monday.com row and all data in a single node",
+  "description": "This workflow is a building block designed to be called from other workflows via an Execute workflow node. When called from another workflow, and given the JSON input of a \"pulse\" field with the ID to pull from monday, this workflow will return:\n\nThe items name and ID\nAll column data, indexable by the column name\nAll column data, indexable by the column's ID string\nAll board relation columns, with their data and column values\nAll subitems, with their data and column values\n\nFor example:\n\n\n++Prerequisites++\nA monday.com account and credential\nA workflow that needs to get detailed data from a monday.com row\nThe pulse id of the monday.com row to retreive data from.\n\n++Setup++\nImport the workflow\nConfigure all monday nodes with your credentials and save the workflow\nCopy the workflow ID from it's URL\nIn a different workflow, add an Edit Fields node, to output the field \"pulse\", with the monday item you want to retrieve.\nFeed the Edit Fields node with your pulse into an Execute workflow node, and paste the workflow ID from above into it\n\tThis \"pulse\" field will tell the workflow what pulse to retreive. This can be populated by an expression in your workflow\n\tThere is an example of the Edit Fields and Execute Workflow nodes in the template",
+  "totalViews": 2317,
+  "source": "official",
+  "user": {
+    "id": 91413,
+    "name": "Joey D’Anna",
+    "username": "jdana",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://twitter.com/joeydanna\"]",
+    "avatar": "https://gravatar.com/avatar/e72923eb7b6fddc64bafeb6b1911939d6047a6ec3cf4143054d6753df7d54e29?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Monday.com",
+      "type": "n8n-nodes-base.mondayCom",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-02-07T18:01:04.776Z",
+  "path": "official/template_2086/workflow.json"
+}

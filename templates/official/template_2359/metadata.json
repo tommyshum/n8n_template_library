@@ -1,0 +1,38 @@
+{
+  "id": 2359,
+  "name": "Get custom_fields from the Stripe API",
+  "description": "The Stripe API does not provide custom fields in invoice or charge data. So you have to get it from the Checkout Sessions endpoint.\n\nBut that endpoint is not easy for begginners. It has dictionary parameters and pagination settings.\n\nThis workflows solves that problem by having a preconfigured GET request that gets all the checkout sessions from the last 7 days.\n\nIt then transforms the data to make it easier to work with and allows you to filter by the custom_fields you want to get.\n\nWant to generate Stripe invoices automatically?\n\nOpen 👉 this workflow\n.\n\nCheck out my other templates\nhttps://n8n.io/creators/solomon/",
+  "totalViews": 635,
+  "source": "official",
+  "user": {
+    "id": 91663,
+    "name": "Solomon",
+    "username": "solomon",
+    "bio": "Freelance consultant from Brazil, specializing in automations and data analysis. I work with select clients, addressing their toughest projects.\n\nFor business inquiries, email me at automations.solomon@gmail.com or message me on Telegram for a faster response.",
+    "verified": true,
+    "links": "[\"https://t.me/salomaoguilherme\"]",
+    "avatar": "https://gravatar.com/avatar/79aa147f090807fe0f618fb47a1de932669e385bb0c84bf3a7f891ae7d174256?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-07-25T21:16:49.042Z",
+  "path": "official/template_2359/workflow.json"
+}

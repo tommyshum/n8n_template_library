@@ -1,0 +1,85 @@
+{
+  "id": 3777,
+  "name": "Extract, Transform LinkedIn Data with Bright Data MCP Server & Google Gemini",
+  "description": "Disclaimer\nThis template is only available on n8n self-hosted as it's making use of the community node for MCP Client.\n\nWho this is for?\n\nThe Extract, Transform LinkedIn Data with Bright Data MCP Server & Google Gemini workflow is an automated solution that scrapes LinkedIn content via Bright Data MCP Server then transforms the response using a Gemini LLM. The final output is sent via webhook notification and also persisted on disk.\n\nThis workflow is tailored for:​\nData Analysts : Who require structured LinkedIn datasets for analytics and reporting.\n\nMarketing and Sales Teams : Looking to enrich lead databases, track company updates, and identify market trends.\n\nRecruiters and Talent Acquisition Specialists : Who want to automate candidate sourcing and company research.\n\nAI Developers : Integrating real-time professional data into intelligent applications.\n\nBusiness Intelligence Teams : Needing current and comprehensive LinkedIn data to drive strategic decisions.\n\nWhat problem is this workflow solving?\n\nGathering structured and meaningful information from the web is traditionally slow, manual, and error-prone.\n\nThis workflow solves:\n\nReliable web scraping using Bright Data MCP Server LinkedIn tools.\n\nLinkedIn person and company web scrapping with AI Agents setup with the Bright Data MCP Server tools.\n\nData extraction and transformation with Google Gemini LLM.\n\nPersists the LinkedIn person and company info to disk.\n\nPerforms a Webhook notification with the LinkedIn person and company info.\n\nWhat this workflow does?\n\nThis n8n workflow performs the following steps:\n\nTrigger: Start manually.\n\nInput URL(s): Specify the LinkedIn person and company URL.\n\nWeb Scraping (Bright Data): Use Bright Data's MCP Server, LinkedIn tools for the person and company data extract.\n\nData Transformation & Aggregation: Uses the Google LLM for handling the data transformation.\n\nStore / Output: Save results into disk and also performs a Webhook notification.\n\nPre-conditions\n\nKnowledge of Model Context Protocol (MCP) is highly essential. Please read this blog post - model-context-protocol\nYou need to have the Bright Data account and do the necessary setup as mentioned in the Setup section below.\nYou need to have the Google Gemini API Key. Visit Google AI Studio\nYou need to install the Bright Data MCP Server @brightdata/mcp\nYou need to install the n8n-nodes-mcp\n\nSetup\n\nPlease make sure to setup n8n locally with MCP Servers by navigating to n8n-nodes-mcp\nPlease make sure to install the Bright Data MCP Server @brightdata/mcp  on your local machine.\nSign up at Bright Data.\nNavigate to Proxies & Scraping and create a new Web Unlocker zone by selecting Web Unlocker API under Scraping Solutions.\nCreate a Web Unlocker proxy zone called mcp_unlocker on Bright Data control panel.\nIn n8n, configure the Google Gemini(PaLM) Api account with the Google Gemini API key (or access through Vertex AI or proxy).\nIn n8n, configure the credentials to connect with MCP Client (STDIO) account with the Bright Data MCP Server as shown below.\n\nMake sure to copy the Bright Data API_TOKEN within the Environments textbox above.\nUpdate the LinkedIn URL person and company workflow.\nUpdate the Webhook HTTP Request node with the Webhook endpoint of your choice.\nUpdate the file name and path to persist on disk.\n\nHow to customize this workflow to your needs\n\nDifferent Inputs: Instead of static URLs, accept URLs dynamically via webhook or form submissions.\n\nData Extraction: Modify the LinkedIn Data Extractor node with the suitable prompt to format the data as you wish.\n\nOutputs: Update the Webhook endpoints to send the response to Slack channels, Airtable, Notion, CRM systems, etc.\n",
+  "totalViews": 214,
+  "source": "official",
+  "user": {
+    "id": 93657,
+    "name": "Ranjan Dailata",
+    "username": "ranjancse",
+    "bio": "",
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/7b74fe44a7ad32db7c783b972deb5848a4b1f043377bce4039737ed66da8305f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Information Extractor",
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-04-28T22:28:54.106Z",
+  "path": "official/template_3777/workflow.json"
+}

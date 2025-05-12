@@ -1,0 +1,52 @@
+{
+  "id": 2314,
+  "name": "Convert HTML to PDF using ConvertAPI",
+  "description": "Who is this for?\nFor developers and organizations that need to convert HTML files to PDF.\n\nWhat problem is this workflow solving?\nThe file format conversion problem.\n\nWhat this workflow does\n\nConverts HTML to file.\nConverts the HTML file to PDF.\nStores the PDF file in the local file system.\n\nHow to customize this workflow to your needs\nOpen the HTTP Request node.\nAdjust the URL parameter (all endpoints can be found here).\nAdd your secret to the Query Auth account parameter. Please create a ConvertAPI account to get an authentication secret.\nOptionally, additional Body Parameters can be added for the converter.\n",
+  "totalViews": 5603,
+  "source": "official",
+  "user": {
+    "id": 91747,
+    "name": "ConvertAPI",
+    "username": "convertapi",
+    "bio": "",
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/0a8b4805dec6f16c7ef2b6d9689d9384bd20ccfe8443b62b8cf32a8c4d1a22e8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-07-05T09:19:03.760Z",
+  "path": "official/template_2314/workflow.json"
+}

@@ -1,0 +1,112 @@
+{
+  "id": 2688,
+  "name": "Hacker News Throwback Machine - See What Was Hot on This Day, Every Year!",
+  "description": "This is a simple workflow that grabs HackerNews front-page headlines from today's date across every year since 2007 and uses a little AI magic (Google Gemini) to sort 'em into themes, sends a neat Markdown summary on Telegram.\n\nHow it works\n\nRuns daily, grabs Hacker News front page for this day across every year since 2007.\nPulls headlines & dates.\nUses Google Gemini to sort headlines into topics & spot trends.\nSends a Markdown summary to Telegram.\n\nSet up steps\n\nClone the workflow.\nAdd your Google Gemini API key.\nAdd your Telegram bot token and chat ID.\n\n**Built on Day-01 as part of the #100DaysOfAgenticAi\nFork it, tweak it, have fun!**\n\n",
+  "totalViews": 4908,
+  "source": "official",
+  "user": {
+    "id": 92350,
+    "name": "ibrhdotme",
+    "username": "ibrhdotme",
+    "bio": "",
+    "verified": false,
+    "links": "[\"https://github.com/ibrhdotme\"]",
+    "avatar": "https://gravatar.com/avatar/9677ed66172a6ac7b8323e5dea43721431eb50bef74915490ee8393784074a2f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-01-01T22:21:01.664Z",
+  "path": "official/template_2688/workflow.json"
+}

@@ -1,0 +1,63 @@
+{
+  "id": 3258,
+  "name": "Automate LinkedIn Contact Requests & Icebreaker with Unipile and Google sheets",
+  "description": "Automate your LinkedIn Contact Requests and send them an Icebreaker\n\nDisclaimer: this workflow only works on self-hosted instances due to the file system usage.\n\nWho is this for?\nThis n8n template is designed for professionals, recruiters, and marketers who must automate LinkedIn data population and contact request processes. It is particularly useful for those looking to streamline their outreach efforts and manage LinkedIn connections more efficiently.\n\nWhat problem is this workflow solving? / Use Case\nThe workflow addresses the challenge of manually managing LinkedIn connections and sending contact requests. By automating these tasks, users can save time, reduce errors, and ensure consistent follow-ups with potential clients, partners, or candidates.\n\nWhat this workflow does\nThis template automates the process of populating LinkedIn data and sending contact requests. After the connection request has been accepted, it sends a predefined \"icebreaker\". Please note that you are limited to 150 invitations per week from a free LinkedIn account, but you can set up to 10 accounts for $55 / month. \n\nSetup\nYou will have to create an account at Unipile. You can use this link to create it: Create your account\nImport the Template: Import the provided template into your n8n instance.\nMake a copy of the Google sheet into your Google account. you can find a template here\nSet Up: Follow the instructions inside the workflow to create and configure the Workflow as needed.\nTest the Workflow: Create a LinkedIn user and run the workflow to ensure it populates data and sends contact requests correctly.\nHow to customize this workflow to your needs\nCustomize Contact Messages**: Personalize the contact request or Icebreaker messages to increase engagement.\nIntegrate with Other Tools**: Add additional nodes to integrate with CRM systems or other marketing tools for enhanced functionality.\nMonitor and Optimize**: Regularly review the workflow's performance and make adjustments to improve efficiency and effectiveness.\n\n\nBy following this setup and customization guide, users can leverage this n8n template to enhance their LinkedIn outreach and connection management processes.",
+  "totalViews": 353,
+  "source": "official",
+  "user": {
+    "id": 92501,
+    "name": "PollupAI",
+    "username": "zeerobug",
+    "bio": "We create bespoke AI solutions, automations and agents that help your business as it scales.",
+    "verified": true,
+    "links": "[\"https://pollup.ai\"]",
+    "avatar": "https://gravatar.com/avatar/6d3d2053279bc63e9be7bf4cd3fb74e13e7cc1309d32eab0b72140332cff577e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-03-21T08:52:28.419Z",
+  "path": "official/template_3258/workflow.json"
+}

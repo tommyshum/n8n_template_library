@@ -1,0 +1,38 @@
+{
+  "id": 1326,
+  "name": "Get a Slack alert when a workflow went wrong",
+  "description": "This workflow allows you to have a Slack alert when one of your n8n workflows gets an issue.\n\n\n\nError trigger**: This node launched the workflow when one of your active workflows gets an issue\n\nSlack node**: This node sends you a customized message to alert you and to check the error\n\n\n⚠️ You don't have to activate this workflow for it to be effective\n",
+  "totalViews": 2218,
+  "source": "official",
+  "user": {
+    "id": 11407,
+    "name": "Pauline",
+    "username": "pauline",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/26b6f126594978870012d6649d3dc58b45104fa9632566cb9919c311ee57b674?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2021-11-15T16:26:29.641Z",
+  "path": "official/template_1326/workflow.json"
+}

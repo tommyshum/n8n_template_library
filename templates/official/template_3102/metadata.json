@@ -1,0 +1,47 @@
+{
+  "id": 3102,
+  "name": "Parse and Extract Data from Documents/Images with Mistral OCR",
+  "description": "Mistral OCR is a super convenient way to parse and extract data from multi-page PDFs or single images using AI.\n\nWhat makes it special and differs it from the competition is that Mistral OCR also performs document page splitting and markdown conversion. This helps reduce dependencies required for document parsing workflows where tools like StirlingPDF.\n\nRead the official documentation on Mistral OCR API here: https://docs.mistral.ai/capabilities/document/#tag/ocr/operation/ocr_v1_ocr_post\n\nHow it works\nTo access Mistral-OCR, you'll need to use Mistral Cloud API via the HTTP request node\nMistral OCR can only accept 2 file types: PDF and Image. Here, we use 2 different request to the Mistral-OCR API to parse a bank statement PDF and an screenshot of a bank statement to extract the tables.\nNext, we explore a more secure method of uploading documents to the Mistral OCR API by using Mistral's cloud storage. In example 2, we first store a copy of our documents to Mistral cloud and then generate a signed URL to retreive the file before sending it to Mistral OCR. This ensures the file is not accessible publicly and protects it from unauthorised access.\nFinally, another way to use Mistral-OCR is via document understanding. This allows you to ask questions about the document rather than extract contents from it. In example 3, I demonstrate this use-case asking Mistral-small to tell me how many deposits are shown in the bank statement.\n\nHow to use\nEnsure your documents are either publicly accessible for Mistral-OCR or upload them to Mistral Cloud. Alternatively, signed urls from AWS S3 or Cloudflare R2 should also work.\n\nRequirements\nMistral Cloud account and API  Key. You'll also need credit on your account to use Mistral-OCR.\n\nCustomising the workflow\nMistral-OCR also works for images such as charts and diagrams so try using it on Financial Reports.\nMistral-OCR is even cheaper with batching enabled. This returns your results within 24hrs but is half the price per page.",
+  "totalViews": 21522,
+  "source": "official",
+  "user": {
+    "id": 91804,
+    "name": "Jimleuk",
+    "username": "jimleuk",
+    "bio": "Freelance consultant based in the UK specialising in AI-powered automations. I work with select clients tackling their most challenging projects. For business enquiries, send me an email at hello@jimle.uk\n\nLinkedIn: https://www.linkedin.com/in/jimleuk/\nX/Twitter: https://x.com/jimle_uk",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4ab99e51473df76838beeaac908747f7928c625f869794815cabe34016967d51?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-03-06T23:17:34.872Z",
+  "path": "official/template_3102/workflow.json"
+}

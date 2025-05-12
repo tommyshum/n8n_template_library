@@ -1,0 +1,58 @@
+{
+  "id": 2507,
+  "name": "📂 Automatically Update Stock Portfolio from OneDrive to Excel",
+  "description": "Seamlessly Sync and Update Data from a csv in OneDrive to Excel with n8n\n\nThis workflow is perfect for users who need a reliable, automated way to transfer and organize data from OneDrive into Excel—especially for tasks like portfolio tracking, inventory management, and record-keeping. By monitoring your OneDrive folder for new CSV files, it performs data cleaning, transformation, and real-time updates in an Excel sheet, ensuring only new or changed records are added.\n\nHow it Works\n\nAutomated Monitoring: Every minute, the workflow scans a designated OneDrive folder for new files.\nFile Verification: It checks if the detected file is in CSV format; if not, the process stops with an error message.\nData Extraction and Cleaning: CSV data is loaded, and irrelevant headers are removed before mapping to specified columns in Excel.\nExcel Update: The workflow maps data to your Excel sheet, updating only new or modified entries based on a unique identifier (\"Ticker/ISIN\").\nCleanup: To keep your OneDrive organized, processed files are deleted after updating Excel.\n\nSetup Steps\n\nConnect OneDrive and Excel Accounts: Link your Microsoft OneDrive and Excel accounts in n8n.\nDesignate Folder and Worksheet: Specify the OneDrive folder for monitoring and the Excel sheet for data updates.\nConfigure Sync Frequency and CSV Validation: Set the monitoring frequency to every minute and ensure the workflow identifies CSV files accurately.\n\nOnce configured, this workflow offers a hands-free, efficient solution to keep your OneDrive and Excel data synchronized effortlessly.",
+  "totalViews": 6034,
+  "source": "official",
+  "user": {
+    "id": 92110,
+    "name": "Louis",
+    "username": "louisdl",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://youtube.com/@LouisTKRoom\"]",
+    "avatar": "https://gravatar.com/avatar/4d7e7878004eb467bfa9c40f197ff70d7155caa84ef0fb3ab8d3221fdd28303b?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Microsoft Excel 365",
+      "type": "n8n-nodes-base.microsoftExcel",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Microsoft OneDrive",
+      "type": "n8n-nodes-base.microsoftOneDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-10-29T19:41:20.189Z",
+  "path": "official/template_2507/workflow.json"
+}

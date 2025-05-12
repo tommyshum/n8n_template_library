@@ -1,0 +1,87 @@
+{
+  "id": 2006,
+  "name": "AI agent that can scrape webpages",
+  "description": "\n\n⚙️🛠️🚀🤖🦾\n\nThis template is a PoC of a ReAct AI Agent capable of fetching random pages (not only Wikipedia or Google search results).\n\nOn the top part there's a manual chat node connected to a LangChain ReAct Agent. The agent has access to a workflow tool for getting page content.\n\nThe page content extraction starts with converting query parameters into a JSON object. There are 3 pre-defined parameters:\nurl** – an address of the page to fetch\nmethod** = full / simplified\nmaxlimit** - maximum length for the final page. For longer pages an error message is returned back to the agent\n\nPage content fetching is a multistep process:\nAn HTTP Request mode tries to get the page content.\n\nIf the page content was successfuly retrieved, a series of post-processing begin:\n\nExtract HTML BODY; content\nRemove all unnecessary tags to recuce the page size\nFurther eliminate external URLs and IMG scr values (based on the method query parameter)\nRemaining HTML is converted to Markdown, thus recuding the page lengh even more while preserving the basic page structure\nThe remaining content is sent back to an Agent if it's not too long (maxlimit = 70000 by default, see CONFIG node).\n\nNB:\nYou can isolate the HTTP Request part into a separate workflow.\nCheck the Workflow Tool description, it guides the agent to provide a query string with several parameters instead of a JSON object.\n\nPlease reach out to Eduard is you need further assistance with you n8n workflows and automations!\n\nNote that to use this template, you need to be on n8n version 1.19.4 or later.\n",
+  "totalViews": 164186,
+  "source": "official",
+  "user": {
+    "id": 21242,
+    "name": "Eduard",
+    "username": "eduard",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/parsadanyan/\"]",
+    "avatar": "https://gravatar.com/avatar/a551e67c6fe7affd5f882a527dee154bb6c3ac90cf878326accb3fb3ec77c8a6?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2023-12-06T14:45:11.358Z",
+  "path": "official/template_2006/workflow.json"
+}

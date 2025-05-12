@@ -1,0 +1,65 @@
+{
+  "id": 2173,
+  "name": "Auto document your n8n workflows",
+  "totalViews": 8480,
+  "purchaseUrl": null,
+  "user": {
+    "id": 91546,
+    "name": "Marvin Wu",
+    "username": "marvinwu",
+    "bio": "",
+    "verified": false,
+    "links": "[\"https://www.airo.hk\"]",
+    "avatar": "https://gravatar.com/avatar/2c6867650c2d48a836e37ecf4824fca9e9dc55a0ac441447089245772bf8915e?r=pg&d=retro&size=200"
+  },
+  "description": "Who is this for?\n\nThis workflow is designed for n8n users and developers who need to automate the documentation process of their n8n workflows. It's particularly useful for teams looking to streamline their documentation efforts and ensure consistency across their workflow documentation.\n\nWhat problem is this workflow solving? / Use case\n\nThe primary problem this workflow addresses is the manual and time-consuming process of creating documentation for n8n workflows. It automates the generation of concise, clear, and comprehensive documentation directly from the workflow's JSON, making it easier for both technical and non-technical users to understand what the workflow does and how it operates.\n\nWhat this workflow does\n\nUpon receiving a form submission with the workflow title and JSON, this workflow automatically generates documentation that includes:\nA brief introduction to the workflow.\nThe trigger mechanism (webhook URLs for test and production environments, or cron schedules).\nSetup requirements, including necessary credentials and external dependencies.\n\nSetup\n\nCredentials Setup: Ensure you have OpenAI API credentials configured in n8n to use the GPT model for generating documentation text.\nForm Submission: Users must submit the form with the workflow title and JSON. The form is accessible via:\n   Test URL: domain/form-test/{webhookId}\n   Production URL: domain/form/{webhookId}\n\nHow to customize this workflow to your needs\n\nModify Trigger URLs**: Adjust the webhook or form URLs based on your domain and specific n8n setup.\nCustomize Documentation Template**: Edit the OpenAI node's prompt to change the structure or details of the generated documentation.\nExtend Functionality**: Add nodes to integrate with other systems (e.g., automatically publishing the documentation to a wiki or sending it via email).\n\nThis workflow simplifies the documentation process, making it accessible and manageable for teams of all sizes and technical abilities. By automating documentation, it ensures that all workflows are properly documented, enhancing understanding and efficiency within teams.",
+  "createdAt": "2024-03-14T09:43:03.527Z",
+  "nodes": [
+    {
+      "id": 840,
+      "icon": "file:openAi.svg",
+      "name": "n8n-nodes-base.openAi",
+      "codex": {
+        "data": {
+          "alias": [
+            "ChatGPT",
+            "DallE"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-langchain.openai/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/openai/"
+              }
+            ]
+          },
+          "categories": [
+            "Utility"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "OpenAI"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNTYiIGhlaWdodD0iMjYwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCI+PHBhdGggZD0iTTIzOS4xODQgMTA2LjIwM2E2NC43MiA2NC43MiAwIDAgMC01LjU3Ni01My4xMDNDMjE5LjQ1MiAyOC40NTkgMTkxIDE1Ljc4NCAxNjMuMjEzIDIxLjc0QTY1LjU4NiA2NS41ODYgMCAwIDAgNTIuMDk2IDQ1LjIyYTY0LjcyIDY0LjcyIDAgMCAwLTQzLjIzIDMxLjM2Yy0xNC4zMSAyNC42MDItMTEuMDYxIDU1LjYzNCA4LjAzMyA3Ni43NGE2NC42NyA2NC42NyAwIDAgMCA1LjUyNSA1My4xMDJjMTQuMTc0IDI0LjY1IDQyLjY0NCAzNy4zMjQgNzAuNDQ2IDMxLjM2YTY0LjcyIDY0LjcyIDAgMCAwIDQ4Ljc1NCAyMS43NDRjMjguNDgxLjAyNSA1My43MTQtMTguMzYxIDYyLjQxNC00NS40ODFhNjQuNzcgNjQuNzcgMCAwIDAgNDMuMjI5LTMxLjM2YzE0LjEzNy0yNC41NTggMTAuODc1LTU1LjQyMy04LjA4My03Ni40ODNtLTk3LjU2IDEzNi4zMzhhNDguNCA0OC40IDAgMCAxLTMxLjEwNS0xMS4yNTVsMS41MzUtLjg3IDUxLjY3LTI5LjgyNWE4LjYgOC42IDAgMCAwIDQuMjQ3LTcuMzY3di03Mi44NWwyMS44NDUgMTIuNjM2Yy4yMTguMTExLjM3LjMyLjQwOS41NjN2NjAuMzY3Yy0uMDU2IDI2LjgxOC0yMS43ODMgNDguNTQ1LTQ4LjYwMSA0OC42MDFNMzcuMTU4IDE5Ny45M2E0OC4zNSA0OC4zNSAwIDAgMS01Ljc4MS0zMi41ODlsMS41MzQuOTIxIDUxLjcyMiAyOS44MjZhOC4zNCA4LjM0IDAgMCAwIDguNDQxIDBsNjMuMTgxLTM2LjQyNXYyNS4yMjFhLjg3Ljg3IDAgMCAxLS4zNTguNjY1bC01Mi4zMzUgMzAuMTg0Yy0yMy4yNTcgMTMuMzk4LTUyLjk3IDUuNDMxLTY2LjQwNC0xNy44MDNNMjMuNTQ5IDg1LjM4YTQ4LjUgNDguNSAwIDAgMSAyNS41OC0yMS4zMzN2NjEuMzlhOC4yOSA4LjI5IDAgMCAwIDQuMTk1IDcuMzE2bDYyLjg3NCAzNi4yNzItMjEuODQ1IDEyLjYzNmEuODIuODIgMCAwIDEtLjc2NyAwTDQxLjM1MyAxNTEuNTNjLTIzLjIxMS0xMy40NTQtMzEuMTcxLTQzLjE0NC0xNy44MDQtNjYuNDA1em0xNzkuNDY2IDQxLjY5NS02My4wOC0zNi42M0wxNjEuNzMgNzcuODZhLjgyLjgyIDAgMCAxIC43NjggMGw1Mi4yMzMgMzAuMTg0YTQ4LjYgNDguNiAwIDAgMS03LjMxNiA4Ny42MzV2LTYxLjM5MWE4LjU0IDguNTQgMCAwIDAtNC40LTcuMjEzbTIxLjc0Mi0zMi42OS0xLjUzNS0uOTIyLTUxLjYxOS0zMC4wODFhOC4zOSA4LjM5IDAgMCAwLTguNDkyIDBMOTkuOTggOTkuODA4Vjc0LjU4N2EuNzIuNzIgMCAwIDEgLjMwNy0uNjY1bDUyLjIzMy0zMC4xMzNhNDguNjUyIDQ4LjY1MiAwIDAgMSA3Mi4yMzYgNTAuMzkxek04OC4wNjEgMTM5LjA5N2wtMjEuODQ1LTEyLjU4NWEuODcuODcgMCAwIDEtLjQxLS42MTRWNjUuNjg1YTQ4LjY1MiA0OC42NTIgMCAwIDEgNzkuNzU3LTM3LjM0NmwtMS41MzUuODctNTEuNjcgMjkuODI1YTguNiA4LjYgMCAwIDAtNC4yNDYgNy4zNjd6bTExLjg2OC0yNS41OEwxMjguMDY3IDk3LjNsMjguMTg4IDE2LjIxOHYzMi40MzRsLTI4LjA4NiAxNi4yMTgtMjguMTg4LTE2LjIxOHoiLz48L3N2Zz4="
+      },
+      "displayName": "OpenAI",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 7,
+          "name": "Utility"
+        }
+      ]
+    }
+  ]
+}

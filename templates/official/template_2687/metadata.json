@@ -1,0 +1,49 @@
+{
+  "id": 2687,
+  "name": "TW-Request-Agri Data Open Platform-Daily Market Sheep Pricing",
+  "description": "This workflow automates the process of fetching agricultural transaction data from the Taiwan Agricultural Products Open Data Platform and storing it in a Google Sheets document for further analysis.\n\nKey Features\nManual Trigger: Allows manual execution of the workflow to control when data is fetched.\nHTTP Request: Sends a request to the Open Data Platform's API to retrieve detailed transaction data, including:\n   Pricing (Upper, Middle, Lower, Average)\n   Transaction quantities\n   Crop and market details\nSplit Out Node: Processes each record individually, ensuring accurate handling of every data entry.\nGoogle Sheets Integration: Appends the data into a structured Google Sheets document for easy access and analysis.\n\nNode Configurations\n\n1. Manual Trigger\nPurpose**: Start the workflow manually.\nConfiguration**: No setup needed.\n\n2. HTTP Request\nPurpose**: Fetch agricultural data.\nConfiguration**:\n  URL: https://data.moa.gov.tw/api/v1/SheepQuotation\n  Query Parameters:\n    Start_time: 2024/12/01\n    End_time: 2024/12/31\n    MarketName: 台北二\n    api_key: &lt;your_api_key&gt;\n  Headers:\n    accept: application/json\n\n3. Split Out\nPurpose**: Split the API response data array into individual items.\nConfiguration**:\n  Field to Split Out: Data\n\n4. Google Sheets\nPurpose**: Append the data to Google Sheets.\nConfiguration**:\n  Operation: Append\n  Document ID: &lt;your_document_id&gt;\n  Sheet Name: Sheet1\n  Mapped Fields:\n    TransDate, TcType, CropCode, CropName, MarketCode, MarketName\n    Upper_Price, Middle_Price, Lower_Price, Avg_Price, Trans_Quantity\n\n\n此 Workflow 從 台灣農業產品開放資料平臺 獲取農產品交易數據，並將其儲存到 Google Sheets 文件 中進行進一步分析。\n\n主要功能\nManual Trigger：允許手動執行工作流程，以控制數據獲取的時間。\nHTTP Request：向開放資料平臺的 API 發送請求，獲取詳細的交易數據，包括：\n   價格 (Upper, Middle, Lower, Average)\n   交易數量\n   作物和市場詳細資料\nSplit Out Node：逐筆處理每一筆記錄，確保數據準確無誤。\nGoogle Sheets Integration：將數據追加到結構化的 Google Sheets 文件中，方便存取和分析。\n\n節點設定\n\n1. Manual Trigger\n用途**：手動啟動工作流程。\n設定**：無需額外設定。\n\n2. HTTP Request\n用途**：抓取農產品數據。\n設定**：\n  URL: https://data.moa.gov.tw/api/v1/SheepQuotation\n  查詢參數 (Query Parameters)：\n    Start_time: 2024/12/01\n    End_time: 2024/12/31\n    MarketName: 台北二\n    api_key: &lt;your_api_key&gt;\n  標頭 (Headers)：\n    accept: application/json\n\n3. Split Out\n用途**：將 API 回應的數據陣列分解為個別項目。\n設定**：\n  Field to Split Out: Data\n\n4. Google Sheets\n用途**：將數據追加至 Google Sheets。\n設定**：\n  Operation：Append\n  Document ID：&lt;your_document_id&gt;\n  Sheet Name：Sheet1\n  映射欄位 (Mapped Fields)：\n    TransDate, TcType, CropCode, CropName, MarketCode, MarketName\n    Upper_Price, Middle_Price, Lower_Price, Avg_Price, Trans_Quantity\n\n請多利用 Curl Import 功能\n例如\ncurl -X GET \"https://data.moa.gov.tw/api/v1/AgriProductsTransType/?Start_time=114.01.01&End_time=114.01.01&MarketName=%E5%8F%B0%E5%8C%97%E4%BA%8C\" -H \"accept: application/json\"\n\n農業資料開放平台 文件\n",
+  "totalViews": 307,
+  "source": "official",
+  "user": {
+    "id": 92348,
+    "name": "darrell_tw",
+    "username": "darrelltw",
+    "bio": "Martech Engineer with automation.\nhere is my website: https://www.darrelltw.com/",
+    "verified": true,
+    "links": "[\"https://x.com/DarrellMarTech\"]",
+    "avatar": "https://gravatar.com/avatar/4bf99603c608dc2e9a91e3d17bf47743b41153512a14098c8070213d7dccc199?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-01-01T19:24:45.689Z",
+  "path": "official/template_2687/workflow.json"
+}

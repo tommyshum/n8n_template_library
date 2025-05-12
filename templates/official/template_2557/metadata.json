@@ -1,0 +1,185 @@
+{
+  "id": 2557,
+  "name": "Hacker News to Video Content",
+  "description": "Hacker News to Video Content\n\nOverview\nThis workflow converts trending articles from Hacker News into engaging video content. It integrates AI-based tools to analyze, summarize, and generate multimedia content, making it ideal for content creators, educators, and marketers.\n\nFeatures\nArticle Retrieval:\n   Pulls trending articles from Hacker News.\n   Limits the number of articles to process (configurable).\n\nContent Analysis:\n   Uses OpenAI's GPT model to:\n     Summarize articles.\n     Assess their relevance to specific topics like automation or AI.\n     Extract key image URLs.\n\nImage and Video Generation:\n   Leonardo.ai: Creates stunning AI-generated images based on extracted prompts.\n   RunwayML: Converts images into high-quality videos.\n\nStructured Content Creation:\n   Parses content into structured formats for easy reuse.\n   Generates newsletter-friendly blurbs and social media-ready captions.\n\nCloud Integration:\n   Uploads generated assets to:\n     Dropbox\n     Google Drive\n     Microsoft OneDrive\n     MinIO\n\nSocial Media Posting (Optional):\n   Supports posting to YouTube, X (Twitter), LinkedIn, and Instagram.\n\nWorkflow Steps\n\n1. Trigger\nInitiated manually via the \"Test Workflow\" button.\n\n2. Fetch Articles\nRetrieves articles from Hacker News.\nLimits the results to avoid processing overload.\n\n3. Content Filtering\nEvaluates if articles are related to AI/Automation using OpenAI's language model.\n\n4. Image and Video Generation\nGenerates:\n  AI-driven image prompts via Leonardo.ai.\n  Videos using RunwayML.\n\n5. Asset Management\nSaves the output to cloud storage services or uploads directly to social media platforms.\n\nPrerequisites\n\nAPI Keys**:\n  Hacker News\n  OpenAI\n  Leonardo.ai\n  RunwayML\n  Creatomate\n\nn8n Installation**:\n  Ensure n8n is installed and configured locally or on a server.\n\nCredentials**:\n  Set up credentials in n8n for all external services used in the workflow.\n\nCustomization\nReplace Hacker News with any other data source node if needed.\nConfigure the \"Article Analysis\" node for different topics.\nAdjust the cloud storage services or add custom storage options.\n\nUsage\nImport this workflow into your n8n instance.\nConfigure your API credentials.\nTrigger the workflow manually or schedule it as needed.\nCheck the outputs in your preferred cloud storage or social media platform.\n\nNotes\nExtend this workflow further by automating social media posting or newsletter integration.\nFor any questions, refer to the official documentation or reach out to the creator.\n\nAbout the Creator\nThis workflow was built by AlexK1919, an AI-native workflow automation architect. Check out the overview video for a quick demo.\n\nTools Used\nLeonardo.ai**\nRunwayML**\nCreatomate**\nHacker News API**\nOpenAI GPT**\n\nFeel free to adapt and extend this workflow to meet your specific needs! 🎉\n",
+  "totalViews": 37351,
+  "source": "official",
+  "user": {
+    "id": 91693,
+    "name": "Alex Kim",
+    "username": "alexk1919",
+    "bio": "n8n Ambassador & Verified Partner",
+    "verified": true,
+    "links": "[\"https://wot-ai.com\"]",
+    "avatar": "https://gravatar.com/avatar/2b74c7f530e250439f5d752f2623ead4921fbb8aef56343c922b2873ef8a619f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes",
+    "Marketing",
+    "Communication",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Dropbox",
+      "type": "n8n-nodes-base.dropbox",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Microsoft OneDrive",
+      "type": "n8n-nodes-base.microsoftOneDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "X (Formerly Twitter)",
+      "type": "n8n-nodes-base.twitter",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Hacker News",
+      "type": "n8n-nodes-base.hackerNews",
+      "categories": [
+        "Communication",
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "YouTube",
+      "type": "n8n-nodes-base.youTube",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "S3",
+      "type": "n8n-nodes-base.s3",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "LinkedIn",
+      "type": "n8n-nodes-base.linkedIn",
+      "categories": [
+        "Marketing",
+        "Communication"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 14,
+  "createdAt": "2024-11-19T16:37:48.304Z",
+  "path": "official/template_2557/workflow.json"
+}

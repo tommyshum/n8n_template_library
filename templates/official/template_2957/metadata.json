@@ -1,0 +1,61 @@
+{
+  "id": 2957,
+  "name": "💡🌐 Essential Multipage Website Scraper with Jina.ai",
+  "description": "💡🌐 Essential Multipage Website Scraper with Jina.ai\n\nUse responsibly and follow local rules and regulations\n\nThis N8N workflow enables automated multi-page website scraping using Jina.ai's powerful web scraping capabilities, with seamless integration to Google Drive for content storage. Here's how it works:\n\nMain Features\nThe workflow automatically scrapes multiple pages from a website's sitemap and saves each page's content as a separate Google Drive document.\n\nKey Components\nInput Configuration\nStarts with a sitemap URL (default: https://ai.pydantic.dev/sitemap.xml)**\nProcesses the sitemap to extract individual page URLs\nIncludes filtering options to target specific topics or pages\n\nScraping Process\nUses Jina.ai's web scraper to extract content from each URL\nConverts webpage content into clean markdown format\nExtracts page titles automatically for document naming\n\nStorage Integration\nCreates individual Google Drive documents for each scraped page\nNames documents using the format \"URL - Page Title\"\nSaves content in markdown format for better readability\n\nUsage Instructions\nSet your target website's sitemap URL in the \"Set Website URL\" node\nConfigure the \"Filter By Topics or Pages\" node to select specific content\nAdjust the \"Limit\" node (default: 20 pages) to control batch size\nConnect your Google Drive account\nRun the workflow to begin automated scraping\n\nAdditional Features\nBuilt-in rate limiting through the Wait node to prevent overloading servers\nBatch processing capability for handling large sitemaps\n\nThe workflow requires no API key for Jina.ai, making it accessible for immediate use while maintaining responsible scraping practices.\n",
+  "totalViews": 12638,
+  "source": "official",
+  "user": {
+    "id": 92125,
+    "name": "Joseph LePage",
+    "username": "joe",
+    "bio": "As an AI Automation consultant based in Canada, I partner with forward-thinking organizations to implement AI solutions that streamline operations and drive growth.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/e7ca218dfc87b68344bbd66f40da01546d2f6fc1cf884267821e8a77e3e8410a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-02-20T20:24:51.925Z",
+  "path": "official/template_2957/workflow.json"
+}

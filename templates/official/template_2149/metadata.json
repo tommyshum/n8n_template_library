@@ -1,0 +1,48 @@
+{
+  "id": 2149,
+  "name": "Automatically create daily list of todos in Todoist",
+  "description": "Use case\nAutomatically create todo items in Todoist every morning. \n\nThis workflow has two flows\nAt 5am, delete any uncompleted tasks every morning\nAt 5:10 am, copy all template tasks into Inbox\n\nIn each template task, set the due dates and days to add the task. You can do that like this days:mon,tues; due:8pm which will add the task every Monday and Tuesday and make it due at 8pm.\n\nHow to setup\nAdd Todoist creds\nCreate a template list to copy from in Todoist. Add days and due times on each task as necessary.\nSet the projects to copy from and to write to in each Todoist node\n\n",
+  "totalViews": 1657,
+  "source": "official",
+  "user": {
+    "id": 91243,
+    "name": "Mutasem",
+    "username": "mutasem",
+    "bio": "Team lead @ n8n",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/mutasemdmour/\"]",
+    "avatar": "https://gravatar.com/avatar/16d9c92db78317b6af7d0935bee34a47c522cb81d35c234ff76ea580ff1f6c29?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Todoist",
+      "type": "n8n-nodes-base.todoist",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-02-28T19:31:42.228Z",
+  "path": "official/template_2149/workflow.json"
+}

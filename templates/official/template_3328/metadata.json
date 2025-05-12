@@ -1,0 +1,71 @@
+{
+  "id": 3328,
+  "name": "Automatically Create and Upload YouTube Videos with Quotes in Thai Using FFmpeg",
+  "description": "Who is this for?\nThis workflow is perfect for digital content creators, marketers, and social media managers who regularly create engaging short-form videos featuring inspirational or motivational quotes. While the workflow is universally applicable, it specifically highlights Thai as an example to demonstrate effective language and font integration.\n\nWhat problem is this workflow solving?\nCreating consistent and engaging multilingual video content manually, including attractive fonts and proper video formatting, is time-consuming and repetitive. Additionally, managing files, background music, and updating statuses manually can be tedious and prone to errors.\n\nWhat this workflow does\nAutomatically fetches background video and music files stored on Google Drive.\n\nRandomly selects a quote (demonstrated with Thai language) and author information from Google Sheets.\n\nDynamically combines the selected quote and author text using appealing fonts, such as the Thai font \"Kanit,\" directly onto the video using FFmpeg on your n8n local environment.\n\nCreates visually engaging videos with a 9:16 aspect ratio, optimized for YouTube Shorts and other vertical video platforms.\n\nAutomatically uploads the finalized video to YouTube.\n\nUpdates the status and YouTube URL back into your Google Sheet, ensuring you have up-to-date records.\n\nSetup\nRequirements:\nThis workflow requires a self-hosted n8n instance, as the execution of FFmpeg commands is not supported on n8n Cloud. Ensure FFmpeg is installed on your self-hosted environment.\n\nGoogle Sheets Setup:\nYour Google Sheet must include at least these columns:\n\nIndex: (Unique identifier for each quote)\nQuote: (Text of the quote)\nAuthor: (Author of the quote)\nCreateStatus: (Track video creation status; values like 'DONE' or blank for pending)\nYoutubeURL: (Automatically updated after upload)\n\nTo help you get started quickly, you can use this template spreadsheet.\n\nNext steps:\n\nOrganize your video and music files in separate folders in Google Drive.\nAuthenticate your Google Sheets, Google Drive, and YouTube accounts in n8n.\nEnsure fonts compatible with your target languages (such as Kanit for Thai) are available in your FFmpeg installation.\n\nHow to customize this workflow to your needs\n\nFonts:** Adjust font styles and sizes within the workflow's code node. Ensure the fonts you choose fully support the language you wish to use.\n\nQuote Management:** Easily add or remove quotes and authors in your Google Sheets document.\n\nMedia Files:** Change or update background videos and music by modifying the files in your Google Drive folders.\n\nVideo Specifications:** Customize video dimensions, text positioning, opacity, and music volume directly in the provided FFmpeg commands.\n\nBenefits of Using Localized Fonts and Quotes\n\nUtilizing fonts specific to your target language, as demonstrated with Thai, significantly increases audience engagement by making your content more relatable, shareable, and visually appealing. Ensure you select fonts that properly support the language you're targeting.",
+  "totalViews": 4712,
+  "source": "official",
+  "user": {
+    "id": 92667,
+    "name": "Jaruphat J.",
+    "username": "jaruphatj",
+    "bio": "Project Manager who passionate about Automation & AI and continuously explore innovative ways to improve business processes through intelligent workflow automation. Let’s connect and automate the future! ",
+    "verified": true,
+    "links": "[\"https://www.youtube.com/@JaruphatJ\"]",
+    "avatar": "https://gravatar.com/avatar/847eff98bf683847ee92dd56b7d8169f88e9e8f3d839590713d6eab45c59a72f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-03-26T03:39:20.929Z",
+  "path": "official/template_3328/workflow.json"
+}

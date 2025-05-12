@@ -1,0 +1,47 @@
+{
+  "id": 1942,
+  "name": "Push and update files in GitHub",
+  "description": "This workflow performs various Git operations. It starts with a manual trigger, sets the local repository path, decodes a file and then updates a file's content, adds, commits, and pushes changes to a GitHub repository, and finally pulls changes.\n\nThe upper branch of the workflow retrieves a specific file (\"README.md\") from a GitHub repository (\"git_push_article\") owned by \"teds-tech-talks.\" It then decodes the file's binary data into readable text using a code node. The decoded content is used to update the file by adding a timestamp and data. Finally, the modified file is pushed back to the repository using a GitHub node, completing the process of editing and updating the file directly via the workflow.\n\nThis bottom branch of the workflow makes changes to a local Git repository. It starts by updating the \"README.md\" file with a timestamp and some content. Then, it adds the modified files, commits the changes with a message, and pushes them to a remote GitHub repository owned by \"teds-tech-talks.\" Additionally, the workflow allows pulling changes from the remote repository into the local repository. The goal is to demonstrate how to perform various Git operations using n8n nodes, including adding, committing, pushing, and pulling changes.",
+  "totalViews": 3993,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "GitHub",
+      "type": "n8n-nodes-base.github",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2023-08-29T07:37:20.522Z",
+  "path": "official/template_1942/workflow.json"
+}

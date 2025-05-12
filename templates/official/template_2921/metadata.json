@@ -1,0 +1,125 @@
+{
+  "id": 2921,
+  "name": "UTM Link Creator & QR Code Generator with Scheduled Google Analytics Reports",
+  "description": "UTM Link Creator & QR Code Generator with Scheduled Google Analytics Reports\n\nThis workflow enables marketers to generate UTM-tagged links, convert them into QR codes, and automate performance tracking in Google Analytics with scheduled reports every 7 days. This solution helps monitor traffic sources from different marketing channels and optimize campaign performance based on analytics data.\n\nPrerequisites\n\nBefore implementing this workflow, ensure you have the following:\n\nGoogle Analytics 4 (GA4) Account & Access\n\nEnsure you have a GA4 property set up.\nAccess to the GA4 Data API to schedule performance tracking. Refer to the Google Analytics Data API Overview for more information.\n\nAirtable Account & API Key\n\nCreate an Airtable base to store UTM links, QR codes, and analytics data.\nObtain an Airtable API key from your Account Settings. Detailed instructions are available in the Airtable API Authentication Guide.\n\nStep-by-Step Guide to Setting Up the Workflow\n\n1. Generate UTM Links\n\nCreate a form or interface to input:\n\nBase URL** (e.g., https://example.com)\nCampaign Name** (utm_campaign)\nSource** (utm_source)\nMedium** (utm_medium)\nTerm** (Optional: utm_term)\nContent** (Optional: utm_content)\n\nAppend UTM parameters to generate a trackable URL.\n\n2. Store UTM Links & QR Codes in Airtable\n\nSet up an Airtable base with the following columns:\n\nUTM Link**\nQR Code**\nCampaign Name**\nSource**\nMedium**\nDate Created**\n\nAdjust as needed based on your tracking requirements. For guidance on setting up your Airtable base and using the API, refer to the Airtable Web API Documentation.\n\n3. Convert UTM Links to QR Codes\n\nUse a QR code generator API (e.g., goqr.me, qrserver.com) to generate QR codes for each UTM link and store them in Airtable.\n\n4. Schedule Google Analytics Performance Reports (Every 7 Days)\n\nUse the Google Analytics Data API to pull weekly performance reports based on UTM parameters.\nExtract key metrics such as:\n  Sessions\n  Users\n  Bounce Rate\n  Conversions\n  Revenue (if applicable)\nStore the data in Airtable for tracking and analysis.\n\nAdjust timeframe as needed\n\n\nFor more details on accessing and using the Google Analytics Data API, consult the Google Analytics Data API Overview.\n\nBenefits of This Workflow\n\n✅ Track Marketing Campaigns: Easily monitor which channels drive traffic.\n\n✅ Automate QR Code Creation: Seamless integration of UTM links with QR codes.\n\n✅ Scheduled Google Analytics Reports: No manual reporting—everything runs automatically.\n\n✅ Improve Data-Driven Decisions: Optimize ad spend and marketing strategies based on performance insights.\n\nThis version ensures proper Markdown structure, includes relevant documentation links, and improves readability. Let me know if you need any further refinements! 🚀\n",
+  "totalViews": 1042,
+  "source": "official",
+  "user": {
+    "id": 92587,
+    "name": "Marketing Canopy",
+    "username": "johnmarketingcanopy",
+    "bio": "A results-driven Six Sigma Green Belt with 5 years of experience specializing in marketing process optimization, AI-powered data automation, and performance analytics. Adept at leveraging machine learning models, predictive analytics, and automation tools to enhance marketing efficiency, streamline workflows, and maximize ROI.\n",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/f8537ca92d23b090c21cebe3e9a6ab748c653a79b122dfc8c68efe14cbc06a87?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-02-17T03:48:16.890Z",
+  "path": "official/template_2921/workflow.json"
+}

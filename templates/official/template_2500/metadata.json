@@ -1,0 +1,48 @@
+{
+  "id": 2500,
+  "name": "Create an automated workitem(incident/bug/userstory) in azure devops",
+  "description": "Who is this template for?\n\nThis template can be used by any automator who wants to create a workitem(incident/user story/bugs) in azure devops whenever an alert raised by systems.\n\nHow it works\n\nEach time an alert raised in system( for ex: Elastic raises an alert for missing host or domain).\nWorkflow reads an alert and creates a workitem in azure devops\nWorkflow can be customized to send any required information as possible in azure devops\n\nSetup Instructions\nAzure DevOps Organization and Project:** Make sure you have access to an Azure DevOps organization and a project where the work item will be created.\nPersonal Access Token (PAT):** You need a Personal Access Token with permissions to create work items. You can generate a PAT from the Azure DevOps user settings.\n",
+  "totalViews": 0,
+  "source": "official",
+  "user": {
+    "id": 92099,
+    "name": "Aditya Gaur",
+    "username": "autom8r",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3f8b1a295dcc49fbb24e2a16b056e2f6d9771d189ee8141eca81be5ce7950e3?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Elasticsearch",
+      "type": "n8n-nodes-base.elasticsearch",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-10-26T08:18:46.232Z",
+  "path": "official/template_2500/workflow.json"
+}

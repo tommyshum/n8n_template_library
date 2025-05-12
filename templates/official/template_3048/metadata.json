@@ -1,0 +1,52 @@
+{
+  "id": 3048,
+  "name": "Clone n8n Workflows between Instances using n8n API",
+  "description": "Overview  \nThe n8n Workflow Cloner is a powerful automation tool designed to copy, sync, and migrate workflows across different n8n instances or projects. Whether you're managing multiple environments (development, staging, production) or organizing workflows within a team, this workflow automates the transfer process, ensuring seamless workflow deployment with minimal manual effort.  \n\nBy automatically detecting and copying only the missing workflows, this tool helps maintain consistency, improve collaboration, and streamline workflow migration between projects or instances.  \n\nHow to Use  \n\n1️⃣ Set Up API Credentials  \nConfigure API credentials for both source and destination n8n instances.  \nEnsure the credentials have read and write access to manage workflows.  \n\n2️⃣ Select Source & Destination  \nUpdate the \"GET - Workflows\" node to define the source instance.  \nSet the \"CREATE - Workflow\" node to specify the destination instance.  \n\n3️⃣ Run the Workflow  \nClick \"Test Workflow\" to start the transfer.  \nThe system will fetch all workflows from the source, compare them with the destination, and copy any missing workflows.  \n\n4️⃣ Change the Destination Project (Optional)  \nBy default, workflows are moved to the \"KBB Workflows\" project.  \nModify the \"Filter\" node to transfer workflows to a different project.  \n\n5️⃣ Monitor & Verify  \nThe Loop Over Items node ensures batch processing for multiple workflows.  \nLog outputs provide details on transferred workflows and statuses.  \n\nKey Benefits  \n✅ Automate Workflow Transfers – No more manual exports/imports.  \n✅ Sync Workflows Across Environments – Keep workflows up to date in dev, staging, and production.  \n✅ Effortless Team Collaboration – Share workflows across projects seamlessly.  \n✅ Backup & Migration Ready – Easily move workflows between n8n instances.  \n\nUse Cases  \n🔹 CI/CD for Workflows – Deploy workflows between development and production environments.  \n🔹 Team Workflow Sharing – Share workflows across multiple n8n projects.  \n🔹 Workflow Backup Solution – Store copies of workflows in a dedicated backup project.  \n\nTags  \n🚀 Workflow Migration  \n🚀 n8n Automation  \n🚀 Sync Workflows  \n🚀 Backup & Deployment  \n",
+  "totalViews": 974,
+  "source": "official",
+  "user": {
+    "id": 91693,
+    "name": "Alex Kim",
+    "username": "alexk1919",
+    "bio": "n8n Ambassador & Verified Partner",
+    "verified": true,
+    "links": "[\"https://wot-ai.com\"]",
+    "avatar": "https://gravatar.com/avatar/2b74c7f530e250439f5d752f2623ead4921fbb8aef56343c922b2873ef8a619f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-02-28T21:08:22.032Z",
+  "path": "official/template_3048/workflow.json"
+}

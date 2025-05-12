@@ -1,0 +1,42 @@
+{
+  "id": 1602,
+  "name": "Analyze emails with S1EM",
+  "description": "With workflow, you analyze Email with TheHive/Cortex \n\nhttps://github.com/V1D1AN/S1EM/wiki/Soar-guide\n\n",
+  "totalViews": 6501,
+  "source": "official",
+  "user": {
+    "id": 33836,
+    "name": "v1d1an",
+    "username": "v1d1an",
+    "bio": null,
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/f4911e4d79449d67822bda228ed2553e6082bde8c96f8cfc16afa10b23e54f03?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Analytics"
+  ],
+  "nodes": [
+    {
+      "name": "Cortex",
+      "type": "n8n-nodes-base.cortex",
+      "categories": [
+        "Development",
+        "Analytics"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "TheHive",
+      "type": "n8n-nodes-base.theHive",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2022-04-18T13:41:57.225Z",
+  "path": "official/template_1602/workflow.json"
+}

@@ -1,0 +1,63 @@
+{
+  "id": 3580,
+  "name": "Scrape LinkedIn Job Listings for Hiring Signals & Prospecting with Bright Data",
+  "description": "LinkedIn Hiring Signal Scraper — Jobs & Prospecting Using Bright Data\n\nPurpose:\nDiscover recent job posts from LinkedIn using Bright Data's Dataset API, clean the results, and log them into Google Sheets — for both job hunting and identifying high-intent B2B leads based on hiring activity.\n\nUse Cases:\nJob Seekers** – Spot relevant openings filtered by role, city, and country.  \nSales & Prospecting** – Use job posts as buying signals.  \n  If a company is hiring for a role you support (e.g. marketers, developers, ops) —  \n  it's the perfect time to reach out and offer your services.\n\nTools Needed:\nn8n Nodes:**\n  Form Trigger  \n  HTTP Request  \n  Wait  \n  If  \n  Code  \n  Google Sheets  \n  Sticky Notes (for embedded guidance)\nExternal Services:**\n  Bright Data (Dataset API)  \n  Google Sheets\n\nAPI Keys & Authentication Required:\nBright Data API Key**  \n  → Add in the HTTP Request headers:  \n  Authorization: Bearer YOUR_BRIGHTDATA_API_KEY\n\nGoogle Sheets OAuth2**  \n  → Connect your account in n8n to allow read/write access to the spreadsheet.\n\nGeneral Guidelines:\nUse descriptive names for all nodes.  \nInclude retry logic in polling to avoid infinite loops.  \nFlatten nested fields (like job_poster and base_salary).  \nStrip out HTML tags from job descriptions for clean output.\n\nThings to be Aware Of:\nBright Data snapshots take ~1–3 minutes — use a Wait node and polling.  \nForm filters affect output significantly:  \n  🔍 We recommend filtering by \"Last 7 days\" or \"Past 24 hours\" for fresher data.  \nAvoid hardcoding values in the form — leave optional filters empty if unsure.\n\nPost-Processing & Outreach:\nAfter data lands in Google Sheets, you can use it to:  \n  Personalize cold emails based on job titles, locations, and hiring signals.  \n  Send thoughtful LinkedIn messages (e.g., \"Saw you're hiring a CMO...\")  \n  Prioritize outreach to companies actively growing in your niche.\n\nAdditional Notes:\n📄 Copy the Google Sheet Template:  \n  Click here to make your copy  \n  → Rename for each campaign or client.\n\nForm fields include:  \n  Job Location (city or region)  \n  Keyword (e.g., CMO, Backend Developer)  \n  Country (2-letter code, e.g., US, UK)\n\nThis workflow gives you a competitive edge —  \n📌 For candidates: Be first to apply.  \n📌 For sellers: Be first to pitch.  \nAll based on live hiring signals from LinkedIn.\n\nSTEP-BY-STEP WALKTHROUGH\n\nStep 1: Set up your Google Sheet\nOpen this template\nGo to File → Make a copy\nYou'll use this copy as the destination for the scraped job posts\n\nStep 2: Fill out the Input Form in n8n\nThe form allows you to define what kind of job posts you want to scrape.\n\nFields:\nJob Location** → e.g. New York, Berlin, Remote  \nKeyword** → e.g. CMO, AI Architect, Ecommerce Manager  \nCountry Code (2-letter)** → e.g. US, UK, IL\n\n💡 Pro Tip:  \nFor best results, set the filter inside the workflow to:  \ntime_range = \"Past 24 hours\" or \"Last 7 days\"  \nThis keeps results relevant and fresh.\n\nStep 3: Trigger Bright Data Snapshot\nThe workflow sends a request to Bright Data with your input.\n\nExample API Call Body:\n[\n  {\n    \"location\": \"New York\",\n    \"keyword\": \"Marketing Manager\",\n    \"country\": \"US\",\n    \"time_range\": \"Past 24 hours\",\n    \"job_type\": \"Part-time\",\n    \"experience_level\": \"\",\n    \"remote\": \"\",\n    \"company\": \"\"\n  }\n]\n\nBright Data will start preparing the dataset in the background.\n\nStep 4: Wait for the Snapshot to Complete\nThe workflow includes a Wait Node and Polling Loop that checks every few minutes until the data is ready.\n\nYou don't need to do anything here — it's all automated.\n\nStep 5: Clean Up the Results\nOnce Bright Data responds with the full job post list:\n\n✔️ Nested fields like job_poster and base_salary are flattened  \n✔️ HTML in job descriptions is removed  \n✔️ Final data is formatted for export\n\nStep 6: Export to Google Sheets\nThe final cleaned list is added to your Google Sheet (first tab).\n\nEach row = one job post, with columns like:\n\njob_title, company_name, location, salary_min, apply_link, job_description_plain\n\nStep 7: Use the Data for Outreach or Research\nExample for Job Seekers:\nYou search for:\n\nLocation: Berlin\nKeyword: Product Designer\nCountry: DE\nTime range: Past 7 days\n\nNow you've got a live list of roles — with salary, recruiter info, and apply links.\n→ Use it to apply faster than others.\n\nExample for Prospecting (Sales / SDR):\nYou search for:\n\nLocation: London\nKeyword: Growth Marketing\nCountry: UK\n\nAnd find companies hiring growth marketers.\n→ That's your signal to offer help with media buying, SEO, CRO, or your relevant service.\n\nUse the data to:\nWrite personalized cold emails (\"Saw you're hiring a Growth Marketer…\")\nStart warm LinkedIn outreach\nBuild lead lists of companies actively expanding in your niche\n\nAPI Credentials Required:\nBright Data API Key**  \n  Used in HTTP headers: Authorization: Bearer YOUR_BRIGHTDATA_API_KEY\n\nGoogle Sheets OAuth2**  \n  Allows n8n to read/write to your spreadsheet\n\nAdjustments & Customization Tips:\nModify the HTTP Request body to add more filters (e.g. job_type, remote, company)\nIncrease or reduce polling wait time depending on Bright Data speed\nAdd scoring logic to prioritize listings based on title or location\n\nFinal Notes:\n📄 Google Sheet Template:  \n  Make your copy here\n\n⚙️ Bright Data Dataset API:  \n  Visit BrightData.com\n\n📬 Personalization works best when you act quickly.  \n  Use the freshest data to reach out with context — not generic pitches.\n\nThis workflow turns LinkedIn job posts into sales insights and job leads.\nAll in one click. Fully automated. Ready for your next move.",
+  "totalViews": 3959,
+  "source": "official",
+  "user": {
+    "id": 93770,
+    "name": "Yaron Been",
+    "username": "yaron-nofluff",
+    "bio": "Building AI Agents and Automations | Growth Marketer | Entrepreneur | Book Author & Podcast Host",
+    "verified": true,
+    "links": "[\"nofluff.online\"]",
+    "avatar": "https://gravatar.com/avatar/a4e4dcaa1f76ff5266bbf80e8df86d22efda890474c68f7796e72fd82e3f2375?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-04-16T18:34:57.146Z",
+  "path": "official/template_3580/workflow.json"
+}

@@ -1,0 +1,54 @@
+{
+  "id": 2055,
+  "name": "Send Webflow form submissions to Slack dynamically",
+  "description": "What it does:\nThis automation will dynamically create Slack channels for your Webflow forms and send formatted messages to those channels for every form submission you receive. When a new form is dedected, a message is sent in the #general Slack channel with a hyperlink to the new channel.\n\nThis is useful for:\nWebflow form submissions can only notify a single user email as standard, but by using this workflow you can notify team members of new submissions instead of having to login into Webflow to go download form submissions.\n\nUsage guide\nFull written and video guide\n\nThe main steps are to create credentials for Webflow and Slack, connect them, and start using the workflow. The video guide illustrates a realword usecase using a Webflow template. The video also breaks down each node in detail to explain what it does in case you want to make modifications.",
+  "totalViews": 735,
+  "source": "official",
+  "user": {
+    "id": 91392,
+    "name": "kreonovo",
+    "username": "kreonovo",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/89fd5fed02594631a1e2f8850e1bbda1032300c5fccb978097c5b7ad9a36c336?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-01-17T09:21:31.958Z",
+  "path": "official/template_2055/workflow.json"
+}

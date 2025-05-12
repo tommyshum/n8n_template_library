@@ -1,0 +1,72 @@
+{
+  "id": 2914,
+  "name": "Automatically create YouTube short videos using Elevenlabs, Hailuo AI",
+  "description": "AI-Powered Workflow for Automated Video Creation\nOverview\nThis workflow is designed for individuals and businesses looking to streamline the creation of engaging promotional videos. Whether you're marketing a product or developing a personal brand, this AI-driven system automates the entire video production process, from script generation to final video upload.\n\nKey Features\n🎙️ AI-Generated Voiceovers with ElevenLabs\nUsing ElevenLabs, this workflow converts text-based scripts into natural-sounding voiceovers, making your videos more engaging and professional.\n\n✍️ Enhanced Prompt Engineering with Together AI\nTo ensure high-quality content, Together AI refines and optimizes prompts, helping generate more compelling narratives and animations.\n\n🎥 Image-to-Video Conversion with Hailuo AI\nWith Hailuo AI, static images are transformed into dynamic animated videos, allowing for visually appealing content without the need for manual editing.\n\n🧠 Intelligent Processing with OpenAI\nVarious inference tasks, such as text generation and content refinement, are handled by OpenAI, ensuring smooth and efficient video production.\n\nAutomated Video Upload & Sharing\n📊 Google Sheets Integration\nOnce the video is created, its downloadable URL is automatically uploaded to a Google Sheets document, making it easy to access and manage content. Add video title, video url, video status columns for tracking and archiving.\n\n📢 Multi-Platform Distribution\nUsers can download and upload the generated videos to major social media platforms, including Facebook, YouTube, Instagram, and TikTok, maximizing reach and engagement.\n\nWho Can Benefit?\nThis workflow is ideal for:\n\nMarketers looking to create fast, automated promotional videos\n\nContent creators who want to streamline video production\n\nBusinesses seeking an efficient way to generate engaging product showcases\n\nBy leveraging the power of AI, this workflow simplifies video creation, saving time while delivering high-quality content. 🚀",
+  "totalViews": 1751,
+  "source": "official",
+  "user": {
+    "id": 92743,
+    "name": "Nguyen Quoc Hai",
+    "username": "haismartlife",
+    "bio": "I want to share business management tools to automate everything, giving us more time to focus on higher-value tasks.",
+    "verified": false,
+    "links": "[\"https://haismartlife.com/\"]",
+    "avatar": "https://gravatar.com/avatar/22790ac50d68f05a248f604b9c41c263f76351e394df27deb65ae8c595e3a429?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Cloud Storage",
+      "type": "n8n-nodes-base.googleCloudStorage",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-02-16T09:27:08.840Z",
+  "path": "official/template_2914/workflow.json"
+}

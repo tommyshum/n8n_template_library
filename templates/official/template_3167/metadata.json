@@ -1,0 +1,50 @@
+{
+  "id": 3167,
+  "name": "Extract Internal Links from a Webpage",
+  "description": "Who Is This For?\nWeb developers\nSEO specialists\nDigital marketers\n\nWhat Problem Is This Workflow Solving?\nAutomates the extraction of internal links from a webpage\nEliminates the manual and error-prone process of collecting links\nFacilitates analysis of website structure and optimization\n\nWhat This Workflow Does\nUses HTTP request node to fetch HTML content from a specified webpage\nParses the HTML to identify and extract internal links\nCompiles a list of URLs directing to pages within the same domain\n\nSetup\nConfigure the Set Base URL node:\n   Set the url field to the URL you want to analyze.\n\nHow to Customize This Workflow to Your Needs\nChange the target URL in the Set Base URL node to analyze different webpages.\nAdd nodes to:\n  Filter or categorize the extracted links\n  Export the list to a database or CSV\n  Send links via email or integrate with other tools\n\nThis workflow can be used as a base for workflows to manage the process of extracting internal links, aiding in website optimization and SEO efforts.",
+  "totalViews": 4441,
+  "source": "official",
+  "user": {
+    "id": 93147,
+    "name": "Audun",
+    "username": "xqus",
+    "bio": "I’m an automagician who loves turning complex systems into simple, powerful workflows.\nHere to help you automate smarter and work easier.",
+    "verified": true,
+    "links": "[\"https://xqus.com/\"]",
+    "avatar": "https://gravatar.com/avatar/273c8f67ecb3e3ea711c36a448f1fd547ca9ad698ae800bebd69be68317f63d1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-03-14T11:28:59.511Z",
+  "path": "official/template_3167/workflow.json"
+}

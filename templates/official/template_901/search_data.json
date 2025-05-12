@@ -1,0 +1,66 @@
+{
+  "id": 901,
+  "name": "Add contacts to SendGrid automatically",
+  "totalViews": 477,
+  "purchaseUrl": null,
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "description": "This workflow allows you to create, update and get a contact using the SendGrid node.\n\n\n\nBased on your use-case, you may want to add contacts to SendGrid from a different email service or from your CRM.\n\nFetch the information of the contact using the node of that service. Connect the node with the SendGrid node and reference the value from the node.",
+  "createdAt": "2021-01-22T05:16:36.592Z",
+  "nodes": [
+    {
+      "id": 439,
+      "icon": "file:sendGrid.svg",
+      "name": "n8n-nodes-base.sendGrid",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.sendgrid/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/sendGrid/"
+              }
+            ]
+          },
+          "categories": [
+            "Marketing",
+            "Communication"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "SendGrid"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiB2aWV3Qm94PSIwIDAgNjYgNjUiPjx1c2UgeGxpbms6aHJlZj0iI2EiIHg9Ii41IiB5PSIuNSIvPjxzeW1ib2wgaWQ9ImEiIG92ZXJmbG93PSJ2aXNpYmxlIj48ZyBmaWxsLXJ1bGU9Im5vbnplcm8iIHN0cm9rZT0ibm9uZSI+PHBhdGggZD0iTTAgMjEuMjVoMjEuMzc0djIxLjM3NEgweiIvPjxwYXRoIGZpbGw9IiM5OWUxZjQiIGQ9Ik0wIDIxLjI1aDIxLjM3NHYyMS4zNzRIMHoiLz48cGF0aCBkPSJNMjEuMzc0IDQyLjYyNmgyMS4yNXYyMS4yNWgtMjEuMjV6Ii8+PHBhdGggZmlsbD0iIzk5ZTFmNCIgZD0iTTIxLjM3NCA0Mi42MjZoMjEuMjV2MjEuMjVoLTIxLjI1eiIvPjxwYXRoIGZpbGw9IiMxYTgyZTIiIGQ9Ik0wIDYzLjg3N2gyMS4zNzRWNjRIMHptMC0yMS4yNWgyMS4zNzR2MjEuMjVIMHoiLz48cGF0aCBmaWxsPSIjMDBiM2UzIiBkPSJNMjEuMzc0IDBoMjEuMjV2MjEuMjVoLTIxLjI1em0yMS4yNTIgMjEuMzc0SDY0djIxLjI1SDQyLjYyNnoiLz48cGF0aCBmaWxsPSIjMDA5ZGQ5IiBkPSJNMjEuMzc0IDQyLjYyNmgyMS4yNVYyMS4yNWgtMjEuMjV6Ii8+PHBhdGggZmlsbD0iIzFhODJlMiIgZD0iTTQyLjYyNiAwSDY0djIxLjI1SDQyLjYyNnptMCAyMS4yNUg2NHYuMTIzSDQyLjYyNnoiLz48L2c+PC9zeW1ib2w+PC9zdmc+"
+      },
+      "displayName": "SendGrid",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 6,
+          "name": "Communication"
+        },
+        {
+          "id": 27,
+          "name": "Marketing"
+        }
+      ]
+    }
+  ]
+}

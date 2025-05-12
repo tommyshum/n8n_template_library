@@ -1,0 +1,38 @@
+{
+  "id": 1440,
+  "name": "Handle verification for Twitter webhook",
+  "description": "This workflow handles the incoming call from Twitter and sends the required response for verification.\n\nOn registering the webhook with the Twitter Account Activity API, Twitter expects a signature in response. Twitter also randomly ping the webhook to ensure it is active and secure.\n\n\n\nWebhook node: Use the displayed URL to register with the Account Activity API.\n\nCrypto node: In the Secret field, enter your API Key Secret from Twitter.\n\nSet node: This node generates the response expected by the Twitter API.\n\n\nLearn more about connecting n8n with Twitter in the Getting Started with Twitter Webhook article.",
+  "totalViews": 674,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Crypto",
+      "type": "n8n-nodes-base.crypto",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2022-02-06T21:16:31.845Z",
+  "path": "official/template_1440/workflow.json"
+}

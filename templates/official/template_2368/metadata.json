@@ -1,0 +1,38 @@
+{
+  "id": 2368,
+  "name": "Preconfigured nodes for Systeme.io API requests",
+  "description": "Using the Systeme API can be challenging due to its pagination settings and low rate limit. This requires a bit more knowledge about API requests than a beginner might have.\n\nThis template provides preconfigured HTTP Request nodes to help you work more efficiently. Pagination settings, item limits, and rate limits are all configured for you, making it easier to get started.\n\nHow to configure Systeme.io credentials\nThe Systeme API uses the Header Auth method. So create a Header Auth credential in your n8n with the name \"X-API-Key\".\n\n\n.\n\nCheck out my other templates\n👉 https://n8n.io/creators/solomon/",
+  "totalViews": 944,
+  "source": "official",
+  "user": {
+    "id": 91663,
+    "name": "Solomon",
+    "username": "solomon",
+    "bio": "Freelance consultant from Brazil, specializing in automations and data analysis. I work with select clients, addressing their toughest projects.\n\nFor business inquiries, email me at automations.solomon@gmail.com or message me on Telegram for a faster response.",
+    "verified": true,
+    "links": "[\"https://t.me/salomaoguilherme\"]",
+    "avatar": "https://gravatar.com/avatar/79aa147f090807fe0f618fb47a1de932669e385bb0c84bf3a7f891ae7d174256?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-07-26T14:32:36.750Z",
+  "path": "official/template_2368/workflow.json"
+}

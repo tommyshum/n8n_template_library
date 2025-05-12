@@ -1,0 +1,169 @@
+{
+  "id": 2846,
+  "name": "AI Voice Chatbot with ElevenLabs & OpenAI for Customer Service and Restaurants",
+  "description": "The \"Voice RAG Chatbot with ElevenLabs and OpenAI\" workflow in n8n is designed to create an interactive voice-based chatbot system that leverages both text and voice inputs for providing information. Ideal for shops, commercial activities and restaurants\n\nHow it works:\n\nHere's how it operates:\n\nWebhook Activation: The process begins when a user interacts with the voice agent set up on ElevenLabs, triggering a webhook in n8n. This webhook sends a question from the user to the AI Agent node.\nAI Agent Processing: Upon receiving the query, the AI Agent node processes the input using predefined prompts and tools. It extracts relevant information from the knowledge base stored within the Qdrant vector database.\nKnowledge Base Retrieval: The Vector Store Tool node interfaces with the Qdrant Vector Store to retrieve pertinent documents or data segments matching the user’s query.\nText Generation: Using the retrieved information, the OpenAI Chat Model generates a coherent response tailored to the user’s question.\nResponse Delivery: The generated response is sent back through another webhook to ElevenLabs, where it is converted into speech and delivered audibly to the user.\nContinuous Interaction: For ongoing conversations, the Window Buffer Memory ensures context retention by maintaining a history of interactions, enhancing the conversational flow.\n\nSet up steps:\n\nTo configure this workflow effectively, follow these detailed setup instructions:\n\nElevenLabs Agent Creation:\n   Begin by creating an agent on ElevenLabs (e.g., named 'test_n8n').\n   Customize the first message and define the system prompt specific to your use case, such as portraying a character like a waiter at \"Pizzeria da Michele\".\n   Add a Webhook tool labeled 'test_chatbot_elevenlabs' configured to receive questions via POST requests.\n\nQdrant Collection Initialization:\n   Utilize the HTTP Request nodes ('Create collection' and 'Refresh collection') to initialize and clear existing collections in Qdrant. Ensure you update placeholders QDRANTURL and COLLECTION accordingly.\n\nDocument Vectorization:\n   Use Google Drive integration to fetch documents from a designated folder. These documents are then downloaded and processed for embedding.\n   Employ the Embeddings OpenAI node to generate embeddings for the downloaded files before storing them into Qdrant via the Qdrant Vector Store node.\n\nAI Agent Configuration:\n   Define the system prompt for the AI Agent node which guides its behavior and responses based on the nature of queries expected (e.g., product details, troubleshooting tips).\n   Link necessary models and tools including OpenAI language models and memory buffers to enhance interaction quality.\n\nTesting Workflow:\n   Execute test runs of the entire workflow by clicking 'Test workflow' in n8n alongside initiating tests on the ElevenLabs side to confirm all components interact seamlessly.\n   Monitor logs and outputs closely during testing phases to ensure accurate data flow between systems.\n\nIntegration with Website:\n   Finally, integrate the chatbot widget onto your business website replacing placeholder AGENT_ID with the actual identifier created earlier on ElevenLabs.\n\nBy adhering to these comprehensive guidelines, users can successfully deploy a sophisticated voice-driven chatbot capable of delivering precise answers utilizing advanced retrieval-augmented generation techniques powered by OpenAI and ElevenLabs technologies.",
+  "totalViews": 40304,
+  "source": "official",
+  "user": {
+    "id": 92207,
+    "name": "Davide",
+    "username": "n3witalia",
+    "bio": "Full-stack Web Developer based in Italy specialising in Marketing & AI-powered automations. For business enquiries, send me an email at info@n3w.it or add me on Linkedin.com/in/davideboizza",
+    "verified": true,
+    "links": "[\"https://n3w.it\"]",
+    "avatar": "https://gravatar.com/avatar/d41b8a0aa81139243509c58870f5b4be292824a507ab57d10ed066d8628ed8da?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Token Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterTokenSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    },
+    {
+      "name": "Qdrant Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreQdrant",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Vector Store Question Answer Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolVectorStore",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 10,
+  "createdAt": "2025-02-04T13:13:55.888Z",
+  "path": "official/template_2846/workflow.json"
+}

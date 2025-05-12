@@ -1,0 +1,38 @@
+{
+  "id": 2494,
+  "name": "Generate SEO Keyword Search Volume Data using Google API",
+  "description": "Use Case\nGenerate accurate search volume data for SEO keyword research:\nYou have a list of potential keywords to target for your website SEO but don't know their actual search volume\nYou need historical data to identify seasonal trends in keyword popularity\nYou want to assess keyword difficulty to prioritize your content strategy\nYou need data-driven insights for planning your SEO campaigns\n\nWhat this Workflow Does\nThe workflow connects to Google's Keyword Planner API to retrieve keyword metrics for your SEO research:\n\nFetches monthly search volume for each keyword\nProvides historical trends data for the past 12 months\nCalculates keyword difficulty scores\nDelivers competition metrics from Google Ads\n\nSetup\nFill the Set 20 Keywords with up to 20 Keywords of your choosing in an array e.g. [\"keyword 1\", \"keyword 2\",...]\nCreate a Google Ads API account and add credentials to Get Search Data node\nReplace the Connect to your own database with your own database for the output\n\nHow to Adjust it to Your Needs\nChange the Set 20 Keywords node input to a source of your choosing e.g. Airtable database with 20 keywords\nConnect to output source of your choosing \n\n\nMore templates and n8n workflows &gt;&gt;&gt; @simonscrapes",
+  "totalViews": 14918,
+  "source": "official",
+  "user": {
+    "id": 92048,
+    "name": "simonscrapes",
+    "username": "simonscrapes",
+    "bio": "Automate all your work with AI & Automation @simonscrapes on YouTube. Automation expert with 6 years of experience helping organisations automate processes. Built over 100+ N8N workflows.",
+    "verified": true,
+    "links": "[\"https://www.youtube.com/@simonscrapes\"]",
+    "avatar": "https://gravatar.com/avatar/f8b1fce5ccc8cb76e1843532809adf2ed863ddd8d2eb8a30c48ec938b19b4833?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-10-24T09:40:54.747Z",
+  "path": "official/template_2494/workflow.json"
+}

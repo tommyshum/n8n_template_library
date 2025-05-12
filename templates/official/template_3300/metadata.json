@@ -1,0 +1,48 @@
+{
+  "id": 3300,
+  "name": "Automatic Event Creation in Google Calendar from Google Sheets Data",
+  "description": "This workflow streamlines the process of creating events in Google Calendar using event data stored in a Google Sheet.\n\nThe process begins by retrieving the latest event entry from Google Sheets, ensuring only the most recent event details are processed. Once fetched, a Function node formats the event date to align with Google Calendar's required format—ensuring consistency and preventing date-related errors.\n\nAfter formatting, the structured event details are sent to Google Calendar, where an event is created with essential information such as the event title (summary), description, date, and location. Additionally, the workflow allows customization by setting the event's status as either \"Busy\" or \"Available,\" helping attendees manage their schedules. A background color can also be assigned for better visibility and categorization.\n\nBy automating this process, you eliminate the need for manual event creation, ensuring seamless synchronization between Google Sheets and Google Calendar. This improves efficiency, accuracy, and productivity, making event management effortless.\nPrerequisites : \n\nBefore setting up this workflow, ensure the following:\n\nYou have an active Google account connected to Google Sheets and Google Calendar.\nThe Google Sheets API and Google Calendar API are enabled in the Google Cloud Console.\nn8n has the necessary OAuth2 authentication configured for both Google Sheets and Google Calendar.\nYour Google Sheet has columns for event details (event name, description, location, date, etc.).\n\n|Event Name|Event Description|Event Start Date|Location|\n|-|-|-|-|\n|Birthday|Celebration|27-Mar-1989|City|\n|Anniversary|Celebration|10-Jun-2015|City|\n\nCustomization Options : \n\nModify the Google Sheets trigger to track updates in specific columns.\nAdjust the data formatting function to support:\n\tDifferent date/time formats\n\tTime zone settings\n\tCustom event colors\n\tAttendee invitations\n\nSteps :\nStep 1: Add the Google Sheets Trigger Node\n\nClick \"Add Node\" and search for Google Sheets.\nSelect \"Google Sheets Trigger\" and add it to the workflow.\nAuthenticate using your Google account (select an existing account if already authenticated).\nSelect the Spreadsheet and Sheet Name to monitor.\nSet the Trigger Event to \"Row Added\".\nClick \"Execute Node\" to test the connection.\nClick \"Save\".\n\nStep 2: Process Data with Function Node\n\nClick \"Add Node\" and search for Function.\nAdd the Function Node and connect it to the Google Sheets Trigger Node.\nIn the function editor, write a script to extract and format data.\nEnsure the required fields (title, location, date) are properly structured.\nClick \"Execute Node\" to verify the formatted output.\nClick \"Save\".\n\nStep 3: Add the Google Calendar Node\n\nClick \"Add Node\" and search for Google Calendar.\nSelect \"Create Event\" operation.\nAuthenticate with Google Calendar.\nMap the required fields\n\tTitle\n\tDescription\n\tLocation\n\tStart time\nOptional: Set Event Status and Event Colors.\nClick \"Execute Node\" to test event creation.\nClick \"Save\".\n\nStep 4: Final Steps\n\nConnect all nodes in sequence (Google Sheets Trigger → Function Node → Google Calendar Node).\nTest the workflow by adding a sample row in Google Sheets.\nVerify that the event is created in Google Calendar with the correct title, description, date, and location.\n\nAbout WeblineIndia\n\nThis workflow was built by the AI development team at WeblineIndia. We help businesses automate processes, reduce repetitive work, and scale faster. Need something custom? You can hire AI developers to build workflows tailored to your needs.",
+  "totalViews": 2453,
+  "source": "official",
+  "user": {
+    "id": 92407,
+    "name": "WeblineIndia",
+    "username": "weblineindia",
+    "bio": "A Leading Software Engineering, Consulting & Outsourcing Services Company in USA & India serving Clients Globally since 1999.",
+    "verified": true,
+    "links": "[\"https://www.weblineindia.com/\"]",
+    "avatar": "https://gravatar.com/avatar/a229d43aefca4588581583c58bb37b4773aebbdf4c1fef86a08bb1d38eae91fa?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Calendar",
+      "type": "n8n-nodes-base.googleCalendar",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-03-24T05:50:32.747Z",
+  "path": "official/template_3300/workflow.json"
+}

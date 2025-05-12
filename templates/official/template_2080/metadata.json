@@ -1,0 +1,53 @@
+{
+  "id": 2080,
+  "name": "Email Notifications to Telegram using Temporary HTML URL Hosting via GitHub Gist",
+  "description": "Overview\nThis workflow automates the process of notifying users about new emails via Telegram and temporarily hosting the email content on a secret HTML page. It is ideal for users who need immediate notifications and a secure, temporary web view of their email content.\n\nUse Cases\nImmediate notification of new emails in Telegram with the ability to preview the email content in a secure, temporary HTML format.\nAutomation for users who need to keep track of their emails without constantly checking their email client.\nUseful for teams or individuals who require instant updates on critical emails and prefer a quick preview through a web interface.\n\nMy Personal Use Case: Secure Subscription Sharing\nFrom time to time, I find myself wanting to share my paid subscriptions with friends, but giving out OTP codes manually or sharing my email isn't a good idea due to security concerns. I attempted to use the IMAP node to integrate with Telegram secret channel for this purpose but encountered numerous problems, such as difficulties in scraping content from emails. Additionally, the Telegram API sometimes rejects certain special characters found within email contents. After facing these challenges, I discovered that rendering emails as HTML pages and sharing them directly is the most effective solution. This approach bypasses the issues with character limitations and content scraping, providing a seamless way to share subscription benefits securely.\n\nServices/APIs Used\n\n| Service/API          | Node Type               | Description                                          |\n|----------------------|-------------------------|------------------------------------------------------|\n| IMAP Email Server    | Email Trigger (IMAP)    | Triggers the workflow on receiving a new email.      |\n| Telegram API         | Telegram                | Sends notifications and manages messages in Telegram.|\n| GitHub Gist API      | HTTP Request (Github Gist) | Temporarily hosts email content on GitHub Gist. |\n| GitHub Gist API (Deletion) | HTTP Request (Github Gist ‌) | Deletes the temporary GitHub Gist after a specified time. |\n| Wait                 | Wait                    | Delays the workflow for a specified period.          |\n\nConfiguration Steps\nEmail Trigger (IMAP): Configure your IMAP email credentials to enable the workflow to check for new emails.\nTelegram Nodes: Insert your Telegram bot's API credentials and your chat ID in both Telegram nodes to send and delete messages.\nGithub Gist Nodes: Provide your GitHub API credentials to create and delete Gists. Ensure the GitHub token has the necessary permissions to create and delete Gists.\nWait Node: Adjust the wait time according to your preference for how long the email content should be accessible via the HTML page.\n\nScreenshot\n\nAdditional Notes\nEnsure all credentials are securely stored and have the minimum necessary permissions for the workflow to function.\nTest the workflow with non-sensitive emails to ensure it operates as expected before using it with critical email accounts.\nConsider the privacy and security implications of temporarily hosting email content on GitHub Gist.\n\nFor any questions or issues, refer to the respective API documentation for each service used or consult the n8n community for support.",
+  "totalViews": 1845,
+  "source": "official",
+  "user": {
+    "id": 91304,
+    "name": "Nskha",
+    "username": "nskha",
+    "bio": "Welcome to Nskha! We're all about making real changes in the no-code tech field, just like with N8N 😉. Check out our amazing collection of free public templates and join us in building a collaborative database of no-code idea projects. Let's revolutionize the way we create without code!",
+    "verified": true,
+    "links": "[\"https://nskha.com\"]",
+    "avatar": "https://gravatar.com/avatar/6f99957ae9e5a66cf0bb95f4584cf321b0644a0ceea6a633bc968b6ec55e8410?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-02-03T14:53:18.250Z",
+  "path": "official/template_2080/workflow.json"
+}

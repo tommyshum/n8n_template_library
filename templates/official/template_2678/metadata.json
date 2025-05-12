@@ -1,0 +1,58 @@
+{
+  "id": 2678,
+  "name": "Export all Strava Activity Data to Google Sheets",
+  "description": "What does this template help with?\nSave the data of activities recorded and stored in Strava to a Google Sheets document.\n\nHow it works:\nWe have a Google Sheets spreadsheet where each row represents a Strava activity with the date, reference, distance, time, and elevation.\nPeriodically, the workflow checks the latest activities in our Strava account to see if any are missing from the spreadsheet and adds them to the list.\nAll fields must be properly formatted according to how they are stored in the Google Sheets spreadsheet.\n\nSet up instructions\nComplete the Set up credentials step when you first open the workflow. You'll need a Google Sheets and Strava account.\nIn the 'activities' node, you must enter the name of the file and the sheet where you want to save the imported data.\nIn the 'Strava' node, you must select the corresponding credential.\nYou can adjust the format of dates, times, and distances according to your needs in the 'strava_last' node.\n\nThe rest of the information is available at  sherblog.es\n\nTemplate was created in n8n v1.72.1",
+  "totalViews": 890,
+  "source": "official",
+  "user": {
+    "id": 92331,
+    "name": "Sherlockes",
+    "username": "sherlockes",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://sherblog.es\"]",
+    "avatar": "https://gravatar.com/avatar/feb9866e71611dc78851ffebfa0ca03c60df5c9f6b718a2e9e735d69a5a8f8c2?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Strava",
+      "type": "n8n-nodes-base.strava",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-12-28T22:23:06.727Z",
+  "path": "official/template_2678/workflow.json"
+}

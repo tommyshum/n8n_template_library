@@ -1,0 +1,69 @@
+{
+  "id": 2661,
+  "name": "Parse PDF with LlamaParse and save to Airtable",
+  "description": "Video Guide\n\nI prepared a comprehensive guide detailing how to automate the parsing of invoices using n8n and LlamaParse, seamlessly capturing and storing vital billing information.\n\n\n\nYoutube Link\n\nWho is this for?\nThis workflow is ideal for finance teams, accountants, and business operations managers who need to streamline invoice processing. It is particularly helpful for organizations seeking to reduce manual entry errors and improve efficiency in managing billing information.\n\nWhat problem does this workflow solve?\nManually processing invoices can be time-consuming and error-prone. This automation eliminates the need for manual data entry by capturing invoice details directly from uploaded documents and storing structured data efficiently. This enhances productivity and accuracy across financial operations.\n\nWhat this workflow does\nThe workflow leverages n8n and LlamaParse to automatically detect new invoices in a designated Google Drive folder, parse essential billing details, and store the extracted data in a structured format. The key functionalities include:\nReal-time detection of new invoices via Google Drive triggers.\nAutomated HTTP requests to initiate parsing through Lama Cloud.\nStructured storage of invoice details and line items in a database for future reference.\n\nGoogle Drive Integration: Monitors a specific folder in Google Drive for new invoice uploads.\nParsing with LlamaParse: Automatically sends invoices for parsing and processes results through webhooks.\nData Storage in Airtable: Creates records for invoices and their associated line items, allowing for detailed tracking.\n\nSetup\n\nN8N Workflow\nGoogle Drive Trigger: \n   Set up a trigger to detect new files in a specified folder dedicated to invoices.\n\nFile Upload to LlamaParse: \n   Create an HTTP request that sends the invoice file to LlamaParse for parsing, including relevant header settings and webhook URL.\n\nWebhook Processing: \n   Establish a webhook node to handle parsed results from LlamaParse, extracting needed invoice details effectively.\n\nInvoice Record Creation: \n   Create initial records for invoices in your database using the parsed details received from the webhook.\n\nLine Item Processing: \n   Transform string data into structured line item arrays and create individual records for each item linked to the main invoice.",
+  "totalViews": 4304,
+  "source": "official",
+  "user": {
+    "id": 92018,
+    "name": "Mark Shcherbakov",
+    "username": "lowcodingdev",
+    "bio": "I am a business analyst with a development background, dedicated to helping small businesses and entrepreneurs leverage cloud services for increased efficiency. My expertise lies in automating manual workflows, integrating data from multiple cloud service providers, creating insightful dashboards, and building custom CRM systems.\n\nhttps://www.linkedin.com/in/marklowcoding/",
+    "verified": true,
+    "links": "[\"https://www.skool.com/5minai-pro\"]",
+    "avatar": "https://gravatar.com/avatar/3055cd5035cfb1030d9d1923b60646d1a156927eead957956bea71f88c5186cd?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2024-12-19T21:56:14.136Z",
+  "path": "official/template_2661/workflow.json"
+}

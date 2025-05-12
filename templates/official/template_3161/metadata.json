@@ -1,0 +1,52 @@
+{
+  "id": 3161,
+  "name": "Generate Content From Google Sheets to X with GPT-4",
+  "description": "AI-Powered Social Media Content Automation\n\n🧑‍💻 Who is this for?\nThis workflow is perfect for social media managers, content creators, and digital marketers who want to save time by automating social media post generation and publishing across platforms.\n\n📌 What problem does this solve?\nManually generating and scheduling social media content is time-consuming and repetitive. This workflow automates content creation and publishing, allowing you to:\n\nStreamline content generation using AI\nEnsure consistent posting across social media platforms\nTrack published posts in Google Sheets\n\n🔍 What this workflow does:\nFetches content ideas from a Google Sheet.\nGenerates social media posts using OpenAI's GPT-4.\nChecks the target platform (e.g., Twitter/X, LinkedIn).\nPosts the content to the chosen social media platform.\nUpdates the Google Sheet with the generated post and timestamp.\n\n🛠️ Setup Guide:\nConnect Google Sheets: Ensure you have a Google Sheet with content ideas (columns: Idea, Status, Generated Post).\nSet up OpenAI API Key: Provide your OpenAI API key for GPT-4.\nConfigure Social Media Accounts: Link your Twitter/X or other social media accounts using n8n's built-in nodes.\nTest the Workflow: Run the workflow to verify automation.\nSchedule Automation: Set a recurring trigger (e.g., daily) to automate posting.\n\n🔧 Customization Tips:\nAdjust prompt inputs in the OpenAI node to tailor the tone and style.\nAdd more platforms (e.g., Instagram, Facebook) by duplicating the social media node.\nInclude analytics tracking for engagement insights.\n\n📊 Example Use Cases:\nAutomatically generate and share daily motivational quotes.\nPost product updates and announcements.\nShare curated industry news and insights.\n\nThis workflow saves time and keeps your social media presence active and engaging effortlessly. 🚀\n",
+  "totalViews": 5633,
+  "source": "official",
+  "user": {
+    "id": 93210,
+    "name": "Subham SIngh",
+    "username": "imsks",
+    "bio": "",
+    "verified": false,
+    "links": "[\"https://x.com/imsubhamsingh\"]",
+    "avatar": "https://gravatar.com/avatar/9aaac9269841e8c1b56732578485451f6e2d78bfa0a23637fc021492d1924b8d?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Marketing",
+    "Utility"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "X (Formerly Twitter)",
+      "type": "n8n-nodes-base.twitter",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "OpenAI",
+      "type": "n8n-nodes-base.openAi",
+      "categories": [
+        "Utility"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-03-14T08:03:42.663Z",
+  "path": "official/template_3161/workflow.json"
+}

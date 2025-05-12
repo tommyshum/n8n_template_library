@@ -1,0 +1,80 @@
+{
+  "id": 3719,
+  "name": "Extract & Classify Invoices & Receipts with Gmail, OpenAI and Google Drive",
+  "description": "Who is it for?\nAnyone who wants to automatically aggregate their invoices or receipts. Main beneficiaries: small business owners and freelancers.\n\nHow it works\nCreates a folder in Google Drive for uploading invoices and receipts. Responds (Webhook response) with URL to the created folder.\nGets all emails with attachments from a Gmail mailbox.\n(Optional) Filters emails, e.g. exclude emails sent to specific address.\nFilters only PDF attachments.\nClassifies all PDF attachment contents with an AI model (is it a receipt or an invoice?).\nUploads receipts and invoices to the created Google Drive folder and optionally sends an email with the attachments to, e.g., your accountant.\n\nPre-conditions/Requirements\nGmail and Google Drive accounts\nA Google Cloud OAuth 2.0 Client ID or a service account with Google Drive and Gmail APIs enabled\nOpenAI API account and API key\n\nSet up steps\nProvide credentials for the nodes: Gmail, Google Drive, OpenAI.\nConfigure parameters in the \"Configure\" node. Most importantly:\n    \"sendInvoicesTo\" for the email address where invoices/receipts should be sent.\nIt uses a Webhook node trigger. It expects a body with a schema such as:\n{\n  \"name\": \"getInvoicesAndReceiptsFromEmails\",\n  \"description\": \"Finds and uploads to Google Drive all receipts and invoices from emails within a specified date range.\",\n  \"parameters\": {\n    \"type\": \"object\",\n    \"properties\": {\n      \"startDate\": {\n        \"type\": \"string\",\n        \"format\": \"date-time\",\n        \"description\": \"The start date of the range to search for emails. Must be in ISO 8601 format.\"\n      },\n      \"endDate\": {\n        \"type\": \"string\",\n        \"format\": \"date-time\",\n        \"description\": \"The end date of the range to search for emails. Must be in ISO 8601 format.\"\n      },\n      \"sendEmail\": {\n        \"type\": \"boolean\",\n        \"description\": \"Indicates whether to send an email with all receipts and invoices after processing. Must be true or false.\"\n      }\n    },\n    \"required\": [\n      \"startDate\",\n      \"endDate\"\n    ]\n  }\n}\nExample body:\n{\n  \"startDate\": \"2025-03-01T00:00:00Z\",\n  \"endDate\": \"2025-04-01T00:00:00Z\",\n  \"sendEmail\": true\n}\nHow to use with AI chat\n\nYou can trigger the workflow with an AI chat that supports tool use, such as BrowseWiz. For setup instructions, read the blog post.",
+  "totalViews": 2964,
+  "source": "official",
+  "user": {
+    "id": 94080,
+    "name": "Tom",
+    "username": "devpeer-tom",
+    "bio": "Software Engineer and Architect for well over 10 years. Chromium project expert. Full Stack beast. Workflow automation enthusiast. Founder of BrowseWiz: in-browser AI assistant and AI agent platform with human in-the-loop.",
+    "verified": false,
+    "links": "[\"https://browsewiz.com\"]",
+    "avatar": "https://gravatar.com/avatar/aa119968c572515cc07308d40e67bb89cdaccfa68979ca189789a5103997a709?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Communication",
+    "HITL",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-04-26T15:03:19.387Z",
+  "path": "official/template_3719/workflow.json"
+}

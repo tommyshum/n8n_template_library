@@ -1,0 +1,64 @@
+{
+  "id": 3150,
+  "name": "Extract And Decode Google News RSS URLs to Clean Article Links",
+  "description": "The workflow performs tasks that would normally require human intervention on Google News links, transforming the RSS feeds into data that can be used by an automated system like n8n, thus creating a solid foundation for further applications\n\nWho is this for?\nThis workflow is ideal for developers, journalists, and content aggregators who need to extract and clean Google News URLs from its RSS feed. \n\nWhat problem does this workflow solve?\nGoogle News RSS provides encoded URLs that contain additional tracking parameters. This workflow decodes those URLs and provides clean, direct links to news articles, making them easier to process, share, and analyze.\n\nWhat this workflow does\nFetch Google News RSS – Retrieves news articles from Google News based on predefined parameters (language, country).\nLimit results – Reduces the number of requests to avoid excessive API usage.\nExtract encoded content – Retrieves the encoded news URLs.\nDecode the URLs – Uses a decoding mechanism to extract clean links.\nRemove unwanted characters – Cleans up the decoded URLs to ensure they are properly formatted.\nAggregate results – Outputs a final list of clean, readable URLs.\n\nSetup\nModify RSS parameters (hl, gl) to match your target region.\nAdjust the result limit to control the number of processed articles.\n\nHow to customize this workflow\nTo customize this workflow, you can add an HTTP Request node to retrieve the article's text, an HTML Extract node to process the text, an AI node to generate new content, and a WordPress node to publish it\nAnother option is to use an AI Agent node to classify articles by category based on the title or through HTML Extract. You can then save the classified articles using a Google Sheets node, organizing them by category and creating an high quality editorial plan\n\n\nThis workflow efficiently processes Google News RSS, removes unnecessary encoding, and delivers clean, shareable URLs. 🚀",
+  "totalViews": 5642,
+  "source": "official",
+  "user": {
+    "id": 93170,
+    "name": "Miko",
+    "username": "mdmiko",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/e22864caa73e0ad8310af5711339ef1459ec4ef8bb305c915e6c143ebbeb27b6?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-03-13T12:13:17.476Z",
+  "path": "official/template_3150/workflow.json"
+}

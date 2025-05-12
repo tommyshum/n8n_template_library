@@ -1,0 +1,47 @@
+{
+  "id": 2385,
+  "name": "Save your workflows into a Gitlab repository",
+  "description": "This template is inspired by Save your workflows into a GitHub repository by hikerspath and Back Up Your n8n Workflows To Github by jon-n8n.\n\nBasic\n\nRetrieve all workflows from an n8n instance and save it on a gitlab project. If the workflow exist, il will only save the changes.\n\nFlow\n\nWhat the workflow does :\n\nSets custom parameters\nGets workflows\nIterates through each workflow one by one\n\tGet the file from Gitlab if exists\n\tCompare the files as objects (not as strings)\n\tReturn a status on the workflow\nCreate, Edit or ignore the file depending on the status\nReturn a list of status for each workflow\n\nConfiguration\n\nSelect a credential in each Gitlab nodes.\n\nEdit the data in node \"Globals\" :\nrepo.owner : slug of the user or team owning the repo\nrepo.name : slug of the repository\nrepo.branch : branch to commit on\nrepo.path : from root of the repository. Should end with /\n\nComments\n\nError on gitlab nodes will not stop the run but will list the current workflow as error in the results\n\nSome fields are ignored to determined if there is changes :\nupdatedAt : should be ignored if only ignores fields are changed\nglobals : it's running information, no need to follow the changes\n",
+  "totalViews": 3970,
+  "source": "official",
+  "user": {
+    "id": 91922,
+    "name": "Julien DEL RIO",
+    "username": "juliendelrio",
+    "bio": "",
+    "verified": false,
+    "links": "[\"https://twitter.com/juliendelrio\"]",
+    "avatar": "https://gravatar.com/avatar/f887bcf5bfc1d33198b1fbbf0fc3e0beb15ce0c1b3731d93a1cf84eb3d35d0ca?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "GitLab",
+      "type": "n8n-nodes-base.gitlab",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-08-22T10:14:19.166Z",
+  "path": "official/template_2385/workflow.json"
+}

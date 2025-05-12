@@ -1,0 +1,61 @@
+{
+  "id": 1998,
+  "name": "WordPress-to-Pipedrive Integration: Automating Contact & Lead Management",
+  "description": "How it Works:\n\nCapture Contact Requests:** This template efficiently handles contact requests coming through a WordPress website using the Contact Form 7 (CF7) plugin with a webhook extension.\nContact Management:** It automatically creates or updates contacts in Pipedrive upon receiving a new request.\nLead Management:** Each contact request is securely stored in the lead inbox of Pipedrive, ensuring no opportunity is missed.\nTask Creation:** For each new contact or update, the workflow triggers the creation of a related task, streamlining follow-up actions.\nNote Attachment:** A comprehensive note containing all details from the contact request is attached to the corresponding lead, ensuring that all information is readily accessible.\n\nStep-by-Step Guide:\nEstimated Setup Time: The setup process is straightforward and can be completed quickly. Specific time may vary depending on your familiarity with n8n and the systems involved.\n\nDetailed setup instructions are provided within the workflow via sticky notes. These notes offer in-depth guidance for configuring each component of the template to suit your specific needs.",
+  "totalViews": 1141,
+  "source": "official",
+  "user": {
+    "id": 91254,
+    "name": "kapio",
+    "username": "mmiersch",
+    "bio": "Hallo! Ich bin Martin, Co-Founder von kapio. Wir haben uns auf die nahtlose Integration von Pipedrive spezialisiert, um dein Unternehmen digital zu stärken. Durch die Optimierung deiner Prozesse und die Auswahl spezifisch angepasster Tools bieten wir eine effiziente Alternative zu kostspieligen Komplettlösungen. Individuelle Bedürfnisse stehen bei uns im Fokus. Gemeinsam meistern wir deine digitalen Herausforderungen!",
+    "verified": false,
+    "links": "[\"https://www.kapio.eu\"]",
+    "avatar": "https://gravatar.com/avatar/96f70fbd63a7b42d4976880ca63f711d82a11fa78708a8b215f195a61b503496?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Sales"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Pipedrive",
+      "type": "n8n-nodes-base.pipedrive",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2023-11-29T14:33:07.637Z",
+  "path": "official/template_1998/workflow.json"
+}

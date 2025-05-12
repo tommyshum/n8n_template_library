@@ -1,0 +1,77 @@
+{
+  "id": 2886,
+  "name": "Backup all n8n workflows to Google Drive every 4 hours",
+  "totalViews": 3698,
+  "purchaseUrl": null,
+  "user": {
+    "id": 91335,
+    "name": "Imperol",
+    "username": "imperolq",
+    "bio": "Automation expert with years of experience helping businesses improve their efficiency and productivity with smart automations that are affordable, scalable, and flexible. ",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/zacharia-kimotho/\"]",
+    "avatar": "https://gravatar.com/avatar/13b050fd63dc0c9242774c4b8769c4788df8b47268c1fb183d6f1da085b9e6e2?r=pg&d=retro&size=200"
+  },
+  "description": "This workflow takes off the task of backing up workflows regularly on Github and uses Google Drive as the main tool to host these. \n\nThis can be a good way to keep track of your workflows so that you never lose any workflows in case your n8n goes down.\n\nHow does it work\n\nCreates a new folder within a specified folder with the time its backed up\nLoops around all workflows, converts them to a JSON file and uploads them to the created folder\nGets the previous backups and deletes them\n\nThis has a clean feel and look as it simplifies the backup while not keeping a cache of workflows on your drive.\n\nSetup\n\nCreate a new folder\nCreate new service account credentials\nShare the folder with the service account email\nUpload this workflow to your canvas and map the credentials\nSet the schedule that you need your workflows to run and manage your backups\nActivate the workflow\n\nHappy Productivity!\n\n@Imperol",
+  "createdAt": "2025-02-12T04:51:48.065Z",
+  "nodes": [
+    {
+      "id": 58,
+      "icon": "file:googleDrive.svg",
+      "name": "n8n-nodes-base.googleDrive",
+      "codex": {
+        "data": {
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/your-business-doesnt-need-you-to-operate/",
+                "icon": " 🖥️",
+                "label": "Hey founders! Your business doesn't need you to operate"
+              },
+              {
+                "url": "https://n8n.io/blog/why-this-product-manager-loves-workflow-automation-with-n8n/",
+                "icon": "🧠",
+                "label": "Why this Product Manager loves workflow automation with n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/aws-workflow-automation/",
+                "label": "7 no-code workflow automations for Amazon Web Services"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googledrive/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/google/oauth-single-service/"
+              }
+            ]
+          },
+          "categories": [
+            "Data & Storage"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "Google Drive"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiB2aWV3Qm94PSIwIDAgODEgNzMiPjx1c2UgeGxpbms6aHJlZj0iI2EiIHg9Ii41IiB5PSIuNSIvPjxzeW1ib2wgaWQ9ImEiIG92ZXJmbG93PSJ2aXNpYmxlIj48ZyBmaWxsLXJ1bGU9Im5vbnplcm8iIHN0cm9rZT0ibm9uZSI+PHBhdGggZmlsbD0iIzAwNjZkYSIgZD0ibTYuMDQ4IDYxLjI2IDMuNTI4IDYuMDk0Yy43MzMgMS4yODMgMS43ODcgMi4yOTEgMy4wMjQgMy4wMjRsMTIuNi0yMS44MUgwYTguMyA4LjMgMCAwIDAgMS4xIDQuMTI0eiIvPjxwYXRoIGZpbGw9IiMwMGFjNDciIGQ9Ik00MCAyMi45MSAyNy40IDEuMWMtMS4yMzcuNzMzLTIuMjkxIDEuNzQxLTMuMDI0IDMuMDI0TDEuMSA0NC40NDVBOC4zIDguMyAwIDAgMCAwIDQ4LjU2OGgyNS4yeiIvPjxwYXRoIGZpbGw9IiNlYTQzMzUiIGQ9Ik02Ny40IDcwLjM3OGMxLjIzNy0uNzMzIDIuMjkxLTEuNzQxIDMuMDI0LTMuMDI0bDEuNDY2LTIuNTIgNy4wMS0xMi4xNDJhOC4zIDguMyAwIDAgMCAxLjEtNC4xMjRINTQuNzk4bDUuMzYzIDEwLjUzOHoiLz48cGF0aCBmaWxsPSIjMDA4MzJkIiBkPSJNNDAgMjIuOTEgNTIuNiAxLjFDNTEuMzYzLjM2NyA0OS45NDMgMCA0OC40NzcgMEgzMS41MjRjLTEuNDY2IDAtMi44ODcuNDEyLTQuMTI0IDEuMXoiLz48cGF0aCBmaWxsPSIjMjY4NGZjIiBkPSJNNTQuNzk5IDQ4LjU2OEgyNS4ybC0xMi42IDIxLjgxYzEuMjM3LjczMyAyLjY1NyAxLjEgNC4xMjQgMS4xaDQ2LjU1MmMxLjQ2NiAwIDIuODg3LS40MTIgNC4xMjQtMS4xeiIvPjxwYXRoIGZpbGw9IiNmZmJhMDAiIGQ9Ik02Ny4yNjIgMjQuMjg0IDU1LjYyNCA0LjEyNEM1NC44OTEgMi44NDEgNTMuODM3IDEuODMzIDUyLjYgMS4xTDQwIDIyLjkxbDE0LjggMjUuNjU5aDI1LjE1NWE4LjMgOC4zIDAgMCAwLTEuMS00LjEyNHoiLz48L2c+PC9zeW1ib2w+PC9zdmc+"
+      },
+      "displayName": "Google Drive",
+      "typeVersion": 3,
+      "nodeCategories": [
+        {
+          "id": 3,
+          "name": "Data & Storage"
+        }
+      ]
+    }
+  ]
+}

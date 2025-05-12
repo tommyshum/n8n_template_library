@@ -1,0 +1,102 @@
+{
+  "id": 3896,
+  "name": "🤖 Instagram MCP AI Agent – Read, Reply & Manage Comments with GPT-4o",
+  "description": "🤖 Instagram AI Agent with MCP Server – Built for Smart Engagement and Automation\n\nHi! I’m Amanda 🥰\nI build intelligent automations with n8n and Make.  \nThis powerful workflow was designed to help teams automatically handle Instagram interactions with AI. Using Meta Graph API, LangChain, MCP Server, and GPT-4o, it allows your AI agent to search for posts, read captions, fetch comments, and even reply or message followers, all through structured tools.\n\n🔧 What the workflow does\n\nSearches for recent media using Instagram ID and access token  \nReads and extracts captions or media URLs  \nFetches comments and specific replies from each post  \nReplies to comments automatically with GPT-generated responses  \nSends direct messages to followers who commented  \nMaps user input and session to keep memory context via LangChain  \nCommunicates via Server-Sent Events (SSE) using your MCP Server URL\n\n🧰 Nodes & Tech Used\n\nLangChain Agent + Chat Model with GPT-4o  \nMemory Buffer for session memory  \ntoolHttpRequest to search media, comments, and send replies  \nMCP Trigger and MCP Tool (custom SSE connection)  \nSet node for input and variable assignment  \nWebhook and JSON for Instagram API structure\n\n⚙️ Setup Instructions\n\nCreate your Instagram App in Meta Developer Portal  \nAdd your Instagram ID and Access Token in the Set node  \nUpdate the MCP Server Tool URL in the MCP Instagram node  \n   Use your n8n server URL (e.g. https://yourdomain.com/mcp/server/instagram/sse)  \nTrigger the workflow using the included LangChain Chat Trigger  \nInteract via text to ask the agent to:\n   “Get latest posts”  \n   “Reply to comment X with this message”  \n   “Send DM to this user about...”  \n\n👥 Who this is for\n\nSocial media teams managing multiple comments  \nBrands automating engagement with followers  \nAgencies creating smart, autonomous digital assistants  \nDevelopers building conversational Instagram bots\n\n✅ Requirements\n\nMeta Graph API access  \nInstagram Business account  \nn8n instance (Cloud or Self-hosted)  \nMCP Server configured (SSE Endpoint enabled)  \nOpenAI API Key (for GPT-4o + LangChain)\n\n🌐 Want to use this workflow?\n\n❤️ Buy workflows: https://iloveflows.com  \n☁️ Try n8n Cloud: https://n8n.partnerlinks.io/amanda",
+  "totalViews": 1562,
+  "source": "official",
+  "user": {
+    "id": 93865,
+    "name": "Amanda Benks",
+    "username": "amanda",
+    "bio": "Hi loves! I've been making workflows for n8n for two years, and I hope you like my flows <3",
+    "verified": true,
+    "links": "[\"https://iloveflows.com\"]",
+    "avatar": "https://gravatar.com/avatar/b3a5d488866a5de1fb28471770f11f0dab20e328d3b47e4fa0a379ef2a22c041?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    },
+    {
+      "name": "MCP Client Tool",
+      "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Model Context Protocol",
+          "Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-05-06T12:33:19.751Z",
+  "path": "official/template_3896/workflow.json"
+}

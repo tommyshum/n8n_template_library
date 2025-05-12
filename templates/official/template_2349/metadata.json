@@ -1,0 +1,39 @@
+{
+  "id": 2349,
+  "name": "Access execution data from an error workflow",
+  "description": "Sometimes you want to take a different action in your error workflow based on the data that was flowing through it.\n\nThis template illustrates how you can do that (more specifically, how you can retrieve the data of a webhook node).\n\nHow it works\nUse the 'n8n' node to fetch the data of the failed execution\nParse that data to find webhook nodes and extract the data of the one that was executed",
+  "totalViews": 1701,
+  "source": "official",
+  "user": {
+    "id": 14122,
+    "name": "David Roberts",
+    "username": "davidn8n",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/4cda9c7c1c24fdb61896cac588296d1dad03655a439ab71ef34f4c62c0ba8524?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-07-17T07:24:34.009Z",
+  "path": "official/template_2349/workflow.json"
+}

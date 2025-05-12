@@ -1,0 +1,91 @@
+{
+  "id": 2765,
+  "name": "Automated Hugging Face Paper Summary Fetching & Categorization Workflow",
+  "description": "How the Automated Workflow Works  \nScheduled Fetching from Hugging Face ⏰  \nThe workflow triggers every weekday at 8 AM, automatically fetching the latest papers from Hugging Face for easy access.  \n\nDuplication Check to Avoid Redundant Entries 🔍  \nIt ensures the paper's summary is not already stored in your Notion workspace, preventing duplicate records and keeping your database organized.  \n\nContent Analysis with OpenAI 🧠  \nUsing OpenAI's powerful capabilities, the workflow analyzes the fetched paper summary, extracts key insights, and categorizes the content for easier understanding.  \n\nData Storage and Notification Integration 📥🔔  \nOnce the summary is processed, it's automatically stored in your Notion workspace, and a notification containing the paper details is sent to your designated Slack channel for quick reference.\n\nSet Up Your Automated Workflow  \nCreate Your n8n Account 📝  \nStart by registering for an n8n account and logging into the n8n cloud service.  \n\nConnect OpenAI, Notion, and Slack 🔗  \nLink your OpenAI, Notion, and Slack accounts by entering the appropriate tokens. This step will take approximately 10–15 minutes to complete.  \n\nImport the Workflow Template 📥  \nImport the provided workflow template into your n8n instance to streamline the setup process.  \n\nActivate the Workflow for Daily Summaries 🚀  \nAfter importing, simply enable the workflow, and you’re all set to receive daily paper summaries automatically.  \n\nSetup Time ⏳: Approximately 15–20 minutes.\n\nWhy Use This Automated Workflow?  \nThis automated workflow not only saves you time by fetching and categorizing the latest research papers but also helps streamline your Notion workspace and Slack notifications, allowing you to stay organized and efficient without manual intervention.\n\nResults Presentation\n",
+  "totalViews": 522,
+  "source": "official",
+  "user": {
+    "id": 92480,
+    "name": "quentin",
+    "username": "quentin-royal",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/ea5175903bd438a1d6b9f352f75693b71e809b5c0a481495aebce84c3ab614f7?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "Productivity",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-01-21T09:33:22.365Z",
+  "path": "official/template_2765/workflow.json"
+}

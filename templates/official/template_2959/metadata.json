@@ -1,0 +1,52 @@
+{
+  "id": 2959,
+  "name": "Facebook Token Retrieval & Management",
+  "description": "Pre-Conditions\nA Facebook Developer account with an active app.\nBasic understanding of n8n workflows.\nAccess to a database (optional, for storing tokens).\n\nSetup\nWebhook Activation:\n   Configure the Webhook to receive user requests and process input data.\n   Ensure the Webhook URL is correctly set in your Facebook App settings.\n\nShort-Lived Token Retrieval:\n   Use Facebook OAuth to fetch a short-lived token from the authorization code.\n\nLong-Lived Token Conversion:\n   Convert the short-lived token into a long-lived token (valid for ~60 days).\n\nPage Token Retrieval:\n   Follow the provided instructions to retrieve Page Tokens for posting on managed Facebook Pages.\n\nCustomizable Scopes:\n   Edit the correctScopes array to include or exclude permissions as needed.\n\nOptional Database Storage:\n   Extend the workflow to save tokens to a database instead of displaying them on-screen.\n\nStep-by-Step Instructions:\n   Detailed guidance is provided via sticky notes for activating the app, configuring Webhook, and editing parameters like fb_redirect_uri, app_id, and app_secret.\n\nWho the Template is For\nDevelopers**: Integrating Facebook APIs into their applications.\nSocial Media Managers**: Automating posting and engagement on Facebook Pages.\nn8n Users**: Looking for a ready-to-use workflow for Facebook Token management.\n\nPrimary Use\nAutomates Facebook Token retrieval and management.\nSupports posting to Facebook Pages via Page Tokens.\nEasily customizable and extendable for specific requirements.",
+  "totalViews": 938,
+  "source": "official",
+  "user": {
+    "id": 92642,
+    "name": "L Hùng",
+    "username": "meow-cde",
+    "bio": "Helu World.",
+    "verified": false,
+    "links": "[\"https://x.com/luuhung93\"]",
+    "avatar": "https://gravatar.com/avatar/531b3e4ac6b5747a401dc89244eadad45df3467d9f9bba962fe9f6378769bf7f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-02-20T22:02:02.235Z",
+  "path": "official/template_2959/workflow.json"
+}

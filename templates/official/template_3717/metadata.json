@@ -1,0 +1,47 @@
+{
+  "id": 3717,
+  "name": "Search LinkedIn companies and add them to Airtable CRM",
+  "description": "Search LinkedIn companies and add them to Airtable CRM\n\nWho is this for?\nThis template is ideal for sales teams, business development professionals, and marketers looking to build a robust prospect database without manual LinkedIn research. Perfect for agencies, consultants, and B2B companies targeting specific business profiles.\n\nWhat problem does this workflow solve?\nManually researching companies on LinkedIn and adding them to your CRM is time-consuming and error-prone. This automation eliminates the tedious process of finding, qualifying, and importing prospects into your database.\n\nWhat this workflow does\nThis workflow automatically searches for companies on LinkedIn based on your criteria (keywords, size, location), retrieves detailed information about each company, filters them based on quality indicators (follower count and website availability), and adds new companies to your Airtable CRM while preventing duplicates.\n\nSetup\nCreate a Ghost Genius API account and get your API key\nConfigure HTTP Request nodes with Header Auth credentials (Name: \"Authorization\", Value: \"Bearer your_api_key\")\nCreate an Airtable base named \"CRM\" with columns: name, website, LinkedIn, id, etc.\nSet up your Airtable credentials following n8n documentation\nAdd your company search selection criteria to the “Set Variables” node.\n\nHow to customize this workflow\nModify search parameters in the \"Set Variables\" node to target different industries, locations, or company sizes\nAdjust the follower count threshold in the \"Filter Valid Companies\" node based on your qualification criteria\nCustomize the Airtable fields mapping in the \"Add Company to CRM\" node to match your database structure\nAdd notification nodes (Slack, Email) to alert you when new companies are added",
+  "totalViews": 2468,
+  "source": "official",
+  "user": {
+    "id": 94057,
+    "name": "Matthieu",
+    "username": "yaznow",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/0087102f41989fc3569adf570c8b0417d9c27884311ec012ce71b0dc2a80b11a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-04-26T13:58:44.656Z",
+  "path": "official/template_3717/workflow.json"
+}

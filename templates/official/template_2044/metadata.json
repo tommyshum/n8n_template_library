@@ -1,0 +1,32 @@
+{
+  "id": 2044,
+  "name": "Spotify: Discover Weekly Archive",
+  "description": "This updated workflow will automatically archive your Spotify Discover Weekly tracks to another manually created playlist, without the nuisance of duplicate tracks. It utilizes the latest verisons of n8n's Schedule trigger, Spotify, Switch, Merge, and IF nodes.\n\nSpecial thanks to trey for their original version of the workflow, as well as ihortom for their help with navigating the Switch node's outputs.\n\nTo use this workflow, you'll need to:\nCreate a playlist for use as the archive playlist within your Spotify account\nCreate and select your Spotify credentials within each Spotify node within the workflow\n\nSee workflow README for additional information and optional setup steps.\n",
+  "totalViews": 1457,
+  "source": "official",
+  "user": {
+    "id": 91387,
+    "name": "JYLN",
+    "username": "jyln",
+    "bio": "",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/ff497954e4d1ef9951cd1b44d15394f5f39d3c03088f7cb25d166375421c859f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Miscellaneous"
+  ],
+  "nodes": [
+    {
+      "name": "Spotify",
+      "type": "n8n-nodes-base.spotify",
+      "categories": [
+        "Miscellaneous"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-01-08T17:50:49.616Z",
+  "path": "official/template_2044/workflow.json"
+}

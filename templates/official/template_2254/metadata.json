@@ -1,0 +1,53 @@
+{
+  "id": 2254,
+  "name": "Streamlining Document Automation with n8n and JSReport",
+  "description": "Who is this template for?\n\nThis workflow template is designed for accounting, human resources, and IT project management teams looking to automate the generation of PDF and Word documents. It can be particularly useful for:\n\nThe accounting department: for generating invoices in PDF format, thus streamlining the invoicing process and payment tracking.\nThe human resources department: for creating employment contracts in PDF, simplifying the administrative management of employees.\nIT project management teams: for producing Word documents, such as project specifications, to clearly define project requirements and objectives.\n\nExample result in mail\n\n\n\nThis PDF and Word document generation workflow offers a practical and efficient solution for automating administrative and document-related tasks, allowing teams to focus on higher-value activities.\n\nHow it works\n\nThis workflow currently operates with an n8n form, but you can easily replace this form with a webhook triggered by an external application such as AirTable, SharePoint, DocuWare, etc.\n\nOnce the configuration information is retrieved, we fill the API request body of JSReport. The body is defined at the time of template creation in JSReport (Example of JSReport usage).\n\nThen, in a straightforward manner, we fetch the PDF and send it via email.\n\nHere's a brief overview of this n8n workflow template: Link to n8n workflow template presentation\n\nTo summarize\n\nThis workflow integrates with an n8n form, but it's flexible to work with various triggering methods like webhooks from other applications such as AirTable, SharePoint, or DocuWare.\nAfter configuring the necessary information, it populates the API request body of JSReport, which defines the template in JSReport.\nOnce the template is populated, it retrieves the PDF and sends it via email.\nIn essence, it streamlines the process of generating PDF documents based on user input and distributing them via email.\n\nInstructions:\n\nCreate a JSReport Account: Sign up for a JSReport account to create your PDF template model.\nDefine PDF Template in JSReport: Use JSON data from your system to set up the content of your PDF template in JSReport.\nConfigure HTTP Request in n8n: Use the HTTP Request node in n8n to send a request to JSReport. Set the node's body to the JSON data defining your PDF template.\nWatch the Video: For detailed setup guidance, watch the setup video.\n\nRemember, this template was created in n8n v1.38.2.\n",
+  "totalViews": 2274,
+  "source": "official",
+  "user": {
+    "id": 91668,
+    "name": "NonoCode",
+    "username": "nonocode",
+    "bio": "I am an expert in business process automation, specializing in the use of Nintex and n8n. Passionate about these two platforms, I find them particularly complementary. What fascinates me most about n8n is its remarkable flexibility and the diversity of processes it can automate. I truly enjoy exploring and implementing innovative solutions that enhance operational efficiency and turn challenges into opportunities.",
+    "verified": false,
+    "links": "[\"https://www.linkedin.com/in/nohamchoulant/\"]",
+    "avatar": "https://gravatar.com/avatar/1507b4567363cfca292aab84b1611f254bc4dc6b4c04e951128204415508bd30?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-05-03T13:52:43.985Z",
+  "path": "official/template_2254/workflow.json"
+}

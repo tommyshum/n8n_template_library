@@ -1,0 +1,100 @@
+{
+  "id": 3616,
+  "name": "Automated Lead Generation & Contact Enrichment with Hunter.io and Perplexity AI",
+  "description": "Who is this for?\n\nThis template is ideal for B2B founders, solopreneurs, growth marketers, SDRs, or anyone looking to scale their lead generation and enrichment with no-code tools to low-code tools.\n\nWhether you're building your first lead pipeline or upgrading a manual spreadsheet, LeadAIgen automates the entire discovery → enrichment → logging process using AI and verified email data.\n\nWhat problem does this solve?\n\nLead sourcing and enrichment are time-consuming, inconsistent, and often require multiple tools or manual scraping.\n\nThis workflow solves that by chaining AI + contact discovery, validating everything, and storing clean, structured data in Google Sheets — ready for outreach or CRM sync.\n\nWhat this workflow does:\n\n✅ Accepts an industry/topic prompt via chat trigger or Telegram,  \n🤖 Uses OpenRouter (Perplexity) to find 15 relevant companies with domains,  \n📤 Parses the results, filters duplicates based on your Google Sheet,  \n📩 Enriches each domain with up to 3 real personal emails using Hunter.io,  \n💡 If no emails found → Fallback AI tries to locate general email info,  \n📊 Updates your Google Sheet with all valid enriched leads (status: “Enriched”),  \n🔁 Runs in safe batches of 10 to protect your API limits,  \n🛠️ Includes logic to clean data, validate JSON, and slice leads.\n\nSetup:\n\nCreate Google Sheets, Hunter.io, and OpenRouter credentials in your n8n instance  \nImport the JSON workflow  \nSet your OpenRouter model (default = Perplexity Sonar Large)  \nConnect your Google Sheet (must contain a header row with Domain, Status, etc.)  \nPaste your Hunter API key into the Hunter.io node  \n(Optional) Add Telegram Bot trigger to chat with your lead generator  \n\n🗒 Color-coded workflow notes:\n\nTo make customization easier, this template includes Innovatio's signature visual sticky note system inside the n8n canvas.\n\nYou’ll find:\n\n🟩 Green Notes → Main Steps  \nThe core logic blocks — from company generation to AI fallback and Google Sheets update.\n\n🟦 Blue Notes → Personalization Tips  \nHow to adapt filters, prompts, and data mappings for your business needs.\n\n🟨 Yellow Notes → Optional / Advanced  \nExpand with Telegram chat triggers, Airtable integration, CRM push, or lead scoring logic.\n\n🟫 Gray Notes → Welcome, Outro & Upgrade Suggestions  \nClear guidance and CTAs if you want help scaling this further.\n\n👉 Each node includes comments or setup notes so you can learn the system as you use it.\n\nHow to customize this workflow?\n\n🎯 Swap Google Sheets for Airtable for relational views and tagging,  \n🤖 Replace Perplexity with GPT-4, Claude, or Mixtral inside OpenRouter,  \n📬 Auto-send enriched leads to Gmail, Slack, or your CRM,  \n🗣️ Connect this to Telegram for on-the-go company generation,  \n🔁 Want dynamic lead scoring or auto-categorization? We can help — velebit@innovatio.design\n\nFinal notes\n\nThis template was designed by Velebit from Innovatio.  \nExternal links (e.g. documentation or support email) lead only to official sources with no affiliate tracking or paid placements.\n\nA separate license applies to the paid version on Gumroad, which includes commercial use rights, extended fallback logic, and advanced upgrade tips.",
+  "totalViews": 563,
+  "source": "official",
+  "user": {
+    "id": 93571,
+    "name": "Velebit from Innovatio",
+    "username": "innovatio",
+    "bio": "I design modular (no-code, low-code, AI) automation workflows for creators, marketers, and lean SaaS teams.  \nFounder of [Innovatio](https://innovatio.design) — empowering humans with AI-powered systems that save time, boost revenue, and scale with heart.\n\n🚀 Want custom automation? Let's talk → velebit@innovatio.design",
+    "verified": true,
+    "links": "[\"https://innovatio.design/\"]",
+    "avatar": "https://gravatar.com/avatar/6278fbac6a13365966261d4fa900b7b75ade5437ec61e3022d4549b8466d4685?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Sales",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Hunter",
+      "type": "n8n-nodes-base.hunter",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenRouter Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-04-19T18:41:48.286Z",
+  "path": "official/template_3616/workflow.json"
+}

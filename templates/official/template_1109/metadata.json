@@ -1,0 +1,64 @@
+{
+  "id": 1109,
+  "name": "Add positive feedback messages to a table in Notion",
+  "description": "This workflow allows you to add positive feedback messages to a table in Notion.\n\nPrerequisites\nCreate a Typeform that contains Long Text filed question type to accepts feedback from users.\nGet your Typeform credentials by following the steps mentioned in the documentation.\nFollow the steps mentioned in the documentation to create credentials for Google Cloud Natural Language.\nCreate a page on Notion similar to this page.\nCreate credentials for the Notion node by following the steps in the documentation.\nFollow the steps mentioned in the documentation to create credentials for Slack.\nFollow the steps mentioned in the documentation to create credentials for Trello.\n\n\n\n\nTypeform Trigger node: Whenever a user submits a response to the Typeform, the Typeform Trigger node will trigger the workflow. The node returns the response that the user has submitted in the form.\n\nGoogle Cloud Natural Language node: This node analyses the sentiment of the response the user has provided and gives a score.\n\nIF node: The IF node uses the score provided by the Google Cloud Natural Language node and checks if the score is positive (larger than 0). If the score is positive we get the result as True, otherwise False.\n\nNotion node: This node gets connected to the true branch of the IF node. It adds the positive feedback shared by the user in a table in Notion.\n\nSlack node: This node will share the positive feedback along with the score and username to a channel in Slack.\n\nTrello node: If the score is negative, the Trello node is executed. This node will create a card on Trello with the feedback from the user.",
+  "totalViews": 1169,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Productivity",
+    "Analytics"
+  ],
+  "nodes": [
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Trello",
+      "type": "n8n-nodes-base.trello",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Google Cloud Natural Language",
+      "type": "n8n-nodes-base.googleCloudNaturalLanguage",
+      "categories": [
+        "Analytics"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2021-06-03T11:19:01.557Z",
+  "path": "official/template_1109/workflow.json"
+}

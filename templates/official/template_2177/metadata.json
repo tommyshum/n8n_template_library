@@ -1,0 +1,38 @@
+{
+  "id": 2177,
+  "name": "Weekly N8N executions failures report to Telegram",
+  "description": "How it works\nWeekly triggered\nFetches all previous executions of a given workflow\nFilter for failures and aggregate them into a single report\nSends them to a given Telegram chat.\n\nSet up steps\nCreate a new N8N api token in the settings panel.\nAdd new N8N credentials in the credentials panel.\nAdd new Telegram credentials in the credentials panel.\nSelect N8N credentials and select the workflow ID in the \"Get all previous executions\" node.\nSelect Telegram credentials and enter the chat-id in the \"Telegram\" node.\n",
+  "totalViews": 1211,
+  "source": "official",
+  "user": {
+    "id": 91500,
+    "name": "Manu",
+    "username": "manu-n8n",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/d87d4975799ab9aa9ef1194539dfd2ec969128abdb88224c33c67009ae2661be?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-03-15T13:48:17.362Z",
+  "path": "official/template_2177/workflow.json"
+}

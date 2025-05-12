@@ -1,0 +1,73 @@
+{
+  "id": 2651,
+  "name": "AI Agent for realtime insights on meetings",
+  "description": "Video Guide\n\n\nI prepared a detailed guide explaining how to build an AI-powered meeting assistant that provides real-time transcription and insights during virtual meetings.\n\n\n\nYoutube Link\n\nWho is this for?\nThis workflow is ideal for business professionals, project managers, and team leaders who require effective transcription of meetings for improved documentation and note-taking. It's particularly beneficial for those who conduct frequent virtual meetings across various platforms like Zoom and Google Meet.\n\nWhat problem does this workflow solve?\nTranscribing meetings manually can be tedious and prone to error. This workflow automates the transcription process in real-time, ensuring that key discussions and decisions are accurately captured and easily accessible for later review, thus enhancing productivity and clarity in communications.\n\nWhat this workflow does\nThe workflow employs an AI-powered assistant to join virtual meetings and capture discussions through real-time transcription. Key functionalities include:\nAutomatic joining of meetings on platforms like Zoom, Google Meet, and others with the ability to provide real-time transcription.\nIntegration with transcription APIs (e.g., AssemblyAI) to deliver seamless and accurate capture of dialogue.\nStructuring and storing transcriptions efficiently in a database for easy retrieval and analysis.\n\nReal-Time Transcription: The assistant captures audio during meetings and transcribes it in real-time, allowing participants to focus on discussions.\nKeyword Recognition: Key phrases can trigger specific actions, such as noting important points or making prompts to the assistant.\nStructured Data Management: The assistant maintains a database of transcriptions linked to meeting details for organized storage and quick access later.\n\nSetup\n\nPreparation\n\nCreate Recall.ai API key\nSetup Supabase account and table\ncreate table\n  public.data (\n    id uuid not null default gen_random_uuid (),\n    date_created timestamp with time zone not null default (now() at time zone 'utc'::text),\n    input jsonb null,\n    output jsonb null,\n    constraint data_pkey primary key (id),\n  ) tablespace pg_default;\n\nCreate OpenAI API key\n\nDevelopment\n\nBot Creation: \n   Use a node to create the bot that will join meetings. Provide the meeting URL and set transcription options within the API request.\n\nAuthentication: \n   Configure authentication settings via a Bearer token for interacting with your transcription service.\n\nWebhook Setup: \n   Create a webhook to receive real-time transcription updates, ensuring timely data capture during meetings.\n\nJoin Meeting: \n   Set the bot to join the specified meeting and actively listen to capture conversations.\n\nTranscription Handling: \n   Combine transcription fragments into cohesive sentences and manage dialog arrays for coherence.\n\nTrigger Actions on Keywords: \n   Set up keyword recognition that can initiate requests to the OpenAI API for additional interactions based on captured dialogue.\n\nOutput and Summary Generation: \n   Produce insights and summary notes from the transcriptions that can be stored back into the database for future reference.",
+  "totalViews": 12770,
+  "source": "official",
+  "user": {
+    "id": 92018,
+    "name": "Mark Shcherbakov",
+    "username": "lowcodingdev",
+    "bio": "I am a business analyst with a development background, dedicated to helping small businesses and entrepreneurs leverage cloud services for increased efficiency. My expertise lies in automating manual workflows, integrating data from multiple cloud service providers, creating insightful dashboards, and building custom CRM systems.\n\nhttps://www.linkedin.com/in/marklowcoding/",
+    "verified": true,
+    "links": "[\"https://www.skool.com/5minai-pro\"]",
+    "avatar": "https://gravatar.com/avatar/3055cd5035cfb1030d9d1923b60646d1a156927eead957956bea71f88c5186cd?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Postgres",
+      "type": "n8n-nodes-base.postgres",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Supabase",
+      "type": "n8n-nodes-base.supabase",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2024-12-17T16:48:41.040Z",
+  "path": "official/template_2651/workflow.json"
+}

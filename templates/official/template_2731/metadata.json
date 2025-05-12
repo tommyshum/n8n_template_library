@@ -1,0 +1,47 @@
+{
+  "id": 2731,
+  "name": "Daily Birthday Reminders from Google Contacts to Slack",
+  "description": "Ensure you never miss a birthday with this automated workflow designed by WeblineIndia. It retrieves your Google Contacts, identifies birthdays happening today, and sends personalized reminders directly to a designated Slack channel. This daily automation keeps your team informed and makes birthday celebrations effortless.\n\nSteps\n\nSet Daily Schedule (Cron Node)\nConfigure a Cron node to trigger the workflow daily at a specific time (e.g., 8 AM).\nThis ensures the workflow runs consistently every day to check for birthdays.\n\nRetrieve Contacts (Google Contacts - Get Contact Node)\nUse the Google Contacts (Get Contact) node to fetch your contact list.\nEnsure your contacts have birthday details stored for accurate filtering.\n\nFilter Birthdays (IF Node)\nAdd an IF Node to compare the current date with each contact’s birthday.\nOnly contacts whose birthdays match today’s date will move to the next step.\n\nSend Birthday Notifications to Slack (Slack - Send Message Node)\nUse the Slack node to send a personalized birthday message to your chosen Slack channel (e.g., #general or #birthdays).\nCustomize the message to include the contact’s name, e.g., \"🎉 Today is John Doe's birthday! Let’s celebrate!\"\nConfigure the node to target a specific Slack channel for seamless notifications.\n\nActivate Workflow\nSave and activate the workflow.\n\nFrom now on, the workflow will automatically check for birthdays daily and send timely reminders to your Slack team.\n\nOutcome\nThis hassle-free automation keeps your team engaged and ensures no birthday goes unnoticed. Celebrate special days of your contacts effortlessly and maintain meaningful connections.\n\nAbout WeblineIndia\nThis workflow showcases our commitment to delivering innovative automation solutions that enhance productivity and foster better relationships. Let us help you build the AI automation tools that make a difference.\n\n",
+  "totalViews": 1692,
+  "source": "official",
+  "user": {
+    "id": 92407,
+    "name": "WeblineIndia",
+    "username": "weblineindia",
+    "bio": "A Leading Software Engineering, Consulting & Outsourcing Services Company in USA & India serving Clients Globally since 1999.",
+    "verified": true,
+    "links": "[\"https://www.weblineindia.com/\"]",
+    "avatar": "https://gravatar.com/avatar/a229d43aefca4588581583c58bb37b4773aebbdf4c1fef86a08bb1d38eae91fa?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Miscellaneous "
+  ],
+  "nodes": [
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Google Contacts",
+      "type": "n8n-nodes-base.googleContacts",
+      "categories": [
+        "Miscellaneous "
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-01-15T08:32:01.026Z",
+  "path": "official/template_2731/workflow.json"
+}

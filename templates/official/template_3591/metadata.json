@@ -1,0 +1,86 @@
+{
+  "id": 3591,
+  "name": "✨ Meta Ads Campaign Report by Period – Auto-Send via WhatsApp & Email",
+  "description": "Hi, I’m Amanda 🌷\nI created this workflow with great care to help you simplify your daily reporting routine. If you manage Meta Ads campaigns, you know how time-consuming it can be to open Ads Manager, filter data, and build client reports.\n\nThis automation does all that for you — pulling campaign data by period, calculating key metrics, filtering only what matters, and sending everything via WhatsApp or Email, fully formatted and ready to share.\n\nWhat it does\n\nCollects ad performance data from multiple accounts  \nFilters campaigns and creatives with real results  \nCalculates metrics like CPC, CTR, CPV, conversions, and spend  \nFormats the report clearly and professionally  \nSends the report via WhatsApp (Evolution API) or Gmail  \nRuns automatically every morning (optional schedule)\n\nSetup Guide\n\nUse this Google Sheet template to manage your accounts  \nConnect Google Sheets, Gmail, and Meta Ads to n8n  \nSet your action_type filters (lead, purchase, etc.)  \nCustomize your message and delivery time\n\nRequirements\n\nGoogle account connected to n8n  \nFacebook Graph API access  \nWhatsApp via Evolution API (optional)  \nBasic n8n knowledge\n\nWant it customized for your business?\nLet’s chat → WhatsApp me (+55 17 99155-7874)\n",
+  "totalViews": 908,
+  "source": "official",
+  "user": {
+    "id": 93865,
+    "name": "Amanda Benks",
+    "username": "amanda",
+    "bio": "Hi loves! I've been making workflows for n8n for two years, and I hope you like my flows <3",
+    "verified": true,
+    "links": "[\"https://iloveflows.com\"]",
+    "avatar": "https://gravatar.com/avatar/b3a5d488866a5de1fb28471770f11f0dab20e328d3b47e4fa0a379ef2a22c041?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Facebook Graph API",
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-04-17T15:51:47.721Z",
+  "path": "official/template_3591/workflow.json"
+}

@@ -1,0 +1,61 @@
+{
+  "id": 2577,
+  "name": "New TheHive Case Slack Notification Bot",
+  "description": "\nStreamline Case Management in TheHive via Slack!\n\nOur TheHive Slack Integration empowers SOC analysts by allowing them to efficiently manage and update case attributes directly within Slack, reducing the need to switch contexts and enhancing response time.\n\n\nKey Features:\nDirect Case Management**: Modify case details such as assignee, severity, status, and more through intuitive form inputs embedded within Slack messages.\nSeamless Integration**: Assumes matching email addresses between TheHive and Slack users for straightforward assignee updates. Note: Ensure email consistency to avoid assignment errors.\nInstant Case Actions**: Quickly close cases as false positives or adjust threat levels with minimal clicks, directly impacting case status in TheHive and reflecting updates immediately in Slack.\nTask Management**: Add tasks to cases through a user-friendly modal popup, fostering better task tracking and delegation within your team.\n\n\nOperational Benefits:\nEfficiency**: Enables analysts to perform multiple case actions without leaving Slack, streamlining workflows and saving valuable time.\nAccuracy**: Reduces the chances of human error by providing a controlled interface for case updates.\nAgility**: Enhances the SOC team's agility by providing tools for rapid response and case management, crucial for effective security operations.\n\n\nSetup Tips:\nVerify that all SOC team members have matching email IDs in TheHive and Slack.\nFamiliarize your team with the Slack form inputs and ensure they understand the importance of accurate data entry.\nRegularly review and update the integration settings to accommodate any changes in your security operations protocols.\n\n\nNeed Help?\nFor detailed setup instructions or troubleshooting, refer to our Integration Guide or reach out on our Support Forum.\n\n\nLeverage this integration to maximize your SOC team's efficiency and responsiveness, ensuring that case management is as streamlined and effective as possible.\n",
+  "totalViews": 312,
+  "source": "official",
+  "user": {
+    "id": 16588,
+    "name": "Angel Menendez",
+    "username": "djangelic",
+    "bio": "Angel Menendez is a Staff Developer Advocate at n8n.io, specializing in low-code tools for cybersecurity workflows. From Puerto Rico, Angel's tech journey began by helping his father translate technical books. He later started a web development business and transitioned from a career as a flight attendant to cybersecurity engineering. His workflows have saved companies significant time. Outside work, Angel enjoys time with his two sons, riding electric bikes, reading, and exploring new places.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/fdbe38425d21378d8c9ba8916e1eb0b320add299f12cc23fcd4961d4e6e00bec?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "TheHive 5",
+      "type": "n8n-nodes-base.theHiveProject",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-11-26T05:32:11.636Z",
+  "path": "official/template_2577/workflow.json"
+}

@@ -1,0 +1,77 @@
+{
+  "id": 2157,
+  "name": "🤖 Advanced Slackbot with n8n",
+  "description": "Use case\nSlackbots are super powerful. At n8n, we have been using them to get a lot done.. But it can become hard to manage and maintain many different operations that a workflow can do.\n\nThis is the base workflow we use for our most powerful internal Slackbots. They handle a lot from running e2e tests for Github branch to deleting a user. By splitting the workflow into many subworkflows, we are able to handle each command seperately, making it easier to debug as well as support new usecases.\n\nIn this template, you can find eveything to setup your own Slackbot (and I made it simple, there's only one node to configure 😉). After that, you need to build your commands directly. \n\nThis bot can create a new thread on an alerts channel and respond there.\n\n\n\nOr reply directly to the user.\n\n\nIt responds for help request to return a help page.\n\n\nIt automatically handles unknown commands.\n\n\nIt also supports flags and environment variables. For example /cloudbot-test info mutasem --full-info -e env=prod would give you the following info, when calling subworkflow.\n\nHow to setup\nAdd Slack command and point it up to the webhook. For example.\n\nAdd the following to the Set config node\nalerts_channel with alerts channel to start threads on\ninstance_url with this instance url to make it easy to debug\nslack_token with slack bot token to validate request\nslack_secret_signature with slack secret signature to validate request\nhelp_docs_url with help url to help users understand the commands \nBuild other workflows to call and add them to commands in Set Config. Each command must be mapped to a workflow id with an Execute Workflow Trigger node\nActivate workflow 🚀\n\nHow to adjust\nAdd your own commands.\nDepending on your need, you might need to lock down who can call this.",
+  "totalViews": 7834,
+  "source": "official",
+  "user": {
+    "id": 91243,
+    "name": "Mutasem",
+    "username": "mutasem",
+    "bio": "Team lead @ n8n",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/mutasemdmour/\"]",
+    "avatar": "https://gravatar.com/avatar/16d9c92db78317b6af7d0935bee34a47c522cb81d35c234ff76ea580ff1f6c29?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Postgres",
+      "type": "n8n-nodes-base.postgres",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2024-03-01T07:31:03.428Z",
+  "path": "official/template_2157/workflow.json"
+}

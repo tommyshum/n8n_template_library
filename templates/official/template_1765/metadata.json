@@ -1,0 +1,38 @@
+{
+  "id": 1765,
+  "name": "Get Slack notifications when new product published on WooCommerce",
+  "description": "This workflow let's a bot in Slack notify a specific channel when a new product in WooCommerce is published and live on the site. \n\nPrerequisites\n\nWooCommerce account\nSlack and a Slack bot\n\nHow it works\n\nListen for WooCommerce product creation\nIf permalink starts with https://[your-url-here].com/product/\nSlack bot notifies channel that a new product has been added. \n\nPlease note, you must update the URL in the IF node to match your url. If your WooCommerce doesn't use the slug /product/, that will need to be updated too. \n",
+  "totalViews": 1104,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2022-08-12T12:36:53.409Z",
+  "path": "official/template_1765/workflow.json"
+}

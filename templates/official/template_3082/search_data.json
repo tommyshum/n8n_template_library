@@ -1,0 +1,291 @@
+{
+  "id": 3082,
+  "name": "Social Media Content Generator And Publisher | X, Linkedin",
+  "totalViews": 12570,
+  "purchaseUrl": null,
+  "user": {
+    "id": 93066,
+    "name": "ömer",
+    "username": "gocmen",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/9909a1558ac5075cb420360b7c26afde5dc7796b013b16bfcba5d59aadef55fa?r=pg&d=retro&size=200"
+  },
+  "description": "Generate and Publish AI Content to LinkedIn and X (Twitter) with n8n\n\nOverview\nThis n8n workflow automates the generation and publishing of AI-powered social media content across LinkedIn and X (formerly Twitter). By leveraging AI, this workflow helps social media managers, marketers, and content creators streamline their posting process.\n\nWho is this for?\nSocial media managers\nContent creators\nDigital marketers\nBusinesses looking to automate content generation\n\nFeatures\nAI-powered content creation** tailored for LinkedIn and X (Twitter)\nAutomated publishing** to both platforms\nStructured output parsing** to ensure consistency\nOAuth2 authentication** for secure posting\nMerge and confirmation steps** to track successful postings\n\nSetup Instructions\nPrerequisites\nBefore using this workflow, ensure you have:\nAn n8n instance set up\nAPI credentials for:\n  Google Gemini AI (for content generation)\n  X Developer Account with OAuth2 authentication\n  LinkedIn Developer Account with OAuth2 authentication\nA form submission service integrated with n8n\n\nWorkflow Breakdown\n\n1. Trigger: Form Submission\nA user submits a form containing the post title.\nThe form is secured with Basic Authentication.\nThe submitted title is passed to the AI Agent.\n\n2. AI Content Generation\nThe Google Gemini Chat Model processes the title and generates:\n  LinkedIn post content\n  Twitter (X) post content\n  Hashtags\n  Call-to-action (LinkedIn)\n  Character limit check (Twitter)\n\n3. Parsing AI Output\nA structured output parser converts the AI-generated content into a JSON format.\nEnsures correct formatting for LinkedIn and Twitter (X).\n\n4. Publishing to Social Media\nX (Twitter) Posting\nExtracts the Twitter post from the AI output.\nPublishes it via an OAuth2-authenticated X (Twitter) account.\n\nLinkedIn Posting\nExtracts the LinkedIn post from the AI output.\nPublishes it via an OAuth2-authenticated LinkedIn account.\n\n5. Merging Post Results\nMerges the response data from both LinkedIn and Twitter after publishing.\n\n6. Confirmation Step\nDisplays a final confirmation form once the posts are successfully published.\n\nBenefits\nSave time** by automating content creation and publishing.\nEnsure consistency** across platforms with structured AI-generated posts.\nSecure authentication** using OAuth2 for LinkedIn and Twitter.\nIncrease engagement** with AI-optimized hashtags and CTAs.\n\nThis workflow enables seamless social media automation, helping professionals post engaging AI-powered content effortlessly. 🚀\n\n",
+  "createdAt": "2025-03-04T20:39:58.733Z",
+  "nodes": [
+    {
+      "id": 325,
+      "icon": "file:x.svg",
+      "name": "n8n-nodes-base.twitter",
+      "codex": {
+        "data": {
+          "alias": [
+            "Tweet",
+            "Twitter",
+            "X",
+            "X API"
+          ],
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/no-code-ecommerce-workflow-automations/",
+                "icon": "store",
+                "label": "6 e-commerce workflows to power up your Shopify s"
+              },
+              {
+                "url": "https://n8n.io/blog/automate-your-data-processing-pipeline-in-9-steps-with-n8n/",
+                "icon": "⚙️",
+                "label": "Automate your data processing pipeline in 9 steps"
+              },
+              {
+                "url": "https://n8n.io/blog/5-workflow-automations-for-mattermost-that-we-love-at-n8n/",
+                "icon": "🤖",
+                "label": "5 workflow automations for Mattermost that we love at n8n"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.twitter/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/twitter/"
+              }
+            ]
+          },
+          "categories": [
+            "Marketing"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"output\"]",
+      "defaults": {
+        "name": "X"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIzLjMxNzEgMTYuOTM3M0wzNy45MDI2IDBIMzQuNDQ2M0wyMS43ODE3IDE0LjcwNjRMMTEuNjY2NiAwSDBMMTUuMjk2MSAyMi4yMzg3TDAgNDBIMy40NTY0OEwxNi44MzA2IDI0LjQ2OTZMMjcuNTEyOSA0MEgzOS4xNzk1TDIzLjMxNjMgMTYuOTM3M0gyMy4zMTcxWk0xOC41ODMgMjIuNDM0NkwxNy4wMzMyIDIwLjIyMDFMNC43MDE5IDIuNTk5MzZIMTAuMDEwOEwxOS45NjIzIDE2LjgxOTlMMjEuNTEyMiAxOS4wMzQ0TDM0LjQ0NzkgMzcuNTE4OUgyOS4xMzlMMTguNTgzIDIyLjQzNTRWMjIuNDM0NloiIGZpbGw9ImJsYWNrIi8+Cjwvc3ZnPgo="
+      },
+      "displayName": "X (Formerly Twitter)",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 27,
+          "name": "Marketing"
+        }
+      ]
+    },
+    {
+      "id": 367,
+      "icon": "file:linkedin.svg",
+      "name": "n8n-nodes-base.linkedIn",
+      "codex": {
+        "data": {
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/why-business-process-automation-with-n8n-can-change-your-daily-life/",
+                "icon": "🧬",
+                "label": "Why business process automation with n8n can change your daily life"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.linkedin/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/linkedIn/"
+              }
+            ]
+          },
+          "categories": [
+            "Marketing",
+            "Communication"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "LinkedIn"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiB2aWV3Qm94PSIwIDAgNjcgNjYiPjx1c2UgeGxpbms6aHJlZj0iI2EiIHg9IjEiIHk9IjEiLz48c3ltYm9sIGlkPSJhIiBvdmVyZmxvdz0idmlzaWJsZSI+PGcgZmlsbC1ydWxlPSJub256ZXJvIiBzdHJva2U9Im5vbmUiPjxwYXRoIGZpbGw9IiMwMTc3YjUiIGQ9Ik01OS4yNiAwSDQuNzI0QzIuMTIgMCAwIDIuMDY2IDAgNC42MXY1NC43ODhjMCAyLjUzIDIuMTIgNC42IDQuNzI0IDQuNmg1NC41NGMyLjYxIDAgNC43MzYtMi4wNyA0LjczNi00LjZWNC42MUM2NCAyLjA2NiA2MS44NzQgMCA1OS4yNiAwIi8+PHBhdGggZD0iTTkuNDkgMjMuOTkySDE5djMwLjU0SDkuNDl6bTQuNzQ4LTE1LjJjMy4wMzQgMCA1LjUgMi40NjYgNS41IDUuNWE1LjUxIDUuNTEgMCAwIDEtNS40OTggNS41MDYgNS41MiA1LjUyIDAgMCAxLTUuNTA4LTUuNTA2IDUuNSA1LjUgMCAwIDEgNS41MDYtNS41bTEwLjcgMTUuMmg5LjEwNHY0LjE3NGguMTI2YzEuMjY4LTIuNCA0LjM2NC00LjkzMiA5LTQuOTMyIDkuNjEyIDAgMTEuMzg2IDYuMzI2IDExLjM4NiAxNC41NDh2MTYuNzUyaC05LjQ4NlYzOS42NzhjMC0zLjU0LS4wNjQtOC4xLTQuOTMyLTguMS00Ljk0IDAtNS43IDMuODYtNS43IDcuODR2MTUuMTA4aC05LjQ4NHYtMzAuNTR6Ii8+PC9nPjwvc3ltYm9sPjwvc3ZnPg=="
+      },
+      "displayName": "LinkedIn",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 6,
+          "name": "Communication"
+        },
+        {
+          "id": 27,
+          "name": "Marketing"
+        }
+      ]
+    },
+    {
+      "id": 1119,
+      "icon": "fa:robot",
+      "name": "@n8n/n8n-nodes-langchain.agent",
+      "codex": {
+        "data": {
+          "alias": [
+            "LangChain",
+            "Chat",
+            "Conversational",
+            "Plan and Execute",
+            "ReAct",
+            "Tools"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Agents",
+              "Root Nodes"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "AI Agent",
+        "color": "#404040"
+      },
+      "iconData": {
+        "icon": "robot",
+        "type": "icon"
+      },
+      "displayName": "AI Agent",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1179,
+      "icon": "fa:code",
+      "name": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "codex": {
+        "data": {
+          "alias": [
+            "json",
+            "zod"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.outputparserstructured/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Output Parsers"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Structured Output Parser"
+      },
+      "iconData": {
+        "icon": "code",
+        "type": "icon"
+      },
+      "displayName": "Structured Output Parser",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1262,
+      "icon": "file:google.svg",
+      "name": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatgooglegemini/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Language Models",
+              "Root Nodes"
+            ],
+            "Language Models": [
+              "Chat Models (Recommended)"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Google Gemini Chat Model"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgNDggNDgiPjxkZWZzPjxwYXRoIGlkPSJhIiBkPSJNNDQuNSAyMEgyNHY4LjVoMTEuOEMzNC43IDMzLjkgMzAuMSAzNyAyNCAzN2MtNy4yIDAtMTMtNS44LTEzLTEzczUuOC0xMyAxMy0xM2MzLjEgMCA1LjkgMS4xIDguMSAyLjlsNi40LTYuNEMzNC42IDQuMSAyOS42IDIgMjQgMiAxMS44IDIgMiAxMS44IDIgMjRzOS44IDIyIDIyIDIyYzExIDAgMjEtOCAyMS0yMiAwLTEuMy0uMi0yLjctLjUtNCIvPjwvZGVmcz48Y2xpcFBhdGggaWQ9ImIiPjx1c2UgeGxpbms6aHJlZj0iI2EiIG92ZXJmbG93PSJ2aXNpYmxlIi8+PC9jbGlwUGF0aD48cGF0aCBmaWxsPSIjRkJCQzA1IiBkPSJNMCAzN1YxMWwxNyAxM3oiIGNsaXAtcGF0aD0idXJsKCNiKSIvPjxwYXRoIGZpbGw9IiNFQTQzMzUiIGQ9Im0wIDExIDE3IDEzIDctNi4xTDQ4IDE0VjBIMHoiIGNsaXAtcGF0aD0idXJsKCNiKSIvPjxwYXRoIGZpbGw9IiMzNEE4NTMiIGQ9Im0wIDM3IDMwLTIzIDcuOSAxTDQ4IDB2NDhIMHoiIGNsaXAtcGF0aD0idXJsKCNiKSIvPjxwYXRoIGZpbGw9IiM0Mjg1RjQiIGQ9Ik00OCA0OCAxNyAyNGwtNC0zIDM1LTEweiIgY2xpcC1wYXRoPSJ1cmwoI2IpIi8+PC9zdmc+"
+      },
+      "displayName": "Google Gemini Chat Model",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    }
+  ]
+}

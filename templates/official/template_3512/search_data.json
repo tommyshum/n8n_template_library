@@ -1,0 +1,135 @@
+{
+  "id": 3512,
+  "name": "Google Drive Duplicate File Manager",
+  "totalViews": 440,
+  "purchaseUrl": null,
+  "user": {
+    "id": 92972,
+    "name": "Ventsislav Minev",
+    "username": "vminev",
+    "bio": "IT professional and n8n enthusiast",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/81bf71deeabd5b328211a1a4cc81a3ffe15e95a5490733e0942b73bfb428ec08?r=pg&d=retro&size=200"
+  },
+  "description": "Google Drive Duplicate File Manager 🧹📁\n\nPurpose: Automate the process of finding and managing duplicate files in your Google Drive.\n\nWho's it for?\n\nIndividuals and teams aiming to streamline their Google Drive.\nAnyone tired of manual duplicate file cleanup.\n\nWhat it Solves:\n\nSaves storage space 💾.\nReduces file confusion 😕➡️🙂.\nAutomates tedious cleanup tasks 🤖.\n\nHow it works:\n\nTrigger: Monitors a Google Drive folder for new files.\nConfiguration: Sets rules for keeping and handling duplicates.\nFind Duplicates: Identifies duplicate files based on their content (MD5Checksum).\nAction: Either moves duplicates to trash or renames them.\n\nSetup Guide:\n\nGoogle Drive Trigger ⏰:\n    Set up the trigger to watch a specific folder or your entire drive (use caution with the root folder! ⚠️).\n    Configure the polling interval (default: every 15 minutes).\nConfig Node ⚙️:\n    keep: Choose whether to keep the \"first\" or \"last\" uploaded file (default: \"last\").\n    action: Select \"trash\" to delete duplicates or \"flag\" to rename them with \"DUPLICATE-\" (default: \"flag\").\n    owner & folder: Taken from the trigger. Only change if needed.\n\nKey Considerations:\n\nGoogle Drive API limits:** Be mindful of API usage.\nFolder Scope:* The workflow handles one folder depth by default. (WARNING: If configured to work with the Root folder / all files in all sub-directories are processed so *USE THIS OPTION WITH CAUTION** since the workflow might trash/rename important files)\nGoogle Apps:** Google docs are ignored since they are not actual binary-files and their content can't be compared.\n\n\nEnjoy your clean Google Drive! ✨",
+  "createdAt": "2025-04-10T15:01:08.237Z",
+  "nodes": [
+    {
+      "id": 58,
+      "icon": "file:googleDrive.svg",
+      "name": "n8n-nodes-base.googleDrive",
+      "codex": {
+        "data": {
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/your-business-doesnt-need-you-to-operate/",
+                "icon": " 🖥️",
+                "label": "Hey founders! Your business doesn't need you to operate"
+              },
+              {
+                "url": "https://n8n.io/blog/why-this-product-manager-loves-workflow-automation-with-n8n/",
+                "icon": "🧠",
+                "label": "Why this Product Manager loves workflow automation with n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/aws-workflow-automation/",
+                "label": "7 no-code workflow automations for Amazon Web Services"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googledrive/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/google/oauth-single-service/"
+              }
+            ]
+          },
+          "categories": [
+            "Data & Storage"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "Google Drive"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiB2aWV3Qm94PSIwIDAgODEgNzMiPjx1c2UgeGxpbms6aHJlZj0iI2EiIHg9Ii41IiB5PSIuNSIvPjxzeW1ib2wgaWQ9ImEiIG92ZXJmbG93PSJ2aXNpYmxlIj48ZyBmaWxsLXJ1bGU9Im5vbnplcm8iIHN0cm9rZT0ibm9uZSI+PHBhdGggZmlsbD0iIzAwNjZkYSIgZD0ibTYuMDQ4IDYxLjI2IDMuNTI4IDYuMDk0Yy43MzMgMS4yODMgMS43ODcgMi4yOTEgMy4wMjQgMy4wMjRsMTIuNi0yMS44MUgwYTguMyA4LjMgMCAwIDAgMS4xIDQuMTI0eiIvPjxwYXRoIGZpbGw9IiMwMGFjNDciIGQ9Ik00MCAyMi45MSAyNy40IDEuMWMtMS4yMzcuNzMzLTIuMjkxIDEuNzQxLTMuMDI0IDMuMDI0TDEuMSA0NC40NDVBOC4zIDguMyAwIDAgMCAwIDQ4LjU2OGgyNS4yeiIvPjxwYXRoIGZpbGw9IiNlYTQzMzUiIGQ9Ik02Ny40IDcwLjM3OGMxLjIzNy0uNzMzIDIuMjkxLTEuNzQxIDMuMDI0LTMuMDI0bDEuNDY2LTIuNTIgNy4wMS0xMi4xNDJhOC4zIDguMyAwIDAgMCAxLjEtNC4xMjRINTQuNzk4bDUuMzYzIDEwLjUzOHoiLz48cGF0aCBmaWxsPSIjMDA4MzJkIiBkPSJNNDAgMjIuOTEgNTIuNiAxLjFDNTEuMzYzLjM2NyA0OS45NDMgMCA0OC40NzcgMEgzMS41MjRjLTEuNDY2IDAtMi44ODcuNDEyLTQuMTI0IDEuMXoiLz48cGF0aCBmaWxsPSIjMjY4NGZjIiBkPSJNNTQuNzk5IDQ4LjU2OEgyNS4ybC0xMi42IDIxLjgxYzEuMjM3LjczMyAyLjY1NyAxLjEgNC4xMjQgMS4xaDQ2LjU1MmMxLjQ2NiAwIDIuODg3LS40MTIgNC4xMjQtMS4xeiIvPjxwYXRoIGZpbGw9IiNmZmJhMDAiIGQ9Ik02Ny4yNjIgMjQuMjg0IDU1LjYyNCA0LjEyNEM1NC44OTEgMi44NDEgNTMuODM3IDEuODMzIDUyLjYgMS4xTDQwIDIyLjkxbDE0LjggMjUuNjU5aDI1LjE1NWE4LjMgOC4zIDAgMCAwLTEuMS00LjEyNHoiLz48L2c+PC9zeW1ib2w+PC9zdmc+"
+      },
+      "displayName": "Google Drive",
+      "typeVersion": 3,
+      "nodeCategories": [
+        {
+          "id": 3,
+          "name": "Data & Storage"
+        }
+      ]
+    },
+    {
+      "id": 834,
+      "icon": "file:code.svg",
+      "name": "n8n-nodes-base.code",
+      "codex": {
+        "data": {
+          "alias": [
+            "cpde",
+            "Javascript",
+            "JS",
+            "Python",
+            "Script",
+            "Custom Code",
+            "Function"
+          ],
+          "details": "The Code node allows you to execute JavaScript in your workflow.",
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.code/"
+              }
+            ]
+          },
+          "categories": [
+            "Development",
+            "Core Nodes"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0",
+          "subcategories": {
+            "Core Nodes": [
+              "Helpers",
+              "Data Transformation"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Code"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwMF8xMTcxXzQ0MSkiPgo8cGF0aCBkPSJNMTcwLjI4MyA0OEgxOTYuNUMyMDMuMTI3IDQ4IDIwOC41IDQyLjYyNzQgMjA4LjUgMzZWMTJDMjA4LjUgNS4zNzI1OCAyMDMuMTI3IDAgMTk2LjUgMEgxNzAuMjgzQzEyNi4xIDAgOTAuMjgzIDM1LjgxNzIgOTAuMjgzIDgwVjE3NkM5MC4yODMgMjA2LjkyOCA2NS4yMTA5IDIzMiAzNC4yODMgMjMySDIzQzE2LjM3MjYgMjMyIDExIDIzNy4zNzIgMTEgMjQ0VjI2OEMxMSAyNzQuNjI3IDE2LjM3MjQgMjgwIDIyLjk5OTYgMjgwTDM0LjI4MyAyODBDNjUuMjEwOSAyODAgOTAuMjgzIDMwNS4wNzIgOTAuMjgzIDMzNlY0NDBDOTAuMjgzIDQ3OS43NjQgMTIyLjUxOCA1MTIgMTYyLjI4MyA1MTJIMTk2LjVDMjAzLjEyNyA1MTIgMjA4LjUgNTA2LjYyNyAyMDguNSA1MDBWNDc2QzIwOC41IDQ2OS4zNzMgMjAzLjEyNyA0NjQgMTk2LjUgNDY0SDE2Mi4yODNDMTQ5LjAyOCA0NjQgMTM4LjI4MyA0NTMuMjU1IDEzOC4yODMgNDQwVjMzNkMxMzguMjgzIDMwOS4wMjIgMTI4LjAxMSAyODQuNDQzIDExMS4xNjQgMjY1Ljk2MUMxMDYuMTA5IDI2MC40MTYgMTA2LjEwOSAyNTEuNTg0IDExMS4xNjQgMjQ2LjAzOUMxMjguMDExIDIyNy41NTcgMTM4LjI4MyAyMDIuOTc4IDEzOC4yODMgMTc2VjgwQzEzOC4yODMgNjIuMzI2OSAxNTIuNjEgNDggMTcwLjI4MyA0OFoiIGZpbGw9IiNGRjk5MjIiLz4KPHBhdGggZD0iTTMwNSAzNkMzMDUgNDIuNjI3NCAzMTAuMzczIDQ4IDMxNyA0OEgzNDIuOTc5QzM2MC42NTIgNDggMzc0Ljk3OCA2Mi4zMjY5IDM3NC45NzggODBWMTc2QzM3NC45NzggMjAyLjk3OCAzODUuMjUxIDIyNy41NTcgNDAyLjA5OCAyNDYuMDM5QzQwNy4xNTMgMjUxLjU4NCA0MDcuMTUzIDI2MC40MTYgNDAyLjA5OCAyNjUuOTYxQzM4NS4yNTEgMjg0LjQ0MyAzNzQuOTc4IDMwOS4wMjIgMzc0Ljk3OCAzMzZWNDMyQzM3NC45NzggNDQ5LjY3MyAzNjAuNjUyIDQ2NCAzNDIuOTc5IDQ2NEgzMTdDMzEwLjM3MyA0NjQgMzA1IDQ2OS4zNzMgMzA1IDQ3NlY1MDBDMzA1IDUwNi42MjcgMzEwLjM3MyA1MTIgMzE3IDUxMkgzNDIuOTc5QzM4Ny4xNjEgNTEyIDQyMi45NzggNDc2LjE4MyA0MjIuOTc4IDQzMlYzMzZDNDIyLjk3OCAzMDUuMDcyIDQ0OC4wNTEgMjgwIDQ3OC45NzkgMjgwSDQ5MEM0OTYuNjI3IDI4MCA1MDIgMjc0LjYyOCA1MDIgMjY4VjI0NEM1MDIgMjM3LjM3MyA0OTYuNjI4IDIzMiA0OTAgMjMyTDQ3OC45NzkgMjMyQzQ0OC4wNTEgMjMyIDQyMi45NzggMjA2LjkyOCA0MjIuOTc4IDE3NlY4MEM0MjIuOTc4IDM1LjgxNzIgMzg3LjE2MSAwIDM0Mi45NzkgMEgzMTdDMzEwLjM3MyAwIDMwNSA1LjM3MjU4IDMwNSAxMlYzNloiIGZpbGw9IiNGRjk5MjIiLz4KPC9nPgo8ZGVmcz4KPGNsaXBQYXRoIGlkPSJjbGlwMF8xMTcxXzQ0MSI+CjxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiBmaWxsPSJ3aGl0ZSIvPgo8L2NsaXBQYXRoPgo8L2RlZnM+Cjwvc3ZnPgo="
+      },
+      "displayName": "Code",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 5,
+          "name": "Development"
+        },
+        {
+          "id": 9,
+          "name": "Core Nodes"
+        }
+      ]
+    }
+  ]
+}

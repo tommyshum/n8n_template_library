@@ -1,0 +1,32 @@
+{
+  "id": 1130,
+  "name": "Add a check condition for a loop in n8n",
+  "description": "This workflow demonstrates the use of $runIndex expression. It demonstrates how the expression can be used to avoid an infinite loop.\n\nThe workflow will create 5 Tweets with the content 'Hello from n8n!'.\n\nYou can use this workflow by replacing the Twitter node with any other node(s) and updating the condition in the IF node.",
+  "totalViews": 7735,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Marketing"
+  ],
+  "nodes": [
+    {
+      "name": "X (Formerly Twitter)",
+      "type": "n8n-nodes-base.twitter",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2021-06-17T15:09:08.265Z",
+  "path": "official/template_1130/workflow.json"
+}

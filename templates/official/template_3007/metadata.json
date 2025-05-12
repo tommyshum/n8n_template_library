@@ -1,0 +1,61 @@
+{
+  "id": 3007,
+  "name": "YouTube Shorts Automation - The Game-Changer in Scroll-Stopping Short Clips",
+  "description": "Automatically Create and Post YouTube Shorts from Podcasts and Other Videos Using AI (Simplified).\n\nTransform podcasts and other videos into captivating, fully optimized YouTube Shorts with this all-in-one automation solution—designed for content creators who repurpose engaging clips. By leveraging advanced YouTube analytics, this template identifies the most compelling moments from your source material and automatically crafts them into scroll-stopping shorts. With intelligent editing, auto-generated titles and descriptions, and customizable scheduling, your clips become instantly post-ready, helping you expand your reach while saving hours on manual editing.\n\nKey Features\n\nAnalytics-Driven Highlight Extraction:**  \n  Automatically analyzes engagement metrics to select the best moments from podcasts or other creators' videos, ensuring each clip resonates with your audience.\n\nAI-Powered Editing:**  \n  Applies professional-grade editing—adding captions, effects, transitions, and more—to create visually stunning, high-impact shorts.\n\nAuto-Generated Metadata:**  \n  Seamlessly creates dynamic titles and descriptions, fully optimizing your clips for immediate upload.\n\nCustomizable Scheduling:**  \n  Enables you to set upload intervals that align with your strategy, ensuring a steady stream of content on your channel.\n\nSeamless YouTube Integration:**  \n  Directly connects with YouTube’s API, streamlining the process so your channel remains active and engaging with minimal effort.\n\nDesigned specifically for content creators repurposing YouTube videos—and requiring only a Sipkes Studio account (it's Free) for full functionality—this simplified automation template streamlines the conversion of long-form content into bite-sized, shareable clips. Elevate your content strategy, maximize audience engagement, and reclaim valuable time with a solution built to drive your channel's growth.",
+  "totalViews": 1902,
+  "source": "official",
+  "user": {
+    "id": 92893,
+    "name": "Mateo Fiorito Rocha",
+    "username": "lemolex",
+    "bio": "Passionate about AI-driven automation, LLMs, and intelligent systems that enhance efficiency and engagement. Let’s build smarter workflows, send me a message!",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/mateofioritorocha/\"]",
+    "avatar": "https://gravatar.com/avatar/1547577657bcdb579dd2c1946c4382029800b8e23e112916e4fe11cc66a6f9fa?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Marketing"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "YouTube",
+      "type": "n8n-nodes-base.youTube",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-02-25T01:36:09.427Z",
+  "path": "official/template_3007/workflow.json"
+}

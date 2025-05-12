@@ -1,0 +1,34 @@
+{
+  "id": 1456,
+  "name": "Add new customers from WooCommerce to Mautic",
+  "description": "This workflow uses a WooCommerce trigger that will run when a new customer has been added, It will then add the customer to Mautic.\n\nTo use this workflow you will need to set the credentials to use for the WooCommerce and Mautic nodes.",
+  "totalViews": 3256,
+  "source": "official",
+  "user": {
+    "id": 25789,
+    "name": "Jonathan",
+    "username": "jon-n8n",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/5240094f838126182ceefb50ca4a3cf75cc7dc0808efd4b9920d792e41bfc45e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Marketing",
+    "Communication"
+  ],
+  "nodes": [
+    {
+      "name": "Mautic",
+      "type": "n8n-nodes-base.mautic",
+      "categories": [
+        "Marketing",
+        "Communication"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2022-02-17T15:00:40.748Z",
+  "path": "official/template_1456/workflow.json"
+}

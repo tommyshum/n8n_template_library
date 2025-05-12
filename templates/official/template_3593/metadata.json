@@ -1,0 +1,49 @@
+{
+  "id": 3593,
+  "name": "Extract Business Leads from Google Maps with Dumpling AI to Google Sheets",
+  "description": "Who is this for?\n\nThis workflow is built for marketers, sales teams, agencies, virtual assistants, and anyone who regularly researches or contacts local businesses. It's ideal for building lead lists, tracking competitors, or creating location-specific outreach campaigns.\n\nWhat problem is this workflow solving?\n\nInstead of manually searching Google Maps and copying business info into spreadsheets, this automation pulls structured business data (e.g. restaurants, gyms, service providers) and logs it directly into Google Sheets. It saves hours of work and ensures cleaner, more usable data.\n\nWhat this workflow does\n\nThe workflow takes a Google Maps search query (like \"best restaurants in New York\") and sends it to Dumpling AI. It returns a list of places including their name, address, website, phone number, rating, and more. Each result is split into a row and automatically added to a Google Sheet.\n\nSetup\n\nDumpling AI  \n   Sign up at Dumpling AI  \n   Generate your API key  \n   In the HTTP Request node, select Header Auth and paste your key in the Authorization field\n\nGoogle Sheets  \n   Create a sheet with tab name Leads  \n   Add the following column headers to row 1:  \n     Name, Address, Phone number, Website, Rating, Price Level, Type, Booking Link, Position  \n   Connect your Google Sheets account and link this sheet in the node\n\nCustomize the Query  \n   In the HTTP node, replace the query string (e.g., \"best+restaurants+in+New+York\") with your own search term\n\nRun It  \n   Use the manual trigger to test  \n   Optionally swap in a Schedule or Webhook node to run it automatically\n\nHow to customize this workflow to your needs\n\nChange the search query to target different cities or business types  \nUse filters to only save leads with a minimum rating or price level  \nAdd GPT to summarize listings or qualify leads  \nSwap Google Sheets for Airtable or a CRM system for deeper integration\n",
+  "totalViews": 6075,
+  "source": "official",
+  "user": {
+    "id": 93751,
+    "name": "Yang",
+    "username": "yang",
+    "bio": "",
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/6c996ff9ed140535b522858466c376f84e755b851b34b0ad900e4e6568568f84?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-04-17T20:51:09.545Z",
+  "path": "official/template_3593/workflow.json"
+}

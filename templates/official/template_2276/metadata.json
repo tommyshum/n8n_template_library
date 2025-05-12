@@ -1,0 +1,38 @@
+{
+  "id": 2276,
+  "name": "Send HTTP Requests to a list of URLs",
+  "description": "How it works\nThis workflow reads a list of URLs every 15 minutes, and sends an HTTP request to every URL on the list.\n\nSet up steps\nSchedule the workflow to run at your desired frequency (default is every 15 minutes).\nAdd your desired URLs to the list. The list should be in the same format as the image below (Don't forget to have single quotes around every URL in the list, and separate each one with a comma!):\n\n\n\nTurn the workflow ON.\n\nIdeas to customize the workflow for your own use cases:\nChange the HTTP method\nAdd headers\nAdd a request body\n",
+  "totalViews": 2058,
+  "source": "official",
+  "user": {
+    "id": 91718,
+    "name": "Eric Francis",
+    "username": "ericfrancis",
+    "bio": "",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/1b5c62965cb6ea45496555305f37485a13265871d2d478024a0bd9a379cd7cc4?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-06-02T03:24:01.880Z",
+  "path": "official/template_2276/workflow.json"
+}

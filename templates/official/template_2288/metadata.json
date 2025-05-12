@@ -1,0 +1,75 @@
+{
+  "id": 2288,
+  "name": "Automate LinkedIn Outreach with Notion and OpenAI",
+  "description": "This template is based on the following template. Thank you for the groundwork, Matheus.\n\nHow it works:\nStore your snippets of text in a Notion table.  Each snippet should have an image associated with it (copy + pasted into the text)\nConnect to your table via a Notion \"integration\", from which N8N can then query your pre-meditated posts\nThe text is fed through an OpenAI assistant to boost engagement via formatting\nThe re-formatted text along with the image pulled from the Notion snippet are combined into a post for your LinkedIn\nThe row in the original Notion table from step 1 containing this post is set to a status of \"Done\"\n\nSet up steps:\nYou will need to create a Notion \"integration\", which will yield a \"secret key\" which you enter into your N8N as a \"Credential\". \nYou will need to create a LinkedIn \"app\" in order to post on your behalf.  When creating your LinkedIn \"app\", you will be required to link this \"app\" to a company page on LinkedIn.  If you are doing this for yourself, seach for the \"Default Company Payge (for API testing)\", and select this page as it is provided by LinkedIn for individuals.  You can find your LinkedIn apps here, and if you get stuck, further instructions on setting up this workflow (including this LinkedIn OAuth piece) can be found in this YouTube Video Aide to these instructions.\nLastly, you will need to create an OpenAI API key, found on your OpenAI Playground Dashboard.  Once you created an API key, make sure you have an assistant created from the \"Assistants\" tab on the OpenAI dashboard.  This assistant and its instructions will be needed for carrying out the re-formatting of your post.  \n\n\n",
+  "totalViews": 15863,
+  "source": "official",
+  "user": {
+    "id": 91731,
+    "name": "Paul Mikulskis",
+    "username": "mikulskisp",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/978a9c81151d490ba1e67c51987fa2fe27df5856c9b7dfb2645d33a794f0c6c6?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Marketing",
+    "Communication",
+    "Productivity",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "LinkedIn",
+      "type": "n8n-nodes-base.linkedIn",
+      "categories": [
+        "Marketing",
+        "Communication"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2024-06-11T01:48:23.628Z",
+  "path": "official/template_2288/workflow.json"
+}

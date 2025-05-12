@@ -1,0 +1,85 @@
+{
+  "id": 2458,
+  "name": "Automated Agentic News Event Monitoring with perplexity.ai",
+  "description": "Purpose of workflow:\nThe purpose of this workflow is to create a news reporter AI agent that automatically monitors specific news events and sends summary emails to the user. \n\nThis tool aims to keep users up-to-date with the latest happenings on topics of interest without the need to constantly check multiple news sources manually. It's particularly useful for investors or researchers who must stay informed about specific events that may impact their work or investments.\n\nHow it works:\nIt leverages the power of large language models, specifically Perplexity's (perplexity.ai) online models accessed through Open Router (openrouter.ai), to understand and summarize up-to-date news. \n\nThe workflow is scheduled to run at predetermined intervals (e.g., daily at 7 AM), automatically scanning for news on the specified topic, generating a summary, and sending it via email to the user.\n\nSetup:\nSign up and generate an API key from Openrouter.ai This provides access to Perplexity's online language models\nUpdate Perplexity node with Openrouter.ai API key\nSpecify the event/topic to monitor in the News Reporter node\nActivate workflow to turn on scheduling feature ",
+  "totalViews": 7519,
+  "source": "official",
+  "user": {
+    "id": 91384,
+    "name": "Derek Cheung",
+    "username": "derekcheungsa",
+    "bio": "Derek is an engineer, instructor, and investor based in Canada. He is publicly building AI applications to solve real-world problems, leveraging his technical expertise to develop practical solutions.",
+    "verified": true,
+    "links": "[\"https://www.youtube.com/@derekcheungsa\"]",
+    "avatar": "https://gravatar.com/avatar/1d8dbb30401a76425734d4319abbaa38548b7572064ca080740bbfe60324772a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2024-10-10T02:57:48.188Z",
+  "path": "official/template_2458/workflow.json"
+}

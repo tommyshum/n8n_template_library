@@ -1,0 +1,54 @@
+{
+  "id": 2590,
+  "name": "Daily GitHub Release notification by Email",
+  "description": "Automating daily notifications of the latest releases from a GitHub repository. This template is ideal for developers and project managers looking to stay up-to-date with software updates.\n\nHow it Works:\n\nDaily Trigger: The workflow initiates daily using the Schedule Trigger node.\nFetch Repository Data: The HTTP Request node retrieves the latest release details from the specified GitHub repository.\nCheck if new: The IF node check if the release was done in the last 24 hours.\nSplit Content: The Split Out node processes the JSON response to extract and structure relevant data.\nConvert Markdown: The Markdown node converts release notes from Markdown format to HTML, making them ready to use in emails.\nSend a notification by email\n\nKey Features:\n\nSimple to customize by modifying the GitHub URL.\nAutomatically processes and formats release notes for better readability.\nModular design, allowing integration with other workflows like Gmail or Slack notifications.\n\nSetup Steps:\n\nModify Repository URL: Update the Sticky Note node with the URL of the repository you want to monitor.\nModify SMTP details: Update the Send Email node with your SMTP details.\n",
+  "totalViews": 1283,
+  "source": "official",
+  "user": {
+    "id": 92214,
+    "name": "Dionysus",
+    "username": "dionysus",
+    "bio": "",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/d745d7b2476a88ecde3071e6e3847935b21f39dbd73fd5f6789ef204abf6a567?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Core Nodes",
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "categories": [
+        "Communication",
+        "HITL",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-11-30T13:14:35.977Z",
+  "path": "official/template_2590/workflow.json"
+}

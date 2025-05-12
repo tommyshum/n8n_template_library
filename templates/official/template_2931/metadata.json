@@ -1,0 +1,104 @@
+{
+  "id": 2931,
+  "name": "AI Agent with Ollama for current weather and wiki",
+  "description": "This workflow template demonstrates how to create an AI-powered agent that provides users with current weather information and Wikipedia summaries. By integrating n8n with Ollama's local Large Language Models (LLMs), this template offers a seamless and privacy-conscious solution for real-time data retrieval and summarization.\n\nWho is this for?\n\nDevelopers and Enthusiasts: Individuals interested in building AI-driven workflows without relying on external APIs.\nPrivacy-Conscious Users: Those who prefer processing data locally to maintain control over their information.\nEducators and Students: Learners seeking hands-on experience with AI integrations and workflow automation.\n\nWhat problem does this workflow solve?\n\nAccessing up-to-date weather information and concise Wikipedia summaries typically requires multiple API calls to external services, which can raise privacy concerns and incur costs. This workflow addresses these issues by utilizing Ollama's self-hosted LLMs within n8n, enabling users to retrieve and process information locally.\n\nWhat this workflow does:\n\nUser Input Capture: Begins with a chat interface where users can input queries.\nAI Processing: The input is sent to an AI Agent node configured with Ollama's LLMs, which interprets the query and determines the required actions.\nWeather Retrieval: For weather-related queries, the workflow fetches current weather data from a specified source.\nWikipedia Summarization: For queries seeking information, it retrieves relevant Wikipedia content and generates concise summaries.\n\nSetup:\n\nInstall Required Tools:\nOllama: Install and run Ollama to manage local LLMs.\nConfigure n8n Workflow:\nImport the provided workflow template into your n8n instance.\nSet up the AI Agent node to connect with Ollama's API.\nEnsure nodes responsible for fetching weather data and Wikipedia content are correctly configured.\nRun the Workflow:\nStart the workflow and interact with the chat interface to test various queries.\n\nHow to customize this workflow to your needs:\n\nAutomate Triggers: Set up scheduled triggers to provide users with regular updates, such as daily weather forecasts or featured Wikipedia articles.",
+  "totalViews": 11611,
+  "source": "official",
+  "user": {
+    "id": 92776,
+    "name": "Thomas Chan",
+    "username": "tomkart",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/143418930388baf3abaff0d35f4a8d94604322fecaf5656fc3dd0d35cb631258?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Ollama Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOllama",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Wikipedia",
+      "type": "@n8n/n8n-nodes-langchain.toolWikipedia",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-02-18T04:00:45.136Z",
+  "path": "official/template_2931/workflow.json"
+}

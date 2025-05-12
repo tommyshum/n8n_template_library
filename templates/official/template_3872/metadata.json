@@ -1,0 +1,38 @@
+{
+  "id": 3872,
+  "name": "Extract Specific Pages from PDFs with CustomJS API",
+  "description": "\nThis n8n template shows how to extract selected pages from a generated PDF with the PDF Toolkit by www.customjs.space.\n\n@custom-js/n8n-nodes-pdf-toolkit\n\nNotice\n\nCommunity nodes can only be installed on self-hosted instances of n8n.\n\nWhat this workflow does\n\nDownloads** each PDF using an HTTP Request.\nExtract** pages from the PDF file as needed.\n\nRequirements\n\nSelf-hosted** n8n instance\nCustomJS API key** for extracting PDF files.\nPDF files to be merged** to be converted into a PDF\n\nWorkflow Steps:\n\nManual Trigger:\n\n   Runs with user interaction.\n\nDownload PDF File:\n\n   Pass urls for PDF files to merge.\n\nExtract Pages from PDF:\n   Extract selected pages from a generated PDF\n\nUsage\n\nGet API key from customJS\n\nSign up to customJS platform.\nNavigate to your profile page\nPress \"Show\" button to get API key\n\nSet Credentials for CustomJS API on n8n\n\nCopy and paste your API key generated from CustomJS here.\n\nDesign workflow\n\nA Manual Trigger for starting workflow.\nHTTP Request Nodes for downloading PDF files.\nExtract Pages from PDF.\n\nYou can replace logic for triggering and returning results.\nFor example, you can trigger this workflow by calling a webhook and get a result as a response from webhook. Simply replace Manual Trigger and Write to Disk nodes.\n\nPerfect for\n\nTaking a note of specific pages from PDF files.\nSplitting PDF file into multiple parts.\n",
+  "totalViews": 31,
+  "source": "official",
+  "user": {
+    "id": 93320,
+    "name": "CustomJS",
+    "username": "customjs",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://www.customjs.space\"]",
+    "avatar": "https://gravatar.com/avatar/942ecdadf17761bc7f516b67fb0f3617809720caf8912cfd1815ed2a9f8b9ad3?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-05-05T10:52:45.020Z",
+  "path": "official/template_3872/workflow.json"
+}

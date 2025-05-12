@@ -1,0 +1,140 @@
+{
+  "id": 3576,
+  "name": "Paul Graham Essay Search & Chat with Milvus Vector Database",
+  "description": "Paul Graham Essay Search & Chat with Milvus Vector Database\nHow It Works\n\nThis workflow creates a RAG (Retrieval-Augmented Generation) system using Milvus vector database to search Paul Graham essays:\n\nScrape & Load: Fetches Paul Graham essays, extracts text, and stores them as vector embeddings in Milvus\nChat Interface: Enables semantic search and AI-powered conversations about the essays\n\nSet Up Steps\n\nSet up Milvus server following the official installation guide, then create a collection\nExecute the workflow to scrape essays and load them into your Milvus collection\nChat with the AI agent using the Milvus tool to query and discuss essay content\n",
+  "totalViews": 142,
+  "source": "official",
+  "user": {
+    "id": 93835,
+    "name": "Cheney Zhang",
+    "username": "zc277584121",
+    "bio": "Algorithm engineer at Zilliz, dedicating to the application of vector databases in the AI ecosystem.\n",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/cheney-zhang-61b795318/\"]",
+    "avatar": "https://gravatar.com/avatar/cfb063861c079e38b42c0161a274d139f415fa00288929f3e44bdb828433a3b0?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Recursive Character Text Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    },
+    {
+      "name": "Milvus Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreMilvus",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 8,
+  "createdAt": "2025-04-16T13:04:56.892Z",
+  "path": "official/template_3576/workflow.json"
+}

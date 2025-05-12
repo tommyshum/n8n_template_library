@@ -1,0 +1,144 @@
+{
+  "id": 2568,
+  "name": "Upsert huge documents in a vector store with Supabase and Notion",
+  "description": "Purpose\n\nThis workflow adds the capability to build a RAG on living data. In this case Notion is used as a Knowledge Base. Whenever a page is updated, the embeddings get upserted in a Supabase Vector Store.\n\nIt can also be fairly easily adapted to PGVector, Pinecone, or Qdrant by using a custom HTTP request for the latter two.\n\nDemo\n\nHow it works\n\nA trigger checks every minute for changes in the Notion Database. The manual polling approach improves accuracy and prevents changes from being lost between cached polling intervals.\nAfterwards every updated page is processed sequentially\nThe Vector Database is searched using the Notion Page ID stored in the metadata of each embedding. If old entries exist, they are deleted.\nAll blocks of the Notion Database Page are retrieved and combined into a single string\nThe content is embedded and split into chunks if necessary. Metadata, including the Notion Page ID, is added during storage for future reference.\nA simple Question and Answer Chain enables users to ask questions about the embedded content through the integrated chat function\n\nPrerequisites\n\nTo setup a new Vector Store in Supabase, follow this guide\nPrepare a simple Database in Notion with each Database Page containing at least a title and some content in the blocks section. You can of course also connect this to an existing Database of your choice.\n\nSetup\n\nSelect your credentials in the nodes which require those\nIf you are on an n8n cloud plan, switch to the native Notion Trigger by activating it and deactivating the Schedule Trigger along with its subsequent Notion Node\nChoose your Notion Database in the first Node related to Notion\nAdjust the chunk size and overlap in the Token Splitter to your preference\nActivate the workflow\n\nHow to use\n\nPopulate your Notion Database with useful information and use the chat mode of this workflow to ask questions about it. Updates to a Notion Page should quickly reflect in future conversations.",
+  "totalViews": 10672,
+  "source": "official",
+  "user": {
+    "id": 91699,
+    "name": "Mario",
+    "username": "octionic",
+    "bio": "Workflow Optimization Expert | Software Architect. Use my link to book an initial consultation for custom built workflows using n8n.",
+    "verified": true,
+    "links": "[\"https://octionic.com\"]",
+    "avatar": "https://gravatar.com/avatar/48bf351cec848d87566d8cc78c9a783ec4807408366648de04cfe955d7a5ba21?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Productivity",
+    "Data & Storage",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Supabase",
+      "type": "n8n-nodes-base.supabase",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Question and Answer Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainRetrievalQa",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Vector Store Retriever",
+      "type": "@n8n/n8n-nodes-langchain.retrieverVectorStore",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Retrievers"
+        ]
+      }
+    },
+    {
+      "name": "Token Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterTokenSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Supabase Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 9,
+  "createdAt": "2024-11-24T18:37:24.868Z",
+  "path": "official/template_2568/workflow.json"
+}

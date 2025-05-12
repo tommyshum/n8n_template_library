@@ -1,0 +1,131 @@
+{
+  "id": 2932,
+  "name": "AppSheet Intelligent Query Orchestrator- Query any data!",
+  "description": "AppSheet Intelligent Query Orchestrator  \n\nA friendly, practical tool that makes working with AppSheet data simpler and more efficient. This workflow is your go-to helper for building precise queries without getting lost in a sea of different tables.  \n\nBackground  \nPreviously, I built a community node to enable this functionality: Appsheet n8n Community node\n\nHow It Works  \n\nThis workflow fetches the most up-to-date schema and taxonomy from your Google Sheet mirror and constructs a custom query using key components:  \n\nTableName**: Specifies exactly which table to query.  \nSelector**: Uses powerful functions like SELECT(), FILTER(), and CONTAINS() to filter data with precision.  \nColumns Required: Extracts only the essential fields, keeping the payload **lean and focused.  \nNatural Language Search Query: Provides a **clear, descriptive context that helps refine and re-rank results.  \n\nReal-World Use Cases  \n\nThis orchestrator is designed for various industries, making data retrieval effortless:  \n\n📦 Supply Chain & Manufacturing  \nFind the right product based on specific attributes.  \nLocate suppliers that meet certain quality or pricing criteria.  \nObtain details about the lowest-priced raw materials.  \n\n🛍 Retail & E-commerce  \nMatch customer queries to the most relevant product listings.  \nIdentify inventory levels and stock variations.  \nCompare pricing and product features across vendors.  \n\n🏥 Healthcare  \nRetrieve patient records based on specific attributes.  \nTrack inventory of medical supplies.  \nSchedule and manage appointments dynamically.  \n\n🎓 Education  \nMonitor student attendance or performance metrics.  \nAllocate resources and track equipment usage.  \nManage events and class schedules efficiently.  \n\n🔧 Field Services & Maintenance  \nSchedule maintenance tasks by matching service requirements.  \nTrack asset conditions and inventory for field equipment.  \nMonitor work orders and dispatch field teams based on real-time data.  \n\nExamples: \n\nIterative Refinement  \n\nThis workflow operates iteratively, refining the query until it finds the best match—even if it takes multiple rounds. This makes it incredibly versatile for complex inventory management, procurement, and precise data retrieval.  \n\nIn a Nutshell  \nThe AppSheet Intelligent Query Orchestrator is like having a smart assistant that:  \n✅ Understands your data structure  \n✅ Builds the perfect query every time  \n✅ Handles a variety of real-world scenarios with ease  \n\n🚀 Practical, adaptable, and ready to tackle your toughest data challenges!\n",
+  "totalViews": 544,
+  "source": "official",
+  "user": {
+    "id": 92398,
+    "name": "Mohammed Rifad",
+    "username": "rifadm817",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/b7b9a784a900e26094bccd6372ce62c5696e022c08b1b9f98ce70d53425264b7?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Anthropic Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-02-18T06:18:43.596Z",
+  "path": "official/template_2932/workflow.json"
+}

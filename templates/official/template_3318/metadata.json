@@ -1,0 +1,116 @@
+{
+  "id": 3318,
+  "name": "Automated Resume Review System Using OpenAI + Google Sheets",
+  "description": "Who is this for?\nThis workflow is ideal for:\nHR teams and recruiters seeking to streamline resume screening.\nHiring managers who want quick, summarized candidate insights.\nRecruitment agencies handling large volumes of applicant data.\nStartups and small businesses looking to automate hiring without complex systems.\nAI and automation professionals who want to build smart HR workflows using n8n and OpenAI.\n\nWhat problem is this workflow solving? / Use Case\nManually reviewing resumes is time-consuming, inconsistent, and prone to human bias. \nThis workflow automates the resume intake and evaluation process—ensuring that each applicant is screened, summarized, and scored using a consistent, data-driven method.\nIt enhances efficiency and supports better hiring decisions.\n\nWhat this workflow does\n\nAccepts resume submissions via form and saves files to Google Drive.\nExtracts key information from resumes using AI (e.g., name, contact, education, experience).\nSummarizes candidate qualifications into a short, readable profile.\nAllows HR to rate applicants and leave comments.\nLogs all extracted data and evaluations into a centralized Google Sheet for tracking.\n\nSetup\n\nResume is submitted through an n8n form.\nThe uploaded file is automatically stored in Google Drive.\nn8n uses OpenAI and document parsing tools to extract candidate data.\nExtracted information is structured and summarized using GPT.\nA review form is triggered for internal HR rating and notes.\nAll data is appended to a Google Sheet for records and filtering.\nHow to customize this workflow to your needs**\n\nChange the form tool (e.g., Typeform, Tally, or custom HTML) based on your stack.\nAdapt the summary prompt to align with your specific role requirements.\nAdd filters to auto-flag top-tier candidates based on score or skills.\nIntegrate Slack or email to notify hiring managers when top resumes are processed.\nConnect to your ATS if you want to push processed resumes into your recruitment system.",
+  "totalViews": 3034,
+  "source": "official",
+  "user": {
+    "id": 93184,
+    "name": "Mirza Ajmal",
+    "username": "ajmalmirza",
+    "bio": "Ajmal is an n8n and automation expert who helps businesses streamline workflows, eliminate manual tasks, and leverage AI-powered automation. He specializes in AI agents, API integrations, and no-code automation to optimize operations and boost efficiency.",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/f713e240dc5c9b96c28b7527094836eceb952904c07ee1bd5c1919c008afafa3?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Summarization Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainSummarization",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Information Extractor",
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-03-25T09:20:13.331Z",
+  "path": "official/template_3318/workflow.json"
+}

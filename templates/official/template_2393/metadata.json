@@ -1,0 +1,59 @@
+{
+  "id": 2393,
+  "name": "Save n8n Cloud invoices received in Gmail in Google Drive",
+  "description": "Who this is for\nThis template is for everyone that wants to download their n8n Cloud invoices automatically as a PDF instead of downloading them manually.\nHow it works\nThis workflow checks your Gmail inbox for new n8n invoice emails from n8n's payment provider Paddle. Once it finds something, it converts the URL into a PDF using pdflayer and saves it in Google Drive.\nSetup\nSetup your Gmail and Google Drive credentials\nCreate a free account at https://pdflayer.com/\nInsert your pdflayer API key into the Setup node\nInsert the URL to the wanted drive folder into the setup node (make sure to remove everything after the ?)\nHow to adjust it to your need\nInstead of saving the PDF in Google drive, you could also save it in your local system, any other storage provider or send the PDF automatically to the right person in your company.",
+  "totalViews": 2938,
+  "source": "official",
+  "user": {
+    "id": 91250,
+    "name": "Niklas Hatje",
+    "username": "nik8n",
+    "bio": "Product Manager at n8n - Responsible for the creator program",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/niklashatje/\"]",
+    "avatar": "https://gravatar.com/avatar/e16a4426e166713c34626bdde856b1cd15bb6787481a7ead9b74318f19e6259d?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-08-28T15:06:47.448Z",
+  "path": "official/template_2393/workflow.json"
+}

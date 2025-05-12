@@ -1,0 +1,114 @@
+{
+  "id": 2964,
+  "name": "Free YouTube Video Analyzer with AI-Powered Summaries & Email Alerts",
+  "description": "\nThis workflow is designed to analyze YouTube videos by extracting their transcripts, summarizing the content using AI models, and sending the analysis via email.\n\nThis workflow is ideal for content creators, marketers, or anyone who needs to quickly analyze and summarize YouTube videos for research, content planning, or educational purposes.\n\nHow It Works:\nTrigger: The workflow starts with a manual trigger, allowing you to test it by clicking \"Test workflow.\" You can also set a YouTube video URL manually or dynamically.\n\nYouTube Video ID Extraction:\n   The workflow extracts the YouTube video ID from the provided URL using a custom JavaScript function. This ID is necessary for fetching the transcript.\n\nTranscript Generation:\n   The video ID is sent via an HTTP request to generate the transcript. You need to replace APIKEY with a free API key from the service.\n\nTranscript Validation:\n   The workflow checks if a transcript exists for the video. If a transcript is available, it proceeds; otherwise, it stops.\n\nFull Text Extraction:\n   If a transcript exists, the workflow combines all transcript segments into a single text variable for further analysis.\n\nAI-Powered Analysis:\n   The full transcript is passed to an AI model (DeepSeek, OpenAI, or OpenRouter) for analysis. The AI generates a structured summary, including a title and key points, formatted in markdown.\n\nEmail Notification:\n   The analysis results (title and summary) are sent via email using SMTP credentials. The email contains the structured summary of the video.\n\nSet Up Steps:\nYouTube Transcript API:\n   Obtain a free API key from youtube-transcript.io and replace APIKEY in the \"Generate transcript\" node with your key.\n\nAI Model Configuration:\n   Configure the AI model nodes (DeepSeek, OpenAI, or OpenRouter) with the appropriate API credentials. You can choose one or multiple models depending on your preference.\n\nEmail Setup:\n   Configure the \"Send Email\" node with your SMTP credentials (e.g., Gmail, Outlook, or any SMTP service). Ensure the email settings are correct to send the analysis results.\n\nKey Features:\nFree Tools: Uses **youtube-transcript.io for free transcript generation.\nAI Models**: Supports multiple AI models (DeepSeek, OpenAI, OpenRouter) for flexible analysis.\nEmail Notifications**: Sends the analysis results directly to your inbox.\nCustomizable**: Easily adapt the workflow to analyze different videos or use different AI models.\n\n",
+  "totalViews": 2554,
+  "source": "official",
+  "user": {
+    "id": 92207,
+    "name": "Davide",
+    "username": "n3witalia",
+    "bio": "Full-stack Web Developer based in Italy specialising in Marketing & AI-powered automations. For business enquiries, send me an email at info@n3w.it or add me on Linkedin.com/in/davideboizza",
+    "verified": true,
+    "links": "[\"https://n3w.it\"]",
+    "avatar": "https://gravatar.com/avatar/d41b8a0aa81139243509c58870f5b4be292824a507ab57d10ed066d8628ed8da?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Core Nodes",
+    "Development",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "categories": [
+        "Communication",
+        "HITL",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-02-21T16:34:22.072Z",
+  "path": "official/template_2964/workflow.json"
+}

@@ -1,0 +1,82 @@
+{
+  "id": 3607,
+  "name": "Find High-Intent Sales Leads by Scraping Glassdoor with Bright Data & GPT",
+  "description": "🔍 Scrape Glassdoor with Bright Data\n\nDesigned for sales teams, recruiters, and marketers aiming to automate job discovery and prospecting.\n\nThis workflow scrapes Glassdoor job listings using Bright Data and automatically generates targeted pitches using AI, streamlining lead identification and outreach.\n\n🧩 How It Works\n\nThis automation leverages n8n, Bright Data, Google Sheets, and OpenAI:\n\n1. Trigger\nStarts with a custom form input (Location, Keyword, Country).\n\n2. Bright Data Job Scrape\nTriggers a Bright Data dataset snapshot via HTTP Request.\nPolls snapshot progress using a Wait node, ensuring data readiness.\nRetrieves full job listings dataset once ready.\n\n3. Google Sheets Integration\nWrites detailed job data (company, role, location, overview, metrics) into a Google Sheet.\nUses a pre-built template for organized data storage.\n\n4. Automated Pitch Generation (AI)\nSplits listings into actionable parts: company name, title, and description.\nSends data to OpenAI (via LangChain) to generate relevant pitches or icebreakers.\nSaves generated content back into the same sheet for easy access.\n\n✅ Requirements\n\nEnsure you have the following:\n\nGoogle Sheets\nGoogle account  \nTemplate Sheet with columns for job details and AI-generated pitches\n\nBright Data\nActive account with Dataset API access  \nAPI key and dataset ID\n\nOpenAI\nValid OpenAI API key for GPT models\n\nn8n Environment\nNodes: HTTP Request, Wait, If, Google Sheets, Split Out, LangChain (OpenAI)\nCredentials:\n  Google Sheets OAuth2\n  Bright Data API credentials\n  OpenAI API key\n\n⚙️ Setup Instructions\n\nStep 1: Prepare Google Sheets  \nCopy the provided Google Sheets template  \nDo not change headers\n\nStep 2: Import & Configure Workflow in n8n  \nImport the workflow JSON file  \nSet Google Sheets node:\n  Link to your copied sheet  \n  Confirm correct tab name  \n\nStep 3: Configure Bright Data  \nReplace &lt;YOUR_BRIGHT_DATA_API_KEY&gt; with your real key  \nSet your dataset ID in all HTTP Request nodes\n\nStep 4: Configure OpenAI (LangChain)  \nConnect OpenAI API key to the LangChain node  \nCustomize prompt to match tone and outreach style\n\nStep 5: Testing & Scheduling  \nTest via manual form trigger  \nSchedule runs or leave form enabled for on-demand use\n\n🧠 Tips & Best Practices\n\nUse specific keywords and locations for better results  \nAdjust polling intervals based on dataset size  \nRefine AI prompts regularly to improve pitch quality  \nClean unused columns from your sheet to boost performance\n\n💬 Support & Feedback\n\nFor help or customization:\n\n📧 Email: Yaron@nofluff.online  \n📺 YouTube: @YaronBeen  \n🔗 LinkedIn: linkedin.com/in/yaronbeen  \n\n📚 Bright Data Docs: docs.brightdata.com/introduction\n",
+  "totalViews": 745,
+  "source": "official",
+  "user": {
+    "id": 93770,
+    "name": "Yaron Been",
+    "username": "yaron-nofluff",
+    "bio": "Building AI Agents and Automations | Growth Marketer | Entrepreneur | Book Author & Podcast Host",
+    "verified": true,
+    "links": "[\"nofluff.online\"]",
+    "avatar": "https://gravatar.com/avatar/a4e4dcaa1f76ff5266bbf80e8df86d22efda890474c68f7796e72fd82e3f2375?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-04-19T06:36:28.418Z",
+  "path": "official/template_3607/workflow.json"
+}

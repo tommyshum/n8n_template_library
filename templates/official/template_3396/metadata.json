@@ -1,0 +1,111 @@
+{
+  "id": 3396,
+  "name": "Parse Incoming Invoices From Outlook using AI Document Understanding",
+  "description": "This n8n template monitors an Outlook mailbox for invoices, automatically parses/extracts data from them and then uploads the output to an Excel Workbook.\n\nOne of my top workflow requests, this template can save many hours of manual labour for you or your finance/accounts team.\n\nHow it works\nA scheduled trigger is set to fetch recent Outlook messages to the Accounts receivable mailbox.\nEach message is analysed to determine whether or not it from a supplier and is issuing/contains an invoice.\nFor each valid message, the attachments are downloaded and non-invoice documents are filtered out via AI Vision classification.\nInvoices are then processed through a AI vision model again to extract the details.\nThe extracted data can then be used for reconciliation or otherwise. For this demonstration, we'll just append the row to an Excel sheet for now.\n\nHow to use\nEnsure your Microsoft365 credential points to the correct mailbox. If a shared folder is used, toggle \"shared folder\" option to \"on\" and for the principal ID, use the email address.\nIf you receive lots of other types of messages such as replies and forwards, you may want to implement additional checks to prevent processing invoices twice. The \"remove duplicates\" node can help with this.\n\nRequirements\nOutlook for Mailbox\nGoogle Gemini for Document Understanding and Invoice Extraction\nExcel for Data Storage\n\nCustomising this workflow\nNote the assumption for this template is that all invoices will come as a PDF attachment. In real life, this is rarely the case! Adding in document conversion to cover all invoice formats.\nHuman feedback is also an important factor in AI workflows. Try tagging emails as a way to notify team members that the invoice was processed.",
+  "totalViews": 541,
+  "source": "official",
+  "user": {
+    "id": 91804,
+    "name": "Jimleuk",
+    "username": "jimleuk",
+    "bio": "Freelance consultant based in the UK specialising in AI-powered automations. I work with select clients tackling their most challenging projects. For business enquiries, send me an email at hello@jimle.uk\n\nLinkedIn: https://www.linkedin.com/in/jimleuk/\nX/Twitter: https://x.com/jimle_uk",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4ab99e51473df76838beeaac908747f7928c625f869794815cabe34016967d51?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage",
+    "Productivity",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Microsoft Excel 365",
+      "type": "n8n-nodes-base.microsoftExcel",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Microsoft Outlook",
+      "type": "n8n-nodes-base.microsoftOutlook",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Text Classifier",
+      "type": "@n8n/n8n-nodes-langchain.textClassifier",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-04-01T09:17:11.659Z",
+  "path": "official/template_3396/workflow.json"
+}

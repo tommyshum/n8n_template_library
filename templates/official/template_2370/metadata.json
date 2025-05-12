@@ -1,0 +1,87 @@
+{
+  "id": 2370,
+  "name": "Creating a AI Slack Bot with Google Gemini",
+  "description": "This is an example of how we can build a slack bot in a few easy steps\n\nBefore you can start, you need to o a few things\n\nCreate a copy of this workflow\nCreate a slack bot\nCreate a slash command on slack and paste the webhook url to the slack command\n\nNote\nMake sure to configure this webhook using a https:// wrapper and don't use the default http://localhost:5678 as that will not be recognized by your slack webhook.\n\n\nOnce the data has been sent to your webhook, the next step will be passing it via an AI Agent to process data based on the queries we pass to our agent.\n\nTo have some sort of a memory, be sure to set the slack token to the memory node. This way you can refer to other chats from the history.\n\nThe final message is relayed back to slack as a new message. Since we can not wait longer than 3000 ms for slack response, we will create a new message with reference to the input we passed.\n\nWe can advance this using the tools or data sources for it to be more custom tailored for your company.\n\nUsage\nTo use the slackbot, go to slack and click on your set slash command eg /Bob and send your desired message.\n\nThis will send the message to your endpoint and get return the processed results as the message.\n\nIf you would like help setting this up, feel free to reach out to zacharia@effibotics.com ",
+  "totalViews": 7600,
+  "source": "official",
+  "user": {
+    "id": 91335,
+    "name": "Imperol",
+    "username": "imperolq",
+    "bio": "Automation expert with years of experience helping businesses improve their efficiency and productivity with smart automations that are affordable, scalable, and flexible. ",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/zacharia-kimotho/\"]",
+    "avatar": "https://gravatar.com/avatar/13b050fd63dc0c9242774c4b8769c4788df8b47268c1fb183d6f1da085b9e6e2?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2024-07-29T11:05:50.274Z",
+  "path": "official/template_2370/workflow.json"
+}

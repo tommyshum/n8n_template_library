@@ -1,0 +1,88 @@
+{
+  "id": 3238,
+  "name": "Get Real-time NFT Insights with OpenSea AI-Powered NFT Agent Tool",
+  "description": "Instantly access NFT metadata, collections, traits, contracts, and ownership details from OpenSea! This workflow integrates GPT-4o-mini AI, OpenSea API, and n8n automation to provide structured NFT data for traders, collectors, and investors.  \n\nHow It Works  \nReceives user queries via Telegram, webhooks, or another connected interface.  \nDetermines the correct API tool based on the request (e.g., user profile, NFT metadata, contract details).  \nRetrieves data from OpenSea API (requires API key).  \nProcesses the information using an AI-powered NFT insights engine.  \nReturns structured insights in an easy-to-read format for quick decision-making.  \n\nWhat You Can Do with This Agent  \n🔹 Retrieve OpenSea User Profiles → Get user bio, links, and profile info.  \n🔹 Fetch NFT Collection Details → Get collection metadata, traits, fees, and contract info.  \n🔹 Analyze NFT Metadata → Retrieve ownership, rarity, and trait-based pricing.  \n🔹 Monitor NFTs Owned by a Wallet → Track all NFTs under a specific account.  \n🔹 Retrieve Smart Contract Data → Get blockchain contract details for an NFT collection.  \n🔹 Identify Valuable Traits → Fetch NFT trait insights and rarity scores.  \n\nExample Queries You Can Use  \n✅ \"Get OpenSea profile for 0xA5f49655E6814d9262fb656d92f17D7874d5Ac7E.\"  \n✅ \"Retrieve details for the 'Azuki' NFT collection.\"  \n✅ \"Fetch metadata for NFT #5678 from 'Bored Ape Yacht Club'.\"  \n✅ \"Show all NFTs owned by 0x123... on Ethereum.\"  \n✅ \"Get contract details for NFT collection 'CloneX'.\"  \n\nAvailable API Tools & Endpoints  \n1️⃣ Get OpenSea Account Profile → /api/v2/accounts/{address_or_username} (Retrieve user bio, links, and image)  \n2️⃣ Get NFT Collection Details → /api/v2/collections/{collection_slug} (Get collection-wide metadata)  \n3️⃣ Get NFT Metadata → /api/v2/chain/{chain}/contract/{address}/nfts/{identifier} (Retrieve individual NFT details)  \n4️⃣ Get NFTs Owned by Account → /api/v2/chain/{chain}/account/{address}/nfts (List all NFTs owned by a wallet)  \n5️⃣ Get NFTs by Collection → /api/v2/collection/{collection_slug}/nfts (Retrieve all NFTs from a specific collection)  \n6️⃣ Get NFTs by Contract → /api/v2/chain/{chain}/contract/{address}/nfts (Retrieve all NFTs under a contract)  \n7️⃣ Get Payment Token Details → /api/v2/chain/{chain}/payment_token/{address} (Fetch info on payment tokens used in NFT transactions)  \n8️⃣ Get NFT Traits → /api/v2/traits/{collection_slug} (Retrieve collection-wide trait data)  \n\nSet Up Steps  \nGet an OpenSea API Key  \n   Sign up at OpenSea API and request an API key.  \nConfigure API Credentials in n8n  \n   Add your OpenSea API key under HTTP Header Authentication.  \nConnect the Workflow to Telegram, Slack, or Database (Optional)  \n   Use n8n integrations to send alerts to Telegram, Slack, or save results to Google Sheets, Notion, etc.  \nDeploy and Test  \n   Send a query (e.g., \"Azuki latest sales\") and receive instant NFT market insights!  \n\nUnlock powerful NFT analytics with AI-powered OpenSea insights—start now!  \n",
+  "totalViews": 288,
+  "source": "official",
+  "user": {
+    "id": 93152,
+    "name": "Don Jayamaha Jr",
+    "username": "don-the-gem-dealer",
+    "bio": "With 12 years of experience as a Blockchain Strategist and Web3 Architect, I specialize in bridging the gap between traditional industries and decentralized technologies. My expertise spans tokenized assets, crypto payment integrations, and blockchain-driven market solutions.",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/donjayamahajr/\"]",
+    "avatar": "https://gravatar.com/avatar/95f70084b3fec5ed68a61eef6dc6128dfb085d865a02ed631d0853d2730696bf?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-03-20T15:07:10.949Z",
+  "path": "official/template_3238/workflow.json"
+}

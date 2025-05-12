@@ -1,0 +1,97 @@
+{
+  "id": 3610,
+  "name": "Scrape Trustpilot Reviews Using Bright Data & GPT-4o-mini for Winning Ad Copy",
+  "description": "🔍 Competitor Review Scraper & Ad Copy Generator\n(Trustpilot + Bright Data + GPT-4o-mini)\n\n📌 Who It's For\nMarketers, business owners, and agencies looking to:\n\nAnalyze competitor pain points\n\nGenerate high-impact Facebook ad copy\n \nAutomate manual data processing\n\n🧩 How It Works\nThis n8n-based workflow combines Bright Data, Google Sheets, and OpenAI to scrape, process, and transform Trustpilot reviews into ready-to-use ad copy.\n\n🔹 Step-by-Step Breakdown\nTrigger (Manual Form Submission)\nInput required:\n\nCompetitor’s Trustpilot URL\n\nReview timeframe (30d, 3m, 6m, 12m)\n\nFetch Reviews\n\nCalls Bright Data’s Dataset API with URL & timeframe\n\nPolls until snapshot is ready\n\nRetrieve & Store\n\nExtracts all reviews\n\nSaves them into a structured Google Sheet\n\nFilter & Aggregate\n\nFilters to only 1–2 star reviews\n\nSummarizes common negative feedback\n\nGenerate Ad Copy\n\nSends the summary to OpenAI GPT-4o-mini\n\nProduces 3 variations of ad copy targeting pain points\n\nDistribute Insights\n\nSends ad copy + summary via email to the marketing team\n\n✅ Requirements\n\n-LLM Account \n-Google Sheets - Copy this sheet:\nhttps://docs.google.com/spreadsheets/d/1Zi758ds2_aWzvbDYqwuGiQNaurLgs-leS9wjLWWlbUU/edit?gid=0#gid=0\n\n-Bright Data account\n\n⚙️ Setup Instructions\n**Step 1: Google Sheets\n**\nCopy this Google Sheets template\n\nDo not change column headers\n\n**Step 2: n8n Credential Setup\n**\nGoogle Sheets: OAuth2\n\nBright Data: Authorization Header\n\nOpenAI: API Key for GPT-4o-mini\n\n**Step 3: Import Workflow\n**\nImport the .json file into n8n\n\nConfigure your sheet + dataset ID\n\nAdjust GPT prompts as needed\n\n**Step 4: Run the Workflow\n**\nTrigger via form\n\nReceive ad copy + review insights via email\n\n🧠 Tips & Best Practices\nBright Data snapshots may take time — polling is handled\n\nFocusing on 1–2 star reviews yields the most actionable pain points\n\nYou can customize GPT-4o-mini prompts for tone or vertical\n\n💬 Support & Feedback\nNeed help or customization?\n\n📧 Email: Yaron@nofluff.online\n📺 YouTube: @YaronBeen\n🔗 LinkedIn: linkedin.com/in/yaronbeen\n\n📚 Bright Data Docs: docs.brightdata.com/introduction",
+  "totalViews": 254,
+  "source": "official",
+  "user": {
+    "id": 93770,
+    "name": "Yaron Been",
+    "username": "yaron-nofluff",
+    "bio": "Building AI Agents and Automations | Growth Marketer | Entrepreneur | Book Author & Podcast Host",
+    "verified": true,
+    "links": "[\"nofluff.online\"]",
+    "avatar": "https://gravatar.com/avatar/a4e4dcaa1f76ff5266bbf80e8df86d22efda890474c68f7796e72fd82e3f2375?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-04-19T15:01:54.627Z",
+  "path": "official/template_3610/workflow.json"
+}

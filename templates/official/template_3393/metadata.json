@@ -1,0 +1,80 @@
+{
+  "id": 3393,
+  "name": "Google Calendar Reminder System with GPT-4o and Telegram",
+  "description": "How many times have you missed a meeting or forgotten an appointment because a calendar reminder got lost in the noise? Traditional notifications are often dry, easy to ignore, or scattered across different apps—leaving you scrambling at the last minute.\n\nThis smart Google Calendar workflow fixes that by sending you a clear, friendly reminder exactly 1 hour before your event starts—delivered through Telegram as if a personal assistant were looking out for you. Powered by AI, it transforms cold calendar alerts into warm, conversational nudges you won't ignore.\n\nWhy This Works Better:  \n✅ No More Overlooked Alerts – Consolidates reminders into one clear, accessible place (Telegram), so you never miss them.  \n✅ Friendly & Engaging – AI transforms robotic calendar entries into natural, human-like reminders that are harder to ignore.  \n✅ Works Everywhere – Whether you're on your phone, laptop, or tablet, you’ll get the same clear notification, no matter the platform.  \n\nHow It Works\nScheduled Trigger: The workflow starts with a Schedule Trigger node that runs every minute to check for upcoming events.\nGoogle Calendar Check: The \"Get upcoming event\" node queries Google Calendar for events starting within the next hour (between timeMin and timeMax).\nDuplicate Prevention: The \"Already sent?\" node ensures reminders are not sent multiple times for the same event by filtering out duplicates.\nAI-Powered Reminder: The \"Secretary Agent\" node, powered by GPT-4, crafts a friendly and professional reminder message. It includes event details like name, description, location, start/end time, and creator, formatted in a conversational tone.\nTelegram Notification: The final \"Send reminder\" node delivers the reminder via Telegram, ensuring the user receives it in a clear and accessible format.\nSet Up Steps\nConfigure Schedule Trigger: Set the interval (e.g., every minute) to check for events.\nConnect Google Calendar: Link your Google Calendar account and specify the calendar to monitor.\nSet Up AI Agent: Customize the \"Secretary Agent\" with the provided system message to ensure reminders are warm, professional, and detailed.\nLink Telegram: Add your Telegram credentials and specify the CHAT_ID where reminders will be sent.\nActivate Workflow: Ensure the workflow is active and set to the correct timezone (e.g., Europe/Rome).\nWhy It’s Useful\nNever Miss an Event**: Traditional calendar reminders can be easy to overlook, especially when scattered across platforms. This workflow consolidates reminders into a single, accessible channel (Telegram).\nClear and Friendly**: The AI agent transforms generic calendar alerts into personalized, conversational reminders, making them harder to ignore.\nCross-Platform Accessibility**: By delivering reminders via Telegram, users receive them in a consistent format, regardless of the device or platform they’re using. No more missed events due to unclear notifications!\nNeed help customizing?  \nContact me for consulting and support or add me on Linkedin.",
+  "totalViews": 15485,
+  "source": "official",
+  "user": {
+    "id": 92207,
+    "name": "Davide",
+    "username": "n3witalia",
+    "bio": "Full-stack Web Developer based in Italy specialising in Marketing & AI-powered automations. For business enquiries, send me an email at info@n3w.it or add me on Linkedin.com/in/davideboizza",
+    "verified": true,
+    "links": "[\"https://n3w.it\"]",
+    "avatar": "https://gravatar.com/avatar/d41b8a0aa81139243509c58870f5b4be292824a507ab57d10ed066d8628ed8da?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Productivity",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Google Calendar",
+      "type": "n8n-nodes-base.googleCalendar",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-04-01T07:27:50.382Z",
+  "path": "official/template_3393/workflow.json"
+}

@@ -1,0 +1,69 @@
+{
+  "id": 2334,
+  "name": "Organise Your Local File Directories With AI",
+  "description": "If you have a shared or personal drive location with a high frequency of files created by humans, it can become difficult to organise. This may not matter... until you need to search for something!\n\nThis n8n workflow works with the local filesystem to target the messy folder and categorise as well as organise its files into sub directories automatically.\n\nDisclaimer\nUnfortunately due to the intended use-case, this workflow will not work on n8n Cloud and a self-hosted version of n8n is required.\n\nHow it works\nUses the local file trigger to activate once a new file is introduced to the directory\nThe new file's filename and filetype are analysed using AI to determine the best location to move this file.\nThe AI assess the current subdirectories as to not create duplicates. If a relevant subdirectory is not found, a new subdirectory is suggested.\nFinally, an Execute Command node uses the AI's suggestions to move the new file into the correct location.\n\nRequirements\nSelf-hosted version of n8n. The nodes used in this workflow only work in the self-hosted version.\nIf you are using docker, you must create a bind mount to a host directory.\nMistral.ai account for LLM model\n\nCustomise this workflow\n\nIf the frequency of files created is high enough, you may not want the trigger to active on every new file created event. Switch to a timer to avoid concurrency issues.\n\nWant to go fully local?\n\nA version of this workflow is available which uses Ollama instead. You can download this template here:\nhttps://drive.google.com/file/d/1iqJ_zCGussXpfaUBYGrN5opziEFAEQMu/view?usp=sharing",
+  "totalViews": 9638,
+  "source": "official",
+  "user": {
+    "id": 91804,
+    "name": "Jimleuk",
+    "username": "jimleuk",
+    "bio": "Freelance consultant based in the UK specialising in AI-powered automations. I work with select clients tackling their most challenging projects. For business enquiries, send me an email at hello@jimle.uk\n\nLinkedIn: https://www.linkedin.com/in/jimleuk/\nX/Twitter: https://x.com/jimle_uk",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4ab99e51473df76838beeaac908747f7928c625f869794815cabe34016967d51?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Mistral Cloud Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatMistralCloud",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-07-10T14:46:38.909Z",
+  "path": "official/template_2334/workflow.json"
+}

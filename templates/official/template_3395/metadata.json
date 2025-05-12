@@ -1,0 +1,138 @@
+{
+  "id": 3395,
+  "name": "Auto-assign Support Tickets with JIRA, Supabase and AI",
+  "description": "This n8n template builds a simple automation to ensure no JIRA issues go unassigned for more than a week to prevent them falling through the cracks. It uses AI to perform searching tasks against a Supabase Vector Store.\nThis can be one way to help reduce the amount of manual work in managing the issue backlog for busy teams with little effort.\n\nHow it works\nThis template contains 2 separate flows which run continuously via schedule triggers.\nThe first populates our Supabase vector store with resolved issues within the last day. This helps keep our vector store up-to-date and relevant for the purpose of finding similar issues.\nIt does this by pulling the latest resolved issues from JIRA and populating the Supabase vectorstore with carefully chosen metadata. This will come in handy later.\nThe second flow watches for stale, unassigned issues for the purpose of aut-assigning to a relevant team member.\nIt does this by comparing the stale issue against our vector store of resolved issues with the goal of identifying which team member would have best context regarding the issue.\nIn a busy team, this may net a few team members as possible candidates to assign. Therefore, we can introduce additional logic to count each team member's assigned, in-progress issues. This is intended to not overload our busiest members.\nThe team member with the least assigned issues is pressumed to have the most capacity and therefore is assigned. A comennt is left in the issue to notify the team member that they've been auto-assigned due to age of issue.\n\nHow to use\nModify the project and interval parameters to match those of your use-case and team members.\nAdd additional criteria before assigning to a team member eg. department, as required.\n\nRequirements\nOpenAI for LLM\nJIRA for Issue Management\nSupabase for Vector Store\n\nCustomising this workflow\nNot using JIRA or Supabase? The beauty of these AI templates are these components are entirely interchangeable with competing services. Try Linear and Qdrant instead!\nAuto-assigning logic is simplified in this template. Expand criteria as required for your team and organisation. eg. Might be a good idea to pull in annual leave information from HR system to prevent assigning to someone who is on currently on holiday!",
+  "totalViews": 102,
+  "source": "official",
+  "user": {
+    "id": 91804,
+    "name": "Jimleuk",
+    "username": "jimleuk",
+    "bio": "Freelance consultant based in the UK specialising in AI-powered automations. I work with select clients tackling their most challenging projects. For business enquiries, send me an email at hello@jimle.uk\n\nLinkedIn: https://www.linkedin.com/in/jimleuk/\nX/Twitter: https://x.com/jimle_uk",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4ab99e51473df76838beeaac908747f7928c625f869794815cabe34016967d51?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Productivity",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Jira Software",
+      "type": "n8n-nodes-base.jira",
+      "categories": [
+        "Development",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Recursive Character Text Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Supabase Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    },
+    {
+      "name": "Information Extractor",
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 8,
+  "createdAt": "2025-04-01T09:04:10.393Z",
+  "path": "official/template_3395/workflow.json"
+}

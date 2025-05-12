@@ -1,0 +1,109 @@
+{
+  "id": 3143,
+  "name": "Real Estate Cold Call Scripts for Price Reduced FSBO Properties (Zillow Data)",
+  "description": "Real Estate Price-Reduced Property Opportunity Guide\n\nOverview\nThis comprehensive automation solution targets FSBO properties listed on Zillow that have recently had their price reduced, providing both investment analysis and tailored outreach scripts. The workflow gathers comprehensive market data to analyze local trends for each specific city and incorporates this intelligence into personalized communication strategies (more aggressive in buyers' markets, more value-focused in sellers' markets).\n\nKey benefits:\nIdentify motivated homeowners who have recently reduced their property prices\nPrepare data-driven offer strategies based on detailed market conditions\nDevelop effective, personalized communication approaches\nCreate a consistent, automated workflow to find and capitalize on opportunities\n\nRequirements\nAirtable account (free tier works)\nn8n automation platform\nOpenAI API key \nZillow Rapid API access\nBasic understanding of automation workflows\n\nStep 1: Set Up Airtable Database\nCreate a new Airtable base\nSet up a table with the following fields:\n  Property ID (primary field)\n  Address\n  Price\n  Status (single select field with options: \"Contacted\" and \"Uncontacted\")\n  Phone Number\n  Communication Template\n  Market Analysis\n  Offer Price\n  Investment Metrics (Long text field for detailed financial analysis)\n  Expected Cash Flow (Currency field)\n  Expected ROI (Percentage field)\n  Follow-up Date\nSet the default Status to \"Uncontacted\"\nGenerate a Personal Access Token from Airtable settings for API connections\n\nStep 2: Configure Zillow API Connection\nSet up an HTTP request node in n8n to connect to Zillow's Rapid API\nConfigure the search parameters:\n  Listing type: \"For Sale By Owner\"\n  Location: Your target market\n  Price reduction: true\n  Auction properties: false\nAdd filters to:\n  Exclude properties without contact information\n  Only include listings with recent price reductions\n  Filter by minimum square footage or bedrooms if desired\n  Set maximum days since price reduction (e.g., last 14 days)\n\nStep 3: Market Analysis Workflow\nOur market analysis engine processes Zillow market data to provide strategic insights for each location:\n\nComprehensive Market Indicators**:\n  Current inventory levels and new listing rates\n  Median list price and sale price comparison\n  Days-to-pending metrics (current and historical)\n  Sale-to-list price ratios\n  Percentage of properties selling above/below list price\n\nMarket Trend Analysis**:\n  6-month and year-over-year comparative trends\n  Market trend scoring system (-10 to +10 scale)\n  Market cycle position identification (Early, Mid, Late)\n  Seasonal market pattern recognition\n\nStrategic Investment Guidance**:\n  Market type classification (Buyer's, Balanced, Seller's)\n  Negotiation power assessment\n  Market timing recommendations\n  Risk evaluation (Low to High scale)\n  Actionable investment strategies based on current conditions\n\nThis analysis is transformed into actionable advice that directs your negotiation approach and helps you calibrate offers appropriately for market conditions.\n\nStep 4: Calculate Investment Metrics\nOur investment calculator analyzes each Zillow property and its RentZestimate to provide comprehensive financial projections:\n\nPurchase & Financing Analysis**:\n  Purchase price and standard acquisition costs (20% down payment, 3% closing costs)\n  Loan amount and monthly mortgage payment (30-year term)\n  Total initial investment calculation\n\nMonthly Expense Projections**:\n  Property tax (2% of property value annually)\n  Insurance (0.5% of property value annually)\n  Maintenance reserves (1% of property value annually)\n  Vacancy allowance (8% of rental income)\n  Total monthly expense calculation\n\nRental Income & Returns**:\n  RentZestimate integration (with 1% rule fallback when unavailable)\n  Monthly and annual cash flow projections\n  Cash-on-cash ROI calculation\n  Break-even timeline analysis\n\nInvestment Quality Filtering**:\n  Automatic filtering to show only positive cash flow properties\n  Property identification with complete details (address, beds, baths, sqft)\n  Full investment metrics breakdown for investor decision-making\n\nThis calculator ensures you focus only on properties with profit potential, saving you countless hours of manual analysis.\n\nStep 5: Generate Communication Templates\nCreate templates that combine:\n  Property details (address, price, features)\n  Market intelligence from your analysis\n  Investment metrics showing the property's potential\nConfigures your templates to include:\n  A professional introduction\n  Reference to the specific property address\n  Mention of the price reduction\n  A strategic cash offer (typically 5-15% below asking)\n  Local market statistics to build credibility\n  A clear call to action (request to visit the property)\n\nStep 6: Automated Workflow\nSet up the complete n8n workflow to:\n  Check for new listings with price reductions daily\n  Run market analysis on each new property\n  Calculate potential investment returns\n  Generate personalized communication templates\n  Upload data to Airtable\n  Flag properties ready for contact\n  Update status to \"Contacted\" after outreach\n\nTroubleshooting\nIf outreach isn't being tracked: Check API connections to Airtable\nIf market data seems incorrect: Verify Zillow API parameters and location settings\nIf offers are too low/high: Adjust your calculation parameters\n\nStep by Step tutorial: \nhttps://youtu.be/IqVw9CIL254?si=MKE5UY4rD0TOMLPg\n\nBy following this guide, you'll have a functional system that can identify opportunities, analyze market conditions, and help you create personalized offers to potential sellers—all while minimizing the manual effort required so you can focus on closing deals.",
+  "totalViews": 818,
+  "source": "official",
+  "user": {
+    "id": 92865,
+    "name": "T Zero",
+    "username": "tzero",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/0c8c396b0353e98ccdf7b529031e5294b62626efe39b38449801c02455e3265e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Summarization Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainSummarization",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-03-12T09:09:18.178Z",
+  "path": "official/template_3143/workflow.json"
+}

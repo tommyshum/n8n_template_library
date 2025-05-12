@@ -1,0 +1,43 @@
+{
+  "id": 723,
+  "name": "Send daily weather updates to a phone number using the Vonage node",
+  "description": "",
+  "totalViews": 356,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Miscellaneous",
+    "Utility",
+    "Communication"
+  ],
+  "nodes": [
+    {
+      "name": "OpenWeatherMap",
+      "type": "n8n-nodes-base.openWeatherMap",
+      "categories": [
+        "Miscellaneous",
+        "Utility"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Vonage",
+      "type": "n8n-nodes-base.vonage",
+      "categories": [
+        "Communication"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2020-10-16T12:25:02.029Z",
+  "path": "official/template_723/workflow.json"
+}

@@ -1,0 +1,111 @@
+{
+  "id": 3540,
+  "name": "Generate Company Stories from LinkedIn with Bright Data & Google Gemini",
+  "description": "Who this is for?\n\nThe LinkedIn Company Story Generator is an automated workflow that extracts company profile data from LinkedIn using Bright Data's web scraping infrastructure, then transforms that data into a professionally written narrative or story using a language model (e.g., OpenAI, Gemini). The final output is sent via webhook notification, making it easy to publish, review, or further automate.\n\nThis workflow is tailored for:​\n\nMarketing Professionals**: Seeking to generate compelling company narratives for campaigns.​\n\nSales Teams**: Aiming to understand potential clients through summarized company insights.​\n\nContent Creators**: Looking to craft stories or articles based on company data.​\n\nRecruiters**: Interested in obtaining concise overviews of companies for talent acquisition strategies.​\n\nWhat problem is this workflow solving?\n\nManually gathering and summarizing company information from LinkedIn can be time-consuming and inconsistent. This workflow automates the process, ensuring:​\n\nEfficiency**: Quick extraction and summarization of company data.​\n\nConsistency**: Standardized summaries for uniformity across use cases.​\n\nScalability**: Ability to process multiple companies without additional manual effort.\n\nWhat this workflow does\n\nThe workflow performs the following steps:​\n\nInput Acquisition**: Receives a company's name or LinkedIn URL as input.​\n\nData Extraction**: Utilizes Bright Data to scrape the company's LinkedIn profile.​\n\nInformation Parsing**: Processes the extracted HTML content to retrieve relevant company details.​\n\nSummarization**: Employs AI Google Gemini to generate a concise company story.\n\nOutput Delivery**: Sends the summarized content to a specified webhook or email address.\n\nSetup\n\nSign up at Bright Data.\nNavigate to Proxies & Scraping and create a new Web Unlocker zone by selecting Web Unlocker API under Scraping Solutions.\nIn n8n, configure the Header Auth account under Credentials (Generic Auth Type: Header Authentication).\n\nThe Value field should be set with the\nBearer XXXXXXXXXXXXXX. The XXXXXXXXXXXXXX should be replaced by the Web Unlocker Token.\nIn n8n, configure the Google Gemini(PaLM) Api account with the Google Gemini API key (or access through Vertex AI or proxy).\nUpdate the LinkedIn URL by navigating to the Set LinkedIn URL node.\nUpdate the Webhook HTTP Request node with the Webhook endpoint of your choice.\n\nHow to customize this workflow to your needs\n\nInput Variations: Modify the **Set LinkedIn URL node to accept a different company LinkedIn URL.\n\nData Points**: Adjust the HTML Data Extractor Node to retrieve additional details like employee count, industry, or headquarters location.​\n\nSummarization Style**: Customize the AI prompt to generate summaries in different tones or formats (e.g., formal, casual, bullet points).​\n\nOutput Destinations**: Configure the output node to send summaries to various platforms, such as Slack, CRM systems, or databases.\n\n",
+  "totalViews": 584,
+  "source": "official",
+  "user": {
+    "id": 93657,
+    "name": "Ranjan Dailata",
+    "username": "ranjancse",
+    "bio": "",
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/7b74fe44a7ad32db7c783b972deb5848a4b1f043377bce4039737ed66da8305f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Summarization Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainSummarization",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Recursive Character Text Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Information Extractor",
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-04-13T11:18:22.841Z",
+  "path": "official/template_3540/workflow.json"
+}

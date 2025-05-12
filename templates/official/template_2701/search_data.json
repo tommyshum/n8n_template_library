@@ -1,0 +1,68 @@
+{
+  "id": 2701,
+  "name": "Reschedule overdue Asana tasks and clean up completed tasks",
+  "totalViews": 1455,
+  "purchaseUrl": null,
+  "user": {
+    "id": 92378,
+    "name": "Bastien Laval",
+    "username": "bastien-laval",
+    "bio": "",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/d7c42e46c2daf4cf90ac38772f9eee0be4bb2883bd5cf161158fff01be2b1d5e?r=pg&d=retro&size=200"
+  },
+  "description": "Description\n\nBoost your productivity and keep your Asana workspace clutter-free with this n8n workflow. \n\nIt automatically scans for tasks whose due dates have passed and reschedules them to the current date, ensuring no important to-dos slip through the cracks. \n\nAdditionally, any completed tasks in Asana with an overdue date are removed, maintaining a clear, organized task list.\n\nKey Benefits\n\nStreamline Task Management**: No more manual updates—let the workflow reschedule overdue tasks for you.\nOptimize Workspace Organization**: Eliminate finished tasks to focus on active priorities and reduce clutter.\nSave Time and Effort**: Automate repetitive maintenance, freeing you to concentrate on what truly matters.\n\nConfiguration Steps\n\nAdd your Asana credentials\nSchedule the workflow to run at desired intervals (e.g., daily or weekly).\nSelect your Workspace Name and your Assignee Name (user) in the Get user tasks node\n(Optional) Tailor filtering conditions to match your preferred due-date rules and removal criteria.\nActivate the workflow and watch your Asana workspace stay up to date and clutter-free. ",
+  "createdAt": "2025-01-06T20:52:57.831Z",
+  "nodes": [
+    {
+      "id": 3,
+      "icon": "file:asana.svg",
+      "name": "n8n-nodes-base.asana",
+      "codex": {
+        "data": {
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/how-a-digital-strategist-uses-n8n-for-online-marketing/",
+                "icon": "💻",
+                "label": "How a digital strategist uses n8n for online marketing"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.asana/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/asana/"
+              }
+            ]
+          },
+          "categories": [
+            "Productivity"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "Asana"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCI+PGRlZnM+PHJhZGlhbEdyYWRpZW50IGlkPSJhIiBjeD0iNTAlIiBjeT0iNTUlIiByPSI3Mi41MDclIiBmeD0iNTAlIiBmeT0iNTUlIiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KC45MjQwNCAwIDAgMSAuMDM4IDApIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRkZCOTAwIi8+PHN0b3Agb2Zmc2V0PSI2MCUiIHN0b3AtY29sb3I9IiNGOTVEOEYiLz48c3RvcCBvZmZzZXQ9Ijk5LjkxJSIgc3RvcC1jb2xvcj0iI0Y5NTM1MyIvPjwvcmFkaWFsR3JhZGllbnQ+PC9kZWZzPjxwYXRoIGZpbGw9InVybCgjYSkiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTQ1LjU5NCAyOC41Yy02Ljk5NC4wMDMtMTIuNjY0IDUuNjczLTEyLjY2NyAxMi42NjcuMDAzIDYuOTk1IDUuNjczIDEyLjY2NCAxMi42NjcgMTIuNjY4IDYuOTk1LS4wMDQgMTIuNjY0LTUuNjczIDEyLjY2Ny0xMi42NjgtLjAwMy02Ljk5NC01LjY3Mi0xMi42NjQtMTIuNjY3LTEyLjY2N20tMzIuOTI3LjAwMUM1LjY3MyAyOC41MDUuMDAzIDM0LjE3NCAwIDQxLjE3Yy4wMDMgNi45OTQgNS42NzMgMTIuNjY0IDEyLjY2NyAxMi42NjcgNi45OTUtLjAwMyAxMi42NjQtNS42NzMgMTIuNjY4LTEyLjY2Ny0uMDA0LTYuOTk1LTUuNjczLTEyLjY2NC0xMi42NjgtMTIuNjY4ek00MS43OSAxMi42NjdjLS4wMDIgNi45OTUtNS42NzEgMTIuNjY1LTEyLjY2NiAxMi42Ny02Ljk5NS0uMDA0LTEyLjY2NC01LjY3NC0xMi42NjctMTIuNjdDMTYuNDYgNS42NzMgMjIuMTMuMDAzIDI5LjEyMyAwYzYuOTk0LjAwNCAxMi42NjMgNS42NzMgMTIuNjY2IDEyLjY2N3oiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC43MzIgMi43MzIpIi8+PC9zdmc+"
+      },
+      "displayName": "Asana",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 4,
+          "name": "Productivity"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "id": 3577,
+  "name": "Travel Planning Assistant with MongoDB Atlas, Gemini LLM and Vector Search",
+  "description": "Building agentic AI workflows often requires multiple moving parts: memory management, document retrieval, vector similarity, and orchestration. \n\nUntil now, these pieces had to be custom-wired. \n\nBut with the new native n8n nodes for MongoDB Atlas, we reduce that overhead dramatically.\n\n\nWith just a few clicks:\n\nStore and recall long-term memory from MongoDB\n\nQuery vector embeddings stored in Atlas Vector Search\n\nUse these results in your LLM chains and automation logic\n\nIn this example we present an ingestion and AI Agent flows that focus around Travel Planning. The different interest points that we want the agent to know about can be ingested into the vector store.\n\nThe AI Agent will use the vector store tool to get relevant context about those points of interest if it needs to. \n\nPrerequisites\nMongoDB Atlas project and Cluster\nOpenAI Valid API Key for embeddings (can be other provider)\nGemini API Key for the LLM (can be other provider)\n\nHow it works:\n\nThere are 2 main flows. \n\nOne is ingesting flow:\nGets a document from a webhook and use MongoDB Vector Atlas to embed the document title and description into points_of_interest collection.\nEmbeddings are stored in a field named embedding\nEmbeddings used are OpenAI's but it can be any type of supported embedders.\n\nSecond flow is an AI Agent node with Chat Memory Stored in MongoDB Atlas and a Vector Search node as a tool:\nChat Message Trigger**: Chatting with the AI Agent will trigger the conversation store in the MongoDB Chat Memory node.\nWhen data is necessary like a location search or details it will go to the \"Vector Search\" tool.\nVector Search Tool** - uses Atlas Vector Search index created on the points_of_interest collection:\n\n// index name : \"vector_index\"\n// If you change an embedding provider make sure the numDimensions correspond to the model.\n{\n  \"fields\": [\n    {\n      \"type\": \"vector\",\n      \"path\": \"embedding\",\n      \"numDimensions\": 1536,\n      \"similarity\": \"cosine\"\n    }\n  ]\n}\n\nAdditional Resources\nMongoDB Atlas Vector Search\nn8n Atlas Vector Search docs\n\n",
+  "totalViews": 493,
+  "source": "official",
+  "user": {
+    "id": 92173,
+    "name": "Pavel Duchovny",
+    "username": "pash",
+    "bio": "Developer imagination == Innovation ✓\n\nExperienced DBA & DevOps engineer & Web Developer. Develop and deploy automation of servers, infrastructure and security to the cloud. Scaling, upgrading and designing Big scaled systems and databases .\n\nSpecializing in designing and building big data solutions in both RDBMS and NoSql echosystems.\n\nHardworking and innovative personality.",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/3f44811eec962f32f82ce2ad6c503da4b174a073c965aeece97e0e6c80ebfa9d?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    },
+    {
+      "name": "Recursive Character Text Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "MongoDB Chat Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryMongoDbChat",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "Other memories"
+        ]
+      }
+    },
+    {
+      "name": "MongoDB Atlas Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreMongoDBAtlas",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-04-16T15:14:03.770Z",
+  "path": "official/template_3577/workflow.json"
+}

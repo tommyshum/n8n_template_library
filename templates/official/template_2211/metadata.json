@@ -1,0 +1,32 @@
+{
+  "id": 2211,
+  "name": "Batch update all your Youtube video descriptions in one click",
+  "description": "🎉 Do you want to master AI automation, so you can save time and build cool stuff? \n\nI’ve created a welcoming Skool community for non-technical yet resourceful learners.\n\n👉🏻 Join the AI Atelier 👈🏻\n\nKeeping your YouTube video descriptions updated and consistent across your channel can be a daunting task. Manually editing each video is not only time-consuming but also prone to errors.\n\n📋 Blog post\n📺 Youtube Video\n\nThis workflow streamlines this process, allowing you to maintain a shared section in all your video descriptions and effortlessly update them all at once.\n\nBy incorporating a unique identifier, you can automate updates across your entire channel, keeping your content fresh and relevant with minimal effort.\n\nHow it Works\nDefine Your Unique Delimiter:** Choose your unique delimiter (e.g., \"---n8ninja---\"). It will be visible, so select something appropriate for your audience.\nAutomate Updates:** Anything below the delimiter can be automatically updated by this workflow.\nConfigure Text Updates:** Set the text you wish to add to every video description in the configuration node.\n\nGetting Started\nIntegrate Google (YouTube) Credentials:** Securely add your credentials to enable API access.\nSet Up the Configuration Node:** Define your delimiter and the text for the shared section you wish to append to your video descriptions.\nPrepare Your Videos:** Add the chosen delimiter to all videos you want to update automatically.\nExecute the Workflow:** Run the workflow whenever you wish to batch update the descriptions of your videos.\n\nCreated by the n8ninja\n✨ follow on X\n📺 follow on YT",
+  "totalViews": 3531,
+  "source": "official",
+  "user": {
+    "id": 91529,
+    "name": "Emmanuel Bernard",
+    "username": "n8ninja",
+    "bio": "🎉 Do you want to master AI automation, so you can save time and build cool stuff?\n\nI’ve created a welcoming Skool community for non-technical yet resourceful learners.",
+    "verified": true,
+    "links": "[\"https://www.skool.com/the-ai-atelier\"]",
+    "avatar": "https://gravatar.com/avatar/6c38a38d8002fa989515b5c11340ca14512f929dfd15a5a57422950f58441b12?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Marketing"
+  ],
+  "nodes": [
+    {
+      "name": "YouTube",
+      "type": "n8n-nodes-base.youTube",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-04-01T17:00:13.935Z",
+  "path": "official/template_2211/workflow.json"
+}

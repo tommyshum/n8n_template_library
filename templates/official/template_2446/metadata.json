@@ -1,0 +1,104 @@
+{
+  "id": 2446,
+  "name": "Voice Activated Multi-Agent Demo for Vagent.io using Notion and Google Calendar",
+  "description": "Purpose\nUse a lightweight Voice Interface, for you and your entire organization, to interact with an AI Supervisor, a personal AI Assistant, which has access to your custom workflows. You can also connect the supervisor to your already existing Agents.\n\nDemo & Explanation\n\nHow it works\nAfter recording a message in the Vagent App, it gets transcribed and sent in combination with a session ID to the registered webhook\nThe Main Agent acts as a router. I interprets the message while using the stored chat history (bound to the session ID) and chooses which tool to use to perform the required action and. Tools on this level are workflows, which contain subordinated Agents. Since the Main Agent interprets the original message, the raw input is passed to the Tools/Sub-Agents as a separate parameter\nWithin the Sub-Agents the actual processing takes place. Each of those has it’s separate chat memory (with a suffix to the main session ID), to achieve a clear separation of concerns\nDepending on the required action an HTTP Request Tool is called. The result is being formatted in Markdown and returned to the Main Agent with an additional short prompt, so it does not get interpreted by the Main Agent.\nDrafts are separated from a short message by added indentation (angle brackets). If some information is missing, no tool is called just yet, instead a message is returned back to the user\nThe Main Agent then outputs the result from the called Sub-Agent. If a draft is included, it gets separated from the spoken output\nFinally the formatted output is returned as response to the webhook. The message is split into a spoken and a text version, which enables the App to read out loud unnecessary information like drafts in this example\n\nSee the full documentation of Vagent: https://vagent.io/docs\n\nSetup\nImport this workflow into your n8n instance\nFollow the instructions given in the sticky notes on the canvas\nSetup your credentials. OpenAI can be replaced by another LLM in the workflow, but is required for the App to work. Google Calendar and Notion are required for all scenarios to work\nCopy the Webhook URL from the Webhook node of the main workflow\nDownload the Vagent App from https://vagent.io\nIn the settings paste your OpenAI API Token, the Webhook URL and the password defined for Header Auth\nNow you can use the App to interact with the Multi-Agent using your Voice by tapping the Mic symbol in the App to record your message.\n\nTo use the chat trigger (for testing) properly, temporarily disable the nodes after the Tools Agent.",
+  "totalViews": 10418,
+  "source": "official",
+  "user": {
+    "id": 91699,
+    "name": "Mario",
+    "username": "octionic",
+    "bio": "Workflow Optimization Expert | Software Architect. Use my link to book an initial consultation for custom built workflows using n8n.",
+    "verified": true,
+    "links": "[\"https://octionic.com\"]",
+    "avatar": "https://gravatar.com/avatar/48bf351cec848d87566d8cc78c9a783ec4807408366648de04cfe955d7a5ba21?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2024-09-30T21:52:26.532Z",
+  "path": "official/template_2446/workflow.json"
+}

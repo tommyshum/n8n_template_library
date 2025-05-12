@@ -1,0 +1,61 @@
+{
+  "id": 949,
+  "name": "Create a customer and send the invoice automatically",
+  "totalViews": 2686,
+  "purchaseUrl": null,
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "description": "This workflows allows you to create a customer and an invoice and send the invoice to the customer.\n\n\n\nQuickBooks node: This node will create a new customer in QuickBooks.\n\nQuickBooks1 node: This node will create an invoice for the customer that we created in the previous node.\n\nQuickBooks2 node: This node will send the invoice that we created in the previous node.",
+  "createdAt": "2021-02-19T12:01:49.424Z",
+  "nodes": [
+    {
+      "id": 455,
+      "icon": "file:quickbooks.svg",
+      "name": "n8n-nodes-base.quickbooks",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.quickbooks/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/quickbooks/"
+              }
+            ]
+          },
+          "categories": [
+            "Finance & Accounting"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "QuickBooks Online"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAwIDI1MDAiPjxjaXJjbGUgY3g9IjEyNTAiIGN5PSIxMjUwIiByPSIxMjUwIiBmaWxsPSIjMmNhMDFjIi8+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTMwMS4zIDEyNDkuNmMuMSAyODIuNiAyMjggNTEyLjQgNTEwLjYgNTE0LjloNzIuM3YtMTg4LjloLTcyLjNjLTE3NS4yIDQ3LjgtMzU1LjktNTUuNS00MDMuNi0yMzAuNy0uNC0xLjQtLjctMi44LTEuMS00LjItNDkuMS0xNzcuNSA1My43LTM2MS40IDIzMC42LTQxMi41aDM2LjFhMzIyIDMyMiAwIDAgMSAxMzcuNSAwSDk4N3YxMDAyLjljLS45IDEwNi4xIDg0LjQgMTkyLjkgMTkwLjUgMTkzLjlWNzI5LjZIODEzYy0yODQuNiAxLjUtNTE0IDIzMy40LTUxMi41IDUxOHYuMXptMTM4Ny41LTUxOS44aC03Mi4zdjE5OC45aDcyLjNjMTc0LjgtNDcuNyAzNTUuMSA1NS4zIDQwMi44IDIzMCAuNCAxLjMuNyAyLjcgMS4xIDQgNDguOCAxNzYuOS01My43IDM2MC4xLTIyOS45IDQxMS4xaC0zNi4xYTMyMiAzMjIgMCAwIDEtMTM3LjUgMGgtMTc1LjZWNTcxYy45LTEwNi4xLTg0LjQtMTkyLjktMTkwLjUtMTkzLjl2MTM5Ny40aDM2NC41YzI4Ny4xLTQuNSA1MTYuMi0yNDAuOCA1MTEuOC01MjcuOS00LjQtMjgwLjgtMjMwLjktNTA3LjQtNTExLjgtNTExLjh6Ii8+PC9zdmc+"
+      },
+      "displayName": "QuickBooks Online",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 8,
+          "name": "Finance & Accounting"
+        }
+      ]
+    }
+  ]
+}

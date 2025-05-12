@@ -1,0 +1,148 @@
+{
+  "id": 3087,
+  "name": "Travel AI Agent - AI-Powered Travel Planner",
+  "description": "\nOverview\n\nAn n8n workflow automating business travel planning via Telegram. Uses AI and APIs to find and book flights/hotels efficiently.\n\nPrerequisites\n\nTelegram Bot** (BotFather)\nAPI Keys**: OpenAI (transcription), SerpAPI (flights/hotels), DeepSeek (AI processing)\nn8n Instance** with API access\n\nSetup Instructions\n\nImport Workflow: Upload JSON to n8n.\nConfigure API Credentials: Set up Telegram, OpenAI, SerpAPI, and DeepSeek keys.\nWebhook Activation: Ensure Telegram webhook is active with HTTPS.\nTest: Send a Telegram message and verify execution.\n\nWorkflow Operation\n\n1. User Input Processing\n\nTelegram bot triggers workflow, extracts text/audio.\nOpenAI transcribes voice messages.\nAI (DeepSeek) extracts key travel details (locations, dates, accommodation needs).\n\n2. Travel Search\n\nFlights**: Uses SerpAPI for flight options (airlines, times, prices).\nHotels**: Fetches accommodations with dynamic check-out date.\n\n3. AI Recommendations & Customization\n\nDeepSeek** generates structured travel plans.\nUsers can modify prompts to adjust AI responses for personalized results.\nProfessional, well-structured responses with links.\n\n4. Response Delivery\n\nSends travel recommendations via Telegram with clear details.\n\nUse Cases\n\nIdeal for business professionals, executive assistants, frequent travelers, and small businesses.\n\nCustomization & Troubleshooting\n\nAdjust memory handling and API calls.\nModify prompts to refine AI output.\nEnsure API keys are active and network is accessible.\n",
+  "totalViews": 2781,
+  "source": "official",
+  "user": {
+    "id": 92022,
+    "name": "Badr",
+    "username": "b4dr",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/035184cdd91cc274d7293ceaed93c97d64e57fc49fc4ba8346956a812dc35b3e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Information Extractor",
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "DeepSeek Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatDeepSeek",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 8,
+  "createdAt": "2025-03-05T12:14:37.130Z",
+  "path": "official/template_3087/workflow.json"
+}

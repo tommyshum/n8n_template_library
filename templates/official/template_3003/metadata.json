@@ -1,0 +1,113 @@
+{
+  "id": 3003,
+  "name": "Monitor Favorite YouTube Channels Through RSS feeds and Receive Notifications",
+  "description": "This workflow creates an automated system for monitoring and receiving notifications about new videos from your favorite YouTube channels through RSS feeds, with customizable email and Telegram notifications.\n\n🌟 Key Features\n📡 RSS Feed Management\nAccepts custom YouTube channel IDs or uses default channels\nAutomatically creates RSS feeds for each YouTube channel\nMonitors channels for new video uploads\nLabels and filters recent videos within a 3-day window (change this as required)\n\n\n📨 Multi-Channel Notification System\nSends Telegram notifications with video thumbnails and links\nDelivers customized email notifications in two formats:\n  Individual emails for each new video\n  Single digest email containing all new videos\n\n\n⚙️ Content Processing\nFetches detailed video information using YouTube API\nCreates responsive HTML email templates with video previews\nIncludes video thumbnails, titles, descriptions, and direct links\nMaintains professional formatting across different email clients\n\n🛠️ Setup Requirements\n🔑 API Configuration\nYouTube Data API credentials\nGmail account for sending notifications\nTelegram bot token and chat ID\nOpenAI API key for content processing\n\n\n📋 Channel Management\nAdd YouTube channel IDs through form input\nConfigure default channel list\nSet notification preferences\nAdjust monitoring schedule\n\n\nThis workflow is perfect for content creators, marketers, or anyone wanting to stay updated with their favorite YouTube channels through automated, professionally formatted notifications delivered via email and Telegram.",
+  "totalViews": 2507,
+  "source": "official",
+  "user": {
+    "id": 92125,
+    "name": "Joseph LePage",
+    "username": "joe",
+    "bio": "As an AI Automation consultant based in Canada, I partner with forward-thinking organizations to implement AI solutions that streamline operations and drive growth.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/e7ca218dfc87b68344bbd66f40da01546d2f6fc1cf884267821e8a77e3e8410a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-02-24T21:02:39.062Z",
+  "path": "official/template_3003/workflow.json"
+}

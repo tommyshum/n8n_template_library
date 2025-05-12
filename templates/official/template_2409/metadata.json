@@ -1,0 +1,69 @@
+{
+  "id": 2409,
+  "name": "Weekly reminder on your notion tasks with a deadline",
+  "description": "Who might benfit from this workflow?\nEveryone organizing him/herself by using a notion database for tasks but losing track on some important tasks having a deadline. The weekly reminder helps you to not forget about your notion tasks.\n\nHow it works:\nThe workflow fetches all your notion tasks from a desired database but the closed ones\nIt generates a html template for each tasks containing a headline and a short list of key data (prio, status deadline, tags)\nIt creates two groups based on the deadline date if a task is already overdue or not\nIt generates a complete html email containing both groups and some sugar around them\nIt sends the email to your desired email\nIt uses Pushover to send you a push notification to your phone\nIt is scheduled by the beginning of each week\n\nHow to set it up:\nFill out the \"Set Workflow vars\" node with your data\nConnect your notion account and select the database your tasks are stored at\ndefine the status filters to the ones you are using for your tasks\nSetup your email server to enable the email node to deliver your html email\nCreate a Pushover account and setup the authentication for the Pushover node\nAdjust the last html node to change email style for your desire\n\nHow to customize this workflow for your needs?\nYou might adjust the filtering of the notion fetch node to filter for other statuses than provided in the example.\nYou apply your custom design to the html email\nYou could remove the filter which is filtering for tasks having a deadline and just send yourself a reminder for all tasks\n\nYou need help implementing this or any other n8n workflow?\nFeel free to contact me via LinkedIn or my business website.\n\nYou want to start using n8n?\nUse this link to register for n8n\n(This is an affiliate link)\n\n",
+  "totalViews": 1476,
+  "source": "official",
+  "user": {
+    "id": 91963,
+    "name": "David",
+    "username": "unitize",
+    "bio": "You need help implementing a custom n8n workflow?\nFeel free to contact me via LinkedIn or my business website: unitize.de\n\nYou want to start using n8n?\nUse this affiliate link: https://n8n.partnerlinks.io/edr9c63lw12z",
+    "verified": false,
+    "links": "[\"https://www.linkedin.com/in/david-moors-95b9061b5/\"]",
+    "avatar": "https://gravatar.com/avatar/a9e5671c86ac556ed95d8c8f614afea1e67c3b09b507da53c15df3137b3910f8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Core Nodes",
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "categories": [
+        "Communication",
+        "HITL",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Pushover",
+      "type": "n8n-nodes-base.pushover",
+      "categories": [
+        "Communication"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2024-09-12T07:58:50.225Z",
+  "path": "official/template_2409/workflow.json"
+}

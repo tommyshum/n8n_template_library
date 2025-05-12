@@ -1,0 +1,52 @@
+{
+  "id": 2009,
+  "name": "Slack Webhook - Verify Signature",
+  "description": "Description\nThis template will help you verify that incoming calls from a Slack webhook actually come from Slack and not some unknown third-party services. \nIt is mainly used to prevent attacks from malicious bots or individuals. This is a Sub-Workflow, so it should be used inside the main workflow that contains the webhook listening for Slack requests.\n\nHow to Use\nWhat to Edit\nYou should set the Slack Signing Secret that you can find on your Slack App dashboard in the general tab. It should be located under the following URL:\n\nhttps://api.slack.com/apps/[SLACK_APP_ID]/general\n\nInput\nThe input should be the received Slack request. This workflow should then be placed directly after the Slack Webhook.\n\nOutputs\nSuccess Output\nIf the signature was verified successfully, we return a key verified_signature set to true along with data from the Slack request itself.\n\nError Output\nWhen the signature could not be verified, we raise an error. You can handle this case in your main workflow by using an Error Workflow or by changing your node settings and choosing some actions in case of an error.\n\nChangelog\nVersion 1.0.1 (2023-12-11)\nChanged replace by replaceAll in JS code in case of several arguments.\nAdded some custom replacements that encodeURIComponent does not take into account\n",
+  "totalViews": 1418,
+  "source": "official",
+  "user": {
+    "id": 91343,
+    "name": "Henri",
+    "username": "chabs",
+    "bio": null,
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/80223d9d7e7ef01eea33348e0255636fbb80d3fe42139dbf7f1ac24d6dbe17c8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Crypto",
+      "type": "n8n-nodes-base.crypto",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2023-12-09T21:33:06.753Z",
+  "path": "official/template_2009/workflow.json"
+}

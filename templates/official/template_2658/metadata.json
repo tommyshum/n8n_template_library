@@ -1,0 +1,175 @@
+{
+  "id": 2658,
+  "name": "API Schema Extractor",
+  "description": "This workflow automates the process of discovering and extracting APIs from various services, followed by generating custom schemas. It works in three distinct stages: research, extraction, and schema generation, with each stage tracking progress in a Google Sheet.\n\n🙏 Jim Le deserves major kudos for helping to build this sophisticated three-stage workflow that cleverly automates API documentation processing using a smart combination of web scraping, vector search, and LLM technologies.\n\nHow it works\nStage 1 - Research:\nFetches pending services from a Google Sheet\nUses Google search to find API documentation\nEmploys Apify for web scraping to filter relevant pages\nStores webpage contents and metadata in Qdrant (vector database)\nUpdates progress status in Google Sheet (pending, ok, or error)\n\nStage 2 - Extraction:\nProcesses services that completed research successfully\nQueries vector store to identify products and offerings\nFurther queries for relevant API documentation\nUses Gemini (LLM) to extract API operations\nRecords extracted operations in Google Sheet\nUpdates progress status (pending, ok, or error)\n\nStage 3 - Generation:\nTakes services with successful extraction\nRetrieves all API operations from the database\nCombines and groups operations into a custom schema\nUploads final schema to Google Drive\nUpdates final status in sheet with file location\n\nIdeal for:\nDevelopment teams needing to catalog multiple APIs\nAPI documentation initiatives\nCreating standardized API schema collections\nAutomating API discovery and documentation\n\nAccounts required:\nGoogle account (for Sheets and Drive access)\nApify account (for web scraping)\nQdrant database\nGemini API access\n\nSet up instructions:\nPrepare your Google Sheets document with the services information. Here's an example of a Google Sheet – you can copy it and change or remove the values under the columns. Also, make sure to update Google Sheets nodes with the correct Google Sheet ID. \nConfigure Google Sheets OAuth2 credentials, required third-party services (Apify, Qdrant) and Gemini.\nEnsure proper permissions for Google Drive access.\n",
+  "totalViews": 18977,
+  "source": "official",
+  "user": {
+    "id": 91994,
+    "name": "Polina Medvedieva",
+    "username": "polina-n8n",
+    "bio": "I do SEO & marketing for n8n and here I share workflows that help with creating content, optimizing on-page SEO and automate SEO processes. ",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/polina-medvedieva-69b947149/\"]",
+    "avatar": "https://gravatar.com/avatar/e8c28438af55553831bad4960d059e4363d390b1d9fd226f4283aad2e335c68c?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Recursive Character Text Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    },
+    {
+      "name": "Qdrant Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreQdrant",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Embeddings Google Gemini",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Text Classifier",
+      "type": "@n8n/n8n-nodes-langchain.textClassifier",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Information Extractor",
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 11,
+  "createdAt": "2024-12-19T12:39:56.130Z",
+  "path": "official/template_2658/workflow.json"
+}

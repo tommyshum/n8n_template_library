@@ -1,0 +1,21 @@
+{
+  "id": 3331,
+  "name": "Convert HTML to PDF and Return via Webhook using CustomJS API",
+  "description": "!\nn8n Workflow: HTML to PDF Generator\n\nThis n8n workflow converts HTML content into a styled PDF and returns it as a response via a webhook. The workflow receives HTML input, processes it using CustomJS's PDF toolkit, and sends back the resulting PDF to the original webhook requester.\n\n@custom-js/n8n-nodes-pdf-toolkit\n\nFeatures:\n\nWebhook Trigger**: Accepts incoming requests with HTML content.\nHTML to PDF Conversion**: Uses CustomJS to transform HTML into a PDF.\nResponse**: Sends the generated PDF back to the webhook response.\n\nRequirements:\n\nSelf-hosted** n8n instance\nA CustomJS API key for HTML to PDF conversion\nHTML content** to be converted into a PDF\n\nWorkflow Steps:\n\nWebhook Trigger:\n\n   Accepts incoming HTTP requests with HTML content.\n   This data is passed to the next node for processing.\n\nHTML to PDF Conversion:\n\n   Uses the CustomJS node to convert the incoming HTML into a PDF document.\n   You can customize the HTML content to match the design requirements.\n\nRespond to Webhook:\n\n   Sends the generated PDF as a binary response to the original webhook request.\n\nSetup Guide:\n\n1. Configure CustomJS API\nSign up at CustomJS.\nRetrieve your API key from the profile page.\n\nAdd your API key as n8n credentials.\n\n2. Design Workflow\n\nCreate a Webhook:\n\n   Set up a webhook to trigger the workflow when HTML content is received.\n\nPrepare HTML Content:\n\n   The incoming request should include the HTML content you wish to convert into a PDF.\n\nConfigure HTML to PDF Node:\n\n   Use the HTML to PDF node to convert the provided HTML into a PDF.\n   The node uses the HTML input to generate a PDF using the CustomJS API.\n\nRespond with the PDF:\n\n   The Respond to Webhook node will send the generated PDF back to the original requester as a binary response.\n\nExample HTML Input:\n\nHello CustomJS!\nCustomJS provides the missing toolset for your no-code projects\n\nResult PDF\n",
+  "totalViews": 1638,
+  "source": "official",
+  "user": {
+    "id": 93320,
+    "name": "CustomJS",
+    "username": "customjs",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://www.customjs.space\"]",
+    "avatar": "https://gravatar.com/avatar/942ecdadf17761bc7f516b67fb0f3617809720caf8912cfd1815ed2a9f8b9ad3?r=pg&d=retro&size=200"
+  },
+  "categories": [],
+  "nodes": [],
+  "nodeCount": 0,
+  "createdAt": "2025-03-26T09:52:28.987Z",
+  "path": "official/template_3331/workflow.json"
+}

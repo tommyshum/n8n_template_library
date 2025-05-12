@@ -1,0 +1,48 @@
+{
+  "id": 2417,
+  "name": "Flux AI Image Generator",
+  "description": "Easily generate images with Black Forest's Flux Text-to-Image AI models using Hugging Face’s Inference API. This template serves a webform where you can enter prompts and select predefined visual styles that are customizable with no-code. The workflow integrates seamlessly with Hugging Face's free tier, and it’s easy to modify for any Text-to-Image model that supports API access.\n\nTry it \nCurious what this template does? Try a public version here: https://devrel.app.n8n.cloud/form/flux\n\nSet Up\nWatch this quick set up video 👇\n\nAccounts required\nHuggingface.co account (free)\nCloudflare.com account (free - used for storage; but can be swapped easily e.g. GDrive)\n\nKey Features:\nText-to-Image Creation**: Generates unique visuals based on your prompt and style.\nHugging Face Integration**: Utilizes Hugging Face’s Inference API for reliable image generation.\nCustomizable Visual Styles**: Select from preset styles or easily add your own.\nAdaptable**: Swap in any Hugging Face Text-to-Image model that supports API calls.\n\nIdeal for:\nCreators**: Rapidly create visuals for projects.\nMarketers**: Prototype campaign visuals.\nDevelopers**: Test different AI image models effortlessly.\n\nHow It Works:\nYou submit an image prompt via the webform and select a visual style, which appends style instructions to your prompt. The Hugging Face Inference API then generates and returns the image, which gets hosted on Cloudflare S3. The workflow can be easily adjusted to use other models and styles for complete flexibility.\n",
+  "totalViews": 64380,
+  "source": "official",
+  "user": {
+    "id": 91246,
+    "name": "Max Tkacz",
+    "username": "max-n8n",
+    "bio": "Principal Product Designer @ n8n",
+    "verified": true,
+    "links": "[\"https://n8n.io\"]",
+    "avatar": "https://gravatar.com/avatar/c8f1965a9ff2bef51826e127081be880010ce5f0e3a3fc8ffd54e944d58bd2df?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "S3",
+      "type": "n8n-nodes-base.s3",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-09-17T19:50:43.299Z",
+  "path": "official/template_2417/workflow.json"
+}

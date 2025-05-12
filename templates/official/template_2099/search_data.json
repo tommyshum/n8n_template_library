@@ -1,0 +1,198 @@
+{
+  "id": 2099,
+  "name": "Sync Customer Email Subscriptions Between Shopify and Mautic",
+  "totalViews": 1108,
+  "purchaseUrl": null,
+  "user": {
+    "id": 91450,
+    "name": "Sascha",
+    "username": "m3tam3re",
+    "bio": "",
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/d0bb36ca6da107a39b902adcf9b118616c8b27a189be33ac2ad74e7102c9478f?r=pg&d=retro&size=200"
+  },
+  "description": "Having a seamless flow of customer data between your online store and your marketing platform is essential.\n\nBy keeping your systems synchronized, you can ensure that your marketing campaigns are accurately targeted and effective. \n\nThe integration between Shopify, a leading e-commerce platform, and Mautic, an open-source marketing automation system, is not available out-of-the-box. \n\nHowever, with a n8n workflow you can bridge this gap with.\n\nThis template will help you:\n\nenhance accuracy in marketing lists by ensuring that subscription changes in Shopify are instantly updated in Mautic.\nimprove compliance with data protection laws by respecting users' subscription preferences across platforms\nachieve integration without the need for additional plugins or software, minimizing complexity and potential points of failure.\n\nThis template will demonstrate the follwing concepts in n8n:\n\nworking with Shopify in n8n\ncontrol flow with the IF node\nuse Webhooks\nvalidate Webhooks with the Crypto node\nuse the GraphQL node to call the Shopify Admin API\n\nThe template consists of two parts:\n\nSync Email Subscriptions from Shopify to Mautic\nSync Email Subscriptions from Mautic to Shopify\n\nHow to get started?\n\nCreate a custom app in Shopify get the credentials needed to connect n8n to Shopify\nThis is needed for the Shopify Trigger\nCreate Shopify Acces Token API credentials n n8n for the Shopify trigger node\nCreate Header Auth credentials: \nUse X-Shopify-Access-Token as the name and the Acces-Token from the Shopify App you created as the value.\nThe Header Auth is neccessary for the GraphQL nodes.\nEnable the Mautic API under Configuration/API Settings, After the settings are saved you will have an additional entry in your settings menu to create API credentials for n8n\nCreate Mautic credentials in n8n\n\nPlease make sure to read the notes in the template. \n\nFor a detailed explanation please check the corresponding video: https://youtu.be/x63rrh_yJzI\n",
+  "createdAt": "2024-02-16T14:00:37.794Z",
+  "nodes": [
+    {
+      "id": 61,
+      "icon": "file:graphql.png",
+      "name": "n8n-nodes-base.graphql",
+      "codex": {
+        "data": {
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/what-are-apis-how-to-use-them-with-no-code/",
+                "icon": " 🪢",
+                "label": "What are APIs and how to use them with no code"
+              },
+              {
+                "url": "https://n8n.io/blog/how-to-automatically-give-kudos-to-contributors-with-github-slack-and-n8n/",
+                "icon": "👏",
+                "label": "How to automatically give kudos to contributors with GitHub, Slack, and n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/how-goomer-automated-their-operations-with-over-200-n8n-workflows/",
+                "icon": "🛵",
+                "label": "How Goomer automated their operations with over 200 n8n workflows"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.graphql/"
+              }
+            ]
+          },
+          "categories": [
+            "Data & Storage",
+            "Development"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "GraphQL"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAMAAAANIilAAAAA2FBMVEUAAADmNavmNKvlNavlNavlNKvlNavmNKznMqzpMa/lM6zmNKvnMqvrMbDlNavmNKvnL63pK7PpMa/lNavlNavlNKrmNazlNKvmM63nM6znMqzoMK3nM6znM63mNKrmMqvnM6zmM6zoMavoMa/rLrTlNKvlNarlM6vmNKvlNKzmNKznM6znMa3nMq3nMa7nNaroMa7mNKvnNKznM63mNKvrL67nMa/lNKzmM63nNK3mNqroL6voMq7nMaznNa3nOKjmMavmMq7pKbLqKbvuLb70EtLlNavlNaqwTcGTAAAARnRSTlMAvCb9+euyqmgXNjEcCfaNUiIG+/Tg2tKukUgDs6GflVovLBMN8OXMx7eYeG9OOyAa59S/g2RANODMxKaFfXFvENheiW4pQeUjUwAAAmRJREFUSMftlteS4jAQRQWywSxOJINNHnIa8uzktLtX//9HiySoGhiL4Nfhvsju6+NytbpbJldd9XtV/7Qism8agH4qEvuLYiNWigT7ELLNKPBQwrlpBHY2kLDWuBjNjnVonKVAonkZO+lBe4kxSll+9AjqXJDymxJQiqe1j2bzFaWyoaNrlE9B7+Oac0tajoaHCSE9uISUe2xCZj5FPyCWwW2FMkUAtFqA/polZM1iPHgHz9rU2gBIPmCjkQLepdefbW5a81xaRJPshS9uEVJ34XBOunVx42xXkrE7okymtrT9cBhSQ5EzTd9l+JlVBbx9dzUc7krX4NcVjHfh9j3labIK0n4Lh/8yAGzR3lwGKGbJTg30+UatBfvRUvVgAXZpyutrwYIv8UeIEjU8aJUMUekWsgHHrLLfnIW2GA4YKEDpJkVP6HZ8L15lz3xpInGs/yU8ZM5+3Ozk+eemz4DTufn7gTFiyTPhJVsfGpbH7s6CXdb/3kIuHrJnwJYXWr4xZpwBj/AUZjW1bvvmBFxN8cSGqY5V5ih8g5qPVbiX0vMNlNTszEFXW7QVroEu9QIV+0/0zZPyszQA7I/CXTIx5FVjqgIuFhydJPexUC2ptOtHJwlFqHbhWjhckK7XMKfxQ5mZly1thMOfjJt52M/v37OVgC7YnmozGsW8XssYc8yN7P4e+wx+yt3YVfXBUzZb/FGHohd8PfQ6SDS39mmlK0AyTtynwcokQRGLyWXHZBH2UmxcBR1++lwka6QzCA3N6L8VdopEUE3CNB4FXkvYs6LA1iNnmUsiqVUv6H2XXPXT9R/lWHu2SyWatgAAAABJRU5ErkJggg=="
+      },
+      "displayName": "GraphQL",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 3,
+          "name": "Data & Storage"
+        },
+        {
+          "id": 5,
+          "name": "Development"
+        }
+      ]
+    },
+    {
+      "id": 126,
+      "icon": "file:mautic.svg",
+      "name": "n8n-nodes-base.mautic",
+      "codex": {
+        "data": {
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/how-a-digital-strategist-uses-n8n-for-online-marketing/",
+                "icon": "💻",
+                "label": "How a digital strategist uses n8n for online marketing"
+              },
+              {
+                "url": "https://n8n.io/blog/how-a-membership-development-manager-automates-his-work-and-investments/",
+                "icon": "📈",
+                "label": "How a Membership Development Manager automates his work and investments"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.mautic/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/mautic/"
+              }
+            ]
+          },
+          "categories": [
+            "Marketing",
+            "Communication"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"output\"]",
+      "defaults": {
+        "name": "Mautic"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSIzNDkuNzc5IiBoZWlnaHQ9IjM0OS43NzkiPjxwYXRoIGZpbGw9IiNGRkYiIGQ9Ik0xNzQuODkgMzQ5Ljc3OUM3OC42MTIgMzQ5Ljc3OSAwIDI3MS40NjIgMCAxNzQuODlTNzguNjEyIDAgMTc0Ljg5IDBjMjMuMjYgMCA0NS45MzEgNC40MTcgNjcuMTI5IDEzLjU0MyA1Ljg4OSAyLjY1IDguODMzIDkuNDIyIDYuNDc4IDE1LjYwNS0yLjY0OSA1Ljg4OC05LjQyMSA4LjgzMy0xNS42MDQgNi40NzctMTguNTQ5LTcuNjU1LTM3Ljk4LTExLjQ4Mi01OC4wMDItMTEuNDgyLTgzLjMyMyAwLTE1MS4wNDEgNjcuNzE4LTE1MS4wNDEgMTUxLjA0MXM2Ny43MTcgMTUxLjA0MSAxNTEuMDQgMTUxLjA0MSAxNTEuMDQxLTY3LjcxOCAxNTEuMDQxLTE1MS4wNDFjMC0xNy45Ni0yLjk0NC0zNS4zMzItOS4xMjctNTEuODE5LTIuMzU1LTYuMTgzLjg4My0xMi45NTUgNy4wNjYtMTUuMzFzMTIuOTU0Ljg4MyAxNS4zMSA3LjA2NmM3LjA2NiAxOS4xMzggMTAuNiAzOS40NTMgMTAuNiA2MC4wNjMtLjAwMSA5NS45ODMtNzguMzE4IDE3NC41OTUtMTc0Ljg5IDE3NC41OTUiLz48cGF0aCBmaWxsPSIjRkRCOTMzIiBkPSJtMjUxLjQ0IDE1Ni45My0yNy4wODYgMjguMjY0IDE1LjAxNSA2My4zMDJoMzQuMTUzem0tMTEuMTg3LTgzLjYxOCA5LjQyMSA5LjQyMi03NC43ODQgNzkuMjAxLTYzLjg5MS02NS42NTgtMzYuODAzIDE1Mi4yMTloMzQuMTU0bDIwLjMxNS04NC41IDQ2LjIyNSA1MC4zNDcgOTguOTI3LTEwNy43NiA5LjQyMiA5LjcxNiA5LjQyMS01My4yOTJ6Ii8+PC9zdmc+"
+      },
+      "displayName": "Mautic",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 6,
+          "name": "Communication"
+        },
+        {
+          "id": 27,
+          "name": "Marketing"
+        }
+      ]
+    },
+    {
+      "id": 264,
+      "icon": "fa:key",
+      "name": "n8n-nodes-base.crypto",
+      "codex": {
+        "data": {
+          "alias": [
+            "Encrypt",
+            "SHA",
+            "Hash"
+          ],
+          "details": "The Crypto node allows you to hash and Hmac string in a specified format and sign a string using a private key. Use this node when you want to encrypt your data.",
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/how-to-build-a-low-code-self-hosted-url-shortener/",
+                "icon": "🔗",
+                "label": "How to build a low-code, self-hosted URL shortener in 3 steps"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.crypto/"
+              }
+            ]
+          },
+          "categories": [
+            "Development",
+            "Core Nodes"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0",
+          "subcategories": {
+            "Core Nodes": [
+              "Data Transformation"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Crypto",
+        "color": "#408000"
+      },
+      "iconData": {
+        "icon": "key",
+        "type": "icon"
+      },
+      "displayName": "Crypto",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 5,
+          "name": "Development"
+        },
+        {
+          "id": 9,
+          "name": "Core Nodes"
+        }
+      ]
+    }
+  ]
+}

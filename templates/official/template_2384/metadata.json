@@ -1,0 +1,56 @@
+{
+  "id": 2384,
+  "name": "Chat with local LLMs using n8n and Ollama",
+  "description": "Chat with local LLMs using n8n and Ollama\nThis n8n workflow allows you to seamlessly interact with your self-hosted Large Language Models (LLMs) through a user-friendly chat interface. By connecting to Ollama, a powerful tool for managing local LLMs, you can send prompts and receive AI-generated responses directly within n8n.\n\nUse cases\nPrivate AI Interactions\nIdeal for scenarios where data privacy and confidentiality are important.\nCost-Effective LLM Usage\nAvoid ongoing cloud API costs by running models on your own hardware.\nExperimentation & Learning\nA great way to explore and experiment with different LLMs in a local, controlled environment.\nPrototyping & Development\nBuild and test AI-powered applications without relying on external services.\n\nHow it works\nWhen chat message received: Captures the user's input from the chat interface.\nChat LLM Chain: Sends the input to the Ollama server and receives the AI-generated response.\nDelivers the LLM's response back to the chat interface.\n\nSet up steps\nMake sure Ollama is installed and running on your machine before executing this workflow.\nEdit the Ollama address if different from the default.\n",
+  "totalViews": 63283,
+  "source": "official",
+  "user": {
+    "id": 91633,
+    "name": "Mihai Farcas",
+    "username": "mihailtd",
+    "bio": "Full-stack developer with 5+ years streamlining healthcare processes. Proficient in NodeJS, VueJS, MongoDB, PostgreSQL, Kubernetes, and n8n. Ready to optimize your workflows – book a consult via my link.",
+    "verified": true,
+    "links": "[\"https://mihai.ltd\"]",
+    "avatar": "https://gravatar.com/avatar/a73ca84b07b557e95322815bc04859245e9243c7cfd5bf9a14568fd0ce3e72c5?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Ollama Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOllama",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-08-19T06:04:24.673Z",
+  "path": "official/template_2384/workflow.json"
+}

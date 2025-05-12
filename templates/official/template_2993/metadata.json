@@ -1,0 +1,47 @@
+{
+  "id": 2993,
+  "name": "Copy Viral Reels with Gemini AI",
+  "description": "Video Guide\n\nI prepared a detailed guide that shows the whole process of building an AI tool to analyze Instagram Reels using n8n.\n\n\n\nYoutube Link\n\nWho is this for?\nThis workflow is ideal for social media analysts, digital marketers, and content creators who want to leverage data-driven insights from their Instagram Reels. It's particularly useful for those looking to automate the analysis of video performance to inform strategy and content creation.\n\nWhat problem does this workflow solve?\nAnalyzing video performance on Instagram can be tedious and time-consuming, requiring multiple steps and data extraction. This workflow automates the process of fetching, analyzing, and recording insights from Instagram Reels, making it simpler for users to track engagement metrics without manual intervention.\n\nWhat this workflow does\nThis workflow integrates several services to analyze Instagram Reels, allowing users to:\nAutomatically fetch recent Reels from specified creators.\nAnalyze the most-watched videos for insights.\nStore and manage data in Airtable for easy access and reporting.\n\nInitial Trigger: The process begins with a manual trigger that can later be modified for scheduled automation.\nData Retrieval: It connects to Airtable to fetch a list of creators and their respective Instagram Reels.\nVideo Analysis: It handles the fetching, downloading, and uploading of videos for analysis using an external service, simplifying performance tracking through a structured query process.\nRecord Management: It saves relevant metrics and insights into Airtable, ensuring that users can access and organize their video analytics effectively.\n\nSetup\n\nCreate accounts:\n   Set up Airtable, Edify, n8n, and Gemini accounts.\n\nPrepare triggers and modules:\n   Replace credentials in each node accordingly.\n\nConfigure data flow:\n   Ensure modules are set to fetch and analyze the correct data fields as outlined in the guide.\n\nTest the workflow:\n   Run the scenario manually to confirm that data is fetched and analyzed correctly.",
+  "totalViews": 9517,
+  "source": "official",
+  "user": {
+    "id": 92018,
+    "name": "Mark Shcherbakov",
+    "username": "lowcodingdev",
+    "bio": "I am a business analyst with a development background, dedicated to helping small businesses and entrepreneurs leverage cloud services for increased efficiency. My expertise lies in automating manual workflows, integrating data from multiple cloud service providers, creating insightful dashboards, and building custom CRM systems.\n\nhttps://www.linkedin.com/in/marklowcoding/",
+    "verified": true,
+    "links": "[\"https://www.skool.com/5minai-pro\"]",
+    "avatar": "https://gravatar.com/avatar/3055cd5035cfb1030d9d1923b60646d1a156927eead957956bea71f88c5186cd?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-02-24T10:38:34.868Z",
+  "path": "official/template_2993/workflow.json"
+}

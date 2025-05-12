@@ -1,0 +1,63 @@
+{
+  "id": 3685,
+  "name": "Backlink Monitoring Automation with Google Sheets + DataForSEO",
+  "description": "What This Workflow Does\n\nThis n8n workflow reads backlinks from a Google Sheet, sends each one to the DataForSEO On-Page API, and checks:\n\nWhether the backlink is still live on the target page\nWhether it's dofollow or nofollow\nWhether it's missing (i.e., lost)\n\nThe result is then written back to the same Google Sheet under a Status column.\n\nYour result will look like this:\n\nStep-by-Step Setup Instructions\n\nAdd your DataForSEO and Google Sheets credentials in n8n\nMake sure your Google Sheet has these columns: Backlink URL, Landing page, and Status\nClick the Test Workflow button to check a batch of backlinks\n\nWorkflow Breakdown\nTrigger: Manual test start\nRead Data: Pulls backlink URLs and target pages from Google Sheets\nFormat URLs: Extracts domain from URL\nSend POST Request to DataForSEO: Triggers a crawl on the backlink URL\nWait 20 seconds: Allows crawl to finish\nFetch Link Results: Retrieves backlink data from DataForSEO\nValidate Backlink: Checks if the backlink is live, and whether it’s dofollow\nUpdate Google Sheets: Logs the status as Live, Lost, or Lost (Nofollow)",
+  "totalViews": 659,
+  "source": "official",
+  "user": {
+    "id": 93807,
+    "name": "Mykolas Bartkus",
+    "username": "mykolas-saaslinkbuilder",
+    "bio": "Mykolas is the founder of saaslinkbuilder and has built over 5,000 high-quality links for SaaS companies. He got his start working with top Lithuanian SaaS brands and now shares his SEO AI workflows.",
+    "verified": false,
+    "links": "[\"https://www.saaslinkbuilder.com/\"]",
+    "avatar": "https://gravatar.com/avatar/bb2557d4107119ef15c28e45007ffd48dcb4444fd2d4eacc2310e7fec1d10e22?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-04-24T05:34:57.912Z",
+  "path": "official/template_3685/workflow.json"
+}

@@ -1,0 +1,56 @@
+{
+  "id": 3185,
+  "name": "Compare Local Ollama Vision Models for Image Analysis using Google Docs",
+  "description": "Compare Local Ollama Vision Models for Image Analysis using Google Docs\n\nProcess images using locally hosted Ollama Vision Models to extract detailed descriptions, contextual insights, and structured data. Save results directly to Google Docs for efficient collaboration.\n\nWho is this for?\nThis workflow is ideal for developers, data analysts, marketers and AI enthusiasts who need to process and analyze images using locally hosted Ollama Vision Language Models. It’s particularly useful for tasks requiring detailed image descriptions, contextual analysis, and structured data extraction.\n\nWhat problem is this workflow solving? / Use Case\nThe workflow solves the challenge of extracting meaningful insights from images in exhaustive detail, such as identifying objects, analyzing spatial relationships, extracting textual elements, and providing contextual information. This is especially helpful for applications in real estate, marketing, engineering, and research.\n\nWhat this workflow does\nThis workflow:\nDownloads an image file from Google Drive.\nProcesses the image using multiple Ollama Vision Models (e.g., Granite3.2-Vision, Gemma3, Llama3.2-Vision).\nGenerates detailed markdown-based descriptions of the image.\nSaves the output to a Google Docs file for easy sharing and further analysis.\n\nSetup\nEnsure you have access to a local instance of Ollama.  https://ollama.com/\nPull the Ollama vision models.\nConfigure your Google Drive and Google Docs credentials in n8n.\nProvide the image file ID from Google Drive in the designated node.\nUpdate the list of Ollama vision models\nTest the workflow by clicking ‘Test Workflow’ to trigger the process.\n\nHow to customize this workflow to your needs\nReplace the image source with another provider if needed (e.g., AWS S3 or Dropbox).\nModify the prompts in the \"General Image Prompt\" node to suit specific analysis requirements.\nAdd additional nodes for post-processing or integrating results into other platforms like Slack or HubSpot.\n\nKey Features:\nDetailed Image Analysis**: Extracts comprehensive details about objects, spatial relationships, text elements, and contextual settings.\nMulti-Model Support**: Utilizes multiple vision models dynamically for optimal performance.\nMarkdown Output**: Formats results in markdown for easy readability and documentation.\nGoogle Drive Integration**: Seamlessly downloads images and saves results to Google Docs.\n\n\n",
+  "totalViews": 2131,
+  "source": "official",
+  "user": {
+    "id": 92125,
+    "name": "Joseph LePage",
+    "username": "joe",
+    "bio": "As an AI Automation consultant based in Canada, I partner with forward-thinking organizations to implement AI solutions that streamline operations and drive growth.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/e7ca218dfc87b68344bbd66f40da01546d2f6fc1cf884267821e8a77e3e8410a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage",
+    "Miscellaneous"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Google Docs",
+      "type": "n8n-nodes-base.googleDocs",
+      "categories": [
+        "Miscellaneous"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-03-16T19:54:41.716Z",
+  "path": "official/template_3185/workflow.json"
+}

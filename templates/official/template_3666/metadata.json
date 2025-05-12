@@ -1,0 +1,77 @@
+{
+  "id": 3666,
+  "name": "Real Estate Lead Generation with BatchData Skip Tracing & CRM Integration",
+  "description": "How It Works\nThis workflow automates the entire property lead generation process in a few simple steps:\n\nProperty Search: Connects to BatchData's Property Search API with customizable parameters (location, property type, value range, equity percentage, etc.)\nLead Filtering & Scoring: Processes results to identify the most promising leads based on criteria like absentee ownership, years owned, equity percentage, and tax status. Each property receives a lead score to prioritize follow-up.\nSkip Tracing: Automatically retrieves owner contact information (phone, email, mailing address) for each qualified property.\nData Formatting: Structures all property and owner data into a clean, organized format ready for your systems.\nMulti-Channel Output:\nGenerates an Excel spreadsheet with all lead details\nPushes leads directly to your CRM (configurable for HubSpot, Salesforce, etc.)\nSends a summary email with the spreadsheet attached\n\n\n\nThe workflow can run on a daily schedule or be triggered manually as needed. All parameters are easily configurable through dedicated nodes, requiring no coding knowledge.\n\nWho's It For\nThis workflow is perfect for:\n\nReal Estate Investors looking to find off-market properties with motivated sellers\nReal Estate Agents who want to generate listing leads from distressed or high-equity properties\nInvestment Companies that need regular lead flow for acquisitions\nReal Estate Marketers who run targeted campaigns to property owners\nWholesalers seeking to build a pipeline of potential deals\nProperty Service Providers (roof repair, renovation contractors, etc.) who target specific property types\n\nAnyone who needs reliable, consistent lead generation for real estate without the manual work of searching, filtering, and organizing property data will benefit from this automation.\n\nAbout BatchData\nBatchData is a comprehensive property data provider that offers access to nationwide property information, owner details, and skip tracing services. Key features include:\n\nExtensive Database: Covers 150+ million properties across all 50 states\nRich Property Data: Includes ownership information, tax records, sales history, valuation estimates, equity positions, and more\nSkip Tracing Services: Provides owner contact information including phone numbers, email addresses, and mailing addresses\nDistressed Property Indicators: Flags for pre-foreclosure, tax delinquency, vacancy, and other motivation factors\nRESTful API: Professional API for programmatic access to all property data services\nRegular Updates: Continuously refreshed data for accurate information\n\nBatchData's services are designed for real estate professionals who need reliable property and owner information to power their marketing and acquisition strategies. Their API-first approach makes it ideal for workflow automation tools like N8N.",
+  "totalViews": 2325,
+  "source": "official",
+  "user": {
+    "id": 93985,
+    "name": "Preston Zeller",
+    "username": "zellerhaus",
+    "bio": "Growth strategist and technologist, seeing companies from $25MM to $300MM ARR. Building innovative solutions with AI, workflows, desktop and mobile applications. ",
+    "verified": true,
+    "links": "[\"https://roomboost.ai\"]",
+    "avatar": "https://gravatar.com/avatar/399dc9c4dd97a72b5e5f9dc85766d25f26a4a7902c4bb0ba6025916d3b150101?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Core Nodes",
+    "Development",
+    "Sales"
+  ],
+  "nodes": [
+    {
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "categories": [
+        "Communication",
+        "HITL",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "HubSpot",
+      "type": "n8n-nodes-base.hubspot",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-04-22T21:27:31.650Z",
+  "path": "official/template_3666/workflow.json"
+}

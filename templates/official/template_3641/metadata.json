@@ -1,0 +1,86 @@
+{
+  "id": 3641,
+  "name": "MCP Supabase Agent – Manage Your Database with AI",
+  "description": "Hi, I’m Amanda 🌷\nThis workflow was built with love to help you manage your Supabase database using natural language, powered by the MCP (Multi-Channel Protocol) AI Agent on n8n.\n\nWith just a message like “update the status to active where city is New York”, your agent will know exactly what to do — safely, step by step, and always asking for confirmation before deleting anything.\n\nIt’s ideal for developers who want a smart assistant to create, update, delete or search database records without writing SQL or opening Supabase.\n\nWhat this workflow does\n\nReceives messages through a chat interface or webhook  \nTranslates them into actions using GPT-4o (via LangChain Agent)  \nInteracts with Supabase using a custom MCP tool  \nSupports create, update, delete, search (single or all rows)  \nHandles confirmations, validations, and missing data checks  \n\nSetup (quick and easy 💫)\n\nConnect your Supabase credentials  \nAdjust your table and field names  \nLink the MCP webhook to your AI frontend (Typebot, WhatsApp, etc.)  \nCustomize the system message to reflect your tone of voice  \nStart chatting — your agent is ready to assist!\n\n✅ Works on n8n Cloud and Self-Hosted  \n🧠 Built with GPT-4o + LangChain + Supabase + MCP Trigger  \n💡 No code or SQL required\n\nWant it tailored to your project?\n❤️ Buy Workflows: https://iloveflows.gumroad.com \n💬 Hire My Services: +5517991557874 (WhatsApp)\n",
+  "totalViews": 1241,
+  "source": "official",
+  "user": {
+    "id": 93865,
+    "name": "Amanda Benks",
+    "username": "amanda",
+    "bio": "Hi loves! I've been making workflows for n8n for two years, and I hope you like my flows <3",
+    "verified": true,
+    "links": "[\"https://iloveflows.com\"]",
+    "avatar": "https://gravatar.com/avatar/b3a5d488866a5de1fb28471770f11f0dab20e328d3b47e4fa0a379ef2a22c041?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "MCP Client Tool",
+      "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Model Context Protocol",
+          "Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-04-21T14:38:16.426Z",
+  "path": "official/template_3641/workflow.json"
+}

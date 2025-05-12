@@ -1,0 +1,154 @@
+{
+  "id": 2778,
+  "name": "AI News Research Team: 24/7 Newsletter Automation with Citations with Perplexity",
+  "description": "\n\nPurpose of workflow:\n\nThis AI-powered workflow automatically generates detailed, well-researched newsletters by monitoring and analyzing specified news topics (like Bitcoin, Nvidia, etc.). It uses a team of AI research agents to gather, analyze, and compile information with automatic citations, saving significant time in newsletter creation.\n\nHow it works:\n\nMulti-agent system:\nResearch Leader: Analyzes topics and creates content outline\nProject Planner: Breaks down research into specific tasks\nResearch Assistants: Conduct detailed research on assigned subtopics\nEditor: Combines research and polishes final output\n\nKey features:\nAutomated daily monitoring of specified news topics\nReal-time information gathering using Perplexity AI\nAuto-citation functionality for source verification\nFlexible time window filtering (day/week/month)\nOptions for detailed or simple reports\nDirect email delivery of completed newsletters\n\nStep-by-step setup:\nPerplexity API Setup:\n   Create account at perplexity.ai\n   Navigate to API tab\n   Generate API key\n   Set up credentials with 'Bearer' authentication\n\nWorkflow Configuration:\n   Connect Google Sheets containing news monitoring topics\n   Configure schedule trigger for daily execution\n   Set up email delivery settings\n   Define report type preferences (detailed/simple)\n   Specify time window for news gathering\n\nIntegration:\n   Connect with newsletter tools like Kit\n   Import generated content as starting point\n   Edit and customize as needed before publishing",
+  "totalViews": 4469,
+  "source": "official",
+  "user": {
+    "id": 91384,
+    "name": "Derek Cheung",
+    "username": "derekcheungsa",
+    "bio": "Derek is an engineer, instructor, and investor based in Canada. He is publicly building AI applications to solve real-world problems, leveraging his technical expertise to develop practical solutions.",
+    "verified": true,
+    "links": "[\"https://www.youtube.com/@derekcheungsa\"]",
+    "avatar": "https://gravatar.com/avatar/1d8dbb30401a76425734d4319abbaa38548b7572064ca080740bbfe60324772a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 9,
+  "createdAt": "2025-01-23T01:34:15.762Z",
+  "path": "official/template_2778/workflow.json"
+}

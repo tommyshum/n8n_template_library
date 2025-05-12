@@ -1,0 +1,40 @@
+{
+  "id": 1283,
+  "name": "Get email notifications for newly uploaded Google Drive files",
+  "description": "This workflow sends out email notifications when a new file has been uploaded to Google Drive.\n\n\n\nThe workflow uses two nodes:\nGoogle Drive Trigger**: This node will trigger the workflow whenever a new file has been uploaded to a given folder\nSend Email**: This node sends out the email using data from the previous Google Drive Trigger node.",
+  "totalViews": 2379,
+  "source": "official",
+  "user": {
+    "id": 21240,
+    "name": "Tom",
+    "username": "mutedjam",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://github.com/that-one-tom/\"]",
+    "avatar": "https://gravatar.com/avatar/7a3710173e907baffaf7ed7ebffc37955c9cdeadb8612200225a34a2e056aa17?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "categories": [
+        "Communication",
+        "HITL",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2021-10-25T13:09:51.163Z",
+  "path": "official/template_1283/workflow.json"
+}

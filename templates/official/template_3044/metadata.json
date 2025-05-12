@@ -1,0 +1,38 @@
+{
+  "id": 3044,
+  "name": "Automatically Generate Burn-in Video Captions with json2video",
+  "description": "Automatically Add Captions to Your Video\n\nWho Is This For?\n\nThis workflow is ideal for content creators, marketers, educators, and businesses that regularly produce video content and want to enhance accessibility and viewer engagement by effortlessly adding subtitles.\n\nWhat Problem Does This Workflow Solve?\n\nManually adding subtitles or captions to videos can be tedious and time-consuming. Accurate captions significantly boost viewer retention, accessibility, and SEO rankings.\n\nWhat Does This Workflow Do?\n\nThis automated workflow quickly adds accurate subtitles to your video content by leveraging the Json2Video API.\n\nIt accepts a publicly accessible video URL as input.\nIt makes an HTTP request to Json2Video, where AI analyzes the video, generates captions, and applies them seamlessly.\nThe workflow returns a URL to the final subtitled video.\n\nThe second part of the workflow periodically checks the Json2Video API to monitor the processing status at intervals of 10 seconds.\n\n👉🏻 Try Json2Video for Free 👈🏻\n\nKey Features\n\nAutomatic & Synced Captions:** Captions are generated automatically and synchronized perfectly with your video.\nFully Customizable Design:** Easily adjust fonts, colors, sizes, and more to match your unique style.\nWord-by-Word Display:** Supports precise, word-by-word captioning for improved clarity and viewer engagement.\nSuper Fast Processing:** Rapid caption generation saves time, allowing you to focus more on creating great content.\n\nPreconditions\n\nTo use this workflow, you must have:\n\nA Json2Video API account.\nA video hosted at a publicly accessible URL.\n\nWhy You Need This Workflow\n\nAdding subtitles to your videos significantly enhances their reach and effectiveness by:\n\nImproving SEO visibility, enabling search engines to effectively index your video content.\nEnhancing viewer engagement and accessibility, accommodating viewers who watch without sound or who have hearing impairments.\nStreamlining your content production process, allowing more focus on creativity.\n\nSpecific Use Cases\n\nSocial Media Content:** Boost viewer retention by adding subtitles.\nEducational Videos:** Enhance understanding and improve learning outcomes.\nMarketing Videos:** Reach broader and more diverse audiences.\n",
+  "totalViews": 1961,
+  "source": "official",
+  "user": {
+    "id": 91529,
+    "name": "Emmanuel Bernard",
+    "username": "n8ninja",
+    "bio": "🎉 Do you want to master AI automation, so you can save time and build cool stuff?\n\nI’ve created a welcoming Skool community for non-technical yet resourceful learners.",
+    "verified": true,
+    "links": "[\"https://www.skool.com/the-ai-atelier\"]",
+    "avatar": "https://gravatar.com/avatar/6c38a38d8002fa989515b5c11340ca14512f929dfd15a5a57422950f58441b12?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-02-28T18:29:41.324Z",
+  "path": "official/template_3044/workflow.json"
+}

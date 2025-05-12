@@ -1,0 +1,99 @@
+{
+  "id": 1898,
+  "name": "Send a ChatGPT email reply and save responses to Google Sheets",
+  "description": "This workflow sends a OpenAI GPT reply when an email is received from specific email recipients. It then saves the initial email and the GPT response to an automatically generated Google spreadsheet. Subsequent GPT responses will be added to the same spreadsheet.\n\nAdditionally, when feedback is given for any of the GPT responses, it will be recorded to the spreasheet, which can then be used later to fine-tune the GPT model.\n\nPrerequisites\n\nOpenAI credentials\nGoogle credentials\n\nHow it works\n\nThis workflow is essentially a two-in-one workflow. It triggers off from two different nodes and have very different functionality from each trigger.\n\nThe flow triggered from On email received node is as follows:\n\nTriggers off on the On email received node.\nExtract the email body from the email.\nGenerate a response from the email body using the OpenAI node.\nReply to the email sender using the Send reply to recipient node. A feedback link is also included in the email body which will trigger the On feedback given node. This is used to fine-tune the GPT model.\nSave the email body and OpenAI response to a Google Sheet. If a sheet does not exist, it will be created.\n\nThe flow triggered from On feedback given node is as follows:\n\nTriggers off when a feedback link is clicked in the emailed GPT response.\nThe feedback, either positive or negative, for that specific GPT response is then recorded to the Google Sheet.",
+  "totalViews": 14495,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "Utility"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Crypto",
+      "type": "n8n-nodes-base.crypto",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "n8n-nodes-base.openAi",
+      "categories": [
+        "Utility"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2023-03-10T15:30:33.270Z",
+  "path": "official/template_1898/workflow.json"
+}

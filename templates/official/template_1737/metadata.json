@@ -1,0 +1,49 @@
+{
+  "id": 1737,
+  "name": "Import JSON data into Google Sheets and CSV file",
+  "description": "This workflow gets data from an API and exports it into Google Sheets and a CSV file.",
+  "totalViews": 6650,
+  "source": "official",
+  "user": {
+    "id": 12733,
+    "name": "Lorena",
+    "username": "lorenanda",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/df6358bcce2351cf878beab8f89b9f000f50588aaa728f7ea57127c1b85e7b06?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2022-06-30T07:40:32.673Z",
+  "path": "official/template_1737/workflow.json"
+}

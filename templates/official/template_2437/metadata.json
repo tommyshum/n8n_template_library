@@ -1,0 +1,53 @@
+{
+  "id": 2437,
+  "name": "Convert image to text using GROQ LLaVA V1.5 7B",
+  "description": "What this template does\nThis template uses GROQ LLAVA V1.5 7B API that offers fast inference for multimodal models with vision capabilities for understanding and interpreting visual data from images. .\n\nThe users send a image and get a description of the image from the model.\n\nSetup\nOpen the Telegram app and search for the BotFather user (@BotFather)\nStart a chat with the BotFather\nType /newbot to create a new bot\nFollow the prompts to name your bot and get a unique API token\nSave your access token and username\nOnce you set your bot, you can send the image, and get the descriptions.",
+  "totalViews": 8138,
+  "source": "official",
+  "user": {
+    "id": 91939,
+    "name": "felipe biava cataneo",
+    "username": "felipecataneo",
+    "bio": "Engineer who likes to code as hobby",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/8c041ff6cc6d215ecd9033b0492456aac69765528401522577a110a78bc8eed9?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-09-27T16:54:17.011Z",
+  "path": "official/template_2437/workflow.json"
+}

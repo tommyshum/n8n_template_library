@@ -1,0 +1,93 @@
+{
+  "id": 3123,
+  "name": "Automatic Reminders For Follow-ups with AI and Human in the loop Gmail",
+  "description": "This n8n template extends the idea of follow-up reminders by having an AI agent suggest and book the next call or message to re-engage prospects which have been ignored.\n\nWhat makes this template particularly interesting and actually usable is that it uses the Human-in-the-loop approach to wait for a user's approval before actually making the booking or otherwise not if the user declined.\n\nA twist on a traditional idea where we can reduce the number of actionable tasks a human has to make by delegating them to AI.\n\nHow it works\nA scheduled trigger checks your google calendar for sales meetings which happened a few days ago.\nFor each event, gmail search is used to figure out if a follow-up message has been sent or received from the other party since the meeting. If none, it might mean the user needs a reminder to follow-up.\nFor leads applicable for follow-up, we first get an AI Agent to find available meeting slots in the calendar.\nThese slots and reminder are sent to the user via send-and-approval mode of the gmail node. The user replies in natural language either picking a slot, suggesting an entirely new slot or declines the request.\nWhen accepted, another AI Agent books the meeting in the calendar with the proposed dates and lead.\nWhen declined, no action is taken.\n\nHow to use\nUpdate all calendar nodes (+subnodes) to point to the right calendar. If this is a shared-purpose calendar, you may need to either filter or create a new calendar.\nUpdate the gmail nodes to point to the right accounts.\n\nRequirements\nGoogle OAuth for Email and Calendar\nOpenAI for LLM\n\nCustomising the template\nNot using Google? Swap out for Microsoft Outlook/Calendar or something else.\nTry swapping out or adding in additional send-for-approval methods such as telegram or whatsapp.",
+  "totalViews": 9129,
+  "source": "official",
+  "user": {
+    "id": 91804,
+    "name": "Jimleuk",
+    "username": "jimleuk",
+    "bio": "Freelance consultant based in the UK specialising in AI-powered automations. I work with select clients tackling their most challenging projects. For business enquiries, send me an email at hello@jimle.uk\n\nLinkedIn: https://www.linkedin.com/in/jimleuk/\nX/Twitter: https://x.com/jimle_uk",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4ab99e51473df76838beeaac908747f7928c625f869794815cabe34016967d51?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Productivity",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Calendar",
+      "type": "n8n-nodes-base.googleCalendar",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-03-10T15:36:31.595Z",
+  "path": "official/template_3123/workflow.json"
+}

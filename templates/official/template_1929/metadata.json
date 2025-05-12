@@ -1,0 +1,39 @@
+{
+  "id": 1929,
+  "name": "v1 helper - Find params with affected expressions",
+  "description": "v1 Helper\n\nℹ️ This workflow is to be run after upgrading to n8n v1.\n\nThis workflow returns all locations where a node in an active workflow contains a parameter using an expression extension affected by v1 changes.\n\nFor every location, please check that the workflow still behaves as intended.",
+  "totalViews": 634,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2023-06-29T09:36:39.132Z",
+  "path": "official/template_1929/workflow.json"
+}

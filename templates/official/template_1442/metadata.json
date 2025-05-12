@@ -1,0 +1,32 @@
+{
+  "id": 1442,
+  "name": "Automate assigning GitHub issues",
+  "description": "This workflow assigns a user to an issue if they include \"assign me\" when opening or commenting. To use this workflow you will need to update the credentials used for the Github nodes.",
+  "totalViews": 1248,
+  "source": "official",
+  "user": {
+    "id": 28236,
+    "name": "manohar",
+    "username": "manohar",
+    "bio": null,
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/74c9d326c3c8cc266bd1f25dba0fe3ea7d94525e683665ca6750c4c810b7b22c?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "GitHub",
+      "type": "n8n-nodes-base.github",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2022-02-07T13:52:59.077Z",
+  "path": "official/template_1442/workflow.json"
+}

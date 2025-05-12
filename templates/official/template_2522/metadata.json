@@ -1,0 +1,94 @@
+{
+  "id": 2522,
+  "name": "📄🌐PDF2Blog - Create Blog Post on Ghost CRM from PDF Document",
+  "description": "From PDF to Powerful Blog Posts: AI-Powered Content Transformation\n\nTurn complex documents into engaging digital content that drives results. This n8n Workflow uses AI to transforms lengthy PDFs into compelling blog posts that attract and retain readers while you focus on strategic initiatives.\n\nTime-Saving Innovation\n\n🚅Lightning-Fast Processing\nTransform lengthy documents into polished blog content in under 1 minute, eliminating hours of manual work. Our system handles the heavy lifting, delivering up to a 95% reduction in content production time.\n\n📱Intelligent Analysis\nThe AI engine identifies and extracts key insights, organizing information for maximum impact. Each document undergoes comprehensive analysis to ensure no valuable content is overlooked.\n\nAdvanced Content Optimization\n\n✍️Dynamic Writing Styles Possible\nAdjust the prompt for multiple tone options:\nProfessional for corporate communications\nConversational for engaging blogs\nThought leadership for industry authority\n\n📊SEO-Ready Content Potential\nAdjust the prompt to automatically optimized for search engines, incorporating relevant keywords and semantic structure to improve visibility and drive organic traffic.\n\nIdeal Applications\n\n🤼Content Marketing Teams\nScale content production without sacrificing quality or consistency. Perfect for teams looking to maintain a robust publishing schedule while maximizing resource efficiency.\n\n🏫Academic Communication\nHelp researchers and institutions share complex findings with broader audiences through accessible, engaging content that maintains academic integrity.\n\n🧑‍💻Digital Publishers\nStreamline the content transformation process while ensuring each piece meets modern digital standards and reader expectations.\n\nTransform your content strategy with an intelligent system that delivers consistent, high-quality results while dramatically reducing production time.",
+  "totalViews": 5484,
+  "source": "official",
+  "user": {
+    "id": 92125,
+    "name": "Joseph LePage",
+    "username": "joe",
+    "bio": "As an AI Automation consultant based in Canada, I partner with forward-thinking organizations to implement AI solutions that streamline operations and drive growth.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/e7ca218dfc87b68344bbd66f40da01546d2f6fc1cf884267821e8a77e3e8410a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Marketing",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Ghost",
+      "type": "n8n-nodes-base.ghost",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2024-11-04T01:11:15.636Z",
+  "path": "official/template_2522/workflow.json"
+}

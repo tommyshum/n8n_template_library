@@ -1,0 +1,72 @@
+{
+  "id": 3441,
+  "name": "Generate Conversational Twitter/X Threads with GPT-4o AI",
+  "description": "🧵 Generate Conversational Twitter/X Threads with GPT-4o AI (n8n Workflow)\nThis workflow uses OpenAI (GPT-4o) and Twitter/X to automatically generate and publish engaging, conversational threads in response to a trigger (e.g., from a chatbot or form).\n\n🚀 What Does It Do?\nListens for an incoming message (e.g., via webhook or another n8n input).\nUses GPT-4o to craft a narrative-style Twitter thread in a personal, friendly tone.\nPublishes the first tweet, then automatically posts each following tweet as a reply—building a full thread.\n\n🛠️ What Do You Need to Configure?\nBefore using this template, make sure to set up the following credentials:\n\nOpenAI\nAdd your OpenAI API key in the OpenAI Chat Model node. This is used to generate the thread content.\n\nTwitter/X\nAdd your Twitter OAuth2 credentials to the First Tweet and Thread Reply nodes. This allows the workflow to publish tweets on your behalf.\n\n✨ Who Is This For?\nThis template is perfect for:\nContent creators who want to share ideas regularly\nPersonal brands looking to grow their presence\nSocial media managers automating thread creation\n\n🔧 How to Customize It\nYou can easily adjust the tone, structure, or length of the threads by modifying the system prompt in the OpenAI node.\n\nFor example:\nTo create threads with humor, change the prompt to “Write in a witty and humorous tone.”\nTo tailor it for marketing, prompt it with “Write a persuasive product-focused Twitter thread.”\n\nYou can also integrate this workflow with:\nTelegram bots\nWeb forms (e.g., Typeform, Tally)\nCRM tools or newsletter platforms\n\n\n📋 Sample Output\nPrompt sent to the workflow:\n“Tips for growing on Twitter in 2025”\n\nGenerated thread:\n\n++Tweet 1:++\nThinking of growing your presence on Twitter/X in 2024? Here's a thread with the most effective strategies that actually work 🧵\n\n++Reply 1:++\nEngage, don’t broadcast\nTwitter is a conversation platform. Reply to others, quote-tweet, and start discussions instead of just posting links.\n\n++Reply 2:++\nConsistency beats virality\nTweeting regularly builds trust and visibility. You don't need to go viral — just show up.",
+  "totalViews": 76,
+  "source": "official",
+  "user": {
+    "id": 93554,
+    "name": "joseph",
+    "username": "josephn8n",
+    "bio": "Hola 👋 Soy Joseph. Ayudo a emprendedores y equipos a aprovechar el poder de la IA y la automatización con n8n para ahorrar tiempo, optimizar procesos y crecer de forma inteligente.\n\nEnseño a construir agentes personalizados y flujos automatizados desde cero, paso a paso, sin complicaciones técnicas.\n\nLa automatización ya no es del futuro. Es de quienes la dominan hoy.\n¿Listo para llevar tus ideas al siguiente nivel?\n\n👉 Descubre más en mi canal de YouTube.\nhttps://www.youtube.com/@Josephn8n",
+    "verified": false,
+    "links": "[\"https://x.com/TheJosephCorona\"]",
+    "avatar": "https://gravatar.com/avatar/351e7f46028a6c0cd2d036ff6e15b0380c361f63c12b225f43242849b2acab57?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-04-05T17:33:45.203Z",
+  "path": "official/template_3441/workflow.json"
+}

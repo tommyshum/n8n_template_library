@@ -1,0 +1,47 @@
+{
+  "id": 3861,
+  "name": "Automatically Upload Scanned Documents to Nextcloud via ScanservJS",
+  "description": "This workflow connects a USB scanner to Nextcloud via ScanservJS and the integrated API. It checks for new scans at a scheduled time (e.g., every 5 minutes). If there are any, they are automatically retrieved via HTTP request and then saved to a desired Nextcloud folder.\n\nIdeal for home offices, offices, or maker projects with Raspberry Pi and network scanners.\n\n\n\nNodes used:\n\nSchedule Trigger – starts the flow cyclically\n\nHTTP Request – retrieves document data from ScanservJS\n\nNextcloud Node – uploads the file directly to your Nextcloud account\n\nRequirements:\n\nLocal installation of ScanservJS (e.g., on a Raspberry Pi)\n\nConfigured USB scanner\n\n\n\nNextcloud access with write permissions in the target folder",
+  "totalViews": 33,
+  "source": "official",
+  "user": {
+    "id": 94258,
+    "name": "Joachim Hummel",
+    "username": "jhummel",
+    "bio": "Automation consultant with 30+ years of IT experience. Specialized in building efficient workflows with n8n for freelancers and small to medium-sized businesses.",
+    "verified": false,
+    "links": "[\"https://blog.unixweb.de\"]",
+    "avatar": "https://gravatar.com/avatar/94ac83dc002b178324e4d09af93906bb86e7a262e4311016a44d4981f0771b53?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Nextcloud",
+      "type": "n8n-nodes-base.nextCloud",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-05-04T14:31:11.628Z",
+  "path": "official/template_3861/workflow.json"
+}

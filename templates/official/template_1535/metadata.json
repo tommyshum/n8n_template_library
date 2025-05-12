@@ -1,0 +1,51 @@
+{
+  "id": 1535,
+  "name": "Automate testimonials in Strapi with n8n",
+  "description": "This is the workflow powering the n8n demo shown at StrapiConf 2022.\n\n\n\nThe workflow searches matching Tweets every 30 minutes using the Interval node and listens to Form submissions using the Webhook node.\n\nSentiment analysis is handled by Google using the Google Cloud Natural Language node before the result is stored in Strapi using the Strapi node.\n\n(These were originally two separate workflows that have been combined into one to simplify sharing.)",
+  "totalViews": 1508,
+  "source": "official",
+  "user": {
+    "id": 21240,
+    "name": "Tom",
+    "username": "mutedjam",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://github.com/that-one-tom/\"]",
+    "avatar": "https://gravatar.com/avatar/7a3710173e907baffaf7ed7ebffc37955c9cdeadb8612200225a34a2e056aa17?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Marketing",
+    "Data & Storage",
+    "Analytics"
+  ],
+  "nodes": [
+    {
+      "name": "X (Formerly Twitter)",
+      "type": "n8n-nodes-base.twitter",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Strapi",
+      "type": "n8n-nodes-base.strapi",
+      "categories": [
+        "Data & Storage",
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Google Cloud Natural Language",
+      "type": "n8n-nodes-base.googleCloudNaturalLanguage",
+      "categories": [
+        "Analytics"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2022-03-17T13:09:20.628Z",
+  "path": "official/template_1535/workflow.json"
+}

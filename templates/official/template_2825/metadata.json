@@ -1,0 +1,120 @@
+{
+  "id": 2825,
+  "name": "Spot Workplace Discrimination Patterns with AI",
+  "description": "\nHow It Works:\n• Scrapes company review data from Glassdoor using ScrapingBee.\n• Extracts demographic-based ratings using AI-powered text analysis.\n• Calculates workplace disparities with statistical measures like z-scores, effect sizes, and p-values.\n• Generates visualizations (scatter plots, bar charts) to highlight patterns of discrimination or bias.\n\nExample Visualizations:\n\nSet Up Steps:\nEstimated time: ~20 minutes.\n• Replace ScrapingBee and OpenAI credentials with your own.\n• Input the company name you want to analyze (best results with large U.S.-based organizations).\n• Run the workflow and review the AI-generated insights and visual reports.\n\nThis workflow empowers users to identify potential workplace discrimination trends, helping advocate for greater equity and accountability.\n\nAdditional Credit: Wes Medford\nFor algorithms and inspiration",
+  "totalViews": 4211,
+  "source": "official",
+  "user": {
+    "id": 91565,
+    "name": "Ludwig",
+    "username": "ludwig",
+    "bio": "If you have any questions about any of the templates I've built, please reach out to me on LinkedIn (https://www.linkedin.com/in/ludwiggerdes) or via my website down below. 👇",
+    "verified": true,
+    "links": "[\"https://www.lwwg.me\"]",
+    "avatar": "https://gravatar.com/avatar/85fa5dd88d3b3b71e5719184d2d889fe3c0fba02e925b2b9ad4ba34d9a774002?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Marketing",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "QuickChart",
+      "type": "n8n-nodes-base.quickChart",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Information Extractor",
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-01-30T19:31:39.617Z",
+  "path": "official/template_2825/workflow.json"
+}

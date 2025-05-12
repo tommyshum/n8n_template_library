@@ -1,0 +1,56 @@
+{
+  "id": 3303,
+  "name": "AI-Powered Research Assistant for Platform Questions with GPT-4o and MCP",
+  "description": "Description\n\nThis workflow empowers you to effortlessly get answers to your n8n platform questions through an AI-powered assistant. Simply send your query, and the assistant will search documentation, forum posts, and example workflows to provide comprehensive, accurate responses tailored to your specific needs.\n\n&gt; Note: This workflow uses community nodes (n8n-nodes-mcp.mcpClientTool) and will only work on self-hosted n8n instances. You'll need to install the required community nodes before importing this workflow.\n\n!\n\nWhat does this workflow do?\n\nThis workflow streamlines the information retrieval process by automatically researching n8n platform documentation, community forums, and example workflows, providing you with relevant answers to your questions.\n\nWho is this for?\n\nNew n8n Users**: Quickly get answers to basic platform questions and learn how to use n8n effectively\nExperienced Developers**: Find solutions to specific technical issues or discover advanced workflows\nTeams**: Boost productivity by automating the research process for n8n platform questions\nAnyone** looking to leverage AI for efficient and accurate n8n platform knowledge retrieval\n\nBenefits\n\nEffortless Research**: Automate the research process across n8n documentation, forum posts, and example workflows\nAI-Powered Intelligence**: Leverage the power of LLMs to understand context and generate helpful responses\nIncreased Efficiency**: Save time and resources by automating the research process\nQuick Solutions**: Get immediate answers to your n8n platform questions\nEnhanced Learning**: Discover new workflows, features, and best practices to improve your n8n experience\n\nHow It Works\n\nReceive Request: The workflow starts when a chat message is received containing your n8n-related question\nAI Processing: The AI agent powered by OpenAI GPT-4o analyzes your question\nResearch and Information Gathering: The system searches across multiple sources:\n   Official n8n documentation for general knowledge and how-to guides\n   Community forums for bug reports and specific issues\n   Example workflow repository for relevant implementations\nResponse Generation: The AI agent compiles the research and generates a clear, comprehensive answer\nOutput: The workflow provides you with the relevant information and step-by-step guidance when applicable\n\nn8n Nodes Used\n\nWhen chat message received (Chat Trigger)\nOpenAI Chat Model (GPT-4o mini)\nN8N AI Agent\nn8n-assistant tools (MCP Client Tool - Community Node)\nn8n-assistant execute (MCP Client Tool - Community Node)\n\nPrerequisites\n\nSelf-hosted n8n instance\nOpenAI API credentials\nMCP client community node installed\nMCP server configured to search n8n resources\n\nSetup\n\nImport the workflow JSON into your n8n instance\nConfigure the OpenAI credentials\nConfigure your MCP client API credentials\nIn the n8n-assistant execute node, ensure the parameter is set to \"specific\" (corrected from \"spesific\")\nTest the workflow by sending a message with an n8n-related question\n\nMCP Server Connection\n\nTo connect to the MCP server that powers this assistant's research capabilities, you need to use the following URL:\nhttps://smithery.ai/server/@onurpolat05/n8n-assistant\n\nThis MCP server is specifically designed to search across three types of n8n resources:\nOfficial documentation for general platform information and workflow creation guidance\nCommunity forums for bug-related issues and troubleshooting\nExample workflow repositories for reference implementations\n\nConfigure this URL in your MCP client credentials to enable the assistant to retrieve relevant information based on user queries.\n\nThis workflow combines the convenience of chat with the power of AI to provide a seamless n8n platform research experience. Start getting instant answers to your n8n questions today!",
+  "totalViews": 16330,
+  "source": "official",
+  "user": {
+    "id": 92846,
+    "name": "Onur",
+    "username": "onurpolat05",
+    "bio": "Hello, I'm Onur\nI've been working as a freelance software developer for about four years. In addition, I develop my own projects. For some time, I have been improving myself and providing various services related to AI and AI workflows. Both by writing low code and code. If you have any questions, don't hesitate to contact me.",
+    "verified": true,
+    "links": "[\"https://onurpolat.bio\"]",
+    "avatar": "https://gravatar.com/avatar/1b89c2342766e3851ac5f68ac7f001c946e313d47a6e0b0d396b62ba9f850c37?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-03-24T09:42:01.239Z",
+  "path": "official/template_3303/workflow.json"
+}

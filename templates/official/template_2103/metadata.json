@@ -1,0 +1,71 @@
+{
+  "id": 2103,
+  "name": "Collect and Enrich Form Leads to Gmail, Google Sheets and Discord",
+  "description": "Product Introduction:\nYou can create a form on n8n through which you can collect leads from interested user's.\n\nYou can also verify each user's email address to validate whether it's a valid email to make sure it lands on their inbox(suitable for those who have newletter / want's to send bulk email)\n\nThe leads with valid email will then get saved as a leads with the relevant field data to gmail, google sheets and discord(through webhook). You can add/remove any integration you feel like.\n\nSetup Guide:\n\nCreate Your Form: Begin by logging into your n8n account and navigating to the workflow editor. You can then customize your form fields to gather relevant information from your prospects, such as name, email address, and any additional data you require.\n\nEmail Verification: After collecting the lead data, add an Email Verification node to validate each user's email address. This crucial step ensures that only genuine and deliverable email addresses are included in your lead database, maximizing the effectiveness of your outreach efforts.\nWe have used hunter.io service in this, you can change it to any other service you need.\n\nSave Leads: Next, incorporate nodes to save your verified leads to various platforms for streamlined management. Utilize the Gmail node to store lead information directly in your Gmail account, ensuring easy access and organization. Additionally, leverage the Google Sheets node to archive lead data in a spreadsheet for comprehensive tracking and analysis.\n\nIntegrate with Discord: For real-time notifications and collaboration, integrate n8n with Discord using the Webhook node. Configure the webhook to send lead information to your designated Discord channel, enabling your team to stay informed and coordinate effectively.\n\nCustomize Integrations: Tailor your workflow by adding or removing integrations based on your specific requirements. Whether you prefer to connect with additional platforms or streamline your workflow further, n8n offers unparalleled flexibility to adapt to your business needs.\n\nExperience the simplicity and efficiency of n8n to revolutionize your lead generation strategy and propel your success to new heights.",
+  "totalViews": 1778,
+  "source": "official",
+  "user": {
+    "id": 91455,
+    "name": "Dheeraj",
+    "username": "m4jor",
+    "bio": "",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b99396a974efcf272f9ad7e43dc90a0a0e0ecef18dbf1d37dbfea72074c2ea23?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Communication",
+    "HITL",
+    "Sales"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Discord",
+      "type": "n8n-nodes-base.discord",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Hunter",
+      "type": "n8n-nodes-base.hunter",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2024-02-17T17:14:32.606Z",
+  "path": "official/template_2103/workflow.json"
+}

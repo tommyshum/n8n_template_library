@@ -1,0 +1,38 @@
+{
+  "id": 2299,
+  "name": "Scrape every url on the web without getting blocked by Anti-Bot technologies with Scrappey",
+  "description": "Purpose of the workflow\nMost scraping workflows get blocked by anti-bot technologies. To avoid this, you can use Scrappey to scrape every website you want.\n\nHow it works:\nWe use Test Data and make a API Call to the Scrappey service. \nWe get the scraped website data back as a result.\n\nSetup Steps:\nReplace YOUR_API_KEY in the \"Scrappey API Call\" node with your Scrappey API Key (Register For Free)\nReplace the test data with your production data. You can plug in any type of data connector at this point of your workflow.\n",
+  "totalViews": 21892,
+  "source": "official",
+  "user": {
+    "id": 91415,
+    "name": "Bela",
+    "username": "bwiertz",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://n8n-automation.com/our-services/\"]",
+    "avatar": "https://gravatar.com/avatar/9ee80c295a2f128e898348c2b2349f369b065d504f5b214ced40800eb3b6a46d?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-06-25T19:29:25.214Z",
+  "path": "official/template_2299/workflow.json"
+}

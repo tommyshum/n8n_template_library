@@ -1,0 +1,34 @@
+{
+  "id": 986,
+  "name": "Weather check workflow for bash-dash",
+  "description": "This workflow returns the current weather at a predefined or given city and returns it so that it can be displayed with bash-dash.\n\n\n\nBy default does it return the weather in Berlin if no city got defined. That default can be changed in the \"Set City\" node.\n\nExample usage:\n\\- weather london\n\nExample bash-dash config:\ncommands[weather]=\"http://localhost:5678/webhook/weather\"\n",
+  "totalViews": 938,
+  "source": "official",
+  "user": {
+    "id": 8,
+    "name": "Jan Oberhauser",
+    "username": "jan",
+    "bio": "Founder/CEO of n8n",
+    "verified": true,
+    "links": "[\"https://twitter.com/JanOberhauser\"]",
+    "avatar": "https://gravatar.com/avatar/457e4b99bfbbb2d3fb5b045a6d80165b3bc80dc3ff24306ac18fd1180e257786?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Miscellaneous",
+    "Utility"
+  ],
+  "nodes": [
+    {
+      "name": "OpenWeatherMap",
+      "type": "n8n-nodes-base.openWeatherMap",
+      "categories": [
+        "Miscellaneous",
+        "Utility"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2021-03-17T09:31:12.754Z",
+  "path": "official/template_986/workflow.json"
+}

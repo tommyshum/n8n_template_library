@@ -1,0 +1,56 @@
+{
+  "id": 3348,
+  "name": "Automate Blog Content Creation with Notion MCP, DeepSeek AI, and WordPress",
+  "description": "Who Is This For\nThis workflow is ideal for content creators, bloggers, marketers, and professionals seeking to automate the creation and publication of SEO-optimized articles. It's particularly beneficial for those utilizing Notion for content management and WordPress for publishing.​\n\nWhat Problem Does This Workflow Solve\nManually creating SEO-friendly articles is time-consuming and requires consistent effort. This workflow streamlines the entire process—from detecting updates in Notion to publishing on WordPress—by leveraging AI for content generation, thereby reducing the time and effort involved.​\n\nWhat This Workflow Does\nMonitor Notion Updates: Detects changes in a specified Notion database.​\nAI Content Generation: Utilizes an AI model to produce an SEO-optimized article based on Notion data.​\nPublish to WordPress: Automatically posts the generated article to a WordPress site.​\nEmail Notification: Sends an email containing the article's title and URL.​\n\nUpdate Notion Database: Updates the corresponding entry in the Notion database with the article details.​\n\nSetup Guide\nPrerequisites\nWordPress account with API access.​\nAPI key for the AI model used.​\nNotion integration with the relevant database ID.​\nCredentials for the email service used (e.g., Gmail).​\n\nCommunity Node Requirement: This workflow utilizes the n8n-nodes-mcp community node, which is only compatible with self-hosted instances of n8n. For more information on installing and managing community nodes, refer to the n8n documentation.​\nn8n Docs\n\nSteps\nImport the workflow into your self-hosted n8n instance.​\nInstall the required community node (n8n-nodes-mcp).​\nConfigure API credentials for WordPress, the AI service, Notion, and the email service.​\nDefine necessary variables, such as the notification email address and Notion database IDs.​\nActivate the workflow to automate the process.​\n\nHow to Customize This Workflow\nAI Prompt: Adjust the prompt used for content generation to align with your preferred tone and style.​\nArticle Structure: Modify the structure of the generated article by tweaking settings in the content generation node.​\nNotifications: Customize the content and recipients of the emails sent post-publication.​\nNotion Updates: Tailor the fields updated in Notion to suit your specific requirements.",
+  "totalViews": 9832,
+  "source": "official",
+  "user": {
+    "id": 93440,
+    "name": "Dr. Firas",
+    "username": "drfiras",
+    "bio": "Automation expert and certified trainer. I create hands-on courses to master automation with n8n. Contact me to access my exclusive training and start building powerful workflows today. 🚀",
+    "verified": true,
+    "links": "[\"https://www.youtube.com/@DRFIRASS\"]",
+    "avatar": "https://gravatar.com/avatar/988a46579257f9e8c522aeb7b906f1ee96e47c4298faa548e41b04957f455ae3?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "DeepSeek Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatDeepSeek",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-03-29T03:27:21.509Z",
+  "path": "official/template_3348/workflow.json"
+}

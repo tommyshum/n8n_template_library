@@ -1,0 +1,65 @@
+{
+  "id": 2899,
+  "name": "Unique QRcode coupon assignment and validation for Lead Generation with SuiteCRM",
+  "description": "This workflow is designed to manage the assignment and validation of unique QR code coupons within a lead generation system with SuiteCRM.\n\nHow it Works\n\nThis workflow automates the process of assigning unique QR code coupons to leads generated through a form submission, ensuring no duplicates are created, and validating the usage of coupons. Here's how it operates:\n\nWebhook Trigger:\n   The workflow starts with a Webhook node that listens for incoming requests containing QR code data.\n   A Set coupon node extracts the QR code value from the request parameters.\n\nValidation of QR Code:\n   An If node checks if the QR code exists in the incoming data. If it does, the process proceeds; otherwise, a \"No coupon\" response is sent back.\n\nCoupon Lookup:\n   The Get Lead node queries a Google Sheets document to check if the QR code corresponds to an existing lead.\n   A subsequent Not used? node verifies whether the coupon has already been used by checking the \"USED COUPON?\" field in the sheet.\n\nLead Duplication Check:\n   When a new lead submits the form (On form submission), the Duplicate Lead? node checks if the email already exists in the system to prevent duplicates.\n\nCoupon Assignment:\n   If the lead is not a duplicate, the Get Coupon node retrieves an available unassigned coupon from the Google Sheets document.\n   The Token SuiteCRM node generates an access token for SuiteCRM, and the Create Lead SuiteCRM node creates a new lead entry in SuiteCRM, associating it with the assigned coupon.\n\nQR Code Generation and Email Notification:\n   The Get QR node generates a QR code image URL for the assigned coupon.\n   The Send Email node sends an email to the lead with the QR code attached.\n\nResponse Handling:\n   Depending on the validation results, the workflow responds with appropriate messages:\n     \"Coupon OK\" if the coupon is valid and unused.\n     \"Coupon KO\" if the coupon has already been used.\n     \"Coupon not valid\" if the QR code does not exist.\n\nSet Up Steps\n\nTo replicate this workflow in your own n8n environment, follow these steps:\n\nConfiguration:\n   Set up an n8n instance either locally or via cloud services.\n   Import the provided JSON configuration file into your workspace.\n   Configure all required credentials, such as:\n     Google Sheets OAuth2 API for accessing the spreadsheet.\n     SuiteCRM API credentials (e.g., SUITECRMURL, CLIENTID, CLIENTSECRET).\n     SMTP credentials for sending emails.\n\nCustomization:\n   Adjust the Webhook URL to match your deployment environment.\n   Modify the Google Sheets document ID and sheet name in nodes like Duplicate Lead?, Get Coupon, Update Sheet, and Update coupon used.\n   Update the SuiteCRM API endpoint and credentials in nodes like Token SuiteCRM and Create Lead SuiteCRM.\n   Customize the email template in the Send Email node to match your branding and messaging requirements.\n   Ensure the QR code generation URL in the Get QR node points to a valid QR code generator service.\n\nBy following these steps, you can effectively implement and customize this workflow to manage lead generation and coupon assignments in your organization. \n",
+  "totalViews": 1896,
+  "source": "official",
+  "user": {
+    "id": 92207,
+    "name": "Davide",
+    "username": "n3witalia",
+    "bio": "Full-stack Web Developer based in Italy specialising in Marketing & AI-powered automations. For business enquiries, send me an email at info@n3w.it or add me on Linkedin.com/in/davideboizza",
+    "verified": true,
+    "links": "[\"https://n3w.it\"]",
+    "avatar": "https://gravatar.com/avatar/d41b8a0aa81139243509c58870f5b4be292824a507ab57d10ed066d8628ed8da?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Core Nodes",
+    "Data & Storage",
+    "Productivity",
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "categories": [
+        "Communication",
+        "HITL",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-02-13T15:06:26.229Z",
+  "path": "official/template_2899/workflow.json"
+}

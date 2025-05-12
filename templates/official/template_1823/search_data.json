@@ -1,0 +1,61 @@
+{
+  "id": 1823,
+  "name": "Create Monday item on a new Mautic contact",
+  "totalViews": 840,
+  "purchaseUrl": null,
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "description": "This workflow creates a new item in a Monday.com board when a new contact is created in Mautic. Additional fields can be added to the workflow to send more data to Monday.com.\n\nPrerequisites\n\nMonday account and Monday credentials.\nMautic account and Mautic credentials.\n\nHow it works\n\nWhen a new contact is created in Mautic, the workflow creates a new item in the Monday.com board. By default the workflow will send the contact's email address to Monday.com and name the item after the contact's first and last name.\n\nSetup\n\nThis workflow requires that you set up a Monday.com board. To do so, follow the steps below:\n\nIn Monday.com, create a new item board.\nIn the board, add the following columns:\n    Email (with type \"Email\")\n    Any other fields you require to the board.\nIf more columns are created, you will need to find out what their ID's are by turning on developer mode as explained in this Monday article.\nWith these new IDs, you can add them to the Create item Monday.com node, this is explained further in the workflow as a sticky note.",
+  "createdAt": "2022-11-10T15:05:45.374Z",
+  "nodes": [
+    {
+      "id": 309,
+      "icon": "file:mondayCom.svg",
+      "name": "n8n-nodes-base.mondayCom",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.mondaycom/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/mondayCom/"
+              }
+            ]
+          },
+          "categories": [
+            "Productivity"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"output\"]",
+      "defaults": {
+        "name": "Monday.com"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGZpbGw9IiNGRjNENTciIGQ9Ik04LjE4NCA0Ny4zOTNBNy4yIDcuMiAwIDAgMSAxLjkgNDMuNjc0YTcuMjIgNy4yMiAwIDAgMSAuMTk2LTcuMzA3bDEyLjk0NS0yMC43M2E3LjE4IDcuMTggMCAwIDEgNi4zNTYtMy4zNzYgNy4yIDcuMiAwIDAgMSA2LjA5NyAzLjgyNCA3LjIxIDcuMjEgMCAwIDEtLjI1OCA3LjJsLTEyLjk1IDIwLjcyN2E3LjE5IDcuMTkgMCAwIDEtNi4xMDMgMy4zNzl6Ii8+PHBhdGggZmlsbD0iI0ZGQ0IwMCIgZD0iTTMwLjQ5NCA0Ny4zOTNhNy4yIDcuMiAwIDAgMS02LjI5NS0zLjcxMyA3LjIxIDcuMjEgMCAwIDEgLjE5NC03LjMxM2wxMi45NTQtMjAuNzNhNy4xNyA3LjE3IDAgMCAxIDYuNDExLTMuNjM0QTcuMTkgNy4xOSAwIDAgMSA1MCAxNS45MjNhNy4yMSA3LjIxIDAgMCAxLS40NzYgNy4zNmwtMTIuOTMgMjAuNzNhNy4xOSA3LjE5IDAgMCAxLTYuMTAyIDMuMzc4bC4wMDMuMDAyeiIvPjxwYXRoIGZpbGw9IiMwMEQ2NDciIGQ9Ik00NS41OTEgNDAuMzU3YzAtMy44OTUgMy4yMTQtNy4wMzQgNy4yMDUtNy4wMzRTNjAgMzYuNDYgNjAgNDAuMzU3cy0zLjIxNCA3LjAzNC03LjIwNCA3LjAzNGMtMy45OTEgMC03LjIwNS0zLjEzNy03LjIwNS03LjAzNCIvPjwvZz48L3N2Zz4="
+      },
+      "displayName": "Monday.com",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 4,
+          "name": "Productivity"
+        }
+      ]
+    }
+  ]
+}

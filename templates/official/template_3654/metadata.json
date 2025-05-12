@@ -1,0 +1,95 @@
+{
+  "id": 3654,
+  "name": "Auto-create and publish AI social videos with Telegram, GPT-4 and Blotato",
+  "description": "\nAuto-create and publish AI social videos with Telegram, GPT-4 and Blotato\n\n&gt; ⚠️ Disclaimer: This workflow uses Community Nodes and must be run on a self-hosted instance of n8n.\n\nWho is this for?\n\nThis template is perfect for social media managers, content creators, AI enthusiasts, and automation pros who want to generate short-form videos (Reels) from a simple Telegram message, then publish them across multiple platforms—all without video editing or manual uploads.\n\nWhat problem is this workflow solving?\n\nCreating content is only half the job. The real bottleneck comes in:\nRendering the video,\nAdding voice or music,\nWriting captions and titles,\nPublishing to multiple platforms.\n\nThis workflow automates all of that using AI. It saves hours every week and guarantees consistent output.\n\nWhat this workflow does\n\nThis end-to-end automation handles everything from AI video generation to social publishing:\n\nStarts with a Telegram message (text or image prompt)\nGenerates video using Kling or Blotato, based on the input\nCreates music with Piapi and merges it with the video\nGenerates text overlays and captions with GPT-4\nBuilds a stylized video using JSON2Video\nLogs results to Google Sheets\nSends final output back to Telegram\nAuto-posts the video to 9 platforms via Blotato (Instagram, TikTok, YouTube, Facebook, LinkedIn, Threads, Twitter/X, Pinterest, Bluesky)\n\nSetup\n\nConnect your Telegram bot to the trigger node.\nAdd your OpenAI API key for all GPT nodes.\nSet up Kling and Piapi API access (for video and music generation).\nConnect your Cloudinary account to upload images.\nLink a Google Sheet with columns: Title, Caption, URL.\nSet your Blotato API key and fill in the platform-specific account IDs.\n\nHow to customize this workflow to your needs\n\nChange prompt formatting** to control GPT responses and video tone.\nEdit text styling** in JSON2Video to match your brand.\nAdd a Telegram approval step** before publishing, if needed.\nDisable platforms** you don’t use by deleting their HTTP Request nodes.\nUse a Google Sheet filter** to only process new rows or drafts.\n\n\n📄 Documentation: Notion Guide",
+  "totalViews": 20411,
+  "source": "official",
+  "user": {
+    "id": 93440,
+    "name": "Dr. Firas",
+    "username": "drfiras",
+    "bio": "Automation expert and certified trainer. I create hands-on courses to master automation with n8n. Contact me to access my exclusive training and start building powerful workflows today. 🚀",
+    "verified": true,
+    "links": "[\"https://www.youtube.com/@DRFIRASS\"]",
+    "avatar": "https://gravatar.com/avatar/988a46579257f9e8c522aeb7b906f1ee96e47c4298faa548e41b04957f455ae3?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-04-21T23:28:43.913Z",
+  "path": "official/template_3654/workflow.json"
+}

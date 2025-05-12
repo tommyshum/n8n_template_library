@@ -1,0 +1,48 @@
+{
+  "id": 736,
+  "name": "Auto-Notify on New Major n8n Releases via RSS, Email & Telegram",
+  "description": "\n\nThis n8n workflow template checks for new major releases (tagged with .0) of the n8n project using its official GitHub releases feed. It runs multiple times a day and sends notifications via email and Telegram if a new release is found.\n\n&gt; ⚠️ Note: You must *activate the workflow* to start receiving release notifications.\n\n🚀 What It Does\n\nMonitors the n8n GitHub releases feed\nDetects major versions (e.g., 1.0.0, 2.0.0)\nSends alert messages via Telegram and email (SES) when a release is published\n\n⏰ Scheduling Details\n\nThe Cron node checks for new releases three times per day:  \n  10:00, 14:00, and 18:00 server time.\n\n🛠️ Step-by-Step Setup\n\nConfigure Telegram Bot  \n   Connect your Telegram bot and specify the chat ID where you want to receive notifications.\n\nSet up AWS SES Credentials  \n   Use a verified sender email and set up AWS SES credentials in your n8n instance.\n\nActivate the Workflow  \n   Enable the workflow in your instance to start receiving notifications.\n\nCustomize Notification Messages (Optional)  \n   You can modify the email subject, Telegram format, or filter logic.\n\n🧠 How It Works: Workflow Overview\n\nCron Trigger  \n   Runs the workflow at 10:00, 14:00, and 18:00 daily.\n\nRead RSS Feed  \n   Pulls data from https://github.com/n8n-io/n8n/releases.atom.\n\nFilter by Current Day  \n   Filters the feed to match:\n   Releases published in the last 4 hours\n   Titles starting with n8n@ and ending with .0\n\nCondition Check  \n   Uses a regex to check if the filter result contains any release data.\n\nNotifications  \n   If a new major release is found, sends:\n     Telegram message to a specified chat\n     Email via AWS SES with release info\n\n📨 Final Output\n\nYou'll receive a Telegram message and email when a new major n8n version is released.\n\n🔐 Credentials Used\n\nTelegram API** – For sending chat notifications\nAWS SES** – To send email alerts\n\n✨ Customization Tips\n\nChange Notification Channels**: Add Slack, Discord, or other preferred channels.\nAdjust Cron Schedule**: Modify the Cron node to fit your check frequency.\nModify Filters**: Detect patch or beta versions by changing the .0 condition.\nSend Release Notes**: Extend the feed parsing to include release content.\n\n❓Questions?\n\nTemplate created by Miquel Colomer and n8nhackers.com.  \n\nNeed help customizing or deploying? Contact us for consulting and support.\n\n\n",
+  "totalViews": 1087,
+  "source": "official",
+  "user": {
+    "id": 5774,
+    "name": "Miquel Colomer",
+    "username": "mcolomer",
+    "bio": "As a passionate developer and AI agent creator, I’ve been at the forefront of automation, pioneering workflows and training AI to handle complex tasks seamlessly. I’m an early adopter and expert of n8n, having worked with its powerful capabilities to create automation solutions for diverse industries. I founded n8nhackers, the first AI-powered agency focused on n8n, where we help businesses transform their workflows with cutting-edge automation.",
+    "verified": true,
+    "links": "[\"https://n8nhackers.com\"]",
+    "avatar": "https://gravatar.com/avatar/c4974f5be3985d7f30465d2d963967905bcb2f9b8a8ecaf8ba4396bfbd034db2?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "AWS SES",
+      "type": "n8n-nodes-base.awsSes",
+      "categories": [
+        "Communication",
+        "Development"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2020-10-26T06:23:26.821Z",
+  "path": "official/template_736/workflow.json"
+}

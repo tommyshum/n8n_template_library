@@ -1,0 +1,57 @@
+{
+  "id": 3894,
+  "name": "Convert Images to 3D Models with Fal AI Trellis and Store in Google Drive",
+  "description": "This workflow allows users to convert a 2D image into a 3D model by integrating multiple AI and web services. The process begins with a user uploading or providing an image URL, which is then sent to a generative AI model capable of interpreting the content and generating a 3D representation in .glb format. The model is then stored and a download link is returned to the user.\n\nMain Steps\n\nTrigger Node: Initiates the workflow either via HTTP request, webhook, or manual execution.\nImage Upload or Input: The image is acquired via direct upload or URL input.\nAPI Integration: The image is sent to a 3D generation API (e.g., a service like Kaedim, Luma Labs, or a custom AI model).\nModel Generation: The external API processes the image and creates a 3D model.\nFile Storage: The resulting 3D model is stored in cloud storage (e.g., S3, Google Drive, or a local server).\nResponse to User: A download link for the 3D model is returned to the user via the same communication channel (HTTP response, email, or chat).\n\nAdvantages\n\nAutomation**: Eliminates the need for manual 3D modeling, saving time for artists, developers, and designers.\nAI-Powered**: Leverages AI to generate realistic and usable 3D models from simple 2D inputs.\nScalability**: Can be triggered automatically and scaled up to handle many requests via n8n's automation.\nIntegration-Friendly**: Easily extendable with other services like Discord, Telegram, or marketplaces for 3D assets.\nNo-Code Configuration**: Built with n8n’s visual interface, making it editable without programming knowledge.\nHow It Works  \nTrigger: The workflow can be started manually (\"When clicking ‘Test workflow’\") or automatically at scheduled intervals (\"Schedule Trigger\").  \nData Retrieval: The \"Get new image\" node fetches data from a Google Sheet, including the model image, product image, and product ID.  \n3D Image Creation: The \"Create 3D Image\" node sends the image data to the Fal.run API (Trellis) to generate a 3D model.  \nStatus Check: The workflow periodically checks the request status (\"Get status\" and \"Wait 60 sec.\") until the job is marked as \"COMPLETED.\"  \nResult Processing: Once completed, the 3D model URL is retrieved (\"Get Url 3D image\"), the file is downloaded (\"Get File 3D image\"), and uploaded to Google Drive (\"Upload 3D Image\").  \nSheet Update: The final 3D model URL is written back to the Google Sheet (\"Update result\").  \n\nSet Up Steps  \nPrepare Google Sheet:  \n   Create a Google Sheet with columns: IMAGE MODEL and 3D RESULT (empty).  \n   Example sheet: Google Sheet Template.  \n\nObtain Fal.run API Key:  \n   Sign up at Fal.ai and get an API key.  \n   Configure the Authorization header in the \"Create 3D Image\" node with Key YOURAPIKEY.  \n\nConfigure Workflow Execution:  \n   Run manually via the Test workflow button.  \n   For automation, set up the Schedule Trigger node (e.g., every 5 minutes).  \n\nVerify Credentials: Ensure Google Sheets, Google Drive, and Fal.run API credentials are correctly set in n8n.  \n\nOnce configured, the workflow processes new entries in the Google Sheet, generates 3D models, and updates the results automatically.\n\nNeed help customizing?  \nContact me for consulting and support or add me on Linkedin. ",
+  "totalViews": 274,
+  "source": "official",
+  "user": {
+    "id": 92207,
+    "name": "Davide",
+    "username": "n3witalia",
+    "bio": "Full-stack Web Developer based in Italy specialising in Marketing & AI-powered automations. For business enquiries, send me an email at info@n3w.it or add me on Linkedin.com/in/davideboizza",
+    "verified": true,
+    "links": "[\"https://n3w.it\"]",
+    "avatar": "https://gravatar.com/avatar/d41b8a0aa81139243509c58870f5b4be292824a507ab57d10ed066d8628ed8da?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-05-06T10:59:27.867Z",
+  "path": "official/template_3894/workflow.json"
+}

@@ -1,0 +1,92 @@
+{
+  "id": 3500,
+  "name": "✍️ AI Agent to Create Linkedin Posts for Blog Promotion with GPT-4o",
+  "description": "Tags: Automation, AI, Marketing, Content Creation\n\nContext\nI’m a Supply Chain Data Scientist and content creator who writes regularly about data-driven optimization, logistics, and sustainability. Promoting blog articles on LinkedIn used to be a manual task — until I decided to automate it with N8N and GPT-4o.\n\nThis workflow lets you automatically extract blog posts, clean the content, and generate a professional LinkedIn post using an AI Agent powered by GPT-4o — all in one seamless automation.\n\n&gt;Save hours of repetitive work and boost your reach with AI.\n\n📬 For business inquiries, you can add me on LinkedIn\n\nWho is this template for?\nThis template is perfect for:\nBloggers and writers** who want to promote their content on LinkedIn\nMarketing teams** looking to automate professional post-generation\nContent creators** using Ghost platforms\n\nIt generates polished LinkedIn posts with:\nA hook\nA quick summary\nA call-to-action\nA signature to drive readers to your contact page\n\nHow does it work?\nThis workflow runs in N8N and performs the following steps:\n\n🚀 Triggers manually or you can add a scheduler\n📰 Pulls recent blog posts from your Ghost site (via API)\n🧼 Cleans the HTML content for AI input\n🤖 Sends content to GPT-4o with a tailored prompt to create a LinkedIn post\n📄 Records all data (post content + LinkedIn output) in a Google Sheet\n\nWhat do I need to start?\nYou don’t need to write a single line of code.\nPrerequisites:\nA Ghost CMS account with blog content\nA Google Sheet to store generated posts\nAn OpenAI API Key\nGoogle Sheets API** connected via OAuth2\n\nNext Steps\nUse the sticky notes in the workflow to understand how to:\nAdd your Ghost API credentials\nLink your Google Sheet\nCustomize the AI prompt (e.g., change the author name or tone)\nOptionally add auto-posting to LinkedIn using tools like Buffer or Make\n\n\n\n🎥 Watch My Tutorial\n\n🚀 Want to explore how automation can scale your brand or business?\n📬 Let’s connect on LinkedIn\n\nNotes\nYou can adapt this template for Twitter, Facebook, or even email newsletters by adjusting the prompt and output channel.\nThis workflow was built using n8n 1.85.4\n\nSubmitted: April 9th, 2025\n",
+  "totalViews": 1600,
+  "source": "official",
+  "user": {
+    "id": 93233,
+    "name": "Samir Saci",
+    "username": "samirsaci",
+    "bio": "Automation, AI and Analytics for Supply Chain & Business Optimization\nHelping businesses streamline operations using n8n, AI agents, and data science to enhance efficiency and sustainability. \nLinkedin: www.linkedin.com/in/samir-saci",
+    "verified": true,
+    "links": "[\"https://linktr.ee/samirsaci\"]",
+    "avatar": "https://gravatar.com/avatar/d3644476a59e5813c5f00a7933977e2be8805cbdc574958b9cc6a53b45bedd6a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Marketing",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Ghost",
+      "type": "n8n-nodes-base.ghost",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-04-09T16:16:57.912Z",
+  "path": "official/template_3500/workflow.json"
+}

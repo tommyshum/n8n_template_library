@@ -1,0 +1,38 @@
+{
+  "id": 2485,
+  "name": "Automate Droplet Snapshots on DigitalOcean",
+  "description": "This workflow automates the management of DigitalOcean Droplet snapshots by listing all droplets, filtering based on the number of snapshots, and deleting excess snapshots before creating new ones. It ensures your droplet snapshots stay organized and within a manageable limit, preventing unnecessary storage costs due to an excess of snapshots.\n\nWho is this for?\nThis workflow is perfect for users managing DigitalOcean Droplets and looking to automate the process of snapshot creation and cleanup to save on storage costs and maintain efficient resource management. It’s useful for DevOps teams, cloud administrators, or any developer leveraging DigitalOcean for their infrastructure.\n\nWhat problem is this workflow solving?\nWhen managing multiple DigitalOcean Droplets, snapshots can quickly accumulate, taking up space and increasing storage costs. Manually deleting and creating snapshots can be time-consuming and inefficient. This automation solves this problem by automating the snapshot management process, ensuring that no more than a defined number of snapshots are kept per droplet.\n\nWhat this workflow does\nRuns every 48 hours: The workflow is triggered by a cron node that runs every 48 hours, ensuring timely snapshot management.\nList all droplets: The workflow retrieves all droplets in the DigitalOcean account.\nRetrieve snapshots: For each droplet, the workflow retrieves a list of existing snapshots.\nFilter snapshots: If the number of snapshots exceeds 4, the workflow filters for snapshots that need to be deleted.\nDelete snapshots: Excess snapshots are automatically deleted based on the filter criteria.\nCreate new snapshot: After cleaning up, the workflow creates a new snapshot for each droplet, ensuring that backups are always up-to-date.\n\nSetup\nDigitalOcean API Key: You’ll need to configure the HTTP Request nodes with your DigitalOcean API key. This key is required for authenticating requests to list droplets, retrieve snapshots, delete snapshots, and create new ones.\nSnapshot Threshold: By default, the workflow is set to keep no more than 4 snapshots per droplet. This can be adjusted by modifying the filter node conditions.\nSet Execution Frequency: The cron node is set to run every 48 hours, but you can adjust the timing to suit your needs.\n\nHow to customize this workflow\nAdjust Snapshot Limit**: Change the value in the filter node if you want to keep more or fewer snapshots.\nModify Run Frequency**: The workflow runs every 48 hours by default. You can change the frequency in the cron node to run more or less often.\nEnhance with Notifications**: You can add a notification node (e.g., Slack or email) to alert you when snapshots are deleted or created.\n\nWorkflow Summary\nThis workflow automates the management of DigitalOcean Droplet snapshots by keeping the number of snapshots under a defined limit, deleting the oldest ones, and ensuring new snapshots are created at regular intervals.\n",
+  "totalViews": 477,
+  "source": "official",
+  "user": {
+    "id": 92011,
+    "name": "Darryn",
+    "username": "optimus01",
+    "bio": "",
+    "verified": true,
+    "links": "[\"http://onlinethinking.io/community/\"]",
+    "avatar": "https://gravatar.com/avatar/7c20cc4f6cea0480e0e7d58353274476e195d6ec8926a3a6709bb217e7f03713?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-10-23T13:17:02.170Z",
+  "path": "official/template_2485/workflow.json"
+}

@@ -1,0 +1,61 @@
+{
+  "id": 3568,
+  "name": "Deploy Workflows from Google Drive to n8n Instance",
+  "description": "Automatically deploy n8n workflows by simply dropping JSON files into a Google Drive folder—this template watches for new exports, cleans and imports them into your n8n instance, applies a tag, and then archives the processed files.\n\nWho is this template for?  \nThis workflow template is designed for n8n power users, and automation specialists who need a simple, reliable way to bulk‑deploy or version‑control n8n workflows via Google Drive. It’s perfect if you:  \nManage multiple n8n instances (staging, production, etc.)  \nWant an easy “drop‑in” approach to publish new or updated workflows  \nPrefer storing/exporting JSON in Drive rather than editing in the UI  \n\nUse case\nManually importing .json exports into n8n is slow and error‑prone. With this template you can:  \nKeep your workflows in a shared Drive folder (version control friendly)  \nAutomatically sanitize each file so only supported settings go through  \nTag deployed workflows consistently for easy filtering  \nMove processed files to a “Deployed” folder for clear change tracking  \n\nHow it works\nWatch “ToDeploy” folder in Google Drive for new .json files  \nDownload & parse each file into a JSON object  \nClean payload: strip out everything except the allowed executionOrder (and timezone if you choose)  \nPOST the cleaned workflow to your n8n instance via /api/v1/workflows  \nPUT a predefined tag onto the newly created workflow  \nMove file to your “Deployed” folder when import succeeds, or capture the workflow name & error if it fails  \n\nSetup instructions\n\n1. In Google Drive create a ToDeploy folder and a Deployed folder\nUpdate \"Google Drive Trigger -ToDeploy folder\" to your ToDeploy folder\nUpdate \"Move JSON file to Deployed folder\" to you Deployed folder\n\n\n2. Create a n8n API key:\n+Go to Settings &gt; n8n API\n+Select Create an API key\n+Copy API Key\n\n3. In \"Get Existing Workflow Tags\" node: \nCreate n8n API Authentication\nAuthentication: Predefined Credential Type\nCredential Type: n8n API\n\nCreate new credential:\n+Paste in API key\n+Baseurl: https://SUBDOMAIN.YOURDOMAINNAME.com/api/v1/\n\n4. Add n8n API authentication to: \n\"Create n8n Workflow\" node\n\"Set Workflow Tag\" node\n\n\n5. Add your N8N instance URL to the N8N_Instance_URL variable in \"Set n8n URL variable\" node.\n\n6. Run \"1. Get Workflow Tags\" flow and copy the ID of your chosen tag.\n\n7. In \"Set n8n API URL & Tag ID variables\" node:\nAdd the Workflow Tag ID to the N8N_Instance_Tag variable\nAdd your N8N instance URL to the N8N_Instance_URL variable\n\n\n8. Set workflow to Active\n\nHow to adjust it to your needs \n Use different tags: run Get Existing Workflow Tags on start‑up to refresh available tags, or hard‑code multiple tags in the Set Workflow Tag node.  \nAdd notifications**: connect the error branch to Slack or Email nodes so you get alerted if an import fails.  \nSwap Drive for another storage**: replace Google Drive nodes with Dropbox, S3, or GitHub triggers if you prefer a different source for your JSON files.",
+  "totalViews": 130,
+  "source": "official",
+  "user": {
+    "id": 93829,
+    "name": "Jason Guest",
+    "username": "jpguest",
+    "bio": "As an n8n Certified Creator and founder of JJJ Agency, I design scalable, secure no-code automations—integrating platforms like Airtable, Pinecone, and the Google ecosystem —to streamline complex workflows and boost business efficiency without writing a single line of code.",
+    "verified": false,
+    "links": "[\"https://jjjagency.com/\"]",
+    "avatar": "https://gravatar.com/avatar/92b929c5aefb0ceeaf2c10b40e391128b882cc29543275f7e3d435e593f2ff84?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-04-16T09:04:20.466Z",
+  "path": "official/template_3568/workflow.json"
+}

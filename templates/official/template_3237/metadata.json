@@ -1,0 +1,88 @@
+{
+  "id": 3237,
+  "name": "Analyze NFT Market Trends with AI-Powered OpenSea Analytics Agent Tool",
+  "description": "Get deep insights into NFT market trends, sales data, and collection statistics—all powered by AI and OpenSea! This workflow connects GPT-4o-mini, OpenSea API, and n8n automation to provide real-time analytics on NFT collections, wallet transactions, and market trends. It is ideal for NFT traders, collectors, and investors looking to make informed decisions based on structured data.  \n\nHow It Works  \nReceives user queries via Telegram, webhooks, or another connected interface.  \nDetermines the correct API tool based on the request (e.g., collection stats, wallet transactions, event tracking).  \nRetrieves data from OpenSea API (requires API key).  \nProcesses the information using an AI-powered analytics agent.  \nReturns structured insights in an easy-to-read format for quick decision-making.  \n\nWhat You Can Do with This Agent  \n🔹 Retrieve NFT Collection Stats → Get floor price, volume, sales data, and market cap.  \n🔹 Track Wallet Activity → Analyze transactions for a given wallet address.  \n🔹 Monitor NFT Market Trends → Track historical sales, listings, bids, and transfers.  \n🔹 Compare Collection Performance → View side-by-side market data for different NFT projects.  \n🔹 Analyze NFT Transaction History → Check real-time ownership changes for any NFT.  \n🔹 Identify Market Shifts → Detect sudden spikes in demand, price changes, and whale movements.  \n\nExample Queries You Can Use  \n✅ \"Get stats for the Bored Ape Yacht Club collection.\"  \n✅ \"Show me all NFT sales from the last 24 hours.\"  \n✅ \"Fetch all NFT transfers for wallet 0x123...abc on Ethereum.\"  \n✅ \"Compare the last 3 months of sales volume for Azuki and CloneX.\"  \n✅ \"Track the top 10 wallets making the most NFT purchases this week.\"  \n\nAvailable API Tools & Endpoints  \n1️⃣ Get Collection Stats → /api/v2/collections/{collection_slug}/stats (Retrieve NFT collection-wide market data)  \n2️⃣ Get Events → /api/v2/events (Fetch global NFT sales, transfers, listings, bids, redemptions)  \n3️⃣ Get Events by Account → /api/v2/events/accounts/{address} (Track transactions by wallet)  \n4️⃣ Get Events by Collection → /api/v2/events/collection/{collection_slug} (Get sales activity for a collection)  \n5️⃣ Get Events by NFT → /api/v2/events/chain/{chain}/contract/{address}/nfts/{identifier} (Retrieve historical transactions for a specific NFT)  \n\nSet Up Steps  \nGet an OpenSea API Key  \n   Sign up at OpenSea API and request an API key.  \nConfigure API Credentials in n8n  \n   Add your OpenSea API key under HTTP Header Authentication.  \nConnect the Workflow to Telegram, Slack, or Database (Optional)  \n   Use n8n integrations to send alerts to Telegram, Slack, or save results to Google Sheets, Notion, etc.  \nDeploy and Test  \n   Send a query (e.g., \"Azuki latest sales\") and receive instant NFT market insights!  \n\nStay ahead in the NFT market—get real-time analytics with OpenSea’s AI-powered analytics agent!  \n",
+  "totalViews": 402,
+  "source": "official",
+  "user": {
+    "id": 93152,
+    "name": "Don Jayamaha Jr",
+    "username": "don-the-gem-dealer",
+    "bio": "With 12 years of experience as a Blockchain Strategist and Web3 Architect, I specialize in bridging the gap between traditional industries and decentralized technologies. My expertise spans tokenized assets, crypto payment integrations, and blockchain-driven market solutions.",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/donjayamahajr/\"]",
+    "avatar": "https://gravatar.com/avatar/95f70084b3fec5ed68a61eef6dc6128dfb085d865a02ed631d0853d2730696bf?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-03-20T15:04:08.828Z",
+  "path": "official/template_3237/workflow.json"
+}

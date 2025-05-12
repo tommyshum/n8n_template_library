@@ -1,0 +1,61 @@
+{
+  "id": 2939,
+  "name": "n8n Subworkflow Dependency Graph & Auto-Tagging",
+  "description": "How it Works\nAs n8n instances scale, teams often lose track of sub-workflows—who uses them, where they are referenced, and whether they can be safely updated. This leads to inefficiencies like unnecessary copies of workflows or reluctance to modify existing ones. This workflow solves that problem by:\n\nFetching all workflows and identifying which ones execute others.\nVerifying that referenced subworkflows exist.\nBuilding a caller-subworkflow dependency graph for visibility.\nAutomatically tagging sub-workflows based on their parent workflows.\nProviding a chart visualization to highlight the most-used sub-workflows.\n\nSet Up Steps\nEstimated time: ~10–15 minutes\nSet up n8n API credentials to allow access to workflows and tags.\nReplace instance_url with your n8n instance URL.\nRun the workflow to analyze dependencies and generate the graph.\nReview and validate assigned tags for sub-workflows.\n(Optional) Enable pie chart visualization to see the most-used sub-workflows.\n\nThis workflow is essential for enterprise teams managing large n8n instances, preventing workflow duplication, reducing uncertainty around dependencies, and allowing safe, informed updates to sub-workflows.",
+  "totalViews": 1408,
+  "source": "official",
+  "user": {
+    "id": 91565,
+    "name": "Ludwig",
+    "username": "ludwig",
+    "bio": "If you have any questions about any of the templates I've built, please reach out to me on LinkedIn (https://www.linkedin.com/in/ludwiggerdes) or via my website down below. 👇",
+    "verified": true,
+    "links": "[\"https://www.lwwg.me\"]",
+    "avatar": "https://gravatar.com/avatar/85fa5dd88d3b3b71e5719184d2d889fe3c0fba02e925b2b9ad4ba34d9a774002?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Marketing"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "QuickChart",
+      "type": "n8n-nodes-base.quickChart",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-02-18T23:34:10.804Z",
+  "path": "official/template_2939/workflow.json"
+}

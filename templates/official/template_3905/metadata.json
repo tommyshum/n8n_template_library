@@ -1,0 +1,86 @@
+{
+  "id": 3905,
+  "name": "Build a Personal Assistant with Google Gemini, Gmail and Calendar using MCP",
+  "description": "Talk to Your Apps: Building a Personal Assistant MCP Server with Google Gemini\n\nWouldn't it be cool to just tell your computer or phone to \"schedule a meeting with Sarah next Tuesday at 3 PM\" or \"find John Doe's email address\" and have it actually do it? That's the dream of a personal assistant!\n\nWith n8n and the power of MCP and AI models like Google Gemini, you can actually build something pretty close to that. We've put together a workflow that shows you how you can use a natural language chat interface to interact with your other apps, like your CRM, email, and calendar.\n\nWhat You Need to Get Started\n\nBefore you dive in, you'll need a few things:\n\nn8n:** An n8n instance (either cloud or self-hosted) to build and run your workflow.\nGoogle Gemini Access:** Access to the Google Gemini model via an API key.\nCredentials for Your Apps:** API keys or login details for the specific CRM, Email, and Calendar services you want to connect (like Google Sheets for CRM, Gmail, Google Calendar, etc., depending on your chosen nodes).\nA Chat Interface:** A way to send messages to n8n to trigger the workflow (e.g., via a chat app node or webhook).\n\nHow it Works (In Simple Terms)\n\nImagine this workflow is like a helpful assistant who sits between you and your computer.\n\nStep 1: You Talk, the AI Agent Listens\n\nIt all starts when you send a message through your connected chat interface. Think of this as you speaking directly to your assistant.\n\nStep 2: The Assistant's Brain (Google Gemini)\n\nYour message goes straight to the assistant's \"brain.\" In this case, the brain is powered by a smart AI model like Google Gemini. In our template we are using the latest Gemini 2.5 Pro. But this is totally up to you. Experiment and track which model fits the kind of tasks you will pass to the agent. Its job is to understand exactly what you're asking for.\n\nAre you asking to create something?\nAre you asking to find information?\nAre you asking to update something?\n\nThe brain also uses a \"memory\" so it can remember what you've talked about recently, making the conversation feel more natural. We are using the default context window, which is the past 5 interactions.\n\nStep 3: The Assistant Decides What Tool to Use\n\nOnce the brain understands your request, the assistant figures out the best way to help you. It looks at the request and thinks, \"Okay, to do this, I need to use one of my tools.\"\n\nStep 4: The Assistant's Toolbox (MCP & Your Apps)\n\nHere's where the \"MCP\" part comes in. Think of \"MCP\" (Model Context Protocol) as the assistant's special toolbox. Inside this toolbox are connections to all the different apps and services you use – your CRM for contacts, your email service, and your calendar.\n\nThe MCP system acts like a manager for these tools, making them available to the assistant whenever they're needed.\n\nStep 5: Using the Right Tool for the Job\n\nBased on what you asked for, the assistant picks the correct tool from the toolbox.\n\nIf you asked to find a contact, it grabs the \"Get Contact\" node from the CRM section.\nIf you wanted to schedule a meeting, it picks the \"Create Event\" node from the Calendar section.\nIf you asked to draft an email, it uses the \"Draft Email\" node.\n\nStep 6: The Tool Takes Action\n\nNow, the node or set of nodes get to work! It performs the action you requested within the specific app.\n\nThe CRM tool finds or adds the contact.\nThe Email tool drafts the message.\nThe Calendar tool creates the event.\n\nStep 7: Task Completed!\n\nAnd just like that, your request is handled automatically, all because you simply told your assistant what you wanted in plain language.\n\nWhy This is Awesome\n\nThis kind of workflow shows the power of combining AI with automation platforms like n8n. You can move beyond clicking buttons and filling out forms, and instead, interact with your digital life using natural conversation. n8n makes it possible to visually build these complex connections between your chat, the AI brain, and all your different apps.\n\nTaking it Further (Possible Enhancements)\n\nThis is just the start! You could enhance this personal assistant by:\n\nConnecting more apps and services (task managers, project tools, etc.).\nAdding capabilities to search the web or internal documents.\nImplementing more sophisticated memory or context handling.\nGetting a notification when the AI agent is done completing each task such as in Slack or Microsoft Teams.\nAllowing the assistant to ask clarifying questions if needed. Building a robust prompt for the AI agent.\n\nReady to Automate Your Workflow?\n\nImagine the dozens of hours your team could save weekly by automating repetitive tasks through a simple, natural language interface. If you'd like to explore how tools like this personal assistant could be built and integrated into your teams and organization, get in touch with us at 1 Node.",
+  "totalViews": 695,
+  "source": "official",
+  "user": {
+    "id": 94008,
+    "name": "Aitor | 1node.ai",
+    "username": "aitoralonso",
+    "bio": "Hi, I’m Aitor, cofounder of 1node.ai. We help businesses integrate full-scale AI solutions that save time, cut costs, and increase revenue. Guaranteed. Need help building smarter workflows? Visit 1node.ai and let's connect.",
+    "verified": true,
+    "links": "[\"https://1node.ai\"]",
+    "avatar": "https://gravatar.com/avatar/2f850f7b4c218087a3e7d9775daf6bd8dad05b5eb5ea82242d4bfd1a97465455?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "MCP Client Tool",
+      "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Model Context Protocol",
+          "Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-05-06T17:01:07.757Z",
+  "path": "official/template_3905/workflow.json"
+}

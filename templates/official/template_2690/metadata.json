@@ -1,0 +1,54 @@
+{
+  "id": 2690,
+  "name": "Reusable Subworkflow Zip Multiple Files Dynamically (Compress)",
+  "description": "📦 Zip Multiple Files Dynamically  \n\nThis template enables you to dynamically bundle multiple files into a ZIP archive. Designed to be used as a Subworkflow, it’s modular, flexible, and easy to integrate into various workflows. The output is a single ZIP file with a name that includes the current date, time, and fileName.\n\nShoutout:\nCode from: Tom (mutedjam)\n\n👤 Who is this for?  \nThis workflow is perfect for:  \n🚀 Businesses automating file archiving tasks.  \n💻 Developers managing files programmatically.  \n📂 Anyone needing a reusable solution for bundling files into ZIP archives.\n\n❓ What problem is this workflow solving?  \nManually zipping multiple files is:  \n🕒 Time-consuming.  \n🤔 Prone to errors.  \n\nThis workflow automates the process and, as a Subworkflow, ensures:  \n⚡ Consistent file archiving across different workflows.  \n🛠️ Reduced manual effort.  \n📈 Streamlined integration into existing automation.\n\n🔧 What this workflow does  \n🗂️ Dynamically collects binary files from the input.  \n📦 Bundles them into a single ZIP archive.  \n🕒 Names the ZIP file with the current date, time, and a customizable fileName.  \n✅ Outputs the ZIP file, ready for storage or further processing.  \n\n⚙️ Setup  \n🔗 Add this Subworkflow to your existing workflows.  \n📥 Pass the binary files as input to the Subworkflow.  \n▶️ Call the Subworkflow to generate a ZIP file.\n\n🛠️ How to customize this workflow to your needs  \n🌐 File Sources**: Adjust the input nodes in your parent workflow to connect to your preferred file sources.  \n📝 File Naming**: Customize the logic for the output fileName in the Subworkflow.  \n🚀 Additional Use Cases**: Use this Subworkflow in various scenarios, such as:  \n  ✉️ Sending ZIP files via email.  \n  ☁️ Uploading ZIP files to cloud storage.  \n  🔄 Triggering further automation.\n\n🎉 Why use this as a Subworkflow?  \nInstead of building a fixed ZIP functionality for every workflow, this template offers a reusable solution that can be integrated into many different workflows effortlessly. Save time and ensure consistency across your automation projects! 💡\n",
+  "totalViews": 994,
+  "source": "official",
+  "user": {
+    "id": 92124,
+    "name": "Simon",
+    "username": "simonfes",
+    "bio": "I am an E-commerce entrepreneur specializing in spare parts, with a strong passion for automation and AI.\n\nI leverage n8n to build complex workflows, integrating tools like SeaTable, Supabase with various E-com platforms. \n\nI'm dedicated to continuously improving workflow processes, particularly in the e-commerce sector.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/602c41571e8b6e23ec9804f20339d7d817476d734532baa8b52326e7b5eab5f3?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Core Nodes",
+    "Data & Storage",
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "Compression",
+      "type": "n8n-nodes-base.compression",
+      "categories": [
+        "Core Nodes",
+        "Data & Storage"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Files",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-01-02T13:55:41.676Z",
+  "path": "official/template_2690/workflow.json"
+}

@@ -1,0 +1,55 @@
+{
+  "id": 2513,
+  "name": "Convert Image Files (JPG, PNG) to URLs and Reduce File Size for FREE",
+  "description": "Use Case\nTransform and optimize images for web use:\nYou need to host local images online\nYou want to reduce image file sizes automatically\nYou need image URLs for web content\nYou want to generate and optimize AI-created images\n\nWhat this Workflow Does\nThe workflow processes images through two services:\nUploads images to ImgBB for hosting and URL generation (free but need API key)\nOptimizes images using ReSmush.it to reduce file size (free)\nOptional: Creates images using OpenAI's image generation\nReturns optimized image URLs ready for use\n\nSetup\nCreate an ImgBB account and get your API key\nAdd your ImgBB API key to the HTTP Request node (key parameter)\nOptional: Configure OpenAI credentials for image generation\nConnect your image input source\n\nHow to Adjust it to Your Needs\nSkip OpenAI nodes if using your own image files\nAdjust image optimization parameters\nCustomize image hosting settings\nModify output format for your needs\n\n\nMore templates and n8n workflows &gt;&gt;&gt; @simonscrapes",
+  "totalViews": 7213,
+  "source": "official",
+  "user": {
+    "id": 92048,
+    "name": "simonscrapes",
+    "username": "simonscrapes",
+    "bio": "Automate all your work with AI & Automation @simonscrapes on YouTube. Automation expert with 6 years of experience helping organisations automate processes. Built over 100+ N8N workflows.",
+    "verified": true,
+    "links": "[\"https://www.youtube.com/@simonscrapes\"]",
+    "avatar": "https://gravatar.com/avatar/f8b1fce5ccc8cb76e1843532809adf2ed863ddd8d2eb8a30c48ec938b19b4833?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-10-31T14:44:02.675Z",
+  "path": "official/template_2513/workflow.json"
+}

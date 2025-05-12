@@ -1,0 +1,56 @@
+{
+  "id": 1980,
+  "name": "Use an open-source LLM (via HuggingFace)",
+  "description": "This workflow demonstrates how to connect an open-source model to a Basic LLM node.\n\nThe workflow is triggered when a new manual chat message appears. The message is then run through a Language Model Chain that is set up to process text with a specific prompt to guide the model's responses.\n\nNote that open-source LLMs with a small number of parameters require slightly different prompting with more guidance to the model.\n\nYou can change the default Mistral-7B-Instruct-v0.1 model to any other LLM supported by HuggingFace. You can also connect other nodes, such as Ollama.\n\nNote that to use this template, you need to be on n8n version 1.19.4 or later.",
+  "totalViews": 34189,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Hugging Face Inference Model",
+      "type": "@n8n/n8n-nodes-langchain.lmOpenHuggingFaceInference",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Text Completion Models"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2023-11-16T10:23:47.685Z",
+  "path": "official/template_1980/workflow.json"
+}

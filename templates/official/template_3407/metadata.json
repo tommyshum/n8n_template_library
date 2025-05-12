@@ -1,0 +1,69 @@
+{
+  "id": 3407,
+  "name": "Convert Reddit threads into short vertical videos with AI",
+  "description": "Convert Reddit threads into short vertical videos with AI\n\nWho is this for?\n\nThis workflow is ideal for:\nContent creators* and *video editors** automating short-form content production\nReddit storytellers** converting text posts into engaging TikTok, YouTube Shorts, or Reels\nSocial media managers** repurposing community discussions into visual narratives\n\nWhat problem is this solving?\n\nManually converting Reddit posts into vertical video content is time-consuming:\nYou have to read, summarize, write a script\nGenerate TTS\nFind stock footage\nEdit everything in a timeline\n\nThis workflow automates the full pipeline. It converts any Reddit thread into a polished video with:\nTTS narration\nSubtitle overlays\nB-roll from Pexels\nAutomatic rendering via Shotstack\n\nWhat this workflow does\n\nThis workflow:\nExtracts Reddit post and comments via Reddit API\nSummarizes the thread into structured clips using OpenAI\nGenerates search queries for each clip for stock footage\nQueries Pexels API for relevant vertical videos\nGenerates TTS audio for each clip using OpenAI Whisper\nCreates subtitles matching the audio\nUploads footage/audio to Shotstack\nRenders a full vertical video (720x1280) with synced TTS, subtitles, and b-roll\nReturns a final video URL\n\nSetup\n\nCreate accounts and API keys for:\n  Reddit Developer App\n  OpenAI\n  Pexels\n  Shotstack\nAdd credentials in n8n:\n  Reddit (HTTP Basic Auth)\n  OpenAI (API Key)\n  Shotstack (HTTP Header Auth)\n  Pexels (HTTP Header Auth)\nTrigger via webhook or manual node. The input must include:\n    {\n    \"voice\": \"nova\",\n    \"ttsSpeed\": 1,\n    \"videoLength\": 60,\n    \"redditLink\": \"https://www.reddit.com/r/example/comments/example_id/example_title\"\n  }\nHow to customize this workflow\n\nTweak OpenAI prompts** to change tone or clip granularity\nChange stock source** by swapping Pexels for another API\nAdjust TTS voices** or languages by modifying the voice field\nModify video styling** (fonts, colors, fit modes) in the timeline construction code node\nControl duration** by editing the character length formula in the Limit comments length node\n\nAdditional Notes\n\nAll stock videos are selected to match clip themes using generalized keywords to avoid API misses\nIncludes wait nodes to ensure Shotstack's async upload/render processes complete before proceeding\nAnnotated with sticky notes explaining major sections like TTS, Reddit input, and media timeline\nAvoids community nodes to ensure cloud compatibility\n\nTemplate Category\nAI, Marketing, Building Blocks, Other (Content Creation)\n",
+  "totalViews": 2164,
+  "source": "official",
+  "user": {
+    "id": 92500,
+    "name": "Artur",
+    "username": "arlusm1",
+    "bio": "Software Engineer & Automations Specialist",
+    "verified": true,
+    "links": "[\"https://www.upwork.com/freelancers/~01651acf09c927fb26\"]",
+    "avatar": "https://gravatar.com/avatar/d8f6cbf5ad5847e53a4b6f809a8738fc33bf20246f2207bcdad4e5d6a10e0a2c?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-04-02T09:29:33.331Z",
+  "path": "official/template_3407/workflow.json"
+}

@@ -1,0 +1,54 @@
+{
+  "id": 869,
+  "name": "Find a new book recommendations",
+  "description": "Receive a new book recommendation each Friday from Open Library. You can select the subject from thousands of options and have a new recommendation delivered to you automatically.\n\n",
+  "totalViews": 1334,
+  "source": "official",
+  "user": {
+    "id": 4031,
+    "name": "jason",
+    "username": "tephlon",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/ee7788870e9ab8d34c979c940727f579ecc3c3e8f60069d1297d51eb30af831e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Core Nodes",
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "categories": [
+        "Communication",
+        "HITL",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2020-12-31T14:08:05.704Z",
+  "path": "official/template_869/workflow.json"
+}

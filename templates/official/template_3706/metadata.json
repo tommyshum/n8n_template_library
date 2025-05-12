@@ -1,0 +1,79 @@
+{
+  "id": 3706,
+  "name": "Analyze Client Transcripts & Route Feedback with GPT-4o Mini, HubSpot, and Gmail",
+  "description": "Who is this for?  \nThis workflow is designed for Customer Satisfaction Managers (CSM), sales professionals, and operations managers who need to automate the analysis of client transcripts, save summarized notes to HubSpot, and route relevant feedback to the appropriate departments via email.  \n\nWhat problem is this workflow solving? / Use Case  \nManually processing client conversations, extracting key insights, and distributing them to the right teams is time-consuming and error-prone. This workflow automates:  \nTranscript analysis** using AI (OpenAI) to identify relevant content.  \nHubSpot integration** to log meeting notes against client records.  \nEmail routing** to ensure feedback reaches the correct departments (e.g., support, sales, product, admin).  \n\nWhat this workflow does  \nInput Transcript: Accepts a client conversation transcript (e.g., from emails, calls, or chats).  \nHubSpot Sync:  \n   Searches for the client’s HubSpot ID using their email.  \n   Uploads a summarized version of the conversation as meeting notes.  \nAI-Powered Routing:  \n   Uses an OpenAI model to analyze the transcript and categorize content by department.  \n   Triggers emails (via Gmail) to route feedback to the relevant teams.  \nForm Completion: Ends the workflow with optional user confirmation.  \n\nSetup  \nPrerequisites:  \n   n8n instance (cloud or self-hosted).  \n   HubSpot API credentials (for contact lookup and notes upload).  \n   OpenAI API key (for transcript analysis).  \n   Gmail account (for sending emails).  \nConfiguration:  \n   Replace placeholder nodes (e.g., HubSpot, OpenAI, Gmail) with your authenticated accounts.  \n   Define email templates and recipient addresses for routing.  \n   Adjust the OpenAI prompt to match your categorization criteria (e.g., \"support,\" \"billing\").  \n\nHow to customize this workflow to your needs  \nTranscript Sources**: Extend the workflow to pull transcripts from other sources (e.g., Zoom, Slack).  \nDepartments**: Modify the routing logic to include additional teams or conditions.  \nNotifications**: Add Slack/MS Teams alerts for urgent feedback.  \nError Handling**: Introduce retries or fallback actions for failed HubSpot/Gmail steps. ",
+  "totalViews": 690,
+  "source": "official",
+  "user": {
+    "id": 92501,
+    "name": "PollupAI",
+    "username": "zeerobug",
+    "bio": "We create bespoke AI solutions, automations and agents that help your business as it scales.",
+    "verified": true,
+    "links": "[\"https://pollup.ai\"]",
+    "avatar": "https://gravatar.com/avatar/6d3d2053279bc63e9be7bf4cd3fb74e13e7cc1309d32eab0b72140332cff577e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Sales",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HubSpot",
+      "type": "n8n-nodes-base.hubspot",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Summarization Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainSummarization",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-04-25T08:08:35.088Z",
+  "path": "official/template_3706/workflow.json"
+}

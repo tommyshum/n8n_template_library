@@ -1,0 +1,102 @@
+{
+  "id": 2841,
+  "name": "Connect AI to any chats in Kommo",
+  "description": "Entrust customer service to AI using n8n and Kommo!\nUsing this workflow, you can make the AI agent answer customer questions for your managers.\nSee how it works in the video.\n\nAdvantages of integration\nWorks with any message channel that is connected to Kommo (telegram, whatsapp, facebook)\nUnderstands voice and text messages\nYou can stop for a specific transaction or contact if you need a person's help.\nIt is possible to supplement the AI agent with additional tools to suit your needs\n\nWhere it can be useful\nIn customer support\nIn the qualification of clients\nWhen invoicing\n\nHow it works\n1) Any incoming message to the Kommo chats is sent by the webhook to n8n\n2) n8n processes the webhook according to the specified logic\n3) n8n sends a reply message to the Kommo chat\n\nInstallation Steps\n1) Install workflow\n2) Follow the instructions to connect the kommo to the n8n\n3) Set up Credentials for OpenAI\n4) Fill in the Credentials as shown in the workflow notes\n5) Activate Workflow\n6) Write your first message as client",
+  "totalViews": 1728,
+  "source": "official",
+  "user": {
+    "id": 92495,
+    "name": "yatolstoy",
+    "username": "yatolstoy",
+    "bio": "Backend typescript developer. I specialize in integrations of amoCRM, Common, Telegram, AI",
+    "verified": false,
+    "links": "[\"https://t.me/yatolstoy\"]",
+    "avatar": "https://gravatar.com/avatar/eab297becc4d0f74b037b2f177a6768f0d1201e05bec5e405bfc1152b51d55d8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-02-03T10:12:55.563Z",
+  "path": "official/template_2841/workflow.json"
+}

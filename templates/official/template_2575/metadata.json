@@ -1,0 +1,54 @@
+{
+  "id": 2575,
+  "name": "Notify on Telegram When a New Order is Created in WooCommerce 📦 ",
+  "description": "\n📦 Send Telegram Notifications for New WooCommerce Orders\n\nThis workflow automatically sends a Telegram notification when an order status in WooCommerce changes to \"Processing.\" Perfect for online store owners who want instant updates on order fulfillment.\n\n⚙️ Set Up Telegram Alerts for WooCommerce Orders\nConfigure WooCommerce Webhook to trigger on order updates.\n\n\n\nCreate a Telegram Bot and obtain the API token.\nSet Up Telegram Credentials in n8n.\nConfigure the Telegram Node with your chat ID.\nActivate and Test the workflow by placing a new order.\n\n##💡 Notes\nYou can customize the message format in the 🖋️ Design Message Template node to include additional order details.\n\nContact me on [Telegram]: https://t.me/amir676080\n\nMessage structure includes the following details\n\n🆔 Order Number: 11234\n👦🏻 Customer Name: John Doe\n💵 Amount: 299.99 USD\n📅 Order Date:\n➖ 25th November 2024 at 14:42\n🏙 City: New York\n📞 Phone: +1 555-1234\n✍🏻 Order Note: Fast delivery requested\n📦 Ordered Products:\n🔹 Wireless Earbuds (2 items)\n📝 Type: Premium Sound Edition\n\n\n\nContact me on [Telegram]: https://t.me/amir676080\n\n\n",
+  "totalViews": 2704,
+  "source": "official",
+  "user": {
+    "id": 92195,
+    "name": "AmirHossein MnasouriZade",
+    "username": "amir676080",
+    "bio": "Hi !\nI'm Amirhossein Mansouri Zade, a student with 4 years of experience in SEO and search engine optimization. Currently, I'm focused on solving various problems and challenges.\nI’m gradually transitioning into the product field and enjoy building the tools I need using N8N. I'll be sharing my workflows and experiences here along the way. 🚀",
+    "verified": false,
+    "links": "[\"https://www.linkedin.com/in/amirhossein-mansouri-zade/\"]",
+    "avatar": "https://gravatar.com/avatar/e36db6727bb544821e1e5d3ed64b3fa4a4681baaa8087eb67d0af1667eefd855?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-11-25T15:44:47.163Z",
+  "path": "official/template_2575/workflow.json"
+}

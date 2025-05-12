@@ -1,0 +1,139 @@
+{
+  "id": 2869,
+  "name": "Test Webhooks in n8n Without Changing WEBHOOK_URL (PostBin & BambooHR Example)",
+  "description": "Using PostBin to Test Webhooks Without Changing WEBHOOK_URL  \n\nHow it Works  \nMany new n8n users struggle with testing webhooks when running n8n on localhost, as external services cannot reach localhost. This workflow introduces a technique using PostBin, which provides a temporary, publicly accessible URL to receive webhook requests.  \n\nGenerates a temporary webhook endpoint via PostBin.  \nUses this endpoint in place of localhost to test webhooks.  \nCaptures and displays the incoming webhook request data.  \nEnables debugging and iterating without modifying the WEBHOOK_URL environment variable.  \n\nSet Up Steps  \nEstimated time:** ~5–10 minutes  \nCreate a PostBin instance to generate a publicly accessible webhook URL.  \nCopy the PostBin URL and use it as the webhook destination in n8n.  \nTrigger the webhook from an external service or manually.  \nInspect the request payload in PostBin to verify data reception.  \n\n(EXAMPLE) Using PostBin for Webhook Testing in a BambooHR Integration  \n\nHow it Works  \nIn this example, we apply the PostBin technique to a BambooHR integration. Instead of manually configuring a webhook in BambooHR, this workflow automates webhook registration using the BambooHR API. The workflow:  \n\nUses the BambooHR API to programmatically register the PostBin URL as a webhook.  \nRetrieves the most recent webhook calls made by BambooHR to the PostBin URL.  \n(Optional) Sends a personalized Slack message for new employees using OpenAI.  \n\nSet Up Steps  \nEstimated time:** ~15–20 minutes  \nSet up PostBin using the steps from the first section.  \nLog into BambooHR to generate an API key for authentication.  \nRun the workflow to register the PostBin URL as a webhook in BambooHR via the API.\nRetrieve recent webhook calls from PostBin to validate data reception.  \n(Optional) Send a Slack notification using the processed data.",
+  "totalViews": 785,
+  "source": "official",
+  "user": {
+    "id": 91565,
+    "name": "Ludwig",
+    "username": "ludwig",
+    "bio": "If you have any questions about any of the templates I've built, please reach out to me on LinkedIn (https://www.linkedin.com/in/ludwiggerdes) or via my website down below. 👇",
+    "verified": true,
+    "links": "[\"https://www.lwwg.me\"]",
+    "avatar": "https://gravatar.com/avatar/85fa5dd88d3b3b71e5719184d2d889fe3c0fba02e925b2b9ad4ba34d9a774002?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "Miscellaneous",
+    "Data & Storage",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "BambooHR",
+      "type": "n8n-nodes-base.bambooHr",
+      "categories": [
+        "Miscellaneous"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "PostBin",
+      "type": "n8n-nodes-base.postBin",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "DebugHelper",
+      "type": "n8n-nodes-base.debugHelper",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Auto-fixing Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 9,
+  "createdAt": "2025-02-08T22:05:00.438Z",
+  "path": "official/template_2869/workflow.json"
+}

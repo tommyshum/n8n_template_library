@@ -1,0 +1,34 @@
+{
+  "id": 1068,
+  "name": "Create, update, and retrieve a record from FileMaker",
+  "description": "This workflow allows you to create, update, and retrieve a record from FileMaker.\n\n\n\nFileMaker node: This node will create a new record in FileMaker.\n\nFileMaker1 node: This node will add a new field to the record that we created in the previous node.\n\nFileMaker2 node: This node will get the information about the record that we created earlier.",
+  "totalViews": 1492,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "FileMaker",
+      "type": "n8n-nodes-base.filemaker",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2021-05-04T09:20:52.741Z",
+  "path": "official/template_1068/workflow.json"
+}

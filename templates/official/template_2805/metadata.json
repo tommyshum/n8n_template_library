@@ -1,0 +1,68 @@
+{
+  "id": 2805,
+  "name": "Todoist weekly email of completed tasks",
+  "description": "This workflow template helps Todoist users get a weekly overview of their completed tasks via email, making it easier to review their past week.\n\nWhy use this workflow?\nTodoist doesn’t provide completed task reports or filters in its built-in reports or n8n app. This workflow solves that by using Todoist’s public API to fetch your completed tasks.\n\nHow it works\nRuns every Friday afternoon (or manually).\nUses the Todoist public API to retrieve completed tasks.\nExcludes specific projects you set (e.g., a grocery list).\nSends an email summary, grouping tasks by the day they were completed.\n\nSet up steps\nCopy your Todoist API token (found here).\nCreate a Todoist API credential in n8n.\nCreate an SMTP credential in n8n.\n   Alternatively, use a preferred email service like Brevo, Mailjet, etc.\nImport this workflow template.\nIn the Get completed tasks via Todoist API step, select your Todoist API credential.\nIn the Send Email step:\n   Select your SMTP credential.\n   Set the sender and recipient email addresses.\nRun the workflow manually and check your inbox!\n\nIgnoring specific projects\nIf you do not want your grocery list, workouts, or other tasks from specific Todoist projects showing up in your weekly summary, modify the step called Optional: Ignore specific projects and change this line:\n\nconst ignoredProjects = ['2335544024'];\n\nThis should be an array with the id of each project you'd like to ignore. You can find a list of your projects (inc. their Ids) by visiting this link: https://api.todoist.com/rest/v2/projects \n\n",
+  "totalViews": 711,
+  "source": "official",
+  "user": {
+    "id": 92524,
+    "name": "Martijn Smit",
+    "username": "smitmartijn",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/3a21fee55a7eb0a7b9b3eb2f2904b60e65627041e1c2b515cf59133dc2cccbb5?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Core Nodes",
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "categories": [
+        "Communication",
+        "HITL",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-01-26T16:27:59.627Z",
+  "path": "official/template_2805/workflow.json"
+}

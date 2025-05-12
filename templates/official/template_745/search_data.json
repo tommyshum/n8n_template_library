@@ -1,0 +1,84 @@
+{
+  "id": 745,
+  "name": "Receive updates when a new activity gets created and tweet about it",
+  "totalViews": 1029,
+  "purchaseUrl": null,
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "description": "",
+  "createdAt": "2020-10-27T15:34:16.165Z",
+  "nodes": [
+    {
+      "id": 325,
+      "icon": "file:x.svg",
+      "name": "n8n-nodes-base.twitter",
+      "codex": {
+        "data": {
+          "alias": [
+            "Tweet",
+            "Twitter",
+            "X",
+            "X API"
+          ],
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/no-code-ecommerce-workflow-automations/",
+                "icon": "store",
+                "label": "6 e-commerce workflows to power up your Shopify s"
+              },
+              {
+                "url": "https://n8n.io/blog/automate-your-data-processing-pipeline-in-9-steps-with-n8n/",
+                "icon": "⚙️",
+                "label": "Automate your data processing pipeline in 9 steps"
+              },
+              {
+                "url": "https://n8n.io/blog/5-workflow-automations-for-mattermost-that-we-love-at-n8n/",
+                "icon": "🤖",
+                "label": "5 workflow automations for Mattermost that we love at n8n"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.twitter/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/twitter/"
+              }
+            ]
+          },
+          "categories": [
+            "Marketing"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"output\"]",
+      "defaults": {
+        "name": "X"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIzLjMxNzEgMTYuOTM3M0wzNy45MDI2IDBIMzQuNDQ2M0wyMS43ODE3IDE0LjcwNjRMMTEuNjY2NiAwSDBMMTUuMjk2MSAyMi4yMzg3TDAgNDBIMy40NTY0OEwxNi44MzA2IDI0LjQ2OTZMMjcuNTEyOSA0MEgzOS4xNzk1TDIzLjMxNjMgMTYuOTM3M0gyMy4zMTcxWk0xOC41ODMgMjIuNDM0NkwxNy4wMzMyIDIwLjIyMDFMNC43MDE5IDIuNTk5MzZIMTAuMDEwOEwxOS45NjIzIDE2LjgxOTlMMjEuNTEyMiAxOS4wMzQ0TDM0LjQ0NzkgMzcuNTE4OUgyOS4xMzlMMTguNTgzIDIyLjQzNTRWMjIuNDM0NloiIGZpbGw9ImJsYWNrIi8+Cjwvc3ZnPgo="
+      },
+      "displayName": "X (Formerly Twitter)",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 27,
+          "name": "Marketing"
+        }
+      ]
+    }
+  ]
+}

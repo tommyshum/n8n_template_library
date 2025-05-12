@@ -1,0 +1,108 @@
+{
+  "id": 2416,
+  "name": "CV Resume PDF Parsing with Multimodal Vision AI",
+  "description": "This n8n workflow demonstrates how we can use Multimodal LLMs to parse and extract from PDF documents in n8n.\n\nIn this particular scenario, we're passing a candidate's CV/resume to an AI which filters out unqualified applications. However, this sneaky candidate has added in hidden prompt to bypass our bot! Whatever will we do? No fret, using AI Vision is one approach to solve this problem... read on!\n\nHow it works\n\nOur candidate's CV/Resume is a PDF downloaded via Google Drive for this demonstration.\nThe PDF is then converted into an image PNG using a tool called Stirling PDF. Since the hidden prompt has a white font color, it is is invisible in the converted image.\nThe image is then forwarded to a Basic LLM node to process using our multimodal model - in this example, we'll use Google's Gemini 1.5 Pro.\nIn the Basic LLM node, we'll need to set a User Message with the type of Binary. This allows us to directly send the image file in our request.\nThe LLM is now immune to the hidden prompt and its response is has expected.\n\nThe example CV/Resume with hidden prompt can be found here: https://drive.google.com/file/d/1MORAdeev6cMcTJBV2EYALAwll8gCDRav/view?usp=sharing\n\nRequirements\n\nGoogle Gemini API Key. Alternatively, GPT4 will also work for this use-case.\nStirling PDF or another service which can convert PDFs into images. Note for data privacy, this example uses a public API and it is recommended that you self-host and use a private instance of Stirling PDF instead.\n\nCustomising the workflow\n\nSwap out the manual trigger for another trigger such as a webhook to integrate into your existing services.\nThis example demonstrates a validation use-case ie. \"does the candidate look qualified?\". You can try additionally extracting data points instead such as years of experiences, previous companies etc.",
+  "totalViews": 13237,
+  "source": "official",
+  "user": {
+    "id": 91804,
+    "name": "Jimleuk",
+    "username": "jimleuk",
+    "bio": "Freelance consultant based in the UK specialising in AI-powered automations. I work with select clients tackling their most challenging projects. For business enquiries, send me an email at hello@jimle.uk\n\nLinkedIn: https://www.linkedin.com/in/jimleuk/\nX/Twitter: https://x.com/jimle_uk",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4ab99e51473df76838beeaac908747f7928c625f869794815cabe34016967d51?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Marketing",
+    "Core Nodes",
+    "Development",
+    "Data & Storage",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Edit Image",
+      "type": "n8n-nodes-base.editImage",
+      "categories": [
+        "Marketing",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Files",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2024-09-16T16:41:27.514Z",
+  "path": "official/template_2416/workflow.json"
+}

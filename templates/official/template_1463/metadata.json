@@ -1,0 +1,62 @@
+{
+  "id": 1463,
+  "name": "Validate website of new companies in Hubspot",
+  "description": "This workflow uses a Hubspot Trigger to check for new companies. It then checks the companies website exists using the HTTP node. If it doesn't, a message is sent to Slack.\n\nTo configure this workflow you will need to set the credentials for the Hubspot and Slack Nodes. You will also need to select the Slack channel to use for sending the message.",
+  "totalViews": 1166,
+  "source": "official",
+  "user": {
+    "id": 25789,
+    "name": "Jonathan",
+    "username": "jon-n8n",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/5240094f838126182ceefb50ca4a3cf75cc7dc0808efd4b9920d792e41bfc45e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "Sales"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "HubSpot",
+      "type": "n8n-nodes-base.hubspot",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2022-02-17T15:05:27.155Z",
+  "path": "official/template_1463/workflow.json"
+}

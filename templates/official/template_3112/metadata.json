@@ -1,0 +1,48 @@
+{
+  "id": 3112,
+  "name": "Backup n8n Workflows to Google Drive",
+  "description": "This workflow automates the backup of your n8n workflows data to Google Drive every day. \n\nIt ensures that important configurations and execution logs are securely stored, reducing the risk of data loss and improving workflow resilience.\n\n🔹 Why Use This?\n✅ Automates routine backups effortlessly.\n✅ Reduces manual intervention and potential data loss.\n✅ Securely stores critical workflow configurations in Google Drive.\n\nWith this workflow, you can focus on innovation while n8n takes care of your backups. 🔐✨\n\n🚀 How It Works\nThis workflow operates seamlessly with a combination of scheduled triggers, JSON data transformation, and secure cloud storage.\n\n🛠 Setup Steps\n\tTrigger the backup – Choose between manual execution or automated scheduling at 1:30 AM daily.\n\tData preparation – Your workflow parameters define the backup location and organize files effectively.\n\tTransformation & Encoding – The data is processed and converted into a JSON file in base64 format.\n\tCloud Storage – The backup is securely uploaded to your designated Google Drive folder.\n\n🔧 Customization Options\nYou can modify various aspects of the backup workflow to better suit your needs:\n\n1️⃣ Adjusting Backup Frequency\n\nBy default, the workflow runs daily at 1:30 AM. To change this:\n\nOpen the Trigger Node in n8n.\n\nModify the Cron Expression or select a different frequency (e.g., hourly, weekly, or custom intervals).\n\n2️⃣ Selecting Specific Workflows to Backup\n\nInstead of backing up all workflows, you can filter which ones to include:\n\nAdd a Filter Node before exporting data.\n\nDefine specific workflow IDs or names to include in the backup.\n\n3️⃣ Changing the Backup Destination\n\nThe default destination is Google Drive, but you can change this:\n\nReplace the Google Drive Node with a different storage provider (e.g., Dropbox, AWS S3, or local storage via FTP/SFTP).\n\nConfigure authentication for the new destination.\n\n4️⃣ Modifying Data Format\n\nBy default, the workflow stores data in JSON format. If you need a different format:\n\nConvert JSON to CSV using the Spreadsheet File Node.\n\nStore backups in a compressed format (ZIP) by adding a Compression Node.\n\n5️⃣ Encrypting the Backup for Extra Security\n\nFor added protection:\n\nUse the Crypto Node to encrypt the JSON file before uploading.\n\nSet up an Access-Controlled Folder in Google Drive with limited permissions.\n\n✅ Verify That Your Backup Works\n\nBefore relying on this workflow for your automated backups, make sure it works correctly by performing a quick test:\n\tManually trigger the workflow in n8n and check if the backup file appears in your Google Drive.\n\tOpen Google Drive, navigate to the backup folder, and download the JSON file.\n\tVerify its content by checking if the data matches your workflow’s execution logs.\n\tTry to import the JSON file back into n8n using the “Import File” function to ensure the workflow structure is intact.\n\tAlternatively, copy and paste a test file into Google Drive and confirm that it appears correctly in your workflow logs.\n\nThis quick test will confirm that your backup is running smoothly and that your data is retrievable whenever needed.\n\n📁 How to Find Your Google Drive Directory ID\nTo ensure that the backup is uploaded to the correct folder, you need to retrieve your Google Drive Directory ID. Follow these simple steps:\n\nOpen Google Drive.\nNavigate to the folder where you want to store your backups.\nClick on the folder and check the URL in your browser.\nThe Directory ID is the long string of characters at the end of the URL after /folders/.\n\nExample: 📌 If your folder URL is:\n\nhttps://drive.google.com/drive/folders/14oUlH_LW_NT0Xb2woZWvuzRncV-bhla\nThen, your Directory ID is:\n\n14oUlH_LW_NT0Xb2woZWvuzRncV-bhla\nCopy this Directory ID and use it in the workflow's parameters to ensure the backup is saved in the correct location.\n\nPhil | Inforeole",
+  "totalViews": 3169,
+  "source": "official",
+  "user": {
+    "id": 92304,
+    "name": "phil",
+    "username": "phil",
+    "bio": "Accélérateur de Chiffre d'Affaires : Automatisez votre entreprise pour la rendre plus visible sur Google, pour trouver de nouveaux Clients, pour gagner du temps",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/philippe-eveilleau-inforeole/\"]",
+    "avatar": "https://gravatar.com/avatar/e3fa7358cdb3b5be9c63e79d3d76a9a3f31efed6ea3611ec7bc18c0f34464d16?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-03-09T10:33:49.411Z",
+  "path": "official/template_3112/workflow.json"
+}

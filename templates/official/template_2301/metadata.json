@@ -1,0 +1,52 @@
+{
+  "id": 2301,
+  "name": "Check if workflows contain build-in nodes that are not of the latest version",
+  "description": "How it works\nit will return workflows that have buil-in nodes not of latest version with information of node name, type, current version and latest version for that type\n\nSet up steps:\nYou need to have n8n credentials set, you can get n8n API key under settings\nset your instance base URL in \"instance base url\" node\n\nDisclaimar:\nOnly check build-in nodes, community nodes are not supported\n\n",
+  "totalViews": 1828,
+  "source": "official",
+  "user": {
+    "id": 91498,
+    "name": "Michael",
+    "username": "mkret",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/8b7f2276ecf7208b28a49630ffc246e3205acc8591edd945ebc9f83ffd4b16af?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-06-27T12:22:52.669Z",
+  "path": "official/template_2301/workflow.json"
+}

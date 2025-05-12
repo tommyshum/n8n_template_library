@@ -1,0 +1,38 @@
+{
+  "id": 2444,
+  "name": "Get bibliographic data from your Zotero Library",
+  "description": "What this template does\nThis workflow will read your Zotero Library and extract Meta Data from the articles of one collection in your bibliography. You can personalize the output for optimized results.\n\nHow it works\n\nMainly, follow the instructions in the Post it notes:\n\nGo to https://www.zotero.org/settings/security and find your USER ID (It's right under the APPLICATIONS Section.\nOn the same website, create a New Private Key.\nIn the \"Collections\" Node, select Generic Credential Type &gt; Header Auth &gt; Create New Credential using:\nNAME: Zotero-API-Key\nVALUE: [Your Private Key] \nRun your Flow to check if it works and open the \"Select Collection\" node.\nSee the Results of the previous node as TABLE and copy the \"KEY\" of the collection you want to use.\n\nAfter that you should have a working flow that reads your bibliography.\n\nYou can edit or delete the last 2 nodes to personalize your results (Filter and Edit Fields)\n",
+  "totalViews": 632,
+  "source": "official",
+  "user": {
+    "id": 91997,
+    "name": "Diego",
+    "username": "villalon",
+    "bio": "Designer, Researcher and Problem Solver...",
+    "verified": false,
+    "links": "[\"https://diegovillalon.com\"]",
+    "avatar": "https://gravatar.com/avatar/e7a163f72095f300808a6188d7f6d584a1baca6637005a479926a04511122a56?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-09-30T15:19:43.145Z",
+  "path": "official/template_2444/workflow.json"
+}

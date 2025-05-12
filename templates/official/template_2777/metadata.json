@@ -1,0 +1,118 @@
+{
+  "id": 2777,
+  "name": "🐋DeepSeek V3 Chat & R1 Reasoning Quick Start",
+  "description": "This n8n workflow demonstrates multiple ways to harness DeepSeek's AI models in your automation pipeline! 🌟\n\nCore Features\n\nMultiple Integration Methods 🔌\nLocal deployment using Ollama for DeepSeek-R1\nDirect API integration with DeepSeek Chat V3\nConversational agent with memory buffer\nHTTP request implementation with both raw and JSON formats\n\nModel Options 🧠\nDeepSeek Chat V3 for general conversation\nDeepSeek-R1 for advanced reasoning\nMemory-enabled agent for persistent context\n\nQuick Setup 🛠️\n\nAPI Configuration\nBase URL: https://api.deepseek.com\nGet your API key from platform.deepseek.com/api_keys\n\nLocal Setup 💻\nInstall Ollama for local deployment\nSet up DeepSeek-R1 via Ollama\nConfigure local credentials in n8n\n\nImplementation Details 🔧\n\nConversational Agent\nWindow Buffer Memory for context\nCustomizable system messages\nBuilt-in error handling with retries\n\nAPI Endpoints 🌐\nChat completions for V3 and R1 models\nOpenAI API format compatibles\n",
+  "totalViews": 33899,
+  "source": "official",
+  "user": {
+    "id": 92125,
+    "name": "Joseph LePage",
+    "username": "joe",
+    "bio": "As an AI Automation consultant based in Canada, I partner with forward-thinking organizations to implement AI solutions that streamline operations and drive growth.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/e7ca218dfc87b68344bbd66f40da01546d2f6fc1cf884267821e8a77e3e8410a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Ollama Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOllama",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-01-22T23:27:28.003Z",
+  "path": "official/template_2777/workflow.json"
+}

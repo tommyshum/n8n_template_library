@@ -1,0 +1,119 @@
+{
+  "id": 3935,
+  "name": "AI Marketing Agent for Lead Generation: Reddit + OpenRouter + Gmail",
+  "description": "What it is\nThis n8n workflow monitors Reddit for posts relevant to a specific business or industry, identifies potential leads, and delivers them directly to your inbox.\n\nFull tutorial (https://findleads.agency/blog/n8n-ai-agent-for-lead-generation-using-reddit-openai-gmail)  for those wanting to build it themselves.\n\nHow It Works\nA user submits their website URL and email through a form\nThe workflow analyzes the website to determine the industry and extract relevant keywords\nIt searches Reddit for posts containing those keywords and filters them based on custom engagement metrics (i.e. upvotes &gt; 15, non-empty text content, posted within the last 90 days)\nAn AI agent (using OpenRouter's GPT-4.1-mini) analyzes each post to determine relevance and summarizes the key points\nRelevant posts are stored in Google Sheets and formatted into a professional HTML email\nThe email is sent to the user's provided email address with a summary of potential leads\n\nSetup\nTo run this workflow, you need to set up credentials in n8n for:\n\nReddit: Uses OAuth 2.0. Requires creating an app on Reddit to get a Client ID & Secret. (YT Tutorial for Reddit App Creation: https://youtu.be/zlGXtW4LAK8)\nOpenRouter: Uses an API Key. Generate this key directly from your OpenRouter account settings. (YT Tutorial: https://youtu.be/Cq5Y3zpEhlc)\nGoogle Sheets: Recommend OAuth2 (just connect by authenticating) or setup in Google Cloud Console (enable Sheets API, create OAuth Client ID with n8n redirect URI) to get a Client ID & Secret.\nGmail: Uses OAuth 2.0. Requires setup in Google Cloud Console to enable Gmail API and create OAuth credentials.",
+  "totalViews": 307,
+  "source": "official",
+  "user": {
+    "id": 94243,
+    "name": "Ari Nakos",
+    "username": "just-aristides",
+    "bio": "Love SEO & AI",
+    "verified": true,
+    "links": "[\"https://cal.com/ari-nakos/intro\"]",
+    "avatar": "https://gravatar.com/avatar/aef5686f32cd60bff51808670debce4b1dd8d1ae83ca489cf1ec554a5979b9c4?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Communication",
+    "HITL",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Reddit",
+      "type": "n8n-nodes-base.reddit",
+      "categories": [
+        "Communication"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "OpenRouter Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-05-08T09:13:21.340Z",
+  "path": "official/template_3935/workflow.json"
+}

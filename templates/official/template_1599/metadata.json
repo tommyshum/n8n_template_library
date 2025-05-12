@@ -1,0 +1,47 @@
+{
+  "id": 1599,
+  "name": "Send new YouTube channel videos to Telegram",
+  "description": "\nA simple node to send new YouTube videos from a channel to a Telegram chat (private, group or channel).\nCheckTime: set how often videos should be fetched from YouTube. Default is 30 minutes.\nGetVideosYT: this node will fetch the list of videos from a given channel. Here you need to specify on \"Limit\" the number of videos to fetch, and on \"Channel ID\" the ID of the desired channel (it should be the ending part of the URL). You need Google OAuth2 credentials to make it work. A guide is available here. (If you use n8n's tunneling, you may need to adjust the OAuth callback URL on Google Cloud Platform)\nSet: this node will set some variables to work easily with the next nodes. You shouldn't edit this.\nFunction: this node checks if the video was seen previously by the workflow, so that it won't be published a second time on Telegram. You shouldn't edit this.\nSendVideo: this node sends the message to Telegram. You need to set your bot's credentials (guide here), specify the Chat ID to send the message (how to get) and personalize the Text of your message.\n\nThis workflow works correctly only when it's activated. If you manually execute the workflow, it will send every time the latest videos.",
+  "totalViews": 8719,
+  "source": "official",
+  "user": {
+    "id": 33770,
+    "name": "Alessio",
+    "username": "almi05",
+    "bio": null,
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/e316548d677ce1338008382ebeae46452463006d7e8e974ae0fd526c91f78d2a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Marketing"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "YouTube",
+      "type": "n8n-nodes-base.youTube",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2022-04-17T11:21:31.543Z",
+  "path": "official/template_1599/workflow.json"
+}

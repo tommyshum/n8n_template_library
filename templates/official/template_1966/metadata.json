@@ -1,0 +1,45 @@
+{
+  "id": 1966,
+  "name": "itemMatching() usage example",
+  "description": "This workflow provides a simple example of how to use itemMatching(itemIndex: Number) in the Code node to retrieve linked items from earlier in the workflow.",
+  "totalViews": 2880,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Customer Datastore (n8n training)",
+      "type": "n8n-nodes-base.n8nTrainingCustomerDatastore",
+      "categories": [],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2023-10-19T15:15:53.422Z",
+  "path": "official/template_1966/workflow.json"
+}

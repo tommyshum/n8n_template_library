@@ -1,0 +1,117 @@
+{
+  "id": 2956,
+  "name": "⚡📽️ Ultimate AI-Powered Chatbot for YouTube Summarization & Analysis",
+  "description": "🎥 YouTube Video AI Agent Workflow\n\nThis n8n workflow template allows you to interact with an AI agent that extracts details and the transcript of a YouTube video using a provided video ID. Once the details and transcript are retrieved, you can chat with the AI agent to explore or analyze the video's content in a conversational and insightful manner.\n\n🌟 How the Workflow Works\n🔗 Input Video ID: The user provides a YouTube video ID as input to the workflow.\n   \n📄 Data Retrieval: The workflow fetches essential details about the video (e.g., title, description, upload date) and retrieves its transcript using YouTube's Data API and additional tools for transcript extraction.\n\n🤖 AI Agent Interaction: The extracted details and transcript are processed by an AI-powered agent. Users can then ask questions or engage in a conversation with the agent about the video's content, such as:\n   Summarizing the transcript.\n   Analyzing key points.\n   Clarifying specific sections.\n\n💬 Dynamic Responses: The AI agent uses natural language processing (NLP) to generate contextual and accurate responses based on the video data, ensuring a smooth and intuitive interaction.\n\n🚀 Use Cases\n📊 Content Analysis**: Quickly analyze long YouTube videos by querying specific sections or extracting summaries.\n📚 Research and Learning**: Gain insights from educational videos or tutorials without watching them entirely.\n✍️ Content Creation**: Repurpose transcripts into blogs, social media posts, or other formats efficiently.\n♿ Accessibility**: Provide an alternative, text-based way to interact with video content for users who prefer reading over watching.\n\n🛠️ Resources for Getting Started\nGoogle Cloud Console** (for API setup): Visit Google Cloud's Get Started Guide to configure your API access.\nYouTube Data API Key Setup**: Follow this guide to create and manage your YouTube Data API key.\nInstall n8n Locally**: Refer to this installation guide for setting up n8n on your local machine.\n\n✨ Sample Prompts\n\"Tell me about this YouTube video with id: JWfNLF_g_V0\"  \n \n\"Can you provide a list of key takeaways from this video with id: [youtube-video-id]?\"\n\n",
+  "totalViews": 16741,
+  "source": "official",
+  "user": {
+    "id": 92125,
+    "name": "Joseph LePage",
+    "username": "joe",
+    "bio": "As an AI Automation consultant based in Canada, I partner with forward-thinking organizations to implement AI solutions that streamline operations and drive growth.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/e7ca218dfc87b68344bbd66f40da01546d2f6fc1cf884267821e8a77e3e8410a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-02-20T18:58:33.160Z",
+  "path": "official/template_2956/workflow.json"
+}

@@ -1,0 +1,88 @@
+{
+  "id": 3779,
+  "name": "Enhance Chat Responses with Real-Time Search Data via Bright Data & Gemini AI",
+  "description": "Disclaimer\nThis template is only available on n8n self-hosted as it's making use of the community node for MCP Client.\n\nWho this is for?\n\nThe Chat Conversations with Bright Data MCP Search Engines & Google Gemini workflow is designed for users who need real-time, AI-enhanced conversations powered by live search engine results. \n\nThis workflow is tailored for:​\n\nData Analysts - Who want live, search-based data fused with AI reasoning.\n\nMarketing Researchers - Seeking up-to-the-minute market or competitor insights via conversational AI.\n\nProduct Managers - Exploring user needs, market trends, and competitor analysis in real time.\n\nAI Developers - Building dynamic applications that combine live search data with intelligent conversation agents.\n\nGrowth Hackers - Who need fast, conversational research tools for campaign ideation, outreach, or content creation.\n\nWhat problem is this workflow solving?\n\nTraditional chatbots and AI systems often rely on static, outdated data. \n\nThis workflow enables AI agents to fetch live search engine data and converse intelligently about it, making interactions dynamic, accurate, and highly contextual.\n\nThis workflow solves the major gaps of:\n\nOutdated Knowledge: Regular chatbots lack up-to-date information from live web searches.\n\nManual Search Fatigue: Manually searching for information and interpreting it is time-consuming.\n\nContext Bridging: Connecting search results into meaningful, conversational replies requires human-level reasoning.\n\nWhat this workflow does?\n\nAccepts a user's conversational query input.\n\nTriggers a search request to Bright Data’s MCP Search Engines API (Google, Bing, etc.) based on the query.\n\nWaits for the search task to complete.\n\nRetrieves real-time search results.\n\nFeeds the search results and original question into Google Gemini.\n\nGenerates a human-like, contextually accurate AI response combining live information and conversational flow.\n\nOutputs the response back into a chat app.\n\nPre-conditions\n\nKnowledge of Model Context Protocol (MCP) is highly essential. Please read this blog post - model-context-protocol\nYou need to have the Bright Data account and do the necessary setup as mentioned in the Setup section below.\nYou need to have the Google Gemini API Key. Visit Google AI Studio\nYou need to install the Bright Data MCP Server @brightdata/mcp\nYou need to install the n8n-nodes-mcp\n\nSetup\nPlease make sure to setup n8n locally with MCP Servers by navigating to n8n-nodes-mcp\nPlease make sure to install the Bright Data MCP Server @brightdata/mcp on your local machine. Also, do \"Account Setup\" as mentioned in the @brightdata/mcp URL.\nSign up at Bright Data.\nNavigate to Proxies & Scraping and create a new Web Unlocker zone by selecting Web Unlocker API under Scraping Solutions.\nIn n8n, configure the Google Gemini(PaLM) Api account with the Google Gemini API key (or access through Vertex AI or proxy).\nIn n8n, configure the credentials to connect with MCP Client (STDIO) account with the Bright Data MCP Server as shown below.\n\n\nMake sure to copy the Bright Data Web Unlocker API Token within the Environments textbox above.\nUpdate the HTTP Request for Webhook Notification node for sending the Webhook notification for chat responses.\n\nHow to customize this workflow to your needs\n\nChange Search Engine:\nAdd or Remove the Search Engine MCP tools based upon the Bright Data MCP Server updates.\n\nExpand Outputs:\nSend AI chat responses to Slack, Discord, custom chat UIs, WhatsApp, or CRM systems.\nStore conversation logs in a database (PostgreSQL, MongoDB, etc.) for future audits or training.",
+  "totalViews": 42,
+  "source": "official",
+  "user": {
+    "id": 93657,
+    "name": "Ranjan Dailata",
+    "username": "ranjancse",
+    "bio": "",
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/7b74fe44a7ad32db7c783b972deb5848a4b1f043377bce4039737ed66da8305f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-04-28T23:46:16.740Z",
+  "path": "official/template_3779/workflow.json"
+}

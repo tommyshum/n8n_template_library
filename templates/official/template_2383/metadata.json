@@ -1,0 +1,47 @@
+{
+  "id": 2383,
+  "name": "IOT Button Remote / Spotify Control Integration with MQTT",
+  "description": "Overview\nThis template integrates an IOT multi-button switch (meant for controlling a dimmable light) with Spotify playback functions, via MQTT messages.  This isn't likely to work without some tinkering, but should be a good head start on receiving/routing IOT/MQTT messages and hooking up to a Spotify-like API.\nRequirements\nAn IOT device capable of generating events that can be delivered as MQTT messages through an MQTT Broker\n  e.g. Ikea Strybar remote\nAn MQTT Broker to which n8n can connect and consume messages\n  e.g. Zigbee2MQTT in HomeAssistant\nA Spotify developer-account (which provides access to API functions via OAuth2 authorization)\nA Spotify user-account (which provides access to Spotify streamed content, user settings, etc.)\n\nSetup\nCreate an MQTT Credential item in n8n and assign it to the MQTT Trigger node\nModify the MQTT trigger node to match the topic for your IOT device messages\nModify the switch/router nodes to map to the message text from your IOT button (e.g. arrow_left_click, brightness_up_click, etc.)\nCreate a Spotify developer-account (or use the login for a user-account)\nCreate an \"App\" in the developer-account to represent the n8n workflow\n    Chicken/Egg ALERT: The n8n Spotify Credentials dialog box will display the \"OAuth Redirect URL\" required to create the App in Spotify, but the n8n Credential item itself cannot be created until AFTER the App has been created.\nCreate a Spotify Credentials item in n8n\n    Open the Settings on the Spotify App to find the required Client ID and Client Secret information.\n    ALERT: Save this before proceeding to the Connect step.\nConnect the n8n Spotify Credential item to the Spotify user-account\n    ALERT: Expect n8n to open a separate OAuth2 window on authorization.spotify.com here, which may require a login to the Spotify user-account\nOpen each of the HTTP and Spotify nodes, one by one, and re-assign to your Spotify Credential (try not to miss any).\n    (Then, probably, upvote this feature request: https://community.n8n.io/t/select-credentials-via-expression/5150\nModify the variable values in the Globals node to match your own environment.\n    target_spotify_playback_device_name - The name of a playback device available to the Spotify user-account\n    favorite_playlist_name - The name of a playlist to start when one of the button actions is indicated in the MQTT message.  Used in example \"Custom Function 2\" sequence.\n\nNotes\nYou're on your own for getting the multi-button remote switch talking to MQTT, figuring out what the exact MQTT topic name is, and mapping the message parts to the workflow (actions, etc.).\nThe next / previous actions are wired up to not transfer control to the target device. This alternative routing just illustrates a different behavior than the remaining actions/functions, which include activation of the target device when required.\nSome of the Spotify API interactions use the Spotify node in n8n, but many of the available Spotify API functions are limited or not implemented at all in the Spotify node.  So, in other cases, a regular HTTP node is used with the Spotify OAuth2 API credential instead.  By modifying one of the examples included in the template, it should be possible to call nearly anything the Spotify API has to offer.\n\nSpotify+n8n OAuth Mini-Tutorial\nDefinitions\nThe developer-account is the Spotify login for creating a spotify-app which will be associated with a client id and client secret.\nThe user-account is the Spotify login that has permission to stream songs, set up playback devices, etc.\n++A spotify-login allows access to a Spotify user-account, or a Spotify developer-account, OR BOTH++\nThe spotify-app, which has a client id and client secret, is an object created in the developer-account.\nThe app-implementation (in this case, an ++n8n workflow++) uses the spotify-app's credentials (client id / client secret) to call Spotify API endpoints on behalf of a user-account.\n\nUsing One Spotify Login as Both User and Developer\nWhen an n8n Spotify-node or HTTP-node (i.e. an app-implementation) calls a Spotify API endpoint, the Credentials item may be using the client id and client secret from a spotify-app, which was created in a developer-account that is ++one and the same spotify-login as the user-account++.  However, it helps to remind yourself that from the Spotify API server's perspective, the developer-account + spotify-app, and the user-account, are ++two independent entities++.\n\nn8n Spotify-OAuth2-API Credential Authorization Process\nThe 2 layers/steps, in the process of authorizing an n8n Spotify-OAuth2-API credential to make API calls, are:\nn8n must identify itself to Spotify as the app-implementation associated with the developer-account/spotify-app by sending the app's credentials (client id and client secret) to Spotify.\n    The Client ID and Client Secret are supplied in the n8n Spotify OAuth2 Credentials UI/dialog-box\nSeparately, n8n must obtain an authorization token from Spotify to represent the permissions granted by the user to execute actions (call API endpoints) on behalf of the user (i.e. access things that belong to the user-account).\n    This authorization for the user-account access is obtained when the \"Connect\" or \"Reconnect\" button is clicked in the n8n Spotify Credentials UI/dialog-box (which pops up a separate authorization UI/browser-window managed by Spotify).\n    The Authorization for a given spotify-app stays \"registered\" in the user-account until revoked.\n      See: https://support.spotify.com/us/article/spotify-on-other-apps/\n      Direct Link: https://www.spotify.com/account/apps/\n    More than one user-account can be authorized for a given spotify-app. A particular n8n Spotify-OAuth2-API credential item appears to cache an authorization token for the user-account that was most recently authorized.\n      Up to 25 users can be allowed access to a spotify-app in Developer-Mode, but any user-account other than the one associated with the developer-account must be added by email address at https://developer.spotify.com/dashboard/{{app-credential-id}}/users\n    ALERT: IF the browser running the n8n UI is ALSO logged into a Spotify account, and the spotify-app is already authorized for that Spotify account, the \"reconnect\" button in the Spotify-OAuth2-API credential dialog may automatically grab a token for that logged in user-account, offering no opportunity to select a different user-account.\n      This can be managed somewhat by using \"incognito\" browser windows for n8n, Spotify, or both.\n\nReferences\nn8n Spotify Credentials Docs\nSpotify Authorization Docs\n\n",
+  "totalViews": 2880,
+  "source": "official",
+  "user": {
+    "id": 91880,
+    "name": "Hubschrauber",
+    "username": "hubschrauber",
+    "bio": "Software developer specializing in \"back-end plumbing\" to connect and sync data between large corporate systems, enabling application distribution/migration, scaling, and containerization.  Using n8n for various orchestration tasks both at home and \"on the job.\"",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/937647d994a5af6961d76103821d84448e970d74e6d0d303e8a76b56fd1da695?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Miscellaneous"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Spotify",
+      "type": "n8n-nodes-base.spotify",
+      "categories": [
+        "Miscellaneous"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-08-18T07:01:52.004Z",
+  "path": "official/template_2383/workflow.json"
+}

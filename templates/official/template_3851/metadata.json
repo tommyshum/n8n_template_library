@@ -1,0 +1,88 @@
+{
+  "id": 3851,
+  "name": "Automate Etsy Data Mining with Bright Data Scrape & Google Gemini",
+  "description": "Who this is for?\nThe Automate Etsy Data Mining with Bright Data Scrape & Google Gemini workflow is designed for eCommerce analysts, product researchers, and AI developers seeking to extract actionable insights from Etsy listings at scale. \n\nIt is ideal for:\n\neCommerce Entrepreneurs** - Researching product demand and competition.\n\nMarket Analysts** - Tracking pricing, reviews, and trends across Etsy categories.\n\nProduct Managers** - Identifying niche opportunities and design inspirations.\n\nData Scientists & AI Engineers** - Automating product intelligence pipelines.\n\nGrowth Hackers** - Leveraging Etsy insights to refine product-market fit.\n\nWhat problem is this workflow solving?\nManually browsing Etsy to analyze product listings, pricing, reviews, and seller activity is slow, inconsistent, and unscalable. Scraping Etsy requires unlocking JavaScript-heavy content and structuring noisy data for analysis.\n\nThis workflow solves:\n\nAutomated and scalable scraping of Etsy product listings using Bright Data’s infrastructure.\n\nA fully paginated data structured Estry production data extraction via the Google Gemini LLM.\n\nEnables faster decision-making for product research and competitive analysis via the fully automated paginated data extraction.\n\nWhat this workflow does\n\nReceives input: Sets the Esty URL for the data extraction and analysis.\n\nUses Bright Data's Web Unlocker to extract content from relevant sites.\n\nCleans and preprocesses the scraped content for readability.\n\nSends the content to Google Gemini for:\n\n\tEnriched results including:\n\n\t\tData persistence over the disk.\n\n\t\tSends the response to a target system via Webhook notification.\n\nSetup\n\nSign up at Bright Data.\nNavigate to Proxies & Scraping and create a new Web Unlocker zone by selecting Web Unlocker API under Scraping Solutions.\nIn n8n, configure the Header Auth account under Credentials (Generic Auth Type: Header Authentication).\n\nThe Value field should be set with the \nBearer XXXXXXXXXXXXXX. The XXXXXXXXXXXXXX should be replaced by the Web Unlocker Token.\nA Google Gemini API key (or access through Vertex AI or proxy).\nUpdate the Set Esty Search Query for setting the brand content URL and the Bright Data Zone name.\nUpdate the Webhook HTTP Request node with the Webhook endpoint of your choice.\n\nHow to customize this workflow to your needs\n\nInput Sources** : Replace the static URL with dynamic input from Google Sheets, Webhook, or Airtable to research multiple niches.\n\nPrompt Customization** : Adjust Gemini prompts to extract specific insights for example:\n\n\tList key features of the product\n\n\tSummarization of the review themes\nData Output Options** : Update the Webhook notification to save data to:\n\n\tGoogle Sheets\n\tNotion or Airtable\n\tSQL/NoSQL\n\tSlack/Email\n\n\n\n\n\n\n\n\n",
+  "totalViews": 261,
+  "source": "official",
+  "user": {
+    "id": 93657,
+    "name": "Ranjan Dailata",
+    "username": "ranjancse",
+    "bio": "",
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/7b74fe44a7ad32db7c783b972deb5848a4b1f043377bce4039737ed66da8305f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Information Extractor",
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-05-03T23:15:27.321Z",
+  "path": "official/template_3851/workflow.json"
+}

@@ -1,0 +1,47 @@
+{
+  "id": 3034,
+  "name": "CallForge - 04 - AI Workflow for Gong.io Sales Calls",
+  "description": "\nCallForge - AI Gong Sales Call Processing Workflow  \nAutomate your Gong.io sales call analysis with AI-driven insights, real-time tracking, and structured CRM integration.\n\nWho is This For?  \nThis workflow is designed for:  \n✅ Sales teams looking to automate sales call processing.  \n✅ Revenue operations (RevOps) professionals managing high volumes of call data.  \n✅ AI-driven sales intelligence teams using Gong.io for data-driven insights.  \n\nWhat Problem Does This Workflow Solve?  \nManually managing and analyzing large volumes of Gong call data is time-consuming and error-prone.  \n\nWith CallForge, you can:  \n✔ Automate call processing to scale AI-driven insights.  \n✔ Integrate with Notion to track and organize sales call data efficiently.  \n✔ Get real-time Slack updates to stay informed on call processing progress.  \n✔ Handle API failures gracefully, allowing easy reruns if a rate limit is hit.  \n✔ Ensure AI-ready analysis, feeding structured call data into an AI-powered system.  \n\nWhat This Workflow Does  \n\n1. Triggers on New Gong Calls  \nCaptures new Gong calls and retrieves metadata, call summaries, and participant details.  \n\n2. Compares Calls Against Notion Database  \nChecks whether the call has already been processed and stored in Notion.  \nPrevents duplicate entries** from being added.  \n\n3. Creates a Parent Notion Record for AI Processing  \nStores call details such as date, title, URL, company name, sales rep, and opportunity details in Notion.  \nLinks calls to Salesforce Opportunity (SF Opp) data.  \nAssigns sales representatives and customer information to each call.  \n\n4. Loops Through Calls for Processing  \nEnsures resilience* by allowing failed runs to *restart where they left off**.  \nProcesses calls one at a time to prevent Notion rate limits.  \n\n5. Sends Call Data to an AI Processor  \nExtracts structured call details and sends them to an AI-powered analysis workflow.  \nAllows multiple AI agents to process and extract structured data from calls.  \n\n6. Provides Real-Time Slack Alerts  \nPosts a progress update in Slack when the queue starts processing.  \nSends real-time call progress notifications.  \nSends a completion alert once all calls are processed.  \n\nHow to Set Up This Workflow  \n\n1. Connect Your APIs  \n🔹 Gong API Credentials – Ensure you have valid Gong API credentials in n8n.  \n🔹 Notion Database – Provide access to a Notion database for storing call insights.  \n🔹 Slack Integration – Configure a Slack channel for progress alerts.  \n🔹 AI Processing Workflow – Connect an AI-powered call processing workflow for final analysis.  \n\nCallForge - 01 - Filter Gong Calls Synced to Salesforce by Opportunity Stage\nCallForge - 02 - Prep Gong Calls with Sheets & Notion for AI Summarization\nCallForge - 03 - Gong Transcript Processor and Salesforce Enricher\nCallForge - 04 - AI Workflow for Gong.io Sales Calls\nCallForge - 05 - Gong.io Call Analysis with Azure AI & CRM Sync\nCallForge - 06 - Automate Sales Insights with Gong.io, Notion & AI\nCallForge - 07 - AI Marketing Data Processing with Gong & Notion\nCallForge - 08 - AI Product Insights from Sales Calls with Notion\n\nHow to Customize This Workflow  \n💡 Modify Call Storage – Swap Notion for a different CRM or database (e.g., HubSpot, Airtable, Salesforce).  \n💡 Change AI Processing – Integrate a custom AI model for analyzing sales conversations.  \n💡 Customize Slack Notifications – Adjust Slack messages or send alerts via email instead.  \n💡 Expand with More Integrations – Connect with Salesforce, Pipedrive, or HubSpot for further enrichment.  \n\nWhy Use CallForge?  \n🚀 Automate Gong call tracking for seamless sales intelligence.  \n📊 Improve sales operations with structured, AI-powered insights.  \n⚡ Get real-time updates and keep your team informed instantly.  \n\nStart optimizing your Gong call processing today!  ",
+  "totalViews": 1872,
+  "source": "official",
+  "user": {
+    "id": 16588,
+    "name": "Angel Menendez",
+    "username": "djangelic",
+    "bio": "Angel Menendez is a Staff Developer Advocate at n8n.io, specializing in low-code tools for cybersecurity workflows. From Puerto Rico, Angel's tech journey began by helping his father translate technical books. He later started a web development business and transitioned from a career as a flight attendant to cybersecurity engineering. His workflows have saved companies significant time. Outside work, Angel enjoys time with his two sons, riding electric bikes, reading, and exploring new places.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/fdbe38425d21378d8c9ba8916e1eb0b320add299f12cc23fcd4961d4e6e00bec?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-02-28T06:38:15.786Z",
+  "path": "official/template_3034/workflow.json"
+}

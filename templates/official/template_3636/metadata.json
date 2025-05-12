@@ -1,0 +1,127 @@
+{
+  "id": 3636,
+  "name": "Build your own Qdrant Vector Store MCP server",
+  "description": "This n8n demonstrates how to build your own Qdrant MCP server to extend its functionality beyond that of the official implementation.\n\nThis n8n implementation exposes other cool API features from Qdrant such as facet search, grouped search and recommendations APIs. With this, we can build an easily customisable and maintainable Qdrant MCP server for business intelligence.\n\nThis MCP example is based off an official MCP reference implementation which can be found here - https://github.com/qdrant/mcp-server-qdrant\n\nHow it works\nA MCP server trigger is used and connected to 5 custom workflow tools. We're using custom workflow tools as there is quite a few nodes required for each task.\nWe use a mix of n8n supported Qdrant nodes for simple operations such as insert documents and similarity search, and HTTP node to hit the Qdrant API directly for Facet search, group search and recommendations.\nWe use \"Edit Field\" and \"Aggregate\" nodes to return suitable responses to the MCP client.\n\nHow to use\nThis Qdrant MCP server allows any compatible MCP client to manage a Qdrant Collection by supporting select and create operations. You will need to have a collection available before you can use this server. Use the Prerequisite manual steps to get started!\nConnect your MCP client by following the n8n guidelines here - https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-langchain.mcptrigger/#integrating-with-claude-desktop\nTry the following queries in your MCP client:\n  \"Can you help me list the available companies in the collection?\"\n  \"What do customers say about product deliveries from company X?\"\n  \"What do customers of company X and company Y say about product ease of use?\"\n\nRequirements\nQdrant for vector store. This can be an a cloud-hosted instance or one you can self-host internally.\nMCP Client or Agent for usage such as Claude Desktop - https://claude.ai/download\n\nCustomising this workflow\nDepending on what queries you'll receive, adjust the tool inputs to make it easier for the agent to set the right parameters.\nNot interested in Reviews? The techniques shared in this template can be used for other types of collections.\nRemember to set the MCP server to require credentials before going to production and sharing this MCP server with others!",
+  "totalViews": 899,
+  "source": "official",
+  "user": {
+    "id": 91804,
+    "name": "Jimleuk",
+    "username": "jimleuk",
+    "bio": "Freelance consultant based in the UK specialising in AI-powered automations. I work with select clients tackling their most challenging projects. For business enquiries, send me an email at hello@jimle.uk\n\nLinkedIn: https://www.linkedin.com/in/jimleuk/\nX/Twitter: https://x.com/jimle_uk",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4ab99e51473df76838beeaac908747f7928c625f869794815cabe34016967d51?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    },
+    {
+      "name": "Recursive Character Text Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    },
+    {
+      "name": "Qdrant Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreQdrant",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-04-21T10:14:56.423Z",
+  "path": "official/template_3636/workflow.json"
+}

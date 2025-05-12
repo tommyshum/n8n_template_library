@@ -1,0 +1,128 @@
+{
+  "id": 2473,
+  "name": "Generate SEO Seed Keywords Using AI",
+  "totalViews": 20582,
+  "purchaseUrl": null,
+  "user": {
+    "id": 92048,
+    "name": "simonscrapes",
+    "username": "simonscrapes",
+    "bio": "Automate all your work with AI & Automation @simonscrapes on YouTube. Automation expert with 6 years of experience helping organisations automate processes. Built over 100+ N8N workflows.",
+    "verified": true,
+    "links": "[\"https://www.youtube.com/@simonscrapes\"]",
+    "avatar": "https://gravatar.com/avatar/f8b1fce5ccc8cb76e1843532809adf2ed863ddd8d2eb8a30c48ec938b19b4833?r=pg&d=retro&size=200"
+  },
+  "description": "What this workflow does:\nThis flow uses an AI node to generate Seed Keywords to focus SEO efforts on based on your ideal customer profile. You can use these keywords to form part of your SEO strategy.\n\nOutputs:\nList of 20 Seed Keywords\n\nSetup\nFill the Set Ideal Customer Profile (ICP)\nConnect with your credentials\nReplace the Connect to your own database with your own database\n\nPre-requisites / Dependencies\nYou know your ideal customer profile (ICP)\nAn AI API account (either OpenAI or Anthropic recommended)\n\nMore templates and n8n workflows &gt;&gt;&gt; @simonscrapes\n",
+  "createdAt": "2024-10-20T15:48:43.894Z",
+  "nodes": [
+    {
+      "id": 1119,
+      "icon": "fa:robot",
+      "name": "@n8n/n8n-nodes-langchain.agent",
+      "codex": {
+        "data": {
+          "alias": [
+            "LangChain",
+            "Chat",
+            "Conversational",
+            "Plan and Execute",
+            "ReAct",
+            "Tools"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Agents",
+              "Root Nodes"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "AI Agent",
+        "color": "#404040"
+      },
+      "iconData": {
+        "icon": "robot",
+        "type": "icon"
+      },
+      "displayName": "AI Agent",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1145,
+      "icon": "file:anthropic.svg",
+      "name": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "codex": {
+        "data": {
+          "alias": [
+            "claude",
+            "sonnet",
+            "opus"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatanthropic/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Language Models",
+              "Root Nodes"
+            ],
+            "Language Models": [
+              "Chat Models (Recommended)"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Anthropic Chat Model"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0NiIgaGVpZ2h0PSIzMiIgZmlsbD0ibm9uZSI+PHBhdGggZmlsbD0iIzdEN0Q4NyIgZD0iTTMyLjczIDBoLTYuOTQ1TDM4LjQ1IDMyaDYuOTQ1ek0xMi42NjUgMCAwIDMyaDcuMDgybDIuNTktNi43MmgxMy4yNWwyLjU5IDYuNzJoNy4wODJMMTkuOTI5IDB6bS0uNzAyIDE5LjMzNyA0LjMzNC0xMS4yNDYgNC4zMzQgMTEuMjQ2eiIvPjwvc3ZnPg=="
+      },
+      "displayName": "Anthropic Chat Model",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    }
+  ]
+}

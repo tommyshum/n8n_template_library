@@ -1,0 +1,174 @@
+{
+  "id": 2312,
+  "name": "Attach a default error handler to all active workflows",
+  "totalViews": 2998,
+  "purchaseUrl": null,
+  "user": {
+    "id": 91453,
+    "name": "bartv",
+    "username": "bartv",
+    "bio": "I'm Senior Community Manager at n8n!",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/7ffea915bf7b5f167c31b664b719cf7d6c840be04c110a0206f0deb9d03dc908?r=pg&d=retro&size=200"
+  },
+  "description": "How it works:\n\nDid you ever miss any errors in your workflow executions? I did! And I usually only realised a few days or weeks later. 🙈\n\nThis template attaches a default error workflow to all your active workflows. From now on, you'll receive a notification whenever a workflow errors and you'll have peace of mind again.\n\nIt runs every night at midnight so you never have to think of this again. Of course, you can also run it manually.\n\nSteps to set up:\n\nUpdate the Gmail note with your own email address, or replace it with any other notification mechanism. You can also use Slack, Discord, Telegram or text messages.. \nActivate the workflow.\nRelax.\n\nCaveats:\n\nI did not add any rate limiting, so if you have a workflow that runs very frequently and it errors... well let's say your mailbox will not be a nice place anymore.\n\nIdeas for improvement?\n\nIf you have any suggestions for improvement, feel free to reach out to me at bart@n8n.io.\n\nEnjoy!",
+  "createdAt": "2024-07-04T15:38:49.281Z",
+  "nodes": [
+    {
+      "id": 356,
+      "icon": "file:gmail.svg",
+      "name": "n8n-nodes-base.gmail",
+      "codex": {
+        "data": {
+          "alias": [
+            "email",
+            "human",
+            "form",
+            "wait",
+            "hitl",
+            "approval"
+          ],
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/why-business-process-automation-with-n8n-can-change-your-daily-life/",
+                "icon": "🧬",
+                "label": "Why business process automation with n8n can change your daily life"
+              },
+              {
+                "url": "https://n8n.io/blog/supercharging-your-conference-registration-process-with-n8n/",
+                "icon": "🎫",
+                "label": "Supercharging your conference registration process with n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/no-code-ecommerce-workflow-automations/",
+                "icon": "store",
+                "label": "6 e-commerce workflows to power up your Shopify s"
+              },
+              {
+                "url": "https://n8n.io/blog/how-to-get-started-with-crm-automation-and-no-code-workflow-ideas/",
+                "icon": "👥",
+                "label": "How to get started with CRM automation (with 3 no-code workflow ideas"
+              },
+              {
+                "url": "https://n8n.io/blog/automate-google-apps-for-productivity/",
+                "icon": "💡",
+                "label": "15 Google apps you can combine and automate to increase productivity"
+              },
+              {
+                "url": "https://n8n.io/blog/your-business-doesnt-need-you-to-operate/",
+                "icon": " 🖥️",
+                "label": "Hey founders! Your business doesn't need you to operate"
+              },
+              {
+                "url": "https://n8n.io/blog/using-automation-to-boost-productivity-in-the-workplace/",
+                "icon": "💪",
+                "label": "Using Automation to Boost Productivity in the Workplace"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.gmail/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/google/oauth-single-service/"
+              }
+            ]
+          },
+          "categories": [
+            "Communication",
+            "HITL"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0",
+          "subcategories": {
+            "HITL": [
+              "Human in the Loop"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Gmail"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNTYiIGhlaWdodD0iMTkzIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCI+PHBhdGggZmlsbD0iIzQyODVGNCIgZD0iTTU4LjE4MiAxOTIuMDVWOTMuMTRMMjcuNTA3IDY1LjA3NyAwIDQ5LjUwNHYxMjUuMDkxYzAgOS42NTggNy44MjUgMTcuNDU1IDE3LjQ1NSAxNy40NTV6Ii8+PHBhdGggZmlsbD0iIzM0QTg1MyIgZD0iTTE5Ny44MTggMTkyLjA1aDQwLjcyN2M5LjY1OSAwIDE3LjQ1NS03LjgyNiAxNy40NTUtMTcuNDU1VjQ5LjUwNWwtMzEuMTU2IDE3LjgzNy0yNy4wMjYgMjUuNzk4eiIvPjxwYXRoIGZpbGw9IiNFQTQzMzUiIGQ9Im01OC4xODIgOTMuMTQtNC4xNzQtMzguNjQ3IDQuMTc0LTM2Ljk4OUwxMjggNjkuODY4bDY5LjgxOC01Mi4zNjQgNC42NyAzNC45OTItNC42NyA0MC42NDRMMTI4IDE0NS41MDR6Ii8+PHBhdGggZmlsbD0iI0ZCQkMwNCIgZD0iTTE5Ny44MTggMTcuNTA0VjkzLjE0TDI1NiA0OS41MDRWMjYuMjMxYzAtMjEuNTg1LTI0LjY0LTMzLjg5LTQxLjg5LTIwLjk0NXoiLz48cGF0aCBmaWxsPSIjQzUyMjFGIiBkPSJtMCA0OS41MDQgMjYuNzU5IDIwLjA3TDU4LjE4MiA5My4xNFYxNy41MDRMNDEuODkgNS4yODZDMjQuNjEtNy42NiAwIDQuNjQ2IDAgMjYuMjN6Ii8+PC9zdmc+"
+      },
+      "displayName": "Gmail",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 6,
+          "name": "Communication"
+        },
+        {
+          "id": 28,
+          "name": "HITL"
+        }
+      ]
+    },
+    {
+      "id": 834,
+      "icon": "file:code.svg",
+      "name": "n8n-nodes-base.code",
+      "codex": {
+        "data": {
+          "alias": [
+            "cpde",
+            "Javascript",
+            "JS",
+            "Python",
+            "Script",
+            "Custom Code",
+            "Function"
+          ],
+          "details": "The Code node allows you to execute JavaScript in your workflow.",
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.code/"
+              }
+            ]
+          },
+          "categories": [
+            "Development",
+            "Core Nodes"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0",
+          "subcategories": {
+            "Core Nodes": [
+              "Helpers",
+              "Data Transformation"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Code"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwMF8xMTcxXzQ0MSkiPgo8cGF0aCBkPSJNMTcwLjI4MyA0OEgxOTYuNUMyMDMuMTI3IDQ4IDIwOC41IDQyLjYyNzQgMjA4LjUgMzZWMTJDMjA4LjUgNS4zNzI1OCAyMDMuMTI3IDAgMTk2LjUgMEgxNzAuMjgzQzEyNi4xIDAgOTAuMjgzIDM1LjgxNzIgOTAuMjgzIDgwVjE3NkM5MC4yODMgMjA2LjkyOCA2NS4yMTA5IDIzMiAzNC4yODMgMjMySDIzQzE2LjM3MjYgMjMyIDExIDIzNy4zNzIgMTEgMjQ0VjI2OEMxMSAyNzQuNjI3IDE2LjM3MjQgMjgwIDIyLjk5OTYgMjgwTDM0LjI4MyAyODBDNjUuMjEwOSAyODAgOTAuMjgzIDMwNS4wNzIgOTAuMjgzIDMzNlY0NDBDOTAuMjgzIDQ3OS43NjQgMTIyLjUxOCA1MTIgMTYyLjI4MyA1MTJIMTk2LjVDMjAzLjEyNyA1MTIgMjA4LjUgNTA2LjYyNyAyMDguNSA1MDBWNDc2QzIwOC41IDQ2OS4zNzMgMjAzLjEyNyA0NjQgMTk2LjUgNDY0SDE2Mi4yODNDMTQ5LjAyOCA0NjQgMTM4LjI4MyA0NTMuMjU1IDEzOC4yODMgNDQwVjMzNkMxMzguMjgzIDMwOS4wMjIgMTI4LjAxMSAyODQuNDQzIDExMS4xNjQgMjY1Ljk2MUMxMDYuMTA5IDI2MC40MTYgMTA2LjEwOSAyNTEuNTg0IDExMS4xNjQgMjQ2LjAzOUMxMjguMDExIDIyNy41NTcgMTM4LjI4MyAyMDIuOTc4IDEzOC4yODMgMTc2VjgwQzEzOC4yODMgNjIuMzI2OSAxNTIuNjEgNDggMTcwLjI4MyA0OFoiIGZpbGw9IiNGRjk5MjIiLz4KPHBhdGggZD0iTTMwNSAzNkMzMDUgNDIuNjI3NCAzMTAuMzczIDQ4IDMxNyA0OEgzNDIuOTc5QzM2MC42NTIgNDggMzc0Ljk3OCA2Mi4zMjY5IDM3NC45NzggODBWMTc2QzM3NC45NzggMjAyLjk3OCAzODUuMjUxIDIyNy41NTcgNDAyLjA5OCAyNDYuMDM5QzQwNy4xNTMgMjUxLjU4NCA0MDcuMTUzIDI2MC40MTYgNDAyLjA5OCAyNjUuOTYxQzM4NS4yNTEgMjg0LjQ0MyAzNzQuOTc4IDMwOS4wMjIgMzc0Ljk3OCAzMzZWNDMyQzM3NC45NzggNDQ5LjY3MyAzNjAuNjUyIDQ2NCAzNDIuOTc5IDQ2NEgzMTdDMzEwLjM3MyA0NjQgMzA1IDQ2OS4zNzMgMzA1IDQ3NlY1MDBDMzA1IDUwNi42MjcgMzEwLjM3MyA1MTIgMzE3IDUxMkgzNDIuOTc5QzM4Ny4xNjEgNTEyIDQyMi45NzggNDc2LjE4MyA0MjIuOTc4IDQzMlYzMzZDNDIyLjk3OCAzMDUuMDcyIDQ0OC4wNTEgMjgwIDQ3OC45NzkgMjgwSDQ5MEM0OTYuNjI3IDI4MCA1MDIgMjc0LjYyOCA1MDIgMjY4VjI0NEM1MDIgMjM3LjM3MyA0OTYuNjI4IDIzMiA0OTAgMjMyTDQ3OC45NzkgMjMyQzQ0OC4wNTEgMjMyIDQyMi45NzggMjA2LjkyOCA0MjIuOTc4IDE3NlY4MEM0MjIuOTc4IDM1LjgxNzIgMzg3LjE2MSAwIDM0Mi45NzkgMEgzMTdDMzEwLjM3MyAwIDMwNSA1LjM3MjU4IDMwNSAxMlYzNloiIGZpbGw9IiNGRjk5MjIiLz4KPC9nPgo8ZGVmcz4KPGNsaXBQYXRoIGlkPSJjbGlwMF8xMTcxXzQ0MSI+CjxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiBmaWxsPSJ3aGl0ZSIvPgo8L2NsaXBQYXRoPgo8L2RlZnM+Cjwvc3ZnPgo="
+      },
+      "displayName": "Code",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 5,
+          "name": "Development"
+        },
+        {
+          "id": 9,
+          "name": "Core Nodes"
+        }
+      ]
+    }
+  ]
+}

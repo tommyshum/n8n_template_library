@@ -1,0 +1,79 @@
+{
+  "id": 2894,
+  "name": "Upload to Instagram, Tiktok & Youtube from Google Drive",
+  "description": "Description\nThis automation template is designed for content creators, digital marketers, and social media managers looking to simplify their video posting workflow. It automates the process of generating engaging video descriptions and uploading content to both Instagram and TikTok, making your social media management more efficient and error-free.\n\nWho Is This For?\nContent Creators & Influencers:** Streamline your video uploads and focus more on creating content.\nDigital Marketers:** Ensure consistent posting across multiple platforms with minimal manual intervention.\nSocial Media Managers:** Automate repetitive tasks and maintain a steady online presence.\n\nWhat Problem Does This Workflow Solve?\nManually creating descriptions and uploading videos to different platforms can be time-consuming and error-prone. This workflow addresses these challenges by:\nAutomating Video Uploads:** Monitors a designated Google Drive folder for new videos.\nGenerating Descriptions:** Uses OpenAI to transcribe video audio and generate engaging, customized social media descriptions.\nEnsuring Multi-Platform Consistency:** Simultaneously posts your video with the generated description to Instagram and TikTok.\nError Notifications:** Optional Telegram integration sends alerts in case of issues, ensuring smooth operations.\n\nHow It Works\nVideo Upload: Place your video in the designated Google Drive folder.\nDescription Generation: The automation triggers OpenAI to transcribe your video’s audio and generate a captivating description.\nContent Distribution: Automatically uploads the video and description to both Instagram and TikTok.\nError Handling: Sends Telegram notifications if any issues arise during the process.\n\nSetup\nGenerate an API token at upload-post.com and configure it in both the Upload to TikTok and Upload to Instagram nodes.\nGoogle Cloud Project: Create a project in Google Cloud Platform, enable the Google Drive API, and generate the necessary OAuth credentials to connect to your Google Drive account.\nSet up your Google Drive folder in the Google Drive Trigger node.\nCustomize the OpenAI prompt in the Generate Social Description node to match your brand’s tone.\n(Optional) Configure Telegram credentials for error notifications.\n\nRequirements\nAccounts:** upload-post.com, Google Drive, and (optionally) Telegram.\nAPI Keys & Credentials:** Upload-post.com API token, OpenAI API key, and (optional) Telegram bot token.\nGoogle Cloud:** A project with the Google Drive API enabled and valid OAuth credentials.\n\nUse this template to enhance your productivity, maintain consistency across your social media channels, and engage your audience with high-quality video content.\n",
+  "totalViews": 20391,
+  "source": "official",
+  "user": {
+    "id": 92698,
+    "name": "Juan Carlos Cavero Gracia",
+    "username": "carlosgracia",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://x.com/fotoexamen\"]",
+    "avatar": "https://gravatar.com/avatar/e1fc0901703aede75c35d38ff26caf8e44b424893e1330efb483d68f5f67e059?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "Data & Storage",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-02-12T20:39:02.442Z",
+  "path": "official/template_2894/workflow.json"
+}

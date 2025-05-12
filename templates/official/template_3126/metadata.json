@@ -1,0 +1,38 @@
+{
+  "id": 3126,
+  "name": "Monitor Authentication IPs from SaaS Alerts & Email Reports via SMTP2Go",
+  "description": "Collect and Email Authentication IP Addresses from SaaS Alerts (Last 24 Hours)\n\nDescription  \nThis n8n workflow automates the process of collecting sign-in IP addresses from SaaS Alerts over the past 24 hours and emailing the results using SMTP2Go. Designed for security teams, IT administrators, and compliance officers, this workflow helps monitor user authentication activity, detect unusual sign-ins, and respond to potential security threats in real time.  \n\nBy automating data collection and email alerts, organizations can proactively track login patterns, ensure compliance with security policies, and mitigate risks associated with unauthorized access.  \n\nUse Case  \nThis workflow is ideal for businesses and IT teams that need to:  \nMonitor user authentication activity across SaaS applications.  \nIdentify login attempts from suspicious IPs.  \nAutomate security reporting and compliance tracking.  \nReceive real-time alerts for unusual sign-in behaviors.  \n\nPre-Conditions & Requirements  \nBefore using this workflow, ensure you have:  \nA SaaS Alerts account or another system that logs authentication IPs.  \nAn SMTP2Go account for sending email notifications.  \nn8n set up with proper API credentials and database access (if applicable).  \n\nSetup Instructions  \nConfigure SaaS Alerts API  \n   Obtain API from the SaaS Alerts Platform under the Settings menu. \n\nSet Up SMTP2Go for Email Alerts  \n   Create an SMTP2Go account if you don’t have one.  \n   Generate a SMTP2Go API key\n   Verify that your sending email address has been configured and verified. \n   Define recipient email addresses for security alerts.  \n\nCustomize the Workflow  \n   Modify filtering rules to track specific users, IP ranges, or flagged login attempts.  \n   Adjust email content to include relevant details for your team.  \n\nTest & Deploy  \n   Run the workflow manually to verify data retrieval and email notifications.  \n   Schedule the workflow to run daily for automated monitoring.  \n\nWorkflow Steps  \nTrigger – Starts manually or on a scheduled interval (e.g., every 24 hours).  \nFetch Authentication Logs – Retrieves sign-in IPs from SaaS Alerts or a custom API.  \nFilter & Process Data – Extracts relevant login attempts based on defined criteria.  \nFormat Data for Reporting – Structures the data for readability in an email alert.  \nSend Email Notification via SMTP2Go – Delivers the security report to designated recipients.  \n\nCustomization Options  \nModify Filtering Rules** – Track specific login behaviors, flagged IPs, or unusual patterns.  \nChange Email Recipients** – Update the recipient list based on security team needs.  \nIntegrate with Security Dashboards** – Expand the workflow to log data into a SIEM system or incident response platform.  \nAdd Additional Triggers** – Configure alerts for specific login anomalies, such as failed login attempts.  \n\nKeywords  \nn8n security automation, authentication monitoring, login IP tracking, SMTP2Go email alerts, SaaS Alerts workflow, IT security automation, login anomaly detection\n\n",
+  "totalViews": 411,
+  "source": "official",
+  "user": {
+    "id": 93162,
+    "name": "Benjamin Jones (SaaS Alerts)",
+    "username": "benjones-saasalerts",
+    "bio": "",
+    "verified": false,
+    "links": "[\"https://www.linkedin.com/in/benjamin-jones-va\"]",
+    "avatar": "https://gravatar.com/avatar/172b63291f13df700717469dc7bea1ce1b57b64b76dc28a4d44604c9eb72d295?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-03-10T19:24:33.874Z",
+  "path": "official/template_3126/workflow.json"
+}

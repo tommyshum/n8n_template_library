@@ -1,0 +1,90 @@
+{
+  "id": 3912,
+  "name": "Automate Lead Qualification with RetellAI Phone Agent, OpenAI GPT-4 & Google Sheets",
+  "description": "\n👉 Build a Phone Agent to qualify outbound leads and schedule inbound calls\n\nWho is this for?\n\nThis workflow is designed for sales teams, call centers, and businesses handling both outbound and inbound lead calls who want to automate their qualification, follow-up, and call documentation process without manual intervention. It’s ideal for teams using Google Sheets, RetellAI, OpenAI, and Gmail as part of their tech stack.\n\nReal-World Use Cases\n\n🛍 E-commerce – Instantly handle product FAQs and order status checks, 24/7.\n🏬 Retail Stores – Share store hours, directions, and return policies without lifting a finger.\n🍽 Restaurants – Take reservations or answer menu questions automatically.\n💼 Service Providers – Book appointments or consultations while you focus on your craft.\n📞 Any Local Business – Deliver friendly, consistent phone support — no live agent required.\n\nWhat problem is this workflow solving?\n\nManaging lead calls at scale can be chaotic—between scheduling outbound qualification calls, handling inbound appointment requests, and making sure every call is documented and followed up. This workflow automates the entire process, reducing human error and saving time by:\n\n✅ Sending reminders to reps for outbound calls\n✅ Automatically placing calls with RetellAI\n✅ Handling inbound calls and checking caller details\n✅ Generating and emailing call summaries automatically\n\nWhat this workflow does\n\nThis n8n template connects Google Sheets, RetellAI, OpenAI, and Gmail into a seamless workflow:\n\nOutbound Lead Qualification Workflow\n   Triggers when a new lead is added to Google Sheets\n   Sends an SMS notification to remind the rep to call in 5 minutes\n   (Optional) Waits 5 minutes\n   Initiates an automated call to the lead via RetellAI\n\nInbound Call Appointment Scheduler\n   Receives inbound calls from RetellAI (via webhook)\n   Checks if the caller’s number exists in Google Sheets\n   Responds to RetellAI with a success or error message\n\nPost-Call Workflow\n   Receives post-call data from RetellAI\n   Filters only analyzed calls\n   Updates the lead’s record in Google Sheets\n   Uses OpenAI to generate a call summary\n   Emails the summary to a team inbox or rep\n\nSetup\n\n✅ You need an active RetellAI API key\n\nSign up for RetellAI, create an agent, and set the webhook URLs (n8n_call for call events).\nPurchase a Twilio phone number and link it to the agent.  \n\n✅ Your Google Sheet must have a column for phone numbers (e.g., \"Phone\")  \n✅ Gmail account connected and authorized in n8n  \n✅ OpenAI API key added to your environment variables or credentials\n\nConfigure your Google Sheets node with the correct spreadsheet ID and range\nAdd your RetellAI API key to the HTTP request nodes\nConnect your Gmail account in the Gmail node\nAdd your OpenAI key in the OpenAI node\n\n👉 See full setup guide here: Notion Documentation\n\nHow to customize this workflow to your needs\n\nChange SMS content**: Edit the text in the “Send SMS reminder” node to match your team’s tone\nModify call wait time**: Enable and adjust the “Wait 5 minutes” node to any delay you prefer\nAdd CRM integration**: Replace or extend the Google Sheets node to update your CRM instead of a spreadsheet\nCustomize call summary prompts**: Edit the prompt sent to OpenAI to change the summary style or add extra insights\nSend email to different recipients**: Change the recipient address in the Gmail node or make it dynamic from the lead record\n\nNeed help customizing?\nContact me for consulting and support : Linkedin",
+  "totalViews": 443,
+  "source": "official",
+  "user": {
+    "id": 93440,
+    "name": "Dr. Firas",
+    "username": "drfiras",
+    "bio": "Automation expert and certified trainer. I create hands-on courses to master automation with n8n. Contact me to access my exclusive training and start building powerful workflows today. 🚀",
+    "verified": true,
+    "links": "[\"https://www.youtube.com/@DRFIRASS\"]",
+    "avatar": "https://gravatar.com/avatar/988a46579257f9e8c522aeb7b906f1ee96e47c4298faa548e41b04957f455ae3?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Twilio",
+      "type": "n8n-nodes-base.twilio",
+      "categories": [
+        "Communication",
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-05-06T23:32:32.465Z",
+  "path": "official/template_3912/workflow.json"
+}

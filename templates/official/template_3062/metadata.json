@@ -1,0 +1,69 @@
+{
+  "id": 3062,
+  "name": "Avoid Asking Redundant Questions with Dynamically Generated Forms using OpenAI ",
+  "description": "Avoid Asking Redundant Questions with Dynamically Generated Forms using OpenAI \nTarget Audience\nThis workflow has been built for those who require a form to capture as much data as possible as well as the answers to predefined questions, whilst optimising the user experience by avoiding asking redundant questions.\nUse Case\nWhen creating a form to capture information, it can be useful to give the user an opportunity to input a long answer to a large, open-ended question. We then want to drill down to answer specific questions that we require the answer to. When doing this, we don't want to ask duplicate questions. This particular scenario imagines an AI consultancy capturing leads.\nWhat it Does\nThis workflow requires users to input basic information and then answer an open ended question. The specific questions on the next page will only be those that weren't answered in the open-ended question.\nHow it Works\nThe open-ended question (and relevant basic information) is analysed by an LLM to determine which specific questions have not been answered. Chain-of-thought reasoning is utilised and the output structure is specified with the Structured Output Parser.\nThose questions that have already been answered are filtered out nodes. The remaining items are then used to generate the last page of the form.\nOnce the user has filled in the final page of the form, they are shown a form completion page.\nSetup\nAdd your OpenAI credentials\nGo to the Get Basic Information node and click Test Step\nComplete the form to test the generic use case\nModify the prompt in Analyse Response to fit your use case\nNext Steps\nAdd additional nodes to send an email to the form owner\nAdd a subsequent LLM call to analyse the form response - those that are qualified should be given the opportunity to book an appointment",
+  "totalViews": 2682,
+  "source": "official",
+  "user": {
+    "id": 92742,
+    "name": "Chris Carr",
+    "username": "chriscarr",
+    "bio": "Freelance workflow and AI developer based in Cardiff, Wales. I work with SMEs to automate processes and eliminate human-error.",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/chrisdavidcarr/\"]",
+    "avatar": "https://gravatar.com/avatar/dfa8cbb7687f4d9a149258d2dd59e6f0131d835b4dc768858afe6bd1d497dc92?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-03-02T17:16:14.512Z",
+  "path": "official/template_3062/workflow.json"
+}

@@ -1,0 +1,61 @@
+{
+  "id": 2802,
+  "name": "Automatically Import your Meta Threads Posts into Notion",
+  "description": "Who is this for?\nThis template is designed for social media managers, content creators, data analysts, and anyone who wants to automatically save and analyze their Meta Threads posts in Notion.\n\nIt’s particularly useful for:\n\nBuilding a personal archive of your Threads content.\nTraining AI models using your social media data.\nTracking your online presence and engagement.\n\nWhat this workflow does\nThis workflow uses the Meta Threads API to automatically retrieve your posts and import them into a Notion database.\n\nIt retrieves the post content, date, and time, and stores them in designated properties within your Notion database.\n\nSetup\nGet Threads Access Token and ID: Obtain a long-lived access token and your Threads ID from the Meta Threads developer platform. This token auto-refreshes, ensuring uninterrupted workflow operation.\n\nConfigure Credentials and Date Range: In the “Set Credentials” node (using edit fields), enter your token and ID. \n\nSet the since and until parameters in the “Set Date Range” node to specify the post import period.\n\nConnect to Notion and Create a Database: Connect to your Notion workspace and create a database with these properties (customize with the “Create Properties” node):\n\na. Title: Threads post URL (Notion entry title).\n\nb. Threads ID: Unique post ID (prevents duplicate imports).\n\nc. Username: Post author (for future multi-account/source management).\n\nd. Post Date: Original post date.\n\ne. Source (Multi-Select): “Threads” tag (for future multi-platform import and filtering).\n\nf. Created: Import date and time.\n\ng. Import Check (Optional): For use with a separate post-categorization workflow.\n\n",
+  "totalViews": 1948,
+  "source": "official",
+  "user": {
+    "id": 92467,
+    "name": "Geekaz / Kazen",
+    "username": "geekaz",
+    "bio": "Product Designer and Blogger!",
+    "verified": false,
+    "links": "[\"https://www.threads.net/@geekaz?hl=zh-tw\"]",
+    "avatar": "https://gravatar.com/avatar/5c2a9ccd7c36a3af2aabfbae9ce2978bae567fe28a5d61b43d07b7d1a9a6e4b9?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-01-26T13:04:30.670Z",
+  "path": "official/template_2802/workflow.json"
+}

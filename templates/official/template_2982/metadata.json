@@ -1,0 +1,206 @@
+{
+  "id": 2982,
+  "name": "🤖 AI Powered RAG Chatbot for Your Docs + Google Drive + Gemini + Qdrant",
+  "description": "🤖 AI-Powered RAG Chatbot with Google Drive Integration\n\nThis workflow creates a powerful RAG (Retrieval-Augmented Generation) chatbot that can process, store, and interact with documents from Google Drive using Qdrant vector storage and Google's Gemini AI.\n\nHow It Works\n\nDocument Processing & Storage 📚\nRetrieves documents from a specified Google Drive folder\nProcesses and splits documents into manageable chunks\nExtracts metadata using AI for enhanced search capabilities\nStores document vectors in Qdrant for efficient retrieval\n\nIntelligent Chat Interface 💬\nProvides a conversational interface powered by Google Gemini\nUses RAG to retrieve relevant context from stored documents\nMaintains chat history in Google Docs for reference\nDelivers accurate, context-aware responses\n\nVector Store Management 🗄️\nFeatures secure delete operations with human verification\nIncludes Telegram notifications for important operations\nMaintains data integrity with proper version control\nSupports batch processing of documents\n\nSetup Steps\n\nConfigure API Credentials:\n   Set up Google Drive & Docs access\n   Configure Gemini AI API\n   Set up Qdrant vector store connection\n   Add Telegram bot for notifications\n   Add OpenAI Api Key to the 'Delete Qdrant Points by File ID' node\n\nConfigure Document Sources:\n   Set Google Drive folder ID\n   Define Qdrant collection name\n   Set up document processing parameters\n\nTest and Deploy:\n   Verify document processing\n   Test chat functionality\n   Confirm vector store operations\n   Check notification system\n\n\nThis workflow is ideal for organizations needing to create intelligent chatbots that can access and understand large document repositories while maintaining context and providing accurate responses through RAG technology.\n",
+  "totalViews": 49410,
+  "source": "official",
+  "user": {
+    "id": 92125,
+    "name": "Joseph LePage",
+    "username": "joe",
+    "bio": "As an AI Automation consultant based in Canada, I partner with forward-thinking organizations to implement AI solutions that streamline operations and drive growth.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/e7ca218dfc87b68344bbd66f40da01546d2f6fc1cf884267821e8a77e3e8410a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Data & Storage",
+    "Miscellaneous",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Google Docs",
+      "type": "n8n-nodes-base.googleDocs",
+      "categories": [
+        "Miscellaneous"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "LangChain Code",
+      "type": "@n8n/n8n-nodes-langchain.code",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Miscellaneous"
+        ]
+      }
+    },
+    {
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Token Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterTokenSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    },
+    {
+      "name": "Qdrant Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreQdrant",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Information Extractor",
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 13,
+  "createdAt": "2025-02-23T01:59:29.690Z",
+  "path": "official/template_2982/workflow.json"
+}

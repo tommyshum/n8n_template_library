@@ -1,0 +1,78 @@
+{
+  "id": 2794,
+  "name": "Workflow Results to Markdown Notes in Your Obsidian Vault, via Google Drive",
+  "description": "This workflow converts any n8n workflow outputs into Markdown notes that are accessible in your Obsidian Vault through Google Drive synchronization.\n\nSetup Requirements\nCreate a designated folder in Google Drive (Desktop).\nCreate a symbolic link between this folder and a new target folder in your Obsidian Vault.\nConfigure Google Drive n8n node settings.\nSend the output of any workflow to the trigger, and the notes will appear in your Vault folder.\n\t\nOptional Features\nYou can use AI agents to:\nWrite notes in your preferred format (e.g., Zettelkasten).\nCompose YAML front matter.\nSuggest tags.\n\nUse Cases\nConvert RSS feed items to notes.\nCreate notes from YouTube video transcripts.\nTransform tasks in Slack messages into Obsidian tasks.\n(Requires setting up a corresponding workflow, e.g., RSS trigger, YouTube transcriber, or Slack bot.)\n",
+  "totalViews": 2331,
+  "source": "official",
+  "user": {
+    "id": 92215,
+    "name": "Obsidi8n",
+    "username": "derruttie",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/984ed54b1cb51c4034af653825fba87431a040243b4c9bee03360cc19f5edcff?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-01-24T21:00:40.332Z",
+  "path": "official/template_2794/workflow.json"
+}

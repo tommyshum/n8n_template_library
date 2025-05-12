@@ -1,0 +1,119 @@
+{
+  "id": 3085,
+  "name": "Automate SEO-Optimized WordPress Posts with AI & Google Sheets",
+  "description": "This workflow automates the process of creating a complete SEO-optimized blog post, including generating content, titles, images, and meta tags, and publishing it on WordPress. It leverages AI models (like DeepSeek and OpenRouter) for content generation and SEO optimization, and integrates with Google Sheets, WordPress, and OpenAI for image generation. \n\nThis is a powerful tool for automating the creation and optimization of blog posts, saving time and ensuring high-quality, SEO-friendly content. It integrates multiple tools and AI models to deliver a seamless content creation experience.\n\nBelow is a breakdown of the workflow:\n\n1. How It Works\nThe workflow is designed to streamline the creation of SEO-friendly blog posts. Here's how it works:\n\nTrigger: The workflow starts with a Manual Trigger node, which initiates the process when the user clicks \"Test workflow.\"\nFetch Context: The Google Sheets node retrieves the blog post context (e.g., topic, keywords) from a predefined Google Sheet.\nGenerate Content:\n   The Generate Article node uses an AI model (DeepSeek) to create an SEO-friendly blog post based on the fetched context.\n   The Generate Title node creates a compelling, keyword-rich title for the blog post.\nPublish to WordPress:\n   The Add Draft to WP node creates a draft post in WordPress with the generated content and title.\nGenerate and Upload Image:\n   The Generate Image node uses OpenAI to create a realistic, blog-appropriate image.\n   The Upload Image node uploads the image to WordPress media.\n   The Set Image node associates the uploaded image as the featured image for the blog post.\nSEO Optimization:\n   The SEO Expert node analyzes the blog post and generates optimized meta titles and descriptions using an AI model (OpenRouter).\n   The Set Metatag node updates the WordPress post with the generated meta tags.\nUpdate Google Sheets:\n   The Update Sheet and Finish Work nodes update the Google Sheet with the post's details, including the URL, title, and metadata.\n\n2. Set Up Steps\nTo set up and use this workflow in n8n, follow these steps:\n\nGoogle Sheets Setup:\n   Create a Google Sheet with columns for ID POST, PROMPT, TITLE, URL, METATITLE, and METADESCRIPTION.\n   Link the Google Sheet to the Get Context node by providing the Document ID and Sheet Name.\n\nWordPress Integration:\n   Set up WordPress credentials in n8n for the Add Draft to WP, Upload Image, and Set Image nodes.\n   Ensure the WordPress site is accessible via its REST API.\n\nAI Model Configuration:\n   Configure the DeepSeek and OpenRouter credentials in n8n for the Generate Article, Generate Title, and SEO Expert nodes.\n   Ensure the AI models are correctly set up to generate content and meta tags.\n\nImage Generation:\n   Set up OpenAI credentials for the Generate Image node to create blog post images.\n\nMeta Tag Optimization:\n   The SEO Expert node uses OpenRouter to generate meta titles and descriptions. Ensure the node is configured to analyze the blog post content and produce SEO-friendly tags.\n\nWorkflow Execution:\n   Click the \"Test workflow\" button to trigger the workflow.\n   The workflow will:\n     Fetch the blog post context from Google Sheets.\n     Generate the article, title, and image.\n     Publish the draft to WordPress.\n     Upload and set the featured image.\n     Generate and apply meta tags.\n     Update the Google Sheet with the post details.\n\nOptional Customization:\n   Modify the workflow to include additional SEO optimizations, such as internal linking, keyword density analysis, or social media sharing.\n\nNeed help customizing?  \nContact me for consulting and support or add me on Linkedin. ",
+  "totalViews": 27304,
+  "source": "official",
+  "user": {
+    "id": 92207,
+    "name": "Davide",
+    "username": "n3witalia",
+    "bio": "Full-stack Web Developer based in Italy specialising in Marketing & AI-powered automations. For business enquiries, send me an email at info@n3w.it or add me on Linkedin.com/in/davideboizza",
+    "verified": true,
+    "links": "[\"https://n3w.it\"]",
+    "avatar": "https://gravatar.com/avatar/d41b8a0aa81139243509c58870f5b4be292824a507ab57d10ed066d8628ed8da?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Marketing",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Wordpress",
+      "type": "n8n-nodes-base.wordpress",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenRouter Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-03-05T10:24:42.805Z",
+  "path": "official/template_3085/workflow.json"
+}

@@ -1,0 +1,64 @@
+{
+  "id": 2694,
+  "name": "SSL Expiry Alert with SSL-Checker.io",
+  "description": "\nUse Case\n\nManaging SSL certificates manually can be time-consuming and error-prone, often leading to unexpected downtime or security risks due to expired certificates.\n\nWhat This Workflow Does\n\nThis workflow automatically monitors SSL certificates for a list of websites, checks their expiry status using SSL-Checker.io, and sends timely notifications if a certificate is about to expire.\n\nSetup\nAdd your credentials for Google Sheets, Gmail, and SSL-Checker.io.\n\nCreate a Google Sheet with a list of URLs for the websites you want to monitor.\n\nConfigure the workflow to check the SSL status weekly.\n\nSet up email notifications to alert you when a certificate is close to expiry.\n\nActivate the workflow to automate monitoring and notification.\n\nHow to Adjust It to Your Needs\n\nCustomize the URL Source: Replace Google Sheets with another data source like Airtable or CSV files.\nModify Notification Thresholds: Change the expiry threshold (e.g., notify for 14 days instead of 7).\nAdd Additional Actions: Integrate with tools like Slack or Teams for team-wide notifications.\nAutomate Renewal Requests: Add a step to send renewal requests directly to your SSL provider if a certificate is nearing expiry.",
+  "totalViews": 11065,
+  "source": "official",
+  "user": {
+    "id": 92355,
+    "name": "Vishal Kumar",
+    "username": "vishalquantana",
+    "bio": "",
+    "verified": false,
+    "links": "[\"https://quantana.com.au/ai/\"]",
+    "avatar": "https://gravatar.com/avatar/19e625b50be6c5e0f734a6e837828341ade4fa64ca3d52321ed95ead0bf4c270?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-01-03T12:28:32.839Z",
+  "path": "official/template_2694/workflow.json"
+}

@@ -1,0 +1,53 @@
+{
+  "id": 1605,
+  "name": "Extend n8n with additional tools",
+  "description": "This workflow extends n8n and uses R language graphic capabilities. This is a Telegram bot which fetches weather data via the openweathermap.org API, plots an image using ggoplot2 package from R and sends the image to the Telegram user.\n\n",
+  "totalViews": 4187,
+  "source": "official",
+  "user": {
+    "id": 21242,
+    "name": "Eduard",
+    "username": "eduard",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/parsadanyan/\"]",
+    "avatar": "https://gravatar.com/avatar/a551e67c6fe7affd5f882a527dee154bb6c3ac90cf878326accb3fb3ec77c8a6?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2022-04-22T13:17:44.154Z",
+  "path": "official/template_1605/workflow.json"
+}

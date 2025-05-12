@@ -1,0 +1,109 @@
+{
+  "id": 3901,
+  "name": "Amazon Product Search Scraper with BrightData, GPT-4, and Google Sheets",
+  "description": "This workflow automates web scraping of Amazon search result pages by retrieving raw HTML, cleaning it to retain only the relevant product elements, and then using an LLM to extract structured product data (name, description, rating, reviews, and price), before saving the results back to Google Sheets.\n\nIt integrates Google Sheets to supply and collect URLs, BrightData to fetch page HTML, a custom n8n Function node to sanitize the HTML, LangChain (OpenRouter GPT-4) to parse product details, and Google Sheets again to store the output.\n\n\nURL to scape\n\n.\n\n\nResult\n\nWho Needs Amazon Search Result Scraping?\n\nThis scraping workflow is ideal for teams and businesses that need to monitor Amazon product listings at scale:\n\nE-commerce Analysts** – Track competitor pricing, ratings, and inventory trends.  \nMarket Researchers** – Collect data on product popularity and reviews for market analysis.  \nData Teams** – Automate ingestion of product metadata into BI pipelines or data lakes.  \nAffiliate Marketers** – Keep affiliate catalogs up to date with latest product details and prices.\n\nIf you need reliable, structured data from Amazon search results delivered directly into your spreadsheets, this workflow saves you hours of manual copy-and-paste.\n\nWhy Use This Workflow?\n\nEnd-to-End Automation** – From URL list to clean JSON output in Sheets.  \nRobust HTML Cleaning** – Strips scripts, styles, unwanted tags, and noise.  \nAccurate Structured Parsing** – Leverages GPT-4 via LangChain for reliable extraction.  \nScalable & Repeatable** – Processes thousands of URLs in batches.\n\nStep-by-Step: How This Workflow Scrapes Amazon\n\nGet URLs from Google Sheets – Reads a list of search result URLs.  \nLoop Over Items – Iterates through each URL in controlled batches.  \nFetch Raw HTML – Uses BrightData’s Web Unlocker proxy to retrieve the page.  \nClean HTML – A Function node removes doctype, scripts, styles, head, comments, classes, and non-whitelisted tags, collapsing extra whitespace.  \nExtract with LLM – Passes cleaned HTML into LangChain → GPT-4 to output JSON for each product:  \n   name, description, rating, reviews, price  \nSave Results – Appends the JSON fields as columns back into a “results” sheet in Google Sheets.\n\nCustomization: Tailor to Your Needs\n\nAdaptable Sites** – This workflow can be adapted to any e-commerce or other website, for example Walmart or eBay. \nWhitelist Tags** – Modify the allowedTags array in the Code node to keep additional HTML elements.  \nSchema Changes** – Update the Structured Output Parser schema to include more fields (e.g., availability, SKU).  \nAlternate Data Sink** – Instead of Sheets, route output to a database, CSV file, or webhook.\n\n🔑 Prerequisites\n\nGoogle Sheets Credentials** – OAuth credentials configured in n8n.  \nBrightData API token** – Stored in n8n credentials as BRIGHTDATA_TOKEN.  \nOpenRouter API Key** – Configured for the LangChain node to call GPT-4.  \nn8n Instance** – Self-hosted or cloud with sufficient quota for HTTP requests and LLM calls.\n\n🚀 Installation & Setup\n\nConfigure Credentials**  \n  In n8n, set up Google Sheets OAuth under “Credentials.”  \n  Add BrightData token as a new HTTP Request credential.  \n  Create an OpenRouter API key credential for the LangChain node.  \nImport the Workflow**  \n  Copy the JSON workflow into n8n’s “Import” dialog.  \n  Map your Google Sheet IDs and GIDs to the {{WEB_SHEET_ID}}, {{TRACK_SHEET_GID}}, and {{RESULTS_SHEET_GID}} placeholders.  \n  Ensure the BRIGHTDATA_TOKEN credential is selected on the HTTP Request node.  \nTest & Run**  \n  Add a few Amazon search URLs to your “track” sheet.  \n  Execute the workflow and verify product data appears in your “results” sheet.  \n  Tweak batch size or parser schema as needed.\n\n⚠ Important\n\nAPI Rate Limits** – Monitor your BrightData and OpenRouter usage to avoid throttling.  \nAmazon’s Terms** – Ensure your scraping complies with Amazon’s policies and legal requirements.\n\nSummary\n\nThis workflow delivers a fully automated, scalable solution to extract structured product data from Amazon search pages directly into Google Sheets—streamlining your competitive analysis and data collection. 🚀\n\nPhil | Inforeole ",
+  "totalViews": 2998,
+  "source": "official",
+  "user": {
+    "id": 92304,
+    "name": "phil",
+    "username": "phil",
+    "bio": "Accélérateur de Chiffre d'Affaires : Automatisez votre entreprise pour la rendre plus visible sur Google, pour trouver de nouveaux Clients, pour gagner du temps",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/philippe-eveilleau-inforeole/\"]",
+    "avatar": "https://gravatar.com/avatar/e3fa7358cdb3b5be9c63e79d3d76a9a3f31efed6ea3611ec7bc18c0f34464d16?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "OpenRouter Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-05-06T14:51:48.388Z",
+  "path": "official/template_3901/workflow.json"
+}

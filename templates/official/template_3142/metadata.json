@@ -1,0 +1,68 @@
+{
+  "id": 3142,
+  "name": "MFA Multi-factor authentication (Voice call and Email) with ClickSend and SMTP",
+  "description": "This workflow automates the process of sending voice calls for verification purposes and combines it with email verification. It uses the ClickSend API for voice calls and integrates with SMTP for email verification. \n\nThis workflow is a powerful tool for automating phone and email verification, ensuring a seamless and secure user verification process.\n\nBelow is a breakdown of the workflow:\n\n1. How It Works\nThe workflow is designed to verify a user's phone number and email address through a combination of voice calls and email verification. Here's how it works:\n\nForm Submission:\n   The workflow starts with a Form Trigger node, where users submit a form with the following fields:\n     To: The recipient's phone number (including the international prefix, e.g., +1xxxx).\n     Voice: The voice type (male or female).\n     Lang: The language for the voice call (e.g., en-us, it-it, fr-fr, etc.).\n     Email: The recipient's email address.\n     Name: The recipient's name.\n\nSet Voice Code:\n   The Set Voice Code node defines the verification code that will be spoken during the voice call.\n\nFormat Code for Voice:\n   The Code for Voice node formats the verification code by adding spaces between characters for better clarity during the voice call.\n\nSend Voice Call:\n   The call includes the verification code, which is read aloud to the recipient.\n\nVerify Voice Code:\n   The Verify Voice Code node prompts the user to enter the code they received via the voice call.\n   The Is Voice Code Correct? node checks if the entered code matches the predefined code.\n     If correct, the workflow proceeds to email verification.\n     If incorrect, the user is notified of the failure.\n\nSet Email Code:\n   The Set Email Code node defines the verification code that will be sent via email.\n\nSend Email:\n   The Send Email node sends an email to the recipient with the verification code using SMTP.\n\nVerify Email Code:\n   The Verify Email Code node prompts the user to enter the code they received via email.\n   The Is Email Code Correct? node checks if the entered code matches the predefined code.\n     If correct, the user is notified of successful verification.\n     If incorrect, the user is notified of the failure.\n\n2. Set Up Steps\nTo set up and use this workflow in n8n, follow these steps:\n\nClickSend API Key:\n   Create an account on ClickSend and obtain your API Key.\n   In the Send Voice node, set up HTTP Basic Authentication:\n     Username: Use the username you registered with on ClickSend.\n     Password: Use the API Key provided by ClickSend.\n\nSMTP Configuration:\n   Set up SMTP credentials in n8n for the Send Email node.\n   Ensure the SMTP server is configured to send emails from the specified email address.\n\nForm Configuration:\n   The Form Trigger node is pre-configured with fields for:\n     To: The recipient's phone number.\n     Voice: Choose between male or female voice.\n     Lang: Select the language for the voice call.\n     Email: The recipient's email address.\n     Name: The recipient's name.\n   Customize the form fields if needed.\n\nSet Verification Codes:\n   In the Set Voice Code node, define the verification code that will be spoken during the voice call.\n   In the Set Email Code node, define the verification code that will be sent via email.\n\nTest the Workflow:\n   Submit the form with the required details (phone number, voice, language, email, and name).\n   The workflow will:\n     Send a voice call with the verification code.\n     Prompt the user to verify the code.\n     Send an email with the verification code.\n     Prompt the user to verify the email code.\n     Notify the user of success or failure.\n\nNeed help customizing?  \nContact me for consulting and support or add me on Linkedin. ",
+  "totalViews": 1642,
+  "source": "official",
+  "user": {
+    "id": 92207,
+    "name": "Davide",
+    "username": "n3witalia",
+    "bio": "Full-stack Web Developer based in Italy specialising in Marketing & AI-powered automations. For business enquiries, send me an email at info@n3w.it or add me on Linkedin.com/in/davideboizza",
+    "verified": true,
+    "links": "[\"https://n3w.it\"]",
+    "avatar": "https://gravatar.com/avatar/d41b8a0aa81139243509c58870f5b4be292824a507ab57d10ed066d8628ed8da?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Core Nodes",
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "categories": [
+        "Communication",
+        "HITL",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-03-12T09:05:27.256Z",
+  "path": "official/template_3142/workflow.json"
+}

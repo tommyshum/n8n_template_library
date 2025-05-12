@@ -1,0 +1,85 @@
+{
+  "id": 2098,
+  "name": "Chat with OpenAI Assistant (by adding a memory)",
+  "description": "OpenAI Assistant is a powerful tool, but at the time of writing it doesn't automatically remember past messages from a conversation.\n\nThis workflow demonstrates how to get around this, by managing the chat history in n8n and passing it to the assistant when required.\n\nThis makes it possible to use OpenAI Assistant for chatbot use cases.\n\nNote that to use this template, you need to be on n8n version 1.28.0 or later.\n\n",
+  "totalViews": 55242,
+  "source": "official",
+  "user": {
+    "id": 14122,
+    "name": "David Roberts",
+    "username": "davidn8n",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/4cda9c7c1c24fdb61896cac588296d1dad03655a439ab71ef34f4c62c0ba8524?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Calculator",
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Assistant",
+      "type": "@n8n/n8n-nodes-langchain.openAiAssistant",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Chat Memory Manager",
+      "type": "@n8n/n8n-nodes-langchain.memoryManager",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2024-02-15T16:59:58.619Z",
+  "path": "official/template_2098/workflow.json"
+}

@@ -1,0 +1,124 @@
+{
+  "id": 3885,
+  "name": "Automate URL Shortening with Bitly Using Llama3 Chat Interface",
+  "totalViews": 24,
+  "price": 1,
+  "purchaseUrl": "https://www.paypal.me/GhufranRidhawi",
+  "user": {
+    "id": 94055,
+    "name": "Ghufran Ridhawi",
+    "username": "ghufran-ridhawi",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://gravatar.com/sensationallyspeedy958873e61f\"]",
+    "avatar": "https://gravatar.com/avatar/4f7ed8a9d39b56838c4446c3dce354853d12e0e8e19f63d27d7f7f50d89a2413?r=pg&d=retro&size=200"
+  },
+  "description": "Who is this for?\nThis workflow is intended for online users who want and need workflow automation that minimizes link creation time and shortens links. This has an impact on the speed of work time and energy. In reality, links created one by one and are very long are very time consuming and impractical, especially if we have to compile them first and send them. This is also a form of service to the community at n8n and the n8n company, and so that reality is no longer tiring and is able to answer existing reality problems. It can also be used to learn how automatic link building works.\n\nHow it works?\nEasy explanation:\n\n1) Firstly, open chat is intended to trigger commands that are sent to the AI ​​model and Bitly Tools, you can do any command and just include the link. Later here we will also create a link.\n2) The two, AI Agents will send AI models to work according to input commands and produce output via open chat.\n3) Third, the Bitly tool that is set up to create links will do its job. Because it is tied to the AI ​​Agent and AI model.\n4) Finally, you can immediately see and open the link that has been created.\n\nThis is very simple and very simple. Makes it easy for everyone.\n\nSet up instructions\nComplete what is in the nodes as stated in the notes column.\n\n1) First, you download Ollama, using the guide that has been provided. Then after you run the model, you can create and connect a \"Credential Account\".\n2) Second, you need an open chat trigger node or you can use other triggers too.\n\n3) Third, the AI ​​Agent selects the Ollama model, and the Bitly tools that have been prepared are set up here.\n\n4) Fourth, just run it and it works.\n\nThis is very simple and very practical.\n\nRequirements\nAs a reminder:\n\nIt should be set in each node, like what your goal is, also according to the conditions of your goal.\nThere must be (if not, make sure it is registered) in each \"Account Credential\" by following the guide on how to do it n8n the guide is very complete\nDon't forget to save, and make sure the workflow is active.\n\nHow to customize this workflow to your needs\nYou can immediately add other nodes or other triggers to be able to send this link, such as email and so on, which will provide knowledge for your needs in additional nodes, so that accuracy is also high when carrying out tasks, task goals and responsibilities.\n\nCongratulations on this automation and Thank you to n8n and the n8n community",
+  "createdAt": "2025-05-06T06:21:57.919Z",
+  "nodes": [
+    {
+      "id": 1119,
+      "icon": "fa:robot",
+      "name": "@n8n/n8n-nodes-langchain.agent",
+      "codex": {
+        "data": {
+          "alias": [
+            "LangChain",
+            "Chat",
+            "Conversational",
+            "Plan and Execute",
+            "ReAct",
+            "Tools"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Agents",
+              "Root Nodes"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "AI Agent",
+        "color": "#404040"
+      },
+      "iconData": {
+        "icon": "robot",
+        "type": "icon"
+      },
+      "displayName": "AI Agent",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1151,
+      "icon": "file:ollama.svg",
+      "name": "@n8n/n8n-nodes-langchain.lmChatOllama",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatollama/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Language Models",
+              "Root Nodes"
+            ],
+            "Language Models": [
+              "Chat Models (Recommended)"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Ollama Chat Model"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNDEuMzMzIiBoZWlnaHQ9IjM0MS4zMzMiIHZlcnNpb249IjEuMCIgdmlld0JveD0iMCAwIDE4MSAyNTYiPjxnIGZpbGw9IiM3RDdEODciPjxwYXRoIGQ9Ik0zNy43IDE5LjVjLTUuMiAxLjgtOC4zIDQuOS0xMS43IDExLjYtNC41IDguOS02LjIgMTkuMi01LjggMzUuNWwuMyAxNC4yLTUuOCA2LjFjLTE0LjggMTUuNS0xOC41IDM4LjctOS4yIDU3LjRsMy40IDYuOS0yIDQuNGMtMy40IDguMi01IDE2LjQtNSAyNi4zIDAgMTAuOCAxLjggMTkgNS44IDI2LjJsMi42IDQuOC0yLjEgNC45Yy0xLjIgMi43LTIuNiA3LjEtMy4yIDkuOC0xLjQgNi4yLTEuNSAyMi4xLS4xIDI1LjcgMSAyLjYgMS40IDIuNyA3LjYgMi43IDcuMyAwIDcgLjQgNS4zLTguNi0xLjUtOC4yLjItMTguOCA0LjItMjYuNiAzLjctNyAzLjgtMTAuNC41LTE0LjgtNC43LTYuNC02LjgtMTMuNi02LjktMjQtLjEtMTAuMyAxLjQtMTYgNi42LTI2LjEgMy4xLTYuMSAyLjktOC43LTEtMTIuMi0xLjEtMS0zLjEtNC4yLTQuMy03LTEuOS00LjItMi40LTYuOS0yLjMtMTQuMiAwLTExLjQgMi41LTE4LjMgOS41LTI2IDctNy42IDE0LjItMTEgMjMuOS0xMS4yIDQuMSAwIDcuOC0uMiA4LjItLjIuNC0uMSAxLjctMi4yIDIuOS00LjcgMy01LjkgOS42LTExLjkgMTYuNy0xNS4yIDQuOS0yLjMgNy0yLjcgMTQuNy0yLjcgNy45IDAgOS43LjQgMTQuOSAyLjkgNi44IDMuMyAxMy4zIDkuNCAxNS45IDE0LjggMSAyIDIuMyA0LjEgMyA0LjUuNi40IDQuNi44IDguNy44IDYuNy4xIDguMy41IDE0IDMuNiAxMi4zIDYuOCAxOS4zIDE4LjcgMTkuMyAzMy40LjEgNi43LS40IDktMi43IDE0LjItMS42IDMuNS0zLjUgNi44LTQuMyA3LjUtMy40IDIuOC0zLjUgNS44LS41IDExLjcgNS4yIDEwLjEgNi43IDE1LjggNi42IDI2LjEtLjEgMTAuNC0yLjIgMTcuNi02LjkgMjQtMy4zIDQuNC0zLjIgNy44LjUgMTQuOCA0IDcuOCA1LjcgMTguNCA0LjIgMjYuNi0xLjcgOS0yIDguNiA1LjMgOC42IDYuMiAwIDYuNi0uMSA3LjYtMi43IDEuNC0zLjYgMS4zLTE5LjUtLjEtMjUuNy0uNi0yLjctMi03LjEtMy4yLTkuOGwtMi4xLTQuOSAyLjYtNC44YzcuNi0xMy45IDcuOS0zNS45LjYtNTIuOGwtMi00LjcgMi41LTQuNmM5LjktMTguMyA2LjQtNDMuOS04LjEtNTkuMWwtNS44LTYuMS4zLTE0LjJjLjQtMTYuNC0xLjMtMjYuNi01LjgtMzUuNy02LjQtMTIuNi0xNy4yLTE1LjktMjYuMy03LjktNS40IDQuNy05LjIgMTMuOC0xMi4zIDI5LjgtLjMgMS40LTEgMi4yLTEuNyAxLjgtMTguMi04LTI5LjctOC41LTQ0LjMtMi4xTDY1IDU0LjlsLS40LTIuMkM2MSAzNC4yIDU2LjEgMjQuMiA0OSAyMC41Yy00LjMtMi4xLTcuNC0yLjQtMTEuMy0xbTcuNyAxNi44YzQuMiA3LjEgOC4xIDMwLjEgNS43IDMzLjYtLjUuOC0zLjEgMS42LTUuOCAxLjgtMi42LjItNi4yLjgtOCAxLjNsLTMuMS44LS43LTQuOWMtLjgtNS45LjItMTcuMiAyLjItMjQuOEMzNy4xIDM4LjQgNDAuNSAzMiA0MiAzMmMuNSAwIDIgMS45IDMuNCA0LjNtOTYuNS0xYzQgNi41IDYuOSAyMy45IDUuNiAzMy42bC0uNyA0LjktMy4xLS44Yy0xLjgtLjUtNS40LTEuMS04LTEuMy0yLjctLjItNS4zLTEtNS44LTEuOC0xLjItMS43LS4zLTE0LjEgMS43LTIyLjkgMS41LTYuNCA1LjctMTUgNy40LTE1IC40IDAgMS44IDEuNSAyLjkgMy4zIi8+PHBhdGggZD0iTTc3LjggMTE5LjljLTcuMyAyLjQtMTEuNiA1LjEtMTYuNSAxMC40LTUuNSA2LTcuNiAxMi03LjEgMjAuMS41IDcuNiAzLjUgMTIuOSAxMC42IDE4LjMgNi4yIDQuNyAxMi43IDYuMyAyNS43IDYuMyAxNy4yIDAgMjUuOC0zLjYgMzIuOS0xMy44IDQuMi01LjkgNC44LTE1LjUgMS42LTIzLTIuOS02LjgtMTEuMS0xNC4zLTE4LjgtMTcuMy04LTMuMS0yMC43LTMuNi0yOC40LTFtMjUuNyAxMGMxNi4xIDcuMSAxOS40IDIzLjIgNi42IDMxLjgtNC45IDMuMy05LjQgNC4zLTE5LjYgNC4zcy0xNC43LTEtMTkuNi00LjNjLTE3LjgtMTItMy4yLTM1LjYgMjEuMS0zNC4zIDMuOS4yIDguNiAxLjIgMTEuNSAyLjUiLz48cGF0aCBkPSJNODMuOCAxNDAuMWMtMi41IDEuNC0yLjIgNC40LjcgNi43IDIgMS42IDIuNCAyLjYgMS45IDQuOS0uNyAzLjYgMS41IDUuOCA1LjEgNC45IDIuMS0uNSAyLjUtMS4yIDIuNS00LjYgMC0yLjkuNS00LjIgMi01IDIuNy0xLjUgMi43LTYuNiAwLTcuNS0xLS4zLTIuOC0uMS00IC41LTEuNC43LTIuNi44LTMuOSAwLTIuMy0xLjItMi4yLTEuMi00LjMuMW0tNDQuMS0xOC45Yy0uOS43LTIuMyAzLTMuMiA1LTIuMSA1LjMtLjEgMTAuMyA0LjcgMTEuNiA0LjMgMS4xIDYgLjYgOS4yLTIuNyA0LTQuMSA0LjMtOC4xIDEuMS0xMS45LTIuMS0yLjUtMy40LTMuMi02LjQtMy4yLTIgMC00LjUuNi01LjQgMS4ybTg5LjggMmMtMy4yIDMuOC0yLjkgNy44IDEuMSAxMS45IDMuMiAzLjMgNC45IDMuOCA5LjIgMi43IDQuOS0xLjMgNi44LTYuMiA0LjYtMTEuOC0xLjktNC43LTMuOC02LTguNy02LTIuNyAwLTQuMS43LTYuMiAzLjIiLz48L2c+PC9zdmc+"
+      },
+      "displayName": "Ollama Chat Model",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    }
+  ]
+}

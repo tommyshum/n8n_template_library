@@ -1,0 +1,21 @@
+{
+  "id": 3547,
+  "name": "Convert Text to Speech with Local KOKORO TTS",
+  "description": "Disclaimer\nThe Execute Command node is only supported on self-hosted (local) instances of n8n.\n\nIntroduction\n\n\nKOKORO TTS - Kokoro TTS is a compact yet powerful text-to-speech model, currently available on Hugging Face and GitHub. Despite its modest size—trained on less than 100 hours of audio—it delivers impressive results, consistently topping the TTS leaderboard on Hugging Face. Unlike larger systems, Kokoro TTS offers the advantage of running locally, even on devices without GPUs, making it accessible for a wide range of users.\n\nWho will benefit from this integration?\n\nThis will be useful for video bloggers, TikTokers, and it will also enable the creation of a free voice chat bot. Currently, TTS models are mostly paid, but this integration will allow for fully free voice generation. The possibilities are limited only by your imagination.\n\nNote\nUnfortunately, we can't interact with the KOKORO API via browser URL (GET/POST), \nbut we can run a Python script through n8n and pass any variables to it.\n\nIn the tutorial, the D drive is used, but you can rewrite this for any paths, including the C drive.\n\nStep 1 \n\nYou need to have Python installed. link\nAlso, download and extract the portable version of KOKORO from GitHub.\n\nCreate a file named voicegen.py with the following code in the KOKORO folder: (C:\\KOKORO). As you can see, the output path is: (D:\\output.mp3).\n\nimport sys\nimport shutil\nfrom gradio_client import Client\n\nSet UTF-8 encoding for stdout\nsys.stdout.reconfigure(encoding='utf-8')\n\nGet arguments from command line\ntext = sys.argv[1] # First argument: input text\nvoice = sys.argv[2] # Second argument: voice\nspeed = float(sys.argv[3]) # Third argument: speed (converted to float)\n\nprint(f\"Received text: {text}\")\nprint(f\"Voice: {voice}\")\nprint(f\"Speed: {speed}\")\n\nConnect to local Gradio server\nclient = Client(\"http://localhost:7860/\")\n\nGenerate speech using the API\nresult = client.predict(\ntext=text,\nvoice=voice,\nspeed=speed,\napi_name=\"/generate_speech\"\n)\n\nDefine output path\noutput_path = r\"D:\\output.mp3\"\n\nMove the generated file\nshutil.move(result[1], output_path)\n\nPrint output path\nprint(output_path)\n\nStep 2\nGo to n8n and create the following workflow.\n\nStep 3\nEdit Field Module.\n{\n  \"voice\": \"af_sarah\",\n  \"text\": \"Hello world!\"\n}\nStep 4 \nWe’ll need an Execute Command module with the command: python \nC:\\KOKORO\\voicegen.py “{{ $json.text }}” “{{ $json.voice }}” 1\n\nStep 5 \nThe script is already working, but to listen to it, you can connect a Binary module with the path to the generated MP3 file \nD:/output.mp3\n\nStep 6\nClick “Text workflow” and enjoy the result.\n\nThere are more voices and accents than in ChatGPT, plus it’s free.\n\nP.S.\nIf you want, there is a detailed tutorial on my blog.\n\n",
+  "totalViews": 1094,
+  "source": "official",
+  "user": {
+    "id": 93793,
+    "name": "bswlife",
+    "username": "bswlife",
+    "bio": "Looking for website design, WordPress,\nor 3D with animation? \n\nI’d be happy to help!",
+    "verified": false,
+    "links": "[\"https://bswlife.site/\"]",
+    "avatar": "https://gravatar.com/avatar/d8918362e768229a8bd3f1c71fbf0f3d403fa2fad19c784ceae9be565b62acf7?r=pg&d=retro&size=200"
+  },
+  "categories": [],
+  "nodes": [],
+  "nodeCount": 0,
+  "createdAt": "2025-04-14T11:43:43.518Z",
+  "path": "official/template_3547/workflow.json"
+}

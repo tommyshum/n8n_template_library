@@ -1,0 +1,62 @@
+{
+  "id": 3388,
+  "name": "Transcribe audio files with Google Gemini and Telegram",
+  "description": "Transcribe audio messages from Telegram using Google Gemini for free.\n\nSend an audio file to your Telegram bot and get a full transcription using Gemini’s free model.\n\nWho is this template for?\n\nAnyone who needs quick and accurate transcriptions of audio messages.\n\nPerfect for:\n\nCreators and podcasters\nCoaches or educators\nPeople who receive a lot of audio on Telegram\n\nYou can also adapt this workflow to transcribe audio from other sources, like WhatsApp, Google Drive, or direct uploads.\n\nHow it works\n\nYou send an audio file to your Telegram bot\nn8n downloads the file and converts it to text using Google Gemini\nThe transcript is sent back to you on Telegram\n\nHow to set up\n\nYou’ll just need:\n\nA Telegram bot token\nA Google Gemini API key (free tier supported)\n\nThe rest works out by itself.\n\nCheck out my other templates\n\n👉 https://n8n.io/creators/solomon/",
+  "totalViews": 1423,
+  "source": "official",
+  "user": {
+    "id": 91663,
+    "name": "Solomon",
+    "username": "solomon",
+    "bio": "Freelance consultant from Brazil, specializing in automations and data analysis. I work with select clients, addressing their toughest projects.\n\nFor business inquiries, email me at automations.solomon@gmail.com or message me on Telegram for a faster response.",
+    "verified": true,
+    "links": "[\"https://t.me/salomaoguilherme\"]",
+    "avatar": "https://gravatar.com/avatar/79aa147f090807fe0f618fb47a1de932669e385bb0c84bf3a7f891ae7d174256?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-03-31T17:32:21.750Z",
+  "path": "official/template_3388/workflow.json"
+}

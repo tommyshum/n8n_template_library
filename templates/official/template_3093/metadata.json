@@ -1,0 +1,112 @@
+{
+  "id": 3093,
+  "name": "Extract Pay Slip Data with Line Chatbot and Gemini to Google Sheets",
+  "description": "Workflow Overview:\nExtract text from image using AI is worth because you need no code. It incorporates Google Gemini 2.0 Flash model for important text extraction from image. If you code without AI, you have to use multiple condition and may cause a lot of bug but with Google Gemini, you don't need any coding and if the Pay Slip is different, Gemini will extract it automatically.\nWorkflow description:\nUser uses Line Messaging API to send Pay Slip image or message to the chatbot, create Line Business ID from here: Line Business\nClassify the message which is image or text\nIf the message is Pay Slip image, it will process using Gemini 2.0 Flash EXP and extract important information and response in JSON format without coding by using the following prompt: Analyze image and then return in JSON Response that has the only following value: Status, From, To, Date, Amount\n\nTo get Google AI Studio API Key, you can find from the following link: Google AI Studio API Key\nCreate Google Sheets which include the fileds (Status, From, To, Date, Amount) that we have created related to the AI prompt Google Sheets as the following example:\n\nIf the message is text, it will process using Gemini 2.0 Flash EXP model as the AI Assistant else if the message is image, it will extract the important fields then reply to the User and insert into Google Sheets\n\nKey Features:\nExtract text from image with No Code** Without N8N, we have to write code to extract text from image, but with N8N and Google Gemini 2.0 Flash EXP together, we don't need to code and it will process all slip vendors or other document vendors.\nMultipurpose Chatbot** this chatbot accept both text and image so we don't have to create many chatbot accounts\nReduce human error** this workflow let any officer to verify document status when the job ends\n\nNote: You can change the information by changing your prompt and also Google Sheets Column names relatively.",
+  "totalViews": 1969,
+  "source": "official",
+  "user": {
+    "id": 92863,
+    "name": "Sirisak Chantanate",
+    "username": "openmymai",
+    "bio": "Automation consultant with 1 year experience helping Sales & Marketing teams to streamline their processes. Use my link to book an initial consultation for custom n8n work.",
+    "verified": false,
+    "links": "[\"https://x.com/openmymai\"]",
+    "avatar": "https://gravatar.com/avatar/a7bc8ee0de5df47569a5ef7547c2532c9b2c2152ba8e5d3f45f8e26082259ca5?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-03-06T02:15:59.231Z",
+  "path": "official/template_3093/workflow.json"
+}

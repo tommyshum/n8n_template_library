@@ -1,0 +1,58 @@
+{
+  "id": 2164,
+  "name": "Summarize Google Sheets form feedback via OpenAI's GPT-4",
+  "description": "This n8n workflow was developed to collect and summarize feedback from an event that was collected via a Google Form and saved in a Google Sheets document. The workflow is triggered manually by clicking on the \"Test workflow\" button.\n\nThe Google Sheets node retrieves the responses from the feedback form. The Aggregate node then combines all responses for each question into arrays and prepares the data for analysis.\n\nThe OpenAI node processes the aggregated feedback data. System Prompt instructs the model to analyze the responses and generate a summary report that includes the overall sentiment regarding the event and constructive suggestions for improvement.\n\nThe Markdown node converts the summary report, which is in Markdown format, into HTML. Finally, the Gmail node sends an HTML-formatted email to the specified email address.",
+  "totalViews": 7126,
+  "source": "official",
+  "user": {
+    "id": 91386,
+    "name": "Yulia",
+    "username": "yulia",
+    "bio": "Let's connect! ",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/yulia-dmitrievna-1112361b5/\"]",
+    "avatar": "https://gravatar.com/avatar/d29a8262aa8835d430919f8002957a77169f8da987dee0740aa494ae67a061b7?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Communication",
+    "HITL",
+    "Utility"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "n8n-nodes-base.openAi",
+      "categories": [
+        "Utility"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-03-05T09:30:29.981Z",
+  "path": "official/template_2164/workflow.json"
+}

@@ -1,0 +1,48 @@
+{
+  "id": 1994,
+  "name": "Move a nextcloud folder file by file",
+  "description": "Description:\nThis template facilitates the transfer of a folder, along with all its files and subfolders, within a Nextcloud instance. The Nextcloud user must have access to both the source and destination folders. While Nextcloud allows folder movement, complications may arise when dealing with external storage that has rate limits. This workflow ensures the individual transfer of each file to avoid exceeding rate limits, particularly useful for setups involving external storage with rate limitations.\n\nHow it works:\n\nIdentify all files and subfolders within the specified source folder.\nRecursive search within subfolders for additional files.\nReplicate the folder structure in the target folder.\nIndividually move each identified file to the corresponding location in the target folder.\n\nSet up steps:\n\nSet Nextcloud credentials for all Nextcloud nodes involved in the process.\n-Edit the trigger settings. Detailed instructions can be found within the respective trigger configuration.\nInitiate the workflow to commence the folder transfer process.\n\nHelp\nIf you need assistance with applying this template, feel free to reach out to me. You can find additional information about me and my services here. =&gt; https://nicokowalczyk.de/links\n\nI have also produced a video where I explain the workflow and provide an example. You can find this video over here. https://youtu.be/K1kmG_Q_jRk\n\nCheers.\nNico Kowalczyk",
+  "totalViews": 2439,
+  "source": "official",
+  "user": {
+    "id": 91252,
+    "name": "Nico Kowalczyk",
+    "username": "nico-kow",
+    "bio": "",
+    "verified": false,
+    "links": "[\"https://nicokow.dev\"]",
+    "avatar": "https://gravatar.com/avatar/8ff849e5b4d4ef8a4eb6732c4f005e1fe14b98fefe14fd4860f7b675e0c35466?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Nextcloud",
+      "type": "n8n-nodes-base.nextCloud",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2023-11-27T13:16:04.414Z",
+  "path": "official/template_1994/workflow.json"
+}

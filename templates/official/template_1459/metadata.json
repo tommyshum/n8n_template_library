@@ -1,0 +1,47 @@
+{
+  "id": 1459,
+  "name": "Notify on Telegram and Twitter when new order is added in WooCommerce",
+  "description": "This workflow uses a WooCommerce trigger that will run a new product has been added, It will then post the product to Telegram and Twitter.\n\nTo use this workflow you will need to set the credentials to use for the WooCommerce, Twitter and Telegram nodes.",
+  "totalViews": 5865,
+  "source": "official",
+  "user": {
+    "id": 25789,
+    "name": "Jonathan",
+    "username": "jon-n8n",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/5240094f838126182ceefb50ca4a3cf75cc7dc0808efd4b9920d792e41bfc45e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Marketing"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "X (Formerly Twitter)",
+      "type": "n8n-nodes-base.twitter",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2022-02-17T15:02:14.961Z",
+  "path": "official/template_1459/workflow.json"
+}

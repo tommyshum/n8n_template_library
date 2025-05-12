@@ -1,0 +1,59 @@
+{
+  "id": 2062,
+  "name": "Posting from Wordpress to Medium",
+  "description": "Usage \nThis workflow gets all the posts from your WordPress site and sorts them into a clear format before publishing them to medium.\n\nStep 1. Set up the HTTP node and set the URL of the source destination. This will be the URL of the blog you want to use. We shall be using https://mailsafi.com/blog for this.\n\nStep 2. Extract the URLs of all the blogs on the page\nThis gets all the blog titles and their URLs. Its an easy way to sort ou which blogs to share and which not to share.\n\nStep 3. Split the entries for easy sorting or a cleaner view.\n\nStep 4. Set a new https node with all the blog URLs that we got from the previous steps. \n\nStep 5. Extract the contents of the blog\n\nStep 6. Add the medium node and then set the contents that you want to be shared out.\n\nExecute your workflow and you are good to go\n\n\n",
+  "totalViews": 2015,
+  "source": "official",
+  "user": {
+    "id": 91335,
+    "name": "Imperol",
+    "username": "imperolq",
+    "bio": "Automation expert with years of experience helping businesses improve their efficiency and productivity with smart automations that are affordable, scalable, and flexible. ",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/zacharia-kimotho/\"]",
+    "avatar": "https://gravatar.com/avatar/13b050fd63dc0c9242774c4b8769c4788df8b47268c1fb183d6f1da085b9e6e2?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Marketing"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Medium",
+      "type": "n8n-nodes-base.medium",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-01-23T17:53:22.296Z",
+  "path": "official/template_2062/workflow.json"
+}

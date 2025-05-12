@@ -1,0 +1,38 @@
+{
+  "id": 3688,
+  "name": "Generate Images with OpenAI new GPT-Image-1 Model via User-Friendly Form",
+  "description": "Welcome to my Simple OpenAI Image Generator Workflow!\n\nThis workflow creates an image with the new OpenAI image model \"GPT-Image-1\" based on a form input.\n\nThis workflow has the following sequence:\n\nForm trigger (image prompt and image size input)\nGenerate the Image via OpenAI API.\nReturn the image to the input form for download.\n\nThe following accesses are required for the workflow:\nOpenAI API access: Documentation\n\nInstructions\nLink your OpenAI Platform account in the “OpenAI Image Generation” node (\"Credential Type\")\n\nYou can contact me via LinkedIn, if you have any questions: https://www.linkedin.com/in/friedemann-schuetz",
+  "totalViews": 407,
+  "source": "official",
+  "user": {
+    "id": 92319,
+    "name": "Friedemann Schuetz",
+    "username": "freddy-schuetz",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/friedemann-schuetz\"]",
+    "avatar": "https://gravatar.com/avatar/eb8eb92141f57c72c5f5a9fb5e8c85dca42047f764de54ab5466999cbb691079?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-04-24T12:18:27.259Z",
+  "path": "official/template_3688/workflow.json"
+}

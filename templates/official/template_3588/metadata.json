@@ -1,0 +1,63 @@
+{
+  "id": 3588,
+  "name": "Track Daily Product Hunt Launches with Website Verification in Google Sheets",
+  "description": "This workflow helps you stay updated with daily launches on Product Hunt. It automatically fetches product details (name, tagline, description, and website), checks if the website redirects to another URL, and logs the final information into a Google Sheet.  \n\nPerfect for indie hackers, product managers, content curators, and anyone tracking daily launches.\n\nHow It Works  \n\nSchedule Trigger – Runs the workflow daily.\nSet Date – Captures today’s date in ISO format for filtering Product Hunt posts.\nHTTP Request (Product Hunt API) – Retrieves Product Hunt posts for the day using GraphQL.\nExtract Product Info (Code Node) – Parses the response to pull key details:  \n   Name  \n   Tagline  \n   Description  \n   Website URL  \nHTTP Request (URL Check) – Follows each website URL to detect if it redirects.\nMerge Data – Combines product info with the final destination URL.\nGoogle Sheets Node – Appends all processed product info to your sheet.\n\nPre-conditions  \n\nA valid Product Hunt API token\nA Google account with access to Google Sheets\nA Google Sheet already created with the correct columns (see below)\nConnected Google Sheets and HTTP credentials in n8n\n\nGoogle Sheets Setup  \n\nYour spreadsheet should include the following columns (in order):  \nName  \nTagline  \nDescription  \nOriginal URL  \nFinal URL (after redirect)  \n\nEnsure your Google Sheets node uses the correct Spreadsheet ID and Sheet Name.\n\nSetup Instructions  \n\nProduct Hunt API Auth:  \n   Replace {{YOUR_PRODUCT_HUNT_API_KEY}} in the HTTP Request headers:\n      {\n     \"Authorization\": \"Bearer {{YOUR_PRODUCT_HUNT_API_KEY}}\"\n   }\n   \nGoogle Sheets Node:  \n   Connect your Google account.  \n   Insert your Spreadsheet ID in the settings.  \n   Specify the sheet name (e.g., Daily Launches).  \n   Use the “Append” operation and map the 5 data fields accordingly.\n\nNotes  \n\nOnly fetches the first 10 posts for the day (can be extended).\nConsider adding Slack, Discord, or Email nodes to notify you of new entries.\nUseful for building launch databases, research, or content inspiration.",
+  "totalViews": 231,
+  "source": "official",
+  "user": {
+    "id": 93871,
+    "name": "Ifeoluwa Ajetomobi",
+    "username": "vickylove",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/9f5c63988a0d886b4d8c5ea7469d7e54ad362627a3b8a810d279c1208416b3e8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-04-17T14:43:40.711Z",
+  "path": "official/template_3588/workflow.json"
+}

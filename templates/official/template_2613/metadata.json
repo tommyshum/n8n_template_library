@@ -1,0 +1,49 @@
+{
+  "id": 2613,
+  "name": "Export Search Console Results to Google Sheets",
+  "description": "How it works\n\nThis workflow gets the search console results data and exports this to google sheets. This makes it easier to visualize and do other SEO related tasks and activities without having to log into Search Console\n\nSetup and use\n\nSet your desired schedule\nEnter your desired domain\nConnect to your Google sheets or make a copy of this sheet. \n\nDetailed Setup\n\nInputs and Outputs:**\nInput: API response from Google Search Console regarding keywords, page data, and date data.\nOutput: Entries written to Google Sheets containing keyword data, clicks, impressions, CTR, and positions.\n\nSetup Instructions:\nPrerequisites:**\nAn n8n instance set up and running.\nActive Google Account with access to Google Search Console and Google Sheets.\nGoogle OAuth 2.0 credentials for API access.\n\nStep-by-Step Setup:**\nOpen n8n and create a new workflow.\nAdd the nodes as described in the JSON.\nConfigure the Google OAuth2 credentials in n8n to enable API access.\nSet your domain in the Set your domain node.\nCustomize the Google Sheets document URLs to your personal sheets.\nAdjust the schedule in the Schedule Trigger node as per your requirements.\nSave the workflow.\n\nConfiguration Options:**\nYou can customize the date ranges in the body of the HttpRequest nodes.\nAdjust any fields in the Edit Fields nodes based on different data requirements.\n\nUse Case Examples:\nUseful in tracking website performance over time using Search Console metrics.\nIdeal for digital marketers, SEO specialists, and web analytics professionals.\nOffers value in compiling performance reports for stakeholders or team reviews.\n\nRunning and Troubleshooting:\nRunning the Workflow:**\nTrigger the workflow manually or wait for the schedule to run it automatically.\n\nMonitoring Execution:**\nCheck the execution logs in n8n's dashboard to ensure all nodes complete successfully.\n\nCommon Issues:**\nInvalid OAuth credentials – ensure credentials are set up correctly.\nIncorrect Google Sheets URLs – double-check document links and permissions.\nScheduling conflicts – make sure the schedule set does not overlap with other workflows.\n",
+  "totalViews": 5358,
+  "source": "official",
+  "user": {
+    "id": 91335,
+    "name": "Imperol",
+    "username": "imperolq",
+    "bio": "Automation expert with years of experience helping businesses improve their efficiency and productivity with smart automations that are affordable, scalable, and flexible. ",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/zacharia-kimotho/\"]",
+    "avatar": "https://gravatar.com/avatar/13b050fd63dc0c9242774c4b8769c4788df8b47268c1fb183d6f1da085b9e6e2?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-12-07T05:11:48.246Z",
+  "path": "official/template_2613/workflow.json"
+}

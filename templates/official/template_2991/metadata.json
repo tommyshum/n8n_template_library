@@ -1,0 +1,34 @@
+{
+  "id": 2991,
+  "name": "Automate Figma Versioning and Jira Updates with n8n Webhook Integration",
+  "description": "How It Works:\nThis n8n template automates the process of tracking design changes in Figma and updating relevant Jira issues. The template is triggered when a new version is created in Figma via a custom plugin. Once the version is committed, the plugin sends the design details to an n8n workflow using a webhook.\n\nThe workflow then performs the following actions:\nFetches the Jira issue based on the provided issue link from Figma.\nAdds the design changes as a comment to the Jira issue.\nUpdates the status of the Jira issue based on the provided task status (e.g., \"In Progress\", \"Done\").\nThis streamlines the workflow, reducing the need for manual updates and ensuring that both the design team and developers have the latest design changes and task statuses in sync.\n\nHow to Use It:\nSet up the Figma Plugin:\n\nInstall the Figma Commit Plugin from GitHub.\nIn the plugin, fill out the version name, design link, Jira issue link, and the task status.\nCommit the changes in Figma, which will trigger the webhook.\n\nSet Up the n8n Workflow:\nImport this template into your n8n instance.\nConnect the Figma Trigger node to capture version updates from Figma.\nConfigure the Jira nodes to retrieve the issue and update the status/comment based on the data sent from the plugin.\n\nAutomate:\nOnce the version is committed in Figma, the workflow will automatically update the Jira issue and keep both your Figma design and Jira tasks in sync!\nBy integrating Figma, Jira, and n8n through this template, you’ll eliminate manual steps, making collaboration between design and development teams more efficient.",
+  "totalViews": 2938,
+  "source": "official",
+  "user": {
+    "id": 92899,
+    "name": "omid dev",
+    "username": "omiddev",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/ebc74dd3889c1d32d7f861fbd351dfab69332da3f6279bb52ee5b21637f725bc?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "Jira Software",
+      "type": "n8n-nodes-base.jira",
+      "categories": [
+        "Development",
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-02-24T10:06:38.772Z",
+  "path": "official/template_2991/workflow.json"
+}

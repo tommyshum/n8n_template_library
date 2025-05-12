@@ -1,0 +1,52 @@
+{
+  "id": 3571,
+  "name": "Get Scaleway Server Info with Dynamic Filtering",
+  "description": "Get Scaleway Server Info with Dynamic Filtering\n\nDescription\n\nThis workflow is designed for developers, system administrators, and DevOps engineers who need to retrieve and filter Scaleway server information quickly and efficiently. It gathers data from Scaleway instances and baremetal servers across multiple zones and is ideal for:\nQuickly identifying servers by tags, names, public IPs, or zones.\nAutomating server status checks in production, staging, or test environments.\nIntegrating Scaleway data into broader monitoring or inventory systems.\n\nHigh-Level Steps\n\nWebhook Trigger:**\n  Receives an HTTP POST request (with basic authentication) containing the search criteria (search_by and search).\n\nServer Data Collection:**\n  Fetches server data from Scaleway’s API endpoints for both instances and baremetal servers across defined zones.\n\nData Processing:**\n  Aggregates and normalizes the fetched data using a Code node with helper functions.\n\nDynamic Filtering:**\n  Routes data to dedicated filtering routines (by tags, name, public_ip, or zone) based on the input criteria.\n\nResponse:**\n  Returns the filtered data (or an error message) via a webhook response.\n\nSet Up Steps\n\nInsert Your Scaleway Token:\n   In the “Edit Fields” node, replace the placeholder Your personal Scaleway X Auth Token with your Scaleway API token.\n\nConfigure Zones:\n   Review or update the zone lists (ZONE_INSTANCE and ZONE_BAREMETAL) to suit your environment.\n\nSend a Request:\n   Make a POST request to the workflow’s webhook endpoint with a JSON payload, for example:\n      {\n     \"search_by\": \"tags\",\n     \"search\": \"Apiv1\"\n   }\n   \nView the Results:\n   The workflow returns a JSON array of servers matching your criteria, including details like name, tags, public IP, type, state, zone, and user.",
+  "totalViews": 98,
+  "source": "official",
+  "user": {
+    "id": 91989,
+    "name": "Pablo",
+    "username": "pablobarrier",
+    "bio": "",
+    "verified": false,
+    "links": "[\"https://www.linkedin.com/in/pablo-barrier-207a79228/\"]",
+    "avatar": "https://gravatar.com/avatar/c53be5ed56daf9f2fb432eadd0b4e2ba9582424d902efe3a33b46382e04a3cd5?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-04-16T11:20:04.714Z",
+  "path": "official/template_3571/workflow.json"
+}

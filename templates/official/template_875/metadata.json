@@ -1,0 +1,41 @@
+{
+  "id": 875,
+  "name": "Send tweets every minute to Mattermost",
+  "description": "This workflow executes every minute and fetches the recent tweets from Twitter with the search query n8n_io. The workflow is built on the concept of polling.\n\n\n\nCron node: The Cron node triggers the workflow every minute. Based on your use-case you can configure the time. You can even use the Interval node to trigger the workflow at a certain time interval.\n\nTwitter node: The Twitter node searches for the tweets that contain n8n_io and returns the most recent tweets. You can specify a different search query based on your use-case.\n\nSet node: The Set node sets the data that we pass on to the next nodes in the workflow. You can set only the values that you require in your workflow.\n\nFunction node: All the magic happens in this node. The Twitter node returns all the recent tweets, including the ones which were returned earlier. The Function node, using the getWorkflowStaticData() method, only returns the tweets that are new, i.e., the tweets that were not returned in the previous workflow.\n\nMattermost node: The Mattermost node sends the tweets from the Function node to the Twitter notifications channel. If you don't use Mattermost and want to share this data on a different platform, replace this node with the appropriate node.",
+  "totalViews": 914,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "Marketing"
+  ],
+  "nodes": [
+    {
+      "name": "Mattermost",
+      "type": "n8n-nodes-base.mattermost",
+      "categories": [
+        "Communication"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "X (Formerly Twitter)",
+      "type": "n8n-nodes-base.twitter",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2021-01-05T12:35:44.216Z",
+  "path": "official/template_875/workflow.json"
+}

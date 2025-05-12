@@ -1,0 +1,38 @@
+{
+  "id": 3133,
+  "name": "Extract & Process Specific Links from sitemap.xml",
+  "description": "Description\nThis workflow reads a sitemap.xml file, extracts all URLs, and allows you to filter out specific types of links—such as PDF files, images, or any other content—based on your needs.\n\nWho Is This For?\nSEO Specialists** looking to analyze specific URLs in their sitemap.\nDevelopers** who need to extract links for automated processing.\nContent Managers** filtering out downloadable assets like PDFs or images.\n\nHow It Works\nFetch sitemap.xml – The workflow reads the sitemap file from a given URL.\nExtract URLs – Parses all the URLs listed in the sitemap.\nFilter URLs – Use a simple filter to extract only the links you need (e.g., *.pdf).\nExport or Process – The filtered list can be sent via email, stored in a database, or used in another workflow.\n\nCustomization\nEdit the Set sitemap URL block and edit the sitemapUrl value to the sitemap you want to fetch.\nEdit the Filter URLs block and edit the filter conditions to meet your needs.",
+  "totalViews": 1676,
+  "source": "official",
+  "user": {
+    "id": 93147,
+    "name": "Audun",
+    "username": "xqus",
+    "bio": "I’m an automagician who loves turning complex systems into simple, powerful workflows.\nHere to help you automate smarter and work easier.",
+    "verified": true,
+    "links": "[\"https://xqus.com/\"]",
+    "avatar": "https://gravatar.com/avatar/273c8f67ecb3e3ea711c36a448f1fd547ca9ad698ae800bebd69be68317f63d1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-03-11T08:51:35.691Z",
+  "path": "official/template_3133/workflow.json"
+}

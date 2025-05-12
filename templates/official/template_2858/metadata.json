@@ -1,0 +1,38 @@
+{
+  "id": 2858,
+  "name": "Automate GitLab Merge Requests Using APIs with n8n",
+  "description": "Who is this template for?\n\nThis template is designed for developers, DevOps engineers, and automation enthusiasts who want to streamline their GitLab merge request process using n8n, a low-code workflow automation tool. It eliminates manual intervention by automating the merging of GitLab branches through API calls.\n\nHow it works ?\n\nTrigger the workflow: The workflow can be triggered by a webhook, a scheduled event, or a GitLab event (e.g., a new merge request is created or approved).\n\nFetch Merge Request Details: n8n makes an API call to GitLab to retrieve merge request details.\n\nCheck Merge Conditions: The workflow validates whether the merge request meets predefined conditions (e.g., approvals met, CI/CD pipelines passed).\n\nPerform the Merge: If all conditions are met, n8n sends a request to the GitLab API to merge the branch automatically.\n\nSetup Steps\n\n1. Prerequisites\n\nAn n8n instance (Self-hosted or Cloud)\n\nA GitLab personal access token with API access\n\nA GitLab repository with merge requests enabled\n\n2. Create the n8n Workflow\n\nSet up a trigger: Choose a trigger node (Webhook, Cron, or GitLab Trigger).\n\nFetch merge request details: Add an HTTP Request node to call GET /merge_requests/:id from GitLab API.\n\nValidate conditions:\n\nCheck if the merge request has necessary approvals.\n\nEnsure CI/CD pipelines have passed.\n\nMerge the request:\n\nUse an HTTP Request node to call PUT /merge_requests/:id/merge API.\n\n3. Test the Workflow\n\nCreate a test merge request.\n\nCheck if the workflow triggers and merges automatically.\n\nDebug using n8n logs if needed.\n\n4. Deploy and Monitor\n\nDeploy the workflow in production.\n\nUse n8n’s monitoring features to track execution.\n\nThis template enables seamless GitLab merge automation, improving efficiency and reducing manual work!\n\nNote: \nNever hard code API token or secret in your https request.",
+  "totalViews": 3608,
+  "source": "official",
+  "user": {
+    "id": 92099,
+    "name": "Aditya Gaur",
+    "username": "autom8r",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3f8b1a295dcc49fbb24e2a16b056e2f6d9771d189ee8141eca81be5ce7950e3?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-02-07T07:44:07.959Z",
+  "path": "official/template_2858/workflow.json"
+}

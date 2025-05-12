@@ -1,0 +1,60 @@
+{
+  "id": 3113,
+  "name": "Backup Squarespace code Injections to Github",
+  "description": "This workflow backup Squarespace website header and footer injections into Github\n\nHow It Works\nThe Squarespace injections are fetched when an URL is placed\n\nSetup Instructions\nFirst, edit HTTP Request's URL to put your Squarespace site URL there\n\nNext, to configure the Github, update the Globals node with the following values:\n\nrepo.owner – Your GitHub username\nrepo.name – The name of your GitHub repository storing the workflows\nrepo.path – The folder path within the repository where workflows are stored\nFor example, if your GitHub username is john-doe, your repository is named n8n-backups, and injections are stored in a squarespace-backup/ folder, you would set:\n\n  repo.owner → john-doe\n  repo.name → n8n-backups\n  repo.path → squarespace-backup/\n\nEach site's injections will be added into seperate folder\n\nRequired Credentials\nGitHub API – Access to your repository\n\nWho Is This For?\nThis template is made for Squarespace users who want to backup their header and footer injections at interval to or on demand\n\nCheck out my other templates:\n👉 My n8n Templates",
+  "totalViews": 204,
+  "source": "official",
+  "user": {
+    "id": 92981,
+    "name": "bangank36",
+    "username": "bangank36",
+    "bio": "Automation specialist with 10+ years of experience helping SME website owners streamline their workflows—specializing in Squarespace, Shopify, and WordPress. Book an initial consultation for custom n8n automation using my link.",
+    "verified": true,
+    "links": "[\"https://beyondspace.studio\"]",
+    "avatar": "https://gravatar.com/avatar/499b5f6868bff3f56c51a6650bf87b946b25b2e17d353e3c9bbf5b34d2bd5bf4?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "GitHub",
+      "type": "n8n-nodes-base.github",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-03-09T13:34:20.088Z",
+  "path": "official/template_3113/workflow.json"
+}

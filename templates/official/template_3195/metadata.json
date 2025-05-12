@@ -1,0 +1,112 @@
+{
+  "id": 3195,
+  "name": "🉑 Generate Anki Flash Cards for Language Learning with Google Translate and GPT",
+  "description": "Context\nHey! I'm Samir, a Supply Chain Data Scientist from Paris who spent six years in China studying and working while struggling to learn Mandarin.\n\n\n\nI know the challenges of mastering a complex language like Chinese and my greatest support was flash cards. Therefore,  I designed this workflow to support fellow Mandarin learners by automating flashcard creation using n8n, so they can focus more on learning and less on manual data entry.\n\n📬 For business inquiries, you can add me on Here\n\nWho is this template for?\nThis workflow template is designed for language learners and educators who want to automate the creation of flashcards for Mandarin (or any other language) using Google Translate API, an AI agent for phonetic transcription and generating an illustrative sentence and a free image retrieval API.\n\nWhy?\nIf you use the open-source application Anki, this workflow will help you automatically generate personalized study materials.\n\nHow?\nLet us imagine you want to learn how to say the word Contract in Mandarin.\n\nThe workflow will automatically\nTranslate the word in Simplified Mandarin (Mandarin: 合同).\nProvide the phonetic transcription (Pinyin: Hétóng) \nGenerate an example sentence (Example: 我们签订了一份合同.)\nDownload an illustrative picture (For example, a picture of a contract signature)\n\n\n\nAll these fields are automatically recorded in a Google Sheet, making it easy to import into Anki and generate flashcards instantly\n\nWhat do I need to start?\nThis workflow can be used with the free tier plans of the services used. It does not require any advanced programming skills.\nPrerequisite\nA Google Drive Account with a folder including a Google Sheet\nAPI Credentials: Google Drive API, Google Sheets API and Google Translate API activated with OAuth2 credentials\nA free API key of pexels.com\nA google sheet with the columns\nNext\nFollow the sticky notes to set up the parameters inside each node and get ready to pump your learning skills.\n\nI have detailed the steps in a short tutorial 👇\n\n 🎥 Check My Tutorial\n\nNotes\nThis workflow can be used for any language. In the AI Agent prompt, you just need to replace the word pinyin with phonetic transcription.\nYou can adapt the trigger to operate the workflow in the way you want. These operations can be performed by batch or triggered by Telegram, email, or webhook.\nIf you want to learn more about how I used Anki flash cards to learn mandarin: 🈷️ Blog Article about Anki Flash Cards\n\n\nThis workflow has been created with N8N  1.82.1\nSubmitted: March 17th, 2025",
+  "totalViews": 2109,
+  "source": "official",
+  "user": {
+    "id": 93233,
+    "name": "Samir Saci",
+    "username": "samirsaci",
+    "bio": "Automation, AI and Analytics for Supply Chain & Business Optimization\nHelping businesses streamline operations using n8n, AI agents, and data science to enhance efficiency and sustainability. \nLinkedin: www.linkedin.com/in/samir-saci",
+    "verified": true,
+    "links": "[\"https://linktr.ee/samirsaci\"]",
+    "avatar": "https://gravatar.com/avatar/d3644476a59e5813c5f00a7933977e2be8805cbdc574958b9cc6a53b45bedd6a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Utility",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Google Translate",
+      "type": "n8n-nodes-base.googleTranslate",
+      "categories": [
+        "Utility"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-03-17T08:43:10.597Z",
+  "path": "official/template_3195/workflow.json"
+}

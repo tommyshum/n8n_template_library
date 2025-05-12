@@ -1,0 +1,71 @@
+{
+  "id": 3713,
+  "name": "Automated Instagram Comment Replies using Gemini AI with Context-Aware Responses",
+  "description": "\nInstagram Auto-Comment Responder with AI Agent Integration\n\nVersion: 1.1.0 ‧ n8n Version: 1.88.0+ ‧ License: MIT\n\nA fully automated workflow for managing and responding to Instagram comments using AI agents. Designed to improve engagement and save time, this system listens for new Instagram comments, verifies and filters them, fetches relevant post data, processes valid messages with a natural language AI, and posts context-aware replies directly on the original post.\n\nKey Features\n\n💬 AI-Driven Engagement: Intelligent responses to comments via a GPT-powered agent.\n✅ Webhook Verification: Handles Instagram webhook handshake to ensure secure integration.\n📦 Data Extraction: Maps incoming payload fields (user ID, username, message text, media ID) for processing.\n🚫 Self-Comment Filtering: Automatically skips comments made by the account owner to prevent loops.\n📡 Post Data Retrieval: Fetches the media’s id and caption from the Graph API (v22.0) before generating a reply.\n🧠 Natural Language Processing: Uses a custom system prompt to maintain brand tone and context.\n🔁 Automated Replies: Posts the AI-generated message back to the comment thread using Instagram’s API.\n🧩 Modular Architecture: Clear separation of steps via sticky notes and dedicated HTTP Request and Agent nodes.\n\nUse Cases\n\nSocial Media Automation**: Keep followers engaged 24/7 with instant, relevant replies.\nCommunity Building**: Maintain a consistent voice and tone across all interactions.\nBrand Reputation Management**: Ensure no valid comment goes unanswered.\nAI Customer Support**: Triage simple questions and direct followers to resources or support.\n\nTechnical Implementation\n\nWebhook Verification  \n   Node: Webhook + Respond to Webhook  \n   Echoes hub.challenge to confirm subscription and secure incoming events.\n\nData Extraction  \n   Node: Set  \n   Maps payload fields into structured variables: conta.id, usuario.id, usuario.name, usuario.message.id, usuario.message.text, usuario.media.id, endpoint.\n\nUser Validation  \n   Node: Filter  \n   Skips processing if conta.id equals usuario.id (self-comments).\n\nPost Data Retrieval  \n   Node: HTTP Request (Get post data)  \n   GET https://graph.instagram.com/v22.0/{{ $json.usuario.media.id }}?fields=id,caption&access_token={{ credentials }}  \n   Captures the media’s caption for richer context in replies.\n\nAI Response Generation  \n   Nodes: AI Agent + OpenRouter Chat Model  \n   Uses a detailed system prompt with:\n     Profile persona (expert in AI & automations, friendly tone).  \n     Input data (username, comment text, post caption).  \n     Filtering logic (spam, praise, questions, vague comments).  \n   Returns either the reply text or [IGNORE] for irrelevant content.\n\nPosting the Reply  \n   Node: HTTP Request (Post comment)  \n   POST {{ $json.endpoint }}/{{ $json.usuario.message.id }}/replies with message={{ $json.output }}  \n   Sends the AI answer back under the original comment.\n\nInstructions for Setup\n\nImport Workflow  \n   In n8n &gt; Workflows &gt; Import from File, upload the provided .json template.\n\nConfigure Credentials  \n   Instagram Graph API (Header Auth or FacebookGraphApi) with instagram_basic, instagram_manage_comments scopes.  \n   OpenRouter/OpenAI API key for AI agent.\n\nCustomize System Prompt  \n   Edit the AI Agent’s prompt to adjust brand tone, language (Brazilian Portuguese), length, or emoji usage.\n\nTest & Activate  \n   Publish a test comment on an Instagram post.  \n   Verify each node’s execution, ensuring the webhook, filter, data extraction, HTTP requests, and AI Agent respond as expected.\n\nExtend & Monitor  \n   Add sentiment analysis or lead capture nodes as needed.  \n   Monitor execution logs for errors or rate-limit events.\n\nTags\n\nSocial Media • Instagram Automation • Webhook Verification • AI Agent • HTTP Request • Auto Reply • Community Management\n\n",
+  "totalViews": 3105,
+  "source": "official",
+  "user": {
+    "id": 93930,
+    "name": "Luciano Gutierrez",
+    "username": "koresoluciones",
+    "bio": "🇧🇷 Argentino de 30 anos e fundador da KORE Soluções em Belo Horizonte (MG). Há 1 ano, fornecemos automações, cursos, configurações e manutenção de workflows, ajudando empresas a aumentar eficiência e escalar processos com tecnologia.\n\n🇺🇸 I’m a 30‑year‑old Argentine founder of KORE Soluções in Belo Horizonte (MG). For 1 year, we’ve delivered automations, courses, configuration, and workflow maintenance, helping businesses boost efficiency and scale processes with technology.",
+    "verified": true,
+    "links": "[\"https://koresolucoes.github.io/expertise/\"]",
+    "avatar": "https://gravatar.com/avatar/7caef85e3231ac83b8634980bd314fc40ba26df805b86e5f839bf75a1582a1a7?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenRouter Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-04-25T18:37:26.955Z",
+  "path": "official/template_3713/workflow.json"
+}

@@ -1,0 +1,103 @@
+{
+  "id": 2592,
+  "name": "Agentic Telegram AI bot with with LangChain nodes and new tools",
+  "description": "Create a Telegram bot that combines advanced AI functionalities with LangChain nodes and new tools.\n\nNodes as tools and the HTTP request tool are a new n8n feature that extend custom workflow tool and simplify your setup. We used the workflow tool in the previous Telegram template to call the Dalle-3 model.\n\nIn the new version, we've achieved similar results using the HTTP Request tool and the Telegram node tool instead. The main difference is that Telegram bot becomes more flexible. The LangChain Agent node can decide which tool to use and when. In the previous version, all steps inside the custom workflow tool were executed sequentially.\n\n⚠️ Note that you'd need to select the Tools Agent to work with new tools. \n\nBefore launching the template, make sure to set up your OpenAI and Telegram credentials.\n\nHere’s how the new Telegram bot works:\n\nTelegram Trigger listens for new messages in a specified Telegram chat. This node activates the rest of the workflow after receiving a message.\n\nAI Tool Agent receives input text, processes it using the OpenAI model and replies to a user. It addresses users by name and sends image links when an image is requested.\n\nThe OpenAI GPT-4o model generates context-aware responses. You can configure the model parameters or swap this node entirely. \n\nWindow buffer memory helps maintain context across conversations. It stores the last 10 interactions and ensures that the agent can access previous messages within a session. Conversations from different users are stored in different buffers.\n\nThe HTTP request tool connects with OpenAI's DALL-E-3 API to generate images based on user prompts. The tool is called when the user asks for an image.\n\nTelegram node tool sends generated images back to the user in a Telegram chat. It retrieves the image from the URL returned by the DALL-E-3 model. This does not happen directly, however. The response from the HTTP request tool is first stored in the Agent’s scratchpad (think of it as a short-term memory). In the next iteration, the Agent sends the updated response to the GPT model once again. The GPT model will then create a new tool request to send the image back to the user. To pass the image URL, the tool uses the new $fromAI() expression. \n\nSend final reply node sends the final response message created by the agent back to the user on Telegram. Even though the image was already passed to the user, the Agent always stops with the final response that comes from dedicated output.\n\n⚠️ Note, that the Agent may not adhere to the same sequence of actions in 100% of situations. For example, sometimes it could skip sending the file via the Telegram node tool and instead just send an URL in the final reply. If you have a longer series of predefined steps, it may be better to use the “old” custom workflow tool.\n\nThis template is perfect as a starting point for building AI agentic workflow. Take a look at another agentic Telegram AI template that can handle both text and voice messages.",
+  "totalViews": 23872,
+  "source": "official",
+  "user": {
+    "id": 91386,
+    "name": "Yulia",
+    "username": "yulia",
+    "bio": "Let's connect! ",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/yulia-dmitrievna-1112361b5/\"]",
+    "avatar": "https://gravatar.com/avatar/d29a8262aa8835d430919f8002957a77169f8da987dee0740aa494ae67a061b7?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2024-11-30T17:40:46.911Z",
+  "path": "official/template_2592/workflow.json"
+}

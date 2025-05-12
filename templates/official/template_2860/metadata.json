@@ -1,0 +1,116 @@
+{
+  "id": 2860,
+  "name": "AI Automated HR Workflow for CV Analysis and Candidate Evaluation",
+  "description": "How it Works\n\nThis workflow automates the process of handling job applications by extracting relevant information from submitted CVs, analyzing the candidate's qualifications against a predefined profile, and storing the results in a Google Sheet. Here’s how it operates:\n\nData Collection and Extraction: \n   The workflow begins with a form submission (On form submission node), which triggers the extraction of data from the uploaded CV file using the Extract from File node.\n   Two informationExtractor nodes (Qualifications and Personal Data) are used to parse specific details such as educational background, work history, skills, city, birthdate, and telephone number from the text content of the CV.\n\nProcessing and Evaluation:\n   A Merge node combines the extracted personal and qualification data into a single output.\n   This merged data is then passed through a Summarization Chain that generates a concise summary of the candidate’s profile.\n   An HR Expert chain evaluates the candidate against a desired profile (Profile Wanted), assigning a score and providing considerations for hiring.\n   Finally, all collected and processed data including the evaluation results are appended to a Google Sheets document via the Google Sheets node for further review or reporting purposes [[9]].\n\nSet Up Steps\n\nTo replicate this workflow within your own n8n environment, follow these steps:\n\nConfiguration:\n   Begin by setting up an n8n instance if you haven't already; you can sign up directly on their website or self-host the application.\n   Import the provided JSON configuration into your n8n workspace. Ensure that all necessary credentials (e.g., Google Drive, Google Sheets, OpenAI API keys) are correctly configured under the Credentials section since some nodes require external service integrations like Google APIs and OpenAI for language processing tasks.\n\nCustomization:\n   Adjust the parameters of each node according to your specific requirements. For example, modify the fields in the formTrigger node to match what kind of information you wish to collect from applicants.\n   Customize the prompts given to AI models in nodes like Qualifications, Summarization Chain, and HR Expert so they align with the type of analyses you want performed on the candidates' profiles.\n   Update the destination settings in the Google Sheets node to point towards your own spreadsheet where you would like the final outputs recorded.\n\nNeed help customizing?  \nContact me for consulting and support or add me on Linkedin. ",
+  "totalViews": 37946,
+  "source": "official",
+  "user": {
+    "id": 92207,
+    "name": "Davide",
+    "username": "n3witalia",
+    "bio": "Full-stack Web Developer based in Italy specialising in Marketing & AI-powered automations. For business enquiries, send me an email at info@n3w.it or add me on Linkedin.com/in/davideboizza",
+    "verified": true,
+    "links": "[\"https://n3w.it\"]",
+    "avatar": "https://gravatar.com/avatar/d41b8a0aa81139243509c58870f5b4be292824a507ab57d10ed066d8628ed8da?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Summarization Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainSummarization",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Information Extractor",
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-02-07T12:30:06.464Z",
+  "path": "official/template_2860/workflow.json"
+}

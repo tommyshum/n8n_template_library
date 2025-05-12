@@ -1,0 +1,103 @@
+{
+  "id": 2541,
+  "name": "AI Agent to chat with you Search Console Data, using OpenAI and Postgres",
+  "description": "Edit 19/11/2024: As explained on the workflow, the AI Agent with the original system prompt was not effective when using gpt4-o-mini.\n\nTo address this, I optimized the prompt to work better with this model. You can find the prompts I’ve tested on this Notion Page. And yes, there is one that works well with gpt4-o-mini.\n\nAI Agent to chat with you Search Console Data, using OpenAI and Postgres\n\n\n\nThis AI Agent enables you to interact with your Search Console data through a chat interface. Each node is documented within the template, providing sufficient information for setup and usage. You will also need to configure Search Console OAuth credentials.\n\nFollow this n8n documentation to set up the OAuth credentials.\n\nImportant Notes\n\nCorrectly Configure Scopes for Search Console API Calls\nIt’s essential to configure the scopes correctly in your Google Search Console API OAuth2 credentials. Incorrect configuration can cause issues with the refresh token, requiring frequent reconnections. Below is the configuration I use to avoid constant re-authentication:\n\n\n\nOf course, you'll need to add your client_id and client_secret from the Google Cloud Platform app you created to access your Search Console data.\n\nConfigure Authentication for the Webhook\n\nSince the webhook will be publicly accessible, don’t forget to set up authentication. I’ve used Basic Auth, but feel free to choose the method that best meets your security requirements.\n\n🤩💖 Example of awesome things you can do with this AI Agent\n\n",
+  "totalViews": 7362,
+  "source": "official",
+  "user": {
+    "id": 91734,
+    "name": "Dataki",
+    "username": "dataki",
+    "bio": "I am passionate about transforming complex processes into seamless automations with n8n. My expertise spans across creating ETL pipelines, sales automations, and data & AI-driven workflows. As an avid problem solver, I thrive on optimizing workflows to drive efficiency and innovation.",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/nicolas-aknin/\"]",
+    "avatar": "https://gravatar.com/avatar/0437c659b1ec6916896ebb30cc237391f0e1de89df5465c103e12d2cb12ce42d?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    },
+    {
+      "name": "Postgres Chat Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "Other memories"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2024-11-13T15:44:30.373Z",
+  "path": "official/template_2541/workflow.json"
+}

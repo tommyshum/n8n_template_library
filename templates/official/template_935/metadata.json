@@ -1,0 +1,32 @@
+{
+  "id": 935,
+  "name": "Check for preview for a link ",
+  "description": "This workflow allows you to check for preview for a link and return the preview if it exists.\n\n\n\nPeekalink node: This node checks if a preview is available for a URL or not. If a preivew is available the node returns true, otherwise false.\n\nIF node: The IF node checks the output from the previous node. If the condition is true the node connected to the true branch is executed. If the condition is false the node connected to the false branch is executed.\n\nPeekalink1 node: This node will fetch the preview of the URL. Based on your use-case, you can connect the Slack node, Mattermost node etc. to get the response on these platforms.\n\nNoOp node: Adding this node here is optional, as the absence of this node won't make a difference to the functioning of the workflow. We've added this as it can sometimes help others with a better understanding of the workflow, visually.",
+  "totalViews": 608,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "Peekalink",
+      "type": "n8n-nodes-base.peekalink",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2021-02-11T10:16:51.665Z",
+  "path": "official/template_935/workflow.json"
+}

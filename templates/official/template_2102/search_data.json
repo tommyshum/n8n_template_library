@@ -1,0 +1,77 @@
+{
+  "id": 2102,
+  "name": "Save new Files received on Telegram to Google Drive",
+  "totalViews": 8453,
+  "purchaseUrl": null,
+  "user": {
+    "id": 91454,
+    "name": "Manuel",
+    "username": "automate-everything",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://www.malt.de/profile/manuelvoppmann\"]",
+    "avatar": "https://gravatar.com/avatar/a7d9f6e327b76615463e40984ce452c61b426d599f75373aade121b309f0924d?r=pg&d=retro&size=200"
+  },
+  "description": "Effortlessly optimize your workflow by automatically save all files you are receiving on Telegram to a Google Drive Folder.\n\nHow it works\n\nRetrieve a message sent to your Telegram Bot containing a file\nUpload the file to your Google Drive Folder\n\nSet up Steps\n\nCreate a Telegram Account and a Telegram Bot and connect your Telegram Bot to n8n by following the official n8n instructions\nCreate a Google Drive Folder\nConnect your Google Drive with n8n following the official n8n instructions\nSet the right folder in the Google Drive node\n\nUse case examples\n\nBackup and Recovery\nCross-Platform Access\nFile Organization and Management\nFile Collaboration and Sharing\nStorage Space Management",
+  "createdAt": "2024-02-16T15:05:45.629Z",
+  "nodes": [
+    {
+      "id": 58,
+      "icon": "file:googleDrive.svg",
+      "name": "n8n-nodes-base.googleDrive",
+      "codex": {
+        "data": {
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/your-business-doesnt-need-you-to-operate/",
+                "icon": " 🖥️",
+                "label": "Hey founders! Your business doesn't need you to operate"
+              },
+              {
+                "url": "https://n8n.io/blog/why-this-product-manager-loves-workflow-automation-with-n8n/",
+                "icon": "🧠",
+                "label": "Why this Product Manager loves workflow automation with n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/aws-workflow-automation/",
+                "label": "7 no-code workflow automations for Amazon Web Services"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googledrive/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/google/oauth-single-service/"
+              }
+            ]
+          },
+          "categories": [
+            "Data & Storage"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "Google Drive"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiB2aWV3Qm94PSIwIDAgODEgNzMiPjx1c2UgeGxpbms6aHJlZj0iI2EiIHg9Ii41IiB5PSIuNSIvPjxzeW1ib2wgaWQ9ImEiIG92ZXJmbG93PSJ2aXNpYmxlIj48ZyBmaWxsLXJ1bGU9Im5vbnplcm8iIHN0cm9rZT0ibm9uZSI+PHBhdGggZmlsbD0iIzAwNjZkYSIgZD0ibTYuMDQ4IDYxLjI2IDMuNTI4IDYuMDk0Yy43MzMgMS4yODMgMS43ODcgMi4yOTEgMy4wMjQgMy4wMjRsMTIuNi0yMS44MUgwYTguMyA4LjMgMCAwIDAgMS4xIDQuMTI0eiIvPjxwYXRoIGZpbGw9IiMwMGFjNDciIGQ9Ik00MCAyMi45MSAyNy40IDEuMWMtMS4yMzcuNzMzLTIuMjkxIDEuNzQxLTMuMDI0IDMuMDI0TDEuMSA0NC40NDVBOC4zIDguMyAwIDAgMCAwIDQ4LjU2OGgyNS4yeiIvPjxwYXRoIGZpbGw9IiNlYTQzMzUiIGQ9Ik02Ny40IDcwLjM3OGMxLjIzNy0uNzMzIDIuMjkxLTEuNzQxIDMuMDI0LTMuMDI0bDEuNDY2LTIuNTIgNy4wMS0xMi4xNDJhOC4zIDguMyAwIDAgMCAxLjEtNC4xMjRINTQuNzk4bDUuMzYzIDEwLjUzOHoiLz48cGF0aCBmaWxsPSIjMDA4MzJkIiBkPSJNNDAgMjIuOTEgNTIuNiAxLjFDNTEuMzYzLjM2NyA0OS45NDMgMCA0OC40NzcgMEgzMS41MjRjLTEuNDY2IDAtMi44ODcuNDEyLTQuMTI0IDEuMXoiLz48cGF0aCBmaWxsPSIjMjY4NGZjIiBkPSJNNTQuNzk5IDQ4LjU2OEgyNS4ybC0xMi42IDIxLjgxYzEuMjM3LjczMyAyLjY1NyAxLjEgNC4xMjQgMS4xaDQ2LjU1MmMxLjQ2NiAwIDIuODg3LS40MTIgNC4xMjQtMS4xeiIvPjxwYXRoIGZpbGw9IiNmZmJhMDAiIGQ9Ik02Ny4yNjIgMjQuMjg0IDU1LjYyNCA0LjEyNEM1NC44OTEgMi44NDEgNTMuODM3IDEuODMzIDUyLjYgMS4xTDQwIDIyLjkxbDE0LjggMjUuNjU5aDI1LjE1NWE4LjMgOC4zIDAgMCAwLTEuMS00LjEyNHoiLz48L2c+PC9zeW1ib2w+PC9zdmc+"
+      },
+      "displayName": "Google Drive",
+      "typeVersion": 3,
+      "nodeCategories": [
+        {
+          "id": 3,
+          "name": "Data & Storage"
+        }
+      ]
+    }
+  ]
+}

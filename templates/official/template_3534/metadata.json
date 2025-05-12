@@ -1,0 +1,111 @@
+{
+  "id": 3534,
+  "name": "Search & Summarize Web Data with Perplexity, Gemini AI & Bright Data to Webhooks",
+  "description": "Who this is for?\nThis workflow is designed for professionals and teams who need real-time, structured insights from Perplexity Search results without manual effort.\n\nWhat problem is this workflow solving? \nThis n8n workflow solves the problem of automating Perplexity Search result extraction, cleanup, summarization, and AI-enhanced formatting for downstream use like sending the results to a webhook or another system. \n\nWhat this workflow does\n\nAutomates Perplexity Search via Bright Data\nUses Bright Data’s proxy-based SERP API to run a Google Search query programmatically. \nMakes the process repeatable and scriptable with different search terms and regions/zones.\n\nCleans and Extracts Useful Content\nThe Readable Data Extractor uses LLM-based cleaning to remove HTML/CSS/JS from the response and extract pure text data. \nConverts messy, unstructured web content into structured, machine-readable format.\n\nSummarizes Search Results\nThrough the Gemini Flash + Summarization Chain, it generates a concise summary of the search results. Ideal for users who don’t have time to read full pages of search results.\n\nFormats Data Using AI Agent\nThe AI Agent acts like a virtual assistant that: - Understands search results\nFormats them in a readable, JSON-compatible form\nPrepares them for webhook delivery\n\nDelivers Results to Webhook\nSends the final summary + structured search result to a webhook (could be your app, a Slack bot, Google Sheets, or CRM).\n\nSetup\n\nSign up at Bright Data.\nNavigate to Proxies & Scraping and create a new Web Unlocker zone by selecting Web Unlocker API under Scraping Solutions.\nIn n8n, configure the Header Auth account under Credentials (Generic Auth Type: Header Authentication).\n\nThe Value field should be set with the\nBearer XXXXXXXXXXXXXX. The XXXXXXXXXXXXXX should be replaced by the Web Unlocker Token.\nIn n8n, configure the Google Gemini(PaLM) Api account with the Google Gemini API key (or access through Vertex AI or proxy).\nUpdate the Perplexity Search Request node with the prompt you wish to perform the search.\nUpdate the Webhook HTTP Request node with the Webhook endpoint of your choice.\n\nHow to customize this workflow to your needs\n\n1. Change the Perplexity Search Input\n\nDefault: It searches a fixed query or dataset.\n\nCustomize:\nAccept input from a Google Sheet, Airtable, or a form.\n Auto-trigger searches based on keywords or schedules.\n\n2. Customize Summarization Style (LLM Output)\n\nDefault: General summary using Google Gemini or OpenAI.\n\nCustomize:\n\nAdd tone: formal, casual, technical, executive-summary, etc.\n\nFocus on specific sections: pricing, competitors, FAQs, etc.\n\nTranslate the summaries into multiple languages.\n\nAdd bullet points, pros/cons, or insight tags.\n\n3.Choose Where the Results Go\n\nOptions:\n\nEmail, Slack, Notion, Airtable, Google Docs, or a dashboard.\n\nAuto-create content drafts for WordPress or newsletters.\n\nFeed into CRM notes or attach to Salesforce leads.\n",
+  "totalViews": 811,
+  "source": "official",
+  "user": {
+    "id": 93657,
+    "name": "Ranjan Dailata",
+    "username": "ranjancse",
+    "bio": "",
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/7b74fe44a7ad32db7c783b972deb5848a4b1f043377bce4039737ed66da8305f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Summarization Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainSummarization",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Recursive Character Text Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Information Extractor",
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-04-13T08:06:23.221Z",
+  "path": "official/template_3534/workflow.json"
+}

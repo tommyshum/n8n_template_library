@@ -1,0 +1,163 @@
+{
+  "id": 3474,
+  "name": "Track Daily PG&E Energy Costs with Airtop and Email Notifications",
+  "totalViews": 116,
+  "purchaseUrl": null,
+  "user": {
+    "id": 93583,
+    "name": "Airtop",
+    "username": "cesar-at-airtop",
+    "bio": "Airtop provides an intelligent browser automation API for AI agents, enabling seamless web interaction, including login, navigation, and data extraction from any site, even those with complex authentication - all with  natural language instructions.In simple terms, we allow you to automate anything humans can do online, on any site with just words",
+    "verified": true,
+    "links": "[\"https://www.airtop.ai/\"]",
+    "avatar": "https://gravatar.com/avatar/d5894c2c744b03ab0766a6d1846484ea7cc1a19e57310afad70044183766dbf4?r=pg&d=retro&size=200"
+  },
+  "description": "About The Airtop Automation\n\nAre you tired of being shocked by unexpectedly high energy bills? With this automation using Airtop and n8n, you can take control of your daily energy costs and ensure you’re always informed.\n\nHow to monitor your daily energy consumption\n\nWith this automation, we’ll walk you through setting up an automation that retrieves your PG&E (Pacific Gas and Electric) energy usage data, calculates costs, and emails you the details—all without manual effort.\n\nWhat You’ll Need\nTo get started, make sure you have the following:\n\nA free Airtop API Key\nPG&E Account Credentials - with minor adaptations, this will also work with other providers\nAn Email Address - To receive the energy cost updates\n\nEstimated setup time: 5 minutes\n\nUnderstanding the Process\n\nThis automation works by:\n \nLogging into your PG&E account using your credentials\nNavigating to your energy usage data\nExtracting relevant details about energy consumption and costs\nEmailing the daily summary directly to your inbox\n\nThe automation is straightforward and ensures you have real-time insights into your energy usage, empowering you to adjust your habits and save money.\n\nSetting Up Your Automation\nWe’ve created a step-by-step guide to help you set up this workflow. Here’s how:\n\nInsert Your Credentials:\n\nIn the tools section, add your PG&E login details as variables\nIn Airtop, add your Airtop API Key\nConfigure your email address to receive the updates\n\nRun the Automation:\n\nStart the scenario, and watch as the automation retrieves your energy data and sends you a detailed email summary.\n\nCustomization Options\n\nWhile the default setup works seamlessly, you can tweak it to suit your needs:\n\nData Storage: Store energy usage data in a database for long-term tracking and analysis\nVisualization: Plot graphs of your energy usage trends over time for better insights\nNotifications: Change the automation to only send alerts on high usage instead of a daily email\n\nReal-World Applications\n\nThis automation isn’t just about monitoring energy usage and taking control. Here are some practical applications:\n\nDaily Energy Management: Receive updates every morning and adjust your energy consumption based on costs\nSmart Home Integration: Use the data to automate appliances during off-peak hours\nBudgeting: Track energy expenses over weeks or months to plan your budget more effectively\n\nHappy automating!\n",
+  "createdAt": "2025-04-08T16:20:15.016Z",
+  "nodes": [
+    {
+      "id": 356,
+      "icon": "file:gmail.svg",
+      "name": "n8n-nodes-base.gmail",
+      "codex": {
+        "data": {
+          "alias": [
+            "email",
+            "human",
+            "form",
+            "wait",
+            "hitl",
+            "approval"
+          ],
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/why-business-process-automation-with-n8n-can-change-your-daily-life/",
+                "icon": "🧬",
+                "label": "Why business process automation with n8n can change your daily life"
+              },
+              {
+                "url": "https://n8n.io/blog/supercharging-your-conference-registration-process-with-n8n/",
+                "icon": "🎫",
+                "label": "Supercharging your conference registration process with n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/no-code-ecommerce-workflow-automations/",
+                "icon": "store",
+                "label": "6 e-commerce workflows to power up your Shopify s"
+              },
+              {
+                "url": "https://n8n.io/blog/how-to-get-started-with-crm-automation-and-no-code-workflow-ideas/",
+                "icon": "👥",
+                "label": "How to get started with CRM automation (with 3 no-code workflow ideas"
+              },
+              {
+                "url": "https://n8n.io/blog/automate-google-apps-for-productivity/",
+                "icon": "💡",
+                "label": "15 Google apps you can combine and automate to increase productivity"
+              },
+              {
+                "url": "https://n8n.io/blog/your-business-doesnt-need-you-to-operate/",
+                "icon": " 🖥️",
+                "label": "Hey founders! Your business doesn't need you to operate"
+              },
+              {
+                "url": "https://n8n.io/blog/using-automation-to-boost-productivity-in-the-workplace/",
+                "icon": "💪",
+                "label": "Using Automation to Boost Productivity in the Workplace"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.gmail/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/google/oauth-single-service/"
+              }
+            ]
+          },
+          "categories": [
+            "Communication",
+            "HITL"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0",
+          "subcategories": {
+            "HITL": [
+              "Human in the Loop"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Gmail"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNTYiIGhlaWdodD0iMTkzIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCI+PHBhdGggZmlsbD0iIzQyODVGNCIgZD0iTTU4LjE4MiAxOTIuMDVWOTMuMTRMMjcuNTA3IDY1LjA3NyAwIDQ5LjUwNHYxMjUuMDkxYzAgOS42NTggNy44MjUgMTcuNDU1IDE3LjQ1NSAxNy40NTV6Ii8+PHBhdGggZmlsbD0iIzM0QTg1MyIgZD0iTTE5Ny44MTggMTkyLjA1aDQwLjcyN2M5LjY1OSAwIDE3LjQ1NS03LjgyNiAxNy40NTUtMTcuNDU1VjQ5LjUwNWwtMzEuMTU2IDE3LjgzNy0yNy4wMjYgMjUuNzk4eiIvPjxwYXRoIGZpbGw9IiNFQTQzMzUiIGQ9Im01OC4xODIgOTMuMTQtNC4xNzQtMzguNjQ3IDQuMTc0LTM2Ljk4OUwxMjggNjkuODY4bDY5LjgxOC01Mi4zNjQgNC42NyAzNC45OTItNC42NyA0MC42NDRMMTI4IDE0NS41MDR6Ii8+PHBhdGggZmlsbD0iI0ZCQkMwNCIgZD0iTTE5Ny44MTggMTcuNTA0VjkzLjE0TDI1NiA0OS41MDRWMjYuMjMxYzAtMjEuNTg1LTI0LjY0LTMzLjg5LTQxLjg5LTIwLjk0NXoiLz48cGF0aCBmaWxsPSIjQzUyMjFGIiBkPSJtMCA0OS41MDQgMjYuNzU5IDIwLjA3TDU4LjE4MiA5My4xNFYxNy41MDRMNDEuODkgNS4yODZDMjQuNjEtNy42NiAwIDQuNjQ2IDAgMjYuMjN6Ii8+PC9zdmc+"
+      },
+      "displayName": "Gmail",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 6,
+          "name": "Communication"
+        },
+        {
+          "id": 28,
+          "name": "HITL"
+        }
+      ]
+    },
+    {
+      "id": 1282,
+      "icon": "file:airtop.svg",
+      "name": "n8n-nodes-base.airtop",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.airtop/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/airtop/"
+              }
+            ]
+          },
+          "categories": [
+            "Productivity",
+            "Development"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Airtop"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgZmlsbD0ibm9uZSI+PGcgZmlsdGVyPSJ1cmwoI2EpIj48ZyBjbGlwLXBhdGg9InVybCgjYikiPjxjaXJjbGUgY3g9IjE2IiBjeT0iMTYiIHI9IjE2IiBmaWxsPSIjMTAyNjI2Ii8+PGcgZmlsdGVyPSJ1cmwoI2MpIj48cGF0aCBzdHJva2U9IiM1OEQxRUMiIHN0cm9rZS1vcGFjaXR5PSIuMiIgc3Ryb2tlLXdpZHRoPSIyMS44MjEiIGQ9Im0tMjQuMTcyLTMzLjMyNSA0MS45NDYgNTEuNDE0Ii8+PC9nPjxwYXRoIGZpbGw9InVybCgjZCkiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTEyLjU5OCA5LjI1OGMxLjYwNy0yLjU0NSA1LjMxOC0yLjU0NSA2LjkyNSAwbDIuMzMgMy42OWMuNzA1IDEuMTE1LS4wOTcgMi41Ny0xLjQxNiAyLjU3LTIuMjA3IDAtMy4wODgtLjg0MS0zLjY2LTQuMTgybC0xLjQyMy4wMDVjLS40OTYgMy4zNDYtMS41MDcgNC4xNzctNC4xNyA0LjE3N2wtLjAwNSAxLjQzN2MyLjY5NiAwIDQuMTc1IDEuNDk1IDQuMTc1IDMuNDU0YTIuOTQgMi45NCAwIDAgMS0yLjk0IDIuOTRoLTEuMjg1Yy0zLjIyNSAwLTUuMTg1LTMuNTU1LTMuNDYzLTYuMjgybDQuOTMyLTcuODA5em03LjEyNSAxNC4wOTJhMi45NDUgMi45NDUgMCAwIDEtMi45NDUtMi45NDZjMC0xLjk1NCAxLjMwNS0zLjQ0OSAzLjY1OS0zLjQ0OWgxLjQ0M2MxLjQ3OSAwIDMuMDkzLjkyNCAzLjA5MyAyLjc0NiAwIDIuMjA5LTIuNTExIDMuNjQ5LTMuOTIxIDMuNjQ5aC0xLjMyOXoiIGNsaXAtcnVsZT0iZXZlbm9kZCIvPjwvZz48L2c+PGRlZnM+PGZpbHRlciBpZD0iYSIgd2lkdGg9IjMyIiBoZWlnaHQ9IjM1IiB4PSIwIiB5PSItMiIgY29sb3ItaW50ZXJwb2xhdGlvbi1maWx0ZXJzPSJzUkdCIiBmaWx0ZXJVbml0cz0idXNlclNwYWNlT25Vc2UiPjxmZUZsb29kIGZsb29kLW9wYWNpdHk9IjAiIHJlc3VsdD0iQmFja2dyb3VuZEltYWdlRml4Ii8+PGZlQmxlbmQgaW49IlNvdXJjZUdyYXBoaWMiIGluMj0iQmFja2dyb3VuZEltYWdlRml4IiByZXN1bHQ9InNoYXBlIi8+PGZlQ29sb3JNYXRyaXggaW49IlNvdXJjZUFscGhhIiByZXN1bHQ9ImhhcmRBbHBoYSIgdmFsdWVzPSIwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAxMjcgMCIvPjxmZU9mZnNldCBkeT0iMSIvPjxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjEiLz48ZmVDb21wb3NpdGUgaW4yPSJoYXJkQWxwaGEiIGsyPSItMSIgazM9IjEiIG9wZXJhdG9yPSJhcml0aG1ldGljIi8+PGZlQ29sb3JNYXRyaXggdmFsdWVzPSIwIDAgMCAwIDAuMzQ1MDk4IDAgMCAwIDAgMC44MTk2MDggMCAwIDAgMCAwLjkyNTQ5IDAgMCAwIDAuMTYgMCIvPjxmZUJsZW5kIGluMj0ic2hhcGUiIHJlc3VsdD0iZWZmZWN0MV9pbm5lclNoYWRvd184MjBfMTA0NTUiLz48ZmVDb2xvck1hdHJpeCBpbj0iU291cmNlQWxwaGEiIHJlc3VsdD0iaGFyZEFscGhhIiB2YWx1ZXM9IjAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDEyNyAwIi8+PGZlT2Zmc2V0IGR5PSItMiIvPjxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjEiLz48ZmVDb21wb3NpdGUgaW4yPSJoYXJkQWxwaGEiIGsyPSItMSIgazM9IjEiIG9wZXJhdG9yPSJhcml0aG1ldGljIi8+PGZlQ29sb3JNYXRyaXggdmFsdWVzPSIwIDAgMCAwIDAuMDE0ODk4NSAwIDAgMCAwIDAuMDkyNjkwMSAwIDAgMCAwIDAuMDkyNjkwMSAwIDAgMCAwLjQgMCIvPjxmZUJsZW5kIGluMj0iZWZmZWN0MV9pbm5lclNoYWRvd184MjBfMTA0NTUiIHJlc3VsdD0iZWZmZWN0Ml9pbm5lclNoYWRvd184MjBfMTA0NTUiLz48L2ZpbHRlcj48ZmlsdGVyIGlkPSJjIiB3aWR0aD0iNzQuODU0IiBoZWlnaHQ9IjgxLjIwOSIgeD0iLTQwLjYyNyIgeT0iLTQ4LjIyMyIgY29sb3ItaW50ZXJwb2xhdGlvbi1maWx0ZXJzPSJzUkdCIiBmaWx0ZXJVbml0cz0idXNlclNwYWNlT25Vc2UiPjxmZUZsb29kIGZsb29kLW9wYWNpdHk9IjAiIHJlc3VsdD0iQmFja2dyb3VuZEltYWdlRml4Ii8+PGZlQmxlbmQgaW49IlNvdXJjZUdyYXBoaWMiIGluMj0iQmFja2dyb3VuZEltYWdlRml4IiByZXN1bHQ9InNoYXBlIi8+PGZlR2F1c3NpYW5CbHVyIHJlc3VsdD0iZWZmZWN0MV9mb3JlZ3JvdW5kQmx1cl84MjBfMTA0NTUiIHN0ZERldmlhdGlvbj0iNCIvPjwvZmlsdGVyPjxyYWRpYWxHcmFkaWVudCBpZD0iZCIgY3g9IjAiIGN5PSIwIiByPSIxIiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KC0xMS42ODQzNSAxMS43MDQ3NiAtODkuMDUyMTUgLTg4Ljg5Njg2IDE5LjI4IDkuNTU3KSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPjxzdG9wIG9mZnNldD0iLjYxMyIgc3RvcC1jb2xvcj0iI2ZmZiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2ZmZiIgc3RvcC1vcGFjaXR5PSIuOCIvPjwvcmFkaWFsR3JhZGllbnQ+PGNsaXBQYXRoIGlkPSJiIj48cmVjdCB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIGZpbGw9IiNmZmYiIHJ4PSIxNiIvPjwvY2xpcFBhdGg+PC9kZWZzPjwvc3ZnPg=="
+      },
+      "displayName": "Airtop",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 4,
+          "name": "Productivity"
+        },
+        {
+          "id": 5,
+          "name": "Development"
+        }
+      ]
+    }
+  ]
+}

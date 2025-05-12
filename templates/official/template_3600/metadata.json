@@ -1,0 +1,96 @@
+{
+  "id": 3600,
+  "name": "LINE Chatbot with Google Sheets Memory and Gemini AI",
+  "description": "Main Use Case\nThis workflow enables automated, AI-assisted replies to users messaging a LINE Official Account, while storing and referencing chat history from Google Sheets to maintain context. Ideal for businesses or support teams that want to provide smart, personalized customer interactions using AI with memory.\n\nHow It Works (Step-by-Step)\nConnect to LINE Official Account's API\nA Webhook listens for incoming messages from users on LINE.\nWhen a message is received, it triggers the workflow.\n\nPrepare the Data\nAn Edit Fields module structures incoming data (e.g. extracts user ID, message content).\nThis ensures data is clean and usable downstream.\n\nRetrieve Chat History\nThe user’s previous conversations are fetched from a Google Sheet.\nThis ensures the AI has memory and can continue conversations contextually.\n\nPrepare Prompt\nThe retrieved chat history is combined with the new message to form a complete prompt for the AI.\nExample format: “User previously said X. Now they said Y. How should we respond?”\n\nAI Agent: Google Gemini\nThe formatted prompt is passed to an AI Agent (Google Gemini Chat Model).\nThe AI generates a response based on the message + history.\nTools used: Chat ModeMemory, ToolOutputParser for accurate replies.\n\nSplit & Clean History\nThe conversation history is split into smaller chunks for cleaning and storage.\nThis ensures the Google Sheet remains readable and manageable over time.\n\nSave Chat History\nThe cleaned new message and AI reply are saved to Google Sheets.\nThis updates the chat history for future context.\n\nSend Reply to LINE\nThe AI-generated reply is sent back to the user via a POST HTTP Request to the LINE Messaging API.\n\nHow to Set Up\nPrerequisites:\nLINE Official Account\nGoogle Sheet to store chat history\nGoogle Gemini API or AI agent with context memory\nAutomation platform (e.g., n8n, as this seems visually similar)\n\nStep-by-Step:\nCreate a Webhook on LINE:\nSet the webhook URL to your automation service.\nEnable webhook events.\n\nDesign Your Google Sheet:\nCreate a sheet with columns: User ID, Timestamp, Message, AI Reply.\n\nSet Up Modules in Automation Platform:\nWebhook: receives user messages.\nEdit Fields: extract user ID and message.\nGoogle Sheets Read: fetch message history.\nPrompt Composer: format prompt using past history + new message.\nAI Agent: connect to Google Gemini for smart replies.\nSplit & Clean: clean and chunk history if needed.\nGoogle Sheets Write: save the updated conversation.\nHTTP Request: send reply to LINE via Messaging API.\n\nTest Your Workflow:\nSend a message from LINE.\nWatch the full loop: receive → process → AI → store → reply.\n\nDeploy & Monitor:\nEnsure error handling is in place (e.g., for blank messages or failed API calls).\nRegularly check your Google Sheets for storage limits. (If limits reached, you can increase the history row.)\n\n📦 Benefits\nMaintains context in conversations\nPersonalized, AI-driven responses\nEasy history tracking via Google Sheets\nFully automated and scalable",
+  "totalViews": 1269,
+  "source": "official",
+  "user": {
+    "id": 93887,
+    "name": "Jakkrapat Ampring",
+    "username": "guitarpmacc",
+    "bio": "Working as a marketer in a bilingual school in Phuket with no coding background. I am a lazy person so I constantly looking for a way to make me work less. Been learning about AI stuff for around 2 years now.",
+    "verified": true,
+    "links": "[\"https://www.jakkrapat.com\"]",
+    "avatar": "https://gravatar.com/avatar/1285e20f29afd682de2f36205a83b3fa214858859b54db627975915ff9720a26?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-04-18T09:18:31.925Z",
+  "path": "official/template_3600/workflow.json"
+}

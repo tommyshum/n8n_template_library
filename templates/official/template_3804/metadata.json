@@ -1,0 +1,93 @@
+{
+  "id": 3804,
+  "name": "Automated PR Code Reviews with GitHub, GPT-4, and Google Sheets Best Practices",
+  "description": "AI-Agent Code Review for GitHub Pull Requests \n\nDescription:\n\nThis n8n workflow automates the process of reviewing code changes in GitHub pull requests using an OpenAI-powered agent. \n\nIt connects your GitHub repo, extracts modified files, analyzes diffs, and uses an AI agent to generate a code review based on your internal code best practices (fed from a Google Sheet).\n\nIt ends by posting the review as a comment on the PR and tagging it with a visual label like ✅ Reviewed by AI.\n\n🔧 What It Does\nTriggered on PR creation\n\nExtracts code diffs from the PR\n\nFormats and feeds them into an OpenAI prompt\n\nEnriches the prompt using a Google Sheet of Swift best practices\n\nPosts an AI-generated review as a comment on the PR\n\nApplies a PR label to visually mark reviewed PRs\n\n✅ Prerequisites\nBefore deploying this workflow, ensure you have the following:\n\nn8n Instance (Self-hosted or Cloud)\nGitHub Repository with PR activity\nOpenAI API Key** for GPT-4o, GPT-4-turbo, or GPT-3.5\nGitHub OAuth App** (or PAT) connected to n8n to post comments and access PR diffs\n(Optional) Google Sheets API credentials if using the code best practices lookup node.\n⚙️ Setup Instructions\n\n1. Import the Workflow in n8n, click on Workflows → Import from file or JSON\nPaste or upload the JSON code of this template\n\n2. Configure Triggers and Connections\n\n🔁 GitHub Trigger\n\nNode**: PR Trigger\nRepository**: Select the GitHub repo(s) to monitor\nEvents**: Set to pull_request\nAuth**: Use GitHub OAuth2 credentials\n\n📥 HTTP Request\n\nNode: Get file's Diffs from PR\n\nNo authentication needed; it uses dynamic path from trigger\n\n🧠 OpenAI Model\nNode**: OpenAI Chat Model\n\nModel**: Select gpt-4o, gpt-4-turbo, or gpt-3.5-turbo\n\nCredential**: Provide your OpenAI API Key\n\n🧑‍💻 Code Review Agent\n Node : Code Review Agent\nConnected to OpenAI and optionally to tools like Google Sheets\n\n💬 GitHub Comment Poster\n\nUses GitHub API to post review comments back on PR\nNode: GitHub Robot\nCredential: Use the agent Github account (OAuth or PAT)\nRepo : Pick your owen Github Repository\n\n🏷️ PR Labeler (optional)\nAdds label ReviewedByAI after successful comment\n\nNode: Add Label to PR\nLabel : you ca customize the label text of your owen tag.\n\n📊 Google Sheet Best Practices config (optional)\nConnects to a Google Sheet for coding guideline lookups, we can replace Google sheet by another tool or data base\n\nFirst prepare your best practices list with the clear description and the code bad/good examples\nAdd al the best practices in your Google Sheet\nConfigure* the Code *Best Practices node** in the template :\nCredential : Use your Google Sheet account by OAuth2\nURL : Add your Google Sheet document URL\nSheet : Add the name of the best practices sheet\n\n\n\n\n\n\n\n\n\n\n",
+  "totalViews": 169,
+  "source": "official",
+  "user": {
+    "id": 94162,
+    "name": "Jihene",
+    "username": "jiheneme",
+    "bio": "Chapter Lead | Passionate about mobile development, and automation. I write about optimizing engineering workflows, and experimenting with emerging tech.\n\n\nLet’s connect: linkedin.com/in/jihenemejri",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/7c94452d67ce86b030732d3641802fef8175ff05eebdb1fb9958a365d40a6b75?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "GitHub",
+      "type": "n8n-nodes-base.github",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-04-30T14:07:04.489Z",
+  "path": "official/template_3804/workflow.json"
+}

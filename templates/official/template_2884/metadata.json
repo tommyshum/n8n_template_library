@@ -1,0 +1,61 @@
+{
+  "id": 2884,
+  "name": "Find Top Keywords for Youtube And Google and Store them in NocoDB",
+  "description": "Template Description  \nWDF Top Keywords: This workflow is designed to streamline keyword research by automating the process of generating, filtering, and analyzing Google and YouTube keyword data. Ensure compliance with local regulations and API terms of service when using this workflow.\n\n📌 Purpose  \nThe WDF Top Keywords workflow automates collecting, processing, and managing keyword data for both Google and YouTube platforms. Leveraging multiple data sources and APIs ensures an efficient and scalable approach to identifying high-impact keywords for SEO, content creation, and marketing campaigns.\n\nKey Features\nAutomates the generation of keyword suggestions using autocomplete APIs.\nIntegrates with NocoDB to store and manage keyword data.\nFilters keywords based on monthly search volume and cost-per-click (CPC).\nSupports bulk import of keyword data into structured databases.\nOutputs both Google and YouTube keyword insights, enabling informed decision-making.\n\n🎯 Target Audience  \nThis workflow is ideal for:\nDigital marketers aiming to optimize ad campaigns with data-driven insights.\nSEO specialists looking to identify high-potential keywords efficiently.\nContent creators seeking trending and relevant topics for their platforms.\nAgencies managing keyword research for multiple clients.\n\n⚙️ How It Works  \nTrigger: The workflow runs on-demand or at scheduled intervals.  \nKeyword Generation:  \n   Retrieves base keywords from NocoDB.  \n   Generates autocomplete suggestions for Google and YouTube.  \nData Processing:  \n   Filters and formats keyword data based on specific criteria (e.g., search volume, CPC).  \n   Consolidates results for efficient storage and analysis.  \nStorage and Output:  \n   Saves data into structured NocoDB tables for tracking and reuse.  \n   Bulk imports monthly search volume statistics for detailed analysis.\n\n🛠️ Key APIs and Tools Used  \nNocoDB**: Stores and organizes base and processed keyword data.  \nDataForSEO API**: Provides search volume and keyword performance metrics.  \nGoogle Autocomplete API**: Suggests relevant Google search terms.  \nYouTube Autocomplete API**: Suggests trending YouTube keywords.  \nSocial Flood Docker Instance**: Serves as the local integration hub.  \n\nSetup Instructions  \nRequired Tools:\n   NocoDB  \n   n8n  \n   DataForSEO Account  \n   Social Flood Docker Instance  \nCreate the following NocoDB tables:  \n   Base Keyword Search  \n   Second Order Google Keywords  \n   Second Order YouTube Keywords  \n   Search Volume  \n\nThis template empowers users to handle complex keyword research tasks effortlessly, saving time and providing actionable insights. Share this template to enhance your workflow efficiency!\n\n",
+  "totalViews": 2874,
+  "source": "official",
+  "user": {
+    "id": 91948,
+    "name": "Shannon Atkinson",
+    "username": "rainmanjam",
+    "bio": "I build and break stuff.",
+    "verified": false,
+    "links": "[\"https://www.x.com/rainmanjam\"]",
+    "avatar": "https://gravatar.com/avatar/3d08eaa01038a2b44c54567dd27b86f900d4b9aaf815373ff8d596e1df464d9f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "NocoDB",
+      "type": "n8n-nodes-base.nocoDb",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-02-12T01:32:32.725Z",
+  "path": "official/template_2884/workflow.json"
+}

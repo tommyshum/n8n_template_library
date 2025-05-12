@@ -1,0 +1,64 @@
+{
+  "id": 3920,
+  "name": "Collect LinkedIn Profiles with AI Processing using SerpAPI, OpenAI, and NocoDB",
+  "description": "What problem does this solve? \n\nIt fetches LinkedIn profiles for a multitude of purposes based on a keyword and location via Google search and stores them in an Excel file for download and in a NocoDB database.\nIt tries to avoid using costly services and should be n8n beginner friendly.\nIt uses the serpapi.com to avoid being blocked by Google Search and to process the data in an easier way.\n\nWhat does it do?\n\nBased on criteria input, it searches LinkedIn profiles\nIt discards unnecessary data and turns the follower count into a real number\nThe output is provided as an Excel table for download and in a NocoDB database\n\nHow does it do it?\n\nBased on criteria input, it uses serpAPI.com to conduct Google search of the respective LinkedI profiles\nWith OpenAI.com the name of the respective company is being added\nWith OpenAI.com the follower number e.g., 300+ is turned into a real number: 300\nAll unnecessary metadata is being discarded\nAs an output an Excel file is being created\nThe output is stored in a nocodb.com table\n\nStep-by-step instruction\n\n\nImport the Workflow:\nCopy the workflow JSON from the \"Template Code\" section below.\nImport it into n8n via \"Import from File\" or \"Import from URL\".\n\nSet up a free account at serpapi.com and get API credentials to enable good Google search results\n\nSet up an API account at openai.com and get API key\n\nSet up a nocodb.com account (or self-host) and get the API credentials\n\nCreate the credentials for serpapi.com, opemnai.com and nocodb.com in n8n.\n\nSet up a table in NocoDB with the fields indicated in the note above the NocoDB node\n\nFollow the instructions as detailed in the notes above individual nodes \n\nWhen the workflow is finished, open the Excel node and click download if you need the Excel file\n\n\n\n",
+  "totalViews": 122,
+  "source": "official",
+  "user": {
+    "id": 91559,
+    "name": "Askan",
+    "username": "askans",
+    "bio": "Workflow automation enthusiast",
+    "verified": false,
+    "links": "[\"https://bonn.social/@askans\"]",
+    "avatar": "https://gravatar.com/avatar/97d12cf17d9671d0e3ccaf52c76e7a246fe4a6926295378cdb4da8045119fbe4?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "NocoDB",
+      "type": "n8n-nodes-base.nocoDb",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-05-07T12:26:15.551Z",
+  "path": "official/template_3920/workflow.json"
+}

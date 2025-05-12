@@ -1,0 +1,38 @@
+{
+  "id": 1554,
+  "name": "Get data from multiple RSS feeds to Telegram",
+  "description": "This workflow gets latest RSS from different RSS Sources and categorizes them with conditional.\n\n*Reference\nhttps://n8n.io/workflows/1507\nhttps://n8n.io/workflows/617\nhttps://n8n.io/workflows/199*",
+  "totalViews": 12199,
+  "source": "official",
+  "user": {
+    "id": 32148,
+    "name": "Valor",
+    "username": "valorvie",
+    "bio": null,
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/10a5daf6f9612073871dc715d363ae06fc41fcc98e821c39b2bf56f4a9f055af?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2022-03-26T03:13:32.998Z",
+  "path": "official/template_1554/workflow.json"
+}

@@ -1,0 +1,45 @@
+{
+  "id": 704,
+  "name": "Get the price of BTC in EUR and send an SMS",
+  "description": "This workflow allows you to get the price of BTC in EUR and send an SMS when the price is larger than EUR 9000\n\n\n",
+  "totalViews": 2720,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "Development",
+    "Productivity",
+    "Finance & Accounting"
+  ],
+  "nodes": [
+    {
+      "name": "Twilio",
+      "type": "n8n-nodes-base.twilio",
+      "categories": [
+        "Communication",
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "CoinGecko",
+      "type": "n8n-nodes-base.coinGecko",
+      "categories": [
+        "Productivity",
+        "Finance & Accounting"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2020-10-05T16:17:56.087Z",
+  "path": "official/template_704/workflow.json"
+}

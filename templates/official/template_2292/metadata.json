@@ -1,0 +1,102 @@
+{
+  "id": 2292,
+  "name": "Talk to your SQLite database with a LangChain AI Agent 🧠💬  ",
+  "description": "This n8n workflow demonstrates how to create an agent using LangChain and SQLite. The agent can understand natural language queries and interact with a SQLite database to provide accurate answers. 💪  \n🚀 Setup  \n  \nRun the top part of the workflow once.  \nIt downloads the example SQLite database, extracts from a ZIP file and saves locally (chinook.db).  \n🗣️ Chatting with Your Data  \n  \nSend a message in a chat window.  \nLocally saved SQLite database loads automatically.  \nUser's chat input is combined with the binary data.  \nThe LangChain Agend node gets both data and begins to work.  \n  \nThe AI Agent will process the user's message, perform necessary SQL queries, and generate a response based on the database information. 🗄️  \n🌟 Example Queries  \n  \nTry these sample queries to see the AI Agent in action:  \n  \n\"Please describe the database\" - Get a high-level overview of the database structure, only one or two queries are needed.  \n\"What are the revenues by genre?\" - Retrieve revenue information grouped by genre, LangChain agent iterates several time before producing the answer.  \n  \nThe AI Agent will store the final answer in its memory, allowing for context-aware conversations. 💬 \n \nRead the full article: 👉 https://blog.n8n.io/ai-agents/\n",
+  "totalViews": 19756,
+  "source": "official",
+  "user": {
+    "id": 91386,
+    "name": "Yulia",
+    "username": "yulia",
+    "bio": "Let's connect! ",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/yulia-dmitrievna-1112361b5/\"]",
+    "avatar": "https://gravatar.com/avatar/d29a8262aa8835d430919f8002957a77169f8da987dee0740aa494ae67a061b7?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Compression",
+      "type": "n8n-nodes-base.compression",
+      "categories": [
+        "Core Nodes",
+        "Data & Storage"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Files",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2024-06-14T11:38:57.461Z",
+  "path": "official/template_2292/workflow.json"
+}

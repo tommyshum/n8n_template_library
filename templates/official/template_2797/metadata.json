@@ -1,0 +1,91 @@
+{
+  "id": 2797,
+  "name": "Notion to Pinecone Vector Store Integration",
+  "description": "This n8n automation is designed to extract, process, and store content from Notion pages into a Pinecone vector store. Here's a breakdown of the workflow:\n\nNotion - Page Added Trigger: The automation starts by monitoring for newly added pages in a specific Notion database. It triggers whenever a new page is created, capturing the page's metadata.\n\nNotion - Retrieve Page Content: Once triggered, the automation fetches the full content of the newly added Notion page, including blocks like text, images, and videos.\n\nFilter Non-Text Content: The next step filters out non-text content (such as images and videos), ensuring only textual content is processed.\n\nSummarize - Concatenate Notion's blocks content: The remaining text content is concatenated into a single block of text for easier processing.\n\nToken Splitter: The concatenated text is then split into manageable tokens, which are chunks of text that can be used for embedding.\n\nCreate metadata and load content: Metadata such as the page ID, creation time, and title are added to the content, making it easy to reference and track.\n\nEmbeddings Google Gemini: The processed text is passed through a Google Gemini model to generate embeddings, which are numerical representations of the text that capture its semantic meaning.\n\nPinecone Vector Store: Finally, the embeddings, along with the content and metadata, are stored in a Pinecone vector store, making it searchable and ready for use in applications like document retrieval or natural language processing tasks.\n\nThis workflow ensures that every new page added to the Notion database is processed into a format that can be easily searched and used in machine learning applications. The automation runs every minute to capture new data in real-time, providing an up-to-date and searchable vector database of Notion content.\n\nUse Case:\n\nThis automation converts Notion pages into vector embeddings and stores them in Pinecone for enhanced search and AI-driven insights. It’s ideal for teams using Notion for knowledge management, enabling semantic search and context-based content retrieval. For example, employees can easily find relevant information across documents, and data scientists can use AI models to analyze and summarize the content stored in Notion.",
+  "totalViews": 3115,
+  "source": "official",
+  "user": {
+    "id": 92457,
+    "name": "Udit Rawat",
+    "username": "ailistmaster",
+    "bio": "Hi, I’m Udit, an Acquia-certified developer with a strong background in web development and creating enterprise solutions. Recently, I’ve transitioned into AI and ML, I hold DIAT Professional AI Certification. I specialize in building AI-driven automation to streamline workflows, improve efficiency, and solve complex problems. With expertise in AI/ML tools and years of experience in Acquia and Drupal, I’m passionate about leveraging tech to drive innovation and create smarter solutions.",
+    "verified": true,
+    "links": "[\"https://x.com/AilistMaster\"]",
+    "avatar": "https://gravatar.com/avatar/6e96ede8d526c20ff6df15da46bbafb0fbe8862f1e12faa6de21514bb3c641e8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Productivity",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Token Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterTokenSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Pinecone Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    },
+    {
+      "name": "Embeddings Google Gemini",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-01-25T01:29:58.675Z",
+  "path": "official/template_2797/workflow.json"
+}

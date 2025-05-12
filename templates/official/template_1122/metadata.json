@@ -1,0 +1,43 @@
+{
+  "id": 1122,
+  "name": "Database alerts with Notion and SIGNL4",
+  "description": "Objective\nIn industry and production sometimes machine data is available in databases. That might be sensor data like temperature or pressure or just binary information.\nIn this sample flow reads machine data and sends an alert to your SIGNL4 team when the machine is down. When the machine is up again the alert in SIGNL4 will get closed automatically.\nSetup\nWe simulate the machine data using a Notion table.\n\n\nWhen we un-check the Up box we simulate a machine-down event. In certain intervals n8n checks the database for down items. If such an item has been found an alert is send using SIGNL4 and the item in Notion is updates (in order not to read it again).\n\n\n\nStatus updates from SIGNL4 (acknowledgement, close, annotation, escalation, etc.) are received via webhook and we update the Notion item accordingly.\n\nThis is how the alert looks like in the SIGNL4 app.\n\n\n\nThe flow can be easily adapted to other database monitoring scenarios.\n",
+  "totalViews": 731,
+  "source": "official",
+  "user": {
+    "id": 5220,
+    "name": "Ron",
+    "username": "rons4",
+    "bio": "Co-founder at Derdack, Exploration at SIGNL4. Passionate about technology, SaaS, IoT, mobile, alerting, learning and more.",
+    "verified": true,
+    "links": "[\"https://www.signl4.com\"]",
+    "avatar": "https://gravatar.com/avatar/1af910dd96a18543fb15bf2097e28a14a72401781ec1ac4ffce7a07ad11dac7f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "Development",
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "SIGNL4",
+      "type": "n8n-nodes-base.signl4",
+      "categories": [
+        "Communication",
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2021-06-10T15:31:49.046Z",
+  "path": "official/template_1122/workflow.json"
+}

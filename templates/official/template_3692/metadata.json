@@ -1,0 +1,103 @@
+{
+  "id": 3692,
+  "name": "Context-Aware Discord Bot Replies to Mentions & DMs with GPT-4o",
+  "description": "&gt;If you have any question, or difficulty, feel free to come discuss about it on my Telegram (you might find something there 🎁)\n\n⚠️ Disclaimer\n\nThis workflow uses a community node: n8n-nodes-discord-trigger. Only self-hosted n8n instances can use this workflow.\n  \nCommunity nodes are maintained outside of n8n’s core team. Please review their code and use responsibly.\n\nDescription\nThis n8n workflow enables a fully autonomous AI assistant within your Discord server. It listens for both public mentions and direct messages (DMs), and replies in real-time using a language model (OpenAI's GPT-4o by default). The assistant can dynamically fetch previous messages for better context, providing smart, coherent, and personalized responses.\n\n🔧 Key Features\n\nDual Trigger**: Reacts to both public bot mentions and private DMs.\nContext-Aware AI**: Dynamically fetches the last 30 messages from either public or private conversations.\nSmart Routing**: Replies either in the original public channel or via DM, depending on where the message came from.\nCustom Prompting**: Easily modify the system prompt to define the AI’s tone, behavior, and personality.\nFully Autonomous**: No manual intervention required — the bot always replies instantly.\n\n✅ Requirements\n\nAn operational n8n instance.\nA Discord bot with at least these permissions:\n  Send Messages  \n  Read Message History  \n  Manage Messages\nOpenAI API key** (or compatible LLM credentials).\nThe community package: n8n-nodes-discord-trigger.\n\n🧰 Setup Instructions\n\n1. Discord Bot Setup\nCreate and invite your Discord bot to your server with required permissions.\n&gt; You will find in the next step a complete tutorial to craft your own bot with the right code and permissions for this workflow to work\nSet your Discord bot token in n8n's credential manager.\n\n2. Install the Community Node (please read ⚠️ Disclaimer first)\nGo to Settings &gt; Community Nodes &gt; Install\nPaste: n8n-nodes-discord-trigger and install.\n\n3. Configure the Workflow\nAdd your Discord bot credentials.\nUpdate the LLM credentials with your OpenAI key or alternative.\nCustomize the AI agent system prompt if needed.\n\n🤖 How It Works\n\nWhen a public mention is detected, the bot replies directly in the channel, referencing the original message.\nWhen a DM is received, it responds privately.\nThe AI uses tools to read the latest 30 public or private messages to build accurate context before replying.\n\n🛠 Customization Options\n\nChange LLM**: Swap out OpenAI with any LLM that has an API.\nEdit Prompt Behavior**: Modify the system prompt to control tone and personality.\nAdjust Trigger Filters**: Choose which roles, channels, or patterns activate the flow.\n\n&gt;And if you just need a tutorial on setting up your Discord bot, be my guest ➡️ Here",
+  "totalViews": 236,
+  "source": "official",
+  "user": {
+    "id": 93650,
+    "name": "Niten Musa",
+    "username": "nitenmusa",
+    "bio": "Just like every business has its own processes, every business will have its own AI agents — I sell and teach that transition\n\nFrom France 🇫🇷 — Discipline, Humility, Benevolence",
+    "verified": true,
+    "links": "[\"https://www.bonzai.pro/niten-musa\"]",
+    "avatar": "https://gravatar.com/avatar/7c12ff05ad25ca88cd977720280c51c995d53c91fe572a7a90a6b5a4b8660118?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Discord",
+      "type": "n8n-nodes-base.discord",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-04-24T15:14:39.663Z",
+  "path": "official/template_3692/workflow.json"
+}

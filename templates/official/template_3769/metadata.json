@@ -1,0 +1,101 @@
+{
+  "id": 3769,
+  "name": "Perform SEO Keyword Research & Insights with Ahrefs API and Gemini 1.5 Flash",
+  "description": "This n8n workflow automates SEO keyword research by querying the Ahrefs API for keyword data and related keyword insights. The enriched data is then processed by an AI agent to format a response and provide valuable SEO recommendations.\n\nPerfect for SEO specialists, content marketers, digital agencies, and anyone looking to gain valuable insights into keyword opportunities to boost their rankings.\n\n⚙️ How This Workflow Works\n\nThis workflow guides you through the entire SEO keyword research process, from entering the initial keyword to receiving detailed insights and related keyword suggestions.\n\n1. 🗣️ User Input (Keyword Query)\nThe user enters a keyword they want to research.\nThis input is captured by the Chat Input Node, ready for analysis.\n\n2. 🤖 AI Agent (Input Verification)\nThe AI Agent reviews the keyword input for any grammatical errors or extra commentary.\nIf necessary, it cleans the input to ensure a seamless query to the API.\n\n3. 🔑 Ahrefs API (Keyword Data Retrieval)\nThe cleaned keyword is sent to the Ahrefs Keyword Tool API.\nThis retrieves a detailed report including metrics like search volume, keyword difficulty, and CPC.\n\n4. 💡 Related Keywords Extraction (Using JavaScript Function)\nThe workflow uses a JavaScript function to extract main keyword data and 10 related keywords data from the Ahrefs response.\nYou can tweak the script to adjust the number of related keywords or the level of detail you want.\n\n5. 🧠 AI Agent (Text Formatting)\nThe aggregated data, including both the main keyword and related keywords, is sent to an AI agent.\nThe AI agent formats the data into a concise, readable format that can be shared with the user.\n\n6. 📨 Final Response\nThe formatted text is delivered to the user with keyword insights, recommendations, and related keyword suggestions.\n\n✅ Smart Retry & Error Handling\n\nEach subworkflow includes a fail-safe mechanism to ensure:\n\n✅ Proper error handling for any issues with the API request.\n🕒 Failed API requests are retried after a customizable period (e.g., 2 hours or 1 day).\n💬 User input validation prevents any incorrect or malformed queries from being processed.\n\n📋 Ahrefs API Setup\n\nTo use this workflow, you’ll need to set up your Ahrefs API credentials:\n\n🔑 Ahrefs API\nSign up for an Ahrefs account and get your key here: Ahrefs Keyword Tool API\nOnce signed up, you'll receive an API key, which you’ll use in the x-rapidapi-key header in n8n.\nEnsure you check the Ahrefs Keyword Tool API documentation for more details on available parameters.\n\n📥 How to Import This Workflow\n\nCopy the json code.\nOpen your n8n instance.\nOpen a new workflow.\nPaste anywhere inside the workflow.\nVoila.\n\n🛠️ Customization Options\n\nAdjust the number of related keywords extracted (default is 10).\nCustomize the AI agent response formatting or add specific recommendations for users.\nModify the JavaScript function to extract different metrics from the Ahrefs API.\n\n🧪 Use Case Example\n\nTrying to optimize your blog post around a specific keyword?\n\nQuery a broad keyword, like “SEO tips”.\nGet related keyword data and search volume insights.\nUse the AI agent to provide keyword recommendations and additional topics to target.\n💥 Boost your content strategy with fresh keywords and relevant search data!",
+  "totalViews": 1456,
+  "source": "official",
+  "user": {
+    "id": 93572,
+    "name": "Joseph",
+    "username": "mjomba",
+    "bio": "Automation expert specializing in building smart, scalable workflows using tools like n8n, Make, and Airtable. I help businesses save time, reduce manual work, and grow faster with tailored automation solutions. Feel free to reach out at joseph@uppfy.com to discuss your project.",
+    "verified": true,
+    "links": "[\"https://x.com/juppfy\"]",
+    "avatar": "https://gravatar.com/avatar/460cadca403550e24f9e17a9ee3f4670046503b32fb59618a1b390378b803162?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-04-28T08:09:05.096Z",
+  "path": "official/template_3769/workflow.json"
+}

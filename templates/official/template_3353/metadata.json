@@ -1,0 +1,84 @@
+{
+  "id": 3353,
+  "name": "Summarize Microsoft 365 Outage Alerts with ChatGPT and Send to Slack",
+  "description": "Built this for a dedicated Slack outage-notifications channel — works well on both desktop and mobile.\n\nThis is for:\n\nIT Administrators & small MSPs looking to streamline M365 alerts from one or multiple mailboxes into a single or specific Slack channels\nIT Admins who prefer ChatOps over management-by-email\n\nWhat does it do\n\nScans for M365 outage alerts emails (every 1 min)\nChecks if it impacts a specific user region (if the alert calls it out, countries have to be manually set)\nSummarizes the incident using OpenAI o4-mini (cheap model - or you can swap for local Ollama)\nSends a Slack Block to your outage channel with incident link (can be extended)\nDeletes the original alert email after successful delivery\n\nCredentials\n\nOutlook:\n\nCreate an Outlook credential (OAuth2.0) to point to the mailbox (regular or shared) where M365 service alerts will be received\n\nSlack:\n\nCreate a Slack bot credential with access to the slack channel you want updates posted to\n\nOpenAI:\n\nCreate a OpenAI credential that has access to the GPT-4O-MINI model.\nRecommend you use projects in OpenAI so that you may set a per-project-budget and not impact other projects.\n\nReview this OpenAI documentation for more info on managing Projects in the API portal. Expect this to consume no more than 1-2 cents per month on average.\n\nSetup\n\nDownload & import the workflow\nModify the first Outlook block (Check for 365 Service Alert) to use the Outlook credential\nModify the OpenAI block's system prompt to call out the countries your users reside in\n   ie. \"- Assume the organization has users primarily in the U.S. and Australia. If those regions are affected, state: \"Your users may have been affected.\" Otherwise, add: \"No impact expected for your user base.\"\" ← swap U.S. & Australia for desired countries\nModify the Slack block (Post outage to Slack) to specify the channel updates will be posted to\n\n Sample Slack Output\n\n Workflow Diagram",
+  "totalViews": 32,
+  "source": "official",
+  "user": {
+    "id": 93489,
+    "name": "Luke",
+    "username": "ozskywalker",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/1bf68e692beadc2e553bfe1345692b2ce04b37e423ac2355652c072d7d53ffad?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Microsoft Outlook",
+      "type": "n8n-nodes-base.microsoftOutlook",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-03-29T16:18:13.432Z",
+  "path": "official/template_3353/workflow.json"
+}

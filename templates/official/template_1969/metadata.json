@@ -1,0 +1,49 @@
+{
+  "id": 1969,
+  "name": "Import CSV from URL to Google Sheets",
+  "description": "This workflow automatically imports data from a CSV file located at a specific URL and then updates the Google Sheets document with the provided data.\n\nBelow is a step-by-step description of what this workflow does:\nThe workflow is started manually using the \"When you click 'Execute Workflow'\" node.\nThe CSV file is then uploaded from the specified URL \"https://opendata.ecdc.europa.eu/covid19/testing/csv/data.csv\" using the \"Upload CSV\" node.\nThe \"Import CSV\" node accepts the uploaded CSV file and converts it into JSON formatted data.\nThe \"Add Unique Field\" node generates a unique key by combining the 'country_code' and 'year_week' fields from the JSON data, which will be further used in the Google Sheets document.\nThe 'Keep only DACH in 2023' node filters the data to keep only records where 'country_code' is either 'DE', 'AT', or 'CH' and 'year_week' starts with '2023'. Google's API has limitations on the speed of read and write operations, so only a subset of the data is taken.\nThe filtered data is loaded into the specified Google Sheets document via the 'Load to Spreadsheet' node. The operation is set to 'appendOrUpdate' and the document ID and sheet name are specified. Also, the previously generated 'unique_key' key is set as the key to match the columns.",
+  "totalViews": 4046,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2023-10-30T13:43:22.238Z",
+  "path": "official/template_1969/workflow.json"
+}

@@ -1,0 +1,41 @@
+{
+  "id": 1340,
+  "name": "Create Zoom meeting link from Google Calendar invite",
+  "description": "Gets Google Calendar events for the day (12 hours from execution time), and filters out in-person meetings, Signal meetings, and meetings canceled by Calendly (\"transparent\").",
+  "totalViews": 1838,
+  "source": "official",
+  "user": {
+    "id": 23237,
+    "name": "Jason Foster",
+    "username": "loosenut",
+    "bio": null,
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/cb4ad72a1dae816c911202a2e18a64f874643f7088e9cf1a11bc33315dcff83c?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Productivity",
+    "Communication"
+  ],
+  "nodes": [
+    {
+      "name": "Google Calendar",
+      "type": "n8n-nodes-base.googleCalendar",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Zoom",
+      "type": "n8n-nodes-base.zoom",
+      "categories": [
+        "Communication"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2021-11-25T17:37:58.369Z",
+  "path": "official/template_1340/workflow.json"
+}

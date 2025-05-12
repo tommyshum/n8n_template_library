@@ -1,0 +1,38 @@
+{
+  "id": 3327,
+  "name": "Automatic Squarespace Order Fulfillment Process",
+  "description": "This workflow automates the Mark as Fulfilled action in Squarespace for each order, ensuring a seamless fulfillment process without manual intervention.\n\nHow It Works\nThis workflow retrieves all pending Squarespace orders and processes their fulfillment automatically. The workflow follows these steps:\n\n1️⃣ Get all pending orders using the HTTP Request node (Since Squarespace does not have a n8n node)\n2️⃣ Create a fulfillment request using Fulfill Order node\n\nThe Filter Orders node can be used to filter valid pending order to process.\n\nStep-by-step\nThe workflow can be run as requested or on schedule\n\nYou can adjust these parameters within the Global and filter nodes:\n\nGlobal node for API Setting\napi-version** (string, required) – The current API version (see Squarespace Orders API documentation).\nmodifiedAfter**={a-datetime} (string, conditional) – Fetch orders modified after a specific date (ISO 8601 format).\nmodifiedBefore**={b-datetime} (string, conditional) – Fetch orders modified before a specific date (ISO 8601 format).\ncursor**={c} (string, conditional) – Used for pagination, cannot be combined with other filters.\nfulfillmentStatus**={status} (optional, enum) – Filter by fulfillment status: PENDING, FULFILLED, or CANCELED.\nmaxPage** – Set -1 to enables infinite pagination to fetch all available orders.\n\nFilter Orders node\nOrder Filtering – Ensures only valid orders are fulfilled, particularly useful if:\n\nYou sell digital downloads or gift cards exclusively.\nYou use third-party fulfillment services for all products.\n\nRequirements\nCredentials\nTo use this workflow, you need:\n\nSquarespace API Key – Retrieve from your Squarespace settings.\n\nWho Is This For?\nSquarespace store owners looking to automate their fulfillment process.\n\nMerchants selling digital or personalized products who need instant fulfillment.\n\nExplore More Templates  \nGet all orders in Squarespace to Google Sheets\nConvert Squarespace Profiles to Shopify Customers in Google Sheets\nFetch Squarespace Blog & Event Collections to Google Sheets\n\n👉 Check out my other n8n templates\n",
+  "totalViews": 317,
+  "source": "official",
+  "user": {
+    "id": 92981,
+    "name": "bangank36",
+    "username": "bangank36",
+    "bio": "Automation specialist with 10+ years of experience helping SME website owners streamline their workflows—specializing in Squarespace, Shopify, and WordPress. Book an initial consultation for custom n8n automation using my link.",
+    "verified": true,
+    "links": "[\"https://beyondspace.studio\"]",
+    "avatar": "https://gravatar.com/avatar/499b5f6868bff3f56c51a6650bf87b946b25b2e17d353e3c9bbf5b34d2bd5bf4?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-03-26T01:38:35.591Z",
+  "path": "official/template_3327/workflow.json"
+}

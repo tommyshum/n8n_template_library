@@ -1,0 +1,80 @@
+{
+  "id": 3259,
+  "name": "Automate LinkedIn Candidates Sourcing with Google X-ray Boolean Search",
+  "description": "Auto Source LinkedIn Candidates with GPT-4 Boolean Search & Google X-ray  \n\nHow It Works:  \n\nUser Input:  \n   The user pastes a job description or ideal candidate specifications into the workflow.  \n\nBoolean Search String Generation:  \n   OpenAI processes the input and generates a precise LinkedIn Boolean search string formatted as:  \n     site:linkedin.com/in (\"Job Title\" AND \"Skill1\" AND \"Skill2\")  \n   This search string is optimized to find relevant LinkedIn profiles matching the provided criteria.  \n\nGoogle Sheet Creation:  \n   A new Google Sheet is automatically created within a specified document to store extracted LinkedIn profile URLs.  \n\nGoogle Search Execution:  \n   The workflow sends a search request to Google using an HTTP node with the generated Boolean string.  \n\nIterative Search & Data Extraction:  \n   The workflow retrieves the first 10 results from Google.  \n   If the desired number of LinkedIn profiles has not been reached, the workflow loops, fetching the next set of 10 results until the if condition is met.  \n\nData Storage:  \n   The workflow extracts LinkedIn profile URLs from the search results and saves them to the newly created Google Sheet for further review.  \n\nSetup Steps:  \n\n1. API Key Configuration  \nUnder \"Credentials\", add your OpenAI API key from your OpenAI account settings.  \nThis key is used to generate the LinkedIn Boolean search string.  \n\n2. Adjust Search Parameters  \nNavigate to the \"If\" node and update the condition to define the desired number of LinkedIn profiles to extract.  \nThe default is 50, but you can set it to any number based on your needs.  \n\n3. Establish Google Sheets Connection  \nConnect your Google Sheets account** to the workflow.  \nCreate a document** to store the sourced LinkedIn profiles.  \nThe workflow automatically creates a new sheet for each new search, so no manual setup is needed.  \n\n4. Authenticate Google Search  \nGoogle search requires authentication** for better results.  \nUse the Cookie-Editor browser extension to export your header string and enable authenticated Google searches within the workflow.  \n\n5. Run the Workflow  \nExecute* the workflow and monitor the *Google Sheet** for newly added LinkedIn profiles.  \n\nBenefits:  \n✅ Automates profile sourcing, reducing manual search time.  \n✅ Generates precise LinkedIn Boolean search strings tailored to job descriptions.  \n✅ Extracts and saves LinkedIn profiles efficiently for recruitment efforts.  \n\nThis solution leverages OpenAI and advanced search techniques to enhance your talent sourcing process, making it faster and more accurate! 🚀\n",
+  "totalViews": 1532,
+  "source": "official",
+  "user": {
+    "id": 93334,
+    "name": "Abdullah Maftah",
+    "username": "abdullah",
+    "bio": "I save talent acquisition professionals valuable time by automating candidate sourcing, screening, and outreach. Additionally, I build systems that identify potential new clients by searching popular job boards.",
+    "verified": false,
+    "links": "[\"https://www.linkedin.com/in/abdullah-maftah/\"]",
+    "avatar": "https://gravatar.com/avatar/57d1ce51c359d995bd56be761aeb2bc16246cc6004c5f40007220ffc38916440?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-03-21T10:28:49.832Z",
+  "path": "official/template_3259/workflow.json"
+}

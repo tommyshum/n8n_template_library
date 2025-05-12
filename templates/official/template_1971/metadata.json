@@ -1,0 +1,80 @@
+{
+  "id": 1971,
+  "name": "URL and IP lookups through Greynoise and VirusTotal",
+  "description": "This n8n workflow serves as a powerful cybersecurity and threat intelligence tool to look up URLs or IP addresses through industry standard threat intelligence vendors. It starts with either a form submission or a webhook trigger, allowing users to input data, URLs or IPs that require analysis. The workflow then splits into two paths depending on whether the input data is an IP or URL. If an IP was given, it sets the ip variable to the IP; however if a URL was given the workflow will perform a DNS lookup using Google Public DNS and sets the ip variable based on the results from Google.\n\nThe workflow then checks the obtained IP addresses against GreyNoise services, with one branch utilizing GreyNoise RIOT IP Lookup to assess IP reputation and association with known benign services, and the other using GreyNoise IP Context to evaluate potential threats. The results from both GreyNoise services are merged to create a comprehensive analysis which includes the IP, classification (benign, malicious, or unknown), IP location, tags to identify activity or malware, category, and trust level. \n\nIn parallel, a VirusTotal scan is initiated for the URL/IP to identify if it is malicious. A 5-second wait ensures proper processing, and the workflow subsequently polls the scan result to determine when the analysis is complete. The workflow then summarizes the analysis including the overall security vendor analysis results, blockList analysis, OpenPhish analysis, the URL, and the IP.\n\nFinally, the workflow combines the summarized intelligence from both GreyNoise and VirusTotal to provide a thorough analysis of the URL/IP. This summarized intelligence can then be emailed to the user that filled out the form via Gmail or it can be sent to the user via a Slack message.\n\nSetting up this workflow may require proper configuration of the form submission or webhook trigger, and ensuring that the GreyNoise and VirusTotal API credentials are correctly integrated. Users should also consider the potential volume of data and API rate limits, as excessive requests could lead to issues. Proper documentation and validation of input data are crucial to ensure accurate and meaningful results in the final report.",
+  "totalViews": 7429,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2023-11-07T06:29:01.198Z",
+  "path": "official/template_1971/workflow.json"
+}

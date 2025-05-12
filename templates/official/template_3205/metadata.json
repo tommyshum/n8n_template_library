@@ -1,0 +1,38 @@
+{
+  "id": 3205,
+  "name": "Monitor Data Breaches in Real-time with Have I Been Pwned",
+  "description": "Who is this for?\nSecurity professionals\nDevelopers\nIndividuals interested in data breach awareness\n\nUse Case\nAutomated monitoring for new breaches\nProactive identity protection\nDemonstration of simple cache mechanism\n\nWhat this workflow does\nChecks the Have I Been Pwned API every 15 minutes for the latest breaches.\nCompares new breach data against previously notified breaches.\nDemonstrates a simple cache mechanism to track previously seen breaches.\n\nHow the Cache Functionality Works\nRead from Cache**: Retrieves the last known breach from cache.json to avoid redundant alerts for the same breach.\nCompare Against Current Breach**: The workflow checks if the latest fetched breach differs from the cached one.\nUpdate the Cache**: If a new breach is detected, it updates cache.json with the latest breach data.\n\nSetup instructions\nThe endpoint used in this workflow does not require an API key.\nAdd your desired alert mechanism in the red box attached to the New breach node.\n\nHow to customize this workflow to your needs\nModify Notification Settings**: Tailor where alerts are sent (email, Slack, etc.). Add the desired node after the New breach node. This node contains all the data from the breach so it is eaisily available.\nYou can choose from a variety of n8n nodes to send alerts when a new breach is detected. Below are a few common options you might consider adding after the New breach node:\n\nEmail Node\nWhat it does: Sends an email notification to one or more recipients.\nUse case: Great for simple alerts to your inbox or a team distribution list.\nCustomization: You can include breach details in the subject or body of the email, using data from the New breach node.\nSlack Node\nWhat it does: Sends a message to a Slack channel or user.\nUse case: Perfect for real-time alerts to your team in Slack.\nCustomization: You can post breach details directly in a channel or DM. You can also format the message (bold, code blocks, etc.).\nMicrosoft Teams Node\nWhat it does: Sends a message to a Teams channel.\nUse case: For organizations that use Microsoft Teams for communication.\nCustomization: Similar to Slack, you can customize the message content and include all relevant breach information.\nDiscord Node\nWhat it does: Sends an alert message to a Discord channel.\nUse case: Useful for teams or communities that coordinate via Discord.\nCustomization: Add formatted messages with breach details for easy viewing.\nTelegram Node\nWhat it does: Sends messages to a Telegram chat or group.\nUse case: Good for mobile notifications and fast alerts.\nCustomization: You can include breach summaries or detailed information, and even use bots to automate this.\nWebhook Node (as a sender)\nWhat it does: Sends breach data to another service via a webhook.\nUse case: If you have an external system or app that handles alerts, you can push the data directly to it.\nCustomization: Send JSON payloads with detailed breach information to trigger actions in other systems.\nSMS Nodes (like Twilio)\nWhat it does: Sends an SMS notification to one or more phone numbers.\nUse case: For urgent alerts that need to be seen immediately.\nCustomization: Keep messages concise, including key breach details like the time, type of breach, and affected system.\nAdjust Check Frequency**: Change the interval in the Schedule Trigger node (e.g., hourly or daily).",
+  "totalViews": 4680,
+  "source": "official",
+  "user": {
+    "id": 93147,
+    "name": "Audun",
+    "username": "xqus",
+    "bio": "I’m an automagician who loves turning complex systems into simple, powerful workflows.\nHere to help you automate smarter and work easier.",
+    "verified": true,
+    "links": "[\"https://xqus.com/\"]",
+    "avatar": "https://gravatar.com/avatar/273c8f67ecb3e3ea711c36a448f1fd547ca9ad698ae800bebd69be68317f63d1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-03-17T22:07:27.941Z",
+  "path": "official/template_3205/workflow.json"
+}

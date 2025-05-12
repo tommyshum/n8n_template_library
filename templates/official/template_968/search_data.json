@@ -1,0 +1,66 @@
+{
+  "id": 968,
+  "name": "Create an event in PostHog when a request is made to a webhook URL",
+  "totalViews": 1040,
+  "purchaseUrl": null,
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "description": "This workflow automatically creates an event in PostHog when a request is made to a webhook URL.\n\nPrerequisites\n\nA PostHog account and credentials\n\nNodes\n\nWebhook node triggers the workflow when a URL is accessed.\nPostHog node creates a new event in PostHog.",
+  "createdAt": "2021-03-03T12:27:30.560Z",
+  "nodes": [
+    {
+      "id": 454,
+      "icon": "file:postHog.svg",
+      "name": "n8n-nodes-base.postHog",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.posthog/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/postHog/"
+              }
+            ]
+          },
+          "categories": [
+            "Analytics",
+            "Development"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "PostHog"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIiBmaWxsPSJub25lIj48cGF0aCBmaWxsPSIjZmZmIiBkPSJNMCAwaDMwMHYzMDBIMHoiLz48cGF0aCBmaWxsPSIjRjlCRDJCIiBkPSJtMzMgMTc5LjM3OSAzOS4wMDQgMzguOTUxSDMzem0wLTkuNzM4IDQ4Ljc1NSA0OC42ODloMzkuMDA0TDMzIDEzMC42ODl6bTAtNDguNjkgOTcuNTEgOTcuMzc5aDM5LjAwM0wzMyA4MnptNDguNzU1IDAgOTcuNTA5IDk3LjM3OXYtMzguOTUxTDgxLjc1NCA4MnpNMTMwLjUxIDgydjM4Ljk1MWw0OC43NTQgNDguNjl2LTM4Ljk1MnoiLz48cGF0aCBmaWxsPSIjMDAwIiBkPSJNMjY3LjAyMyAyMDIuNzVhMzcuNyAzNy43IDAgMCAxLTI2LjYzMi0xMS4wMTZsLTU0LjIzMS01NC4xNTh2ODAuNzU0aDgwLjg2M3oiLz48cGF0aCBmaWxsPSIjZmZmIiBkPSJNMjA5LjU2MyAyMDIuNzVjNC4zMDggMCA3LjgtMy40ODggNy44LTcuNzkxIDAtNC4zMDItMy40OTItNy43OS03LjgtNy43OS00LjMwOSAwLTcuODAxIDMuNDg4LTcuODAxIDcuNzkgMCA0LjMwMyAzLjQ5MiA3Ljc5MSA3LjgwMSA3Ljc5MSIvPjxwYXRoIGZpbGw9IiMxRDRBRkYiIGQ9Ik0zMyAyMTguMzNoMzkuMDA0TDMzIDE3OS4zNzl6bTQ4Ljc1NS04Ny42NDFMMzMgODJ2MzguOTUxbDQ4Ljc1NSA0OC42OXptLTQ4Ljc1NSAwdjM4Ljk1Mmw0OC43NTUgNDguNjg5di0zOC45NTF6Ii8+PHBhdGggZmlsbD0iI0Y1NEUwMCIgZD0iTTEzMC41MSAxMzAuNjg5IDgxLjc1NSA4MnYzOC45NTFsNDguNzU1IDQ4LjY5ek04MS43NTUgMjE4LjMzaDM5LjAwNGwtMzkuMDA0LTM4Ljk1MXptMC04Ny42NDF2MzguOTUybDQ4Ljc1NSA0OC42ODl2LTM4Ljk1MXoiLz48L3N2Zz4="
+      },
+      "displayName": "PostHog",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 5,
+          "name": "Development"
+        },
+        {
+          "id": 10,
+          "name": "Analytics"
+        }
+      ]
+    }
+  ]
+}

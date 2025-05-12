@@ -1,0 +1,32 @@
+{
+  "id": 1804,
+  "name": "Sync your GitHub issues to your Notion database",
+  "description": "\nThis workflow syncs your GitHub issues to your Notion database. Whenever a new issue is opened in your GitHub repository, it will be shown in your Notion database, syncing the status property (opened/edited/closed/deleted). In case there’s no Notion database existing yet, a new one will be created automatically.\n\nPrerequisites\nNotion account and Notion credentials \nGitHub account and GitHub credentials\n\nHow it works\n\nGithub trigger starts the workflow when a new issue is created in a GitHub repository.\nIf node splits the workflow conditionally, showing whether the issue is new or an update of an existing issue. \nIf data is new, the Notion node will create a new database page in Notion.\nIf the data is not new, the Function node will create a Notion filter that will find its specific database page by issue ID.\nSwitch node will then conditionally route the data into the appropriate Notion page, based on the update made upon it.\n",
+  "totalViews": 3726,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2022-10-07T08:00:16.557Z",
+  "path": "official/template_1804/workflow.json"
+}

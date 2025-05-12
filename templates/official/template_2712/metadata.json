@@ -1,0 +1,50 @@
+{
+  "id": 2712,
+  "name": "Form with Dynamic Dropdown Field",
+  "description": "This workflow creates a customizable form with a dynamic dropdown field that automatically updates its options from an external data source. \n\nHow it works\n\nThe workflow polls an external data source (Google Sheets in this example) at regular intervals\nNew values are processed and formatted for the dropdown\nThe form automatically updates with the new dropdown options\n\nSet up steps\n\nConfigure your data source:\n\nDefault setup uses Google Sheets \n\treplace with credentials for your sheet\n\tset up the update frequency\nOr modify to use any other data source (API, database, etc.)\n\nAdjust the form configuration:\n\nCustomize the form title and description\nAdd or modify form fields as needed\nThe template includes the dropdown field by default\n\nConnect form submissions:\n\nUse the \"Execute Workflow\" node to process form submissions\n\nThis template provides a foundation for creating dynamic forms that stay synchronized with your data sources, making it ideal for situations where dropdown options need to reflect current data.",
+  "totalViews": 3827,
+  "source": "official",
+  "user": {
+    "id": 92215,
+    "name": "Obsidi8n",
+    "username": "derruttie",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/984ed54b1cb51c4034af653825fba87431a040243b4c9bee03360cc19f5edcff?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-01-09T13:29:08.624Z",
+  "path": "official/template_2712/workflow.json"
+}

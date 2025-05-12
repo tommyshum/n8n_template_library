@@ -1,0 +1,117 @@
+{
+  "id": 3155,
+  "name": "Automatic Weekly Digital PR Stories Suggestions with Reddit and Anthropic",
+  "description": "Introduction\nThe \"Automatic Weekly Digital PR Stories Suggestions\" workflow is a sophisticated automated system designed to identify trending news stories on Reddit, analyze public sentiment through comment analysis, extract key information from source articles, and generate strategic angles for potential digital PR campaigns. \n\nThis workflow leverages the power of social media trends, natural language processing, and AI-driven analysis to deliver curated, sentiment-analyzed news opportunities for PR professionals.\n\nOperating on a weekly schedule, the workflow searches Reddit for posts related to specified topics, filters them based on engagement metrics, and performs a deep analysis of both the content and public reaction. \n\nIt then generates comprehensive reports that include story opportunities, audience insights, and strategic recommendations. These reports are automatically compiled, stored in Google Drive, and shared with team members via Mattermost for immediate collaboration.\n\nThis workflow solves the time-consuming process of manually monitoring social media for trending stories, analyzing public sentiment, and identifying PR opportunities. \n\nBy automating these tasks, PR professionals can focus on strategy development and execution rather than spending hours on research and analysis.\n\nWho is this for?\nThis workflow is designed for digital PR professionals, content marketers, communications teams, and media relations specialists who need to stay on top of trending stories and public sentiment to develop timely and effective PR campaigns. It's particularly valuable for:\n\nPR agencies managing multiple clients across different industries\nIn-house PR teams needing to identify media opportunities quickly\nContent marketers looking for trending topics to create timely content\nCommunications professionals monitoring public perception of industry news\n\nUsers should have basic familiarity with n8n workflows and the PR strategy development process. While technical knowledge of the integrated APIs is not required to use the workflow, some understanding of Reddit, sentiment analysis, and PR campaign development would be beneficial for interpreting and acting on the generated reports.\n\nWhat problem is this workflow solving?\nDigital PR professionals face several challenges that this workflow addresses:\n\nInformation Overload: Manually monitoring social media platforms for trending stories is time-consuming and often results in missed opportunities.\n\nSentiment Analysis Complexity: Understanding public perception of news stories requires reading through hundreds of comments and identifying patterns, which is labor-intensive and subjective.\n\nContent Extraction: Visiting multiple news sources to read and analyze articles takes significant time.\n\nStrategic Angle Development: Identifying unique PR angles that leverage trending stories and public sentiment requires synthesizing large amounts of information.\n\nTeam Collaboration: Sharing findings and insights with team members in a structured format can be cumbersome.\n\nBy automating these processes, the workflow enables PR professionals to quickly identify trending stories with PR potential, understand public sentiment, and develop strategic angles based on comprehensive analysis, all while maintaining a structured approach to team collaboration.\n\nWhat this workflow does\nOverview\nThe workflow automatically identifies trending posts on Reddit related to specified topics, analyzes both the content of linked articles and public sentiment from comments, and generates comprehensive PR strategy reports. These reports include story opportunities, audience insights, and strategic recommendations based on the analysis. The final reports are compiled, stored in Google Drive, and shared with team members via Mattermost.\n\nProcess\nTopic Selection and Reddit Search:\n   The workflow starts with a list of topics specified in the \"Set Data\" node\n   It searches Reddit for posts related to these topics\n   Posts are filtered based on upvotes and other criteria to focus on trending content\n\nComment Analysis:\n   For each post, the workflow retrieves comments\n   It extracts the top 30 comments based on score\n   Using Claude AI, it analyzes the comments to understand:\n     Overall sentiment\n     Dominant narratives\n     Audience insights\n     PR implications\n\nContent Analysis:\n   The workflow extracts the content of the linked article using Jina AI\n   It analyzes the content to identify:\n     Core story elements\n     Technical aspects\n     Narrative opportunities\n     Viral elements\n\nPR Strategy Development:\n   Based on the combined analysis of comments and content, the workflow generates:\n     First-mover story opportunities\n     Trend-amplifier story ideas\n     Priority rankings\n     Execution roadmap\n     Strategic recommendations\n\nReport Generation and Distribution:\n   The workflow compiles comprehensive reports for each post\n   Reports are converted to text files\n   All files are compressed into a ZIP archive\n   The archive is uploaded to Google Drive\n   A link to the archive is shared with team members via Mattermost\n\nSetup\nTo set up this workflow, follow these steps:\n\nImport the Workflow:\n   Download the workflow JSON file\n   Import it into your n8n instance\n\nConfigure API Credentials:\n   Reddit: Add a new credential \"Reddit OAuth2 API\" by following the guide at https://docs.n8n.io/integrations/builtin/credentials/reddit/\n   Anthropic: Add a new credential \"Anthropic Account\" by following the guide at https://docs.n8n.io/integrations/builtin/credentials/anthropic/\n   Google Drive: Add a new credential \"Google Drive OAuth2 API\" by following the guide at https://docs.n8n.io/integrations/builtin/credentials/google/oauth-single-service/\n\nConfigure the \"Set Data\" Node:\n   Set your interested topics (one per line)\n   Add your Jina API key (obtain from https://jina.ai/api-dashboard/key-manager)\n\nConfigure the Mattermost Node:\n   Update your Mattermost instance URL\n   Set your Webhook ID and Channel\n   Follow the guide at https://developers.mattermost.com/integrate/webhooks/incoming/ for webhook setup\n\nAdjust the Schedule (Optional):\n   The workflow is set to run every Monday at 6am\n   Modify the \"Schedule Trigger\" node if you need a different schedule\n\nTest the Workflow:\n   Run the workflow manually to ensure all connections are working properly\n   Check the output to verify the reports are being generated correctly\n\nHow to customize this workflow to your needs\nThis workflow can be customized in several ways to better suit your specific requirements:\n\nTopic Selection:\n   Modify the topics in the \"Set Data\" node to focus on industries or subjects relevant to your PR strategy\n   Add multiple topics to cover different client interests or market segments\n\nFiltering Criteria:\n   Adjust the \"Upvotes Requirement Filtering\" node to change the minimum upvotes threshold\n   Modify the filtering conditions to include or exclude certain types of posts\n\nAnalysis Parameters:\n   Customize the prompts in the \"Comments Analysis,\" \"News Analysis,\" and \"Stories Report\" nodes to focus on specific aspects of the content or comments\n   Adjust the temperature settings in the Anthropic Chat Model nodes to control the creativity of the AI responses\n\nReport Format:\n   Modify the \"Set Final Report\" node to change the structure or content of the final reports\n   Add or remove sections based on your specific reporting needs\n\nDistribution Method:\n   Replace or supplement the Mattermost notification with email notifications, Slack messages, or other communication channels\n   Add additional storage options beyond Google Drive\n\nSchedule Frequency:\n   Change the \"Schedule Trigger\" node to run the workflow more or less frequently\n   Set up multiple triggers for different topics or clients\n\nIntegration with Other Systems:\n   Add nodes to integrate with your CRM, content management system, or project management tools\n   Create connections to automatically populate content calendars or task management systems",
+  "totalViews": 2275,
+  "source": "official",
+  "user": {
+    "id": 93195,
+    "name": "Custom Workflows AI",
+    "username": "customworkflowsai",
+    "bio": "We specializes in crafting tailored automation solutions that help businesses streamline their operations and boost productivity. With expertise in creating custom n8n workflows, we transform complex business processes into seamless, automated systems that save time and reduce manual effort.",
+    "verified": true,
+    "links": "[\"https://customworkflows.ai\"]",
+    "avatar": "https://gravatar.com/avatar/8b94720cd9c980204474d25605eb1bd96393f7e0bf0cb9c6e2b36b92262fa778?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage",
+    "Communication",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Compression",
+      "type": "n8n-nodes-base.compression",
+      "categories": [
+        "Core Nodes",
+        "Data & Storage"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Files",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Reddit",
+      "type": "n8n-nodes-base.reddit",
+      "categories": [
+        "Communication"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Anthropic Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-03-13T16:04:32.855Z",
+  "path": "official/template_3155/workflow.json"
+}

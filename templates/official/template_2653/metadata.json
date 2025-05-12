@@ -1,0 +1,87 @@
+{
+  "id": 2653,
+  "name": " AI Data Analyst Agent and Visualization Agent for Large Spreadsheets ",
+  "description": "Purpose of workflow:\n\nThis workflow transforms spreadsheet data into an interactive, AI-powered knowledge base that enables users to gain deep insights through natural language queries, searchability, and comparative analysis.\n\nHow it works:\n\nData Storage & Integration:\nSpreadsheet data is imported into a no-code database (NocoDB)\nSystem connects with an AI data analyst agent\nAgent accesses table metadata and column information\n\nQuery Processing:\nUsers input natural language questions\nAI agent interprets queries and converts them to database filters\nSystem retrieves relevant data using filter formulas\nAI synthesizes responses with analysis and insights\n\nAdvanced Capabilities:\nPerforms comparative analysis across multiple data points\nHandles complex multi-part queries\n\nAutomatically creates visualizations:\nVisualization AI Agent figures out the data and the chart type and generates professional visualization using Quickchart\n\n\nStep by step setup:\nCreate account on nocodb.com\nCreate table by importing csv, copy table id\nCreate API token https://app.nocodb.com/#/account/tokens\nIn workflow, settings node, update with table id\nIn NocoDB tool node, setup authentication with API token created in step 3\nSpecify the workspace and base fields after connecting to NocoDB ",
+  "totalViews": 4097,
+  "source": "official",
+  "user": {
+    "id": 91384,
+    "name": "Derek Cheung",
+    "username": "derekcheungsa",
+    "bio": "Derek is an engineer, instructor, and investor based in Canada. He is publicly building AI applications to solve real-world problems, leveraging his technical expertise to develop practical solutions.",
+    "verified": true,
+    "links": "[\"https://www.youtube.com/@derekcheungsa\"]",
+    "avatar": "https://gravatar.com/avatar/1d8dbb30401a76425734d4319abbaa38548b7572064ca080740bbfe60324772a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2024-12-18T23:58:03.508Z",
+  "path": "official/template_2653/workflow.json"
+}

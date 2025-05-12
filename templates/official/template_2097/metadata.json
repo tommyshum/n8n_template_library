@@ -1,0 +1,63 @@
+{
+  "id": 2097,
+  "name": "Import multiple Manufacturers from Google Sheets to Shopware 6",
+  "description": "Effortlessly optimize your workflow by automatically importing hundreds of manufacturers from a Google Sheet into your Shopware online store, saving countless hours of manual work.\n\nHow it works\nRetrieve all manufactures from a Google Sheet\nAdd each manufacture via Shopware sync API Endpoint to Shopware\nUpload a logo for each manufacture from a provided public URL to Shopware\n\nSet Up Steps\nAdd your Shopware url to first node called Settings\nCreate a Google Sheet in your Google account with the following columns (Demo Sheet)\n\tname (the name of the manufacturer which has to be unique and is required)\n\twebsite (url to the manufacturer website) \n\tdescription \n\tlogo_url (public manufcaturer logo url. Have to be a png, jpg or svg file) \n\ttranslation_language_code_1 (optional. Language Code of your language. For example 'es-ES' for spanish. You have to make sure a language with this code exists in your Shopware shop.)\n\ttranslation_name_1 (optional. Manufacturer name translated to the language you defined at translation_language_code_1)\n\ttranslation_description_1 (optional. Manufacturer description translated to the language you defined at translation_language_code_1)\n\ttranslation_language_code_2 (optional. Same as translation_language_code_1 for another language)\n\ttranslation_name_2 (optional. Same as translation_name_1 for another language)\n\ttranslation_description_2 (optional. Same as translation_description_1 for another language)\n\ttranslation_language_code_3 (optional. Same as translation_language_code_1 for another language)\n\ttranslation_name_3 (optional. Same as translation_name_1 for another language)\n\ttranslation_description_3 (optional. Same as translation_description_1 for another language)\nConnect to your Google account\nConnect to your Shopware account\n\tCreate a Shopware Integration\n\tConnect to Shopware at the nodes \"Import Manufacturer\" and \"Upload Manufacturer Logo\" using a Generic OAuth2 API Authentication with Grant Type \"Client Credentials\". The Access Token URL is https://your-shopware-domain.com/api/oauth/token.\nRun the workflow",
+  "totalViews": 789,
+  "source": "official",
+  "user": {
+    "id": 91454,
+    "name": "Manuel",
+    "username": "automate-everything",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://www.malt.de/profile/manuelvoppmann\"]",
+    "avatar": "https://gravatar.com/avatar/a7d9f6e327b76615463e40984ce452c61b426d599f75373aade121b309f0924d?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-02-15T15:44:07.080Z",
+  "path": "official/template_2097/workflow.json"
+}

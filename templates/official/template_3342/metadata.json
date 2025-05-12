@@ -1,0 +1,128 @@
+{
+  "id": 3342,
+  "name": " Automate Sales for Digital Products & SaaS with AI (GPT-4o)",
+  "description": "Skyrocket Your Sales Outreach with AI-Powered Automation!\n\nTired of manually finding leads, collecting emails, and sending messages that get ignored? Let AI do the heavy lifting.  \n\nIntroducing AI-Powered Cold Outreach Engine, an n8n workflow that automates prospecting, email discovery, and personalized outreach, designed for digital products, SaaS, and online services.  \n\n🚀 How It Works  \n\n1️⃣ Smart Prospecting  \nEnter your product name, description, and link.  \nThe AI searches Google Maps for businesses in your niche.  \nIt extracts website URLs, filtering out irrelevant results.  \n\n2️⃣ Email Discovery  \nScrapes professional emails from websites.  \nGenerates a clean, targeted list.  \n\n3️⃣ AI-Powered, SEO-Optimized Emails  \nGPT-4o** analyzes website content.  \nCrafts concise, personalized outreach emails (&lt;200 words).  \nUses SEO-friendly language with strategic keywords.  \nEmbeds your product link naturally in a compelling CTA.  \nSends via Gmail or SMTP with smart delays for better deliverability.  \n\n🔥 Why It Stands Out  \n✅ Saves Time – Automates lead generation & outreach.  \n✅ Scales Effortlessly – Finds and targets ideal prospects.  \n✅ SEO-Optimized – GPT-4o enhances discoverability.  \n✅ Boosts Replies – Personalized emails = higher engagement.  \n✅ Drives Conversions – Directs traffic to your product page.  \n\n🔧 What You Need  \nn8n** (Cloud or self-hosted).  \nOpenAI GPT-4o** (API costs apply).  \nGmail + Google Cloud OR SMTP node** for email sending.  \nOptional:** Jina AI for advanced data extraction.  \n\n⚡ Quick Setup  \nImport the workflow into n8n.  \nConnect GPT-4o & Gmail or SMTP.  \nAdd your product details.  \nTest & launch 🚀  \n\n💡 Sell Smarter, Not Harder  \nThis isn’t just automation—it’s a growth engine. Let AI handle outreach while you focus on scaling.  \n\n🔗 Get started today!  \n\n⚠️ Disclaimer  \nAPI Fees Apply** – OpenAI, Google services may have costs.  \nEmail Compliance* – Follow *Gmail/SMTP limits & anti-spam laws** (e.g., CAN-SPAM, GDPR).  \nScraping Updates** – Website structures may change over time.  \n",
+  "totalViews": 7577,
+  "source": "official",
+  "user": {
+    "id": 92022,
+    "name": "Badr",
+    "username": "b4dr",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/035184cdd91cc274d7293ceaed93c97d64e57fc49fc4ba8346956a812dc35b3e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-03-28T09:49:32.961Z",
+  "path": "official/template_3342/workflow.json"
+}

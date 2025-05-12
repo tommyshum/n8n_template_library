@@ -1,0 +1,104 @@
+{
+  "id": 3049,
+  "name": "Create a Pizza Ordering Chatbot with GPT-3.5 - Menu, Orders & Status Tracking",
+  "description": "Pizza Ordering Chatbot with OpenAI - Menu, Orders & Status Tracking\n\nIntroduction\nThis workflow template is designed to automate order processing for a pizza store using OpenAI and n8n. The chatbot acts as a virtual assistant to handle customer inquiries related to menu details, order placement, and order status tracking.\n\nFeatures\nThe chatbot provides an interactive experience for customers by performing the following functions:\n\nMenu Inquiry: When a customer asks about the menu, the chatbot responds with a list of available pizzas, prices, and additional options.\nOrder Placement: If a customer places an order, the chatbot confirms order details, provides a summary, informs the customer that the order is being processed, and expresses gratitude.\nOrder Status Tracking: If a customer asks about their order status, the chatbot retrieves details such as order date, pizza type, and quantity, providing real-time updates.\n\nPrerequisites\nBefore setting up the workflow, ensure you have the following:\n\nOpenAI account** (Sign up here)\nOpenAI API key** to interact with GPT-3.5\nn8n instance** running locally or on a server (Installation Guide)\n\nConfiguration Steps\n\nStep 1: Set Up OpenAI API Credentials\nLog in to OpenAI's website.\nNavigate to API Keys under your account settings.\nClick Create API Key and copy the key for later use.\n\nStep 2: Configure OpenAI Node in n8n\nOpen n8n and create a new workflow.\nClick Add Node and search for OpenAI.\nSelect OpenAI from the list.\nIn the OpenAI node settings, click \"Create New\" under the Credentials section.\nEnter a name for the credentials (e.g., \"PizzaBot OpenAI Key\").\nPaste your API Key into the field.\nClick Save.\n\nStep 3: Set Up the Chatbot Logic\nConnect the AI Agent Builder Node to the OpenAI Node and HTTP Request Node.\nConfigure the OpenAI Node with the following settings:\n   Model: gpt-3.5-turbo\n   Prompt: Provide dynamic text based on customer inquiries (e.g., \"List available pizzas,\" \"Place an order for Margherita pizza,\" \"Check my order status\").\n   Temperature: Adjust based on desired creativity (recommended: 0.7).\n   Max Tokens: Limit response length (recommended: 150).\nAdd multiple HTTP Request Node:\n   For Get Products: Fetch stored menu data and return details.\n   For Order Product: Capture order details, generate an order ID, and confirm with the customer.\n   For Get Order: Retrieve order details based on the order ID and display progress.\n\nStep 4: Testing and Deployment\nClick Execute Workflow to test the chatbot.\nOpen the Chat Message node, then copy the chat URL to access the chatbot in your browser.\nInteract with the chatbot by asking different queries (e.g., \"What pizzas do you have?\" or \"I want to order a Pepperoni pizza\").\nVerify responses and adjust prompts or configurations as needed.\nDeploy the workflow and integrate it with a messaging platform (e.g., Telegram, WhatsApp, or a website chatbot).\n\nConclusion\nThis n8n workflow enables a fully functional pizza ordering chatbot using OpenAI's GPT-3.5. Customers can view menus, place orders, and track their order status efficiently. You can further customize the chatbot by refining prompts, adding new features, or integrating with external databases for order management.\n\n🚀 Happy automating!",
+  "totalViews": 3966,
+  "source": "official",
+  "user": {
+    "id": 92982,
+    "name": "Irfan Handoko",
+    "username": "handoko72",
+    "bio": "Irfan Handoko, an Engineering Manager at GITS Indonesia. With a background as an experienced mobile application designer and developer, he has a strong foundation in application development, especially mobile applications, particularly on Android and iOS platforms. Throughout his career, he has successfully contributed to various industries including healthcare, finance, e-commerce, and many more.",
+    "verified": false,
+    "links": "[\"https://www.linkedin.com/in/irfan-tri-handoko-doko\"]",
+    "avatar": "https://gravatar.com/avatar/ccc3101cf76360434d169e98971915c3c527f5411c65425f2fd0731fb049b9ce?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Calculator",
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-03-01T07:21:06.485Z",
+  "path": "official/template_3049/workflow.json"
+}

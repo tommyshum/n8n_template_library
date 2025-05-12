@@ -1,0 +1,93 @@
+{
+  "id": 2354,
+  "name": "Automate Competitor Research with Exa.ai, Notion and AI Agents",
+  "description": "This n8n workflow demonstrates a simple multi-agent setup to perform the task of competitor research. It showcases how using the HTTP request tool could reduce the number of nodes needed to achieve a workflow like this.\n\nHow it works\nFor this template, a source company is defined by the user which is sent to Exa.ai to find competitors.\nEach competitor is then funnelled through 3 AI agents that will go out onto the internet and retrieve specific datapoints about the competitor; company overview, product offering and customer reviews.\nOnce the agents are finished, the results are compiled into a report which is then inserted in a notion database.\n\nCheck out an example output here: https://jimleuk.notion.site/2d1c3c726e8e42f3aecec6338fd24333?v=de020fa196f34cdeb676daaeae44e110&pvs=4\n\nRequirements\n\nAn OpenAI account for the LLM.\nExa.ai account for access to their AI search engine.\nSerpAPI account for Google search.\nFirecrawl.dev account for webscraping.\nNotion.com account for database to save final reports.\n\nCustomising the workflow\n\nAdd additional agents to gather more datapoints such as SEO keywords and metrics.\n\nNot using notion? Feel free to swap this out for your own database.",
+  "totalViews": 20031,
+  "source": "official",
+  "user": {
+    "id": 91804,
+    "name": "Jimleuk",
+    "username": "jimleuk",
+    "bio": "Freelance consultant based in the UK specialising in AI-powered automations. I work with select clients tackling their most challenging projects. For business enquiries, send me an email at hello@jimle.uk\n\nLinkedIn: https://www.linkedin.com/in/jimleuk/\nX/Twitter: https://x.com/jimle_uk",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4ab99e51473df76838beeaac908747f7928c625f869794815cabe34016967d51?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Productivity",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2024-07-24T11:35:16.291Z",
+  "path": "official/template_2354/workflow.json"
+}

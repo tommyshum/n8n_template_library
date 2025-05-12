@@ -1,0 +1,155 @@
+{
+  "id": 2942,
+  "name": "🤖🧑‍💻 AI Agent  for Top n8n Creators Leaderboard Reporting",
+  "description": "This n8n workflow is designed to automate the aggregation, processing, and reporting of community statistics related to n8n creators and workflows. Its primary purpose is to generate insightful reports that highlight top contributors, popular workflows, and key trends within the n8n ecosystem. Here's how it works and why it's important:\n\nHow It Works\nData Retrieval: \n   The workflow fetches JSON data files from a GitHub repository containing statistics about creators and workflows.\n   It uses HTTP requests to access these files dynamically based on pre-defined global variables.\n\nData Processing:\n   The data is parsed into separate streams for creators and workflows.\n   It processes the data to identify key metrics such as unique weekly and monthly inserters/visitors.\n\nRanking and Filtering:\n   The workflow sorts creators by their weekly inserts and workflows by their popularity.\n   It selects the top 10 creators and top 50 workflows for detailed analysis.\n\nReport Generation:\n   Using AI tools like GPT-4 or Google Gemini, the workflow generates a Markdown report summarizing trends, contributors, and workflow statistics.\n   The report includes tables with detailed metrics (e.g., unique visitors, inserters) and insights into why certain workflows are popular.\n\nDistribution:\n   The report is saved locally or uploaded to Google Drive.\n   It can also be shared via email or Telegram for broader accessibility.\n\nAutomation:\n   A schedule trigger ensures the workflow runs daily or as needed, keeping the reports up-to-date.\n\nWhy It's Important\nCommunity Insights**: This workflow provides actionable insights into the n8n community by identifying impactful contributors and popular workflows. This fosters collaboration and innovation within the ecosystem.\nTime Efficiency**: By automating data collection, processing, and reporting, it saves significant time and effort for community managers or administrators.\nRecognition of Contributors**: Highlighting top creators encourages engagement and recognizes individuals driving value in the community.\nTrend Analysis**: The workflow helps uncover patterns in usage, enabling better decision-making for platform improvements or feature prioritization.\nScalability**: With its modular design, this workflow can be easily adapted to include additional metrics or integrate with other tools.\n",
+  "totalViews": 2817,
+  "source": "official",
+  "user": {
+    "id": 92125,
+    "name": "Joseph LePage",
+    "username": "joe",
+    "bio": "As an AI Automation consultant based in Canada, I partner with forward-thinking organizations to implement AI solutions that streamline operations and drive growth.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/e7ca218dfc87b68344bbd66f40da01546d2f6fc1cf884267821e8a77e3e8410a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "Data & Storage",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 9,
+  "createdAt": "2025-02-19T03:29:33.431Z",
+  "path": "official/template_2942/workflow.json"
+}

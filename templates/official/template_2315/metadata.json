@@ -1,0 +1,121 @@
+{
+  "id": 2315,
+  "name": "Autonomous AI crawler",
+  "description": "This workflow with AI agent is designed to navigate through the page to retrieve specific type of information (in this example: social media profile links). \n\nThe agent is equipped with 2 tools:\ntext tool:** to retrieve all the text from the page, \nURLs tool:** to extract all possible links from the page.\n\n💡 You can edit prompt and JSON schema connected to the agent in order to return other data then social media profile links. \n\n👉 This workflow uses Supabase as storage (input/output). Feel free to change it to any other database of your choice.  \n\n🎬 See this workflow in action in my YouTube video. \n\nHow it works?\n\nThe workflow uses the input URL (website) as a starting point to retrieve the data (e.g. example.com). Using the \"URLs tool\", the agent is able to retrieve all links from the page and navigate to them. \n\nFor example, if you want to retrieve contact information, agent will try to find a subpage that might contain this information (e.g. example.com/contact) and extract the information using the text tool.  \n\nSet up steps\n\nConnect database with input data (website addresses) or pin sample data to trigger node. \nConfigure the crawling agent to retrieve the desired data (e.g. modify prompt and/or parsing schema).\nSet credentials for OpenAI.\nOptionally: split agent tools to separate workflows. \n\nIf you like this workflow, please subscribe to my YouTube channel and/or my newsletter.",
+  "totalViews": 53145,
+  "source": "official",
+  "user": {
+    "id": 91260,
+    "name": "Oskar",
+    "username": "workfloows",
+    "bio": "I make videos about workflow automation and other cool things.",
+    "verified": true,
+    "links": "[\"https://www.youtube.com/@workfloows\"]",
+    "avatar": "https://gravatar.com/avatar/0b29d7b98f977cc657c7217bb93dbc0f4a175f329cc44367ba870762c352222d?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Supabase",
+      "type": "n8n-nodes-base.supabase",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2024-07-05T09:21:06.526Z",
+  "path": "official/template_2315/workflow.json"
+}

@@ -1,0 +1,70 @@
+{
+  "id": 2249,
+  "name": "Share YouTube Videos with AI Summaries on Discord",
+  "description": "Boost engagement on your Discord server by automatically sharing new YouTube videos along with AI generated summaries of their content. This workflow is ideal for content creators and community managers looking to provide value and spark interest through summarized content, making it easier for community members to decide if a video is of interest to them. Watch this video tutorial to learn more about the template.\n\nHow it works\n\nRSS Feed Trigger**: Monitors your YouTube channel for new uploads using the RSS feed.\nVideo Captions Retrieval**: Fetches video captions using the YouTube API to get detailed content data.\nAI Summary Generation**: Uses an AI model to generate concise summaries from the video captions, highlighting key points.\nDiscord Notification**: Posts video announcements along with their AI generated summaries to a specified Discord channel using a webhook.\n\nSet up steps\n\nConfigure YouTube RSS Feed: Set up the RSS feed node to detect new video uploads. Add your YouTube channel ID to the URL in the first node: https://www.youtube.com/feeds/videos.xml?channel_id=YOUR_CHANNEL_ID.\nConnect OpenAI Account: To enable AI summary generation, connect your OpenAI account in n8n.\nSet Up Discord Webhook: Create a webhook in your Discord server and configure it in the Discord node.\nDesign the Message: Format the Discord message as you like to include the video title, link, and the AI generated summary.\n\nExample\n\n\n\nThis template empowers you to maintain a highly engaging Discord community, ensuring members receive not only regular updates but also valuable insights into each video's content without needing to watch immediately.",
+  "totalViews": 8792,
+  "source": "official",
+  "user": {
+    "id": 91657,
+    "name": "Mike Russell",
+    "username": "mikerussell",
+    "bio": "Hey there, I'm Mike, and I'm all about mixing AI with creativity. I help you learn the latest AI tools and automation tricks to boost your productivity and creativity on YouTube, podcasts, and beyond. Find me on YouTube!",
+    "verified": false,
+    "links": "[\"https://mrc.fm/cmyt\"]",
+    "avatar": "https://gravatar.com/avatar/d9844709103382461f40a9c678b78ce99bb4fe4768dba9413263e3842c3906cc?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Discord",
+      "type": "n8n-nodes-base.discord",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-04-30T15:41:26.788Z",
+  "path": "official/template_2249/workflow.json"
+}

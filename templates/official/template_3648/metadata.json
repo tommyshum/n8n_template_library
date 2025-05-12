@@ -1,0 +1,64 @@
+{
+  "id": 3648,
+  "name": "Telegram bot for item multi select and saving to Postgres (Module \"Checkbox\")",
+  "description": "Who is this for?\n\nThis template is for developers and automation specialists looking to create a Telegram bot that enables users to select items from a predefined list and save their choices to a Postgres database.\n\nWhat problem is this workflow solving?\n\nIt provides a simple and efficient way to collect structured user input via Telegram and store it in a Postgres database, useful for inventory selection, order systems, or preference tracking.\n\nWhat this workflow does\n\nDisplays a list of selectable options from a Postgres shop_list table in Telegram  \nSaves the user’s selection back to the database  \nAutomatically deletes messages at each step to keep the chat clean  \n\nSetup\n\n1. Create the required tables in Postgres\n\nReplace \"n8n\" in the provided SQL script with the appropriate schema name for your database  \nRun the script to create the shop_list table  \n\n2. Add necessary credentials in n8n\n\nTelegram**: Connect your Telegram bot using the Bot Token  \nPostgres**: Add your Postgres DB credentials to allow the workflow to read/write data  \n\nHow to customize this workflow to your needs\n\nModify the shop_list table to include your specific options.\nAdjust the Telegram messages and logic to match your use case.",
+  "totalViews": 156,
+  "source": "official",
+  "user": {
+    "id": 93883,
+    "name": "Andrew",
+    "username": "boanse",
+    "bio": "Analyst-Developer",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/61d84d897d0411ddab1209f44480478b3e19bc319b0a3b69dd0419d51b2fbdd3?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Data & Storage",
+    "Communication",
+    "HITL",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Postgres",
+      "type": "n8n-nodes-base.postgres",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-04-21T19:58:39.148Z",
+  "path": "official/template_3648/workflow.json"
+}

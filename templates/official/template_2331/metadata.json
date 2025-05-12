@@ -1,0 +1,63 @@
+{
+  "id": 2331,
+  "name": "Build Your Own Image Search Using AI Object Detection, CDN and ElasticSearch",
+  "description": "This n8n workflow demonstrates how to automate indexing of images to build a object-based image search.\n\nBy utilising a Detr-Resnet-50 Object Classification model, we can identify objects within an image and store these associations in Elasticsearch along with a reference to the image.\n\nHow it works\n\nAn image is imported into the workflow via HTTP request node.\nThe image is then sent to Cloudflare's Worker AI API where the service runs the image through the Detr-Resnet-50 object classification model.\nThe API returns the object associations with their positions in the image, labels and confidence score of the classification.\nConfidence scores of less the 0.9 are discarded for brevity.\nThe image's URL and its associations are then index in an ElasticSearch server ready for searching.\n\nRequirements\nA Cloudflare account with Workers AI enabled to access the object classification model.\nAn ElasticSearch instance to store the image url and related associations.\n\nExtending this workflow\nFurther enrich your indexed data with additional attributes or metrics relevant to your users.\n\nUse a vectorstore to provide similarity search over the images.",
+  "totalViews": 4846,
+  "source": "official",
+  "user": {
+    "id": 91804,
+    "name": "Jimleuk",
+    "username": "jimleuk",
+    "bio": "Freelance consultant based in the UK specialising in AI-powered automations. I work with select clients tackling their most challenging projects. For business enquiries, send me an email at hello@jimle.uk\n\nLinkedIn: https://www.linkedin.com/in/jimleuk/\nX/Twitter: https://x.com/jimle_uk",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4ab99e51473df76838beeaac908747f7928c625f869794815cabe34016967d51?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Marketing",
+    "Core Nodes",
+    "Development",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "Edit Image",
+      "type": "n8n-nodes-base.editImage",
+      "categories": [
+        "Marketing",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Files",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Elasticsearch",
+      "type": "n8n-nodes-base.elasticsearch",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-07-10T12:35:33.563Z",
+  "path": "official/template_2331/workflow.json"
+}

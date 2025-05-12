@@ -1,0 +1,103 @@
+{
+  "id": 3840,
+  "name": "Automated AI Content Creation & Instagram Publishing from Google Sheets ",
+  "description": "Automated AI Content Creation & Instagram Publishing from Google Sheets\n\nThis n8n workflow automates the creation and publishing of social media content directly to Instagram, using ideas stored in a Google Sheet. It leverages AI (Google Gemini and Replicate Flux) to generate concepts, image prompts, captions, and the final image, turning your content plan into reality with minimal manual intervention.\n\nThink of this as the execution engine for your content strategy. It assumes you have a separate process (whether manual entry, another workflow, or a different tool) for populating the Google Sheet with initial post ideas (including Topic, Audience, Voice, and Platform). This workflow takes those ideas and handles the rest, from AI generation to final publication.\n\nWhat does this workflow do?\n\nThis workflow streamlines the content execution process by:\n\nAutomatically fetching** unprocessed content ideas from a designated Google Sheet based on a schedule.\nUsing Google Gemini to generate a platform-specific content concept (specifically for a 'Single Image' format).\nGenerating two distinct AI image prompt options based on the concept using Gemini.\nWriting an engaging, platform-tailored caption (including hashtags) using Gemini, based on the first prompt option.\nGenerating a visual image using the first prompt option via the Replicate API (using the Flux model).\nPublishing* the generated image and caption directly to a connected *Instagram Business account**.\nUpdating the status** in the Google Sheet to mark the idea as completed, preventing reprocessing.\n\nWho is this for?\n\nSocial Media Managers & Agencies:** Automate the execution of your content calendar stored in Google Sheets.\nMarketing Teams:** Streamline content production from planned ideas and ensure consistent posting schedules.\nContent Creators & Solopreneurs:** Save significant time by automating the generation and publishing process based on your pre-defined ideas.\nAnyone** using Google Sheets to plan social media content and wanting to automate the creative generation and posting steps with AI.\n\nBenefits\n\nFull Automation:** From fetching planned ideas to Instagram publishing, automate the entire content execution pipeline.\nAI-Powered Generation:** Leverage Google Gemini for creative concepts, prompts, and captions, and Replicate for image generation based on your initial topic.\nContent Calendar Execution:** Directly turn your Google Sheet plan into published posts.\nTime Savings:** Drastically reduce the manual effort involved in creating visuals and text for each planned post.\nConsistency:** Maintain a regular posting schedule by automatically processing your queue of ideas.\nPlatform-Specific Content:** AI prompts are designed to tailor concepts, prompts, and captions for the platform specified in your sheet (e.g., Instagram or LinkedIn).\n\nHow it Works\n\nScheduled Trigger: The workflow starts automatically based on the schedule you set (e.g., every hour, daily).\nFetch Idea: Reads the next row from your Google Sheet where the 'Status' column indicates it's pending (e.g., '0'). It only fetches one idea per run.\nPrepare Inputs: Extracts Topic, Audience, Voice, and Platform from the sheet data.\nAI Concept Generation (Gemini): Creates a single content concept suitable for a 'Single Image' post on the target platform.\nAI Prompt Generation (Gemini): Develops two detailed, distinct image prompt options based on the concept.\nAI Caption Generation (Gemini): Writes a caption tailored to the platform, using the first image prompt and other context.\nImage Generation (Replicate): Sends the first prompt to the Replicate API (Flux model) to generate the image.\nPrepare for Instagram: Formats the generated image URL and caption.\nPublish to Instagram: Uses the Facebook Graph API in three steps:\n    Creates a media container by uploading the image URL and caption.\n    Waits for Instagram to process the container.\n    Publishes the processed container to your feed.\nUpdate Sheet: Changes the 'Status' in the Google Sheet for the processed row (e.g., to '1') to mark it as complete.\n\nn8n Nodes Used\n\nSchedule Trigger\nGoogle Sheets (Read & Update operations)\nSet (Multiple instances for data preparation)\nLangchain Chain - LLM (Multiple instances for Gemini calls)\nLangchain Chat Model - Google Gemini (Multiple instances)\nLangchain Output Parser - Structured (Multiple instances)\nHTTP Request (for Replicate API call)\nWait\nFacebook Graph API (Multiple instances for Instagram publishing steps)\n\nPrerequisites\n\nActive n8n instance (Cloud or Self-Hosted).\nGoogle Account** with access to Google Sheets.\nGoogle Sheets API Credentials (OAuth2):** Configured in n8n.\nA Google Sheet** structured with columns like Topic, Audience, Voice, Platform, Status (or similar). Ensure your 'pending' and 'completed' statuses are defined (e.g., '0' and '1').\nGoogle Cloud Project** with the Vertex AI API enabled.\nGoogle Gemini API Credentials:** Configured in n8n (usually via Google Vertex AI credentials).\nReplicate Account** and API Token.\nReplicate API Credentials (Header Auth):** Configured in n8n.\nFacebook Developer Account**.\nInstagram Business Account** connected to a Facebook Page.\nFacebook App** with necessary permissions: instagram_basic, instagram_content_publish, pages_read_engagement, pages_show_list.\nFacebook Graph API Credentials (OAuth2):** Configured in n8n with the required permissions.\n\nSetup\n\nImport the workflow JSON into your n8n instance.\nConfigure Schedule Trigger: Set the desired frequency (e.g., every 30 minutes, every 4 hours) for checking new ideas in the sheet.\nConfigure Google Sheets Nodes:\n    Select your Google Sheets OAuth2 credentials for both Google Sheets nodes.\n    In 1. Get Next Post Idea..., enter your Spreadsheet ID and Sheet Name. Verify the Status filter matches your 'pending' value (e.g., 0).\n    In 7. Update Post Status..., enter the same Spreadsheet ID and Sheet Name. Ensure the Matching Columns (e.g., Topic) and the Status value to update match your 'completed' value (e.g., 1).\nConfigure Google Gemini Nodes: Select your configured Google Vertex AI / Gemini credentials in all Google Gemini Chat Model nodes.\nConfigure Replicate Node (4. Generate Image...): Select your Replicate Header Auth credentials. The workflow uses black-forest-labs/flux-1.1-pro-ultra by default; you can change this if needed.\nConfigure Facebook Graph API Nodes (6a, 6c):\n    Select your Facebook Graph API OAuth2 credentials.\n    Crucially, update the Instagram Account ID in the Node parameter of both Facebook Graph API nodes (6a and 6c). The template uses a placeholder (17841473009917118); replace this with your actual Instagram Business Account ID.\nAdjust Wait Node (6b): The default wait time might be sufficient, but if you encounter errors during publishing (especially with larger images/videos in the future), you might need to increase the wait duration.\nActivate the workflow.\nPopulate your Google Sheet: Ensure you have rows with your content ideas and the correct 'pending' status (e.g., '0'). The workflow will pick them up on its next scheduled run.\n\nThis workflow transforms your Google Sheet content plan into a fully automated AI-powered Instagram publishing engine. Start automating your social media presence today!\n\n ",
+  "totalViews": 4022,
+  "source": "official",
+  "user": {
+    "id": 92846,
+    "name": "Onur",
+    "username": "onurpolat05",
+    "bio": "Hello, I'm Onur\nI've been working as a freelance software developer for about four years. In addition, I develop my own projects. For some time, I have been improving myself and providing various services related to AI and AI workflows. Both by writing low code and code. If you have any questions, don't hesitate to contact me.",
+    "verified": true,
+    "links": "[\"https://onurpolat.bio\"]",
+    "avatar": "https://gravatar.com/avatar/1b89c2342766e3851ac5f68ac7f001c946e313d47a6e0b0d396b62ba9f850c37?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Facebook Graph API",
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-05-03T08:06:31.593Z",
+  "path": "official/template_3840/workflow.json"
+}

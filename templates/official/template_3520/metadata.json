@@ -1,0 +1,47 @@
+{
+  "id": 3520,
+  "name": "📌 Turn your LinkedIn insights into content ideas with Airtable and Real-Time Linkedin Scraper",
+  "description": "🚀 Transform LinkedIn Post Reactions into Content Ideas with Airtable\n\n📝 Description\nThis workflow helps you to turn your LinkedIn activity into a powerful content ideation engine. It captures your most recent post reactions on LinkedIn automatically, filters them based on recency, and structures the content into Airtable—ready for brainstorming, inspiration, or publication planning.\n\n⚙️ What It Does\nFetches* the latest liked posts from LinkedIn via a public API (rapidapi.com/Real-Time Linkedin Scraper*).\nFilters** posts to include only those marked as your decided reaction and posted in the last 7 days.\nExtracts** the post text, author, links and more.\nFormats** the data into a database-friendly structure.\nSaves** the output in Airtable for easy tracking, tagging, or team collaboration.\n\n💡 Use Cases\nBuild a content idea vault from posts you admire.\nCapture inspiration from thought leaders.\nIdentify trends based on what you find insightful.\nSupercharge your personal brand or newsletter by turning likes into learning.\n\n🛠 Prerequisites\nBefore using this template, make sure you have:\n\n✅ A RapidAPI account and access to the linkedin-api8 endpoint.  \n✅ Your RapidAPI key and the target LinkedIn username.  \n✅ An Airtable account with a base/table set up.\n\n🧰 Setup Instructions\nClone this template into your n8n instance.\nOpen the Fetch LinkedIn Likes node and enter:\n   Your LinkedIn username.\n   Your RapidAPI key in the headers.\nOpen the Save to Airtable node and:\n   Connect your Airtable account.\n   Link the correct base (Content Hub) and table (Ideas).\nSet your desired schedule in the Trigger node.\nActivate the workflow and you're done!\n\n📋 Airtable Setup\nCreate a base called Content Hub and a table named Ideas with the following columns:\n\n| Column Name | Type       | Required | Notes                      |\n|-------------|------------|----------|----------------------------|\n| Title       | Single line text | ✅ | Generated from author info |\n| Description | Long text  | ✅ | Contains post content       |\n| Source      | URL        | ✅ | Link to the original post   |\n| Type        | Single select | ✅ | Value: Linkedin  \n",
+  "totalViews": 445,
+  "source": "official",
+  "user": {
+    "id": 93738,
+    "name": "Batu Öztürk",
+    "username": "theozturkbatu",
+    "bio": "Performance marketer and automation specialist helping busy professionals build data-driven, AI-first personal brands. I combine expert branding with funnel optimization, automated outreach, and scalable campaign systems. If you're a finance or legal professional looking to grow your presence with precision and efficiency, feel free to reach out.",
+    "verified": false,
+    "links": "[\"https://www.linkedin.com/in/theozturkbatu\"]",
+    "avatar": "https://gravatar.com/avatar/ef220b48bcf36b9d334ddcdf619f4e6b82f6d892407308a5a86fd7c7a8f9e65c?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-04-11T16:27:24.938Z",
+  "path": "official/template_3520/workflow.json"
+}

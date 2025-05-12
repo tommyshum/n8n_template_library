@@ -1,0 +1,55 @@
+{
+  "id": 2941,
+  "name": "🎬 YouTube Shorts Automation Tool 🚀",
+  "description": "🎬 YouTube Shorts Automation Tool 🚀\n\nAutomate the creation of high-performing YouTube Shorts in minutes!\n\nWho is this for?  🎯\nContent Creators**: Generate engaging short videos effortlessly.\nMarketing Agencies**: Produce client-ready content quickly.\nBusiness Owners**: Promote products/services through viral short-form content.\n\nWhat problem does this solve? 🛠️\nCreating short-form video content is time-consuming, complex, and skill-intensive. This workflow automates video creation, eliminating the need for video editing expertise while ensuring SEO optimization, high-quality visuals, and professional voiceovers.\n\nHow it works 🌟\nEnter your video idea into the chat interface.\nAI generates a script optimized for engagement and SEO.\nVoiceover is created with realistic AI narration.\nRelevant visuals are selected to match the script.\nThe video is assembled and delivered via a shareable link.\n\nSetup ⚙️ (5-10 min)\nConnect required APIs (most have free tiers).\nFollow the guided setup (video tutorial included).\nStart generating professional YouTube Shorts instantly!\n\nRequired APIs 🔗\nContent Generation**: OpenAI, ElevenLabs (script & voiceover)\nMedia Processing**: Cloudinary, Replicate (images & storage)\nIntegration Tools**: 0codekit, Creatomate (video assembly)\n\nCustomization 🎨\nAdjust script styles & voiceover preferences.\nModify visuals to match your brand.\nOptimize video length and format.\n\n🚀 Start automating your YouTube Shorts today and grow your audience effortlessly!",
+  "totalViews": 7713,
+  "source": "official",
+  "user": {
+    "id": 92793,
+    "name": "Jonas Busch",
+    "username": "jonasbusch",
+    "bio": "I'm passionate about solving everyday problems through the power of automation. I've been building and refining automated workflows for over 3 years now. My goal is to inspire others to reclaim their time and boost their productivity. Let's explore the world of automation together!",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/e9b426a3cee5ccc3db516a8cc91af8a65fc5cac248b8844071f476dbcfa5d553?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-02-19T01:50:47.837Z",
+  "path": "official/template_2941/workflow.json"
+}

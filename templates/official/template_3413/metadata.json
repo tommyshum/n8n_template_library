@@ -1,0 +1,117 @@
+{
+  "id": 3413,
+  "name": "LINE Messages with GPT: Save Notes, Namecard Data and Tasks",
+  "description": "This workflow template, \"Personal Assistant to Note Messages and Extract Namecard Information\" is designed to streamline the processing of incoming messages on the LINE messaging platform. It integrates with powerful tools like Microsoft Teams , Microsoft To Do , OneDrive , and OpenRouter.ai to handle tasks such as saving notes, extracting namecard information, and organizing images. Whether you’re managing personal productivity or automating workflows for teams, this template offers a versatile and customizable solution.\n\nBy leveraging this workflow, you can automate repetitive tasks, improve collaboration, and enhance efficiency in handling LINE messages.\n\nWho Is This Template For?\nThis template is ideal for:\n\nProfessionals: Who want to save important messages, extract data from namecards, or organize images automatically.\nTeams: Looking to integrate LINE messages into tools like Microsoft Teams and Microsoft To Do for better collaboration.\nDevelopers: Seeking to build intelligent workflows that process text, images, and other inputs from LINE.\nBusiness Owners: Who need to manage customer interactions, follow-ups, and task tracking efficiently.\n\nWhat Problem Does This Workflow Solve?\nManaging incoming messages on LINE can be time-consuming, especially when dealing with diverse input types like text, images, and namecards. This workflow solves that problem by:\nAutomatically identifying and routing different message types (text, images, namecards) to appropriate actions.\nExtracting structured data from namecards and saving it for follow-up tasks.\nUploading images to OneDrive and saving text messages to Microsoft Teams or Microsoft To Do for easy access.\nSending real-time feedback to users via LINE to confirm that their messages have been processed.\n\nWhat This Workflow Does\nReceive Messages via LINE Webhook:\nThe workflow is triggered whenever a user sends a message (text, image, or other types) to the LINE bot.\nDisplay Loading Animation:\nA loading animation is displayed to reassure the user that their request is being processed.\nRoute Input Types:\n\nThe workflow uses a Switch node to determine the type of input:\nText Starting with \"T\": Adds the message as a task in Microsoft To Do.\nPlain Text: Saves the message in Microsoft Teams under a designated channel (e.g., \"Notes\").\nImages: Identifies whether the image is a namecard, handwritten note, or other content, then processes accordingly.\nUnsupported formats trigger a polite response indicating the limitation.\nProcess Namecards:\n\n*Images *\nIf the image is identified as a namecard, the workflow extracts structured data (e.g., name, email, phone number) using OpenRouter.ai and saves it to Microsoft To Do for follow-up tasks.\nSave Images to OneDrive:\n\nImages are uploaded to OneDrive, renamed based on their unique message ID, and linked in Microsoft Teams for reference.\n\nSend Feedback via LINE:\nThe workflow replies to the user with confirmation messages, such as \"[ Task Created ]\" or \"[ Message Saved ].\"\n\nSetup Guide\nPre-Requisites\nAccess to the LINE Developers Console to configure your webhook and bot.\nAccounts for Microsoft Teams , Microsoft To Do, and OneDrive with API access.\nAn OpenRouter.ai account with credentials to access models like GPT-4o.\nBasic knowledge of APIs, webhooks, and JSON formatting.\n\nStep-by-Step Setup\n1) Configure the LINE Webhook:\nGo to the LINE Developers Console and set up a webhook to receive incoming messages.\nCopy the Webhook URL from the Line Webhook node and paste it into the LINE Console.\nRemove any \"test\" configurations when moving to production.\n2) Set Up Microsoft Integrations:\nConnect your Microsoft Teams, Microsoft To Do, and OneDrive accounts to the respective nodes in the workflow.\n3) Set Up OpenRouter.ai:\nCreate an account on OpenRouter.ai and obtain your API credentials.\nConnect your credentials to the OpenRouter nodes in the workflow.\n\nTest the Workflow:\nSimulate sending text, images, and namecards to the LINE bot to verify that all actions are processed correctly.\n\nHow to Customize This Workflow to Your Needs\nAdd More Actions: Extend the workflow to handle additional input types or integrate with other tools.\nEnhance Image Processing: Use advanced OCR tools to improve text extraction from complex images.\nCustomize Feedback Messages: Modify the reply format to include emojis, links, or other formatting options.\nExpand Use Cases: Adapt the workflow for specific industries, such as sales or customer support, by tailoring the actions to relevant tasks.\n\nWhy Use This Template?\nVersatile Automation: Handles multiple input types (text, images, namecards) with ease.\nSeamless Integration: Connects LINE messages to popular productivity tools like Microsoft Teams and To Do.\nStructured Data Extraction: Extracts and organizes data from namecards, saving time and effort.\nReal-Time Feedback: Keeps users informed about the status of their requests with instant notifications.\n",
+  "totalViews": 127,
+  "source": "official",
+  "user": {
+    "id": 92858,
+    "name": "lin@davoy.tech",
+    "username": "linlinmhee",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4e38af5bc6715cea4e86e60c03e21e287cea3cdb5ceba78b3003e6404743fd32?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage",
+    "Communication",
+    "HITL",
+    "Productivity",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Microsoft OneDrive",
+      "type": "n8n-nodes-base.microsoftOneDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Microsoft Teams",
+      "type": "n8n-nodes-base.microsoftTeams",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Microsoft To Do",
+      "type": "n8n-nodes-base.microsoftToDo",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "OpenRouter Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-04-03T07:20:26.138Z",
+  "path": "official/template_3413/workflow.json"
+}

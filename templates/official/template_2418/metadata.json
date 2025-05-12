@@ -1,0 +1,113 @@
+{
+  "id": 2418,
+  "name": "Easy Image Captioning with Gemini 1.5 Pro",
+  "description": "This n8n workflow demonstrates how to automate image captioning tasks using Gemini 1.5 Pro - a multimodal LLM which can accept and analyse images. This is a really simple example of how easy it is to build and leverage powerful AI models in your repetitive tasks.\n\nHow it works\nFor this demo, we'll import a public image from a popular stock photography website, Pexel.com, into our workflow using the HTTP request node.\nWith multimodal LLMs, there is little do preprocess other than ensuring the image dimensions fit within the LLMs accepted limits. Though not essential, we'll resize the image using the Edit image node to achieve fast processing.\nThe image is used as an input to the basic LLM node by defining a \"user message\" entry with the binary (data) type.\nThe LLM node has the Gemini 1.5 Pro language model attached and we'll prompt it to generate a caption title and text appropriate for the image it sees.\nOnce generated, the generated caption text is positioning over the original image to complete the task. We can calculate the positioning relative to the amount of characters produced using the code node.\n\nAn example of the combined image and caption can be found here: https://res.cloudinary.com/daglih2g8/image/upload/f_auto,q_auto/v1/n8n-workflows/l5xbb4ze4wyxwwefqmnc\n\nRequirements\nGoogle Gemini API Key.\nAccess to Google Drive.\n\nCustomising the workflow\n\nNot using Google Gemini? n8n's basic LLM node supports the standard syntax for image content for models that support it - try using GPT4o, Claude or LLava (via Ollama).\n\nGoogle Drive is only used for demonstration purposes. Feel free to swap this out for other triggers such as webhooks to fit your use case.\n\n",
+  "totalViews": 9495,
+  "source": "official",
+  "user": {
+    "id": 91804,
+    "name": "Jimleuk",
+    "username": "jimleuk",
+    "bio": "Freelance consultant based in the UK specialising in AI-powered automations. I work with select clients tackling their most challenging projects. For business enquiries, send me an email at hello@jimle.uk\n\nLinkedIn: https://www.linkedin.com/in/jimleuk/\nX/Twitter: https://x.com/jimle_uk",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4ab99e51473df76838beeaac908747f7928c625f869794815cabe34016967d51?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Marketing",
+    "Core Nodes",
+    "Development",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Edit Image",
+      "type": "n8n-nodes-base.editImage",
+      "categories": [
+        "Marketing",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Files",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2024-09-18T10:17:10.042Z",
+  "path": "official/template_2418/workflow.json"
+}

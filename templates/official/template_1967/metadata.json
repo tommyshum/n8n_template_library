@@ -1,0 +1,32 @@
+{
+  "id": 1967,
+  "name": "Prepare CSV files with GPT-4",
+  "description": "This workflow generates CSV files containing a list of 10 random users with specific characteristics using OpenAI's GPT-4 model. It then splits this data into batches, converts it to CSV format, and saves it to disk for further use.\n\nThe execution of the workflow begins from here when triggered manually.\n\"OpenAI\" Node. This uses the OpenAI API to generate random user data. The input to the OpenAI API is a fixed string, which asks for a list of 10 random users with some specific attributes. The attributes include a name and surname starting with the same letter, a subscription status, and a subscription date (if they are subscribed). There is also a short example of the JSON object structure. This technique is called one-shot prompting.\n\"Split In Batches\" Node. This node is used to handle the OpenAI responses one by one.\n\"Parse JSON\" Node. This node converts the content of the message received from the OpenAI node (which is in string format) into a JSON object.\n\"Make JSON Table\" Node. This node is used to convert the JSON data into a tabular format, which is easier to handle for further data processing.\n\"Convert to CSV\" Node. This node converts the table format data received from the \"Make JSON Table\" node into CSV format and assigns a file name.\n\"Save to Disk\" Node. This node is used to save the CSV generated in the previous node to disk in the \".n8n\" directory.\n\nThe workflow is designed in a circular manner. So, after saving the file to disk, it goes back to the \"Split In Batches\" node to process the OpenAI output, until all batches are processed.",
+  "totalViews": 6198,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Utility"
+  ],
+  "nodes": [
+    {
+      "name": "OpenAI",
+      "type": "n8n-nodes-base.openAi",
+      "categories": [
+        "Utility"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2023-10-30T13:32:37.834Z",
+  "path": "official/template_1967/workflow.json"
+}

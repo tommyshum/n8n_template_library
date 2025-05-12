@@ -1,0 +1,219 @@
+{
+  "id": 3779,
+  "name": "Enhance Chat Responses with Real-Time Search Data via Bright Data & Gemini AI",
+  "totalViews": 42,
+  "purchaseUrl": null,
+  "user": {
+    "id": 93657,
+    "name": "Ranjan Dailata",
+    "username": "ranjancse",
+    "bio": "",
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/7b74fe44a7ad32db7c783b972deb5848a4b1f043377bce4039737ed66da8305f?r=pg&d=retro&size=200"
+  },
+  "description": "Disclaimer\nThis template is only available on n8n self-hosted as it's making use of the community node for MCP Client.\n\nWho this is for?\n\nThe Chat Conversations with Bright Data MCP Search Engines & Google Gemini workflow is designed for users who need real-time, AI-enhanced conversations powered by live search engine results. \n\nThis workflow is tailored for:​\n\nData Analysts - Who want live, search-based data fused with AI reasoning.\n\nMarketing Researchers - Seeking up-to-the-minute market or competitor insights via conversational AI.\n\nProduct Managers - Exploring user needs, market trends, and competitor analysis in real time.\n\nAI Developers - Building dynamic applications that combine live search data with intelligent conversation agents.\n\nGrowth Hackers - Who need fast, conversational research tools for campaign ideation, outreach, or content creation.\n\nWhat problem is this workflow solving?\n\nTraditional chatbots and AI systems often rely on static, outdated data. \n\nThis workflow enables AI agents to fetch live search engine data and converse intelligently about it, making interactions dynamic, accurate, and highly contextual.\n\nThis workflow solves the major gaps of:\n\nOutdated Knowledge: Regular chatbots lack up-to-date information from live web searches.\n\nManual Search Fatigue: Manually searching for information and interpreting it is time-consuming.\n\nContext Bridging: Connecting search results into meaningful, conversational replies requires human-level reasoning.\n\nWhat this workflow does?\n\nAccepts a user's conversational query input.\n\nTriggers a search request to Bright Data’s MCP Search Engines API (Google, Bing, etc.) based on the query.\n\nWaits for the search task to complete.\n\nRetrieves real-time search results.\n\nFeeds the search results and original question into Google Gemini.\n\nGenerates a human-like, contextually accurate AI response combining live information and conversational flow.\n\nOutputs the response back into a chat app.\n\nPre-conditions\n\nKnowledge of Model Context Protocol (MCP) is highly essential. Please read this blog post - model-context-protocol\nYou need to have the Bright Data account and do the necessary setup as mentioned in the Setup section below.\nYou need to have the Google Gemini API Key. Visit Google AI Studio\nYou need to install the Bright Data MCP Server @brightdata/mcp\nYou need to install the n8n-nodes-mcp\n\nSetup\nPlease make sure to setup n8n locally with MCP Servers by navigating to n8n-nodes-mcp\nPlease make sure to install the Bright Data MCP Server @brightdata/mcp on your local machine. Also, do \"Account Setup\" as mentioned in the @brightdata/mcp URL.\nSign up at Bright Data.\nNavigate to Proxies & Scraping and create a new Web Unlocker zone by selecting Web Unlocker API under Scraping Solutions.\nIn n8n, configure the Google Gemini(PaLM) Api account with the Google Gemini API key (or access through Vertex AI or proxy).\nIn n8n, configure the credentials to connect with MCP Client (STDIO) account with the Bright Data MCP Server as shown below.\n\n\nMake sure to copy the Bright Data Web Unlocker API Token within the Environments textbox above.\nUpdate the HTTP Request for Webhook Notification node for sending the Webhook notification for chat responses.\n\nHow to customize this workflow to your needs\n\nChange Search Engine:\nAdd or Remove the Search Engine MCP tools based upon the Bright Data MCP Server updates.\n\nExpand Outputs:\nSend AI chat responses to Slack, Discord, custom chat UIs, WhatsApp, or CRM systems.\nStore conversation logs in a database (PostgreSQL, MongoDB, etc.) for future audits or training.",
+  "createdAt": "2025-04-28T23:46:16.740Z",
+  "nodes": [
+    {
+      "id": 1119,
+      "icon": "fa:robot",
+      "name": "@n8n/n8n-nodes-langchain.agent",
+      "codex": {
+        "data": {
+          "alias": [
+            "LangChain",
+            "Chat",
+            "Conversational",
+            "Plan and Execute",
+            "ReAct",
+            "Tools"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Agents",
+              "Root Nodes"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "AI Agent",
+        "color": "#404040"
+      },
+      "iconData": {
+        "icon": "robot",
+        "type": "icon"
+      },
+      "displayName": "AI Agent",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1163,
+      "icon": "fa:database",
+      "name": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.memorybufferwindow/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Memory"
+            ],
+            "Memory": [
+              "For beginners"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Simple Memory"
+      },
+      "iconData": {
+        "icon": "database",
+        "type": "icon"
+      },
+      "displayName": "Simple Memory",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1262,
+      "icon": "file:google.svg",
+      "name": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatgooglegemini/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Language Models",
+              "Root Nodes"
+            ],
+            "Language Models": [
+              "Chat Models (Recommended)"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Google Gemini Chat Model"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgNDggNDgiPjxkZWZzPjxwYXRoIGlkPSJhIiBkPSJNNDQuNSAyMEgyNHY4LjVoMTEuOEMzNC43IDMzLjkgMzAuMSAzNyAyNCAzN2MtNy4yIDAtMTMtNS44LTEzLTEzczUuOC0xMyAxMy0xM2MzLjEgMCA1LjkgMS4xIDguMSAyLjlsNi40LTYuNEMzNC42IDQuMSAyOS42IDIgMjQgMiAxMS44IDIgMiAxMS44IDIgMjRzOS44IDIyIDIyIDIyYzExIDAgMjEtOCAyMS0yMiAwLTEuMy0uMi0yLjctLjUtNCIvPjwvZGVmcz48Y2xpcFBhdGggaWQ9ImIiPjx1c2UgeGxpbms6aHJlZj0iI2EiIG92ZXJmbG93PSJ2aXNpYmxlIi8+PC9jbGlwUGF0aD48cGF0aCBmaWxsPSIjRkJCQzA1IiBkPSJNMCAzN1YxMWwxNyAxM3oiIGNsaXAtcGF0aD0idXJsKCNiKSIvPjxwYXRoIGZpbGw9IiNFQTQzMzUiIGQ9Im0wIDExIDE3IDEzIDctNi4xTDQ4IDE0VjBIMHoiIGNsaXAtcGF0aD0idXJsKCNiKSIvPjxwYXRoIGZpbGw9IiMzNEE4NTMiIGQ9Im0wIDM3IDMwLTIzIDcuOSAxTDQ4IDB2NDhIMHoiIGNsaXAtcGF0aD0idXJsKCNiKSIvPjxwYXRoIGZpbGw9IiM0Mjg1RjQiIGQ9Ik00OCA0OCAxNyAyNGwtNC0zIDM1LTEweiIgY2xpcC1wYXRoPSJ1cmwoI2IpIi8+PC9zdmc+"
+      },
+      "displayName": "Google Gemini Chat Model",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1268,
+      "icon": "file:httprequest.svg",
+      "name": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolhttprequest/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Tools"
+            ],
+            "Tools": [
+              "Recommended Tools"
+            ]
+          }
+        }
+      },
+      "group": "[\"output\"]",
+      "defaults": {
+        "name": "HTTP Request"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MCA0MCI+PHBhdGggZmlsbD0iIzAwMDRGNSIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNNDAgMjBDNDAgOC45NTMgMzEuMDQ3IDAgMjAgMFMwIDguOTUzIDAgMjBzOC45NTMgMjAgMjAgMjAgMjAtOC45NTMgMjAtMjBNMjAgMzYuOTQ2Yy0xLjExNSAwLTIuODYyLS45NzktNC41LTQuMjQ3LS43MDQtMS40MDctMS4zMDQtMy4xNTYtMS43NDctNS4wMTRIMjYuMTljLS4zODYgMS44NTUtLjk4NiAzLjYwNS0xLjY5IDUuMDE0LTEuNjM4IDMuMjY4LTMuMzg1IDQuMjQ3LTQuNSA0LjI0N00xMi45MDYgMjBjMCAxLjYxLjEwMyAzLjE2NC4yOTQgNC42M2gxMy42YTM2IDM2IDAgMCAwIC4yOTQtNC42M2MwLTEuNjEtLjEwMy0zLjE2NC0uMjk0LTQuNjNIMTMuMmEzNiAzNiAwIDAgMC0uMjk0IDQuNjNNMjAgMy4wNTRjMS4xMTUgMCAyLjg2Mi45NzcgNC41IDQuMjQ2LjcwNyAxLjQxNCAxLjMwNyAzLjEwNyAxLjY5MiA1LjAxNUgxMy43NWMuNDQzLTEuOTEgMS4wNDQtMy42MDIgMS43NS01LjAxNCAxLjYzOC0zLjI3IDMuMzg1LTQuMjQ3IDQuNS00LjI0N00zMC4xNDggMjBjMC0xLjU5LS4wOTQtMy4xMzgtLjMyNS00LjYzaDYuNDgxYy40MjEgMS40NzIuNjQyIDMuMDI2LjY0MiA0LjYzcy0uMjIgMy4xNTgtLjY0MiA0LjYzaC02LjQ4MWMuMjMxLTEuNDkyLjMyNS0zLjA0LjMyNS00LjYzTTI2LjI3NyA0LjI1NWMxLjM2IDIuMTA1IDIuNDM0IDQuODc3IDMuMSA4LjA2aDUuNzI4YTE2Ljk4IDE2Ljk4IDAgMCAwLTguODI4LTguMDZtLTE1LjY1NCA4LjA2aC01LjczYzEuODU4LTMuNjQ3IDUtNi41MzIgOC44My04LjA2LTEuMzYgMi4xMDUtMi40MzQgNC44NzctMy4xIDguMDZNMy4wNTQgMjBjMCAxLjYwMy4yMjMgMy4xNTcuNjQgNC42M2g2LjQyOGE0MCA0MCAwIDAgMS0uMjctNC42M2MwLTEuNTk0LjA5NC0zLjE0Mi4yNy00LjYzSDMuNjk1YTE3IDE3IDAgMCAwLS42NCA0LjYzbTIzLjIyMyAxNS43NDNjMS4zNi0yLjEwNCAyLjQzNC00Ljg3NSAzLjEtOC4wNThoNS43MjhhMTYuOTYgMTYuOTYgMCAwIDEtOC44MjggOC4wNThtLTEyLjU1NCAwYTE3IDE3IDAgMCAxLTguODMtOC4wNThoNS43M2MuNjY2IDMuMTgzIDEuNzQgNS45NTQgMy4xIDguMDU4IiBjbGlwLXJ1bGU9ImV2ZW5vZGQiLz48L3N2Zz4="
+      },
+      "displayName": "HTTP Request Tool",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    }
+  ]
+}

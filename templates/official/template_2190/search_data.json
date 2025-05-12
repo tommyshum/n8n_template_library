@@ -1,0 +1,73 @@
+{
+  "id": 2190,
+  "name": "Create new Clickup Tasks from Slack commands",
+  "totalViews": 1626,
+  "purchaseUrl": null,
+  "user": {
+    "id": 91335,
+    "name": "Imperol",
+    "username": "imperolq",
+    "bio": "Automation expert with years of experience helping businesses improve their efficiency and productivity with smart automations that are affordable, scalable, and flexible. ",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/zacharia-kimotho/\"]",
+    "avatar": "https://gravatar.com/avatar/13b050fd63dc0c9242774c4b8769c4788df8b47268c1fb183d6f1da085b9e6e2?r=pg&d=retro&size=200"
+  },
+  "description": "Create new Clickup Tasks from Slack commands\nThis workflow aims to make it easy to create new tasks on Clickup from normal Slack messages using simple slack command. \n\nFor example We can have a slack command as \n\n/newTask Set task to update new contacts on CRM and assign them to the sales team\nThis will have an new task on Clickup with the same title and description on Clickup \n\nFor most teams, getting tasks from Slack to Clickup involves manually entering the new tasks into Clickup. What if we could do this with a simple slash command?\n\nStep 1\nThe first step is to Create an endpoint URL for your slack command by creating an events API from the link [below] https://api.slack.com/apps/)\n\nSTEP 2 \nNext step is defining the endpoint for your URL\nCreate a new webhook endpoint from your n8n with a POST and paste the endpoint URL to your event API. This will send all slash commands associated with the Slash to the desired endpoint\n\nStep 3\nLog on to slack API (https://api.slack.com/) and create an application. This is the one we use to run all automation and commands from Slack. Once your app is ready, navigate to the Slash Commands and create a new command\n \n\nThis will include the command, the webhook URL and a description of what the slash command is all about\n\n\nNow that this is saved you can do a test by sending a demo task to your endpoint\n\nOnce you have tested the webhook slash command is working with the webhook, create a new Clickup API that can be used to create new tasks in ClickUp\n\n\n\nThis workflow creates a new task with the start dates on Clikup that can be assigned to the respective team members\n\nMore details about the document setup can be found on this document below\n\nHappy Productivity\n",
+  "createdAt": "2024-03-23T21:45:18.164Z",
+  "nodes": [
+    {
+      "id": 129,
+      "icon": "file:clickup.svg",
+      "name": "n8n-nodes-base.clickUp",
+      "codex": {
+        "data": {
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/2021-the-year-to-automate-the-new-you-with-n8n/",
+                "icon": "☀️",
+                "label": "2021: The Year to Automate the New You with n8n"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.clickup/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/clickUp/"
+              }
+            ]
+          },
+          "categories": [
+            "Productivity",
+            "Communication"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"output\"]",
+      "defaults": {
+        "name": "ClickUp"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMCAwIDE1NSAxNTUiPjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iYSIgeDE9IjAlIiB5MT0iNjguMDElIiB5Mj0iNjguMDElIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjODkzMEZEIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjNDlDQ0Y5Ii8+PC9saW5lYXJHcmFkaWVudD48bGluZWFyR3JhZGllbnQgaWQ9ImIiIHgxPSIwJSIgeTE9IjY4LjAxJSIgeTI9IjY4LjAxJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI0ZGMDJGMCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI0ZGQzgwMCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxnIGZpbGw9Im5vbmUiPjxwYXRoIGZpbGw9InVybCgjYSkiIGQ9Im0uNCAxMTkuMTIgMjMuODEtMTguMjRDMzYuODYgMTE3LjM5IDUwLjMgMTI1IDY1LjI2IDEyNWMxNC44OCAwIDI3Ljk0LTcuNTIgNDAuMDItMjMuOWwyNC4xNSAxNy44QzExMiAxNDIuNTIgOTAuMzQgMTU1IDY1LjI2IDE1NWMtMjUgMC00Ni44Ny0xMi40LTY0Ljg2LTM1Ljg4Ii8+PHBhdGggZmlsbD0idXJsKCNiKSIgZD0iTTY1LjE4IDM5Ljg0IDIyLjggNzYuMzYgMy4yMSA1My42NCA2NS4yNy4xNmw2MS41NyA1My41Mi0xOS42OCAyMi42NHoiLz48L2c+PC9zdmc+"
+      },
+      "displayName": "ClickUp",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 4,
+          "name": "Productivity"
+        },
+        {
+          "id": 6,
+          "name": "Communication"
+        }
+      ]
+    }
+  ]
+}

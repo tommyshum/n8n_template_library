@@ -1,0 +1,65 @@
+{
+  "id": 2853,
+  "name": "Spotify to YouTube Playlist Synchronization",
+  "description": "Spotify to YouTube Playlist Synchronization\nA workflow that maintains a YouTube playlist in sync with a Spotify playlist, featuring smart video matching and persistent synchronization.\n\nKey Features\nOne-way Sync**: Spotify playlist → YouTube playlist (additions and deletions)\nContinuous Monitoring**: Automatic synchronization (every hour by default, but you can put any time you want)\nSmart Video Matching**: Considers video length and content relevance\nAuto-Recovery**: Automatically handles deleted YouTube videos\nDatabase Backup**: Persistent storage using Supabase\n\nPrerequisites\n\nSupabase project with the following table structure:\nCREATE TABLE IF NOT EXISTS musics (\n    id TEXT PRIMARY KEY,\n    title TEXT NOT NULL,\n    artist TEXT NOT NULL,\n    duration INT8 NOT NULL,\n    youtube_video_id TEXT,\n    to_delete BOOLEAN DEFAULT FALSE\n);\nEmpty YouTube playlist (recommended as duplicates are not handled)\nConfigured credentials for YouTube, Spotify, and Supabase APIs\nProperly set variables in all \"variables\" nodes (variables, variables1, variables2, variables3, variables4 (all the same))\nActivate the workflow !",
+  "totalViews": 1800,
+  "source": "official",
+  "user": {
+    "id": 92629,
+    "name": "Lugnicca",
+    "username": "lugnicca",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/b21656d0381b41cc3418eca3356f2e12078b792030c72423ade5b0b2c89cd843?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Miscellaneous",
+    "Marketing",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "Discord",
+      "type": "n8n-nodes-base.discord",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Spotify",
+      "type": "n8n-nodes-base.spotify",
+      "categories": [
+        "Miscellaneous"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "YouTube",
+      "type": "n8n-nodes-base.youTube",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Supabase",
+      "type": "n8n-nodes-base.supabase",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-02-05T17:50:00.354Z",
+  "path": "official/template_2853/workflow.json"
+}

@@ -1,0 +1,82 @@
+{
+  "id": 2180,
+  "name": "Scrape and summarize posts of a news site without RSS feed using AI and save them to a NocoDB",
+  "description": "The News Site from Colt, a telecom company, does not offer an RSS feed, therefore web scraping is the choice to extract and process the news.\n\nThe goal is to get only the newest posts, a summary of each post and their respective (technical) keywords.\n\nNote that the news site offers the links to each news post, but not the individual news. We collect first the links and dates of each post before extracting the newest ones.\n\nThe result is sent to a SQL database, in this case a NocoDB database.\n\nThis process happens each week thru a cron job.\n\nRequirements:\nBasic understanding of CSS selectors and how to get them via browser (usually: right click &rarr; inspect)\nChatGPT API account - normal account is not sufficient\nA NocoDB database - of course you may choose any type of output target\n\nAssumptions:\nCSS selectors work on the news site\nThe post has a date with own CSS selector - meaning date is not part of the news content\n\n\"Warnings\"\nNot every site likes to be scraped, especially not in high frequency\nEach website is structured in different ways, the workflow may then need several adaptations.",
+  "totalViews": 22524,
+  "source": "official",
+  "user": {
+    "id": 91559,
+    "name": "Askan",
+    "username": "askans",
+    "bio": "Workflow automation enthusiast",
+    "verified": false,
+    "links": "[\"https://bonn.social/@askans\"]",
+    "avatar": "https://gravatar.com/avatar/97d12cf17d9671d0e3ccaf52c76e7a246fe4a6926295378cdb4da8045119fbe4?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage",
+    "Utility"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "NocoDB",
+      "type": "n8n-nodes-base.nocoDb",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "n8n-nodes-base.openAi",
+      "categories": [
+        "Utility"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2024-03-17T20:13:47.141Z",
+  "path": "official/template_2180/workflow.json"
+}

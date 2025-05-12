@@ -1,0 +1,83 @@
+{
+  "id": 2508,
+  "name": "Generate SQL queries from schema only - AI-powered",
+  "description": "This workflow is a modification of the previous template on how to create an SQL agent with LangChain and SQLite.\n\nThe key difference – the agent has access only to the database schema, not to the actual data. To achieve this, SQL queries are made outside the AI Agent node, and the results are never passed back to the agent.\n\nThis approach allows the agent to generate SQL queries based on the structure of tables and their relationships, without having to access the actual data.\n\nThis makes the process more secure and efficient, especially in cases where data confidentiality is crucial.\n\n🚀 Setup\n\nTo get started with this workflow, you’ll need to set up a free MySQL server and import your database (check Step 1 and 2 in this tutorial). \n\nOf course, you can switch MySQL to another SQL database such as PostgreSQL, the principle remains the same. The key is to download the schema once and save it locally to avoid repeated remote connections.\n\nRun the top part of the workflow once to download and store the MySQL chinook database schema file on the server.\n\nWith this approach, we avoid the need to repeatedly connect to a remote db4free database and fetch the schema every time. As a result, we reach greater processing speed and efficiency.\n\n🗣️ Chat with your data\n\nStart a chat: send a message in the chat window.\nThe workflow loads the locally saved MySQL database schema, without having the ability to touch the actual data. The file contains the full structure of your MySQL database for analysis.\nThe Langchain AI Agent receives the schema, your input and begins to work.\nThe AI Agent generates SQL queries and brief comments based solely on the schema and the user’s message.\nAn IF node checks whether the AI Agent has generated a query. When:\nYes: the AI Agent passes the SQL query to the next MySQL node for execution.\nNo: You get a direct answer from the Agent without further action.\n\nThe workflow formats the results of the SQL query, ensuring they are convenient to read and easy to understand.\nOnce formatted, you get both the Agent answer and the query result in the chat window.\n\n🌟 Example queries\n\nTry these sample queries to see the schema-driven AI Agent in action:\n\nWould you please list me all customers from Germany?\n\nWhat are the music genres in the database?\n\nWhat tables are available in the database?\n\nPlease describe the relationships between tables. - In this example, the AI Agent does not need to create the SQL query.\n\nAnd if you prefer to keep the data private, you can manually execute the generated SQL query in your own environment using any database client or tool you trust 🗄️\n\n💭 The AI Agent memory node does not store the actual data as we run SQL-queries outside the agent. It contains the database schema, user questions and the initial Agent reply. Actual SQL query results are passed to the chat window, but the values are not stored in the Agent memory.\n",
+  "totalViews": 27565,
+  "source": "official",
+  "user": {
+    "id": 91386,
+    "name": "Yulia",
+    "username": "yulia",
+    "bio": "Let's connect! ",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/yulia-dmitrievna-1112361b5/\"]",
+    "avatar": "https://gravatar.com/avatar/d29a8262aa8835d430919f8002957a77169f8da987dee0740aa494ae67a061b7?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Data & Storage",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "MySQL",
+      "type": "n8n-nodes-base.mySql",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2024-10-29T21:14:34.146Z",
+  "path": "official/template_2508/workflow.json"
+}

@@ -1,0 +1,66 @@
+{
+  "id": 3042,
+  "name": "Automated Water Consumption Tracker - Stored in Sheet and Notify in Slack",
+  "description": "Water Reminder Workflow\n\nThis workflow demonstrates how to use n8n and Slack to build an intelligent water drinking reminder system, combined with Google Sheets for data recording and OpenAI for generating personalized reminder messages.\n\nGoogle Sheet Template\n\nThe iOS shortcut template:\n\n\nThe result in iOS health:\n\n\n\nThe template demo in Youtube\n\nKey Features\nScheduled Reminders: Automatically sends water reminders at random times every hour.\nIntelligent Scheduling: Delays the next reminder if you've recently had water.\nAI-Generated Messages: Uses OpenAI to generate friendly and non-repetitive reminder messages.\nData Tracking: Records daily water intake and calculates percentage of goal achievement.\nQuick Response: Easily record water intake through Slack buttons.\niOS Integration: Provides iOS shortcut links to sync data with the Health app.\n\nPre-Configuration Requirements\nTo use this workflow, you need to set up the following:\n\nGoogle Sheets:\n   Create a Google spreadsheet with log and setting sheets\n   The log sheet should include date, time, and value columns\n   The setting sheet is used to store daily water intake goals\n\nSlack:\n   Create a Slack app and obtain an API token\n   Configure permissions for interactive buttons\n\nOpenAI:\n   Obtain an OpenAI API key\n\niOS Shortcut (optional):\n   Create an iOS shortcut named darrell_water for recording health data\n\nNode Configurations\n\n1. Scheduled Triggers and Data Collection\n\n1.1. Schedule Trigger\nPurpose**: Triggers water reminders on schedule\nConfiguration**:\n  Cron Expression: 0 {{ Math.floor(Math.random() * 11) }} 8-23 * * *\n  Triggers at a random minute every hour, only between 8 AM and 11 PM\n\n1.2. Google Sheets - Get Target\nPurpose**: Retrieves daily water intake goal\nConfiguration**:\n  Document ID: Your Google spreadsheet ID\n  Sheet Name: setting\n\n1.3. Google Sheets - Get Log\nPurpose**: Retrieves today's water intake records\nConfiguration**:\n  Document ID: Your Google spreadsheet ID\n  Sheet Name: log\n  Filter Condition: date equals today's date {{ $now.format('yyyy-MM-dd') }}\n\n1.4. Summarize\nPurpose**: Calculates total water intake for today\nConfiguration**:\n  Fields to Summarize: value (sum)\n\n1.5. Limit\nPurpose**: Gets the most recent water intake record\nConfiguration**:\n  Keep: Last items\n\n2. Intelligent Reminder Logic\n\n2.1. Combine Data\nPurpose**: Merges target and actual water intake data\nConfiguration**:\n  Combine By: Combine by position\n  Number of Inputs: 3\n\n2.2. If\nPurpose**: Checks if water was consumed recently\nConfiguration**:\n  Condition:\n    {{ DateTime.fromISO($json.date+\"T\"+$json.time).format('yyyy-MM-dd HH:mm:ss') }} is after {{ $now.minus(30, \"minutes\") }}\n\n2.3. Wait\nPurpose**: Randomly delays the reminder if water was consumed recently\nConfiguration**:\n  Wait Time: {{ Math.floor(Math.random() * 1) + 1 }} minutes\n\n3. AI Message Generation and Sending\n\n3.1. OpenAI\nPurpose**: Generates personalized water reminder messages\nConfiguration**:\n  Model: gpt-4o-mini\n  Messages:\n    System prompt: Requests responses in Traditional Chinese and in JSON format\n    User prompt: Includes information about last water time, current time, goal, and progress\n  Temperature: 1\n\n3.2. Slack Send Drink Notification\nPurpose**: Sends water reminders to Slack channel\nConfiguration**:\n  Channel: Your Slack channel ID\n  Message Type: Block\n  Block UI: Contains AI-generated reminder message and water amount buttons (100ml, 150ml, 200ml, 250ml, 300ml)\n\n4. User Interaction and Data Recording\n\n4.1. Slack Drink Webhook\nPurpose**: Receives user interactions when water buttons are clicked\nConfiguration**:\n  HTTP Method: POST\n  Path: slack-water-webhook\n\n4.2. Slack Action Payload\nPurpose**: Parses Slack interaction data\nConfiguration**:\n  Mode: Raw\n  JSON Output: {{ $json.body.payload }}\n\n4.3. Slack Action Drink Data\nPurpose**: Extracts water amount and message information\nConfiguration**:\n  Assignments:\n    value: {{ $json.actions[0].value }}\n    message_text: {{ $json.message.text }}\n    shortcut_url: shortcuts://run-shortcut?name=darrell_water&input=\n    shortcut_url_data: JSON containing water amount and time\n    message_ts: {{ $json.container.message_ts }}\n\n4.4. Google Sheets\nPurpose**: Records water intake data to spreadsheet\nConfiguration**:\n  Operation: Append\n  Document ID: Your Google spreadsheet ID\n  Sheet Name: log\n  Column Mapping:\n    date: {{ $now.format('yyyy-MM-dd') }}\n    time: {{ $now.format('HH:mm:ss') }}\n    value: {{ $json.value }}\n\n4.5. Send to Slack with Confirm\nPurpose**: Sends confirmation message and provides iOS shortcut link\nConfiguration**:\n  Channel: Your Slack channel ID\n  Message Type: Block\n  Block UI: Contains confirmation message and iOS Health app button\n  Reply Settings: Reply to the thread of the original message\n\nAuthor Information\nThis workflow was created by darrell_tw_, an engineer focused on AI and Automation.\n\nContact:\nX\nThreads\nInstagram\nWebsite\n",
+  "totalViews": 541,
+  "source": "official",
+  "user": {
+    "id": 92348,
+    "name": "darrell_tw",
+    "username": "darrelltw",
+    "bio": "Martech Engineer with automation.\nhere is my website: https://www.darrelltw.com/",
+    "verified": true,
+    "links": "[\"https://x.com/DarrellMarTech\"]",
+    "avatar": "https://gravatar.com/avatar/4bf99603c608dc2e9a91e3d17bf47743b41153512a14098c8070213d7dccc199?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-02-28T15:53:27.335Z",
+  "path": "official/template_3042/workflow.json"
+}

@@ -1,0 +1,199 @@
+{
+  "id": 2784,
+  "name": "Personal Shopper Chatbot for WooCommerce with RAG using Google Drive and openAI ",
+  "description": "This workflow combines OpenAI, Retrieval-Augmented Generation (RAG), and WooCommerce to create an intelligent personal shopping assistant. It handles two scenarios:  \nProduct Search: Extracts user intent (keywords, price ranges, SKUs) and fetches matching products from WooCommerce.  \nGeneral Inquiries: Answers store-related questions (e.g., opening hours, policies) using RAG and documents stored in Google Drive.  \n\nHow It Works  \n\n1. Chat Interaction & Intent Detection  \nChat Trigger**:  \n  Starts when a user sends a message (\"When chat message received\").  \nInformation Extractor**:  \n  Uses OpenAI to analyze the message and determine if the user is searching for a product or asking a general question.  \n  Extracts:  \n    search (true/false).  \n    keyword, priceRange, SKU, category (if product-related).  \n  Example:  \n        {  \n      \"search\": true,  \n      \"keyword\": \"red handbags\",  \n      \"priceRange\": { \"min\": 50, \"max\": 100 },  \n      \"SKU\": \"BAG123\",  \n      \"category\": \"women's accessories\"  \n    }  \n2. Product Search (WooCommerce Integration)  \nAI Agent**:  \n  If search: true, routes the request to the personal_shopper tool.  \n  WooCommerce Node:  \n    Queries the WooCommerce store using extracted parameters (keyword, priceRange, SKU).  \n    Filters products in stock (stockStatus: \"instock\").  \n    Returns matching products (e.g., \"red handbags under €100\").  \n\n3. General Inquiries (RAG System)  \nRAG Tool**:  \n  If search: false, uses the Qdrant Vector Store to retrieve store information from documents.  \n  Google Drive Integration:  \n    Documents (e.g., store policies, FAQs) are stored in Google Drive.  \n    Downloaded, split into chunks, and embedded into Qdrant for semantic search.  \n  OpenAI Chat Model: Generates answers based on retrieved documents (e.g., \"Our store opens at 9 AM\").  \n\nSet Up Steps  \n\n1. Configure the RAG System  \nGoogle Drive Setup**:  \n  Upload store documents .  \n  Update the Google Drive2 node with your folder ID.  \nQdrant Vector Database**:  \n  Clean the collection (update Qdrant Vector Store node with your URL).  \n  Use Embeddings OpenAI to convert documents into vectors.  \n\n2. Configure OpenAI & WooCommerce  \nOpenAI Credentials**:  \n  Add your API key to all OpenAI nodes (OpenAI Chat Model, Embeddings OpenAI, etc.).  \nWooCommerce Integration**:  \n  Connect your WooCommerce store (credentials in the personal_shopper node).  \n  Ensure product data is synced and accessible.  \n\n3. Customize the AI Agent  \nIntent Detection**:  \n  Modify the Information Extractor’s system prompt to align with your store’s terminology.  \nRAG Responses**:  \n  Update the tool description to reflect your store’s documents.  \n\nNotes  \nThis template is ideal for e-commerce businesses needing a hybrid assistant for product discovery and customer support.\n\nNeed help customizing?  \nContact me for consulting and support or add me on Linkedin. ",
+  "totalViews": 10263,
+  "source": "official",
+  "user": {
+    "id": 92207,
+    "name": "Davide",
+    "username": "n3witalia",
+    "bio": "Full-stack Web Developer based in Italy specialising in Marketing & AI-powered automations. For business enquiries, send me an email at info@n3w.it or add me on Linkedin.com/in/davideboizza",
+    "verified": true,
+    "links": "[\"https://n3w.it\"]",
+    "avatar": "https://gravatar.com/avatar/d41b8a0aa81139243509c58870f5b4be292824a507ab57d10ed066d8628ed8da?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Token Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterTokenSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Calculator",
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    },
+    {
+      "name": "Qdrant Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreQdrant",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Vector Store Question Answer Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolVectorStore",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Information Extractor",
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 12,
+  "createdAt": "2025-01-23T14:55:58.691Z",
+  "path": "official/template_2784/workflow.json"
+}

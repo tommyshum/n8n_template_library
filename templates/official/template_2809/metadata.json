@@ -1,0 +1,102 @@
+{
+  "id": 2809,
+  "name": "Microsoft Outlook AI Email Assistant with contact support from Monday and Airtable",
+  "description": "Microsoft Outlook AI Email Assistant\n\nPrerequisites\n\n1. Microsoft 365 Login Credentials\nProvide your Office 365 credentials to connect Outlook.\n\n2. Monday.com\nGenerate an API token and have a board with your contact details.\n\n3. Airtable\nObtain an API key (or personal access token) and set up a base to store:\n  Contacts (populated by the Monday.com sync).\n  Rules & Categories (used by the AI Email Assistant).\nUse this Airtable base as the template: Airtable AI Email Assistant Template. Define your own rules, categories, and delete rules.\n\n4. OpenAI API Key\nSign up for OpenAI if you don’t already have an account.\nGenerate a new API key at OpenAI API Keys.\n\nWhat the System Does\n\n1. Daily Contact Sync (Monday.com → Airtable)\nRuns once a day to pull the latest contacts from Monday.com and store or update them in Airtable.\n\n2. AI Email Categorisation & Prioritisation\nFetches Outlook emails with filters.\nCleans and processes email content.\nMatches emails with known contacts from Airtable.\nUses an AI agent to classify, categorise, and prioritise emails.\nUpdates Outlook categories and importance based on AI results.\nRuns in parallel with Airtable rules & categories retrieval for real-time decision-making.\n\nWorkflow 1: Daily Contact Sync (Monday.com → Airtable)\n\nPurpose\nKeep Airtable’s Contacts table up to date by pulling new or updated contact data from Monday.com daily.\n\nSteps\nSchedule Trigger  \n   Runs at a set interval (daily) to initiate contact syncing.\n\nMonday.com: Get Contacts  \n   Reads the specified board/columns from Monday.com where you store contact details.\n\nAirtable - Contacts  \n   Upserts (adds or updates) the fetched Monday.com data into Airtable’s Contacts table.\n   Ensures daily updates reflect changes from Monday.com.\n\nResult\nA consolidated contact list in Airtable, ready for AI email categorisation.\n\nWorkflow 2: Categorise & Prioritise Outlook Emails\n\nPurpose\nFetches Outlook emails, cleans and processes their content, matches senders with known contacts, and uses AI to categorise and prioritise them.\n\nSteps\n\n1. Get Outlook Emails with Filters\nTrigger**: Either scheduled (Check Mail Schedule Trigger) or manual (Test Workflow).\nOutlook Filters**:\n  Not flagged (flag/flagStatus == 'notFlagged').\n  Not categorised (not categories/any()).\n\n🔹 Result: A batch of fresh, unprocessed emails ready for processing.\n\n2. Sanitise Email\nConvert to Markdown: Strips **HTML tags and normalises formatting.\nEmail Messages Processing: Allows manual removal of **signatures, disclaimers, or extra content.\n\n🔹 Result: A clean, AI-friendly email for categorisation.\n\n3. Match Contact\nLoop Over Emails**: Iterates over each email.\nContact Lookup: Checks Airtable’s **Contacts table (updated daily).\nMerge Data: Enriches emails with known **client, supplier, or internal team info.\n\n🔹 Result: Enhanced email context for AI processing.\n\n4. AI Agent to Categorise & Prioritise\nRetrieve Rules & Categories**  \n  Reads Rules, Categories, and Delete Rules from Airtable in parallel.\nAI: Analyse Email (Tools Agent)**  \n  Uses email text, sender info, and rules to build a structured AI prompt.\nOpenAI Chat Model**  \n  Processes the AI prompt and outputs:\n    Category\n    Subcategory (optional)\n    Priority level\n    Short rationale\nStructured Output Parser**  \n  Ensures AI response is valid JSON format.\n\n🔹 Result:  \nEach email is labelled, categorised, and prioritised with AI-driven logic.\n\n5. Set Outlook Category & Importance\nSet Category: Updates Outlook with the assigned **category.\nCheck Priority Conditions** (If Node):  \n  If Action Required or from a VIP, mark as High Priority.\nSet Importance: Updates the email's **importance flag in Outlook.\n\n🔹 Result:  \nOutlook is updated with categories & importance based on AI recommendations.\n\nParallel Processing: Retrieve Rules & Categories\nRuns alongside the email categorisation workflow.\nEnsures Airtable-based rules are available before AI processing.\n\nSteps\nAirtable: Get Rules & Categories  \n   Fetches Rules, Categories, and Delete Rules from Airtable.\nDelete Rules (Optional)  \n   If a delete rule matches, the email is removed.\n\n🔹 Result:  \nA dynamic, updatable rule system ensuring emails are handled properly.\n\nFinal Outcome\nDaily Contact Sync** keeps contacts up to date.\nAI-driven email workflow** ensures smart categorisation.\nOutlook automatically updated** with AI-generated categories and importance.\n\nThis automated system saves time, ensures efficient inbox management, and allows for customisable rules via Airtable.\n",
+  "totalViews": 4466,
+  "source": "official",
+  "user": {
+    "id": 92536,
+    "name": "Cognitive Creators",
+    "username": "cognitivecreators",
+    "bio": "",
+    "verified": false,
+    "links": "[\"https://cognitivecreators.ai\"]",
+    "avatar": "https://gravatar.com/avatar/d9c8981a917291e8b7159f092195c9f78bd344ed65e7b681b807c2b26bfb34aa?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Monday.com",
+      "type": "n8n-nodes-base.mondayCom",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Microsoft Outlook",
+      "type": "n8n-nodes-base.microsoftOutlook",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-01-28T05:04:49.156Z",
+  "path": "official/template_2809/workflow.json"
+}

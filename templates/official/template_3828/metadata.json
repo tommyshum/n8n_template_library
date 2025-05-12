@@ -1,0 +1,69 @@
+{
+  "id": 3828,
+  "name": "Generate YouTube Video Summaries with SearchAPI Transcripts and LLM",
+  "description": "🎥 Summarize YouTube Videos using SearchApi & LLM\n\nWho is this for?\n\nThis workflow is ideal for content creators, students, digital marketers, educators, and researchers who want to quickly summarize YouTube videos.\n\nWhat problem does this workflow solve?\n\nManually extracting important information from lengthy YouTube videos can be tedious and prone to errors. This workflow streamlines the process by automatically fetching video transcripts using SearchApi.io and producing concise, informative summaries through a summarization chain powered by any LLM provider. This allows users to quickly access crucial information without the need for manual transcription or detailed viewing.\n\nWhat this workflow does\n\nFetches the complete transcript of a YouTube video using SearchApi.\nCombines the retrieved transcript into a single, continuous text.\nUtilizes a Summarization Chain with an LLM (e.g., OpenRouter models) to create a concise summary of the video content.\n\nSetup\n\nInstall the SearchApi community node:\n   Open Settings → Community Nodes inside your self‑hosted n8n instance.\n   Fill npm Package Name with @searchapi/n8n-nodes-searchapi.\n   Accept the risk prompt, and hit Install.\n   It should now appear as a node when you search for it.\n\nAPI Configuration:\n   Set up your SearchApi.io credentials in n8n.\n   Add your preferred LLM provider credentials (e.g., OpenRouter API).\n\nInput Requirements:\n   Provide the YouTube video ID (e.g., wBuULAoJxok).\n\nConnect LLM Integration:\n   Configure the summarization chain with your chosen model and parameters for text splitting.\n\nHow to customize this workflow to meet your needs\n\nAdjust the summarization model or modify text-splitter parameters to accommodate different lengths and complexities of video transcripts.\nIntegrate additional nodes to export summaries directly into your preferred tools, such as Google Drive, Slack, or email.\nCustomize prompt templates in the summarization chain to obtain various summary styles (bullet points, paragraphs, etc.).\nModify the trigger to suit your workflow.\n\nExample Usage\n\nInput: YouTube video ID (wBuULAoJxok).\nOutput: A concise, actionable summary that highlights key ideas, recommendations, and insights from the video.",
+  "totalViews": 71,
+  "source": "official",
+  "user": {
+    "id": 94122,
+    "name": "Pedro Santos",
+    "username": "dapedu",
+    "bio": "I'm a software developer with over 4+ years of experience. I work using software to solve clients problems and I believe n8n is a nice way to solve some problems faster!",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/39912cd80161aa7b012cc70e7e0f646d4202763b6cae502b14e9dc3e19dd54d5?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Summarization Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainSummarization",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Recursive Character Text Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-05-02T04:03:32.827Z",
+  "path": "official/template_3828/workflow.json"
+}

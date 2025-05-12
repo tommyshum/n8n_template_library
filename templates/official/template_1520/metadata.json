@@ -1,0 +1,47 @@
+{
+  "id": 1520,
+  "name": "OpenAI-powered tweet generator",
+  "description": "This workflow uses OpenAI to generate tweets to be stored in Airtable for review.\n\nA JS snippet handles the topics to be tweeted about in the form of hashtags.\n\n",
+  "totalViews": 4481,
+  "source": "official",
+  "user": {
+    "id": 31273,
+    "name": "Gareth Roll",
+    "username": "gareth",
+    "bio": null,
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/16d797720e7a3d34a05adbb3f37e26059cb0ece8ea36508bcf3f6eeb5e8050e9?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2022-03-14T14:53:24.684Z",
+  "path": "official/template_1520/workflow.json"
+}

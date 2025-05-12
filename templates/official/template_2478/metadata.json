@@ -1,0 +1,38 @@
+{
+  "id": 2478,
+  "name": "Send a message via a Lark Bot ",
+  "description": "What this workflow does\nThis workflow in n8n demonstrates how to send a message in Lark using a Lark bot. It begins with a manual trigger and then retrieves the necessary Lark token via a POST request. The token is used to authenticate and send a message to a specific chat using the Lark API. The input node provides the required app_id, app_secret, chat_id, and message content. After obtaining the token, the message is sent with the Lark API's message/v4/send/ endpoint.\n\nWho This Is For\nThis n8n workflow is ideal for organizations, teams, and developers who need to automate message sending within Lark, especially those managing notifications, alerts, or team reminders. It can help users reduce manual messaging tasks by leveraging a Lark bot to deliver messages at specific intervals or based on particular conditions, enhancing team communication and responsiveness.\n\nSetup\nFill the Input node with your values\nExchange the bearer token in the Send Message node with your token\n\nAuthor: Hiroshi",
+  "totalViews": 1687,
+  "source": "official",
+  "user": {
+    "id": 92073,
+    "name": "Hiroshi",
+    "username": "hiroshi",
+    "bio": "",
+    "verified": false,
+    "links": "[\"https://hiroshidigital.com\"]",
+    "avatar": "https://gravatar.com/avatar/9313d590721bc9afe50d0325d6a455f691fbfac62b7de1c5604bf56a7645211b?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-10-22T04:15:35.750Z",
+  "path": "official/template_2478/workflow.json"
+}

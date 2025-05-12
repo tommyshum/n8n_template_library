@@ -1,0 +1,32 @@
+{
+  "id": 3332,
+  "name": "Capture Website Screenshots via Google Sheets to Google Drive with CustomJS",
+  "description": "\nn8n Workflow: Automating Website Screenshots from Google Sheets\n\nThis n8n workflow captures screenshots of websites listed in a Google Sheet and saves them to Google Drive using the CustomJS PDF Toolkit.\n\n@custom-js/n8n-nodes-pdf-toolkit\n\nFeatures\n\nMonitors** a Google Sheet for new rows with website URLs.\nCaptures** screenshots of the websites using the CustomJS PDF Toolkit.\nUploads** the screenshots to a specified Google Drive folder.\n\nNotice \nCommunity nodes can only be installed on self-hosted instances of n8n.\n\nRequirements\n\nSelf-hosted** n8n instance\nA Google Sheets document containing website URLs and Titles.\nA Google Drive folder to store the screenshots.\nA CustomJS API key for website screenshots.\nn8n credentials** for Google Sheets and Google Drive.\n\nWorkflow Steps\n\nGoogle Sheets Trigger\n\n   Monitors a specified sheet for new rows.\n   Extracts the URL and Title from the row.\n\nWebsite Screenshot Node\n\n   Uses CustomJS PDF Toolkit to take a screenshot of the given URL.\n\nGoogle Drive Upload\n   Saves the screenshot to a specific Google Drive folder.\n   Uses the Title column as the filename.\n\nSetup Guide\n\n1. Connect Google Sheets\n\nEnsure your Google Sheet has a column named Url for website URLs and Name for website names.\nSet up Google Sheets credentials in n8n.\n\n2. Configure CustomJS API\n\nSign up at CustomJS.\nRetrieve your API key from the profile page.\n\nAdd your API key as n8n credentials.\n\n3. Set Up Google Drive\n\nCreate a folder in Google Drive to store screenshots.\nCopy the folder ID and set it in the Google Drive node in n8n.\n\nPerfect for:\n\nWebsite monitoring**\nGenerating visual archives of web pages**\nAutomating content curation**\n\nThis workflow streamlines the process of capturing and organizing website screenshots efficiently.\n",
+  "totalViews": 1870,
+  "source": "official",
+  "user": {
+    "id": 93320,
+    "name": "CustomJS",
+    "username": "customjs",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://www.customjs.space\"]",
+    "avatar": "https://gravatar.com/avatar/942ecdadf17761bc7f516b67fb0f3617809720caf8912cfd1815ed2a9f8b9ad3?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-03-26T09:57:20.649Z",
+  "path": "official/template_3332/workflow.json"
+}

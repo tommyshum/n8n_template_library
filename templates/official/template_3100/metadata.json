@@ -1,0 +1,71 @@
+{
+  "id": 3100,
+  "name": "Analyze Landing Page with OpenAI and Get Optimization Tips",
+  "description": "\nYour Landing Page is Leaking Sales—Here’s How to Fix It in Seconds\nVisitors land on your page. But instead of converting, they bounce.\n\nWhy? Something’s broken. Something’s missing. But what?\n\n❌ Is your CTA too weak?\n❌ Is your messaging unclear?\n❌ Is your design creating friction?\n\nYou know something is off, but don’t know what. What if you could get an instant, expert-level report on exactly what to fix?\n\nThis workflow will do an AI Analysis of your landing page, provide a CRO Audit, so you can optimize your landing page.\n\nWho is This For?\nSaaS Founders & Startups**: Stop leaving money on the table. Make every visitor count.\nMarketers & Growth Experts**: Turn landing pages into high-converting assets.\nE-commerce & Lead Gen Businesses**: More conversions = more revenue.\n\nHow It Works\nPaste your URL\nGet an instant roast + fix list\nImplement changes & watch conversions jump\n\nThe workflow scrapes the url you input, gets the htlm source code of the landing page, and sends it to OpenAI AI Agent. \n\nThe Agent makes a deep analysis, roasts the landing page, and provides 10 Conversion Rate Optimization Tips to improve your landing page. \n\nSetup Guide\nYou will need OpenAI Credentials with an API Key to run the workflow. \n\nThe workflow is using the OpenAI-o1 model to deliver the best results. It costs between $0.20/0.30 per run. \n\nYou can adjust the prompt to your wish in the AI Agent parameters. \n\nOnce the workflow has been completed, select Logs to get a readable version. \n\nBelow is an example.\n\n\n\n",
+  "totalViews": 18056,
+  "source": "official",
+  "user": {
+    "id": 92843,
+    "name": "Not Another Marketer",
+    "username": "notanothermarketer",
+    "bio": "Building Badass AI Agents for Marketing. Pre-made, ready-to-use, fully customizable.\n\n",
+    "verified": true,
+    "links": "[\"https://www.notanothermarketer.com\"]",
+    "avatar": "https://gravatar.com/avatar/d6c9cb4d0092909e227e9de518409cdf679228a7df550714ce808d77976221af?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-03-06T15:24:25.565Z",
+  "path": "official/template_3100/workflow.json"
+}

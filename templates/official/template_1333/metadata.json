@@ -1,0 +1,40 @@
+{
+  "id": 1333,
+  "name": "Two-way sync between Pipedrive and HubSpot",
+  "description": "This workflow synchronizes data both ways between Pipedrive and HubSpot.\n\n\n\nCron node** schedules the workflow to run every minute.\nPipedrive* and *Hubspot nodes** pull in both lists of persons from Pipedrive and contacts from HubSpot.\nMerge1* and *Merge2 nodes** with the option Remove Key Matches identify the items that uniquely exist in HubSpot and Pipedrive, respectively.\nUpdate Pipedrive* and *Update HubSpot nodes** take those unique items and add them in Pipedrive and HubSpot, respectively.",
+  "totalViews": 1116,
+  "source": "official",
+  "user": {
+    "id": 12733,
+    "name": "Lorena",
+    "username": "lorenanda",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/df6358bcce2351cf878beab8f89b9f000f50588aaa728f7ea57127c1b85e7b06?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Sales"
+  ],
+  "nodes": [
+    {
+      "name": "Pipedrive",
+      "type": "n8n-nodes-base.pipedrive",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HubSpot",
+      "type": "n8n-nodes-base.hubspot",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2021-11-18T14:31:41.829Z",
+  "path": "official/template_1333/workflow.json"
+}

@@ -1,0 +1,71 @@
+{
+  "id": 2454,
+  "name": "Auto Categorise Outlook Emails with AI",
+  "description": "Automate your email management with this workflow, designed for freelancers and business professionals who receive high volumes of emails. By leveraging AI-powered categorisation and dynamic email processing, this template helps you organise your inbox and streamline communication for better efficiency and productivity.\n\n\nCheck out the YouTube video for step-by-step set up instructions!\n\nHow it works:\n\nFetch & Filter Emails: The workflow retrieves emails from your Microsoft Outlook account, filtering out flagged emails and those already categorised.\nContent Preparation: Each email is cleaned up and converted to a structured format using Markdown, making it easier for AI processing.\nAI Categorization: The content is analysed using an AI model, which categorises the emails into predefined categories (e.g., Action, Junk, Business, SaaS) based on the context and content.\nEmail Categorization & Folder Management: The categorised emails are updated in Microsoft Outlook and moved to respective folders such as \"Junk Email\" or \"Receipts\" based on the AI's classification.\nConditional Processing & Final Checks: Additional checks and conditions ensure that only unread emails are processed, and errors are gracefully managed to maintain workflow stability.\n\nSet up steps:\n\nConnect Microsoft Outlook: Link your Microsoft Outlook account using the built-in credentials node to enable email fetching, updating, and folder management.\nConfigure AI Model (Ollama API): Set up the AI model by connecting to the Ollama API and choosing your desired language model for categorisation.\nModify Email Categories (Optional): Customize the categories and subcategories within the workflow to suit your unique email management needs.\nSet Up Error Handling: Review the error handling node settings to ensure smooth workflow execution.\n\nThis template offers a robust solution for managing and organising your inbox, helping you save time and keep your focus on important emails.",
+  "totalViews": 30402,
+  "source": "official",
+  "user": {
+    "id": 91547,
+    "name": "Wayne Simpson",
+    "username": "nocodecreative",
+    "bio": "I’m Wayne, an AI, automation & low-code consultant, passionate about helping businesses unlock their potential through smart, practical solutions.\n\nContact me at https://www.nocodecreative.io",
+    "verified": true,
+    "links": "[\"https://www.nocodecreative.io\"]",
+    "avatar": "https://gravatar.com/avatar/4411649cc7663c2b65bc85988745080d5a677931114ea9e85f02b66a74d2e323?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Microsoft Outlook",
+      "type": "n8n-nodes-base.microsoftOutlook",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Ollama Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOllama",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-10-06T15:45:53.304Z",
+  "path": "official/template_2454/workflow.json"
+}

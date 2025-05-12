@@ -1,0 +1,38 @@
+{
+  "id": 1319,
+  "name": "Create Nextcloud Deck Card from IMAP email",
+  "description": "Check email and create new Nextcloud Deck card from incoming email.\n\nImport workflow.\nChange Nextcloud URL with target board id and stack id.\nConfigure IMAP credential and Nextcloud userid / password.\nThe workflow starts with new IMAP email.\nThis workflow creates new Nextcloud Deck Card with email subject and email body.\n(Note that all the emails will be marked as read.)\n",
+  "totalViews": 1516,
+  "source": "official",
+  "user": {
+    "id": 14169,
+    "name": "Masahiro Minami",
+    "username": "masahirominami",
+    "bio": null,
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/0bc5600d371c7b38aabca767f517fb88dd994d481a2e2f7f362bca6e59f70cd8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2021-11-14T06:32:41.899Z",
+  "path": "official/template_1319/workflow.json"
+}

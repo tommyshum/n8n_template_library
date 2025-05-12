@@ -1,0 +1,137 @@
+{
+  "id": 2607,
+  "name": "Research AI Agent Team with auto citations using OpenRouter and Perplexity",
+  "description": "Purpose of workflow:\nThis AI-powered workflow is designed to automatically generate comprehensive, well-researched articles on any given topic. It utilizes a team of AI agents to streamline the research and writing process, producing high-quality content with proper citations and credible sources.\n\nHow it works\n\nMulti-agent team:\n\nResearch Leader: Plans and conducts initial research, creating a table of contents.\nProject Planner: Breaks down the table of contents into manageable sections.\nResearch Assistants: Multiple agents that conduct in-depth research on assigned sections.\nEditor: Compiles and refines the final article, ensuring coherence and proper citations.\n\nKey features:\nUtilizes Perplexity AI for internet search and citation capabilities\nProduces well-structured articles with proper citations\nCustomizable parameters (topic, tone, word count, number of sections)\n\n\nStep by step setup:\n\nGet account from OpenRouter.ai to access Perplexity API\nSet API key in the Perplexity API node\nCredential key name : Authorization and key value Bearer &lt;api-key value&gt;\n",
+  "totalViews": 3678,
+  "source": "official",
+  "user": {
+    "id": 91384,
+    "name": "Derek Cheung",
+    "username": "derekcheungsa",
+    "bio": "Derek is an engineer, instructor, and investor based in Canada. He is publicly building AI applications to solve real-world problems, leveraging his technical expertise to develop practical solutions.",
+    "verified": true,
+    "links": "[\"https://www.youtube.com/@derekcheungsa\"]",
+    "avatar": "https://gravatar.com/avatar/1d8dbb30401a76425734d4319abbaa38548b7572064ca080740bbfe60324772a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Marketing",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Ghost",
+      "type": "n8n-nodes-base.ghost",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 8,
+  "createdAt": "2024-12-05T04:31:18.702Z",
+  "path": "official/template_2607/workflow.json"
+}

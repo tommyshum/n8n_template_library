@@ -1,0 +1,61 @@
+{
+  "id": 1856,
+  "name": "Turn on a light to a specific color on any update in GitHub repository",
+  "totalViews": 5620,
+  "purchaseUrl": null,
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "description": "This workflow turns a light red when an update is made to a GitHub repository. By default, updates include pull requests, issues, pushes just to name a few.\n\nPrerequisites\n\nGitHub credentials.\nHome Assistant credentials.\n\nHow it works\n\nTriggers off on the On any update in repository node.\nUses Home Assistant to turn on a light and then configure the light to turn red.",
+  "createdAt": "2023-01-05T14:10:52.233Z",
+  "nodes": [
+    {
+      "id": 498,
+      "icon": "file:homeAssistant.svg",
+      "name": "n8n-nodes-base.homeAssistant",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.homeassistant/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/homeAssistant/"
+              }
+            ]
+          },
+          "categories": [
+            "Miscellaneous"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"output\"]",
+      "defaults": {
+        "name": "Home Assistant"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNDAiIGhlaWdodD0iMjQwIiBmaWxsPSJub25lIj48cGF0aCBmaWxsPSIjRjJGNEY5IiBkPSJNMjQwIDIyNC43NjJjMCA4LjI1LTYuNzUgMTUtMTUgMTVIMTVjLTguMjUgMC0xNS02Ljc1LTE1LTE1di05MGMwLTguMjUgNC43Ny0xOS43NjkgMTAuNjEtMjUuNjA5bDk4Ljc4LTk4Ljc4YzUuODMtNS44MyAxNS4zOC01LjgzIDIxLjIxIDBsOTguNzkgOTguNzg5YzUuODMgNS44MyAxMC42MSAxNy4zNiAxMC42MSAyNS42MXY5MHoiLz48cGF0aCBmaWxsPSIjMThCQ0YyIiBkPSJtMjI5LjM5IDEwOS4xNTMtOTguNzgtOTguNzhjLTUuODMtNS44My0xNS4zOC01LjgzLTIxLjIxIDBsLTk4Ljc5IDk4Ljc4QzQuNzggMTE0Ljk4MyAwIDEyNi41MTIgMCAxMzQuNzYydjkwYzAgOC4yNSA2Ljc1IDE1IDE1IDE1aDkyLjI3bC00MC42My00MC42M2MtMi4wOS43Mi00LjMyIDEuMTMtNi42NCAxLjEzLTExLjMgMC0yMC41LTkuMi0yMC41LTIwLjVzOS4yLTIwLjUgMjAuNS0yMC41IDIwLjUgOS4yIDIwLjUgMjAuNWMwIDIuMzMtLjQxIDQuNTYtMS4xMyA2LjY1bDMxLjYzIDMxLjYzdi0xMTUuODhjLTYuOC0zLjM0LTExLjUtMTAuMzItMTEuNS0xOC4zOSAwLTExLjMgOS4yLTIwLjUgMjAuNS0yMC41czIwLjUgOS4yIDIwLjUgMjAuNWMwIDguMDctNC43IDE1LjA1LTExLjUgMTguMzl2ODEuMjdsMzEuNDYtMzEuNDZjLS42Mi0xLjk2LS45Ni00LjA0LS45Ni02LjIgMC0xMS4zIDkuMi0yMC41IDIwLjUtMjAuNXMyMC41IDkuMiAyMC41IDIwLjUtOS4yIDIwLjUtMjAuNSAyMC41Yy0yLjUgMC00Ljg4LS40Ny03LjA5LTEuMjlMMTI5IDIwOC44OTJ2MzAuODhoOTZjOC4yNSAwIDE1LTYuNzUgMTUtMTV2LTkwYzAtOC4yNS00Ljc3LTE5Ljc3LTEwLjYxLTI1LjYxeiIvPjwvc3ZnPg=="
+      },
+      "displayName": "Home Assistant",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 11,
+          "name": "Miscellaneous"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": 898,
+  "name": "Create new member in Mailchimp from Airtable",
+  "description": "This workflow allows you to automatically create new members in MailChimp based on entries in an Airtable base.",
+  "totalViews": 315,
+  "source": "official",
+  "user": {
+    "id": 3963,
+    "name": "claudia",
+    "username": "claudia",
+    "bio": null,
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/4396a86caa8a4c1a325fc95f4d8ea91d97fa1447e78779b4cc9bc62011c02d9c?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Marketing",
+    "Communication"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Mailchimp",
+      "type": "n8n-nodes-base.mailchimp",
+      "categories": [
+        "Marketing",
+        "Communication"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2021-01-18T19:06:57.705Z",
+  "path": "official/template_898/workflow.json"
+}

@@ -1,0 +1,143 @@
+{
+  "id": 3117,
+  "name": "Android to N8N Automation | Save Links to with Readeck, Openrouter, SerpAPI",
+  "description": "This workflow is for automating and centralizing your bookmarking process using AI-powered tagging and seamless integration between your Android device and a self-hosted Read Deck platform (https://readeck.org/en/). This workflow eliminates manual entry, organizes links with smart AI-generated tags, and ensures your bookmarks are always accessible, searchable, and secure.\n\n\n\nHow It Works\n\n📱 Android Shortcut Integration\n\nUse the HTTP Shortcuts app to create a 1-tap trigger that sends URLs and titles from your Android phone directly to n8n.\n\n🤖 AI-Powered Tagging & Processing\nLeverage ChatGPT-4 to analyze content context and auto-generate relevant tags (e.g., “Tech Tutorials,” “Productivity Tools”).\nExtract clean titles and URLs from messy shared data (even from apps like Twitter or Reddit).\n\n🔗 Readeck Integration\nAutomatically save processed bookmarks to your self-hosted Readeck-like platform with structured metadata (title, URL, tags).\n\n⚡ Silent Automation\nIt runs in the background—no pop-ups or interruptions.\n\n🔒 Pro Security\nOptional authentication (API tokens, headers) to protect your data.\n\nUse Case\nPerfect for researchers, content creators, or anyone drowning in tabs who wants to:\n\nSave articles, videos, or social posts in one click.\nOrganize bookmarks with AI-generated tags.\nBuild a personal knowledge base that’s always accessible.\n\nTutorial\n\n1️⃣ Set Up Android Shortcut\nInstall \"HTTP Shortcuts\" and configure it to send data to your n8n webhook.\nEnable “Share Menu” to trigger bookmarks from any app.\n\n2️⃣ Configure n8n Workflow\nImport the template and add your Read Deck API token (or similar service).\n\n3️⃣ Test & Scale\nShare a link from your phone—watch it appear in Read Deck instantly!\n\nAdd error handling or notifications for advanced use.\n\nNote: For self-hosted platforms, ensure your instance is publicly accessible (or use a VPN).\n\nWhy Choose This Workflow?\nZero Manual Entry: Save hours of copying/pasting.\nAI Organization: Say goodbye to chaotic bookmark folders.\nPrivacy First: Host your data on your terms.\n\nTransform your bookmarking chaos into a streamlined system—try “Save: Bookmark” today! 🚀",
+  "totalViews": 1116,
+  "source": "official",
+  "user": {
+    "id": 92457,
+    "name": "Udit Rawat",
+    "username": "ailistmaster",
+    "bio": "Hi, I’m Udit, an Acquia-certified developer with a strong background in web development and creating enterprise solutions. Recently, I’ve transitioned into AI and ML, I hold DIAT Professional AI Certification. I specialize in building AI-driven automation to streamline workflows, improve efficiency, and solve complex problems. With expertise in AI/ML tools and years of experience in Acquia and Drupal, I’m passionate about leveraging tech to drive innovation and create smarter solutions.",
+    "verified": true,
+    "links": "[\"https://x.com/AilistMaster\"]",
+    "avatar": "https://gravatar.com/avatar/6e96ede8d526c20ff6df15da46bbafb0fbe8862f1e12faa6de21514bb3c641e8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Auto-fixing Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "SerpApi (Google Search)",
+      "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Information Extractor",
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenRouter Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 8,
+  "createdAt": "2025-03-10T05:03:14.754Z",
+  "path": "official/template_3117/workflow.json"
+}

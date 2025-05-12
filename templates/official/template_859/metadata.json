@@ -1,0 +1,43 @@
+{
+  "id": 859,
+  "name": "Tracking your crypto portfolio in Airtable",
+  "description": "If you have made some investments in cryptocurrency, this workflow will allow you to create an Airtable base that will update the value of your portfolio every hour. You can then track how well your investments are doing.\n\n\n\nYou can check out my Airtable base to see how it works or even copy my base so that you can customize this workflow for yourself.\n\nTo implement this workflow, you will need to update the Airtable nodes with your own credentials and make sure that they are pointing to your Airtable ",
+  "totalViews": 2878,
+  "source": "official",
+  "user": {
+    "id": 4031,
+    "name": "jason",
+    "username": "tephlon",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/ee7788870e9ab8d34c979c940727f579ecc3c3e8f60069d1297d51eb30af831e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Finance & Accounting"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "CoinGecko",
+      "type": "n8n-nodes-base.coinGecko",
+      "categories": [
+        "Productivity",
+        "Finance & Accounting"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2020-12-29T19:06:31.548Z",
+  "path": "official/template_859/workflow.json"
+}

@@ -1,0 +1,78 @@
+{
+  "id": 2684,
+  "name": "Check if a Twitch Stream is Live",
+  "totalViews": 772,
+  "purchaseUrl": null,
+  "user": {
+    "id": 92335,
+    "name": "Roger Filomeno",
+    "username": "godie",
+    "bio": "",
+    "verified": false,
+    "links": "[\"https://rogverse.fyi/\"]",
+    "avatar": "https://gravatar.com/avatar/cfa1e61b39623327cd21f885d88e3a3345d1a113e734b473074a2a959512ae61?r=pg&d=retro&size=200"
+  },
+  "description": "Introduction:\n\nThis workflow template helps you determine if a Twitch user's stream is currently live or offline.\n\nSetup Instructions:\n\nThe Document node holds the sample Twitch username you wish to check, you may adapt it in your workflow by replacing this with a chain that contains the Twitch username you want to check. This value is passed to the GraphQL node query as $('Document').item.json.twitch so make sure to change this based on your workflow.\n\nHow it Works:\n\nThe important nodes here are the GrapQL and IF nodes. The GrapQL queries the Twitch API, and then the output returns a document with the stream property. The IF node then checks if this property has a value, if null means the user is offline, otherwise the user is online or live.\n\nCommon Use Cases:\nYou can use this with other workflow templates to post live stream alerts to Twitter/X, Bluesky, and Discord via webhooks, etc to notify your community to join youR stream. You may also use an LLM node to write a custom alert based on the value of property title\n\nHow to adjust this template\nIf you want to check a list of Twitch channels, you can simply exchange the Document set node in the beginning with your list of channels.\n\n\nFor more information on the GraphQL output please see the official Twitch API documentation: Get Streams",
+  "createdAt": "2024-12-30T11:06:35.454Z",
+  "nodes": [
+    {
+      "id": 61,
+      "icon": "file:graphql.png",
+      "name": "n8n-nodes-base.graphql",
+      "codex": {
+        "data": {
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/what-are-apis-how-to-use-them-with-no-code/",
+                "icon": " 🪢",
+                "label": "What are APIs and how to use them with no code"
+              },
+              {
+                "url": "https://n8n.io/blog/how-to-automatically-give-kudos-to-contributors-with-github-slack-and-n8n/",
+                "icon": "👏",
+                "label": "How to automatically give kudos to contributors with GitHub, Slack, and n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/how-goomer-automated-their-operations-with-over-200-n8n-workflows/",
+                "icon": "🛵",
+                "label": "How Goomer automated their operations with over 200 n8n workflows"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.graphql/"
+              }
+            ]
+          },
+          "categories": [
+            "Data & Storage",
+            "Development"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "GraphQL"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAMAAAANIilAAAAA2FBMVEUAAADmNavmNKvlNavlNavlNKvlNavmNKznMqzpMa/lM6zmNKvnMqvrMbDlNavmNKvnL63pK7PpMa/lNavlNavlNKrmNazlNKvmM63nM6znMqzoMK3nM6znM63mNKrmMqvnM6zmM6zoMavoMa/rLrTlNKvlNarlM6vmNKvlNKzmNKznM6znMa3nMq3nMa7nNaroMa7mNKvnNKznM63mNKvrL67nMa/lNKzmM63nNK3mNqroL6voMq7nMaznNa3nOKjmMavmMq7pKbLqKbvuLb70EtLlNavlNaqwTcGTAAAARnRSTlMAvCb9+euyqmgXNjEcCfaNUiIG+/Tg2tKukUgDs6GflVovLBMN8OXMx7eYeG9OOyAa59S/g2RANODMxKaFfXFvENheiW4pQeUjUwAAAmRJREFUSMftlteS4jAQRQWywSxOJINNHnIa8uzktLtX//9HiySoGhiL4Nfhvsju6+NytbpbJldd9XtV/7Qism8agH4qEvuLYiNWigT7ELLNKPBQwrlpBHY2kLDWuBjNjnVonKVAonkZO+lBe4kxSll+9AjqXJDymxJQiqe1j2bzFaWyoaNrlE9B7+Oac0tajoaHCSE9uISUe2xCZj5FPyCWwW2FMkUAtFqA/polZM1iPHgHz9rU2gBIPmCjkQLepdefbW5a81xaRJPshS9uEVJ34XBOunVx42xXkrE7okymtrT9cBhSQ5EzTd9l+JlVBbx9dzUc7krX4NcVjHfh9j3labIK0n4Lh/8yAGzR3lwGKGbJTg30+UatBfvRUvVgAXZpyutrwYIv8UeIEjU8aJUMUekWsgHHrLLfnIW2GA4YKEDpJkVP6HZ8L15lz3xpInGs/yU8ZM5+3Ozk+eemz4DTufn7gTFiyTPhJVsfGpbH7s6CXdb/3kIuHrJnwJYXWr4xZpwBj/AUZjW1bvvmBFxN8cSGqY5V5ih8g5qPVbiX0vMNlNTszEFXW7QVroEu9QIV+0/0zZPyszQA7I/CXTIx5FVjqgIuFhydJPexUC2ptOtHJwlFqHbhWjhckK7XMKfxQ5mZly1thMOfjJt52M/v37OVgC7YnmozGsW8XssYc8yN7P4e+wx+yt3YVfXBUzZb/FGHohd8PfQ6SDS39mmlK0AyTtynwcokQRGLyWXHZBH2UmxcBR1++lwka6QzCA3N6L8VdopEUE3CNB4FXkvYs6LA1iNnmUsiqVUv6H2XXPXT9R/lWHu2SyWatgAAAABJRU5ErkJggg=="
+      },
+      "displayName": "GraphQL",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 3,
+          "name": "Data & Storage"
+        },
+        {
+          "id": 5,
+          "name": "Development"
+        }
+      ]
+    }
+  ]
+}

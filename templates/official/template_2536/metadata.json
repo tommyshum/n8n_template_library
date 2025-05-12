@@ -1,0 +1,52 @@
+{
+  "id": 2536,
+  "name": "Pattern for Parallel Sub-Workflow Execution Followed by Wait-For-All Loop",
+  "description": "What this workflow does\nThis (set of) workflow(s) shows how to start multiple sub-workflows, asynchronously, in parallel, and then wait for all of them to complete.  Normally sub-workflows would need to be run synchronously, in series, or, if they are executed asynchronously (to run concurrently, in parallel), there is no easy way to merge/wait for an arbitrary number of them to complete.\n\nThis is a \"design pattern\" template to show one approach for running multiple, data-driven instances of a sub-workflow \"asynchronously,\" in parallel (instead of running them one at a time in series), but still prevent the later steps in the workflow from continuing until all of the sub-workflows have reported back that they are finished, via callback URL.  There are other techniques involving messaging services, database tables, or other external \"flow manager\" helpers, but this technique accomplishes the goal fully within n8n.\n\nSetup\nTo implement this pattern, examine the nodes in the template and modify the incoming data leading to:\nA split-out loop to acynchronously execute a sub-workflow multiple times, in parallel.\n    For instance, each sub-workflow might process one of a list of incoming documents.\n    The resumeUrl for the main/parent workflow is provided to all of the sub-workflow executions, along with a unique identifier that can be counted later (e.g. a document file-name).\nA \"wait-for-all\" loop that checks whether all sub-workflows have reported back (if node) and builds a unique list of identifiers from the callbacks received from each execution of the sub-workflow.\n    The sub-workflow should be designed to respond immediately (async) and later send a callback request when it has finished processing.\n    The callback request should include the unique identifier value received when the sub-workflow it was started.\n\nThis is meant to be a possible answer to questions like this one about running things in parallel,  maybe this one about waiting for things to finish, this one about managing sub-batches of things by waiting for each batch, or this one about running things in parallel.  The topic of how to do this comes up A LOT, and this is one of the only techniques that (so far) seems to work.",
+  "totalViews": 5792,
+  "source": "official",
+  "user": {
+    "id": 91880,
+    "name": "Hubschrauber",
+    "username": "hubschrauber",
+    "bio": "Software developer specializing in \"back-end plumbing\" to connect and sync data between large corporate systems, enabling application distribution/migration, scaling, and containerization.  Using n8n for various orchestration tasks both at home and \"on the job.\"",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/937647d994a5af6961d76103821d84448e970d74e6d0d303e8a76b56fd1da695?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-11-11T19:41:41.082Z",
+  "path": "official/template_2536/workflow.json"
+}

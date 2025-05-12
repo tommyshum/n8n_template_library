@@ -1,0 +1,54 @@
+{
+  "id": 1028,
+  "name": "Manage newsletter signups in Baserow",
+  "description": "This is the workflow that I presented at the April 9, 2021 n8n Meetup.\n\nThis workflow uses Baserow.io to store registration information collected using n8n as both the web server and the data processor.\n\nTo get this workflow working properly, you will either need to run it on n8n.cloud or using the on premise version with people having the ability to connect to n8n externally.\n\nYou will need an account on Baserow.io to store your subscriptions with a table with the following fields:\n\nGUID\nFirst Name\nLast Name\nEmail\nConfirmed\n\n\n",
+  "totalViews": 1357,
+  "source": "official",
+  "user": {
+    "id": 4031,
+    "name": "jason",
+    "username": "tephlon",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/ee7788870e9ab8d34c979c940727f579ecc3c3e8f60069d1297d51eb30af831e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Core Nodes",
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "categories": [
+        "Communication",
+        "HITL",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2021-04-09T16:04:23.272Z",
+  "path": "official/template_1028/workflow.json"
+}

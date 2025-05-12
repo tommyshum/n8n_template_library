@@ -1,0 +1,123 @@
+{
+  "id": 3348,
+  "name": "Automate Blog Content Creation with Notion MCP, DeepSeek AI, and WordPress",
+  "totalViews": 9832,
+  "purchaseUrl": null,
+  "user": {
+    "id": 93440,
+    "name": "Dr. Firas",
+    "username": "drfiras",
+    "bio": "Automation expert and certified trainer. I create hands-on courses to master automation with n8n. Contact me to access my exclusive training and start building powerful workflows today. 🚀",
+    "verified": true,
+    "links": "[\"https://www.youtube.com/@DRFIRASS\"]",
+    "avatar": "https://gravatar.com/avatar/988a46579257f9e8c522aeb7b906f1ee96e47c4298faa548e41b04957f455ae3?r=pg&d=retro&size=200"
+  },
+  "description": "Who Is This For\nThis workflow is ideal for content creators, bloggers, marketers, and professionals seeking to automate the creation and publication of SEO-optimized articles. It's particularly beneficial for those utilizing Notion for content management and WordPress for publishing.​\n\nWhat Problem Does This Workflow Solve\nManually creating SEO-friendly articles is time-consuming and requires consistent effort. This workflow streamlines the entire process—from detecting updates in Notion to publishing on WordPress—by leveraging AI for content generation, thereby reducing the time and effort involved.​\n\nWhat This Workflow Does\nMonitor Notion Updates: Detects changes in a specified Notion database.​\nAI Content Generation: Utilizes an AI model to produce an SEO-optimized article based on Notion data.​\nPublish to WordPress: Automatically posts the generated article to a WordPress site.​\nEmail Notification: Sends an email containing the article's title and URL.​\n\nUpdate Notion Database: Updates the corresponding entry in the Notion database with the article details.​\n\nSetup Guide\nPrerequisites\nWordPress account with API access.​\nAPI key for the AI model used.​\nNotion integration with the relevant database ID.​\nCredentials for the email service used (e.g., Gmail).​\n\nCommunity Node Requirement: This workflow utilizes the n8n-nodes-mcp community node, which is only compatible with self-hosted instances of n8n. For more information on installing and managing community nodes, refer to the n8n documentation.​\nn8n Docs\n\nSteps\nImport the workflow into your self-hosted n8n instance.​\nInstall the required community node (n8n-nodes-mcp).​\nConfigure API credentials for WordPress, the AI service, Notion, and the email service.​\nDefine necessary variables, such as the notification email address and Notion database IDs.​\nActivate the workflow to automate the process.​\n\nHow to Customize This Workflow\nAI Prompt: Adjust the prompt used for content generation to align with your preferred tone and style.​\nArticle Structure: Modify the structure of the generated article by tweaking settings in the content generation node.​\nNotifications: Customize the content and recipients of the emails sent post-publication.​\nNotion Updates: Tailor the fields updated in Notion to suit your specific requirements.",
+  "createdAt": "2025-03-29T03:27:21.509Z",
+  "nodes": [
+    {
+      "id": 1119,
+      "icon": "fa:robot",
+      "name": "@n8n/n8n-nodes-langchain.agent",
+      "codex": {
+        "data": {
+          "alias": [
+            "LangChain",
+            "Chat",
+            "Conversational",
+            "Plan and Execute",
+            "ReAct",
+            "Tools"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Agents",
+              "Root Nodes"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "AI Agent",
+        "color": "#404040"
+      },
+      "iconData": {
+        "icon": "robot",
+        "type": "icon"
+      },
+      "displayName": "AI Agent",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1280,
+      "icon": "file:deepseek.svg",
+      "name": "@n8n/n8n-nodes-langchain.lmChatDeepSeek",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatdeepseek/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Language Models",
+              "Root Nodes"
+            ],
+            "Language Models": [
+              "Chat Models (Recommended)"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "DeepSeek Chat Model"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+RGVlcFNlZWs8L3RpdGxlPjxwYXRoIGQ9Ik0yMy43NDggNC40ODJjLS4yNTQtLjEyNC0uMzY0LjExMy0uNTEyLjIzNC0uMDUxLjAzOS0uMDk0LjA5LS4xMzcuMTM2LS4zNzIuMzk3LS44MDYuNjU3LTEuMzczLjYyNi0uODI5LS4wNDYtMS41MzcuMjE0LTIuMTYzLjg0OC0uMTMzLS43ODItLjU3NS0xLjI0OC0xLjI0Ny0xLjU0OC0uMzUyLS4xNTYtLjcwOC0uMzExLS45NTUtLjY1LS4xNzItLjI0MS0uMjE5LS41MS0uMzA1LS43NzQtLjA1NS0uMTYtLjExLS4zMjMtLjI5My0uMzUtLjItLjAzMS0uMjc4LjEzNi0uMzU2LjI3Ni0uMzEzLjU3Mi0uNDM0IDEuMjAyLS40MjIgMS44NC4wMjcgMS40MzYuNjMzIDIuNTggMS44MzggMy4zOTMuMTM3LjA5My4xNzIuMTg3LjEyOS4zMjMtLjA4Mi4yOC0uMTguNTUyLS4yNjYuODMzLS4wNTUuMTc5LS4xMzcuMjE3LS4zMjkuMTRhNS41MjYgNS41MjYgMCAwMS0xLjczNi0xLjE4Yy0uODU3LS44MjgtMS42MzEtMS43NDItMi41OTctMi40NThhMTEuMzY1IDExLjM2NSAwIDAwLS42ODktLjQ3MWMtLjk4NS0uOTU3LjEzLTEuNzQzLjM4OC0xLjgzNi4yNy0uMDk4LjA5My0uNDMyLS43NzktLjQyOC0uODcyLjAwNC0xLjY3LjI5NS0yLjY4Ny42ODRhMy4wNTUgMy4wNTUgMCAwMS0uNDY1LjEzNyA5LjU5NyA5LjU5NyAwIDAwLTIuODgzLS4xMDJjLTEuODg1LjIxLTMuMzkgMS4xMDItNC40OTcgMi42MjNDLjA4MiA4LjYwNi0uMjMxIDEwLjY4NC4xNTIgMTIuODVjLjQwMyAyLjI4NCAxLjU2OSA0LjE3NSAzLjM2IDUuNjUzIDEuODU4IDEuNTMzIDMuOTk3IDIuMjg0IDYuNDM4IDIuMTQgMS40ODItLjA4NSAzLjEzMy0uMjg0IDQuOTk0LTEuODYuNDcuMjM0Ljk2Mi4zMjcgMS43OC4zOTcuNjMuMDU5IDEuMjM2LS4wMyAxLjcwNS0uMTI4LjczNS0uMTU2LjY4NC0uODM3LjQxOS0uOTYxLTIuMTU1LTEuMDA0LTEuNjgyLS41OTUtMi4xMTMtLjkyNiAxLjA5Ni0xLjI5NiAyLjc0Ni0yLjY0MiAzLjM5Mi03LjAwMy4wNS0uMzQ3LjAwNy0uNTY1IDAtLjg0NS0uMDA0LS4xNy4wMzUtLjIzNy4yMy0uMjU2YTQuMTczIDQuMTczIDAgMDAxLjU0NS0uNDc1YzEuMzk2LS43NjMgMS45Ni0yLjAxNSAyLjA5My0zLjUxNy4wMi0uMjMtLjAwNC0uNDY3LS4yNDctLjU4OHpNMTEuNTgxIDE4Yy0yLjA4OS0xLjY0Mi0zLjEwMi0yLjE4My0zLjUyLTIuMTYtLjM5Mi4wMjQtLjMyMS40NzEtLjIzNS43NjMuMDkuMjg4LjIwNy40ODYuMzcxLjczOS4xMTQuMTY3LjE5Mi40MTYtLjExMy42MDMtLjY3My40MTYtMS44NDItLjE0LTEuODk3LS4xNjctMS4zNjEtLjgwMi0yLjUtMS44Ni0zLjMwMS0zLjMwNy0uNzc0LTEuMzkzLTEuMjI0LTIuODg3LTEuMjk4LTQuNDgyLS4wMi0uMzg2LjA5My0uNTIyLjQ3Ny0uNTkyYTQuNjk2IDQuNjk2IDAgMDExLjUyOS0uMDM5YzIuMTMyLjMxMiAzLjk0NiAxLjI2NSA1LjQ2OCAyLjc3NC44NjguODYgMS41MjUgMS44ODcgMi4yMDIgMi44OTEuNzIgMS4wNjYgMS40OTQgMi4wODIgMi40OCAyLjkxNC4zNDguMjkyLjYyNS41MTQuODkxLjY3Ny0uODAyLjA5LTIuMTQuMTEtMy4wNTQtLjYxNHptMS02LjQ0YS4zMDYuMzA2IDAgMDEuNDE1LS4yODcuMzAyLjMwMiAwIDAxLjIuMjg4LjMwNi4zMDYgMCAwMS0uMzEuMzA3LjMwMy4zMDMgMCAwMS0uMzA0LS4zMDh6bTMuMTEgMS41OTZjLS4yLjA4MS0uMzk5LjE1MS0uNTkuMTZhMS4yNDUgMS4yNDUgMCAwMS0uNzk4LS4yNTRjLS4yNzQtLjIzLS40Ny0uMzU4LS41NTItLjc1OGExLjczIDEuNzMgMCAwMS4wMTYtLjU4OGMuMDctLjMyNy0uMDA4LS41MzctLjIzOS0uNzI3LS4xODctLjE1Ni0uNDI2LS4xOTktLjY4OC0uMTk5YS41NTkuNTU5IDAgMDEtLjI1NC0uMDc4Yy0uMTEtLjA1NC0uMi0uMTktLjExNC0uMzU4LjAyOC0uMDU0LjE2LS4xODYuMTkyLS4yMS4zNTYtLjIwMi43NjctLjEzNiAxLjE0Ni4wMTYuMzUyLjE0NC42MTguNDA4IDEuMDAxLjc4Mi4zOTEuNDUxLjQ2Mi41NzYuNjg1LjkxNC4xNzYuMjY1LjMzNi41MzcuNDQ1Ljg0OC4wNjcuMTk1LS4wMTkuMzU0LS4yNS40NTJ6IiBmaWxsPSIjNEQ2QkZFIj48L3BhdGg+PC9zdmc+Cg=="
+      },
+      "displayName": "DeepSeek Chat Model",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    }
+  ]
+}

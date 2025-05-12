@@ -1,0 +1,42 @@
+{
+  "id": 1111,
+  "name": "Create transcription jobs using AWS Transcribe",
+  "description": "This workflow allows you to create transcription jobs for all your audio and video files stored in AWS S3.\n\n\n\nAWS S3: This node will retrieve all the files from an S3 bucket you specify.\n\nAWS Transcribe: This node will create a transcription job for the files that get returned by the previous node.",
+  "totalViews": 1716,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "AWS S3",
+      "type": "n8n-nodes-base.awsS3",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AWS Transcribe",
+      "type": "n8n-nodes-base.awsTranscribe",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2021-06-03T13:31:48.584Z",
+  "path": "official/template_1111/workflow.json"
+}

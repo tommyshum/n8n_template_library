@@ -1,0 +1,82 @@
+{
+  "id": 3832,
+  "name": "Message Buffer System with Redis and GPT-4 for Efficient Processing",
+  "description": "Description\n\nThis workflow implements a message-batching buffer using Redis for temporary storage and GPT-4 for consolidated response generation. Incoming user messages are collected in a Redis list; once a configurable “inactivity” window elapses or a batch size threshold is reached, all buffered messages are sent to GPT-4 in a single prompt. The system then clears the buffer and returns the consolidated reply.\n\nKey Features\n\nRedis-backed buffer** to queue incoming messages per user session\nDynamic wait time** (shorter for long messages, longer for short messages)\nBatch trigger** on inactivity timeout or minimum message count\nGPT-4** consolidation: merges all buffered messages into one coherent response\n\nSetup Instructions\n\nMap Input\n\n   Rename node to “Extract Session & Message”\n   Assign context_id and message from webhook or manual trigger\n\nCompute Wait Time\n\n   Rename node to “Determine Inactivity Timeout”\n   JS Code:\n\n          const wordCount = $json.message.split(' ').filter(w=&gt;w).length;\n     return [{ json: {\n       context_id: $json.context_id,\n       message: $json.message,\n       waitSeconds: wordCount &lt; 5 ? 45 : 30\n     }}];\n     \nBuffer Message in Redis\n\n   Push into list buffer_in:{{$json.context_id}}\n   INCR key buffer_count:{{$json.context_id}} with TTL {{$json.waitSeconds + 60}}\n\nMark Waiting State\n\n   GET waiting_reply:{{$json.context_id}} → if null, SET it to true with TTL {{$json.waitSeconds}}\n   Rename nodes to “Check Waiting Flag” / “Set Waiting Flag”\n\nWait for Inactivity\n\n   Wait node: pause for {{$json.waitSeconds}} seconds\n\nCheck Batch Trigger\n\n   GET keys:\n\n     last_seen:{{$json.context_id}}\n     buffer_count:{{$json.context_id}}\n   IF both:\n\n     buffer_count &gt;= 1\n     (now – last_seen) &gt;= waitSeconds * 1000\n   Rename node to “Trigger Batch on Inactivity or Count”\n\nFetch & Consolidate\n\n   GET entire list buffer_in:{{$json.context_id}}\n   Information Extractor → rename to “Consolidate Messages”\n\n     System prompt: “You are an expert at merging multiple messages into one clear paragraph without duplicates.”\n\nGPT-4 Chat\n\n   OpenAI Chat Model (GPT-4)\n\nCleanup & Respond\n\n   Delete Redis keys:\n\n     buffer_in:{{$json.context_id}}\n     waiting_reply:{{$json.context_id}}\n     buffer_count:{{$json.context_id}}\n   Return the consolidated reply to the user\n\nCustomization Guidance\n\nBatch Size Trigger**: Add an additional IF to fire when buffer_count reaches your desired batch size.\nTimeout Policy**: Adjust the word-count thresholds or replace with character-count logic.\nMulti-Channel Support**: Change the trigger from a manual test node to any webhook (e.g., chat, SMS, email).\nError Handling**: Insert a fallback branch to catch Redis timeouts or OpenAI API errors and notify users.\n\n📣 ¡Conéctate con Innovatex!  \n🔗 Encuentra todos nuestros enlaces en Linktree: innovatexiot.carrd.co  \n🔗 Conecta conmigo en LinkedIn: Edison Andrés García Herrera  ",
+  "totalViews": 50,
+  "source": "official",
+  "user": {
+    "id": 94214,
+    "name": "Edisson Garcia",
+    "username": "eagarciah707",
+    "bio": "",
+    "verified": false,
+    "links": "[\"https://www.linkedin.com/in/edisson-andres-garcia-herrera-63a91517b\"]",
+    "avatar": "https://gravatar.com/avatar/b35dd8fc6b1180ac1e4a57827c3da0332c082ea91b1f23e3a2af382a99e8504c?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Data & Storage",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Redis",
+      "type": "n8n-nodes-base.redis",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Information Extractor",
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-05-02T13:42:05.798Z",
+  "path": "official/template_3832/workflow.json"
+}

@@ -1,0 +1,73 @@
+{
+  "id": 1035,
+  "name": "Get all the slides from a presentation and get thumbnails of pages",
+  "totalViews": 1677,
+  "purchaseUrl": null,
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "description": "This workflow allows you to get all the slides from a presentation and get thumbnails of pages.\n\n\n\nGoogle Slides node: This Google Slides node will get all the slides from a presentation.\n\nGoogle Slides1 node: This node will return thumbnails of the pages that were returned by the previous node.\n\nBased on your use case, to upload the thumbnails to Dropbox, Google Drive, etc, you can use the respective nodes.",
+  "createdAt": "2021-04-13T08:29:18.539Z",
+  "nodes": [
+    {
+      "id": 478,
+      "icon": "file:googleslides.svg",
+      "name": "n8n-nodes-base.googleSlides",
+      "codex": {
+        "data": {
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/how-to-get-started-with-crm-automation-and-no-code-workflow-ideas/",
+                "icon": "👥",
+                "label": "How to get started with CRM automation (with 3 no-code workflow ideas"
+              },
+              {
+                "url": "https://n8n.io/blog/automate-google-apps-for-productivity/",
+                "icon": "💡",
+                "label": "15 Google apps you can combine and automate to increase productivity"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googleslides/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/google/oauth-single-service/"
+              }
+            ]
+          },
+          "categories": [
+            "Marketing"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\",\"output\"]",
+      "defaults": {
+        "name": "Google Slides"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii02MCAtNjAgNjMwIDYzMCI+PHBhdGggZmlsbD0iI2Y1YjkxMiIgZD0iTTQ0MC44IDE0MC4yVjQ3OWMwIDE4LjItMTQuOCAzMy0zMyAzM0gxMDIuOWMtMTguMiAwLTMzLTE0LjgtMzMtMzNWMzNjMC0xOC4yIDE0LjgtMzMgMzMtMzNoMTk3LjZ6Ii8+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTMyMy42IDIzMy41SDE4OS4xYy0xMi41IDAtMjIuNiAxMC4xLTIyLjYgMjIuNnYxMzQuNWMwIDEyLjUgMTAuMSAyMi42IDIyLjYgMjIuNmgxMzQuNWMxMi41IDAgMjIuNi0xMC4xIDIyLjYtMjIuNlYyNTZjMC0xMi40LTEwLjEtMjIuNS0yMi42LTIyLjVtLS43IDEzOS41aC0xMzN2LTkwLjVoMTMzeiIvPjxwYXRoIGQ9Im0zMTkuNiAxMzQuNCAxMjEuMSA5OC4xdi05Mi4yTDM3MiAxMDAuNXoiIG9wYWNpdHk9Ii4xOSIvPjxwYXRoIGZpbGw9IiNmYWRjODciIGQ9Ik00NDEuNCAxNDAuMkgzMzQuMmMtMTguMiAwLTMzLTE0LjgtMzMtMzNWMHoiLz48L3N2Zz4="
+      },
+      "displayName": "Google Slides",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 27,
+          "name": "Marketing"
+        }
+      ]
+    }
+  ]
+}

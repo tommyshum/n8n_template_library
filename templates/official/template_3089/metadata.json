@@ -1,0 +1,56 @@
+{
+  "id": 3089,
+  "name": "Reply to Outlook Emails with OpenAI",
+  "description": "Who is this template for?\nThis template is for any Microsoft Outlook user who wants a trained AI agent to reason and reply on their behalf. Teach your agent tone and writing style to replicate your own, or develop a persona for a shared inbox.\n\nRequirements\nOutlook with authentication credentials\nOpenAI account with authentication credentials\nA few sample email replies of various lengths and topics\n\nHow it works:\nConnect your Outlook account.\n\n\n\nSelect (filter) which email sender(s) your trained AI agent will reply to. \n\n[Tip: pick a sender that has some repeatability either with a topic (ie. sales) or an individual (coworker@yourcompany.com)]\n\n\n\nConnect your OpenAI account. Choose your AI model (ie. gpt-4o-mini)\n\n\n\nAdd Prompt (User Message) and select \"system message\" from the option below \n\n\n\n\nUpdate the instructions by filling in your name (or persona), response style, and add full email replies from the topic or individual you want the AI agent to emulate.\n\n[Tip: Add actual replies from your email sent folder, including your greeting and sign off. Paste each email sample between a set of &lt;example&gt; .... &lt;/example&gt; tags]\n\n\n\nConfigure the reply (or reply all) to remain within the original email string\n\n\n\nTest it! Send an email from the address to which your agent wants to respond. Check your sent (or draft) folder for the result.\n\n\n\n\nEnjoy all the free time you now have!!\nIf you have questions or need assistance, email us at: support@teambisonandbird.com\n\n\n++This template does not include retrieving email addresses out of the message or body of the email.++",
+  "totalViews": 9115,
+  "source": "official",
+  "user": {
+    "id": 93086,
+    "name": "Ryan",
+    "username": "ryanh",
+    "bio": "Proven track record of helping businesses achieve operational excellence and profitability.\n\nCore Expertise:\n→ Digital adoption strategy\n→ Operational efficiency\n→ Profitability optimization\n→ Board governance\n→ Management advisory",
+    "verified": false,
+    "links": "[\"https://www.teambisonandbird.com/\"]",
+    "avatar": "https://gravatar.com/avatar/60d47d46422d7aeda358d905ce82cbacd76720b541174068ba0c9cafbd5cd751?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-03-05T20:50:48.843Z",
+  "path": "official/template_3089/workflow.json"
+}

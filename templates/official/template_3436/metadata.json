@@ -1,0 +1,52 @@
+{
+  "id": 3436,
+  "name": "Send links from Telegram Channel to Hoarder and Readeck",
+  "description": "What this template is made for:\nI have a personal Telegram channel and a bot inside it where I save interesting links that I want to save or read later. The idea is that n8n will take care of reading the new links added to this channel and send them, through the corresponding API, to the Hoarder and Readeck installations.\n\nHow it works\nSince my server where n8n runs is not always on, a \"Schedule Trigger\" will be responsible for checking every so often if there is any new content in the Telegram channel where I store the links. This request is made through \"http request\" and the Telegram API.\nNext, a code block is responsible for filtering out everything that is not a hyperlink.\nAt this point, the flow splits into two so that parallel and similar processes are performed for Hoarder and Readeck.\nThe corresponding API is accessed to get a list of all the links saved in the corresponding service.\nA code block is responsible for filtering the list of hyperlinks previously obtained from Telegram so that only those that are not already saved in the service continue.\nFinally, another \"Http Request\" node is responsible for using the service API to save the link in the corresponding service.\n\nConfiguration instructions\nThe template makes use of the environment variables that I have declared in the n8n \"docker-compose.yml\" file through an external \".env\" file. These are the variables I use:\nTelegram Bot Token Sherlink\nTG_SHERLINK_BOT_TOKEN=XXXXXXXX:XXXXXXXXXXXXXXXX\nId Telegram Channel Sherlink\nTG_SHERLINK_ID=-XXXXXXXXXXXXX\nReadeck server\nREADECK_SERVER=http://readeck.midomain.com\nREADECK_API_KEY=xxxxxxxxxxxxx\nHoarder server\nHOARDER_SERVER=http://hoarder.midomain.com\nHOARDER_API_KEY=xxxxxxxxxxxxxx\n\nCreated in 1.85.4 n8n version",
+  "totalViews": 45,
+  "source": "official",
+  "user": {
+    "id": 92331,
+    "name": "Sherlockes",
+    "username": "sherlockes",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://sherblog.es\"]",
+    "avatar": "https://gravatar.com/avatar/feb9866e71611dc78851ffebfa0ca03c60df5c9f6b718a2e9e735d69a5a8f8c2?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-04-04T11:19:47.480Z",
+  "path": "official/template_3436/workflow.json"
+}

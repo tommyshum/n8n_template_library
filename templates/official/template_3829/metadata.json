@@ -1,0 +1,72 @@
+{
+  "id": 3829,
+  "name": "AI Agent Web Search using SearchAPI & LLM",
+  "description": "🤖 AI Agent Web Search using SearchApi & LLM\n\nWho is this for?\n\nThis workflow is ideal for anyone conducting online research, including students, researchers, content creators, and professionals looking for accurate, up-to-date, and verifiable information. It also serves as an excellent foundation for building more sophisticated AI-driven applications.\n\nWhat problem does this workflow solve? / Use case\n\nThis workflow automates web searches by enabling an AI agent to efficiently retrieve and summarize external, verifiable information, ensuring accuracy through source citations.\n\nWhat this workflow does\n\nConnects an AI agent node to SearchApi.io as an integrated search tool.\nEmpowers the AI agent to perform real-time web searches using various SearchApi engines (e.g., Google, Bing).\nAllows the AI agent to dynamically determine search parameters based on user interaction, delivering contextually relevant results.\nEnsures responses include clearly cited sources for validation and further exploration.\n\nSetup\n\nInstall the SearchApi community node:\n   Open Settings → Community Nodes inside your self‑hosted n8n instance.\n   Fill npm Package Name with @searchapi/n8n-nodes-searchapi.\n   Accept the risk prompt, and hit Install.\n   It should now appear as a node when you search for it.\n\nAPI Configuration:\n   Set up your SearchApi.io credentials in n8n.\n   Add your preferred LLM provider credentials (e.g., OpenRouter API).\n\nInput Requirements:\n   Provide the YouTube video ID (e.g., wBuULAoJxok).\n\nConnect LLM Integration:\n   Configure the summarization chain with your chosen model and parameters for text splitting.\n\nHow to customize this workflow to your needs\n\nIntegrate additional nodes to structure or store search results (e.g., saving to databases, Notion, Google Sheets).\nExtend chatbot capabilities to integrate with messaging platforms (Slack, Discord) or email notifications.\nAdjust search parameters and filters within the AI agent node to tailor information retrieval.\n\nExample Usage\n\nInput**: User asks, \"What are the latest developments in AI regulation?\"\nOutput**: AI retrieves, summarizes, and cites recent, authoritative articles and news sources from the web.\n",
+  "totalViews": 197,
+  "source": "official",
+  "user": {
+    "id": 94122,
+    "name": "Pedro Santos",
+    "username": "dapedu",
+    "bio": "I'm a software developer with over 4+ years of experience. I work using software to solve clients problems and I believe n8n is a nice way to solve some problems faster!",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/39912cd80161aa7b012cc70e7e0f646d4202763b6cae502b14e9dc3e19dd54d5?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-05-02T04:16:38.453Z",
+  "path": "official/template_3829/workflow.json"
+}

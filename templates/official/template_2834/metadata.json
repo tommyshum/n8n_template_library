@@ -1,0 +1,63 @@
+{
+  "id": 2834,
+  "name": "Automated Upwork Job Alerts with MongoDB & Slack",
+  "description": "Overview  \nThis automated workflow fetches Upwork job postings using Apify, removes duplicate job listings via MongoDB, and sends new job opportunities to Slack.  \n\nKey Features:  \nAutomated job retrieval** from Upwork via Apify API  \nDuplicate filtering** using MongoDB to store only unique jobs  \nSlack notifications** for new job postings  \nRuns every 20 minutes** during working hours (9 AM - 5 PM)  \n\nThis workflow requires an active Apify subscription to function, as it uses the Apify Upwork API to fetch job listings. \n\nWho is This For?  \nThis workflow is ideal for:  \nFreelancers looking to track Upwork jobs in real time  \nRecruiters automating job collection for analytics  \nDevelopers who want to integrate Upwork job data into their applications  \n\nWhat Problem Does This Solve?  \nManually checking Upwork for jobs is time-consuming and inefficient. This workflow:  \nAutomates job discovery based on your keywords  \nFilters out duplicate listings, ensuring only new jobs are stored  \nNotifies you on Slack when new jobs appear  \n\nHow the Workflow Works  \n\n1. Schedule Trigger (Every 20 Minutes)  \nTriggers the workflow at 20-minute intervals  \nEnsures job searches are only executed during working hours (9 AM - 5 PM)  \n\n2. Query Upwork for Jobs  \nUses Apify API to scrape Upwork job posts for specific keywords (e.g., \"n8n\", \"Python\")  \n\n3. Find Existing Jobs in MongoDB  \nSearches MongoDB to check if a job (based on title and budget) already exists  \n\n4. Filter Out Duplicate Jobs  \nThe Merge Node compares Upwork jobs with MongoDB data  \nThe IF Node filters out jobs that are already stored in the database  \n\n5. Save Only New Jobs in MongoDB  \nThe Insert Node adds only new job listings to the MongoDB collection  \n\n6. Send a Slack Notification  \nIf a new job is found, a Slack message is sent with job details  \n\nSetup Guide  \n\nRequired API Keys  \nUpwork Scraper (Apify Token) – Get your token from Apify\nMongoDB Credentials – Set up MongoDB in n8n using your connection string  \nSlack API Token – Connect Slack to n8n and set the channel ID (default: #general)  \n\nConfiguration Steps  \nModify search keywords in the 'Assign Parameters' node (startUrls)  \nAdjust the Working Hours in the 'If Working Hours' node  \nSet your Slack channel in the Slack node  \nEnsure MongoDB is connected properly  \nAdjust the 'If Working Hours' node to match your timezone and hours, or remove it altogether to receive notifications and updates constantly.\n\nHow to Customize the Workflow  \nChange keywords: update the startUrls in the 'Assign Parameters' node to track different job categories  \nChange 'If Working Hours': Modify conditions in the IF Node to filter times based on your needs  \nModify Slack Notifications: Adjust the Slack message format to include additional job details  \n\nWhy Use This Workflow?  \nAutomated job tracking without manual searches  \nPrevents duplicate entries in MongoDB  \nInstant Slack notifications for new job opportunities  \nCustomizable – adapt the workflow to different job categories  \n\nNext Steps  \nRun the workflow and test with a small set of keywords  \nExpand job categories for better coverage  \nEnhance notifications by integrating Telegram, Email, or a dashboard  \n\nThis workflow ensures real-time job tracking, prevents duplicates, and keeps you updated effortlessly.",
+  "totalViews": 2831,
+  "source": "official",
+  "user": {
+    "id": 92500,
+    "name": "Artur",
+    "username": "arlusm1",
+    "bio": "Software Engineer & Automations Specialist",
+    "verified": true,
+    "links": "[\"https://www.upwork.com/freelancers/~01651acf09c927fb26\"]",
+    "avatar": "https://gravatar.com/avatar/d8f6cbf5ad5847e53a4b6f809a8738fc33bf20246f2207bcdad4e5d6a10e0a2c?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "MongoDB",
+      "type": "n8n-nodes-base.mongoDb",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-02-01T15:08:11.227Z",
+  "path": "official/template_2834/workflow.json"
+}

@@ -1,0 +1,53 @@
+{
+  "id": 3032,
+  "name": "CallForge - 02 - Prep Gong Calls with Sheets & Notion for AI Summarization",
+  "description": "\nCallForge - AI Gong Sales Call Processor  \nStreamline your sales call analysis with CallForge, an automated workflow that extracts, enriches, and refines Gong.io call data for AI-driven insights.\n\nWho is This For?  \nThis workflow is designed for:  \n✅ Sales teams looking to automate sales call insights.  \n✅ Revenue operations (RevOps) professionals optimizing call data processing.  \n✅ Businesses using Gong.io to analyze and enhance sales call transcripts.  \n\nWhat Problem Does This Workflow Solve?  \nManually analyzing sales calls is time-consuming and prone to inconsistencies. While Gong provides raw call data, interpreting these conversations and improving AI-generated summaries can be challenging.  \n\nWith CallForge, you can:  \n✔️ Automate transcript extraction from Gong.io.  \n✔️ Enhance AI insights by adding product and competitor data.  \n✔️ Reduce errors from AI-generated summaries by correcting mispronunciations.  \n✔️ Eliminate duplicate calls to prevent redundant processing.  \n\nWhat This Workflow Does  \n\n1. Extracts Gong Call Data  \nRetrieves call recordings, metadata, meeting links, and duration from Gong.  \n\n2. Removes Duplicate Entries  \nQueries Notion** to ensure that already processed calls are not duplicated.  \n\n3. Enriches Call Data  \nFetches integration details** from Google Sheets.  \nRetrieves competitor insights** from Notion.  \nMerges data** to provide AI with a more comprehensive context.  \n\n4. Prepares AI-Friendly Transcripts  \nCleans up transcripts** for structured AI processing.  \nReduces prompt complexity** for more accurate OpenAI outputs.  \n\n5. Sends Processed Data to an AI Call Processor  \nDelivers the cleaned and enriched transcript** to an AI-powered workflow for generating structured call summaries.  \n\nHow to Set Up This Workflow  \n\n1. Connect Your APIs  \n🔹 Gong API Access – Set up your Gong API credentials in n8n.  \n🔹 Google Sheets Credentials – Provide API access for retrieving integration data.  \n🔹 Notion API Setup – Connect Notion to fetch competitor insights and store processed data.  \n🔹 AI Processing Workflow – Ensure an OpenAI-powered workflow is in place for structured summaries.  \n\nCallForge - 01 - Filter Gong Calls Synced to Salesforce by Opportunity Stage\nCallForge - 02 - Prep Gong Calls with Sheets & Notion for AI Summarization\nCallForge - 03 - Gong Transcript Processor and Salesforce Enricher\nCallForge - 04 - AI Workflow for Gong.io Sales Calls\nCallForge - 05 - Gong.io Call Analysis with Azure AI & CRM Sync\nCallForge - 06 - Automate Sales Insights with Gong.io, Notion & AI\nCallForge - 07 - AI Marketing Data Processing with Gong & Notion\nCallForge - 08 - AI Product Insights from Sales Calls with Notion\n\n2. Customize to Fit Your Needs  \n💡 Modify Data Sources – Update connections if using a different CRM, database, or analytics tool.  \n💡 Adjust AI Processing Logic – Optimize transcript formatting based on your preferred AI model.  \n💡 Expand Data Enrichment – Integrate CRM data, industry benchmarks, or other insights.  \n\nWhy Use CallForge?  \nBy automating Gong call processing, CallForge empowers sales teams to:  \n📈 Gain valuable AI-driven insights from calls.  \n⚡ Speed up decision-making with cleaner, structured data.  \n🛠 Improve sales strategies based on enriched, accurate transcripts.  \n\n🚀 Start automating your Gong call analysis today!",
+  "totalViews": 789,
+  "source": "official",
+  "user": {
+    "id": 16588,
+    "name": "Angel Menendez",
+    "username": "djangelic",
+    "bio": "Angel Menendez is a Staff Developer Advocate at n8n.io, specializing in low-code tools for cybersecurity workflows. From Puerto Rico, Angel's tech journey began by helping his father translate technical books. He later started a web development business and transitioned from a career as a flight attendant to cybersecurity engineering. His workflows have saved companies significant time. Outside work, Angel enjoys time with his two sons, riding electric bikes, reading, and exploring new places.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/fdbe38425d21378d8c9ba8916e1eb0b320add299f12cc23fcd4961d4e6e00bec?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Developer Tools"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gong",
+      "type": "n8n-nodes-base.gong",
+      "categories": [
+        "Development",
+        "Developer Tools"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-02-28T06:32:14.341Z",
+  "path": "official/template_3032/workflow.json"
+}

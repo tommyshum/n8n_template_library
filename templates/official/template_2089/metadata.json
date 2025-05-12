@@ -1,0 +1,59 @@
+{
+  "id": 2089,
+  "name": "Shopify to Google Sheets Product Sync Automation",
+  "description": "Workflow Description:\n\nThis workflow automates the synchronization of product data from a Shopify store to a Google Sheets document, ensuring seamless management and tracking. It retrieves product details such as title, tags, description, and price from Shopify via GraphQL queries. The outcome is a comprehensive list of products neatly organized in Google Sheets for easy access and analysis.\n\nKey Features:\n\nAutomated: Runs on a schedule you define (e.g., daily, hourly) to keep your product data fresh.\nComplete Product Details: Retrieves titles, descriptions, variants, images, inventory, and more.\nCursor-Based Pagination: Efficiently handles large product sets by navigating pages without starting from scratch.\nGoogle Sheets Integration: Writes product data directly to your designated sheets.\n\nSet up Instructions:\n\nSet up GraphQL node with Header Authentication for Shopify: \nCreate Google Sheet Credentials: Follow this guide to set up your Google Sheet credentials for n8n: https://docs.n8n.io/integrations/builtin/credentials/google/\nChoose your Google Sheet: Select the sheet where you want product information written. For the setup, we need a document with two sheets: 1. for storing Shopify data 2. for storing cursor details.\nGoogle sheet template :\n https://docs.google.com/spreadsheets/d/1I6JnP8ugqmMD5ktJlNB84J1MlSkoCHhAEuCofSa3OSM\n\nSchedule and run: Decide how often you want the data refreshed (daily, hourly, etc.) and let n8n do its magic!",
+  "totalViews": 1856,
+  "source": "official",
+  "user": {
+    "id": 91366,
+    "name": "siyad",
+    "username": "salsiy",
+    "bio": "",
+    "verified": false,
+    "links": "[\"https://www.spiritofdevops.com\"]",
+    "avatar": "https://gravatar.com/avatar/0ea4a894fb1911782b1ed4cafb5f51dcd297452b71e077a91929b41e4461c244?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "GraphQL",
+      "type": "n8n-nodes-base.graphql",
+      "categories": [
+        "Data & Storage",
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-02-12T02:28:26.183Z",
+  "path": "official/template_2089/workflow.json"
+}

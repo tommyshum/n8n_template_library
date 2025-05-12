@@ -1,0 +1,38 @@
+{
+  "id": 2150,
+  "name": "🚨 Report n8n workflow errors to Slack",
+  "description": "Use case\nError workflows are an important part of running workflows in production.\n\nHow to setup\nAdd Slack creds\nAdd this error workflow to other workflows (docs)\n",
+  "totalViews": 1828,
+  "source": "official",
+  "user": {
+    "id": 91243,
+    "name": "Mutasem",
+    "username": "mutasem",
+    "bio": "Team lead @ n8n",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/mutasemdmour/\"]",
+    "avatar": "https://gravatar.com/avatar/16d9c92db78317b6af7d0935bee34a47c522cb81d35c234ff76ea580ff1f6c29?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-02-28T19:39:07.425Z",
+  "path": "official/template_2150/workflow.json"
+}

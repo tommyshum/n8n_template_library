@@ -1,0 +1,118 @@
+{
+  "id": 3016,
+  "name": "Invoices from Gmail to Drive and Google Sheets",
+  "description": "Attachments Gmail to Drive and Google Sheets\n\nDescription\nAutomatically process invoice emails by saving attachments to Google Drive and extracting key invoice data to Google Sheets using AI. This workflow monitors your Gmail for unread emails with attachments, saves PDFs to a specified Google Drive folder, and uses OpenAI's GPT-4o to extract invoice details (date, description, amount) into a structured spreadsheet.\n\nUse cases\nInvoice Management**: Automatically organize and track invoices received via email\nFinancial Record Keeping**: Maintain a structured database of all invoice information\nDocument Organization**: Keep digital copies of invoices organized in Google Drive\nAutomated Data Entry**: Eliminate manual data entry for invoice processing\n\nResources\nGmail account\nGoogle Drive account\nGoogle Sheets account\nOpenAI API key\n\nSetup instructions\n\nPrerequisites\nActive Gmail, Google Drive, and Google Sheets accounts\nOpenAI API key (GPT-4o model access)\nn8n instance with credentials manager\n\nSteps\nGmail and Google Drive Setup:\n   Connect your Gmail account in n8n credentials\n   Connect your Google Drive account with appropriate permissions\n   Create a destination folder in Google Drive for invoice storage\n\nGoogle Sheets Setup:\n   Connect your Google Sheets account\n   Create a spreadsheet with columns: Invoice date, Invoice Description, Total price, and Fichero\n   Copy your spreadsheet ID for configuration\n\nOpenAI Setup:\n   Add your OpenAI API key to n8n credentials\n\nConfigure Email Filter:\n   Update the email filter node to match your specific sender requirements\n\nBenefits\nTime Saving**: Eliminates manual downloading, filing, and data entry\nAccuracy**: AI-powered data extraction reduces human error\nOrganization**: Consistent file naming and storage structure\nSearchability**: Creates a searchable database of all invoice information\nAutomation**: Runs every minute to process new emails as they arrive\n\nRelated templates\nEmail Parser to CRM\nDocument Processing Workflow\nFinancial Data Automation",
+  "totalViews": 21852,
+  "source": "official",
+  "user": {
+    "id": 92698,
+    "name": "Juan Carlos Cavero Gracia",
+    "username": "carlosgracia",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://x.com/fotoexamen\"]",
+    "avatar": "https://gravatar.com/avatar/e1fc0901703aede75c35d38ff26caf8e44b424893e1330efb483d68f5f67e059?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Model",
+      "type": "@n8n/n8n-nodes-langchain.lmOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Text Completion Models"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-02-25T21:34:30.197Z",
+  "path": "official/template_3016/workflow.json"
+}

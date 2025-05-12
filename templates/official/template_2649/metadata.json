@@ -1,0 +1,67 @@
+{
+  "id": 2649,
+  "name": "Prompt-based Object Detection with Gemini 2.0",
+  "description": "This n8n template demonstrates how to get started with Gemini 2.0's new Bounding Box detection capabilities in your workflows.\n\nThe key difference being this enables prompt-based object detection for images which is pretty powerful for things like contextual search over an image. eg. \"Put a bounding box around all adults with children in this image\" or \"Put a bounding box around cars parked out of bounds of a parking space\".\n\nHow it works\nAn image is downloaded via the HTTP node and an \"Edit Image\" node is used to extract the file's width and height.\nThe image is then given to the Gemini 2.0 API to parse and return coordinates of the bounding box of the requested subjects. In this demo, we've asked for the AI to identify all bunnies.\nThe coordinates are then rescaled with the original image's width and height to correctl align them.\nFinally to measure the accuracy of the object detection, we use the \"Edit Image\" node to draw the bounding boxes onto the original image.\n\nHow to use\nReally up to the imagination! Perhaps a form of grounding for evidence based workflows or a higher form of image search can be built.\n\nRequirements\nGoogle Gemini for LLM\n\nCustomising the workflow\nThis template is just a demonstration of an experimental version of Gemini 2.0. It is recommended to wait for Gemini 2.0 to come out of this stage before using in production.",
+  "totalViews": 2059,
+  "source": "official",
+  "user": {
+    "id": 91804,
+    "name": "Jimleuk",
+    "username": "jimleuk",
+    "bio": "Freelance consultant based in the UK specialising in AI-powered automations. I work with select clients tackling their most challenging projects. For business enquiries, send me an email at hello@jimle.uk\n\nLinkedIn: https://www.linkedin.com/in/jimleuk/\nX/Twitter: https://x.com/jimle_uk",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4ab99e51473df76838beeaac908747f7928c625f869794815cabe34016967d51?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Marketing",
+    "Core Nodes",
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "Edit Image",
+      "type": "n8n-nodes-base.editImage",
+      "categories": [
+        "Marketing",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Files",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-12-17T11:53:59.121Z",
+  "path": "official/template_2649/workflow.json"
+}

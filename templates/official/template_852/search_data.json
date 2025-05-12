@@ -1,0 +1,66 @@
+{
+  "id": 852,
+  "name": "Create, update, and get a subscriber using the e-goi node",
+  "totalViews": 290,
+  "purchaseUrl": null,
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "description": "This workflow allows you to create, update, and get a subscriber using the E-goi node.\n\n",
+  "createdAt": "2020-12-28T10:29:18.442Z",
+  "nodes": [
+    {
+      "id": 427,
+      "icon": "file:egoi.svg",
+      "name": "n8n-nodes-base.egoi",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.egoi/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/egoi/"
+              }
+            ]
+          },
+          "categories": [
+            "Communication",
+            "Marketing"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"output\"]",
+      "defaults": {
+        "name": "E-goi"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTI2Ljc3NzkgNS4yOTE2NEwxMy4yMTcgNUwxMi42OTE1IDM0LjE2OTlMMTcuNzExMiAyOS4xODg2TDI3LjcyODIgMjguMDc3OUwyNi43Nzc5IDUuMjkxNjRaIiBmaWxsPSIjMDBBRURBIi8+CjxwYXRoIGQ9Ik0xMS4wNDcxIDUuMjM1NThMMTEuODA3NCAyOC40NTk0QzguNjk5NDEgMjkuMDMxNSAyLjAyNTE0IDI4LjA1NTUgMC4yNDc2MTIgMTkuNTUxM0MtMS41Mjk5OCAxMS4wNDcxIDYuNjk4MjYgNi40NTg0OSAxMS4wNDcxIDUuMjM1NThaIiBmaWxsPSIjMDBBRURBIi8+CjxwYXRoIGQ9Ik0yOC43NjU2IDI3LjY4NTJMMjguNTA4NSA5LjM0MTgxQzMyLjg2ODUgMTAuNDg2MiA0MS4yNDIxIDE0LjQzNTMgMzkuODQ0NiAyMS4wODgzQzM4LjQ0NzEgMjcuNzQxMyAzMS44NzM1IDI4LjI1NzQgMjguNzY1NiAyNy42ODUyWiIgZmlsbD0iIzAwQUVEQSIvPgo8L3N2Zz4K"
+      },
+      "displayName": "E-goi",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 6,
+          "name": "Communication"
+        },
+        {
+          "id": 27,
+          "name": "Marketing"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "id": 2604,
+  "name": "Time logging on Clockify using Slack",
+  "description": "Time Logging on Clockify Using Slack\n\nHow it works\nThis workflow simplifies time tracking for teams and agencies by integrating Slack with Clockify. It enables users to log, update, or delete time entries directly within Slack, leveraging an AI-powered assistant for seamless and conversational interactions. Key features include:\n\nEffortless Time Logging**: Create and manage time entries in Clockify without leaving Slack.\nAI-Powered Assistant**: Get step-by-step guidance to ensure accurate and efficient time logging.\nProject and Client Management**: Retrieve project and client information from Clockify effortlessly.\nOverlap Prevention**: Avoid overlapping entries with built-in time validation.\nAutomated Descriptions**: Generate ethical, grammatically correct descriptions for time logs.\n\nSet up steps\n1. Prepare your integrations\nEnsure you have active accounts for both Slack and Clockify.\nGenerate your Clockify API credentials for integration.\n\n2. Import the workflow\nDownload and import the workflow template into your n8n instance.\nConfigure the workflow to connect with your Slack and Clockify accounts.\n\n3. Configure the workflow\nAdd your Clockify API credentials in the workflow settings.\nSet up the Slack Trigger to listen for app mentions or specific commands.\n\n4. Test the workflow\nUse Slack to create a time entry and verify it in Clockify.\nTest updating and deleting existing entries to ensure smooth functionality.\nCheck for any overlapping time logs or incorrect data entries.\n\nWhy use this workflow?\nEfficiency**: Eliminate the need to switch between tools for time tracking.\nAccuracy**: AI-driven validation ensures error-free entries.\nAutomation**: Simplify repetitive tasks like updating or deleting time logs.\nProactive Guidance**: Conversational assistant ensures smooth operations.\n",
+  "totalViews": 3703,
+  "source": "official",
+  "user": {
+    "id": 92227,
+    "name": "Blockia Labs",
+    "username": "blockia",
+    "bio": "Our mission is simple but transformative: We empower enterprises to explore, adopt, and scale AI agents by offering a structured, flexible, and practical approach to innovation.",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/2be36b8ee2585d733868409c8289ec6a960568e73d8e21bfa1bbdd1546df23a3?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Calculator",
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Code Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolCode",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2024-12-03T18:12:28.591Z",
+  "path": "official/template_2604/workflow.json"
+}

@@ -1,0 +1,98 @@
+{
+  "id": 2698,
+  "name": "Scrape ProductHunt using Google Gemini",
+  "description": "Workflow Description: Product Data Extractor\n\nThis workflow automates the extraction of product data from Product Hunt by combining webhook interactions, HTML processing, AI-based data analysis, and structured output formatting. It is designed to handle incoming requests dynamically and return detailed JSON responses for further usage.\n\nOverview\n\nThe workflow processes a product name submitted through a webhook. It fetches the corresponding Product Hunt page, extracts and analyzes inline scripts, and structures the data into a well-defined JSON format using AI tools. The final JSON response is returned to the client through the webhook.\n\nWorkflow Steps\n\n1. Webhook Listener\n\nNode:** Receive Product Request\nFunction:** Captures incoming requests containing the product name to process.\nDetails:** Accepts HTTP requests and extracts the product parameter from the query string, such as &lt;custom_webhook_url&gt;/?product=epigram.\n\n2. Fetch Product HTML\n\nNode:** Fetch Product HTML\nFunction:** Sends an HTTP request to retrieve the HTML content of the specified Product Hunt page.\nDetails:** Constructs a dynamic URL using the product name and fetches the page data.\n\n3. Extract Inline Scripts\n\nNode:** Extract Inline Scripts\nFunction:** Parses the HTML content to extract inline scripts located within the &lt;head&gt; section.\nDetails:** Excludes scripts containing src attributes and validates the presence of inline scripts.\n\n4. Process Data with LLM\n\nNode:** Process Script with LLM\nFunction:** Analyzes the extracted scripts using a language model to identify key product data.\nDetails:** Processes the script to derive structured and meaningful insights.\n\n5. Refine Data with Google Gemini\n\nNode:** Analyze Script with Google Gemini\nFunction:** Leverages Google Gemini AI for enhanced analysis of script data.\nDetails:** Ensures the extracted data is precise and enriched.\n\n6. Format Product Data to JSON\n\nNode:** Format Product Data to JSON\nFunction:** Structures the processed data into a clean JSON format.\nDetails:** Defines a schema to ensure all relevant fields are included in the output.\n\n7. Send JSON Response to Client\n\nNode:** Send JSON Response to Client\nFunction:** Returns the final structured JSON response to the client.\nDetails:** Sends the response back via the same webhook that initiated the request. For example, &lt;custom_webhook_url&gt;.\n\nKey Features\n\nVersatile Use Cases:** This workflow can be used to gather Product Hunt data for creating blog posts or as a tool for AI agents to research products efficiently.\nDynamic Processing:** Adapts to various product names through dynamic URL construction.\nAI Integration:** Utilizes the Gemini 1.5 8B AI model, offering reduced latency and minimal or no cost depending on the use case.\nSelector Independence:** Functions even if Product Hunt's DOM structure changes, as it does not rely on direct DOM selectors.\nReliable Data Output:** A low temperature setting (0) and a precisely defined JSON schema ensure accurate and real data extraction.\nDynamic Processing:** Adapts to various product names through dynamic URL construction.\nAI Integration:** Utilizes advanced language models for data extraction and refinement.\nStructured Output:** Ensures the output JSON adheres to a predefined schema for consistency.\nError Handling:** Includes validations to handle missing or malformed data gracefully.\n\nCustomization Options\n\nLimitations\nDependency on Product Hunt:** Significant changes to the way Product Hunt loads data on its pages might require modifications to the workflow.\nAdaptability:** Even if changes occur, the workflow can be updated to maintain functionality due to its reliance on AI and not direct DOM selectors.\n\n\nModify the webhook path to suit your application.\nAdjust the prompt for the language model to include additional fields.\nExtend the JSON schema to capture more data fields as needed.\n\nExpected Output\n\nPerformance Metrics\nResponse Time:** Typically ~6 seconds per product.\nAccuracy:** Data extracted with &gt;95% precision due to the pre-defined JSON schema.\n\n\nA JSON object containing detailed information about the specified product. Below is an example of a complete response for the product Epigram:\n\n{\n  \"id\": \"861675\",\n  \"slug\": \"epigram\",\n  \"followersCount\": 181,\n  \"name\": \"Epigram\",\n  \"tagline\": \"Open-Source, Free, and AI-Powered News in Short\",\n  \"reviewsRating\": 0,\n  \"logoUuid\": \"735c2528-554c-467c-9dcf-745ee4b8bbdd.png\",\n  \"postsCount\": 1,\n  \"websiteUrl\": \"https://epigram.news\",\n  \"websiteDomain\": \"epigram.news\",\n  \"metaTitle\": \"Epigram - Open-source, free, and ai-powered news in short\",\n  \"postName\": \"Epigram\",\n  \"postTagline\": \"Open-source, free, and ai-powered news in short\",\n  \"dailyRank\": \"3\",\n  \"description\": \"An open-source, AI-powered news app for busy people. Stay updated with bite-sized news, real-time updates, and in-depth analysis. Experience balanced, trustworthy reporting tailored for fast-paced lifestyles in a sleek, user-friendly interface.\",\n  \"pricingType\": \"free\",\n  \"userName\": \"Fazle Rahman\",\n  \"userHeadline\": \"Co-founder & CEO, Hashnode\",\n  \"userUsername\": \"fazlerocks\",\n  \"userAvatarUrl\": \"https://ph-avatars.imgix.net/129147/f84e1796-548b-4d6f-9dcf-745ee4b8bbdd.jpeg\",\n  \"makerName1\": \"Fazle Rahman\",\n  \"makerHeadline1\": \"Co-founder & CEO, Hashnode\",\n  \"makerUsername1\": \"fazlerocks\",\n  \"makerAvatarUrl1\": \"https://ph-avatars.imgix.net/129147/f84e1796-548b-4d6f-9dcf-745ee4b8bbdd.jpeg\",\n  \"makerName2\": \"Sandeep Panda\",\n  \"makerHeadline2\": \"Co-Founder @ Hashnode\",\n  \"makerUsername2\": \"sandeepg33k\",\n  \"makerAvatarUrl2\": \"https://ph-avatars.imgix.net/101872/80b0b618-a540-4110-a6d1-74df39675ad0.jpeg\",\n  \"primaryLinkUrl\": \"https://epigram.news/\",\n  \"media1OriginalHeight\": 1080,\n  \"media1OriginalWidth\": 1440,\n  \"media1ImageUuid\": \"ac426fd1-3854-4734-b43d-34a5e06347ea.gif\",\n  \"media1MediaType\": \"video\",\n  \"media1MetadataUrl\": \"https://www.loom.com/share/b1a48a9b3cac4ba89ce772a3fbcc2847?sid=75efc771-25fa-4ac0-bb1b-5e38fc447deb\",\n  \"media1VideoId\": \"b1a48a9b3cac4ba89ce772a3fbcc2847\",\n  \"media2OriginalHeight\": 630,\n  \"media2OriginalWidth\": 1200,\n  \"media2ImageUuid\": \"8521a6bd-7640-487b-abd6-29b9f65fee32\",\n  \"media2MediaType\": \"image\",\n  \"media2MetadataUrl\": null,\n  \"launchState\": \"featured\",\n  \"thumbnailImageUuid\": \"735c2528-554c-467c-9dcf-745ee4b8bbdd.png\",\n  \"link1StoreName\": \"Website\",\n  \"link1WebsiteName\": \"epigram.news\",\n  \"link2StoreName\": \"Github\",\n  \"link2WebsiteName\": \"github.com\",\n  \"latestScore\": 233,\n  \"launchDayScore\": 233,\n  \"userId\": \"129147\",\n  \"topic1\": \"News\",\n  \"topic2\": \"Open Source\",\n  \"topic3\": \"Artificial Intelligence\",\n  \"weeklyRank\": \"24\",\n  \"commentsCount\": 20,\n  \"postUrl\": \"https://www.producthunt.com/posts/epigram\"\n}\n\nTarget Audience\n\nThis workflow is ideal for developers, marketers, and data analysts seeking to automate the extraction and structuring of product data from Product Hunt for analytics, reporting, or integration with other tools.\n\n",
+  "totalViews": 1127,
+  "source": "official",
+  "user": {
+    "id": 92294,
+    "name": "Mauricio Perera",
+    "username": "rckflr",
+    "bio": "Automation consultant with over 10 years of experience specializing in AI, no-code, and workflow optimization. I’ve delivered tailored AI and NLP solutions across real estate, healthcare, and more, enhancing efficiency and customer experiences. Proficient in tools like Make, Airtable, and Zapier, I also integrate GPT models to create scalable, innovative automations. Contact me to discuss custom n8n workflows or advanced automations to streamline your processes.",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/mauricioperera/\"]",
+    "avatar": "https://gravatar.com/avatar/a6414920fb4353a63c1bf6af3e78e0b1387fa77adcf7610f9a7ff6e6d39ee757?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-01-05T05:47:39.642Z",
+  "path": "official/template_2698/workflow.json"
+}

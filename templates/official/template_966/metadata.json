@@ -1,0 +1,45 @@
+{
+  "id": 966,
+  "name": "Send weather alerts to your mobile phone with OpenWeatherMap and SIGNL4",
+  "description": "Get weather alerts on your mobile phone via push, SMS or voice call.\n\nThis flow gets weather information every morning and sends out an alert to your SIGNL4 on-call team.\n\nFor example you can send out weather alerts in case of freezing temperatures, snow, rain, hail storms, hot weather, etc. The flow also supports automatic alert resolution. So, for example if the temperature goes up again the alert is closed automatically in the app.\n\nUser cases:\nDispatch snow removal teams\nInform car dealers to protect the cars outside in case of hail storms\nSet sails if there are high winds\nAnd much more ...\n\n\n\nCan be adapted easily to other weather warnings, like rain, hail storm, etc.\n",
+  "totalViews": 1120,
+  "source": "official",
+  "user": {
+    "id": 5220,
+    "name": "Ron",
+    "username": "rons4",
+    "bio": "Co-founder at Derdack, Exploration at SIGNL4. Passionate about technology, SaaS, IoT, mobile, alerting, learning and more.",
+    "verified": true,
+    "links": "[\"https://www.signl4.com\"]",
+    "avatar": "https://gravatar.com/avatar/1af910dd96a18543fb15bf2097e28a14a72401781ec1ac4ffce7a07ad11dac7f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Miscellaneous",
+    "Utility",
+    "Communication",
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "OpenWeatherMap",
+      "type": "n8n-nodes-base.openWeatherMap",
+      "categories": [
+        "Miscellaneous",
+        "Utility"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "SIGNL4",
+      "type": "n8n-nodes-base.signl4",
+      "categories": [
+        "Communication",
+        "Development"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2021-03-03T11:23:31.782Z",
+  "path": "official/template_966/workflow.json"
+}

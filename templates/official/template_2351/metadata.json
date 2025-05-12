@@ -1,0 +1,69 @@
+{
+  "id": 2351,
+  "name": "2-way sync Notion and Google Calendar",
+  "description": "\nThis workflow syncs multiple Notion databases to your Google Calendar. And it works both ways.\n\nWhat events are supported?\n\nEverything except recurring events.\n\nAll day events, multiple day events, start and end date… these are all supported.\n\nYou set them in Notion and they stay in sync with Google. And vice versa.\nWhy doesn’t it support recurring events?\n\nNotion doesn’t support recurring events yet.\n\nSo when you create a recurring event in Google, it will only consider the first date, ignoring future occurrences of the event.\n\nCan I connect more than one Notion database?\n\nYes. You can have many Notion databases synced to one Google Calendar account.\n\nYou can see how to do it in the workflow instructions.\n\nIt is recommended that you create more calendars in your account, so that you can link each calendar to a different database in Notion. But that’s a choice.\n\nWhat happens if I delete an event or page?\n\nNotion page deleted → Deletes event in Google\nNotion date property cleared → Deletes event in Google\nGoogle event deleted → Clears the date property in Notion, but keeps the page, so you don’t lose your work.\n\nDoes it update the events?\n\nYes. When you update the event in Google or in Notion it syncs both ways.\n\nHow can I know what Notion item was linked to an event?\n\nEither by the name or by clicking the hyperlink in the event description that says: 👉 View in Notion.\n\nWhen I create a new event in Google, does it add an item to Notion?\n\nYes. When you create an event inside one of your calendars, the item is synced to the corresponding Notion database.\n\nDoes it sync event descriptions?\n\nNo. The event description will always be “View in Notion”. Even if you change it in Google Calendar it will be overwritten when you make a change to the Notion page.\n\n🎉 When you buy this template you receive step-by-step instructions on how to set it up.\n\nCheck out my other templates\n👉 https://n8n.io/creators/solomon/",
+  "totalViews": 2092,
+  "source": "official",
+  "user": {
+    "id": 91663,
+    "name": "Solomon",
+    "username": "solomon",
+    "bio": "Freelance consultant from Brazil, specializing in automations and data analysis. I work with select clients, addressing their toughest projects.\n\nFor business inquiries, email me at automations.solomon@gmail.com or message me on Telegram for a faster response.",
+    "verified": true,
+    "links": "[\"https://t.me/salomaoguilherme\"]",
+    "avatar": "https://gravatar.com/avatar/79aa147f090807fe0f618fb47a1de932669e385bb0c84bf3a7f891ae7d174256?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Calendar",
+      "type": "n8n-nodes-base.googleCalendar",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2024-07-19T18:38:58.692Z",
+  "path": "official/template_2351/workflow.json"
+}

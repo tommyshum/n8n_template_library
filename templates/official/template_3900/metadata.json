@@ -1,0 +1,109 @@
+{
+  "id": 3900,
+  "name": "Automated YouTube Video Scheduling & AI Metadata Generation 🎬",
+  "description": "\n👥 Who Is This For?\nContent creators, marketing teams, and channel managers who need to streamline video publishing with optimized metadata and scheduled releases across multiple videos.\n\n🛠 What Problem Does This Solve?\nManual YouTube video publishing is time-consuming and often results in inconsistent descriptions, tags, and scheduling. This workflow fully automates:\nExtracting video transcripts via Apify for metadata generation\nCreating SEO-optimized descriptions and tags for each video\nSetting videos to private during initial upload (critical for scheduling)\nImplementing scheduled publishing at strategic times\nMaintaining consistent branding and formatting across all content\n\n🔄 Node-by-Node Breakdown\n| Step | Node Purpose |\n|------|--------------|\n| 1 | Every Day (Scheduler) | Trigger workflow on a regular schedule |\n| 2 | Get Videos to Harmonize | Retrieve videos requiring metadata enhancement |\n| 3 | Get Video IDs (Unpublished) | Filter for videos that need publishing |\n| 4 | Loop over Video IDs | Process each video individually |\n| 5 | Get Video Data | Retrieve metadata for the current video |\n| 6 | Loop over Videos with Parameter IS | Set parameters for processing |\n| 7 | Set Videos to Private | Ensure videos are private (required for scheduling) |\n| 8 | Apify: Get Transcript | Extract video transcript via Apify |\n| 9 | Fetch Latest Videos | Get most recent channel content |\n| 10 | Loop Over Items | Process each video item |\n| 11 | Generate Description, Tags, etc. | Create optimized metadata from transcript |\n| 12 | AP Clean ID | Format identifiers |\n| 13 | Retrieve Generated Data | Collect the enhanced metadata |\n| 14 | Adjust Transcript Format | Format transcript for better processing |\n| 15 | Update Video's Metadata | Apply generated description and tags to video |\n\n⚙️ Pre-conditions / Requirements\nn8n with YouTube API credentials configured\nApify account with API access for transcript extraction\nYouTube channel with upload permissions\nMaster templates for description formatting\nVideos must be initially set to private for scheduling to work\n\n⚙️ Setup Instructions\nImport this workflow into your n8n instance.\nConfigure YouTube API credentials with proper channel access.\nSet up Apify integration with appropriate actor for transcript extraction.\nDefine scheduling parameters in the Every Day node.\nConfigure description templates with placeholders for dynamic content.\nSet default tags and customize tag generation rules.\nTest with a single video before batch processing.\n\n🎨 How to Customize\nAdjust prompt templates for description generation to match your brand voice.\nModify tag selection algorithms based on your channel's SEO strategy.\nCreate multiple publishing schedules for different content categories.\nIntegrate with analytics tools to optimize publishing times.\nAdd notification nodes to alert when videos are successfully scheduled.\n\n⚠️ Important Notes\nVideos MUST be uploaded as private initially - the Publish At logic only works for private videos that haven't been published before.\nPublishing schedules require videos to remain private until their scheduled time.\nTranscript quality affects metadata generation results.\nConsider YouTube API quotas when scheduling large batches of videos.\n\n🔐 Security and Privacy\nAPI credentials are stored securely within n8n.\nTranscripts are processed temporarily and not stored permanently.\nWebhook URLs should be protected to prevent unauthorized triggering.\nAccess to the workflow should be limited to authorized team members only.",
+  "totalViews": 3895,
+  "source": "official",
+  "user": {
+    "id": 93653,
+    "name": "JPres",
+    "username": "stardawnai",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://github.com/JimPresting/\"]",
+    "avatar": "https://gravatar.com/avatar/c1767436a4c7e4856114365bcac5df2f32cfb367c6dc607106edffd6d3df4b2e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Marketing",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "YouTube",
+      "type": "n8n-nodes-base.youTube",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-05-06T14:51:43.081Z",
+  "path": "official/template_3900/workflow.json"
+}

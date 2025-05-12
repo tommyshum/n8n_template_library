@@ -1,0 +1,49 @@
+{
+  "id": 681,
+  "name": "Download and post an image on LinkedIn",
+  "description": "Companion workflow for LinkedIn node docs\n\n",
+  "totalViews": 6790,
+  "source": "official",
+  "user": {
+    "id": 5269,
+    "name": "amudhan",
+    "username": "sm-amudhan",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/7ee0febc0cbec2f1f6b24ddec3c4322e27c82c91dc729cfecf6ce12bfddd058d?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Marketing",
+    "Communication"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "LinkedIn",
+      "type": "n8n-nodes-base.linkedIn",
+      "categories": [
+        "Marketing",
+        "Communication"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2020-09-18T15:59:48.639Z",
+  "path": "official/template_681/workflow.json"
+}

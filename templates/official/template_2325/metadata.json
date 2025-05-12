@@ -1,0 +1,128 @@
+{
+  "id": 2325,
+  "name": "ERP AI chatbot for Odoo sales module with OpenAI",
+  "description": "Who is this for?\nThis workflow is for everyone who wants to have easier access to their Odoo sales data without complex queries.\n\nUse Case\nTo have a clear overview of your sales data in Odoo you typically needs to extract data from it manually to analyse it. This workflow uses OpenAI's language models to create an intelligent chatbot that provides conversational access to your Odoo sales opportunity data.\n\nHow it works\nCreates a summary of all Odoo sales opportunities using OpenAI\nUses that summary as context for the OpenAI chat model\nKeeps the summary up to date using a schedule trigger\n\nSet up steps:\nConfigure the Odoo credentials\nConfigure OpenAI credentials\nToggle \"Make Chat Publicly Available\" from the Chat Trigger node.",
+  "totalViews": 13933,
+  "source": "official",
+  "user": {
+    "id": 91633,
+    "name": "Mihai Farcas",
+    "username": "mihailtd",
+    "bio": "Full-stack developer with 5+ years streamlining healthcare processes. Proficient in NodeJS, VueJS, MongoDB, PostgreSQL, Kubernetes, and n8n. Ready to optimize your workflows – book a consult via my link.",
+    "verified": true,
+    "links": "[\"https://mihai.ltd\"]",
+    "avatar": "https://gravatar.com/avatar/a73ca84b07b557e95322815bc04859245e9243c7cfd5bf9a14568fd0ce3e72c5?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Odoo",
+      "type": "n8n-nodes-base.odoo",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Summarization Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainSummarization",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Model",
+      "type": "@n8n/n8n-nodes-langchain.lmOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Text Completion Models"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Calculator",
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2024-07-10T05:05:37.001Z",
+  "path": "official/template_2325/workflow.json"
+}

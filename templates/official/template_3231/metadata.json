@@ -1,0 +1,54 @@
+{
+  "id": 3231,
+  "name": "Search the Web with MCP-based Brave Search Engine on Telegram",
+  "description": "This workflow enables users to perform web searches directly from Telegram using the Brave search engine. By simply sending the command /brave followed by a query, the workflow retrieves search results from Brave and returns them as a Telegram message.\n\nThis workflow is ideal for users who want a quick and private way to search the web without switching between apps. 🚀\n\nThis workflow is a powerful tool for automating interactions with Brave tools through Telegram, providing users with quick and easy access to information directly in their chat.\n\nBelow is a breakdown of the workflow:\n\n1. How It Works\nThe workflow is designed to process user queries from Telegram, execute a Brave tool via the MCP Client, and send the results back to the user. Here's how it works:\n\nTelegram Trigger:\n   The workflow starts with the Telegram Trigger node, which listens for new messages in a Telegram chat.\n   When a message is received, the workflow checks if it starts with the command /brave.\n\nFilter Messages:\n   The If node filters messages that start with /brave. If the message doesn't start with /brave, the workflow stops.\n\nEdit Fields:\n   The Edit Fields node extracts the text of the message for further processing.\n\nClean Query:\n   The Clean Query node removes the /brave command from the message, leaving only the user's query.\n\nList Brave Tools:\n   The List Brave Tools node retrieves the list of available tools from the MCP Client.\n\nExecute Brave Tool:\n   The Exec Brave Tool node executes the first tool in the list using the cleaned query as input.\n\nSend Message:\n   The Send Message node sends the result of the Brave tool execution back to the user in the Telegram chat.\n\n2. Preliminary Steps\nAccess to an n8n self-hosted instance and install the Community node \"n8n-nodes-mcp\". Please see this easy guide\nGet your Brave Search API Key: https://brave.com/search/api/\nTelegram Bot Access Token\n\nIn \"List Brave Tools\" create new credential as shown in  this image\n\n\nIn Environment field set this value:\nBRAVE_API_KEY=your-api-key\n\n3. Set Up Steps\nTo set up and use this workflow in n8n, follow these steps:\n\nTelegram Configuration:\n   Set up Telegram credentials in n8n for the Telegram Trigger and Send Message nodes.\n   Ensure the Telegram bot is authorized to read messages and send responses in the chat.\n\nMCP Client Configuration:\n   Set up MCP Client credentials in n8n for the List Brave Tools and Exec Brave Tool nodes.\n   Ensure the MCP Client is configured to interact with Brave tools.\n\nTest the Workflow:\n   Send a message starting with /brave followed by a query (e.g., /brave search for AI tools) to the Telegram chat.\n   The workflow will:\n     Process the query.\n     Execute the Brave tool via the MCP Client.\n     Send the result back to the Telegram chat.\n\nOptional Customization:\n   Modify the workflow to include additional features, such as:\n     Adding more commands or tools.\n     Integrating with other APIs or services for advanced use cases.\n     Sending notifications via other channels (e.g., email, Slack)\n\nNeed help customizing?  \nContact me for consulting and support or add me on Linkedin. ",
+  "totalViews": 6461,
+  "source": "official",
+  "user": {
+    "id": 92207,
+    "name": "Davide",
+    "username": "n3witalia",
+    "bio": "Full-stack Web Developer based in Italy specialising in Marketing & AI-powered automations. For business enquiries, send me an email at info@n3w.it or add me on Linkedin.com/in/davideboizza",
+    "verified": true,
+    "links": "[\"https://n3w.it\"]",
+    "avatar": "https://gravatar.com/avatar/d41b8a0aa81139243509c58870f5b4be292824a507ab57d10ed066d8628ed8da?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-03-20T09:55:33.403Z",
+  "path": "official/template_3231/workflow.json"
+}

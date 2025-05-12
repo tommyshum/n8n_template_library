@@ -1,0 +1,38 @@
+{
+  "id": 2225,
+  "name": "Verify mailing address deliverability of new contacts in Groundhogg Using Lob",
+  "description": "This n8n workflow verifies the deliverability of mailing addresses stored in Groundhogg CRM by integrating with Lob’s address verification service.\n\nWho is this for?\nThis template is designed for Groundhogg CRM users who need to ensure the accuracy of mailing addresses stored in their CRM systems.\n\nWhat problem is this workflow solving? / Use Case\nThis workflow addresses the challenge of maintaining accurate mailing addresses in CRM databases by verifying the deliverability of addresses.\n\nWhat this workflow does\nA new contact is created in Groundhogg CRM\nWebhook sent to n8n\nVerify if the address is deliverable via LOB\nReport back to Groundhogg CRM\n\nSet Up Steps\nWatch this setup video:\nhttps://www.youtube.com/watch?v=nrV0P0Yz8FI\n\nTakes 10-30 minutes to set up\n\nAccounts Needed:\nGroundhogg CRM\nLOB Account (https://www.lob.com $0.00/mo 300 US addresses Verifications)\nn8n\n\nBefore using this template, ensure you have API keys for your Groundhogg CRM app and Lob. Set up authentication for both services within n8n.\n\nHow to customize this workflow to your needs\nYou can customize this workflow by adjusting the trigger settings to match Groundhogg CRM’s workflow configuration. Additionally, you can modify the actions taken based on the deliverability outcome, such as updating custom fields or sending notifications.",
+  "totalViews": 1229,
+  "source": "official",
+  "user": {
+    "id": 91424,
+    "name": "Belmont Digital",
+    "username": "belmontdigital",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/e16a25175384524ab2777c59b72db4a647cff6c79e6216eedd357533f50055c8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-04-10T19:22:33.722Z",
+  "path": "official/template_2225/workflow.json"
+}

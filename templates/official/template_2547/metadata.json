@@ -1,0 +1,47 @@
+{
+  "id": 2547,
+  "name": "Call analyzer with AssemblyAI transcription and OpenAI assistant integration",
+  "description": "Video Guide\n\nI prepared a detailed guide that showed the whole process of building a call analyzer.\n\n.png)\n\nWho is this for?\nThis workflow is ideal for sales teams, customer support managers, and online education services that conduct follow-up calls with clients. It’s designed for those who want to leverage AI to gain deeper insights into client needs and upsell opportunities from recorded calls.\n\nWhat problem does this workflow solve?\nMany follow-up sales calls lack structured analysis, making it challenging to identify client needs, gauge interest levels, or uncover upsell opportunities. This workflow enables automated call transcription and AI-driven analysis to generate actionable insights, helping teams improve sales performance, refine client communication, and streamline upselling strategies.\n\nWhat this workflow does\nThis workflow transcribes and analyzes sales calls using AssemblyAI, OpenAI, and Supabase to store structured data. The workflow processes recorded calls as follows:\n\nTranscribe Call with AssemblyAI: Converts audio into text with speaker labels for clarity.\nAnalyze Transcription with OpenAI: Using a predefined JSON schema, OpenAI analyzes the transcription to extract metrics like client intent, interest score, upsell opportunities, and more.\nStore and Access Results in Supabase: Stores both transcription and analysis data in a Supabase database for further use and display in interfaces.\n\nSetup\n\nPreparation\nCreate Accounts: Set up accounts for N8N, Supabase, AssemblyAI, and OpenAI.\nGet Call Link: Upload audio files to public Supabase storage or Dropbox to generate a direct link for transcription.\nPrepare Artifacts for OpenAI:\n    Define Metrics: Identify business metrics you want to track from call analysis, such as client needs, interest score, and upsell potential.\n    Generate JSON Schema: Use GPT to design a JSON schema for structuring OpenAI’s responses, enabling efficient storage, analysis, and display.\n    Create Analysis Prompt: Write a detailed prompt for GPT to analyze calls based on your metrics and JSON schema.\n\nScenario 1: Transcribe Call with AssemblyAI\nSet Up Request:\n    Header Authentication: Set Authorization with AssemblyAI API key.\n    URL: POST to https://api.assemblyai.com/v2/transcript/.\n    Parameters:\n        audio_url: Direct URL of the audio file.\n        webhook_url: URL for an N8N webhook to receive the transcription result.\n        Additional Settings:\n            speaker_labels (true/false): Enables speaker diarization.\n            speakers_expected: Specify expected number of speakers.\n            language_code: Set language (default: en_us).\n\nScenario 2: Process Transcription with OpenAI\nWebhook Configuration: Set up a POST webhook to receive AssemblyAI’s transcription data.\nGet Transcription:\n    Header Authentication: Set Authorization with AssemblyAI API key.\n    URL: GET https://api.assemblyai.com/v2/transcript/&lt;transcript_id&gt;.\nSend to OpenAI:\n    URL: POST to https://api.openai.com/v1/chat/completions.\n    Header Authentication: Set Authorization with OpenAI API key.\n    Body Parameters:\n        Model: Use gpt-4o-2024-08-06 for JSON Schema support, or gpt-4o-mini for a less costly option.\n        Messages:\n            system: Contains the main analysis prompt.\n            user: Combined speakers’ utterances to analyze in text format.\n        Response Format:\n            type: json_schema.\n            json_schema: JSON schema for structured responses.\n\nSave Results in Supabase:\n    Operation: Create a new record.\n    Table Name: demo_calls.\n    Fields:\n        Input: Transcription text, audio URL, and transcription ID.\n        Output: Parsed JSON response from OpenAI’s analysis.",
+  "totalViews": 5392,
+  "source": "official",
+  "user": {
+    "id": 92018,
+    "name": "Mark Shcherbakov",
+    "username": "lowcodingdev",
+    "bio": "I am a business analyst with a development background, dedicated to helping small businesses and entrepreneurs leverage cloud services for increased efficiency. My expertise lies in automating manual workflows, integrating data from multiple cloud service providers, creating insightful dashboards, and building custom CRM systems.\n\nhttps://www.linkedin.com/in/marklowcoding/",
+    "verified": true,
+    "links": "[\"https://www.skool.com/5minai-pro\"]",
+    "avatar": "https://gravatar.com/avatar/3055cd5035cfb1030d9d1923b60646d1a156927eead957956bea71f88c5186cd?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Supabase",
+      "type": "n8n-nodes-base.supabase",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-11-14T13:57:28.629Z",
+  "path": "official/template_2547/workflow.json"
+}

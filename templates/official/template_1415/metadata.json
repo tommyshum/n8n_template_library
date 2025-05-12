@@ -1,0 +1,38 @@
+{
+  "id": 1415,
+  "name": "Plex automatic QBittorent throttler",
+  "description": "Have you ever wanted to throttle Plex when connecting remotely to your server? Well here is the script for you! The instructions to deploy are below:\n\nYou will need: \nA plex server with Plex Pass (for webhooks)\nn8n running locally (either in docker on via the desktop app)\nQbittorent with WebUI enabled\n\nBegin by installing n8n by visiting n8n.io. You can install the desktop version or the docker version, whichever works best for your but I'm doing this on my desktop version of n8n. \nCopy the code from this page into your n8n install canvas. You should see the script appear before your eyes. \nFrom there, you Double click on the Webhook node at the beginning of the script. Copy both the Test and Production URLs that appear there. \nNow make your way to Plex and visit your settings. On the left, you should see the webhooks option if you have Plex Pass. This will setup your triggers.\nNext visit your qBitTorrent instance and enable WebUI. Notate your Username, Password, and Port. You will also need to know the IP of the machine that qbittorent is running on. If you have an iPhone you can connect to the same wireless network as your computer and use the Fing app to scan the network for the IP.\nOpen up the script and edit the Global Variables to reflect the values you copied. \nHit save at the top right, and then activate the script. \nEnjoy!! \n",
+  "totalViews": 1099,
+  "source": "official",
+  "user": {
+    "id": 16588,
+    "name": "Angel Menendez",
+    "username": "djangelic",
+    "bio": "Angel Menendez is a Staff Developer Advocate at n8n.io, specializing in low-code tools for cybersecurity workflows. From Puerto Rico, Angel's tech journey began by helping his father translate technical books. He later started a web development business and transitioned from a career as a flight attendant to cybersecurity engineering. His workflows have saved companies significant time. Outside work, Angel enjoys time with his two sons, riding electric bikes, reading, and exploring new places.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/fdbe38425d21378d8c9ba8916e1eb0b320add299f12cc23fcd4961d4e6e00bec?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2022-01-29T04:21:36.671Z",
+  "path": "official/template_1415/workflow.json"
+}

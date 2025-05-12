@@ -1,0 +1,32 @@
+{
+  "id": 1831,
+  "name": "Sync Jira issues with subsequent comments to Notion database",
+  "description": "This workflow creates/updates/deletes a Notion database page when an issue is created/updated/deleted in Jira. Subsequent updates to the issue's title or status in Jira are updated in the Notion database. If you require more fields to send to Notion, this template is easily extendible which will be described in setup. The Notion database will require setup before the workflow can be used.\n\nPrerequisites\n\nNotion account and Notion credentials.\nJira account and Jira credentials.\n\nHow it works\n\nWhen a new issue is created in Jira, the workflow creates a new page in the Notion database will all the required fields.\nWhen the issue's title or status is updated in Jira, the workflow updates the specific Notion database page identified by the \"Issue Key\" field in Notion. If the status in Jira is set to \"Done\", the workflow will mark the Notion database page \"Done\" field as true.\nWhen the issue is deleted in Jira, the workflow archives the Notion database page.\n\nSetup\n\nThis workflow requires that you set up a Notion database. To do so, follow the steps below:\n\nIn Notion, create a new database.\nAdd the following columns to the database:\n    Done (with type \"Checkbox\")\n    Title (renamed from \"Name\")\n    Status (with the following options: \"To Do\", \"In Progress\", \"Done\")\n    Link (with type \"URL\")\n    Issue ID (with type \"Number\")\n    Issue Key (with type \"Text\")\n    Add any other fields you require to the database.\nYour database should look something like this\n    \n  \n    \nShare the database to n8n.\nBy default, the workflow will fill all the fields provided above, except for any other additional fields you add.",
+  "totalViews": 3634,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2022-12-02T10:54:29.173Z",
+  "path": "official/template_1831/workflow.json"
+}

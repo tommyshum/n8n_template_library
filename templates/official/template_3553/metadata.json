@@ -1,0 +1,139 @@
+{
+  "id": 3553,
+  "name": "AI-Powered YouTube Shorts Automation: Create & Publish with OpenAI & ElevenLabs",
+  "description": "👥 Who is this for?\n\nDigital marketers, content creators, social media managers, and businesses who want to use AI marketing automation for YouTube Shorts without spending hours on production. This AI workflow helps anyone looking to create more short-form video marketing content without needing fancy editing skills or tons of time. It's perfect for marketing teams who want to automate content creation while keeping their brand's voice and boosting audience engagement through artificial intelligence technology.\n\n🔍 What problem does this workflow solve?\n\nLet's be honest - creating high-performing YouTube Shorts consistently takes way too much work. You need AI script generation, voiceover production, video editing, and a solid content marketing strategy to keep your channel growing. Our intelligent automation workflow turns this whole headache into a simple two-click process, while still giving you videos that look and sound professional. This AI solution tackles the real marketing challenge of scaling short-form video production without sacrificing quality or burning through your team's resources.\n\n⚙️ What this workflow does\n\nThis all-in-one AI marketing automation solution handles your entire YouTube Shorts creation process through five easy steps:\n\n🧠 Smart Idea Generation**: Advanced AI creates engaging video concepts, SEO-optimized titles, and descriptions that work with YouTube's algorithm and improve content marketing performance\n🎤 Natural Voice Creation**: Makes professional-sounding voiceovers using ElevenLabs' artificial intelligence technology, no recording equipment needed\n🖼️ Automatic Visual Creation**: Uses cutting-edge AI models to make custom images and animated clips that match your video marketing style and brand identity\n🎬 Smart Video Editing**: AI-powered editing automatically combines all elements with smooth transitions for maximum viewer retention and marketing impact\n📱 Easy Content Distribution**: Automates the YouTube publishing process with proper metadata to maximize your marketing reach and content discovery\n\nThe whole marketing automation system runs through Telegram with just two human checkpoints - approving the initial AI idea and giving the final video a thumbs-up. This makes YouTube marketing automation so much easier while letting you keep control over the AI-generated content that gets published.\n\n🛠️ Setup (About 10-15 minutes)\n\nBefore using this AI marketing automation tool, you'll need:\n\nn8n installation (cloud or self-hosted)\nTelegram account (to interact with your workflow)\nOpenAI API Key (for AI content generation)\nElevenLabs API Key (for AI voice creation)\nReplicate API Key (for AI video generation)\nCloudinary account (for media asset storage)\nCreatomate API Key (for automated video assembly)\n0CodeKit API Key (for script processing automation)\nYouTube channel with API access (for content publishing)\n\nJust add your API keys to the \"Set API Keys\" node, connect your Telegram bot, and you're ready to start your automated marketing content creation. We've included a step-by-step video walkthrough in the workflow to make setup super easy for your AI marketing system.\n\n🔧 How to customize this workflow to your needs\n\nThis AI marketing workflow offers tons of flexibility to fit your specific content strategy:\n\nVoice Options**: Pick from different AI voices to match your brand's tone and what your audience prefers in marketing content\nVisual Styles**: Choose from over 40 different AI image models to get the perfect visual marketing approach\nVideo Effects**: Try various artificial intelligence video models for different animation styles that make your content marketing more engaging\nContent Tweaking**: Adjust the AI prompts to perfectly align with your brand voice and content marketing strategy\nYouTube Settings**: Easily optimize category selection and metadata for better audience targeting with your automated marketing content\n\nEvery part of the AI automation workflow comes with easy-to-follow instructions in color-coded notes, so even if you're new to marketing automation tools, you can still customize everything to fit your needs.\n\nTransform your YouTube Shorts marketing strategy with this complete AI automation solution that brings together multiple artificial intelligence technologies to help you create consistent, high-quality short-form video content that drives engagement and scales your digital marketing efforts without the usual production headaches.",
+  "totalViews": 2675,
+  "source": "official",
+  "user": {
+    "id": 92793,
+    "name": "Jonas Busch",
+    "username": "jonasbusch",
+    "bio": "I'm passionate about solving everyday problems through the power of automation. I've been building and refining automated workflows for over 3 years now. My goal is to inspire others to reclaim their time and boost their productivity. Let's explore the world of automation together!",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/e9b426a3cee5ccc3db516a8cc91af8a65fc5cac248b8844071f476dbcfa5d553?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "Marketing",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "YouTube",
+      "type": "n8n-nodes-base.youTube",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 8,
+  "createdAt": "2025-04-15T00:18:11.214Z",
+  "path": "official/template_3553/workflow.json"
+}

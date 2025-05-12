@@ -1,0 +1,52 @@
+{
+  "id": 3655,
+  "name": "Create Animated Stories using GPT-4o-mini, Midjourney, Kling and Creatomate API",
+  "description": "What does the workflow do? \nThis workflow is designed to generate high-quality short videos, primarily uses GPT-4o-mini (unofficial), Midjourney (unofficial) and Kling (unofficial) APIs from PiAPI and Creatomate API mainly for content creator, social media bloggers and short-form video creators. Through this short video workflow, users can quickly validate their creative ideas and focus more on enhancing the quality of their video concepts.\n\nWho is the workflow for?\nSocial Media Influencers: produce content videos based on inspiration efficiently.\n\nVloggers: generate vlogs based on inspiration.\n\nEducational Creators: explain specific topics via animated short videos or demonstrate a specific imagined scenario to students for enhanced educational impact.\n\nAdvertising Agencies: generate short videos based on specific products.\n\nAI Tool Developers: automatically generate product demo videos.\n\nStep-by-step Instructions\nFill in X-API-key of PiAPI account in Basic Params node.\nFill in the scenario of the image and video prompt.\nSet a video template on Creatomate and make an API call in the final node with core and processing modules provided in Creatomate. Before full video generation, you can first use basic assets in Creatomate for a prototype demo, then integrate with n8n after verifying the expected results.\n\nFill in your Creatomate account settings following the image guildline.\nClick Test Workflow and wait for a generation (within 10~20min).\n\nIn this workflow, we've established a basic structure for image-to-video generation with subtitle integration. You can further enhance it by adding music nodes using either PiAPI's audio models or your preferred music solution. All video elements will ultimately be composited through Creatomate. For best practice, please refer to PiAPI's official API documentation or Creatomate's API documentation to comprehend more use cases.\n\nUse Case\nParams Settings\n style: a children’s book cover, ages 6-10. --s 500 --sref 4028286908  --niji 6\n\ncharacter: A gentle girl and a fluffy rabbit explore a sunlit forest together, playing by a sparkling stream\nsituational_keywords: Butterflies flutter around them as golden sunlight filters through green leaves. Warm and peaceful atmosphere\n\nOutput Video\n",
+  "totalViews": 3954,
+  "source": "official",
+  "user": {
+    "id": 93303,
+    "name": "PiAPI",
+    "username": "piapi",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4e47cc9f6664191e5fd06db7f9bafc58d224c50104b09e70e20e18a5e94721b7?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-04-22T01:47:37.016Z",
+  "path": "official/template_3655/workflow.json"
+}

@@ -1,0 +1,45 @@
+{
+  "id": 1792,
+  "name": "Create Salesforce accounts based on Google Sheets data",
+  "description": "This workflow shows a no code approach to creating Salesforce accounts and contacts based on data coming from Google Sheets.\n\n\n\nTo run the workflow:\n\nMake sure you have both Google Sheets and Salesforce authenticated with n8n.\nHave a Google Sheet with contacts and their account names ready, copy the respective sheet ID from the URL:\n\nAdd the sheet ID to the Google Sheet node of the workflow:\n\nHit Execute Workflow\n\nHere is how it works:\n\nThe workflow first searches for existing Salesforce accounts by name. It then branches out depending on whether the account already exists in Salesforce or not. If an account does not exist yet, it will be created. The data is then normalised before both branches converge again. Finally the contacts are created or updated as needed in Salesforce.",
+  "totalViews": 2015,
+  "source": "official",
+  "user": {
+    "id": 21240,
+    "name": "Tom",
+    "username": "mutedjam",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://github.com/that-one-tom/\"]",
+    "avatar": "https://gravatar.com/avatar/7a3710173e907baffaf7ed7ebffc37955c9cdeadb8612200225a34a2e056aa17?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Sales",
+    "Communication"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Salesforce",
+      "type": "n8n-nodes-base.salesforce",
+      "categories": [
+        "Sales",
+        "Communication"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2022-09-12T14:34:01.179Z",
+  "path": "official/template_1792/workflow.json"
+}

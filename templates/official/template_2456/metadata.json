@@ -1,0 +1,40 @@
+{
+  "id": 2456,
+  "name": "Text automations using Apple Shortcuts",
+  "description": "Overview\nThis workflow answers user requests sent via Mac Shortcuts\nSeveral Shortcuts call the same webhook, with a query and a type of query\nTypes of query are:\n  translate to english\n  translate to spanish\n  correct grammar (without changing the actual content)\n  make content shorter\n  make content longer\n\nHow it works\nSelect a text you are writing\nLaunch the shortcut\nThe text is sent to the webhook\nDepending on the type of request, a different prompt is used\nEach request is sent to an OpenAI node\nThe workflow responds to the request with the response from GPT\nShortcut replace the selected text with the new one\n\nFor a demo and setup instructions:\n\nHow to use it\nActivate the workflow\nDownload this Shortcut template\nInstall the shortcut\nIn step 2 of the shortcut, change the url of the Webhook\nIn Shortcut details, \"add Keyboard Shortcut\" with the key you want to use to launch the shortcut\nGo to settings, advanced, check \"Allow running scripts\"\nYou are ready to use the shortcut. Select a text and hit the keyboard shortcut you just defined\n",
+  "totalViews": 3746,
+  "source": "official",
+  "user": {
+    "id": 91624,
+    "name": "Agent Studio",
+    "username": "agentstudio",
+    "bio": "We are a product studio that helps organizations leverage no-code and generative AI to automate internal processes and launch new digital products.\nLinkedIn: https://www.linkedin.com/in/baptistej/",
+    "verified": true,
+    "links": "[\"https://agentstudio.io/\"]",
+    "avatar": "https://gravatar.com/avatar/e9cf0d0fccead46655b11b2ce215cf14d33ecdaa2ce52828f003574c1800e77a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-10-08T10:31:27.965Z",
+  "path": "official/template_2456/workflow.json"
+}

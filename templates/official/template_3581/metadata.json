@@ -1,0 +1,63 @@
+{
+  "id": 3581,
+  "name": "Domain to Email Extraction using Apollo API ",
+  "description": "Who is this for?\nSales professionals looking to build lead lists from target company domains\nBusiness development teams conducting outreach campaigns\nMarketers building contact databases for account-based marketing\nRecruiters searching for potential candidates at specific companies\nAnyone needing to transform a list of company domains into actionable contact information\n\nWhat problem is this workflow solving?\nFinding business email addresses for outreach is a time-consuming process. The Apollo API doesn't provide a direct way to extract email contacts from domains in a single call. This workflow bridges that gap by:\n\nAutomating the two-step process required by Apollo's API\nProcessing multiple domains in batches without manual intervention\nExtracting, enriching, and storing contact information in a structured format\nEliminating hours of manual data entry and API interaction\n\nWhat this workflow does\nThis workflow creates an automated pipeline between Google Sheets and Apollo's API to:\n\nPull a list of target domains from a Google Sheet\nSubmit each domain to Apollo's search API to find associated people\nLoop through each person found and enrich their profile data\nExtract key information: name, title, email address, and LinkedIn URL\nWrite the enriched contact information back to a results sheet\nProcess the next domain automatically until all are complete\n\nSetup\n\nPrerequisites:\nAn n8n instance (cloud or self-hosted)\nApollo.io account with API access\nGoogle account with access to Google Sheets\n\nGoogle Sheets Setup:\nCreate a new Google Sheet with two tabs:\n   Tab 1: \"Target Domains\" with a column named \"Domain To Enrich\"\n   Tab 2: \"Results\" with columns: Company, First Name, Last Name, Title, Email, LinkedIn\n\nn8n Setup:\nImport the workflow JSON into your n8n instance\nSet up Google Sheets credentials in n8n\nUpdate the Google Sheets document ID in both Google Sheets nodes\nAdd your Apollo API key to both HTTP Request nodes\nReview and adjust API rate limits if needed\n\nTesting:\nAdd a few test domains to your \"Target Domains\" sheet\nRun the workflow manually to verify it's working correctly\nCheck the \"Results\" sheet to confirm data is being properly populated\n\nHow to customize this workflow to your needs\n\nAdding More Contact Fields:\nModify the \"Clean Up\" node to extract additional fields from the Apollo API response\nAdd corresponding columns to your \"Results\" sheet\nUpdate the \"Results To Results Sheet\" node mapping to include the new fields\n\nFiltering Results:\nAdd a Filter node after \"Clean Up\" to include only contacts with specific roles\nCreate conditions based on title, seniority, or other fields returned by Apollo\n\nAutomating Workflow Execution:\nReplace the manual trigger with a Schedule Trigger to run daily/weekly\nAdd a Filter node to process only domains with \"Not Processed\" status\nUpdate the status field in Google Sheets after processing\n\nAdditional Notes\nThis workflow respects Apollo's API rate limits by processing one contact at a time\nThe Apollo API may not return contact information for all domains or all employees\nConsider legal and privacy implications when collecting and storing contact information\n\nMade with ❤️ by Hueston\n",
+  "totalViews": 433,
+  "source": "official",
+  "user": {
+    "id": 93851,
+    "name": "Hueston",
+    "username": "hueston",
+    "bio": "Hueston is a website design and marketing agency passionate about automation. We craft engaging digital experiences while implementing smart marketing strategies that deliver results. Our team specializes in leveraging automation tools to streamline workflows and boost efficiency for our clients. Let us help your business grow through technology-driven solutions.\n",
+    "verified": false,
+    "links": "[\"https://hueston.co\"]",
+    "avatar": "https://gravatar.com/avatar/9e3f9bfb6d0fd01c58fca06a1124a46c60c55e56926e77f7a16f6da3f9cb3570?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-04-16T19:03:08.744Z",
+  "path": "official/template_3581/workflow.json"
+}

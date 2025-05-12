@@ -1,0 +1,119 @@
+{
+  "id": 2889,
+  "name": "Export WordPress Posts to CSV and Upload to Google Drive",
+  "totalViews": 1081,
+  "purchaseUrl": null,
+  "user": {
+    "id": 92547,
+    "name": "Codez & AI",
+    "username": "codez",
+    "bio": "Building automations and AI agents for businesses",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/896ac5706f22050261dab53648aed193ebdf79040118c0a0ab0d3378dd5bd9f1?r=pg&d=retro&size=200"
+  },
+  "description": "Overview  \nThis n8n workflow automates the process of extracting published WordPress posts, converting them into a CSV file, and uploading it to Google Drive. It’s perfect for content backups, SEO audits, and data migration.  \n\nFeatures  \nFetches all published posts from a WordPress website  \nExtracts key post details (ID, Title, Link)  \nConverts the extracted data into a CSV file  \nUploads the CSV file to Google Drive for easy access and storage  \n\nUse Cases  \nSEO Optimization**: Export post data for keyword analysis and performance tracking  \nAutomated Content Backup**: Store WordPress post details in Google Drive. You can add more fields to the Csv file if needed  \n\nWorkflow Steps  \n\n1. Trigger Workflow Manually  \nThe workflow starts when triggered manually in n8n.  \n\n2. Retrieve WordPress Posts  \nThe workflow fetches all published posts using the WordPress API. It extracts:  \nPost ID  \nTitle  \nLink  \nRendered Content\n\n3. Format Data  \nThe retrieved data is structured to ensure correct CSV formatting.  \n\n4. Convert to CSV File  \nThe formatted data is transformed into a downloadable CSV file.  \n\n5. Upload to Google Drive  \nThe CSV file is automatically uploaded to a specified Google Drive folder for easy access and storage.  \n\nHow to Use  \nConnect your WordPress and Google Drive accounts to n8n.  \nRun the workflow manually or set up a scheduled trigger.  \nAccess the CSV file from your Google Drive folder.  \n",
+  "createdAt": "2025-02-12T11:24:39.213Z",
+  "nodes": [
+    {
+      "id": 58,
+      "icon": "file:googleDrive.svg",
+      "name": "n8n-nodes-base.googleDrive",
+      "codex": {
+        "data": {
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/your-business-doesnt-need-you-to-operate/",
+                "icon": " 🖥️",
+                "label": "Hey founders! Your business doesn't need you to operate"
+              },
+              {
+                "url": "https://n8n.io/blog/why-this-product-manager-loves-workflow-automation-with-n8n/",
+                "icon": "🧠",
+                "label": "Why this Product Manager loves workflow automation with n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/aws-workflow-automation/",
+                "label": "7 no-code workflow automations for Amazon Web Services"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googledrive/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/google/oauth-single-service/"
+              }
+            ]
+          },
+          "categories": [
+            "Data & Storage"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "Google Drive"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiB2aWV3Qm94PSIwIDAgODEgNzMiPjx1c2UgeGxpbms6aHJlZj0iI2EiIHg9Ii41IiB5PSIuNSIvPjxzeW1ib2wgaWQ9ImEiIG92ZXJmbG93PSJ2aXNpYmxlIj48ZyBmaWxsLXJ1bGU9Im5vbnplcm8iIHN0cm9rZT0ibm9uZSI+PHBhdGggZmlsbD0iIzAwNjZkYSIgZD0ibTYuMDQ4IDYxLjI2IDMuNTI4IDYuMDk0Yy43MzMgMS4yODMgMS43ODcgMi4yOTEgMy4wMjQgMy4wMjRsMTIuNi0yMS44MUgwYTguMyA4LjMgMCAwIDAgMS4xIDQuMTI0eiIvPjxwYXRoIGZpbGw9IiMwMGFjNDciIGQ9Ik00MCAyMi45MSAyNy40IDEuMWMtMS4yMzcuNzMzLTIuMjkxIDEuNzQxLTMuMDI0IDMuMDI0TDEuMSA0NC40NDVBOC4zIDguMyAwIDAgMCAwIDQ4LjU2OGgyNS4yeiIvPjxwYXRoIGZpbGw9IiNlYTQzMzUiIGQ9Ik02Ny40IDcwLjM3OGMxLjIzNy0uNzMzIDIuMjkxLTEuNzQxIDMuMDI0LTMuMDI0bDEuNDY2LTIuNTIgNy4wMS0xMi4xNDJhOC4zIDguMyAwIDAgMCAxLjEtNC4xMjRINTQuNzk4bDUuMzYzIDEwLjUzOHoiLz48cGF0aCBmaWxsPSIjMDA4MzJkIiBkPSJNNDAgMjIuOTEgNTIuNiAxLjFDNTEuMzYzLjM2NyA0OS45NDMgMCA0OC40NzcgMEgzMS41MjRjLTEuNDY2IDAtMi44ODcuNDEyLTQuMTI0IDEuMXoiLz48cGF0aCBmaWxsPSIjMjY4NGZjIiBkPSJNNTQuNzk5IDQ4LjU2OEgyNS4ybC0xMi42IDIxLjgxYzEuMjM3LjczMyAyLjY1NyAxLjEgNC4xMjQgMS4xaDQ2LjU1MmMxLjQ2NiAwIDIuODg3LS40MTIgNC4xMjQtMS4xeiIvPjxwYXRoIGZpbGw9IiNmZmJhMDAiIGQ9Ik02Ny4yNjIgMjQuMjg0IDU1LjYyNCA0LjEyNEM1NC44OTEgMi44NDEgNTMuODM3IDEuODMzIDUyLjYgMS4xTDQwIDIyLjkxbDE0LjggMjUuNjU5aDI1LjE1NWE4LjMgOC4zIDAgMCAwLTEuMS00LjEyNHoiLz48L2c+PC9zeW1ib2w+PC9zdmc+"
+      },
+      "displayName": "Google Drive",
+      "typeVersion": 3,
+      "nodeCategories": [
+        {
+          "id": 3,
+          "name": "Data & Storage"
+        }
+      ]
+    },
+    {
+      "id": 118,
+      "icon": "file:wordpress.svg",
+      "name": "n8n-nodes-base.wordpress",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.wordpress/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/wordpress/"
+              }
+            ]
+          },
+          "categories": [
+            "Marketing"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"output\"]",
+      "defaults": {
+        "name": "Wordpress"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNTAwIiBoZWlnaHQ9IjI1MDAiIHZpZXdCb3g9IjguMzk5IDguNCA1MS4yIDUxLjIiPjxwYXRoIGZpbGw9IiMyMTc1OUIiIGQ9Ik0zNCA1OS42QzE5LjgxMyA1OS42IDguMjkzIDQ4LjI5MyA4LjQgMzRTMTkuMjggOC40IDM0IDguNCA1OS42IDE5LjkyIDU5LjYgMzQgNDguMTg3IDU5LjYgMzQgNTkuNm03LjU3My0zLjk0Ny03LjI1My0xOS41Mi02LjgyNyAxOS45NDdjNS4wMTQgMS4xNzQgOC40MjcgMS40OTMgMTQuMDgtLjQyN20tMTcuNzA2LTEuMDY2LTEwLjg4LTI5Ljc2Yy0xLjQ5NCAzLjItMS44MTMgNS44NjctMi4wMjcgOS4xNzMuMTA3IDguNzQ2IDUuMDEzIDE2Ljc0NiAxMi45MDcgMjAuNTg3TTU2LjkzNCAzNGMuMTA2LTUuNjUzLTIuNDUzLTEwLjEzMy0yLjY2Ny0xMC43NzMuMjE0IDQuMzc0LS40MjcgNi42MTMtMS4xNzMgOS4wNjdsLTcuNDY3IDIxLjQ0QzU1LjAxNCA0OC4wOCA1Ni44MjYgMzkuNjUzIDU3LjA0IDM0em0tMjMuNjgtLjk2LTMuNjI3LTkuOTItMi42NjctLjIxM2MtMS4wNjYtLjc0Ny0uNDI3LTEuOTIuMzItMS45MiA0LjguMzIgNy40NjYuMzIgMTIuMjY3IDAgMS4xNzQgMCAxLjQ5MyAxLjcwNy4xMDYgMS45MmwtMi41Ni4yMTMgOC4zMTkgMjQuNTMzIDMuOTQ2LTEzLjQ0Yy4yMTQtNS44NjYtMS4zODctNi41MDYtMy41Mi0xMC43NzMtMS43MDctMy4zMDcuMTA3LTYuNTA3IDMuNDE0LTYuNjEzLTIuNjY4LTIuNTYtOC4xMDctNS43Ni0xNS4yNTQtNS44NjdzLTE0LjcyIDMuNTItMTkuMiAxMC4zNDdsNy44OTQtLjIxM2MuOTYuNDI3LjUzMyAxLjgxMyAwIDEuOTJsLTIuNzczLjIxMyA4LjMyIDI0Ljk2eiIvPjwvc3ZnPg=="
+      },
+      "displayName": "Wordpress",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 27,
+          "name": "Marketing"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "id": 2023,
+  "name": "Monitor G2 competitors reviews [Google Sheets, ScrapingBee, Slack]",
+  "description": "This workflow monitor G2 reviews URLS. \n\nWhen a new review is published, it will: \ntrigger a Slack notification \nrecord the review in Google Sheets\n\nTo install it, you'll need: \naccess to Slack, Google Sheets and ScrapingBee\n\nFull guide here: https://lempire.notion.site/Scrape-G2-reviews-with-n8n-3f46e280e8f24a68b3797f98d2fba433?pvs=4\n",
+  "totalViews": 2816,
+  "source": "official",
+  "user": {
+    "id": 91319,
+    "name": "Lucas Perret",
+    "username": "lucasperret",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/0b3273e259147247b9921e13c536e06521ebd68ba5198aaff9b141db51eb3d94?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2023-12-14T23:55:52.889Z",
+  "path": "official/template_2023/workflow.json"
+}

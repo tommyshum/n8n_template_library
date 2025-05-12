@@ -1,0 +1,54 @@
+{
+  "id": 2056,
+  "name": "Send Webflow form submissions to Discord dynamically",
+  "description": "What this does:\nThis automation will dynamically create channels on your Discord server for each of your Webflow forms then send formatted form submissions as messages in those channels.\n\nThis is useful for\nWebflow will only notify a single email of a form submission. By using this workflow you can enhance your Webflow form management by receiving them in Discord. This is great if you need to notify multiple team members or communities of your form submissions.\n\nUsage guide\nFull written and video guide\n\nSimply create credentials for Webflow and Discord and connect them to the nodes. The video guide demonstrates a realworld usecase using a Webflow template and breaks down each node in detail about how it works.",
+  "totalViews": 928,
+  "source": "official",
+  "user": {
+    "id": 91392,
+    "name": "kreonovo",
+    "username": "kreonovo",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/89fd5fed02594631a1e2f8850e1bbda1032300c5fccb978097c5b7ad9a36c336?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Discord",
+      "type": "n8n-nodes-base.discord",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-01-17T09:28:54.746Z",
+  "path": "official/template_2056/workflow.json"
+}

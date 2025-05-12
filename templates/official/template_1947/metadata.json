@@ -1,0 +1,60 @@
+{
+  "id": 1947,
+  "name": "SQL to XML export with XSL template formatting",
+  "description": "This workflow demonstrates how to export SQL to XML and present the data nicely formatted using an XSL Template.\n\nThe upper part of the workflow starts with a webhook. Then it gets several random records from the SQL table and converts them into an XML string. Then a final XML file is created that contains a link to the XML Stylesheet file.\n\nThe lower part of the workflow contains a helper Webhook that reads an XSL Template from the GitHub gist and serves it back via the Respond to Webhook node. This is required to comply with the CORS rules of modern browsers. These rules dictate that both XML data and a stylesheet file should come from the same domain.",
+  "totalViews": 1467,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "MySQL",
+      "type": "n8n-nodes-base.mySql",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2023-09-19T15:35:42.417Z",
+  "path": "official/template_1947/workflow.json"
+}

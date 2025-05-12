@@ -1,0 +1,38 @@
+{
+  "id": 3144,
+  "name": "Auto-Retry Engine: Error Recovery Workflow",
+  "description": "Workflow Documentation: Auto-Retry Engine – Error Recovery Workflow  \n\nDetailed Description  \n\nThe Auto-Retry Engine: Error Recovery Workflow is designed to automate the process of identifying and retrying failed executions in n8n workflows. By leveraging scheduled triggers, API integrations, and conditional logic, this workflow ensures that any failed executions are automatically retried on an hourly basis. This reduces manual intervention, improves system reliability, and ensures smoother workflow operations.  \n\nWho is this for?  \n\nThis workflow is ideal for:  \n\nAutomation Engineers**: Managing and maintaining workflows with minimal manual intervention.  \nDevOps Teams**: Ensuring high availability and reliability of automated processes.  \nIT Administrators**: Reducing downtime and improving system performance by automating error recovery.  \n\nWhat problem does this workflow solve?  \n\nManual Error Handling**: Eliminates the need for manual monitoring and retrying of failed executions.  \nImproved Reliability**: Automatically retries failed executions, reducing downtime and improving workflow success rates.  \nTime Efficiency**: Saves time by automating repetitive error recovery tasks, allowing teams to focus on higher-priority work.  \n\nWhat this workflow does  \n\nThis workflow automates the following steps:  \n\nScheduled Monitoring: Checks for failed executions hourly using a schedule trigger.  \nError Filtering: Identifies executions that have failed and filters out those that have already been successfully retried.  \nAuthentication: Logs into the n8n instance using API credentials to retrieve session details.  \nAutomatic Retry: Retries the failed executions using the n8n API.  \nBatch Processing: Processes multiple failed executions in batches to avoid overloading the system.  \n\nSetup  \n\nPrerequisites  \n\nTo use this workflow, you’ll need:  \n\nn8n Account**: To create and run the workflow.  \nn8n API Credentials**: For logging into the n8n instance and retrying executions.  \nHTTP Request Node**: Configured to interact with the n8n API.  \nSchedule Trigger**: Set to run the workflow hourly.  \n\nSetup Process  \n\nConfigure Schedule Trigger  \n   Set the trigger to run hourly to check for failed executions.  \n\nSet Login Credentials  \n   Add your n8n instance URL, username, and password in the Set Node.  \n\nIntegrate n8n API  \n   Use the HTTP Request node to log into the n8n instance and retrieve session details.  \n\nRetry Failed Executions  \n   Configure the HTTP Request node to retry failed executions using the session details.  \n\nBatch Processing  \n   Use the Split in Batches node to process multiple failed executions in batches.  \n\nHow to customize this workflow  \n\nTailor the workflow to fit your specific needs:  \n\nAdjust Schedule Frequency**  \n  Modify the schedule trigger to run at different intervals (e.g., every 30 minutes).  \n\nAdd Notifications**  \n  Integrate email or Slack notifications to alert teams about failed retries.  \n\nRefine Error Filtering**  \n  Customize the filtering logic to exclude specific types of failed executions.  \n\nScale Batch Size**  \n  Adjust the batch size in the Split in Batches node to optimize performance.  \n\nConclusion  \n\nThe Auto-Retry Engine: Error Recovery Workflow is a powerful tool for automating error recovery in n8n workflows. By reducing manual intervention and ensuring failed executions are retried automatically, this workflow enhances system reliability and operational efficiency. Whether you're managing a few workflows or a complex automation ecosystem, this workflow ensures your processes run smoothly and consistently.  \n",
+  "totalViews": 392,
+  "source": "official",
+  "user": {
+    "id": 91538,
+    "name": "Francis Njenga",
+    "username": "gatura",
+    "bio": "E | gaturanjenga@gmail.com\n",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/francisgaturanjenga\"]",
+    "avatar": "https://gravatar.com/avatar/84d3b247c7c1f6195b932c2d17bd7f91bada5ab204629cd1e6d13c3f348b1ca3?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-03-12T09:21:37.161Z",
+  "path": "official/template_3144/workflow.json"
+}

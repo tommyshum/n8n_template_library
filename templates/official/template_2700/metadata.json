@@ -1,0 +1,128 @@
+{
+  "id": 2700,
+  "name": "AI Agent to chat with Airtable and analyze data",
+  "description": "Video Guide\n\nI prepared a detailed guide that shows the entire process of building an AI agent that integrates with Airtable data in n8n. This template covers everything from data preparation to advanced configurations.\n\n\n\nYoutube Link\n\nWho is this for?\nThis workflow is designed for developers, data analysts, and business owners who want to create an AI-powered conversational agent integrated with Airtable datasets. It is particularly useful for users looking to enhance data interaction through chat interfaces.\n\nWhat problem does this workflow solve?\nEngaging with data stored in Airtable often requires manual navigation and time-consuming searches. This workflow allows users to interact conversationally with their datasets, retrieving essential information quickly while minimizing the need for complex queries.\n\nWhat this workflow does\nThis workflow enables an AI agent to facilitate chat interactions over Airtable data. The agent can:\nRetrieve order records, product details, and other relevant data.\nExecute mathematical functions to analyze data such as calculating averages and totals.\nOptionally generate maps for geographic data visualization.\n\nDynamic Data Retrieval: The agent uses user prompts to dynamically query the dataset.\nMemory Management: It retains context during conversations, allowing users to engage in a more natural dialogue.\nSearch and Filter Capabilities: Users can perform tailored searches with specific parameters or filters to refine their results.\n\nSet up steps\n\nSeparate workflows:\n\tCreate additional workflow and move there Workflow 2.\n\nReplace credentials:\n\tReplace connections and credentials in all nodes.\n\nStart chat:\n\tAsk questions and don't forget to mention required base name.",
+  "totalViews": 11418,
+  "source": "official",
+  "user": {
+    "id": 92018,
+    "name": "Mark Shcherbakov",
+    "username": "lowcodingdev",
+    "bio": "I am a business analyst with a development background, dedicated to helping small businesses and entrepreneurs leverage cloud services for increased efficiency. My expertise lies in automating manual workflows, integrating data from multiple cloud service providers, creating insightful dashboards, and building custom CRM systems.\n\nhttps://www.linkedin.com/in/marklowcoding/",
+    "verified": true,
+    "links": "[\"https://www.skool.com/5minai-pro\"]",
+    "avatar": "https://gravatar.com/avatar/3055cd5035cfb1030d9d1923b60646d1a156927eead957956bea71f88c5186cd?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Code Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolCode",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-01-06T19:57:13.408Z",
+  "path": "official/template_2700/workflow.json"
+}

@@ -1,0 +1,99 @@
+{
+  "id": 3846,
+  "name": "Extract & Analyze Brand Content with Bright Data and Google Gemini",
+  "description": "Who this is for?\n\nThe Brand Content Extract, Summarization & Sentiment Analysis workflow is designed for professionals and teams who need to monitor, understand, and act on public brand perception at scale. \n\nIt is ideal for:\n\nBrand Managers - Looking to track how their brand is portrayed online.\n\nMarketing Analysts - Seeking insights from competitor and industry content.\n\nPR & Communications Teams - Evaluating media tone and potential reputation risks.\n\nData Scientists & AI Developers - Automating content intelligence pipelines.\n\nGrowth Hackers - Performing large-scale web listening for campaign optimization.\n\nWhat problem is this workflow solving?\n\nManually tracking and interpreting how your brand is mentioned across blogs, news sites, or product reviews is labor-intensive and unscalable. Traditional scraping tools return raw data but lack insights like summarization, sentiment analysis etc.\n\nThis workflow addresses:\n\nScalable extraction of brand-related content using Bright Data's infrastructure.\n\nTextual data extract for easy decision-making or alerting.\n\nAutomated summarization of verbose or multi-paragraph articles using Gemini.\n\nSentiment analysis of how a brand is being portrayed.\n\nWhat this workflow does\n\nReceives input: A brand URL for the data extraction and analysis.\n\nUses Bright Data's Web Unlocker to extract content from relevant sites.\n\nCleans and preprocesses the scraped content for readability.\n\nSends the content to Google Gemini for:\n\n\tEnriched results including:\n\n\t\tCleaned content\n\n\t\tSummary\n\n\t\tSentiment Analysis\n\n\t\tSends the response to a target system via Webhook notification\n\t\tPerists the response to disk\n\nSetup\n\nSign up at Bright Data.\nNavigate to Proxies & Scraping and create a new Web Unlocker zone by selecting Web Unlocker API under Scraping Solutions.\nIn n8n, configure the Header Auth account under Credentials (Generic Auth Type: Header Authentication).\n\nThe Value field should be set with the \nBearer XXXXXXXXXXXXXX. The XXXXXXXXXXXXXX should be replaced by the Web Unlocker Token.\nA Google Gemini API key (or access through Vertex AI or proxy).\nUpdate the Set URL and Bright Data Zone for setting the brand content URL and the Bright Data Zone name.\nUpdate the Webhook HTTP Request node with the Webhook endpoint of your choice.\n\nHow to customize this workflow to your needs\n\nUpdate Source** : Update the workflow input to read from Google Sheet or Airbase for dynamically tracking multiple brands or topics.\nAI Prompt Customization** : Tailor Gemini prompts for: \n\tSummary length (brief vs. detailed)\n\n\tDetailed Sentiment with the custom structured data format.\n\n\tBrand-specific tone detection (e.g., trust, excitement, dissatisfaction)\n\nOutput Destinations**: Configure the output node to send the responses to various platforms, such as Slack, CRM systems, or databases.",
+  "totalViews": 66,
+  "source": "official",
+  "user": {
+    "id": 93657,
+    "name": "Ranjan Dailata",
+    "username": "ranjancse",
+    "bio": "",
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/7b74fe44a7ad32db7c783b972deb5848a4b1f043377bce4039737ed66da8305f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Summarization Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainSummarization",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Information Extractor",
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-05-03T13:17:38.073Z",
+  "path": "official/template_3846/workflow.json"
+}

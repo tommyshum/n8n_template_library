@@ -1,0 +1,67 @@
+{
+  "id": 3910,
+  "name": "Client Feedback Collector & Analyzer (Form → AI Summary → Email + Social Draft)",
+  "description": "What this workflow does\n\nThis n8n workflow collects client feedback through a form (Tally, Typeform, or Google Forms) and uses AI to analyze it.  \nIt automatically generates a summary of the positive points, highlights areas for improvement, and drafts a short social media post based on the feedback.\n\nIdeal for:\nFreelancers\nCustomer support teams\nOnline service providers\nCoaches and educators\n\nSetup steps\n\nConnect your form tool to the Webhook node (POST method) and make sure it sends a feedback field.\nAdd your DeepSeek (or other GPT-compatible) API key to the AI request node.\nConfigure the email node with your SMTP credentials and desired recipient address.\nReplace the Telegram node with Slack, Buffer, or another integration if you prefer.\n(Optional) Customize the prompt in the function node for different tone/language.\n\n🕐 Estimated setup time: ~15 minutes  \n💬 Sticky notes are included and clearly positioned to guide you.\n\nTechnologies used\n\nn8n Webhook node\nn8n Function node\nDeepSeek Chat or compatible AI API\nEmail node (SMTP)\nTelegram node (or other integration)\nSticky Notes for setup guidance\n\nUse cases\n\nAnalyze feedback from onboarding or satisfaction surveys\nCreate ready-to-publish social media content from real customer praise\nHelp support or marketing teams act on feedback immediately\n\n",
+  "totalViews": 50,
+  "source": "official",
+  "user": {
+    "id": 94060,
+    "name": "Rodrigue",
+    "username": "gbadou",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/9f92fe6183a88cb11f504f434539ef3a3d3917e851417add60b7c82876bbb936?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Core Nodes",
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "categories": [
+        "Communication",
+        "HITL",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-05-06T19:48:38.245Z",
+  "path": "official/template_3910/workflow.json"
+}

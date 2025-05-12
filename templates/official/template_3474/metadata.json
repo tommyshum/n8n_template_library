@@ -1,0 +1,49 @@
+{
+  "id": 3474,
+  "name": "Track Daily PG&E Energy Costs with Airtop and Email Notifications",
+  "description": "About The Airtop Automation\n\nAre you tired of being shocked by unexpectedly high energy bills? With this automation using Airtop and n8n, you can take control of your daily energy costs and ensure you’re always informed.\n\nHow to monitor your daily energy consumption\n\nWith this automation, we’ll walk you through setting up an automation that retrieves your PG&E (Pacific Gas and Electric) energy usage data, calculates costs, and emails you the details—all without manual effort.\n\nWhat You’ll Need\nTo get started, make sure you have the following:\n\nA free Airtop API Key\nPG&E Account Credentials - with minor adaptations, this will also work with other providers\nAn Email Address - To receive the energy cost updates\n\nEstimated setup time: 5 minutes\n\nUnderstanding the Process\n\nThis automation works by:\n \nLogging into your PG&E account using your credentials\nNavigating to your energy usage data\nExtracting relevant details about energy consumption and costs\nEmailing the daily summary directly to your inbox\n\nThe automation is straightforward and ensures you have real-time insights into your energy usage, empowering you to adjust your habits and save money.\n\nSetting Up Your Automation\nWe’ve created a step-by-step guide to help you set up this workflow. Here’s how:\n\nInsert Your Credentials:\n\nIn the tools section, add your PG&E login details as variables\nIn Airtop, add your Airtop API Key\nConfigure your email address to receive the updates\n\nRun the Automation:\n\nStart the scenario, and watch as the automation retrieves your energy data and sends you a detailed email summary.\n\nCustomization Options\n\nWhile the default setup works seamlessly, you can tweak it to suit your needs:\n\nData Storage: Store energy usage data in a database for long-term tracking and analysis\nVisualization: Plot graphs of your energy usage trends over time for better insights\nNotifications: Change the automation to only send alerts on high usage instead of a daily email\n\nReal-World Applications\n\nThis automation isn’t just about monitoring energy usage and taking control. Here are some practical applications:\n\nDaily Energy Management: Receive updates every morning and adjust your energy consumption based on costs\nSmart Home Integration: Use the data to automate appliances during off-peak hours\nBudgeting: Track energy expenses over weeks or months to plan your budget more effectively\n\nHappy automating!\n",
+  "totalViews": 116,
+  "source": "official",
+  "user": {
+    "id": 93583,
+    "name": "Airtop",
+    "username": "cesar-at-airtop",
+    "bio": "Airtop provides an intelligent browser automation API for AI agents, enabling seamless web interaction, including login, navigation, and data extraction from any site, even those with complex authentication - all with  natural language instructions.In simple terms, we allow you to automate anything humans can do online, on any site with just words",
+    "verified": true,
+    "links": "[\"https://www.airtop.ai/\"]",
+    "avatar": "https://gravatar.com/avatar/d5894c2c744b03ab0766a6d1846484ea7cc1a19e57310afad70044183766dbf4?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Productivity",
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Airtop",
+      "type": "n8n-nodes-base.airtop",
+      "categories": [
+        "Productivity",
+        "Development"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-04-08T16:20:15.016Z",
+  "path": "official/template_3474/workflow.json"
+}

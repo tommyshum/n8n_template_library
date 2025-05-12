@@ -1,0 +1,125 @@
+{
+  "id": 2823,
+  "name": "Social Media Analysis and Automated Email Generation",
+  "description": "Social Media Analysis and Automated Email Generation\n\n&gt; by Thomas Vie Thomas@pollup.net\n\nWho is this for?\nThis template is ideal for marketers, lead generation specialists, and business professionals seeking to analyze social media profiles of potential leads and automate personalized email outreach efficiently.\n\nWhat problem is this workflow solving?\nManually analyzing social media profiles and crafting personalized emails can be time-consuming and prone to errors. This workflow streamlines the process by integrating social media APIs with AI to generate tailored communication, saving time and increasing outreach effectiveness.\n\nWhat this workflow does:\nGoogle Sheets Integration: Start with a Google Sheet containing lead information such as LinkedIn URL, Twitter handle, name, and email.\nSocial Media Data Extraction: Automatically fetch profile and activity data from Twitter and LinkedIn using RapidAPI integrations.\nAI-Powered Content Generation: Use OpenAI's Chat Model to analyze the extracted data and generate personalized email subject lines and cover letters.\nAutomated Email Dispatch: Send the generated email directly to the lead, with a copy sent to yourself for tracking purposes.\nProgress Tracking: Update the Google Sheet to indicate completed actions.\n\nSetup:\nGoogle Sheets:\n   Create a sheet with the columns: LinkedIn URL, name, Twitter handle, email, and a \"done\" column for tracking.\n   Populate the sheet with your leads.\n\nRapidAPI Accounts:\n   Sign up for RapidAPI and subscribe to the Twitter and LinkedIn API plans.\n   Configure API authentication keys in the workflow.\n\nAI Configuration:\n   Connect OpenAI Chat Model with your API key for text generation.\n\nEmail Integration:\n   Add your email credentials or service (SMTP or third-party service like Gmail) for sending automated emails.\n\nHow to customize this workflow to your needs:\nModify the AI Prompt:** Adapt the prompt in the AI node to better align with your tone, style, or specific messaging framework.\nExpand Data Fields:** Add additional data fields in Google Sheets if you require further personalization.\nAPI Limits:** Adjust API configurations to fit your usage limits or upgrade to higher tiers for increased data scraping capabilities.\nPersonalize Email Templates:** Tweak email formats to suit different audiences or use cases.\nExtend Functionality:** Integrate additional social media platforms or CRM tools as needed.\n\nBy implementing this workflow, you’ll save time on repetitive tasks and create more effective lead generation strategies.",
+  "totalViews": 12401,
+  "source": "official",
+  "user": {
+    "id": 92501,
+    "name": "PollupAI",
+    "username": "zeerobug",
+    "bio": "We create bespoke AI solutions, automations and agents that help your business as it scales.",
+    "verified": true,
+    "links": "[\"https://pollup.ai\"]",
+    "avatar": "https://gravatar.com/avatar/6d3d2053279bc63e9be7bf4cd3fb74e13e7cc1309d32eab0b72140332cff577e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Core Nodes",
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "categories": [
+        "Communication",
+        "HITL",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-01-30T16:19:16.536Z",
+  "path": "official/template_2823/workflow.json"
+}

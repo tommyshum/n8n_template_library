@@ -1,0 +1,38 @@
+{
+  "id": 2133,
+  "name": "Provide latest euro exchange rates from European Central Bank via Webhook",
+  "description": "What is this workflow doing?\nThis simple workflow is pulling the latest Euro foreign exchange reference rates from the European Central Bank and responding expected values to an incoming HTTP request (GET) via a Webhook trigger node.\n\nSetup\nno authentication** needed\nthe workflow is ready to use\ntest** the workflow template by hitting the test workflow button and calling the URL in the webhook node\noptional: choose your own Webhook listening path in the Webhook trigger node\n\nUsage\nThere are two possible usage scenarios:\nget all Euro exchange rates as an array of objects\nget only a specific currency exchange rate as a single object\n\nAll available rates\nUsing the HTTP query ?foreign=USD (where USD is one of the available currency symbols) will provide only that specificly asked rate.\n\nResponse example:\n{\"currency\":\"USD\",\"rate\":\"1.0852\"}\n\nSingle exchange rate\nIf no query is provided, all available rates are returned.\n\nResponse example:\n[{\"currency\":\"USD\",\"rate\":\"1.0852\"},{\"currency\":\"JPY\",\"rate\":\"163.38\"},{\"currency\":\"BGN\",\"rate\":\"1.9558\"},{\"currency\":\"CZK\",\"rate\":\"25.367\"},{\"currency\":\"DKK\",\"rate\":\"7.4542\"},{\"currency\":\"GBP\",\"rate\":\"0.85495\"},{\"currency\":\"HUF\",\"rate\":\"389.53\"},{\"currency\":\"PLN\",\"rate\":\"4.3053\"},{\"currency\":\"RON\",\"rate\":\"4.9722\"},{\"currency\":\"SEK\",\"rate\":\"11.1675\"},{\"currency\":\"CHF\",\"rate\":\"0.9546\"},{\"currency\":\"ISK\",\"rate\":\"149.30\"},{\"currency\":\"NOK\",\"rate\":\"11.4285\"},{\"currency\":\"TRY\",\"rate\":\"33.7742\"},{\"currency\":\"AUD\",\"rate\":\"1.6560\"},{\"currency\":\"BRL\",\"rate\":\"5.4111\"},{\"currency\":\"CAD\",\"rate\":\"1.4674\"},{\"currency\":\"CNY\",\"rate\":\"7.8100\"},{\"currency\":\"HKD\",\"rate\":\"8.4898\"},{\"currency\":\"IDR\",\"rate\":\"16962.54\"},{\"currency\":\"ILS\",\"rate\":\"3.9603\"},{\"currency\":\"INR\",\"rate\":\"89.9375\"},{\"currency\":\"KRW\",\"rate\":\"1444.46\"},{\"currency\":\"MXN\",\"rate\":\"18.5473\"},{\"currency\":\"MYR\",\"rate\":\"5.1840\"},{\"currency\":\"NZD\",\"rate\":\"1.7560\"},{\"currency\":\"PHP\",\"rate\":\"60.874\"},{\"currency\":\"SGD\",\"rate\":\"1.4582\"},{\"currency\":\"THB\",\"rate\":\"38.915\"},{\"currency\":\"ZAR\",\"rate\":\"20.9499\"}]\n\nFurther info\nRead more about Euro foreign exchange reference rates here.",
+  "totalViews": 2818,
+  "source": "official",
+  "user": {
+    "id": 91487,
+    "name": "Monospace Design",
+    "username": "mnspc",
+    "bio": "Berlin design agency for beautiful, brand-oriented experiences along the entire customer journey – digital first.",
+    "verified": false,
+    "links": "[\"https://www.monospace.design\"]",
+    "avatar": "https://gravatar.com/avatar/a03e84c4d2dbeea082e0b239b1db2e8c4d1d0b1e3642847ac782e8d3a0a40b91?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-02-27T13:29:30.205Z",
+  "path": "official/template_2133/workflow.json"
+}

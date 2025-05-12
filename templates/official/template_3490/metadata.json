@@ -1,0 +1,127 @@
+{
+  "id": 3490,
+  "name": "Automated LinkedIn Lead Generation, Scoring & Communication with AI-Agent",
+  "description": "\n\n\n⚠️ DISCLAIMER: This workflow uses the HDW LinkedIn community node, which is only available on self-hosted n8n instances. It will not work on n8n.cloud.\n\nOverview\n\nThis workflow automates the entire LinkedIn lead generation process from finding prospects that match your Ideal Customer Profile (ICP) to sending personalized messages. It uses AI to analyze lead data, score potential clients, and prioritize your outreach efforts.\n\nKey Features\n\nAI-Driven Lead Generation**: Convert ICP descriptions into LinkedIn search parameters\nComprehensive Data Enrichment**: Analyze company websites, LinkedIn posts, and news\nIntelligent Lead Scoring**: Prioritize leads based on AI analysis of intent signals\nAutomated Outreach**: Connect with prospects and send personalized messages\n\nRequirements\n\nSelf-hosted n8n instance with the HDW LinkedIn community node installed\nOpenAI API access (for GPT-4o)\nGoogle Sheets access\nHDW API key (available at app.horizondatawave.ai)\nLinkedIn account\n\nSetup Instructions\n\n1. Install Required Nodes\n\nEnsure the HDW LinkedIn community node is installed on your n8n instance\nCommand: npm install n8n-nodes-hdw\n(or use this instruction)\n\n2. Configure Credentials\n\nOpenAI**: Add your OpenAI API key\nGoogle Sheets**: Set up Google account access\nHDW LinkedIn**: Configure your API key from horizondatawave.ai\n\n3. Set Up Google Sheet\n\nCreate a new Google Sheet with the following columns (or copy template):\n  Name, URN, URL, Headline, Location, Current company, Industry, etc.\n  The workflow will populate these columns automatically\n\n4. Customize Your ICP\n\nUse chat to provide the AI Agent with your Ideal Customer Profile\nExample: \"Target marketing directors at SaaS companies with 50-200 employees\"\n\n5. Adjust Scoring Criteria\n\nModify the lead scoring prompt in the \"Company Score Analysis\" node to match your specific product/service\nTune the evaluation criteria based on your unique business needs\n\n6. Configure Message Templates\n\nUpdate the HDW LinkedIn Send Message node with your custom message\n\nHow It Works\n\nICP Translation: AI converts your ICP description into LinkedIn search parameters\nLead Discovery: Workflow searches LinkedIn using these parameters\nData Collection: Results are saved to Google Sheets\nEnrichment: System collects additional data about each lead:\n   Company website analysis\n   Lead's LinkedIn posts\n   Company's LinkedIn posts\n   Recent company news\nIntent Analysis: AI analyzes all data to identify buying signals\nLead Scoring: Leads are scored on a 1-10 scale based on likelihood of interest\nConnection Requests: Top-scoring leads receive connection requests\nFollow-Up: When connections are accepted, automated messages are sent\n\nCustomization\n\nSearch Parameters**: Adjust the AI Agent prompt to refine your target audience\nScoring Criteria**: Modify scoring prompts to highlight indicators relevant to your product\nMessage Content**: Update message templates for personalized outreach\nSchedule**: Configure when connection requests and messages are sent\n\nRate Limits & Best Practices\n\nLinkedIn has connection request limits (approximately 100-200 per week)\nThe workflow includes safeguards to avoid exceeding these limits\nConsider spacing your outreach for better response rates\n\nNote: Always use automation tools responsibly and in accordance with LinkedIn's terms of service.",
+  "totalViews": 2498,
+  "source": "official",
+  "user": {
+    "id": 93688,
+    "name": "Andrey",
+    "username": "kulia",
+    "bio": "",
+    "verified": false,
+    "links": "[\"https://x.com/ai_kulikov\"]",
+    "avatar": "https://gravatar.com/avatar/c9dbe75018a62e382e004a5cb779a2a03e12345ae3c87b7d03f3b6f71d578105?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-04-08T23:40:26.853Z",
+  "path": "official/template_3490/workflow.json"
+}

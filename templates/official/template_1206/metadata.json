@@ -1,0 +1,75 @@
+{
+  "id": 1206,
+  "name": "Process Shopify new orders with Zoho CRM and Harvest",
+  "description": "This workflow is triggered when a new order is created in Shopify. Then:\nthe order information is stored in Zoho CRM,\nan invoice is created in Harvest and stored in Trello,\nif the order value is above 50, an email with a discount coupon is sent to the customer and they are added to a MailChimp campaign for high-value customers; otherwise, only a \"thank you\" email is sent to the customer.\n\nNote that you need to replace the List ID in the Trello node with your own ID (see instructions in our docs). Same goes for the Account ID in the Harvest node (see instructions here).",
+  "totalViews": 3018,
+  "source": "official",
+  "user": {
+    "id": 12733,
+    "name": "Lorena",
+    "username": "lorenanda",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/df6358bcce2351cf878beab8f89b9f000f50588aaa728f7ea57127c1b85e7b06?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Productivity",
+    "Marketing",
+    "Communication",
+    "Sales",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Trello",
+      "type": "n8n-nodes-base.trello",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Mailchimp",
+      "type": "n8n-nodes-base.mailchimp",
+      "categories": [
+        "Marketing",
+        "Communication"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Harvest",
+      "type": "n8n-nodes-base.harvest",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Zoho CRM",
+      "type": "n8n-nodes-base.zohoCrm",
+      "categories": [
+        "Communication",
+        "Sales"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2021-08-24T11:23:23.518Z",
+  "path": "official/template_1206/workflow.json"
+}

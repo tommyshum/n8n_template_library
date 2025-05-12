@@ -1,0 +1,38 @@
+{
+  "id": 2535,
+  "name": "Get Long Lived Facebook User or Page Access Token",
+  "description": "Facebook access tokens expire quickly, requiring regular updates for continued API access. This workflow simplifies the process of exchanging short-lived tokens for long-lived ones, saving time and reducing manual effort.\n\nWhat this workflow does\nExchanges a short-lived Facebook User Access Token for a long-lived token using the Facebook Graph API.\nOptionally retrieves a long-lived Page Access Token associated with the user.\nOutputs both the user and page tokens for further use in automation or integrations.\n\nSetup\nPrerequisites:\n\nA valid Facebook App ID and App Secret.\nA short-lived User Access Token from the Facebook platform.\n(Optional) The App-Scoped User ID for fetching associated page tokens.\n\nWorkflow Configuration:\nReplace placeholder values in the \"Set Parameter\" node with your Facebook credentials and token.\nRun the workflow manually to generate long-lived tokens.\n\nDocumentation Reference:\n\nFollow the official Facebook guide for more details: https://developers.facebook.com/docs/facebook-login/guides/access-tokens/get-long-lived/",
+  "totalViews": 1720,
+  "source": "official",
+  "user": {
+    "id": 92135,
+    "name": "Sira Ekabut",
+    "username": "siraekabut",
+    "bio": "Excel & Power BI Trainer\n\nHobbies : \n- Advanced AI Image Generation with ComfyUI\n- AI Automation with n8n",
+    "verified": true,
+    "links": "[\"https://www.thepexcel.com/\"]",
+    "avatar": "https://gravatar.com/avatar/5895ef0c4917274b518279c1ab54d9fc12db4422ad4d3833fb58176c846e7e45?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-11-09T00:42:28.140Z",
+  "path": "official/template_2535/workflow.json"
+}

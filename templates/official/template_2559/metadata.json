@@ -1,0 +1,115 @@
+{
+  "id": 2559,
+  "name": "Visualize your SQL Agent queries with OpenAI and Quickchart.io",
+  "description": "Overview  \nThis workflow aims to provide data visualization capabilities to a native SQL Agent.  \nTogether, they can help foster data analysis and data visualization within a team.  \nIt uses the native SQL Agent that works well and adds visualization capabilities thanks to OpenAI’s Structured Output and Quickchart.io.  \n\nHow it works  \nInformation Extraction:  \n   The Information Extractor identifies and extracts the user's question.  \n   If the question includes a visualization aspect, the SQL Agent alone may not respond accurately.  \n\nSQL Querying:  \n   It leverages a regular SQL Agent: it connects to a database, queries it, and translates the response into a human-readable format.  \n\nChart Decision:  \n   The Text Classifier determines whether the user would benefit from a chart to support the SQL Agent's response.  \n\nChart Generation:  \n   If a chart is needed, the sub-workflow dynamically generates a chart and appends it to the SQL Agent’s response.  \n   If not, the SQL Agent’s response is output as is.  \n\nCalling OpenAI for Chart Definition:  \n   The sub-workflow calls OpenAI via the HTTP Request node to retrieve a chart definition.  \n\nBuilding and Returning the Chart:  \n   In the \"Set Response\" node, the chart definition is appended to a Quickchart.io URL, generating the final chart image.  \n   The AI Agent returns the response along with the chart.  \n\nHow to use it  \nUse an existing database or create a new one.  \nFor example, I've used this Kaggle dataset and uploaded it to a Supabase DB.  \nAdd the PostgreSQL or MySQL credentials.  \nAlternatively, you can use SQLite binary files (check this template).  \nActivate the workflow.  \nStart chatting with the AI SQL Agent.  \nIf the Text Classifier determines a chart would be useful, it will generate one in addition to the SQL Agent's response.  \n\nNotes  \nThe full Quickchart.io specifications have not been fully integrated, so there may be some glitches (e.g., radar graphs may not display properly due to size limitations).  ",
+  "totalViews": 11668,
+  "source": "official",
+  "user": {
+    "id": 91624,
+    "name": "Agent Studio",
+    "username": "agentstudio",
+    "bio": "We are a product studio that helps organizations leverage no-code and generative AI to automate internal processes and launch new digital products.\nLinkedIn: https://www.linkedin.com/in/baptistej/",
+    "verified": true,
+    "links": "[\"https://agentstudio.io/\"]",
+    "avatar": "https://gravatar.com/avatar/e9cf0d0fccead46655b11b2ce215cf14d33ecdaa2ce52828f003574c1800e77a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Text Classifier",
+      "type": "@n8n/n8n-nodes-langchain.textClassifier",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Information Extractor",
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2024-11-20T10:54:23.294Z",
+  "path": "official/template_2559/workflow.json"
+}

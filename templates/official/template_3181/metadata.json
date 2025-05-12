@@ -1,0 +1,71 @@
+{
+  "id": 3181,
+  "name": "Import Odoo Product Images from Google Drive",
+  "description": "Objective\nThis workflow automatically imports product images from Google Drive and associates them with templates and products in Odoo.\n",
+  "totalViews": 1738,
+  "source": "official",
+  "user": {
+    "id": 93186,
+    "name": "AArtIntelligent",
+    "username": "aurelien-andre",
+    "bio": "With AArtIntelligent, turn your ideas into powerful automations: from Zero to Hero, scale your business to maximum efficiency!",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/53bbb31798713703b0b6ba058a7160cb4f9f6413d66f9463c8e0398119e36b8f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Communication",
+    "HITL",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Google Chat",
+      "type": "n8n-nodes-base.googleChat",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Odoo",
+      "type": "n8n-nodes-base.odoo",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-03-16T11:58:14.749Z",
+  "path": "official/template_3181/workflow.json"
+}

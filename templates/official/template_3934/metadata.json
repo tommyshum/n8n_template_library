@@ -1,0 +1,92 @@
+{
+  "id": 3934,
+  "name": "Generate Lessons Learned Reports from Jira Epics with AI and Google Docs",
+  "description": "Who is this for?\nJira users who want to automate the generation of a Lessons Learned or Retrospective report after an Epic is Done.\n\nWhat problem is this workflow solving? / use case\nLessons Learned / Retrospective reports are often omitted in Agile teams because they take time to write. With the use of n8n and AI this process can be automated.\n\nWhat is this workflow doing\nTriggers automatically upon an Epic reaching the \"Done\" status in Jira.\nCollects all related tasks and comments associated with the completed Epic.\nIntelligently filters the gathered data to provide the LLM with the most relevant information.\nUtilizes an LLM with a structured System Message to generate insightful reports.\nDelivers the finalized report directly to your specified Google Docs document.\n\nSetup\nCreate a Jira API key and follow the Credentials Setup in the Jira trigger node.\nCreate credentials for Google Docs and paste your document ID into the Node.\n\nHow to customize this workflow to your needs\nChange the System Message in the AI Agent to fit your needs.",
+  "totalViews": 256,
+  "source": "official",
+  "user": {
+    "id": 94359,
+    "name": "Tarek Mustafa",
+    "username": "tarekadam",
+    "bio": "Project manager with internet in AI and Automation",
+    "verified": false,
+    "links": "[\"https://www.linkedin.com/in/tarek-mustafa-87135156/\"]",
+    "avatar": "https://gravatar.com/avatar/aad4cc8a57955dfef3b450b87e7ee3de861c48c2e7f1d2d33184cd7835f0e010?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Productivity",
+    "Miscellaneous",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Jira Software",
+      "type": "n8n-nodes-base.jira",
+      "categories": [
+        "Development",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Google Docs",
+      "type": "n8n-nodes-base.googleDocs",
+      "categories": [
+        "Miscellaneous"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-05-08T07:35:46.686Z",
+  "path": "official/template_3934/workflow.json"
+}

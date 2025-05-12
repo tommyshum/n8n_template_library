@@ -1,0 +1,137 @@
+{
+  "id": 3689,
+  "name": "Analyze & Tag User Feedback in Notion with GPT-4 Sentiment Analysis",
+  "description": "Overview\nThis n8n workflow processes user feedback automatically, tags it with sentiment, and links it to relevant insights in Notion.\nIt uses GPT-4 to analyze each feedback entry, determine whether it corresponds to an existing insight or a new one, and update the Notion databases accordingly.\nIt helps teams centralize and structure qualitative user feedback at scale.\n\nWho It’s For\nProduct teams looking to organize and prioritize user feedback.\nFounders or solo builders seeking actionable insights from qualitative data.\nAnyone managing a Notion workspace where feedback is collected and needs to be tagged or linked to features and improvements.\n\nPrerequisites\nA Notion account with:\n  A Feedback database (must include fields for feedback content and status).\n  An Insights database with multi-select fields for Solution, User Persona, and a relation to Feedback.\n  The Notion template (linked below) helps you get started quickly — just remove the mock data.\nA configured Notion API integration in n8n.  \n  👉 Don’t forget to connect the n8n integration to the correct Notion page.\nAn OpenAI API key\n\nNotion Template\nThis workflow is designed to work seamlessly with a pre-configured Notion template that includes the required feedback and insights structure.  \n👉 User Feedback Analysis – Notion Template\n\nHow It Works\nThe workflow is triggered when a feedback item is updated in Notion (e.g. new feedback is submitted).\nSentiment analysis (Positive, Neutral, or Negative) is run using OpenAI and stored in a select field in Notion.\nThe AI agent analyzes the feedback to:\n  Identify whether it matches an existing insight.\n  Or create a new insight in Notion with a concise name, solution, and user persona.\nThe feedback is then linked to the appropriate insight and marked as \"Processed.\"\n\nHow to Use It\nConnect your Notion databases in all Notion nodes (including those used by the AI agent) for both Feedback and Insights — follow the node names provided.\nEnsure your OpenAI and Notion credentials are correctly set.\nSet up your product context:\n   Define a “Product Overview” and list your “Core Features”.\n   This helps the AI agent categorize insights more accurately.\n   (The Basecamp product is used as an example in the template.)\n(Optional) Modify the prompt to better fit your specific product context.\nOnce feedback is added or updated in Notion, the workflow triggers automatically.\n\nNotes\nOnly feedback with the status Received is processed.\nNew insights are only created if no relevant match is found.\nFeedback is linked to insights via Notion’s relation property.\nA fallback parser is included to fix potential formatting issues in the AI output.\nYou can swap the default n8n memory for a more robust backend like Supabase.\n\n🙏 Please share your feedback with us. It helps us tremendously!\n",
+  "totalViews": 231,
+  "source": "official",
+  "user": {
+    "id": 91624,
+    "name": "Agent Studio",
+    "username": "agentstudio",
+    "bio": "We are a product studio that helps organizations leverage no-code and generative AI to automate internal processes and launch new digital products.\nLinkedIn: https://www.linkedin.com/in/baptistej/",
+    "verified": true,
+    "links": "[\"https://agentstudio.io/\"]",
+    "avatar": "https://gravatar.com/avatar/e9cf0d0fccead46655b11b2ce215cf14d33ecdaa2ce52828f003574c1800e77a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Auto-fixing Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Sentiment Analysis",
+      "type": "@n8n/n8n-nodes-langchain.sentimentAnalysis",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 8,
+  "createdAt": "2025-04-24T12:31:36.032Z",
+  "path": "official/template_3689/workflow.json"
+}

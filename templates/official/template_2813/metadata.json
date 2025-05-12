@@ -1,0 +1,75 @@
+{
+  "id": 2813,
+  "name": "Automate Content Generator for WordPress with DeepSeek R1",
+  "description": "This workflow is designed to generate SEO-friendly content with DeepSeek R1 (or V3), publish it on WordPress, and update a Google Sheets document with the details of the created post. Below is a detailed analysis of what each node in the workflow does:\n\nHow It Works\nTriggering the Workflow:\n   The workflow starts with a Manual Trigger node, which is activated when the user clicks \"Test workflow\" in the n8n interface.\n\nFetching Data:\n   The Get Ideas node retrieves data from a Google Sheets document. It reads a specific sheet and filters the data based on the \"ID POST\" column, returning the first matching row.\n\nSetting the Prompt:\n   The Set your prompt node extracts the PROMPT field from the Google Sheets data and assigns it to a variable for use in subsequent steps.\n\nGenerating Content:\n   The Generate article node uses an AI model (DeepSeek) to create an SEO-friendly article based on the prompt. The article includes an introduction, 2-3 chapters, and a conclusion, formatted in HTML.\n   The Generate title node uses the same AI model to generate a concise, SEO-optimized title for the article.\n\nPublishing on WordPress:\n   The Create post on WordPress node creates a new draft post on WordPress using the generated title and article content.\n\nGenerating and Uploading an Image:\n   The Generate Image node creates a photorealistic image based on the article title using an AI model (OpenAI).\n   The Upload image node uploads the generated image to WordPress as a media file.\n   The Set Image node assigns the uploaded image as the featured image for the WordPress post.\n\nUpdating Google Sheets:\n   The Update Sheet node updates the original Google Sheets document with the post details, including the title, post ID, creation date, and row number.\n\nSet Up Steps\nConfigure Google Sheets Integration:\n   Set up the Google Sheets node to connect to your Google account and specify the document ID and sheet name to read from and update.\n\nSet Up AI Models:\n   Configure the OpenAI nodes (for generating the article, title, and image) with the appropriate API credentials and model settings (e.g., deepseek-reasoner for text generation).\n\nConfigure WordPress Integration:\n   Set up the WordPress node with your WordPress site's API credentials to allow creating posts and uploading media.\n\nDefine the Prompt and Content Structure:\n   In the Set your prompt node, ensure the prompt variable is correctly mapped to the data from Google Sheets.\n   In the Generate article and Generate title nodes, define the instructions for the AI model to generate the desired content.\n\nSet Up Image Generation:\n   Configure the Generate Image node with the appropriate prompt and image settings (e.g., size, quality, style).\n\nConfigure HTTP Requests for Media Upload:\n   Set up the Upload image and Set Image nodes to use the WordPress REST API for uploading and assigning the featured image.\n\nMap Data for Google Sheets Update:\n   In the Update Sheet node, map the relevant fields (e.g., title, post ID, date) to the appropriate columns in the Google Sheets document.\n\nTest and Activate the Workflow:\n   Run the workflow manually to ensure all steps execute correctly.\n   Once verified, activate the workflow for automated execution.\n\nOverall purpose of the workflow\nThis workflow automates the creation of SEO-friendly content for a WordPress blog. Starting from a prompt extracted from a Google Sheets document, it generates an article, a title, and an image, publishes the post on WordPress, and updates the Google Sheets document with the details of the created post. This process is useful for blog managers who want to automate content creation and publishing.\n\nNeed help customizing?  \nContact me for consulting and support or add me on Linkedin. ",
+  "totalViews": 37300,
+  "source": "official",
+  "user": {
+    "id": 92207,
+    "name": "Davide",
+    "username": "n3witalia",
+    "bio": "Full-stack Web Developer based in Italy specialising in Marketing & AI-powered automations. For business enquiries, send me an email at info@n3w.it or add me on Linkedin.com/in/davideboizza",
+    "verified": true,
+    "links": "[\"https://n3w.it\"]",
+    "avatar": "https://gravatar.com/avatar/d41b8a0aa81139243509c58870f5b4be292824a507ab57d10ed066d8628ed8da?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Marketing",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Wordpress",
+      "type": "n8n-nodes-base.wordpress",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-01-28T11:15:09.521Z",
+  "path": "official/template_2813/workflow.json"
+}

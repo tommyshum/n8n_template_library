@@ -1,0 +1,67 @@
+{
+  "id": 3664,
+  "name": "Automated Real Estate Property Lead Scoring with BatchData",
+  "description": "How It Works\nThis workflow automates the real estate lead qualification process by leveraging property data from BatchData. The automation follows these steps:\n\nWhen a new lead is received through your CRM webhook, the workflow captures their address information\nIt then makes an API call to BatchData to retrieve comprehensive property details\nA sophisticated scoring algorithm evaluates the lead based on property characteristics like:\n\nProperty value (higher values earn more points)\nSquare footage (larger properties score higher)\nProperty age (newer constructions score higher)\nInvestment status (non-owner occupied properties earn bonus points)\nLot size (larger lots receive additional score)\n\nLeads are automatically classified into categories (high-value, qualified, potential, or unqualified)\nThe workflow updates your CRM with enriched property data and qualification scores\nHigh-value leads trigger immediate follow-up tasks for your team\nNotifications are sent to your preferred channel (Slack in this example)\n\nThe entire process happens within seconds of receiving a new lead, ensuring your sales team can prioritize the most valuable opportunities immediately..\n\nWho It's For\nThis workflow is perfect for:\n\nReal estate agents and brokers looking to prioritize high-value property leads\nMortgage lenders who need to qualify borrowers based on property assets\nHome service providers (renovators, contractors, solar installers) targeting specific property types\nProperty investors seeking specific investment opportunities\nReal estate marketers who want to segment audiences by property value\nHome insurance agents qualifying leads based on property characteristics\n\nAny business that bases lead qualification on property details will benefit from this automated qualification system.\n\nAbout BatchData\nBatchData is a comprehensive property data provider that offers detailed information about residential and commercial properties across the United States. Their API provides:\n\nProperty valuation and estimates\nOwnership information\nProperty characteristics (size, age, bedrooms, bathrooms)\nTax assessment data\nTransaction history\nOccupancy status (owner-occupied vs. investment)\nLot details and dimensions\n\nBy integrating BatchData with your lead management process, you can automatically verify and enrich leads with accurate property information, enabling more intelligent lead scoring and routing based on actual property characteristics rather than just contact information.\n\nThis workflow demonstrates how to leverage BatchData's property API to transform your lead qualification process from manual research into an automated, data-driven system that ensures high-value leads receive immediate attention.",
+  "totalViews": 542,
+  "source": "official",
+  "user": {
+    "id": 93985,
+    "name": "Preston Zeller",
+    "username": "zellerhaus",
+    "bio": "Growth strategist and technologist, seeing companies from $25MM to $300MM ARR. Building innovative solutions with AI, workflows, desktop and mobile applications. ",
+    "verified": true,
+    "links": "[\"https://roomboost.ai\"]",
+    "avatar": "https://gravatar.com/avatar/399dc9c4dd97a72b5e5f9dc85766d25f26a4a7902c4bb0ba6025916d3b150101?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-04-22T20:19:04.372Z",
+  "path": "official/template_3664/workflow.json"
+}

@@ -1,0 +1,119 @@
+{
+  "id": 2650,
+  "name": "Extract Information from a Logo Sheet using forms, AI, Google Sheet and Airtable",
+  "description": "Instructions\n\nThis automation enables you to just upload any Image (via Form) of a Logo Sheet, containing multiple Images of Product Logos (most likely) which brings them in some context to one another. \n\nAfter submitting an AI-Agent eats that Logo Sheet, turning it into an List of \"Productname\" and \"Attributes\", also checks if Tools are kind of similar to another, given the Context of the Image.\n\nWe utilize AI Vision capabilities for that. NOTE: It might not be able to extract all informations. For a \"upload and forget it\" Workflow it works for me. You can even run it multiple times, to be sure. \n\nBut if you need to make sure it extracts everything you might need to think about an Multi-Agent Setup with Validation-Agent Steps.\n\nOnce the Agent finishes the extraction, it will traditionally and deterministicly add those Attributes to Airtable (Creates those, if not already existing.) and also Upserts the Tool Informations.\n\nIt uses MD5 Hashes for turning Product Names into.. something fancy really, you could also use it without that, but I wanted to have something that looks atleast like an ID.  \n\nSetup\n\nSet Up the Airtable like shown below.\nUpdate and set Credentials for all Airtable Nodes.\nCheck or Adjust the Prompt of the Agent matching your use-case.\nActivate the Workflow. \nOpen the Form (default: https://your-n8n.io/form/logo-sheet-feeder)\nEnjoy growing your Airtable.\n\n  \nEnjoy the workflow! ❤️  \nlet the work flow — Workflow Automation & Development",
+  "totalViews": 954,
+  "source": "official",
+  "user": {
+    "id": 91823,
+    "name": "Marcel Claus-Ahrens",
+    "username": "geckse",
+    "bio": "Hey 👋 I'm an Automation Expert with a passion for AI workflow automations and AI agents in general. Coming from a software background, I bring the necessary hard skills but love using NoCode to get the job done faster – hence n8n.",
+    "verified": true,
+    "links": "[\"https://let-the-work-flow.com\"]",
+    "avatar": "https://gravatar.com/avatar/4765e05c5f4cdab88efcfd24b9c464910cea34e6121d350b452dd166cbc27abb?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Crypto",
+      "type": "n8n-nodes-base.crypto",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2024-12-17T12:35:08.190Z",
+  "path": "official/template_2650/workflow.json"
+}

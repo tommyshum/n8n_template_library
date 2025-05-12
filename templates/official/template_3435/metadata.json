@@ -1,0 +1,47 @@
+{
+  "id": 3435,
+  "name": "Get Qualified Leads in One Click from Apollo to Airtable",
+  "description": "You Don’t Need More Tools. You Just Need the Right Leads.\nWhy spend $1,000s on lead gen when your perfect leads are already waiting in Apollo? You’ve already filtered the ideal prospects. You know who they are, where they work, and what they do.\n\nNow imagine turning that list into enriched, ready-to-contact leads—without paying pricey Apollo's recurring subscription (spoiler: you will pay only 0.60$ per 500 leads).\n\nFrom Filter to Outreach-Ready in Seconds\nWith the Lead Generation System, you just drop your Apollo search URL.\n\nThe workflow does the rest:\n✅ Scrapes all matching contacts from your Apollo filter\n✅ Enriches and organizes the data (names, roles, emails, LinkedIns, companies, etc.)\n✅ Delivers the final lead list to Airtable—or your CRM of choice\n\nNo more manual exports. \nNo CSV mess. \nNo VA needed.\nJust qualified leads, cleaned and ready to go.\n\nPerfect For\nFounders doing DIY outbound\nGrowth marketers scaling cold email\nAgencies running lead-gen for clients\nAnyone tired of paying too much for messy, outdated lists\n\nSetup Guide\nI built a step-by-step guide to setup this workflow in 5 to 10 minutes, available here: https://notanothermarketer.gitbook.io/home/templates/lead-generation\n\nThis template is free. Enjoy!\n",
+  "totalViews": 6859,
+  "source": "official",
+  "user": {
+    "id": 92843,
+    "name": "Not Another Marketer",
+    "username": "notanothermarketer",
+    "bio": "Building Badass AI Agents for Marketing. Pre-made, ready-to-use, fully customizable.\n\n",
+    "verified": true,
+    "links": "[\"https://www.notanothermarketer.com\"]",
+    "avatar": "https://gravatar.com/avatar/d6c9cb4d0092909e227e9de518409cdf679228a7df550714ce808d77976221af?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-04-04T11:10:06.804Z",
+  "path": "official/template_3435/workflow.json"
+}

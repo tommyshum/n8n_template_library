@@ -1,0 +1,65 @@
+{
+  "id": 2044,
+  "name": "Spotify: Discover Weekly Archive",
+  "totalViews": 1457,
+  "purchaseUrl": null,
+  "user": {
+    "id": 91387,
+    "name": "JYLN",
+    "username": "jyln",
+    "bio": "",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/ff497954e4d1ef9951cd1b44d15394f5f39d3c03088f7cb25d166375421c859f?r=pg&d=retro&size=200"
+  },
+  "description": "This updated workflow will automatically archive your Spotify Discover Weekly tracks to another manually created playlist, without the nuisance of duplicate tracks. It utilizes the latest verisons of n8n's Schedule trigger, Spotify, Switch, Merge, and IF nodes.\n\nSpecial thanks to trey for their original version of the workflow, as well as ihortom for their help with navigating the Switch node's outputs.\n\nTo use this workflow, you'll need to:\nCreate a playlist for use as the archive playlist within your Spotify account\nCreate and select your Spotify credentials within each Spotify node within the workflow\n\nSee workflow README for additional information and optional setup steps.\n",
+  "createdAt": "2024-01-08T17:50:49.616Z",
+  "nodes": [
+    {
+      "id": 335,
+      "icon": "file:spotify.svg",
+      "name": "n8n-nodes-base.spotify",
+      "codex": {
+        "data": {
+          "alias": [
+            "Music",
+            "Song"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.spotify/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/spotify/"
+              }
+            ]
+          },
+          "categories": [
+            "Miscellaneous"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "Spotify"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiB2aWV3Qm94PSIwIDAgNjYgNjUiPjx1c2UgeGxpbms6aHJlZj0iI2EiIHg9Ii41IiB5PSIuNSIvPjxzeW1ib2wgaWQ9ImEiIG92ZXJmbG93PSJ2aXNpYmxlIj48cGF0aCBmaWxsPSIjMWVkNzYwIiBmaWxsLXJ1bGU9Im5vbnplcm8iIHN0cm9rZT0ibm9uZSIgZD0iTTMyIDBDMTQuMyAwIDAgMTQuMzM3IDAgMzJjMCAxNy43IDE0LjMzNyAzMiAzMiAzMiAxNy43IDAgMzItMTQuMzM3IDMyLTMyUzQ5LjY2MyAwIDMyIDBtMTQuNjggNDYuMTg0Yy0uNTczLjk1Ni0xLjc5NyAxLjIyMy0yLjc1My42NS03LjUzMi00LjU4OC0xNi45NzUtNS42Mi0yOC4xNC0zLjA5Ny0xLjA3LjIzLTIuMTQtLjQyLTIuMzctMS41cy40Mi0yLjE0IDEuNS0yLjM3YzEyLjE5Ni0yLjggMjIuNjctMS42MDYgMzEuMDgyIDMuNTU2YTIgMiAwIDAgMSAuNjg4IDIuNzUzem0zLjktOC43MTdjLS43MjYgMS4xODUtMi4yNTYgMS41My0zLjQ0Ljg0LTguNjAyLTUuMjc2LTIxLjcxNi02LjgwNS0zMS44ODUtMy43NDctMS4zMzguMzgyLTIuNzE0LS4zNDQtMy4wOTctMS42NDQtLjM4Mi0xLjMzOC4zNDQtMi43MTQgMS42ODItMy4wOTcgMTEuNjIyLTMuNTE3IDI2LjA3NC0xLjgzNSAzNS45NzYgNC4yNDQgMS4xNDcuNjg4IDEuNSAyLjIxNy43NjUgMy40MDN6bS4zNDQtOS4xYy0xMC4zMjMtNi4xMTctMjcuMzM2LTYuNy0zNy4yLTMuNzA4LTEuNTY4LjQ5Ny0zLjI1LS40Mi0zLjc0Ny0xLjk4OHMuNDItMy4yNSAxLjk4OC0zLjc0N2MxMS4zMTctMy40NCAzMC4xMjctMi43NTMgNDEuOTggNC4yODIgMS40MTUuODQgMS44NzMgMi42NzYgMS4wMzIgNC4xLS43NjUgMS40NTMtMi42MzggMS45MTItNC4wNTMgMS4wN3oiLz48L3N5bWJvbD48L3N2Zz4="
+      },
+      "displayName": "Spotify",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 11,
+          "name": "Miscellaneous"
+        }
+      ]
+    }
+  ]
+}

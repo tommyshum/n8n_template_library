@@ -1,0 +1,38 @@
+{
+  "id": 2591,
+  "name": "Send Emails via Gmail from Obsidian",
+  "description": "How it Works\nThis n8n template makes it possible to send emails directly from your Obsidian notes. \nIt leverages the power of the Obsidian Post Webhook plugin, allowing seamless integration between your notes and the email workflow. \n\nWhat it does:\nReceives note content and metadata from Obsidian via a Webhook.\nParses YAML frontmatter to define email recipients, subject, and more.\nAutomatically processes attachments, encoding them into an email-friendly format.\nSends emails via Gmail and confirms the status back to Obsidian.\nIncludes a testing feature to verify everything works before going live.\n\nSet-up Steps\nWebhook Configuration: Set your n8n POST Webhook URL in the Obsidian Obsidian Post Webhook plugin settings.\nEmail Integration: Submit the Gmail credentials in n8n email nodes.\nTest the Workflow: Run a test from Obsidian to ensure the template functions correctly.\nActivate and Enjoy: Start sending customized emails with attachments from your notes in no time!",
+  "totalViews": 2187,
+  "source": "official",
+  "user": {
+    "id": 92215,
+    "name": "Obsidi8n",
+    "username": "derruttie",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/984ed54b1cb51c4034af653825fba87431a040243b4c9bee03360cc19f5edcff?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-11-30T13:25:25.711Z",
+  "path": "official/template_2591/workflow.json"
+}

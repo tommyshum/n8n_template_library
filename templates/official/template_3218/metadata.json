@@ -1,0 +1,63 @@
+{
+  "id": 3218,
+  "name": "Get all orders in Shopify to Google Sheets",
+  "description": "This workflow retrieves all Shopify Orders and saves them into a Google Sheets spreadsheet using the Shopify Admin REST API. It uses pagination to ensure all orders are collected efficiently.\n\nI originally built this workflow for my own use and found it valuable for understanding how Shopify pagination works. Now, I’m sharing it to help others automate their order retrieval process.\n\nHow It Works\nInstead of relying on the built-in Shopify node (Get Orders Many), this workflow leverages the HTTP Request node to fetch paginated chunks manually.\n\nShopify uses cursor-based pagination (page_info) instead of traditional page numbers.\nPagination data is stored in the response headers, so we need to enable Include Response Headers and Status in the HTTP Request node.\nYou can modify the limit parameter to control batch sizes and optimize for rate limits.\nThis workflow can be run on demand or scheduled to keep your data up to date.\n\nParameters\nYou can adjust these parameters in the HTTP Request node:\n\nlimit – The number of orders per request (default: 50, max: 250).\nfields – Comma-separated list of fields to retrieve.\npage_info – Used for pagination; only limit and fields are allowed when paginating.\n\n📌 Note: when you query the paginated chunks with page_info, only the limit and fields parameters are allowed\n\nCredentials\nShopify API Key – Required for authentication.\nGoogle Sheets API credentials – Needed to insert data into the spreadsheet.\n💾 Clone the Google Sheets template here\n\nWho Is This For?\nShopify store owners who need to export all orders to Google Sheets.\nUsers who want full control over API parameters for optimized queries.\nAnyone looking for a flexible and scalable Shopify data extraction solution.\n\nExplore More Templates\n👉 Check out my other n8n templates\n\n",
+  "totalViews": 413,
+  "source": "official",
+  "user": {
+    "id": 92981,
+    "name": "bangank36",
+    "username": "bangank36",
+    "bio": "Automation specialist with 10+ years of experience helping SME website owners streamline their workflows—specializing in Squarespace, Shopify, and WordPress. Book an initial consultation for custom n8n automation using my link.",
+    "verified": true,
+    "links": "[\"https://beyondspace.studio\"]",
+    "avatar": "https://gravatar.com/avatar/499b5f6868bff3f56c51a6650bf87b946b25b2e17d353e3c9bbf5b34d2bd5bf4?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-03-19T12:17:22.489Z",
+  "path": "official/template_3218/workflow.json"
+}

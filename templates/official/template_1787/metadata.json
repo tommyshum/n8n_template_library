@@ -1,0 +1,41 @@
+{
+  "id": 1787,
+  "name": "Upload leads from a CSV file to Pipedrive CRM",
+  "description": "This workflow gets leads' contacts from a CSV file and adds it to the Pipedrive CRM by creating an organization and a person. The CSV file in this workflow serves as a universal connector allowing you to export contacts from any platform like LinkedIn, Facebook, etc.\n\nPrerequisites\nGoogle account and Google credentials\nPipedrive account and Pipedrive credentials\n\nHow it works\nThe Google Drive Trigger node starts the workflow when a new CSV file is uploaded to a specific folder in Google Drive.\nGoogle Drive node downloads the CSV file.\nSpreadsheet File node reads data from the CSV file and sends the output to the Merge node. This Spreadsheet File's output becomes the input 1 for the Merge node.\nMeanwhile, the Pipedrive node gets the same list of contacts from the CSV file.\nIF node checks if Pipedrive has these contacts already created previously and sends the checked results to the Merge node. These results arrive at the Merge node as input 2.\nMerge node compares two inputs via email and removes the matches. \nPipedrive node creates new contacts based on the data provided by the Merge node with necessary details such as organization and notes.\n",
+  "totalViews": 1957,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Sales",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "Pipedrive",
+      "type": "n8n-nodes-base.pipedrive",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2022-09-09T11:43:13.319Z",
+  "path": "official/template_1787/workflow.json"
+}

@@ -1,0 +1,77 @@
+{
+  "id": 3076,
+  "name": "🦜✨Use OpenAI to Transcribe Audio + Summarize with AI + Save to Google Drive",
+  "description": "Automate Audio Transcription, AI Summarization, and Google Drive Storage\n\nWho is this for?  \nContent Teams, Researchers, and Administrators who need to automatically process voice memos, meeting recordings, or interview audio into structured, searchable documents.\n\nWhat problem does this solve?  \nEliminates manual transcription work by automatically converting audio files into organized text documents with AI analysis, while maintaining human oversight through approval workflows.\n\nWhat this workflow does  \nSmart Audio Processing:  \n   Triggers when new .m4a files appear in Google Drive  \n   Uses OpenAI's Whisper for accurate transcription  \n   Implements dual-format reporting (JSON + Markdown)  \n\nHuman Oversight (optional):  \n   Requires email approval before processing  \n   45-minute response window with escalation options  \n\nAI-Powered Analysis:  \n   Generates structured JSON reports with:  \n     Key points & action items  \n     Sentiment analysis  \n     Technical terminology glossary  \n   Creates Markdown versions for easy reading  \n\nDocument Management:  \n   Stores raw transcripts + reports in Google Drive  \n   Automatic file naming with timestamps  \n   Sends completion alerts via Email/Telegram  \n\nWorkflow visualization showing audio file processing path\n\nSetup  \nCredentials Needed:  \n   Google Drive API access  \n   OpenAI API key (GPT-4o-mini)  \n   Gmail & Telegram integrations  \n\nConfiguration:  \n   Set your Google Drive folder ID in 3 nodes  \n   Update email addresses in Gmail nodes  \n   Customize approval timeout in \"Gmail User for Approval\"  \n\nCustomization Points:  \n   File extension filters (.m4a)  \n   AI report templates and prompts  \n   Notification channels (Email/Telegram)  \n\nHow to customize  \nApproval Process**: Add SMS/Teams notifications via additional nodes  \nFile Types**: Modify filter node for .mp3/.wav support  \nAnalysis Depth**: Adjust GPT-4 prompts in \"Summarize to JSON\" nodes  \nStorage**: Connect to Notion/Airtable instead of Google Drive  \n",
+  "totalViews": 15007,
+  "source": "official",
+  "user": {
+    "id": 92125,
+    "name": "Joseph LePage",
+    "username": "joe",
+    "bio": "As an AI Automation consultant based in Canada, I partner with forward-thinking organizations to implement AI solutions that streamline operations and drive growth.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/e7ca218dfc87b68344bbd66f40da01546d2f6fc1cf884267821e8a77e3e8410a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Data & Storage",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-03-03T23:06:23.260Z",
+  "path": "official/template_3076/workflow.json"
+}

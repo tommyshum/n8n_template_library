@@ -1,0 +1,32 @@
+{
+  "id": 947,
+  "name": "Register users to an event on Demio via Typeform",
+  "description": "This workflow allows you to register your audience to an event on Demio via a Typeform submission.\n\n\n\nTypeform Trigger node: This node will trigger the workflow when a form response is submitted. Based on your use-case, you may use a different platform. Replace the Typeform Trigger node with a node of that platform. \n\nDemio node: This node registers a user for an event. It gets the details of the users from the Typeform response.",
+  "totalViews": 395,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication"
+  ],
+  "nodes": [
+    {
+      "name": "Demio",
+      "type": "n8n-nodes-base.demio",
+      "categories": [
+        "Communication"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2021-02-18T11:23:48.628Z",
+  "path": "official/template_947/workflow.json"
+}

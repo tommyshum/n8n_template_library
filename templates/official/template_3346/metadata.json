@@ -1,0 +1,72 @@
+{
+  "id": 3346,
+  "name": "Create an AI-Powered Discord Assistant with GPT-4o for Multi-Channel Messaging",
+  "description": "🤖 Discord AI Workflow: Your Automated Assistant! 🚀\n\n🌟 Workflow Overview\nTransforms your Discord server into an intelligent, responsive powerhouse of communication and automation!\n\n🔧 Core Components\n💬 AI-Powered Messaging\n🤝 Multi-Channel Interaction\n🧠 Smart Response Generation\n🔗 Seamless Workflow Integration\n\n🚦 Trigger Modes\n1️⃣ Workflow Trigger \n🔓 Activated by external workflows\n📨 Processes incoming tasks\n🌐 Supports complex automation scenarios\n\n2️⃣ Chat Message Trigger\n🗣️ Responds to direct Discord messages\n🤔 Contextual understanding\n🔍 Real-time interaction\n\n🛠️ Key Features\n🤖 AI-Driven Conversations\n📊 Dynamic Message Handling\n🔒 Secure Credential Management\n🌈 Flexible Configuration\n\n🚀 Use Cases\n📢 Automated Announcements\n🆘 Support Ticket Management\n📝 Content Generation\n🤝 Community Engagement\n\n💡 Smart Capabilities\n🧩 Modular Design\n🔄 Seamless Data Flow\n📝 Character Limit Management\n🌐 Multi-Channel Support\n\n🛡️ Security & Performance\n🔐 OAuth Integration\n🚧 Error Handling\n📊 Performance Optimization\n🛠️ Continuous Improvement\n\n🎯 Workflow Magic\nUser Input ➡️ AI Processing ➡️ Smart Response ➡️ Discord Channel \n   🌟        🤖             💬            📨\n\n🔍 Customization Playground\n🎨 Personalize AI Responses\n🔧 Adjust Interaction Rules\n📐 Fine-Tune Workflow Behavior\n\n🚧 Troubleshooting Toolkit\n🕵️ Credential Verification\n🔬 Permissions Check\n📋 Comprehensive Logging\n🆘 Error Handling Strategies\n\n🌈 Future Possibilities\n🤖 Advanced AI Integration\n🚀 Expanded Interaction Modes\n🧠 Machine Learning Enhancements\n🌐 Ecosystem Expansion",
+  "totalViews": 19,
+  "source": "official",
+  "user": {
+    "id": 93472,
+    "name": "YungCEO",
+    "username": "yungceo",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/8ab6ef126f2821944916fe8da299038612aa5882fa164aa67ae1078ec03cf356?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-03-28T16:30:32.716Z",
+  "path": "official/template_3346/workflow.json"
+}

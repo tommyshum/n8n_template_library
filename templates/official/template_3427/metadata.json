@@ -1,0 +1,57 @@
+{
+  "id": 3427,
+  "name": "Automate Call Scheduling with Voice AI Receptionist using Vapi, Google Calendar & Airtable",
+  "description": "Who is this template for?\n\nThis template is ideal for small businesses, agencies, and solo professionals who want to automate appointment scheduling and caller follow-up through a voice-based AI receptionist. If you’re using tools like Google Calendar, Airtable, and Vapi (Twilio), this setup is for you.\n\nWhat problem does this workflow solve?\n\nManual call handling, appointment booking, and email coordination can be time-consuming and prone to errors. This workflow solves that by automating the receptionist role: answering calls, checking calendar availability, managing appointments, and storing call summaries—all without human intervention.\n\nWhat this workflow does\n\nThis Agent Receptionist manages inbound voice calls and scheduling tasks using Vapi and Google Calendar. It checks availability, books or updates calendar events, sends email confirmations, and logs call details into Airtable. The workflow includes built-in logic for slot management, email triggers, and storing call transcripts. \n\nSetup Instructions\n\nDuplicate Airtable Base: Use this Airtable base templateBASE LINK \n\nImport Workflow: Load provided JSON into your n8n instance.\n\nCredentials: Connect your Google Calendar and Airtable credentials in n8n.\n\nActivate Workflow: Enable workflow to get live webhook URLs.\n\nVapi Configuration:\n\nPaste provided system prompt into Vapi Assistant. \n\nLink the appropriate webhook URLs from n8n (GetSlots, BookSlots, UpdateSlots, CancelSlots, and end-of-call report).\n\n\n\nDisclaimer\n\nOptimized for cloud-hosted n8n instances. Self-hosted users should verify webhook and credential setups.",
+  "totalViews": 1100,
+  "source": "official",
+  "user": {
+    "id": 92433,
+    "name": "SuperAgent",
+    "username": "customaistudio",
+    "bio": "Custom AI Studio | AI Agent Creators",
+    "verified": false,
+    "links": "[\"https://www.customaistudio.io\"]",
+    "avatar": "https://gravatar.com/avatar/035bb01ce6a9f9d148b22cfece3de2f413a119d041086cc1d618d4b79764feb6?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Google Calendar",
+      "type": "n8n-nodes-base.googleCalendar",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-04-03T19:05:21.114Z",
+  "path": "official/template_3427/workflow.json"
+}

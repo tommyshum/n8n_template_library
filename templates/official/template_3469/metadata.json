@@ -1,0 +1,141 @@
+{
+  "id": 3469,
+  "name": "Gumroad Clientbell: Auto-Log Sales, Ping Telegram, & Thank via Email",
+  "description": "Who is this for?  \nThis template is perfect for Gumroad creators, solopreneurs, digital product sellers, and freelancers who want to track and thank customers automatically — without spending time on manual work.\n\nWhat problem does this solve?  \nEvery sale is a moment to build trust. But manually checking your inbox for new orders, logging clients, and remembering to send a thank-you note? It’s time-consuming and inconsistent.\n\nThis workflow handles it all:  \nFrom sale → to sheet → to ping → to personalized “thank you” — all fully automated.\n\nWhat this workflow does:  \n✅ Triggers on each new sale on Gumroad  \n📋 Extracts buyer details, amount paid, and product purchased  \n📈 Logs the sale to a Google Sheet for tracking  \n📲 Sends a Telegram approval message to notify you  \n💌 (Optional) Sends a Gmail thank-you email to the buyer  \n🔁 Keeps your workflow organized with color-coded notes and sample data\n\n⚙️ Setup Instructions:\n\nCreate Gumroad API and connect the trigger node  \nAuthenticate with Google Sheets to store each client  \nConnect your Telegram bot for real-time alerts  \n(Optional) Setup Gmail API for sending thank-you emails  \nCustomize the email copy & sheet headers (e.g. % cut, timestamps)\n\n🗒 Color-coded workflow notes:\n\nTo make customization smooth, the workflow includes a color-coded sticky note system:\n\n🟩 Green Notes – Main building blocks (trigger, logging, ping, email)  \n🟦 Blue Notes – Setup guidance and editable fields (e.g. your email or brand name)  \n🟨 Yellow Notes – Optional upgrades (e.g. swap Gmail, use AI email generator, change to WhatsApp)\n\nEach step has comments or hints to make your setup easy — whether you're new to n8n or a seasoned automator.\n\n🔧 How to customize this workflow?\n\n🎯 Swap Gmail with Outlook, SMTP, or Mailgun  \n🤖 Use AI (e.g. OpenAI or Claude) to draft personalized emails dynamically  \n📞 Replace Telegram with WhatsApp, Discord, or Slack  \n🗃️ Log to Airtable or Notion instead of Google Sheets  \n🧠 Add approval logic or advanced tagging in Gmail\n\n🧾 Licensing & Support\n\nThis template is built by Velebit from Innovatio. External links (Gumroad store or support email) are included in the notes for optional help and upgrades.\n\nA separate license applies to the paid version on Gumroad, which includes additional modules and commercial use rights.\n\n📩 Support & customization: velebit@innovatio.design\n",
+  "totalViews": 526,
+  "source": "official",
+  "user": {
+    "id": 93571,
+    "name": "Velebit from Innovatio",
+    "username": "innovatio",
+    "bio": "I design modular (no-code, low-code, AI) automation workflows for creators, marketers, and lean SaaS teams.  \nFounder of [Innovatio](https://innovatio.design) — empowering humans with AI-powered systems that save time, boost revenue, and scale with heart.\n\n🚀 Want custom automation? Let's talk → velebit@innovatio.design",
+    "verified": true,
+    "links": "[\"https://innovatio.design/\"]",
+    "avatar": "https://gravatar.com/avatar/6278fbac6a13365966261d4fa900b7b75ade5437ec61e3022d4549b8466d4685?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Communication",
+    "HITL",
+    "Core Nodes",
+    "Productivity",
+    "Development",
+    "Sales",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "categories": [
+        "Communication",
+        "HITL",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Twilio",
+      "type": "n8n-nodes-base.twilio",
+      "categories": [
+        "Communication",
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "HubSpot",
+      "type": "n8n-nodes-base.hubspot",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Microsoft Outlook",
+      "type": "n8n-nodes-base.microsoftOutlook",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 10,
+  "createdAt": "2025-04-08T06:37:56.846Z",
+  "path": "official/template_3469/workflow.json"
+}

@@ -1,0 +1,117 @@
+{
+  "id": 1821,
+  "name": "Sync Zendesk tickets with subsequent comments to Asana tasks",
+  "totalViews": 447,
+  "purchaseUrl": null,
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "description": "This workflow creates an Asana task when a new ticket is created in Zendesk. Subsequent comments on the ticket in Zendesk are added as comments to the task in Asana.\n\nPrerequisites\n\nZendesk account and Zendesk credentials.\nAsana account and Asana credentials.\nAsana workspace to create tasks in.\n\nHow it works\n\nThe workflow listens for new tickets in Zendesk.\nWhen a new ticket is created, the workflow creates a new task in Asana.\nThe Asana GID is then saved in one of the ticket's fields (in setup we call this \"Asana GID\").\nThe next time a comment is added to the ticket, the workflow retrieves the Asana GID from the ticket's field and adds the comment to the task in Asana.\n\nSetup\n\nThis workflow requires that you set up a webhook in Zendesk. To do so, follow the steps below:\n\nIn the workflow, open the On new Zendesk ticket node and copy the webhook URL.\nIn Zendesk, navigate to Admin Center &gt; Apps and integrations &gt; Webhooks &gt; Actions &gt; Create Webhook.\nAdd all the required details which can be retrieved from the On new Zendesk ticket node. The webhook URL gets added to the “Endpoint URL” field, and the “Request method” should match what is shown in n8n.\nSave the webhook.\nIn Zendesk, navigate to Admin Center &gt; Objects and rules &gt; Business rules &gt; Triggers &gt; Add trigger.\nGive trigger a name such as “New tickets”.\nUnder “Conditions” in “Meet ALL of the following conditions”, add “Status is New”.\nUnder “Actions”, select “Notify active webhook” and select the webhook you created previously.\nIn the JSON body, add the following:\n    \n        {\n    \t\"id\": \"{{ticket.id}}\",\n    \t\"comment\": \"{{ticket.latest_comment_html}}\"\n    }\n        \nSave the Zendesk trigger.\n\nYou will also need to set up a field in Zendesk to store the Asana GID. To do so, follow the steps below:\n\nIn Zendesk, navigate to Admin Center &gt; Objects and rules &gt; Tickets &gt; Fields &gt; Add field.\nUse the number field option and give the field a name such as “Asana GID”.\nSave the field.\nIn n8n, open the Update ticket node and select the field you created in Zendesk.",
+  "createdAt": "2022-11-01T10:36:56.046Z",
+  "nodes": [
+    {
+      "id": 3,
+      "icon": "file:asana.svg",
+      "name": "n8n-nodes-base.asana",
+      "codex": {
+        "data": {
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/how-a-digital-strategist-uses-n8n-for-online-marketing/",
+                "icon": "💻",
+                "label": "How a digital strategist uses n8n for online marketing"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.asana/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/asana/"
+              }
+            ]
+          },
+          "categories": [
+            "Productivity"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "Asana"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCI+PGRlZnM+PHJhZGlhbEdyYWRpZW50IGlkPSJhIiBjeD0iNTAlIiBjeT0iNTUlIiByPSI3Mi41MDclIiBmeD0iNTAlIiBmeT0iNTUlIiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KC45MjQwNCAwIDAgMSAuMDM4IDApIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRkZCOTAwIi8+PHN0b3Agb2Zmc2V0PSI2MCUiIHN0b3AtY29sb3I9IiNGOTVEOEYiLz48c3RvcCBvZmZzZXQ9Ijk5LjkxJSIgc3RvcC1jb2xvcj0iI0Y5NTM1MyIvPjwvcmFkaWFsR3JhZGllbnQ+PC9kZWZzPjxwYXRoIGZpbGw9InVybCgjYSkiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTQ1LjU5NCAyOC41Yy02Ljk5NC4wMDMtMTIuNjY0IDUuNjczLTEyLjY2NyAxMi42NjcuMDAzIDYuOTk1IDUuNjczIDEyLjY2NCAxMi42NjcgMTIuNjY4IDYuOTk1LS4wMDQgMTIuNjY0LTUuNjczIDEyLjY2Ny0xMi42NjgtLjAwMy02Ljk5NC01LjY3Mi0xMi42NjQtMTIuNjY3LTEyLjY2N20tMzIuOTI3LjAwMUM1LjY3MyAyOC41MDUuMDAzIDM0LjE3NCAwIDQxLjE3Yy4wMDMgNi45OTQgNS42NzMgMTIuNjY0IDEyLjY2NyAxMi42NjcgNi45OTUtLjAwMyAxMi42NjQtNS42NzMgMTIuNjY4LTEyLjY2Ny0uMDA0LTYuOTk1LTUuNjczLTEyLjY2NC0xMi42NjgtMTIuNjY4ek00MS43OSAxMi42NjdjLS4wMDIgNi45OTUtNS42NzEgMTIuNjY1LTEyLjY2NiAxMi42Ny02Ljk5NS0uMDA0LTEyLjY2NC01LjY3NC0xMi42NjctMTIuNjdDMTYuNDYgNS42NzMgMjIuMTMuMDAzIDI5LjEyMyAwYzYuOTk0LjAwNCAxMi42NjMgNS42NzMgMTIuNjY2IDEyLjY2N3oiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC43MzIgMi43MzIpIi8+PC9zdmc+"
+      },
+      "displayName": "Asana",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 4,
+          "name": "Productivity"
+        }
+      ]
+    },
+    {
+      "id": 123,
+      "icon": "file:zendesk.svg",
+      "name": "n8n-nodes-base.zendesk",
+      "codex": {
+        "data": {
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/your-business-doesnt-need-you-to-operate/",
+                "icon": " 🖥️",
+                "label": "Hey founders! Your business doesn't need you to operate"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.zendesk/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/zendesk/"
+              }
+            ]
+          },
+          "categories": [
+            "Communication"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"output\"]",
+      "defaults": {
+        "name": "Zendesk"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgZmlsbD0ibm9uZSI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTAgMjRDMCAxMC43NDUgMTAuNzQ1IDAgMjQgMHMyNCAxMC43NDUgMjQgMjQtMTAuNzQ1IDI0LTI0IDI0UzAgMzcuMjU1IDAgMjQiLz48cGF0aCBmaWxsPSIjMDMzNjNEIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xNS40NDggMTguNjUzYzQuMDUgMCA3LjMzMi0zLjM3NSA3LjMzMi03LjUzOEg4LjExNmMwIDQuMTYzIDMuMjgzIDcuNTM4IDcuMzMyIDcuNTM4bTcuMzMyIDE3LjE5OVYxNy42NDhMOC4xMTYgMzUuODUyem0yLjQxNSAwYzAtNC4xNjQgMy4yODMtNy41NCA3LjMzMi03LjU0IDQuMDUgMCA3LjMzMiAzLjM3NiA3LjMzMiA3LjU0em0wLTI0LjczN3YxOC4yMDNMMzkuODYgMTEuMTE1eiIgY2xpcC1ydWxlPSJldmVub2RkIi8+PC9zdmc+"
+      },
+      "displayName": "Zendesk",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 6,
+          "name": "Communication"
+        }
+      ]
+    }
+  ]
+}

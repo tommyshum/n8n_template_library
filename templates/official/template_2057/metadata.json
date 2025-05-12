@@ -1,0 +1,61 @@
+{
+  "id": 2057,
+  "name": "Manage Webflow form submissions in Airtable",
+  "description": "What this does\nThis automation will create tables in your Airtable base and send Webflow form submissions as records in those tables. It keeps track of your Webflow forms with a Form Index table to ensure that form content does not get sent to the wrong table if you have Webflow forms with identical names.\n\nThis is useful for\nEnhancing your Webflow form submission management. By sending structured data to your Airtable base you can do more with your Webflow forms.\n\nUsage guide\nFull written and video guide\n\nThis automation is made to be as low effort as possible to start enhancing your Webflow forms.\n\nSimply create credentials for Webflow and a Personal Access Token for your Airtable base and connect them to the relevant nodes. The guide demonstrates a realworld example using a Webflow template and breaksdown the flow and logic for all the nodes.",
+  "totalViews": 738,
+  "source": "official",
+  "user": {
+    "id": 91392,
+    "name": "kreonovo",
+    "username": "kreonovo",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/89fd5fed02594631a1e2f8850e1bbda1032300c5fccb978097c5b7ad9a36c336?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-01-17T09:37:34.917Z",
+  "path": "official/template_2057/workflow.json"
+}

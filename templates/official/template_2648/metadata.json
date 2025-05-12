@@ -1,0 +1,106 @@
+{
+  "id": 2648,
+  "name": "Automate Blog Creation in Brand Voice with AI",
+  "description": "This n8n template demonstrates a simple approach to using AI to automate the generation of blog content which aligns to your organisation's brand voice and style by using examples of previously published articles.\n\nIn a way, it's quick and dirty \"training\" which can get your automated content generation strategy up and running for very little effort and cost whilst you evaluate our AI content pipeline.\n\nHow it works\nIn this demonstration, the n8n.io blog is used as the source of existing published content and 5 of the latest articles are imported via the HTTP node.\nThe HTML node is extract the article  bodies which are then converted to markdown for our LLMs.\nWe use LLM nodes to (1) understand the article structure and writing style and (2) identify the brand voice characteristics used in the posts.\nThese are then used as guidelines in our final LLM node when generating new articles.\nFinally, a draft is saved to Wordpress for human editors to review or use as starting point for their own articles.\n\nHow to use\nUpdate Step 1 to fetch data from your desired blog or change to fetch existing content in a different way.\nUpdate Step 5 to provide your new article instruction. For optimal output, theme topics relevant to your brand.\n\nRequirements\nA source of text-heavy content is required to accurately breakdown the brand voice and article style. Don't have your own? Maybe try your competitors?\nOpenAI for LLM - though I recommend exploring other models which may give subjectively better results.\nWordpress for blog but feel free to use other preferred publishing platforms.\n\nCustomising this workflow\nIdeally, you'd want to \"train\" your agent on material which is similar to your output ie. your social media post may not get the best results from your blog content due to differing formats.\nTypically, this brand voice extraction exercise should run once and then be cached somewhere for reuse later. This would save on generation time and overall cost of the workflow. ",
+  "totalViews": 19027,
+  "source": "official",
+  "user": {
+    "id": 91804,
+    "name": "Jimleuk",
+    "username": "jimleuk",
+    "bio": "Freelance consultant based in the UK specialising in AI-powered automations. I work with select clients tackling their most challenging projects. For business enquiries, send me an email at hello@jimle.uk\n\nLinkedIn: https://www.linkedin.com/in/jimleuk/\nX/Twitter: https://x.com/jimle_uk",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4ab99e51473df76838beeaac908747f7928c625f869794815cabe34016967d51?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Marketing",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Wordpress",
+      "type": "n8n-nodes-base.wordpress",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Information Extractor",
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2024-12-17T10:37:34.169Z",
+  "path": "official/template_2648/workflow.json"
+}

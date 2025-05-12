@@ -1,0 +1,118 @@
+{
+  "id": 2636,
+  "name": "Extract insights & analyse YouTube comments via AI Agent chat",
+  "description": "Video Guide\n\nI prepared a detailed guide to help you set up your workflow effectively, enabling you to extract insights from YouTube for content generation using an AI agent.\n\n\n\nYoutube Link\n\nWho is this for?\nThis workflow is ideal for content creators, marketers, and analysts looking to enhance their YouTube strategies through data-driven insights. It’s particularly beneficial for individuals wanting to understand audience preferences and improve their video content.\n\nWhat problem does this workflow solve?\nNavigating the content generation and optimization process can be complex, especially without significant audience insight. This workflow automates insights extraction from YouTube videos and comments, empowering users to create more engaging and relevant content effectively.\n\nWhat this workflow does\nThe workflow integrates various APIs to gather insights from YouTube videos, enabling automated commentary analysis, video transcription, and thumbnail evaluation. The main functionalities include:\nExtracting user preferences from comments.\nTranscribing video content for enhanced understanding.\nAnalyzing thumbnails via AI for maximum viewer engagement insights.\n\nAI Insights Extraction: Automatically pulls comments and metrics from selected YouTube creators to evaluate trends and gaps.\nDynamic Video Planning: Uses transcriptions to help creators outline video scripts and topics based on audience interest.\nThumbnail Assessment: Provides analysis on thumbnail designs to improve click-through rates and viewer attraction.\n\nSetup\n\nN8N Workflow\nAPI Setup:\n   Create a Google Cloud project and enable the YouTube Data API.\n   Generate an API key to be included in your workflow requests.\n\nYouTube Creator and Video Selection:\n   Start by defining a request to identify top creators based on their video views.\n   Capture the YouTube video IDs for further analysis of comments and other video metrics.\n\nComment Analysis:\n   Gather comments associated with the selected videos and analyze them for user insights.\n\nVideo Transcription:\n   Utilize the insights from transcriptions to formulate content plans.\n\nThumbnail Analysis:\n   Evaluate your video thumbnails by submitting the URL through the OpenAI API to gain insights into their effectiveness.",
+  "totalViews": 3618,
+  "source": "official",
+  "user": {
+    "id": 92018,
+    "name": "Mark Shcherbakov",
+    "username": "lowcodingdev",
+    "bio": "I am a business analyst with a development background, dedicated to helping small businesses and entrepreneurs leverage cloud services for increased efficiency. My expertise lies in automating manual workflows, integrating data from multiple cloud service providers, creating insightful dashboards, and building custom CRM systems.\n\nhttps://www.linkedin.com/in/marklowcoding/",
+    "verified": true,
+    "links": "[\"https://www.skool.com/5minai-pro\"]",
+    "avatar": "https://gravatar.com/avatar/3055cd5035cfb1030d9d1923b60646d1a156927eead957956bea71f88c5186cd?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Postgres Chat Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "Other memories"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2024-12-13T12:04:55.292Z",
+  "path": "official/template_2636/workflow.json"
+}

@@ -1,0 +1,71 @@
+{
+  "id": 3834,
+  "name": "Retrieve NASA Space Weather & Asteroid Data with GPT-4o-mini and Telegram",
+  "description": "Who is this for?\n\nThis workflow is intended for researchers, educators, developers, media publications, scientists, engineers, science teachers, researchers & scientists in the fields of astronomy, astrophysics, and space weather, science journalists & content creators, educators & education platform managers, data analysts & data engineers in the space research sector, museum managers or public science institutions and professions that use space data who want and need to automate workflows involving NASA space data, facilitate access to NASA science data without manual coding, increase the efficiency of research/education teams until they can be combined with other tools. In reality, data if processed and work on data one by one is very time-consuming and tiring, especially if we have to compile it first and send it. This is also a form of devotion to the community at n8n and the n8n company, as well as devotion to scientists, teachers, developers, education and media publications so that the reality is no longer tiring and is able to answer the problems of existing reality.\n\nHow it works?\n\nEasy explanation:\n1) The First Nodes Telegram Trigger is used to receive data that is delivered to the next Nodes. It is like inputting information or instructions to the AI ​​Agent and the AI ​​Agent will process it.\n\n2) After that, the AI ​​Agent will accept to work together with the AI ​​Model, in this case I chose OpenAI because of its capabilities.\n3) After that, the AI ​​Agent will carry out its task, namely taking data from each NASA Node that I have set up.\n4) Then, after the NASA Nodes send and are received and then processed by the AI ​​Agent, the AI ​​Agent will send it to the last node, namely Telegram, which receives and sends the results of the AI ​​Agent's task.\n5) You can immediately see the data in a mature manner, because the data has been processed. If you want to process it again, just direct this AI System to process it again.\n6) And all tasks and responsibilities are completed\n\nIt is very practical and easy, plus its automated nature. I'm sure you can understand it wisely.\n\nSet up instructions\n\nComplete what is in the nodes as stated in the notes column. \n\n1) First you have to connect Telegram \"Credential Account\" to the nodes.\n2) Second, Next I set up using \"Define below\" it's like customization, because the output that is issued later will be in accordance with the existing trigger. Here I have set it up so just use it.\n3) Then, the AI ​​Model that fits the purpose and has the capability is the OpenAI Model. Here you need to create or connect a \"Credential Account\" and just choose the model. Here I have set up with a wise and capable choice.\n4) Next, for each NASA Nodes, you must create or connect a \"Credential Account\" (Using only one Credential Account). Here, just follow the instructions of the module that has been given n8n, it makes it very easy.\n5) Finally, for the Telegram node action, you only need to connect the \"Credential Account\" that you have created on the first Telegram node.\n\nEverything has been set up wisely, so you just have to follow the notes or setup instructions given, or you can add other things according to your specific purpose and congratulations you are ready to use it.\n\nRequirements\n\nAs a reminder:\n\nIt must be set in each node, such as what your goals are, also according to the conditions of your goals.\nThere must be (If not, make sure it is registered) in each \"Credential Account\" by following the guide on how to do it n8n the guide is very complete\nDon't forget to save, and make sure the workflow is active.\n\nHow to customize this workflow to your needs \n\nYou can directly add nodes to store them again in the 2nd data layer. Prepare a knowledge base for your purposes in additional nodes, so that the accuracy is also high when performing tasks and answering them, and in accordance with the objectives of the task and responsibilities.",
+  "totalViews": 40,
+  "source": "official",
+  "user": {
+    "id": 94055,
+    "name": "Ghufran Ridhawi",
+    "username": "ghufran-ridhawi",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://gravatar.com/sensationallyspeedy958873e61f\"]",
+    "avatar": "https://gravatar.com/avatar/4f7ed8a9d39b56838c4446c3dce354853d12e0e8e19f63d27d7f7f50d89a2413?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-05-02T14:29:24.567Z",
+  "path": "official/template_3834/workflow.json"
+}

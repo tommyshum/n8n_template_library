@@ -1,0 +1,246 @@
+{
+  "id": 3151,
+  "name": " Build an AI-Powered Tech Radar Advisor with SQL DB, RAG, and Routing Agents",
+  "description": "AI-Powered Tech Radar Advisor\n\nThis project is built on top of the famous open source ThoughtWorks Tech Radar.  \n\nYou can use this template to build your own AI-Powered Tech Radar Advisor for your company or group of companies.\n\nTarget Audience\n\nThis template is perfect for:\nTech Audit & Governance Leaders:** Those seeking to build a tech landscape AI platform portal.\nTech Leaders & Architects:** Those aiming to provide modern AI platforms that help others understand the rationale behind strategic technology adoption.\nProduct Managers:** Professionals looking to align product innovation with the company's current tech trends.\nIT & Engineering Teams:** Teams that need to aggregate, analyze, and visualize technology data from multiple sources efficiently.\nDigital Transformation Experts:** Innovators aiming to leverage AI for actionable insights and strategic recommendations.\nData Analysts & Scientists:** Individuals who want to combine structured SQL analysis with advanced semantic search using vector databases.\nDevelopers:** Those interested in integrating RAG chatbot functionality with conversation storage.\n\n1. Description\n\nTech Constellation is an AI-powered Tech Radar solution designed to help organizations visualize and steer their technology adoption strategy.  \nIt seamlessly ingests data from a Tech Radar Google Sheet—converting it into both a MySQL database and a vector index—to consolidate your tech landscape in one place.\n\nThe platform integrates an interactive AI chat interface powered by four specialized agents:\nAI Agent Router:** Analyzes and routes user queries to the most suitable processing agent.\nSQL Agent:** Executes precise SQL queries on structured data.\nRAG Agent:** Leverages semantic, vector-based search for in-depth insights.\nOutput Guardrail Agent:** Validates responses to ensure they remain on-topic and accurate.\n\nThis powerful template is perfect for technology leaders, product managers, engineering teams, and digital transformation experts looking to make data-driven decisions aligned with strategic initiatives across groups of parent-child companies.\n\n2. Features\nData Ingestion\nA Google Sheet containing tech radar data is used as the primary source.\n  The data is ingested and converted into a MySQL database.\n  Simultaneously, the data is indexed into a vector database for semantic (vector-based) search.\nInteractive AI Chat\nChat Integration:** An AI-powered chat interface allows users to ask questions about the tech radar.\nCustomizable AI Agents:**\n  AI Agent Router: Determines the query type and routes it to the appropriate agent.\n  SQL Agent: Processes queries using SQL on structured data.\n  RAG Agent: Performs vector-based searches on document-like data.\n  Output Guardrail Agent: Validates queries and ensures that the responses remain on-topic and accurate.\n\nUsage Examples\nTell me, is TechnologyABC adopted or on hold, and why?\nList all the tools that are considered part of the strategic direction for company3 but are not adopted.\n\nProject Links & Additional Details\n\nGitHub Repository (Frontend Interface Source Code):** github.com/dragonjump/techconstellation\nTry It:** https://scaler.my\n",
+  "totalViews": 9542,
+  "source": "official",
+  "user": {
+    "id": 92876,
+    "name": "Sean Lon",
+    "username": "seanlon",
+    "bio": "I embarked on my coding journey at the age of 13, driven by a deep passion for AI, automation, and engineering. Over the years, I've taken on various roles including Developer, Engineer, Senior Engineer, Architect, Principal Engineer, Freelance Consultant, and Head of Engineering.",
+    "verified": true,
+    "links": "[\"https://seanlon.site\"]",
+    "avatar": "https://gravatar.com/avatar/1880b3f123439c4d0709778f8b82baf2071047f6071a42b9a744313faa0d235e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Miscellaneous",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "MySQL",
+      "type": "n8n-nodes-base.mySql",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Google Docs",
+      "type": "n8n-nodes-base.googleDocs",
+      "categories": [
+        "Miscellaneous"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Anthropic Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Recursive Character Text Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Pinecone Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    },
+    {
+      "name": "Embeddings Google Gemini",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Groq Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Vector Store Question Answer Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolVectorStore",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 16,
+  "createdAt": "2025-03-13T13:37:14.192Z",
+  "path": "official/template_3151/workflow.json"
+}

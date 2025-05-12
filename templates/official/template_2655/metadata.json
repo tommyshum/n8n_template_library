@@ -1,0 +1,52 @@
+{
+  "id": 2655,
+  "name": "Vector Database as a Big Data Analysis Tool for AI Agents [2/3 - anomaly]",
+  "description": "Vector Database as a Big Data Analysis Tool for AI Agents\n\nWorkflows from the webinar \"Build production-ready AI Agents with Qdrant and n8n\".\n\nThis series of workflows shows how to build big data analysis tools for production-ready AI agents with the help of vector databases. These pipelines are adaptable to any dataset of images, hence, many production use cases.\n\nUploading (image) datasets to Qdrant\nSet up meta-variables for anomaly detection in Qdrant\nAnomaly detection tool\nKNN classifier tool\n\nFor anomaly detection\nThe first pipeline to upload an image dataset to Qdrant.\n2. This is the second pipeline to set up cluster (class) centres & cluster (class) threshold scores needed for anomaly detection.\nThe third is the anomaly detection tool, which takes any image as input and uses all preparatory work done with Qdrant to detect if it's an anomaly to the uploaded dataset.\n\nFor KNN (k nearest neighbours) classification\nThe first pipeline to upload an image dataset to Qdrant.\nThe second is the KNN classifier tool, which takes any image as input and classifies it on the uploaded to Qdrant dataset.\n\nTo recreate both\nYou'll have to upload crops and lands datasets from Kaggle to your own Google Storage bucket, and re-create APIs/connections to Qdrant Cloud (you can use Free Tier cluster), Voyage AI API & Google Cloud Storage. \n\n[This workflow] Setting Up Cluster (Class) Centres & Cluster (Class) Threshold Scores for Anomaly Detection\nPreparatory workflow to set cluster centres and cluster threshold scores so anomalies can be detected based on these thresholds.\nHere, we're using two approaches to set up these centres: the \"distance matrix approach\" and the \"multimodal embedding model approach\".\n",
+  "totalViews": 1287,
+  "source": "official",
+  "user": {
+    "id": 92002,
+    "name": "Jenny ",
+    "username": "mrscoopers",
+    "bio": "Qdrant DevRel, ML/NLP/math nerd with yapping skills",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/evgeniya-sukhodolskaya/\"]",
+    "avatar": "https://gravatar.com/avatar/8b585d8184c5f6b4e7d30a2249984244045e769bcc4a06c645e68f96fa125c3e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-12-19T09:41:43.006Z",
+  "path": "official/template_2655/workflow.json"
+}

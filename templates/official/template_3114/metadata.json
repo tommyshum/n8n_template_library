@@ -1,0 +1,87 @@
+{
+  "id": 3114,
+  "name": "Automatically issue training certificates and send via Gmail",
+  "description": "1. Workflow Overview\n\nThis n8n workflow automates the generation and delivery of student completion certificates.\n\nFeatures:\nRetrieves student data from the n8n integrated datastore and processes it.\nLoads a certificate template image and inserts the student's name and unique ID.\nGenerates a completion certificate and sends it automatically via email.\n\nBy using this workflow, the certificate issuance process can be streamlined and efficiently managed.\n\n2. Prerequisites\nTo execute this workflow, you need to set up the following:\n\n✅ Gmail OAuth2 Integration (Required for sending certificates via Gmail in n8n)  \n✅ n8n Training Customer Datastore Connection (Ensure access to student data from the datastore)  \n✅ Google Fonts Installation (Required for using Courier New and Comic Sans MS fonts)  \n\n3. Key Features & Roles\n\n📌 Node List & Functions\n\nWhen clicking 'Test workflow' (Manual Trigger)  \n   Triggers the workflow manually for testing\n\nCustomer Datastore (n8n training)  \n   Retrieves student data from n8n's datastore\n\nGet Email & Name (Set Node)  \n   Extracts the student's name and email\n\nGenerate Crypto (UUID Generation)  \n   Creates a unique ID for each certificate\n\nLoad Image (HTTP Request)  \n   Loads the certificate template image\n\nWrite Text(name) / Write Text(uuid) (Edit Image)  \n   Inserts the student's name and UUID onto the image to generate the certificate\n\nSend Email (Gmail Node)  \n   Automatically sends the generated certificate via email\n\n4. Workflow Process (Step-by-Step)\n\n1️⃣ Retrieve Student Data - Fetches name and email from the n8n Training Customer Datastore\n2️⃣ Generate UUID - Creates a unique ID for each certificate\n3️⃣ Load Certificate Template Image - Fetches the template via HTTP request\n4️⃣ Insert Name and UUID into the Image\n5️⃣ Send Certificate via Gmail\n\n5. Expected Outputs\n\nUpon successful execution,** the student receives an email with the certificate image attached.\nExample of the sent email:**\n    Dear John Doe,\n  \n  You have successfully completed this training program. Please find your completion certificate attached.\n  Completion Date: 2025.02.22\n  \n  Best regards,\n  Data Popcorn Team\n  Certificate Sharing Method:** The certificate can be downloaded and shared via email.",
+  "totalViews": 629,
+  "source": "official",
+  "user": {
+    "id": 92056,
+    "name": "Nathan Lee",
+    "username": "datapopcorn",
+    "bio": "I'm a creator of n8n automation tool in Korea with 7 years of experience as a data analysis engineer. Currently, I'm running a Korean n8n community with about 400 people. I'm creating more than 20 workflows and promoting n8n tools.",
+    "verified": false,
+    "links": "[\"https://n8n.partnerlinks.io/datapopcorn\"]",
+    "avatar": "https://gravatar.com/avatar/1daced3ca89995495a5b72a645e605f9555fae4442e2d0d5a48258626324ec41?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Marketing",
+    "Core Nodes",
+    "Development",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Edit Image",
+      "type": "n8n-nodes-base.editImage",
+      "categories": [
+        "Marketing",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Files",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Crypto",
+      "type": "n8n-nodes-base.crypto",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Customer Datastore (n8n training)",
+      "type": "n8n-nodes-base.n8nTrainingCustomerDatastore",
+      "categories": [],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-03-09T13:59:54.213Z",
+  "path": "official/template_3114/workflow.json"
+}

@@ -1,0 +1,52 @@
+{
+  "id": 3704,
+  "name": "🔐 Generate PIX Payment QR Codes for Any Brazilian Bank Key",
+  "description": "🔐 PIX QR Code Generator for Any Bank and Key – Powered by n8n\n\nEasily generate PIX QR Codes with this ready-to-use n8n workflow, supporting any valid PIX key (CPF, CNPJ, phone, email, or random key) and following the official BACEN standard — the Central Bank of Brazil's regulation.\n\nWhether you want to automate payments in chatbots, CRM systems, e-commerce checkouts, or custom apps, this solution provides fast, secure, and fully compliant QR Code generation.\n\n💡 What is PIX?\n\nPIX is a real-time payment system developed by the Central Bank of Brazil (BACEN).  \nIt allows instant transfers between banks, available 24/7, without fees for individuals.  \nBusinesses widely use PIX for quick, easy, and reliable payments — making QR Codes an essential tool for sales, subscriptions, and customer service.\n\n⚙️ What this Workflow Does\n\nCreates a fully compliant PIX payment code with automatic checksum (CRC)  \nGenerates a dynamic QR Code that customers can scan with any banking app  \nReturns:\n  The full PIX EMV payment code (ready for integration)  \n  A public URL linking to the QR Code image  \n  Clean payment metadata for frontend or messaging bots\n\nAll generated dynamically from the user's input: key, amount, receiver name, city, and payment description.\n\n🧠 How it Works\n\nThe user provides basic payment information: key, amount, name, city, and description.  \nThe workflow assembles a PIX payload following BACEN's EMV QR standards.  \nIt automatically generates and attaches the CRC (checksum) for validation.  \nA QR Code is created based on the complete PIX code.  \nThe output returns both the PIX code and a QR Code image URL, ready to use anywhere.\n\nEach component works seamlessly to deliver a ready-to-scan QR Code for instant payments.\n\n🛠️ How to Set Up\n\nDeploy the workflow on your n8n Cloud or self-hosted instance.  \nConfigure the input variables manually or through an API/Webhook:\n   pixKey: Your PIX key (CPF, CNPJ, email, phone, or random)  \n   receiverName: Name of the individual or company receiving the payment  \n   city: City name associated with the receiver  \n   amount: Payment value (in BRL, ex: 79.90)  \n   description: Short description for the transaction (optional)  \nTrigger the workflow:\n   Manually (for testing)  \n   Via webhook/API (ideal for integrations with chatbots, e-commerce, CRM)  \nCustomize the flow (optional):\n   Set default values if user inputs are missing  \n   Adjust QR Code size or styling (inside the QR Code generator node)  \n   Connect to database/storage if you want to save issued PIX transactions\n\n🎯 Who is This For?\n\nE-commerce stores needing instant payment links  \nChatbots or WhatsApp bots offering product sales or bookings  \nCRM systems wanting to automate billing processes  \nSubscription platforms requiring fast payment confirmation  \nAny business wanting to accept payments faster and smarter\n\n✅ Requirements\n\nActive n8n Cloud or self-hosted instance  \nA valid PIX key (CPF, CNPJ, email, phone, or random key)  \nBasic payment information: amount, city, receiver name, description  \nNo external paid APIs needed — fully open and server-side\n\n🛒 Ready to Automate Your Payments?\n\n❤️ Buy ready-to-use workflows at: https://iloveflows.com  \n☁️ Try n8n Cloud with my partner link: https://n8n.partnerlinks.io/amanda",
+  "totalViews": 82,
+  "source": "official",
+  "user": {
+    "id": 92905,
+    "name": "Bruno Dias",
+    "username": "brunodias",
+    "bio": "Especialista em automações, IA e marketing digital. #n8n #IA #automacao #make",
+    "verified": true,
+    "links": "[\"https://instagram.com/obrunopdias\"]",
+    "avatar": "https://gravatar.com/avatar/fc33cf1042c48f04b5ea2d6e16e641a427b1117e5b6b465e0d7c4cae32fda8c8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-04-25T02:29:45.738Z",
+  "path": "official/template_3704/workflow.json"
+}

@@ -1,0 +1,65 @@
+{
+  "id": 857,
+  "name": "Create screenshots with uProc, save to Dropbox and send by email",
+  "description": "Do you want to create a website screenshot without browser extensions?\n\nThis workflow creates screenshots of any website using the uProc Get Screenshot by URL tool and sends an email with the screenshots.\n\n\n\nYou need to add your credentials (Email and API Key - real -) located at Integration section to n8n.\n\nNode \"Create Web + Email Item\" can be replaced by any other supported service returning Website and Email values, like Google Sheets, Mailchimp, MySQL, or Typeform.\n\nEvery \"uProc\" node returns an image URL of the captured website. This generated URL will remain only 24 hours in our server.\n \nYou can set up the uProc node with several parameters:\nwidth: you can choose one of the predefined values to generate the screenshot, or you can set up a custom width you want.\nfull-page: the tool will return a screenshot of the website from top to bottom with the defined width.\n\nIn our workflow, we generate two screenshots:\n1) One screenshot of 640 pixels width.\n2) One full-page screenshot of 640 pixels width.\n\nScreenshots are downloaded by \"Get File\" nodes and saved to the screenshots folder in Dropbox.\n\n\n\nFinally, we use the Amazon SES node to send an HTML email with both screenshots to the specified email.\n\nWe will receive the next email:\n\n",
+  "totalViews": 1756,
+  "source": "official",
+  "user": {
+    "id": 5774,
+    "name": "Miquel Colomer",
+    "username": "mcolomer",
+    "bio": "As a passionate developer and AI agent creator, I’ve been at the forefront of automation, pioneering workflows and training AI to handle complex tasks seamlessly. I’m an early adopter and expert of n8n, having worked with its powerful capabilities to create automation solutions for diverse industries. I founded n8nhackers, the first AI-powered agency focused on n8n, where we help businesses transform their workflows with cutting-edge automation.",
+    "verified": true,
+    "links": "[\"https://n8nhackers.com\"]",
+    "avatar": "https://gravatar.com/avatar/c4974f5be3985d7f30465d2d963967905bcb2f9b8a8ecaf8ba4396bfbd034db2?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes",
+    "Communication"
+  ],
+  "nodes": [
+    {
+      "name": "Dropbox",
+      "type": "n8n-nodes-base.dropbox",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "AWS SES",
+      "type": "n8n-nodes-base.awsSes",
+      "categories": [
+        "Communication",
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "uProc",
+      "type": "n8n-nodes-base.uproc",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2020-12-29T09:29:59.391Z",
+  "path": "official/template_857/workflow.json"
+}

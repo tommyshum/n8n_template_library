@@ -1,0 +1,47 @@
+{
+  "id": 1205,
+  "name": "Promote new Shopify products on Twitter and Telegram",
+  "description": "This workflow automatically promotes your new Shopify products on Twitter and Telegram. This workflow is also featured in the blog post 6 e-commerce workflows to power up your Shopify store.\n\nPrerequisites\n\nA Shopify account and credentials\nA Twitter account and credentials\nA Telegram account and credentials for the channel you want to send messages to.\n\nNodes\n\nShopify Trigger node triggers the workflow when you create a new product in Shopify.\nTwitter node posts a tweet with the text \"Hey there, my design is now on a new product! Visit my {shop name} to get this cool {product title} (and check out more {product type})\".\nTelegram node posts a message with the same text as above in a Telegram channel.",
+  "totalViews": 3831,
+  "source": "official",
+  "user": {
+    "id": 12733,
+    "name": "Lorena",
+    "username": "lorenanda",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/df6358bcce2351cf878beab8f89b9f000f50588aaa728f7ea57127c1b85e7b06?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Marketing"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "X (Formerly Twitter)",
+      "type": "n8n-nodes-base.twitter",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2021-08-24T10:40:50.007Z",
+  "path": "official/template_1205/workflow.json"
+}

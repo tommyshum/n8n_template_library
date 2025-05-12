@@ -1,0 +1,108 @@
+{
+  "id": 2971,
+  "name": "Automated Faceless YouTube Video Generator Using Leonardo AI and Creatomate",
+  "description": "Automate Your Video Content Creation: AI-Powered Video Generation\n\nThis n8n template streamlines the creation of high-quality, faceless videos, automating the entire process from scriptwriting to final video production. Leveraging AI tools like Leonardo AI and Creatomate, this workflow empowers content creators to efficiently produce engaging videos without on-camera presence.\n\nWho is this for?\n\nThis template is ideal for:\n\nContent creators looking to scale their presence on YouTube, Instagram, and TikTok.\nMarketers seeking to automate video marketing campaigns.\nAnyone wanting to produce professional-looking videos quickly and easily.\nIndividuals wishing to create faceless video content.\n\nWhat problem is this workflow solving?\n\nCreating engaging videos can be time-consuming and resource-intensive. This workflow eliminates the manual effort involved in scripting, image sourcing, and video editing, allowing creators to focus on strategy and content ideation. It addresses the challenge of consistent video production by automating repetitive tasks.\n\nWhat this workflow does:\n\nThis workflow automates the following steps:\n\nAI-Driven Scriptwriting:** Uses an LLM (default: DeepSeek V3) to generate a compelling video script based on your system prompt and desired number of scenarios.\nAI Image Generation:** Integrates with Leonardo AI to create visually appealing images for each scenario in the script. You define the image style and resolution.\nAutomated Video Editing:** Connects to Creatomate to assemble the script and images into a polished video, ready for upload. You’ll use a pre-created “AI generated story template” within Creatomate.\n\nSetup:\n\nVideo Script Generation:** Provide a detailed system prompt describing your video’s topic, target audience, and key message. Specify the number of scenarios. Select your preferred LLM (DeepSeek V3 is the default).\nImage Generation:** Connect your Leonardo AI account. Choose your preferred image generation model and set the video resolution. Craft a detailed prompt for Leonardo AI, defining the image style (e.g., “cinematic,” “cartoon,” “realistic”).\nVideo Editing:** Link your Creatomate account. Create an empty “AI generated story template” in Creatomate. Copy the cURL from the Creatomate template to the video generation node. Link your ElevenLabs account to Creatomate and choose the desired voice.\n\nHow to customize this workflow:\n\nScript Customization:** Refine the system prompt to guide the AI. Experiment with different LLMs.\nImage Style:** Adjust the Leonardo AI prompt. Explore different image generation models.\nVideo Editing:** Modify the Creatomate template to customize transitions, text overlays, and other elements. Add voiceover using the ElevenLabs integration in Creatomate.\n\nCategory:\n\nMarketing, Social Media, Content Creation",
+  "totalViews": 7647,
+  "source": "official",
+  "user": {
+    "id": 92701,
+    "name": "Tianyi",
+    "username": "muzi",
+    "bio": "Ph.D. in Machine Learning from the University of Toulouse.\nExperienced automation consultant specializing in optimizing workflows for Content creation and Marketing teams. ",
+    "verified": true,
+    "links": "[\"www.linkedin.com/in/tianyi-li-v\"]",
+    "avatar": "https://gravatar.com/avatar/43163225998120af2d88664551ec779ceb7518ef30b5a6c27f81649a0fb641d0?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "Marketing",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "YouTube",
+      "type": "n8n-nodes-base.youTube",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-02-22T07:20:26.447Z",
+  "path": "official/template_2971/workflow.json"
+}

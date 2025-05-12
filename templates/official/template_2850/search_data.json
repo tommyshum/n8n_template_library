@@ -1,0 +1,738 @@
+{
+  "id": 2850,
+  "name": "BambooHR AI-Powered Company Policies and Benefits Chatbot",
+  "totalViews": 2452,
+  "purchaseUrl": null,
+  "user": {
+    "id": 91565,
+    "name": "Ludwig",
+    "username": "ludwig",
+    "bio": "If you have any questions about any of the templates I've built, please reach out to me on LinkedIn (https://www.linkedin.com/in/ludwiggerdes) or via my website down below. 👇",
+    "verified": true,
+    "links": "[\"https://www.lwwg.me\"]",
+    "avatar": "https://gravatar.com/avatar/85fa5dd88d3b3b71e5719184d2d889fe3c0fba02e925b2b9ad4ba34d9a774002?r=pg&d=retro&size=200"
+  },
+  "description": "How it works\nThis workflow enables companies to provide instant HR support by automating responses to employee queries about policies and benefits:  \nRetrieves company policies, benefits, and HR documents from BambooHR.  \nUses AI to analyze and answer employee questions based on company records.  \nIdentifies the most relevant contact person for escalations.  \nSeamlessly integrates with company systems to provide real-time HR assistance.\nSet up steps:  \nEstimated time: ~20 minutes\nConnect your BambooHR account to allow policy retrieval.  \nConfigure AI parameters and access control settings.  \n(Optional) Set up the employee lookup tool for personalized responses.  \nTest the chatbot to ensure accurate responses and seamless integration.  \n\nBenefits\nThis workflow is perfect for HR teams looking to enhance employee support while reducing manual inquiries.\n\nOutperform BambooHR's \"Ask BambooHR\" Chatbot\n\n#1. Superior specificity of replies to general inquiries\n\n\n\n\n#2.  More appropriate escalations when responding to sensitive employee concerns\n\n\n\n",
+  "createdAt": "2025-02-05T07:19:48.368Z",
+  "nodes": [
+    {
+      "id": 548,
+      "icon": "file:bambooHr.png",
+      "name": "n8n-nodes-base.bambooHr",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.bamboohr/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/bambooHr/"
+              }
+            ]
+          },
+          "categories": [
+            "Miscellaneous"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "BambooHR"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/png;base64,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"
+      },
+      "displayName": "BambooHR",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 11,
+          "name": "Miscellaneous"
+        }
+      ]
+    },
+    {
+      "id": 1119,
+      "icon": "fa:robot",
+      "name": "@n8n/n8n-nodes-langchain.agent",
+      "codex": {
+        "data": {
+          "alias": [
+            "LangChain",
+            "Chat",
+            "Conversational",
+            "Plan and Execute",
+            "ReAct",
+            "Tools"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Agents",
+              "Root Nodes"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "AI Agent",
+        "color": "#404040"
+      },
+      "iconData": {
+        "icon": "robot",
+        "type": "icon"
+      },
+      "displayName": "AI Agent",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1123,
+      "icon": "fa:link",
+      "name": "@n8n/n8n-nodes-langchain.chainLlm",
+      "codex": {
+        "data": {
+          "alias": [
+            "LangChain"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.chainllm/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Chains",
+              "Root Nodes"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Basic LLM Chain",
+        "color": "#909298"
+      },
+      "iconData": {
+        "icon": "link",
+        "type": "icon"
+      },
+      "displayName": "Basic LLM Chain",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1141,
+      "icon": "file:openAiLight.svg",
+      "name": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsopenai/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Embeddings"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Embeddings OpenAI"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTM2Ljg2NzEgMTYuMzcxOEMzNy43NzQ2IDEzLjY0OCAzNy40NjIxIDEwLjY2NDIgMzYuMDEwOCA4LjE4NjYxQzMzLjgyODIgNC4zODY1MyAyOS40NDA3IDIuNDMxNDkgMjUuMTU1NiAzLjM1MTUxQzIzLjI0OTMgMS4yMDM5NiAyMC41MTA1IC0wLjAxNzMxNDggMTcuNjM5MiAwLjAwMDE4NTUzM0MxMy4yNTkxIC0wLjAwOTgxNDY4IDkuMzcyNzMgMi44MTAyNSA4LjAyNTIgNi45Nzc4M0M1LjIxMTM5IDcuNTU0MSAyLjc4MjU4IDkuMzE1MzggMS4zNjEzIDExLjgxMTdDLTAuODM3NDkzIDE1LjYwMTggLTAuMzM2MjMyIDIwLjM3OTQgMi42MDEzMyAyMy42Mjk0QzEuNjkzODEgMjYuMzUzMiAyLjAwNjMyIDI5LjMzNzEgMy40NTc2IDMxLjgxNDZDNS42NDAxNSAzNS42MTQ3IDEwLjAyNzcgMzcuNTY5NyAxNC4zMTI4IDM2LjY0OTdDMTYuMjE3OSAzOC43OTczIDE4Ljk1NzkgNDAuMDE4NSAyMS44MjkyIDM5Ljk5OThDMjYuMjExOCA0MC4wMTEgMzAuMDk5NCAzNy4xODg1IDMxLjQ0NjkgMzMuMDE3MUMzNC4yNjA4IDMyLjQ0MDkgMzYuNjg5NiAzMC42Nzk2IDM4LjExMDggMjguMTgzM0M0MC4zMDcxIDI0LjM5MzIgMzkuODA0NiAxOS42MTk0IDM2Ljg2ODMgMTYuMzY5M0wzNi44NjcxIDE2LjM3MThaTTIxLjgzMTcgMzcuMzg2QzIwLjA3OCAzNy4zODg1IDE4LjM3OTIgMzYuNzc0NyAxNy4wMzI5IDM1LjY1MDlDMTcuMDk0MSAzNS42MTg0IDE3LjIwMDQgMzUuNTU5NyAxNy4yNjkxIDM1LjUxNzJMMjUuMjM0MyAzMC45MTcxQzI1LjY0MTggMzAuNjg1OCAyNS44OTE4IDMwLjI1MjEgMjUuODg5MyAyOS43ODMzVjE4LjU1NDNMMjkuMjU1NyAyMC40OTgxQzI5LjI5MTkgMjAuNTE1NiAyOS4zMTU3IDIwLjU1MDYgMjkuMzIwNyAyMC41OTA2VjI5Ljg4OTZDMjkuMzE1NyAzNC4wMjQ3IDI1Ljk2NjggMzcuMzc3MiAyMS44MzE3IDM3LjM4NlpNNS43MjY0IDMwLjUwNzFDNC44NDc2MyAyOC45ODk2IDQuNTMxMzcgMjcuMjEwOCA0LjgzMjYzIDI1LjQ4NDVDNC44OTEzOCAyNS41MTk1IDQuOTk1MTMgMjUuNTgzMiA1LjA2ODg4IDI1LjYyNTdMMTMuMDM0MSAzMC4yMjU4QzEzLjQzNzggMzAuNDYyMSAxMy45Mzc4IDMwLjQ2MjEgMTQuMzQyOCAzMC4yMjU4TDI0LjA2NjggMjQuNjEwN1YyOC40OTgzQzI0LjA2OTMgMjguNTM4MyAyNC4wNTA1IDI4LjU3NyAyNC4wMTkzIDI4LjYwMkwxNS45Njc5IDMzLjI1MDlDMTIuMzgxNSAzNS4zMTU5IDcuODAxNDQgMzQuMDg4NCA1LjcyNzY1IDMwLjUwNzFINS43MjY0Wk0zLjYzMDEgMTMuMTIwNUM0LjUwNTEyIDExLjYwMDQgNS44ODY0IDEwLjQzNzkgNy41MzE0NCA5LjgzNDE1QzcuNTMxNDQgOS45MDI5IDcuNTI3NjkgMTAuMDI0MiA3LjUyNzY5IDEwLjEwOTJWMTkuMzEwNkM3LjUyNTE5IDE5Ljc3ODEgNy43NzUxOSAyMC4yMTE5IDguMTgxNDUgMjAuNDQzMUwxNy45MDU0IDI2LjA1N0wxNC41MzkxIDI4LjAwMDhDMTQuNTA1MyAyOC4wMjMzIDE0LjQ2MjggMjguMDI3IDE0LjQyNTMgMjguMDEwOEw2LjM3MjY2IDIzLjM1ODJDMi43OTM4MyAyMS4yODU2IDEuNTY2MzEgMTYuNzA2OCAzLjYyODg1IDEzLjEyMTdMMy42MzAxIDEzLjEyMDVaTTMxLjI4ODIgMTkuNTU2OUwyMS41NjQyIDEzLjk0MTdMMjQuOTMwNiAxMS45OTkyQzI0Ljk2NDMgMTEuOTc2NyAyNS4wMDY4IDExLjk3MjkgMjUuMDQ0MyAxMS45ODkyTDMzLjA5NyAxNi42MzhDMzYuNjgyMSAxOC43MDkzIDM3LjkxMDggMjMuMjk1NyAzNS44Mzk1IDI2Ljg4MDhDMzQuOTYzMyAyOC4zOTgzIDMzLjU4MzIgMjkuNTYwOCAzMS45Mzk1IDMwLjE2NThWMjAuNjg5NEMzMS45NDMyIDIwLjIyMTkgMzEuNjk0NSAxOS43ODk0IDMxLjI4OTQgMTkuNTU2OUgzMS4yODgyWk0zNC42MzgzIDE0LjUxNDJDMzQuNTc5NSAxNC40NzggMzQuNDc1OCAxNC40MTU1IDM0LjQwMiAxNC4zNzNMMjYuNDM2OCA5Ljc3Mjg5QzI2LjAzMzEgOS41MzY2NCAyNS41MzMxIDkuNTM2NjQgMjUuMTI4MSA5Ljc3Mjg5TDE1LjQwNDEgMTUuMzg4VjExLjUwMDRDMTUuNDAxNiAxMS40NjA0IDE1LjQyMDQgMTEuNDIxNyAxNS40NTE2IDExLjM5NjdMMjMuNTAzIDYuNzUxNThDMjcuMDg5NCA0LjY4Mjc5IDMxLjY3NDUgNS45MTQwNiAzMy43NDIgOS41MDE2NEMzNC42MTU4IDExLjAxNjcgMzQuOTMyIDEyLjc5MDUgMzQuNjM1OCAxNC41MTQySDM0LjYzODNaTTEzLjU3NDEgMjEuNDQzMUwxMC4yMDY1IDE5LjQ5OTRDMTAuMTcwMiAxOS40ODE5IDEwLjE0NjUgMTkuNDQ2OCAxMC4xNDE1IDE5LjQwNjhWMTAuMTA3OUMxMC4xNDQgNS45Njc4MSAxMy41MDI4IDIuNjEyNzQgMTcuNjQyOSAyLjYxNTI0QzE5LjM5NDIgMi42MTUyNCAyMS4wODkyIDMuMjMwMjUgMjIuNDM1NSA0LjM1MDI4QzIyLjM3NDMgNC4zODI3OCAyMi4yNjkzIDQuNDQxNTMgMjIuMTk5MiA0LjQ4NDAzTDE0LjIzNDEgOS4wODQxM0MxMy44MjY2IDkuMzE1MzggMTMuNTc2NiA5Ljc0Nzg5IDEzLjU3OTEgMTAuMjE2N0wxMy41NzQxIDIxLjQ0MDZWMjEuNDQzMVpNMTUuNDAyOSAxNy41MDA2TDE5LjczNDIgMTQuOTk5M0wyNC4wNjU1IDE3LjQ5OTNWMjIuNTAwN0wxOS43MzQyIDI1LjAwMDdMMTUuNDAyOSAyMi41MDA3VjE3LjUwMDZaIiBmaWxsPSIjN0Q3RDg3Ii8+Cjwvc3ZnPgo="
+      },
+      "displayName": "Embeddings OpenAI",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1153,
+      "icon": "file:openAiLight.svg",
+      "name": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatopenai/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Language Models",
+              "Root Nodes"
+            ],
+            "Language Models": [
+              "Chat Models (Recommended)"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "OpenAI Chat Model"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTM2Ljg2NzEgMTYuMzcxOEMzNy43NzQ2IDEzLjY0OCAzNy40NjIxIDEwLjY2NDIgMzYuMDEwOCA4LjE4NjYxQzMzLjgyODIgNC4zODY1MyAyOS40NDA3IDIuNDMxNDkgMjUuMTU1NiAzLjM1MTUxQzIzLjI0OTMgMS4yMDM5NiAyMC41MTA1IC0wLjAxNzMxNDggMTcuNjM5MiAwLjAwMDE4NTUzM0MxMy4yNTkxIC0wLjAwOTgxNDY4IDkuMzcyNzMgMi44MTAyNSA4LjAyNTIgNi45Nzc4M0M1LjIxMTM5IDcuNTU0MSAyLjc4MjU4IDkuMzE1MzggMS4zNjEzIDExLjgxMTdDLTAuODM3NDkzIDE1LjYwMTggLTAuMzM2MjMyIDIwLjM3OTQgMi42MDEzMyAyMy42Mjk0QzEuNjkzODEgMjYuMzUzMiAyLjAwNjMyIDI5LjMzNzEgMy40NTc2IDMxLjgxNDZDNS42NDAxNSAzNS42MTQ3IDEwLjAyNzcgMzcuNTY5NyAxNC4zMTI4IDM2LjY0OTdDMTYuMjE3OSAzOC43OTczIDE4Ljk1NzkgNDAuMDE4NSAyMS44MjkyIDM5Ljk5OThDMjYuMjExOCA0MC4wMTEgMzAuMDk5NCAzNy4xODg1IDMxLjQ0NjkgMzMuMDE3MUMzNC4yNjA4IDMyLjQ0MDkgMzYuNjg5NiAzMC42Nzk2IDM4LjExMDggMjguMTgzM0M0MC4zMDcxIDI0LjM5MzIgMzkuODA0NiAxOS42MTk0IDM2Ljg2ODMgMTYuMzY5M0wzNi44NjcxIDE2LjM3MThaTTIxLjgzMTcgMzcuMzg2QzIwLjA3OCAzNy4zODg1IDE4LjM3OTIgMzYuNzc0NyAxNy4wMzI5IDM1LjY1MDlDMTcuMDk0MSAzNS42MTg0IDE3LjIwMDQgMzUuNTU5NyAxNy4yNjkxIDM1LjUxNzJMMjUuMjM0MyAzMC45MTcxQzI1LjY0MTggMzAuNjg1OCAyNS44OTE4IDMwLjI1MjEgMjUuODg5MyAyOS43ODMzVjE4LjU1NDNMMjkuMjU1NyAyMC40OTgxQzI5LjI5MTkgMjAuNTE1NiAyOS4zMTU3IDIwLjU1MDYgMjkuMzIwNyAyMC41OTA2VjI5Ljg4OTZDMjkuMzE1NyAzNC4wMjQ3IDI1Ljk2NjggMzcuMzc3MiAyMS44MzE3IDM3LjM4NlpNNS43MjY0IDMwLjUwNzFDNC44NDc2MyAyOC45ODk2IDQuNTMxMzcgMjcuMjEwOCA0LjgzMjYzIDI1LjQ4NDVDNC44OTEzOCAyNS41MTk1IDQuOTk1MTMgMjUuNTgzMiA1LjA2ODg4IDI1LjYyNTdMMTMuMDM0MSAzMC4yMjU4QzEzLjQzNzggMzAuNDYyMSAxMy45Mzc4IDMwLjQ2MjEgMTQuMzQyOCAzMC4yMjU4TDI0LjA2NjggMjQuNjEwN1YyOC40OTgzQzI0LjA2OTMgMjguNTM4MyAyNC4wNTA1IDI4LjU3NyAyNC4wMTkzIDI4LjYwMkwxNS45Njc5IDMzLjI1MDlDMTIuMzgxNSAzNS4zMTU5IDcuODAxNDQgMzQuMDg4NCA1LjcyNzY1IDMwLjUwNzFINS43MjY0Wk0zLjYzMDEgMTMuMTIwNUM0LjUwNTEyIDExLjYwMDQgNS44ODY0IDEwLjQzNzkgNy41MzE0NCA5LjgzNDE1QzcuNTMxNDQgOS45MDI5IDcuNTI3NjkgMTAuMDI0MiA3LjUyNzY5IDEwLjEwOTJWMTkuMzEwNkM3LjUyNTE5IDE5Ljc3ODEgNy43NzUxOSAyMC4yMTE5IDguMTgxNDUgMjAuNDQzMUwxNy45MDU0IDI2LjA1N0wxNC41MzkxIDI4LjAwMDhDMTQuNTA1MyAyOC4wMjMzIDE0LjQ2MjggMjguMDI3IDE0LjQyNTMgMjguMDEwOEw2LjM3MjY2IDIzLjM1ODJDMi43OTM4MyAyMS4yODU2IDEuNTY2MzEgMTYuNzA2OCAzLjYyODg1IDEzLjEyMTdMMy42MzAxIDEzLjEyMDVaTTMxLjI4ODIgMTkuNTU2OUwyMS41NjQyIDEzLjk0MTdMMjQuOTMwNiAxMS45OTkyQzI0Ljk2NDMgMTEuOTc2NyAyNS4wMDY4IDExLjk3MjkgMjUuMDQ0MyAxMS45ODkyTDMzLjA5NyAxNi42MzhDMzYuNjgyMSAxOC43MDkzIDM3LjkxMDggMjMuMjk1NyAzNS44Mzk1IDI2Ljg4MDhDMzQuOTYzMyAyOC4zOTgzIDMzLjU4MzIgMjkuNTYwOCAzMS45Mzk1IDMwLjE2NThWMjAuNjg5NEMzMS45NDMyIDIwLjIyMTkgMzEuNjk0NSAxOS43ODk0IDMxLjI4OTQgMTkuNTU2OUgzMS4yODgyWk0zNC42MzgzIDE0LjUxNDJDMzQuNTc5NSAxNC40NzggMzQuNDc1OCAxNC40MTU1IDM0LjQwMiAxNC4zNzNMMjYuNDM2OCA5Ljc3Mjg5QzI2LjAzMzEgOS41MzY2NCAyNS41MzMxIDkuNTM2NjQgMjUuMTI4MSA5Ljc3Mjg5TDE1LjQwNDEgMTUuMzg4VjExLjUwMDRDMTUuNDAxNiAxMS40NjA0IDE1LjQyMDQgMTEuNDIxNyAxNS40NTE2IDExLjM5NjdMMjMuNTAzIDYuNzUxNThDMjcuMDg5NCA0LjY4Mjc5IDMxLjY3NDUgNS45MTQwNiAzMy43NDIgOS41MDE2NEMzNC42MTU4IDExLjAxNjcgMzQuOTMyIDEyLjc5MDUgMzQuNjM1OCAxNC41MTQySDM0LjYzODNaTTEzLjU3NDEgMjEuNDQzMUwxMC4yMDY1IDE5LjQ5OTRDMTAuMTcwMiAxOS40ODE5IDEwLjE0NjUgMTkuNDQ2OCAxMC4xNDE1IDE5LjQwNjhWMTAuMTA3OUMxMC4xNDQgNS45Njc4MSAxMy41MDI4IDIuNjEyNzQgMTcuNjQyOSAyLjYxNTI0QzE5LjM5NDIgMi42MTUyNCAyMS4wODkyIDMuMjMwMjUgMjIuNDM1NSA0LjM1MDI4QzIyLjM3NDMgNC4zODI3OCAyMi4yNjkzIDQuNDQxNTMgMjIuMTk5MiA0LjQ4NDAzTDE0LjIzNDEgOS4wODQxM0MxMy44MjY2IDkuMzE1MzggMTMuNTc2NiA5Ljc0Nzg5IDEzLjU3OTEgMTAuMjE2N0wxMy41NzQxIDIxLjQ0MDZWMjEuNDQzMVpNMTUuNDAyOSAxNy41MDA2TDE5LjczNDIgMTQuOTk5M0wyNC4wNjU1IDE3LjQ5OTNWMjIuNTAwN0wxOS43MzQyIDI1LjAwMDdMMTUuNDAyOSAyMi41MDA3VjE3LjUwMDZaIiBmaWxsPSIjN0Q3RDg3Ii8+Cjwvc3ZnPgo="
+      },
+      "displayName": "OpenAI Chat Model",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1163,
+      "icon": "fa:database",
+      "name": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.memorybufferwindow/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Memory"
+            ],
+            "Memory": [
+              "For beginners"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Simple Memory"
+      },
+      "iconData": {
+        "icon": "database",
+        "type": "icon"
+      },
+      "displayName": "Simple Memory",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1175,
+      "icon": "fa:tools",
+      "name": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.outputparserautofixing/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Output Parsers"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Auto-fixing Output Parser"
+      },
+      "iconData": {
+        "icon": "tools",
+        "type": "icon"
+      },
+      "displayName": "Auto-fixing Output Parser",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1179,
+      "icon": "fa:code",
+      "name": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "codex": {
+        "data": {
+          "alias": [
+            "json",
+            "zod"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.outputparserstructured/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Output Parsers"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Structured Output Parser"
+      },
+      "iconData": {
+        "icon": "code",
+        "type": "icon"
+      },
+      "displayName": "Structured Output Parser",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1191,
+      "icon": "fa:grip-lines-vertical",
+      "name": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.textsplitterrecursivecharactertextsplitter/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Text Splitters"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Recursive Character Text Splitter"
+      },
+      "iconData": {
+        "icon": "grip-lines-vertical",
+        "type": "icon"
+      },
+      "displayName": "Recursive Character Text Splitter",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1205,
+      "icon": "fa:network-wired",
+      "name": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolworkflow/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Tools"
+            ],
+            "Tools": [
+              "Recommended Tools"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Call n8n Workflow Tool"
+      },
+      "iconData": {
+        "icon": "network-wired",
+        "type": "icon"
+      },
+      "displayName": "Call n8n Workflow Tool",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1231,
+      "icon": "file:supabase.svg",
+      "name": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoresupabase/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Vector Stores",
+              "Tools",
+              "Root Nodes"
+            ],
+            "Tools": [
+              "Other Tools"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Supabase Vector Store"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDkiIGhlaWdodD0iMTEzIiBmaWxsPSJub25lIj48cGF0aCBmaWxsPSJ1cmwoI2EpIiBkPSJNNjMuNzA4IDExMC4yODRjLTIuODYgMy42MDEtOC42NTggMS42MjgtOC43MjctMi45N2wtMS4wMDctNjcuMjUxaDQ1LjIyYzguMTkgMCAxMi43NTggOS40NiA3LjY2NSAxNS44NzR6Ii8+PHBhdGggZmlsbD0idXJsKCNiKSIgZmlsbC1vcGFjaXR5PSIuMiIgZD0iTTYzLjcwOCAxMTAuMjg0Yy0yLjg2IDMuNjAxLTguNjU4IDEuNjI4LTguNzI3LTIuOTdsLTEuMDA3LTY3LjI1MWg0NS4yMmM4LjE5IDAgMTIuNzU4IDkuNDYgNy42NjUgMTUuODc0eiIvPjxwYXRoIGZpbGw9IiMzRUNGOEUiIGQ9Ik00NS4zMTcgMi4wNzFjMi44Ni0zLjYwMSA4LjY1Ny0xLjYyOCA4LjcyNiAyLjk3bC40NDIgNjcuMjUxSDkuODNjLTguMTkgMC0xMi43NTktOS40Ni03LjY2NS0xNS44NzV6Ii8+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJhIiB4MT0iNTMuOTc0IiB4Mj0iOTQuMTYzIiB5MT0iNTQuOTc0IiB5Mj0iNzEuODI5IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHN0b3Agc3RvcC1jb2xvcj0iIzI0OTM2MSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzNFQ0Y4RSIvPjwvbGluZWFyR3JhZGllbnQ+PGxpbmVhckdyYWRpZW50IGlkPSJiIiB4MT0iMzYuMTU2IiB4Mj0iNTQuNDg0IiB5MT0iMzAuNTc4IiB5Mj0iNjUuMDgxIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHN0b3AvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1vcGFjaXR5PSIwIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PC9zdmc+"
+      },
+      "displayName": "Supabase Vector Store",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1243,
+      "icon": "file:binary.svg",
+      "name": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.documentdefaultdataloader/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Document Loaders"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Default Data Loader"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3NjgiIGhlaWdodD0iMTAyNCI+PHBhdGggZmlsbD0iIzdEN0Q4NyIgZD0iTTAgOTYwVjY0aDU3NmwxOTIgMTkydjcwNHptNzA0LTY0MEw1MTIgMTI4SDY0djc2OGg2NDB6TTMyMCA1MTJIMTI4VjI1NmgxOTJ6bS02NC0xOTJoLTY0djEyOGg2NHptMCA0NDhoNjR2NjRIMTI4di02NGg2NFY2NDBoLTY0di02NGgxMjh6bTI1Ni0zMjBoNjR2NjRIMzg0di02NGg2NFYzMjBoLTY0di02NGgxMjh6bTY0IDM4NEgzODRWNTc2aDE5MnptLTY0LTE5MmgtNjR2MTI4aDY0eiIvPjwvc3ZnPg=="
+      },
+      "displayName": "Default Data Loader",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1265,
+      "icon": "fa:tags",
+      "name": "@n8n/n8n-nodes-langchain.textClassifier",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.text-classifier/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Chains",
+              "Root Nodes"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Text Classifier"
+      },
+      "iconData": {
+        "icon": "tags",
+        "type": "icon"
+      },
+      "displayName": "Text Classifier",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1269,
+      "icon": "fa:database",
+      "name": "@n8n/n8n-nodes-langchain.toolVectorStore",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolvectorstore/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Tools"
+            ],
+            "Tools": [
+              "Other Tools"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Answer questions with a vector store"
+      },
+      "iconData": {
+        "icon": "database",
+        "type": "icon"
+      },
+      "displayName": "Vector Store Question Answer Tool",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1273,
+      "icon": "fa:project-diagram",
+      "name": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "codex": {
+        "data": {
+          "alias": [
+            "NER",
+            "parse",
+            "parsing",
+            "JSON",
+            "data extraction",
+            "structured"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.information-extractor/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Chains",
+              "Root Nodes"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Information Extractor"
+      },
+      "iconData": {
+        "icon": "project-diagram",
+        "type": "icon"
+      },
+      "displayName": "Information Extractor",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "id": 3690,
+  "name": "Upload File to SharePoint Using Microsoft Graph API",
+  "description": "This n8n workflow template allows you to upload a photo to a SharePoint folder using the Microsoft Graph API. The workflow includes steps for authentication, retrieving a photo for testing purposes, setting the destination folder and file name, and uploading the photo.\n\nWho is this for?\n\nThis workflow is ideal for users who need to automate the process of uploading images to SharePoint. It is particularly useful for developers, IT administrators, and anyone managing digital assets within a SharePoint environment.\n\nWhat problem is this workflow solving? / Use Case\n\nThis workflow addresses the need to automate the uploading of photos to a specific SharePoint folder. By using the Microsoft Graph API, it ensures secure and efficient file management, reducing manual effort and potential errors.\n\nWhat this workflow does\n\nTrigger the Workflow: The workflow starts when the user clicks the 'Test workflow' button.\nSet Configuration: Sensitive data such as TENANT_ID, CLIENT_ID, and CLIENT_SECRET are set.\nAuthentication: Obtains an access token from Microsoft Graph API using the provided credentials.\nGet Photo: Retrieves a sample photo from a URL for testing purposes.\nSet Destination: Sets the target folder and file name for the photo upload.\nUpload Photo: Uploads the photo to the specified SharePoint folder using the Microsoft Graph API.\n\nSetup\n\nPrerequisites\n\nCreate an Application User: Follow this guide to create an application user.\nSet Permissions: Ensure the following permissions are set:\n   Sites.ReadWrite.All: For SharePoint site access.\n   Files.ReadWrite.All: For file upload operations.\n\nAuthentication\n\nFor successful authentication, provide the following:\nTENANT_ID\nCLIENT_ID\nCLIENT_SECRET\n\nNote: For demonstration purposes, these values are stored in a 'Set' node. In a production environment, ensure the safety of such data using credentials, secure vaults, or other safe methods.\n\nSet Destination\n\nThe destination is defined by two parameters:\nTARGET_FOLDER: The folder path in SharePoint where the photo will be uploaded.\nFILE_NAME: The name of the file to be uploaded.\n\nExample:\nDesired file location: https://contoso.sharepoint.com/uploads/pictures from n8n/example.jpg\nSet the following:\n  TARGET_FOLDER = /uploads/pictures from n8n\n  FILE_NAME = example.jpg\n\nHow to Customize This Workflow to Your Needs\n\nUpdate Sensitive Data: Replace the placeholder values for TENANT_ID, CLIENT_ID, and CLIENT_SECRET with your actual credentials.\nChange Destination: Modify the TARGET_FOLDER and FILE_NAME parameters to match your desired upload location and file name.\nTest with Different Photos: Update the URL in the 'Get Photo' node to test with different images.\n\nSticky Notes\n\nWorkflow Overview\n\nThis sticky note explains the overall purpose and dependencies of the workflow.\n\nAuthentication Details\n\nThis sticky note provides details on the authentication process and the importance of securing sensitive data.\n\nSet Destination Details\n\nThis sticky note explains how to set the destination folder and file name for the photo upload.\n\nBy following these guidelines, you can easily customize and use this workflow to automate photo uploads to SharePoint using the Microsoft Graph API.",
+  "totalViews": 283,
+  "source": "official",
+  "user": {
+    "id": 93555,
+    "name": "Greg Evseev",
+    "username": "greg",
+    "bio": "15+ years in AI/ML development & integration. Now specializing in establishing ISO 42001-compliant AI management systems. Background includes AI/ML research, system development, AI governance, and ISO 42001 Lead Auditor training (in progress).\n\nHelping organizations:\n✓ Evaluate AI maturity & governance\n✓ Implement ISO 42001 systems\n✓ Bridge technical & regulatory requirements\n✓ Design practical AI governance frameworks\n\nExpertise: AI Risk Assessment, Compliance Strategy, Technical Due Diligence.",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/aimsgreg\"]",
+    "avatar": "https://gravatar.com/avatar/a2532827cb048e2c6433b7d6c3bf075066d9fac93092eca13593902b502e75b1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-04-24T13:45:28.274Z",
+  "path": "official/template_3690/workflow.json"
+}

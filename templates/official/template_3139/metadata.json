@@ -1,0 +1,72 @@
+{
+  "id": 3139,
+  "name": "🔐🦙Private & Local Ollama Self-Hosted + Dynamic LLM Router",
+  "description": "Who is this for?\nThis workflow template is designed for AI enthusiasts, developers, and privacy-conscious users who want to leverage the power of local large language models (LLMs) without sending data to external services. It's particularly valuable for those running Ollama locally who want intelligent routing between different specialized models.\n\nWhat problem is this workflow solving?\nWhen working with multiple local LLMs, each with different strengths and capabilities, it can be challenging to manually select the right model for each specific task. This workflow automatically analyzes user prompts and routes them to the most appropriate specialized Ollama model, ensuring optimal performance without requiring technical knowledge from the end user.\n\nWhat this workflow does\nThis intelligent router:\nAnalyzes incoming user prompts to determine the nature of the request\nAutomatically selects the optimal Ollama model from your local collection based on task requirements\nRoutes requests between specialized models for different tasks:\n  Text-only models (qwq, llama3.2, phi4) for various reasoning and conversation tasks\n  Code-specific models (qwen2.5-coder) for programming assistance\n  Vision-capable models (granite3.2-vision, llama3.2-vision) for image analysis\nMaintains conversation memory for consistent interactions\nProcesses everything locally for complete privacy and data security\n\nSetup\nEnsure you have Ollama installed and running locally\nPull the required models mentioned in the workflow using Ollama CLI (e.g., ollama pull phi4)\nConfigure the Ollama API credentials in n8n (default: http://127.0.0.1:11434)\nActivate the workflow and start interacting through the chat interface\n\nHow to customize this workflow to your needs\nAdd or remove models from the router's decision framework based on your specific Ollama collection\nAdjust the system prompts in the LLM Router to prioritize different model selection criteria\nModify the decision tree logic to better suit your specific use cases\nAdd additional preprocessing steps for specialized inputs\n\n\nThis workflow demonstrates how n8n can be used to create sophisticated AI orchestration systems that respect user privacy by keeping everything local while still providing intelligent model selection capabilities.",
+  "totalViews": 10235,
+  "source": "official",
+  "user": {
+    "id": 92125,
+    "name": "Joseph LePage",
+    "username": "joe",
+    "bio": "As an AI Automation consultant based in Canada, I partner with forward-thinking organizations to implement AI solutions that streamline operations and drive growth.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/e7ca218dfc87b68344bbd66f40da01546d2f6fc1cf884267821e8a77e3e8410a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Ollama Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOllama",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-03-12T03:04:44.720Z",
+  "path": "official/template_3139/workflow.json"
+}

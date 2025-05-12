@@ -1,0 +1,74 @@
+{
+  "id": 3838,
+  "name": "Automated Resume Screening & Ranking with Llama 4 AI and Google Workspace",
+  "description": "Target Audience\nYou will find this workflow or template perfect if you are in the internal talent acquisition teams, recruitment agencies, HR professionals, and hiring managers seeking to bulk automate the initial screening of CVs and resumes.\n Eg. Automatically get result of candidate who has been  shortlisted/rejected with its rationale and score automatically.\n\nBy eliminating manual evaluation and screening,  you get smart AI-Agent helping you to have standardized efficient, and scalable solution for handling large volumes of applications. \n\nWith bulk automation, you can focus strategic decision-making rather than tedious screening tasks, ensuring a faster, more accurate, and fair hiring process.  \nKey focus \nThis workflow focusses on having a more organized file-folder management, trackable candidate cv, maintainable job description, autonomous ai-agent.\nOrganized Folder-File Structure – CVs are automatically categorized based on their status, ensuring a structured workflow and easy retrieval\n\nCandidate Tracker – A real-time tracking system records the state of each CV, allowing recruiters to monitor the shortlisted, rejected, or KIV (Keep in View) candidates.\n\nAI Agent for Decision Automation – The AI autonomously orchestrates screening decisions, replacing manual LLM configurations with dynamic AI-driven evaluations for scalability and accuracy.\n\nMaintainable Job Description Management – A structured job description file ensures continuous updates, keeping hiring criteria flexible and aligned with recruitment needs.\n\nEmail Notifications – The system automatically sends receipt confirmations upon processing completion, providing timely updates to recruiters.\n\nFeatures - Workflow \nAutomated Resume Screening Workflow  \n\nThis workflow leverages Groq Llama4 for intelligent resume analysis, speeding the screening process by generating a matching score, result (shortlisted/rejected/kiv), and key insights/rationale into their suitability for provided job description.  \nStep-by-Step Process:  \n\nMonitors Google Drive:** Listens and checks for new resume cv in google drive   .  \nRetrieve Resume:** Downloads the CV resumes from google drive .  \nExtract Resume Data:* Extract *text content** from CV resume PDF files  \nExtract Job Description Data:* Extract *text content** from job description\n\nAnalyze with Groq:**  \n  Generate a matching score based on job requirements.  [SCORE: 1-10]\n  Provide decision into their job suitability.  [SHORTLISTED/REJECTED/KIV]\n  Provide actionable insights into their job suitability.  [REASON]\n\nThis ensures a fast, efficient, and accurate screening process, eliminating manual evaluation. \n\nSetup Guide\nStep-by-Step Instructions   \nEnsure all credentials are ready and setup (groq, gdrive ,gmail, gsheet, gdoc)\nView official n8n documentation on node setup accordingly.\nSee also the notes of setup .\nFolder & File Setup    \n1. Create a google-drive folder like this\n \nView directory example\n\n2. Create a job description like this\n \nView file example\n\n3. Configure a tracker like this ( Candidate Name, AI Score,AI Verdict, AI Reason)\n \nView file example\n  email conversations report as you like.\n\nYou are ready to go!\n\n ",
+  "totalViews": 476,
+  "source": "official",
+  "user": {
+    "id": 92876,
+    "name": "Sean Lon",
+    "username": "seanlon",
+    "bio": "I embarked on my coding journey at the age of 13, driven by a deep passion for AI, automation, and engineering. Over the years, I've taken on various roles including Developer, Engineer, Senior Engineer, Architect, Principal Engineer, Freelance Consultant, and Head of Engineering.",
+    "verified": true,
+    "links": "[\"https://seanlon.site\"]",
+    "avatar": "https://gravatar.com/avatar/1880b3f123439c4d0709778f8b82baf2071047f6071a42b9a744313faa0d235e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Miscellaneous",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Google Docs",
+      "type": "n8n-nodes-base.googleDocs",
+      "categories": [
+        "Miscellaneous"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Groq Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-05-03T05:42:29.439Z",
+  "path": "official/template_3838/workflow.json"
+}

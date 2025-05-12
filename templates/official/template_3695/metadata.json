@@ -1,0 +1,64 @@
+{
+  "id": 3695,
+  "name": "🔔 Meta Ads Low Balance Alert – Auto Notification via WhatsApp or Email",
+  "description": "Hello my loves! I’m Amanda...\nI created this workflow with care for marketing professionals and agencies who manage multiple Meta Ads (Facebook) accounts and want to track ad account balances automatically — no more logging in every day or risking campaigns stopping unexpectedly.\n\nWith this setup, n8n will check the balance of each account using the Meta API, compare it to a defined threshold, and if the balance is too low, it will automatically send a friendly alert via WhatsApp or email. It also logs everything neatly into a Google Sheet — so you always know where things stand.\n\n✨ What this workflow does\n\n🧾 Pulls balance data from Meta Ads accounts using the Facebook Graph API  \n📉 Compares current balance with the minimum threshold set in a Google Sheet  \n🚨 Sends low-balance alerts via WhatsApp (Evolution API) or Gmail  \n🧠 Customizes alerts depending on payment type: Boleto or Credit Card  \n📊 Updates the Google Sheet with new balance, check date, and status  \n📆 Can run automatically every day or manually whenever you want\n\n🔧 What you’ll need\n\nA Google Sheet with your client accounts and minimum balance thresholds  \n   → Use this template: Google Sheet Example  \nAccess Token for Meta Ads API  \nEvolution API (if you want to send alerts via WhatsApp)  \nGmail account connected to n8n (for email notifications)  \n“Base Value” column filled out in the sheet for each account\n\n✅ Works with:\nn8n Cloud**  \nn8n Self-hosted**\n\n🔐 Secure credentials managed directly in n8n — no exposed tokens.\n\nWant to adapt this workflow to your business?\n❤️ Buy Workflows: https://iloveflows.gumroad.com  \n☁️ Try n8n Cloud with my partner link: https://n8n.partnerlinks.io/amanda\n\nTranslation to Portuguese:\nOlá meus amores! Eu sou a Amanda 🌟\nEsse fluxo foi feito com muito cuidado para profissionais que gerenciam contas de anúncios no Meta Ads (Facebook) e precisam acompanhar de perto o saldo disponível, evitando pausas indesejadas nas campanhas.\n\nCom ele, você automatiza todo o controle de saldo: o sistema busca os dados da conta via API do Facebook, calcula o valor restante, compara com o limite definido, envia alertas personalizados por WhatsApp ou e-mail e ainda atualiza tudo em uma planilha do Google Sheets — todos os dias, de forma segura e sem esforço.  \n\n✨ O que esse fluxo faz\n\n🔄 Busca automaticamente o saldo das contas via API do Meta Ads  \n🧮 Verifica se o saldo está abaixo do valor base definido para cada conta  \n🟨 Se estiver abaixo, envia alerta com mensagem personalizada para o cliente  \n💌 Alerta pode ser enviado por WhatsApp (via Evolution API) ou Email (Gmail)  \n📊 Atualiza a planilha do Google Sheets com o novo saldo e data da última checagem  \n💳 Verifica se o método de pagamento da conta é boleto, PIX ou cartão e envia mensagens diferentes para cada caso  \n📆 Funciona com agendamento automático diário ou execução manual  \n\n🛠️ O que você precisa\n\nUma planilha no Google Sheets com os dados das contas (use este modelo)  \nConta de anúncios no Meta configurada com token de acesso válido  \nAPI do Evolution (caso queira enviar alertas por WhatsApp)  \nGmail conectado no n8n (para envio de emails)  \nBase Value (valor mínimo desejado) preenchido na planilha para cada conta\n\n✅ Compatível com:\nn8n Cloud**  \nn8n Auto-hospedado**\n\n🔐 Segurança garantida com o uso de credenciais do próprio n8n.\n\nQuer adaptar esse fluxo pro seu sistema?\n❤️ Buy Workflows: https://iloveflows.gumroad.com  \n☁️ Use n8n Cloud com meu link parceiro: https://n8n.partnerlinks.io/amanda",
+  "totalViews": 77,
+  "source": "official",
+  "user": {
+    "id": 93865,
+    "name": "Amanda Benks",
+    "username": "amanda",
+    "bio": "Hi loves! I've been making workflows for n8n for two years, and I hope you like my flows <3",
+    "verified": true,
+    "links": "[\"https://iloveflows.com\"]",
+    "avatar": "https://gravatar.com/avatar/b3a5d488866a5de1fb28471770f11f0dab20e328d3b47e4fa0a379ef2a22c041?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-04-24T16:03:23.125Z",
+  "path": "official/template_3695/workflow.json"
+}

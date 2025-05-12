@@ -1,0 +1,55 @@
+{
+  "id": 823,
+  "name": "n8n workflow backup management with Dropbox and Airtable",
+  "description": "This workflow can be used to save all of your workflows in:\na raw state (as a json file in Dropbox)\nan Airtable base, in a pre-designed format.\n\nIt runs periodically (currently, every 30 minutes) and either updates (if already existing in Airtable) or creates a new record in Airtable for each workflow.\n\nHere's the Airtable base to give you an idea:\n\nView Airtable base\n\nNote: This workflows uses the \"http://localhost:5678/rest\" API which the UI editor uses but is still not officially supported. Hence, it may suffer breaking changes at some point in the future and the workflow might become dysfunctional then.",
+  "totalViews": 1618,
+  "source": "official",
+  "user": {
+    "id": 7817,
+    "name": "Shrey",
+    "username": "shrey-42",
+    "bio": null,
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/e48470dc4d57b129d787688cc76132918d4d2eec29d1b901e7060e7054a52844?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Dropbox",
+      "type": "n8n-nodes-base.dropbox",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2020-12-14T04:34:50.157Z",
+  "path": "official/template_823/workflow.json"
+}

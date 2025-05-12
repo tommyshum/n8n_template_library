@@ -1,0 +1,160 @@
+{
+  "id": 2705,
+  "name": "Chat with GitHub API Documentation: RAG-Powered Chatbot with Pinecone & OpenAI",
+  "description": "This workflow demonstrates a Retrieval Augmented Generation (RAG) chatbot that lets you chat with the GitHub API Specification (documentation) using natural language. Built with n8n, OpenAI's LLMs and the Pinecone vector database, it provides accurate and context-aware responses to your questions about how to use the GitHub API.\nYou could adapt this to any OpenAPI specification for any public or private API, thus creating a documentation chatbout that anyone in your company can use.\n\nHow it works:\n\nData Ingestion: The workflow fetches the complete GitHub API OpenAPI 3 specification directly from the GitHub repository.\nChunking and Embeddings: It splits the large API spec into smaller, manageable chunks. OpenAI's embedding models then generate vector embeddings for each chunk, capturing their semantic meaning.\nVector Database Storage: These embeddings, along with the corresponding text chunks, are stored in a Pinecone vector database.\nChat Interface and Query Processing: The workflow provides a simple chat interface. When you ask a question, it generates an embedding for your query using the same OpenAI model.\nSemantic Search and Retrieval: Pinecone is queried to find the most relevant text chunks from the API spec based on the query embedding.\nResponse Generation: The retrieved chunks and your original question are fed to OpenAI's gpt-4o-mini LLM, which generates a concise, informative, and contextually relevant answer, including code snippets when applicable.\n\nSet up steps:\n\nCreate accounts: You'll need accounts with OpenAI and Pinecone.\nAPI keys: Obtain API keys for both services.\nConfigure credentials: In your n8n environment, configure credentials for OpenAI and Pinecone using your API keys.\nImport the workflow: Import this workflow into your n8n instance.\nPinecone Index: Ensure you have a Pinecone index named \"n8n-demo\" or adjust the workflow accordingly. The workflow is set up to work with this index out of the box.\n\nSetup Time: Approximately 15-20 minutes.\n\nWhy use this workflow?\n\nLearn RAG in Action: This is a practical, hands-on example of how to build a RAG-powered chatbot.\nAdaptable Template: Easily modify this workflow to create chatbots for other APIs or knowledge bases.\nn8n Made Easy: See how n8n simplifies complex integrations between data sources, vector databases, and LLMs.",
+  "totalViews": 19356,
+  "source": "official",
+  "user": {
+    "id": 91633,
+    "name": "Mihai Farcas",
+    "username": "mihailtd",
+    "bio": "Full-stack developer with 5+ years streamlining healthcare processes. Proficient in NodeJS, VueJS, MongoDB, PostgreSQL, Kubernetes, and n8n. Ready to optimize your workflows – book a consult via my link.",
+    "verified": true,
+    "links": "[\"https://mihai.ltd\"]",
+    "avatar": "https://gravatar.com/avatar/a73ca84b07b557e95322815bc04859245e9243c7cfd5bf9a14568fd0ce3e72c5?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Recursive Character Text Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Pinecone Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    },
+    {
+      "name": "Vector Store Question Answer Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolVectorStore",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 9,
+  "createdAt": "2025-01-07T20:05:27.294Z",
+  "path": "official/template_2705/workflow.json"
+}

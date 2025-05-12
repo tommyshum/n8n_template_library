@@ -1,0 +1,49 @@
+{
+  "id": 2739,
+  "name": "Convert Addresses to LatLong with Google Sheets and Google Maps API",
+  "description": "Template Detail\nThis template automates the process of converting a list of addresses into their latitude and longitude (LatLong) coordinates using Google Sheets and the Google Maps API. It's designed for businesses, developers, and analysts who need accurate geolocation data for use cases like delivery routing, event planning, or market analysis.\n\nWhat the Template Does\nFetch Address Data: Retrieves addresses from a Google Sheet.\nGoogle Maps API Integration: Sends each address to the Google Maps API and retrieves the corresponding LatLong coordinates.\nUpdate Google Sheets: Automatically updates the same Google Sheet with the LatLong data for each address.\n\nEnhancements\nGoogle Sheets Template: Provide a pre-configured Google Sheets template that users can copy. Example link: Google Sheets Template. \n\nColumns required:\n   Address: Column to input addresses.\n   LatLong: Column for the latitude and longitude results.\n\nUpdated Workflow Structure\n\nTrigger:\n   A manual trigger node starts the workflow.\nRetrieve Data from Google Sheets:\n   Fetch addresses from a Google Sheet.\nSend to Google Maps API:\n   For each address, retrieve the LatLong coordinates directly via the Google Maps API.\nUpdate Google Sheets:\n   Write the LatLong results back into the Google Sheet.\n\nSteps to Use\nPrepare Google Sheet:\n   Copy the provided Google Sheets template and add your addresses to the Address column.\nConfigure Google Cloud API:\n   Enable the Maps API for your Google Cloud project.\n   Generate an API key with the required permissions.\nRun the Workflow:\n   Start the workflow in n8n; it will process the addresses automatically.\n   Updated LatLong data will appear in the corresponding Google Sheet.\nReview the Results:\n   Use the enriched LatLong data for mapping or analysis.\n",
+  "totalViews": 1889,
+  "source": "official",
+  "user": {
+    "id": 92308,
+    "name": "Boriwat Chanruang",
+    "username": "boriwatopal",
+    "bio": "Automation consultant specializing in Data, AI, and Automation, founder of hundredtimesfaster.com and No Code AI community. Currently AI & Data Solutions Lead at Assetwise PCL, with a proven track record of driving innovation and efficiency in leading firms. Author of Practical Data Visualization & Analytics with Looker Studio. Book a consultation to explore custom solutions!",
+    "verified": true,
+    "links": "[\"https://hundredtimesfaster.com/\"]",
+    "avatar": "https://gravatar.com/avatar/ae61960d666686cc5f29cd88b208cf65fbe9b9232e268fe438dae2473474a116?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-01-17T03:43:26.331Z",
+  "path": "official/template_2739/workflow.json"
+}

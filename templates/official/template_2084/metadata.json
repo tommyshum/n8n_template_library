@@ -1,0 +1,46 @@
+{
+  "id": 2084,
+  "name": "Creators Hub: Generate Dynamic SVG Stats with daily updates",
+  "description": "\nn8n Creators Template: Creator Profile Stats Updater\n\nThis n8n workflow template is designed to automate the process of updating a creator's profile statistics, including total workflows, complex workflows, approved workflows, pending workflows, total nodes, and total views. It utilizes various nodes to fetch data, process it, and update a SVG file hosted on GitHub to reflect the latest stats.\n\nWorkflow Overview\n\nSchedule Trigger: Triggers the workflow execution at specified intervals.\nConfig: Sets up configuration details like creator username, colors for text, icons, border, and card.\nGet Workflows: Fetches workflows associated with the creator from the n8n API.\nWorkflows Data: Processes the fetched data to calculate various statistics.\nGet User: Fetches user details from the n8n API.\nDownload Image: Downloads the creator's profile image.\nExtract From File: Extracts binary data from the downloaded image file.\nSVG: Generates an SVG file with updated stats and visual representation.\nGitHub: Commits the updated SVG file to the specified GitHub repository.\nFinal: Prepares the final data set for further processing or output.\nSticky Note: Provides a visual note or reminder within the workflow editor.\n\nEmbed & Live Preview\n\nSince it's a .SVG format you can host it anywhere. treat it like normal image so you can embed it with any site, forum, page that support posting images. here's example code for markdown:\n\n\nHere's the result\n\nOr served through CDN & Cache\n\nSetup Instructions\n\nGitHub Credentials: Ensure you have GitHub credentials set up in your n8n instance to allow the workflow to commit changes to your repository.\nConfigure Trigger: Adjust the Schedule Trigger node to set the desired execution intervals for the workflow.\nSet Configuration: Customize the Config node with your GitHub username and preferred aesthetic options for the SVG.\nDeploy Workflow: Import the workflow into your n8n instance and deploy it.\n\nCustomization Options\n\nText and Icon Colors**: Customize the colors used in the SVG by modifying the respective fields in the Config node.\nProfile Image Size**: Adjust the image size in the Download Image node URL if needed.\nCommit Messages**: Modify the commit messages in the GitHub nodes to suit your version control conventions [I've used $now funaction to include current time in message which will gives allways a diffrent commit value].\n\nRequirements\n\nn8n (Self-hosted or Cloud version compatible with 2024 releases and up)\nGitHub account and repository\nBasic understanding of n8n workflow configuration\n\nSupport and Contributions\n\nFor support, please refer to the n8n community forum or the official n8n documentation. Contributions to the template can be made you're allowed to reuse this workflow and reshare with edit (like new design/colors etc..) under your name.",
+  "totalViews": 1174,
+  "source": "official",
+  "user": {
+    "id": 91304,
+    "name": "Nskha",
+    "username": "nskha",
+    "bio": "Welcome to Nskha! We're all about making real changes in the no-code tech field, just like with N8N 😉. Check out our amazing collection of free public templates and join us in building a collaborative database of no-code idea projects. Let's revolutionize the way we create without code!",
+    "verified": true,
+    "links": "[\"https://nskha.com\"]",
+    "avatar": "https://gravatar.com/avatar/6f99957ae9e5a66cf0bb95f4584cf321b0644a0ceea6a633bc968b6ec55e8410?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "GitHub",
+      "type": "n8n-nodes-base.github",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-02-06T21:58:17.692Z",
+  "path": "official/template_2084/workflow.json"
+}

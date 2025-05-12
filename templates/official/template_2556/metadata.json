@@ -1,0 +1,50 @@
+{
+  "id": 2556,
+  "name": "Exponential Backoff for Google APIs",
+  "description": "n8n Workflow: Exponential Backoff for Google APIs\n\nOverview\nThis n8n workflow implements an Exponential Backoff mechanism to handle retries when interacting with Google APIs. It ensures that failed API requests are retried with increasing delays, up to a specified maximum retry count. This approach helps mitigate transient errors (e.g., rate limits or temporary network issues) while maintaining workflow efficiency.\n\nKey Features:\nExponential Backoff Logic**: Dynamically increases wait time between retries based on the retry count.\nError Handling**: Stops the workflow and raises an error after a specified number of retries.\nDynamic Waiting**: Waits for a calculated duration before each retry.\nScalable Design**: Modular nodes for easy debugging and customization.\n\nWorkflow Details\n\nNodes in the Workflow:\n\nTrigger (When clicking \"Test Workflow\"):\n   Manually starts the workflow for testing.\n\nLoop Over Items:\n   Iterates over multiple input items to process Google API requests row by row.\n\nGoogle API Node (Example: Update Sheet):\n   Sends a request to a Google API endpoint (e.g., updating a row in Google Sheets).\n   On success: Moves to the next item in the loop.\n   On error: Passes the error to the Exponential Backoff node.\n\nExponential Backoff:\n   Calculates the delay for the next retry based on the retry count.\n   Logic:\n          const retryCount = $json[\"retryCount\"] || 0;\n     const maxRetries = 5;\n     const initialDelay = 1; // in seconds\n\n     if (retryCount &lt; maxRetries) {\n         const currentDelayInSeconds = initialDelay * Math.pow(2, retryCount);\n         return {\n             json: {\n                 retryCount: retryCount + 1,\n                 waitTimeInSeconds: currentDelayInSeconds,\n                 status: 'retrying',\n             }\n         };\n     } else {\n         return {\n             json: {\n                 error: 'Max retries exceeded',\n                 retryCount: retryCount,\n                 status: 'failed'\n             }\n         };\n     }\n     \nWait:\n   Dynamically waits for the waitTimeInSeconds value calculated in the Exponential Backoff node.\n   Configuration:\n     Resume: After Time Interval\n     Wait Amount: {{ $json[\"waitTimeInSeconds\"] }}\n     Unit: Seconds\n\nCheck Max Retries:\n   Evaluates whether the retry count has exceeded the maximum limit.\n   Routes the workflow:\n     True: Passes to the Stop and Error node.\n     False: Loops back to the Google API node for retry.\n\nStop and Error:\n   Stops the workflow and logs the error when the maximum retry count is reached.\n\nParameters\nConfigurable Settings:\nMax Retries:\n   Defined in the Exponential Backoff node (const maxRetries = 5).\n   Adjust this value based on your requirements.\n\nInitial Delay:\n   The starting wait time for retries, defined as 1 second.\n\nGoogle API Configuration:\n   Ensure your Google API node is properly authenticated and configured with the desired endpoint and parameters.\n\nHow to Use\nImport the Workflow:\n   Copy the workflow JSON and import it into your n8n instance.\n\nConfigure Google API Node:\n   Set up the Google API node with your credentials and target API endpoint (e.g., Google Sheets, Gmail, etc.).\n\nTest the Workflow:\n   Manually trigger the workflow and observe the retry behavior in case of errors.\n\nMonitor Logs:\n   Use the console logs in the Exponential Backoff node to debug retry timings and status.\n\nExample Scenarios\nScenario 1: Successful Execution\nThe Google API processes all requests without errors.\nWorkflow completes without triggering the retry logic.\n\nScenario 2: Transient API Errors\nThe Google API returns an error (e.g., 429 Too Many Requests).\nThe workflow retries the request with increasing wait times.\n\nScenario 3: Maximum Retries Exceeded\nThe workflow reaches the maximum retry count (e.g., 5 retries).\nAn error is raised, and the workflow stops.\n\nConsiderations\nJitter:\n   This workflow does not implement jitter (randomized delay) since it's not required for low-volume use cases.\n   If needed, jitter can be added to the exponential backoff calculation.\n\nRetry Storms:\n   If multiple workflows run simultaneously, ensure your API quotas can handle potential retries.\n\nError Handling Beyond Max Retries:\n   Customize the Stop and Error node to notify stakeholders or log errors in a centralized system.\n\nCustomization Options\nAdjust the maximum retry limit and delay calculation to suit your use case.\nAdd additional logic to handle specific error codes differently.\nExtend the workflow to notify stakeholders when an error occurs (e.g., via Slack or email).\n\nTroubleshooting\nRetry Not Triggering**:\n  Ensure the retryCount variable is passed correctly between nodes.\n  Confirm that the error output from the Google API node flows to the Exponential Backoff node.\n\nIncorrect Wait Time**:\n  Verify the Wait node is referencing the correct field for waitTimeInSeconds.\n\nRequest for Feedback\nWe are always looking to improve this workflow. If you have suggestions, improvements, or ideas for additional features, please feel free to share them. Your feedback helps us refine and enhance this solution!\n\n",
+  "totalViews": 1129,
+  "source": "official",
+  "user": {
+    "id": 91693,
+    "name": "Alex Kim",
+    "username": "alexk1919",
+    "bio": "n8n Ambassador & Verified Partner",
+    "verified": true,
+    "links": "[\"https://wot-ai.com\"]",
+    "avatar": "https://gravatar.com/avatar/2b74c7f530e250439f5d752f2623ead4921fbb8aef56343c922b2873ef8a619f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-11-18T21:52:56.975Z",
+  "path": "official/template_2556/workflow.json"
+}

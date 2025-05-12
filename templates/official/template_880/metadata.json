@@ -1,0 +1,38 @@
+{
+  "id": 880,
+  "name": "Receive updates of the position of the ISS every minute",
+  "description": "This workflow demonstrates the use of static data in n8n. The workflow is built on the concept of polling.\n\n\n\nCron node: The Cron node triggers the workflow every minute. You can configure the time based on your use-case.\n\nHTTP Request node: This node makes an HTTP Request to an API that returns the position of the ISS.\n\nSet node: In the Set node we set the information that we need in the workflow. Since we only need the timestamp, latitude, and longitude we set this in the node. If you need other information, you can set them in this node.\n\nFunction node: The Function node, checks if the incoming data is similar to the data that was returned in the previous execution or not. If the data is different the Function node returns this new node, otherwise, it returns a message 'No New Items'. The data is also stored as static data with the workflow.\n\nBased on your use-case, you can build the workflow further. For example, you can use it send updates to Mattermost or Slack",
+  "totalViews": 295,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2021-01-07T10:58:36.679Z",
+  "path": "official/template_880/workflow.json"
+}

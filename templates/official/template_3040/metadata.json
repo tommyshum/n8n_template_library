@@ -1,0 +1,71 @@
+{
+  "id": 3040,
+  "name": "AI-Powered Gratitude Reminder Workflow for LINE",
+  "description": "This workflow template, \"Daily Gratitude Reminder Bot for LINE,\" is designed to help users cultivate a habit of gratitude by sending personalized, AI-generated reminders every evening at 9:00 PM. Using Azure OpenAI , the bot generates varied and engaging messages to prompt users to reflect on the positive aspects of their day. The reminders are then sent directly to users via the LINE messaging platform , ensuring a seamless and impactful experience.\n\nWhether you're a developer, counselor, or business owner, this template offers a customizable and scalable solution for promoting mental wellness and fostering a culture of gratitude.\n\nprofile\nQwen2.5-Max\n2:56 pm\nHere’s a polished and detailed description for your \"Daily Gratitude Reminder Bot for LINE\" template, following the submission guidelines provided. This description is structured to meet all the requirements, including SEO optimization, clarity, and user convenience.\n\nDaily Gratitude Reminder Bot for LINE\nThis workflow template, \"Daily Gratitude Reminder Bot for LINE,\" is designed to help users cultivate a habit of gratitude by sending personalized, AI-generated reminders every evening at 9:00 PM. Using Azure OpenAI , the bot generates varied and engaging messages to prompt users to reflect on the positive aspects of their day. The reminders are then sent directly to users via the LINE messaging platform , ensuring a seamless and impactful experience.\n\nWhether you're a developer, counselor, or business owner, this template offers a customizable and scalable solution for promoting mental wellness and fostering a culture of gratitude.\n\nWho Is This Template For?\nDevelopers who want to integrate AI-powered workflows into messaging platforms like LINE.\nCounselors & Therapists looking to encourage mindfulness and emotional well-being among their clients.\nBusinesses & Organizations focused on employee wellness or customer engagement through positive reinforcement.\nEducators & Nonprofits seeking tools to promote mental health awareness and self-care practices.\n\nWhat Problem Does This Workflow Solve?\nGratitude journaling has been proven to improve mental health, reduce stress, and increase overall happiness. However, many people struggle to maintain the habit due to busy schedules or forgetfulness. This workflow solves that problem by automating daily reminders to reflect on positive experiences, making it easier for users to build and sustain a gratitude practice.\n\nWhat This Workflow Does\nScheduled Trigger:\nThe workflow is triggered every evening at 9:00 PM using a schedule node.\nAI-Powered Message Generation:\nAn Azure OpenAI Chat Model generates a unique and engaging reminder message with a temperature setting of 0.9 to ensure variety and creativity.\nMessage Formatting:\nThe generated message is reformatted to comply with the LINE Push API requirements, ensuring smooth delivery.\nPush Notification via LINE:\nThe formatted message is sent to the user via the LINE Push API , delivering the reminder directly to their chat.\n\nSetup Guide\nPre-Requisites\nAccess to an Azure OpenAI account with credentials.\nA LINE Developers Console account with access to the Push API.\nBasic knowledge of n8n workflows and JSON formatting.\n\nHow to Customize This Workflow to Your Needs\nChange the Time: Adjust the schedule trigger to send reminders at a different time.\nModify the Prompt: Edit the AI model's input prompt to generate messages tailored to your audience (e.g., focus on work achievements or personal growth).\nExpand Recipients: Update the LINE Push API node to send reminders to multiple users or groups.\nIntegrate Additional Features: Add nodes to log user responses or track engagement metrics.\nWhy Use This Template?\nPromotes Mental Wellness: Encourages users to reflect on positive experiences, improving emotional well-being.\nHighly Customizable: Easily adapt the workflow to suit different audiences and use cases.\nScalable: Send reminders to one user or thousands, making it suitable for both personal and organizational use.\nAI-Powered Creativity: Avoid repetitive messages by leveraging AI to generate fresh and engaging content.",
+  "totalViews": 589,
+  "source": "official",
+  "user": {
+    "id": 92858,
+    "name": "lin@davoy.tech",
+    "username": "linlinmhee",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4e38af5bc6715cea4e86e60c03e21e287cea3cdb5ceba78b3003e6404743fd32?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Azure OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatAzureOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-02-28T08:00:56.199Z",
+  "path": "official/template_3040/workflow.json"
+}

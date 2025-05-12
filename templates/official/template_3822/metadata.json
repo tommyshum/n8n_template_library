@@ -1,0 +1,47 @@
+{
+  "id": 3822,
+  "name": "Auto-Post Breaking News Content Using Perplexity AI to X (Twitter)",
+  "description": "Stay ahead of the curve and keep your followers informed—automatically.  \nThis n8n workflow uses Perplexity AI to generate insightful answers to scheduled queries, then auto-posts the responses directly to X (Twitter).\n\n⚙️ What this workflow does\n\nScheduled Trigger – Runs at set times (daily, hourly, etc.).\nsearchQuery – Define what kind of trending or relevant insight you want (e.g. “latest AI trends”).\nset API Key – Securely insert your Perplexity API key.\nPerplexity API Call – Fetches a short, insightful response to your query.\nPost to X – Automatically publishes the result as a tweet.\n\n🧩 Requirements\n\nAn n8n account (self-hosted or cloud)\nA Perplexity API key\nA connected X (Twitter) account via n8n’s credentials\n\n✅ Setup Steps\n\nAdd this workflow into your n8n account.\nEdit the searchQuery node with a topic (e.g. “What’s new in ecommerce automation?”).\nPaste your Perplexity API key into the set API key node.\nConnect your X (Twitter) account in the final node.\nAdjust the schedule timing to suit your content frequency.\n\n💡 Ideas to Improve\n\n💬 Add a formatting step to shorten or hashtag the response.\n📊 Pull multiple trending questions and auto-schedule posts.\n🔁 Loop responses to queue a full week of content.\n🌐 Translate content before posting to reach a global audience.\n\n🆘 Need help?\n\nJoin our Discord for tips, support, and inspiration:  \n👉 Discord\n",
+  "totalViews": 339,
+  "source": "official",
+  "user": {
+    "id": 94008,
+    "name": "Aitor | 1node.ai",
+    "username": "aitoralonso",
+    "bio": "Hi, I’m Aitor, cofounder of 1node.ai. We help businesses integrate full-scale AI solutions that save time, cut costs, and increase revenue. Guaranteed. Need help building smarter workflows? Visit 1node.ai and let's connect.",
+    "verified": true,
+    "links": "[\"https://1node.ai\"]",
+    "avatar": "https://gravatar.com/avatar/2f850f7b4c218087a3e7d9775daf6bd8dad05b5eb5ea82242d4bfd1a97465455?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Marketing"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "X (Formerly Twitter)",
+      "type": "n8n-nodes-base.twitter",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-05-01T16:38:32.582Z",
+  "path": "official/template_3822/workflow.json"
+}

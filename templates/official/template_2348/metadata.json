@@ -1,0 +1,32 @@
+{
+  "id": 2348,
+  "name": "Get Multiple Attachments from Gmail and upload them to GDrive",
+  "description": "\nThis is a simple template to show how to extract multiple email attachments and return them as an iterable output. \n\nHow it works: \nThe Gmail Trigger node detects any new email that has attachments. The Code node will then extract them as binary files and attaches them to the item. They can then be uploaded via the Google Drive node. \n\nSetup steps:\nadd your Gmail Credentials\nadd your Google Drive Credentials\nFollow the official n8n Documentation for help\n\nFeedback & Questions\n\nIf you have any questions or feedback about this workflow - Feel free to get in touch at ria@n8n.io\n\n\n\n\n\n",
+  "totalViews": 6500,
+  "source": "official",
+  "user": {
+    "id": 91710,
+    "name": "Ria",
+    "username": "riascho",
+    "bio": "Support Engineer @n8n",
+    "verified": true,
+    "links": "[\"https://github.com/riascho/\"]",
+    "avatar": "https://gravatar.com/avatar/27eb8c70c93f78c08bfdf6b701be48eeaaa770fa1e3be427e1712f8ce2f4b761?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-07-16T14:24:14.308Z",
+  "path": "official/template_2348/workflow.json"
+}

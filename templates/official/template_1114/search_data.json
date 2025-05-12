@@ -1,0 +1,61 @@
+{
+  "id": 1114,
+  "name": "Create, update and get a task in Microsoft To Do",
+  "totalViews": 2805,
+  "purchaseUrl": null,
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "description": "This workflow allows you to create, update and get a task in Microsoft To Do.\n\n\n\nMicrosoft To Do node: This node will create a task with the importance High in the Tasks list. You can select a different list as well as the importance level.\n\nMicrosoft To Do1 node: This node will update the status of the task that we created in the previous node.\n\nMicrosoft To Do2 node: This node will get the task that we created earlier.",
+  "createdAt": "2021-06-07T10:02:36.504Z",
+  "nodes": [
+    {
+      "id": 493,
+      "icon": "file:todo.svg",
+      "name": "n8n-nodes-base.microsoftToDo",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.microsofttodo/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/microsoft/"
+              }
+            ]
+          },
+          "categories": [
+            "Productivity"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "Microsoft To Do"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iIzE4NWFiZCIgZD0iTTMuNzEzIDcuODU0LjM5NCAxMS4xNzJhMS4xNyAxLjE3IDAgMCAwIDAgMS42NTVMNS4zNjcgMTcuOGw0Ljk3NC00Ljk3NC00Ljk3NC00Ljk3MmExLjE3IDEuMTcgMCAwIDAtMS42NTQgMCIvPjxwYXRoIGZpbGw9IiM0MWE1ZWUiIGQ9Im0yMy42MDYgNi4yLTMuMzE4LTMuMzJhMS4xNyAxLjE3IDAgMCAwLTEuNjU1IDBsLTQuMTQ2IDQuMTQ2TDkuNTEzIDEybC00LjE0NiA0LjE0NmExLjE3IDEuMTcgMCAwIDAgMCAxLjY1NWwzLjMxOSAzLjMxOGExLjE3IDEuMTcgMCAwIDAgMS42NTUgMGw0LjE0Ni00LjE0NkwxOS40NiAxMmw0LjE0Ni00LjE0NmExLjE3IDEuMTcgMCAwIDAgMC0xLjY1NCIvPjxwYXRoIGZpbGw9Im5vbmUiIGQ9Ik0wIDBoMjR2MjRIMHoiLz48L3N2Zz4="
+      },
+      "displayName": "Microsoft To Do",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 4,
+          "name": "Productivity"
+        }
+      ]
+    }
+  ]
+}

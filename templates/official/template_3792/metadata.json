@@ -1,0 +1,91 @@
+{
+  "id": 3792,
+  "name": "Track SEO Keyword Position in Google SERP (Google Sheets + SerpAPI Integration)",
+  "description": "This n8n workflow automates scheduled checks for your target keywords’ positions in Google’s organic search results using SerpAPI. It logs new positions in Google Sheets, compares them to previous rankings, and sends notifications via WhatsApp and/or email based on the movement.  \n\nProblem Statement & Target Audience\n\nWho is this for?  \nThis workflow is ideal for:\nSEO specialists monitoring keyword rankings.\nWebsite owners tracking performance.\nAgencies managing multiple client campaigns.\n\nIt helps reduce manual effort by automatically checking rankings on a schedule and sending notifications only when there’s movement in position.\n\nPre-conditions & API Requirements\n\nAPIs & Services Used\nSerpAPI – Fetch Google search results  \n   Get API Key: https://serpapi.com/manage-api-key  \n   Docs for usage: SerpAPI Search API  \n   Note: Use Generic credential type in n8n for this to work with the preset configuration.\n\nGoogle Sheets API – To store and update keyword data  \nEmail API – To notify users of position changes  \nWhatsApp API (e.g., Twilio, Ultramsg) – To send notifications  \n\n&gt; Setup help for Google Sheets, Email, and WhatsApp is available via the Docs tab in each respective node in n8n.\n\nStep-by-Step Workflow Explanation\n\n🗓 1. Scheduled Trigger (Support Workflow)\nMarks all rows in the sheet as \"notchecked\" in the checkstatus column.\nThis is the user-defined frequency trigger (e.g. weekly, daily).\nTriggers the main workflow.\n\n🚀 2. Main Workflow Trigger\nStarts when a row with checkstatus = notchecked is found.\n\n🔍 3. HTTP Node (SerpAPI Call)\nSends a request to SerpAPI for each keyword.\nFetches the current Google SERP for that keyword.\n\n🧠 4. JavaScript Node (Parse Position)\nLoops through the SERP results and finds the position of the target URL.\nExtracts and returns the current rank.\n\n✍️ 5. Google Sheets Node (Update Data)\nWrites the new ranking into the spreadsheet.\nUpdates the currentposition and sets checkstatus to \"checked\".\n\n🔀 6. Switch Node (Compare Rankings)\nCompares previousposition with currentposition:\n  If rank has improved → send positive alert.\n  If rank has dropped → send negative alert.\n  If unchanged → no alert.\n\n📩 7. Notification Nodes (WhatsApp / Email)\nSends a message to chosen channels when a change is detected.\n\nCustomization Guide\n\n⏱️ Change Frequency\nAdjust the supporting schedule workflow to change how often the tracker runs.\n\n✉️ Edit Notification Content\nCustomize the WhatsApp and Email message content in their respective nodes.\n\n🔗 Track Multiple URLs per Keyword (Advanced)\nExtend the JavaScript logic if you need to monitor several pages for the same keyword.\n\n🌐 Expand Search Engine Targets\nSerpAPI also supports other search engines like Bing and Yahoo. Modify the request params to switch.\n\nHow to Set Up This Workflow\n\n✅ Step 1: Use This Google Sheets Template\nTo get started quickly, make a copy of the template below:\n\n👉 Google Sheets Template\n\nThis template includes the required structure:\nkeyword\nWebsite_url\nposition\ntimestamp\ncheckstatus\n\n&gt; ⚠️ Be sure to make your own copy to edit and connect via the Google Sheets node.\n\n🔐 Step 2: Configure Your APIs\nSerpAPI:** Get API key from serpapi.com/manage-api-key\n  Set credential type to Generic in n8n for compatibility.\nGoogle Sheets, Email & WhatsApp:* Use the instructions found in each node’s *Docs tab** to connect your accounts.\n\n📦 Step 3: Import the Workflow\nBoth the main keyword tracking workflow and the supporting scheduler workflow are in one file\n\n▶️ Step 4: The workflow will start\nSince the check status columns will be 'notChecked' schedule workflow.\nThe update sheets node will update each processed row's checkstatus to 'checked' and the workflow will process the next row\nthe schedule trigger workflow will update checkstatus = notchecked and triggers the keyword tracking automatically.\n\n🎉 Done!\nFrom now on, your keyword positions will be monitored at the frequency you set. You’ll receive WhatsApp and/or email updates only when rankings change. in case you need customized workflows or wanna reach out here is my twitter and email.",
+  "totalViews": 581,
+  "source": "official",
+  "user": {
+    "id": 93572,
+    "name": "Joseph",
+    "username": "mjomba",
+    "bio": "Automation expert specializing in building smart, scalable workflows using tools like n8n, Make, and Airtable. I help businesses save time, reduce manual work, and grow faster with tailored automation solutions. Feel free to reach out at joseph@uppfy.com to discuss your project.",
+    "verified": true,
+    "links": "[\"https://x.com/juppfy\"]",
+    "avatar": "https://gravatar.com/avatar/460cadca403550e24f9e17a9ee3f4670046503b32fb59618a1b390378b803162?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "WhatsApp Business Cloud",
+      "type": "n8n-nodes-base.whatsApp",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-04-29T19:57:29.645Z",
+  "path": "official/template_3792/workflow.json"
+}

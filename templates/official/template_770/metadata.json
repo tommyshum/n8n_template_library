@@ -1,0 +1,45 @@
+{
+  "id": 770,
+  "name": "Automated congratulations with Google Sheets, Twilio, and n8n ",
+  "description": "",
+  "totalViews": 1246,
+  "source": "official",
+  "user": {
+    "id": 5322,
+    "name": "isa024787bel",
+    "username": "isabel",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/9d0df2522c586005e3ff32ab05c914920f65dcf85c36bbf865d37d870dd19138?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Communication",
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Twilio",
+      "type": "n8n-nodes-base.twilio",
+      "categories": [
+        "Communication",
+        "Development"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2020-11-08T09:16:40.736Z",
+  "path": "official/template_770/workflow.json"
+}

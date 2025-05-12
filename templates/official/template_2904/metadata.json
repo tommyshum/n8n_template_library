@@ -1,0 +1,112 @@
+{
+  "id": 2904,
+  "name": "Arxiv Paper summarization with ChatGPT",
+  "description": "Webhook | Paper Summarization\n\nWho is this for?\nThis workflow is designed for researchers, students, and professionals who frequently read academic papers and need concise summaries. It is useful for anyone who wants to quickly extract key information from research papers hosted on arXiv.\n\nWhat problem is this workflow solving?\nAcademic papers are often lengthy and complex, making it time-consuming to extract essential insights. This workflow automates the process of retrieving, processing, and summarizing research papers, allowing users to focus on key findings without manually reading the entire paper.\n\nWhat this workflow does\nThis workflow extracts the content of an arXiv research paper, processes its abstract and main sections, and generates a structured summary. It provides a well-organized output containing the Abstract Overview, Introduction, Results, and Conclusion, ensuring that users receive critical information in a concise format.\n\nSetup\nEnsure you have n8n installed and configured.\nImport this workflow into your n8n instance.\nConfigure an external trigger using the Webhook node to accept paper IDs.\nTest the workflow by providing an arXiv paper ID.\n(Optional) Modify the summarization model or output format according to your preferences.\n\nHow to customize this workflow to your needs\nAdjust the HTTPRequest node to fetch papers from other sources beyond arXiv.\nModify the Summarization Chain node to refine the summary output.\nEnhance the Reorganize Paper Summary step by integrating additional language models.\nAdd an email or Slack notification step to receive summaries directly.\n\nWorkflow Steps\nWebhook receives a request with an arXiv paper ID.\nSend an HTTP request using \"Request to Paper Page\" to fetch the HTML content of the paper.\nExtract the abstract and sections using \"Extract Contents\".\nSplit out all sections using \"Split out All Sections\" to process individual paragraphs.\nClean up text using \"Remove useless links\" to remove unnecessary elements.\nSummarize extracted content using \"Summarization Chain\".\nAggregate summarized content using \"Aggregate summarized content\".\nReorganize the paper summary into structured sections using \"Reorganize Paper Summary\".\nExtract key information using \"Content Extractor\" to classify data into Abstract Overview, Introduction, Results, and Conclusion.\nRespond to the webhook with the structured summary.\n\nNote: This workflow is designed for use with arXiv research papers but can be adapted to process papers from other sources.\n",
+  "totalViews": 2331,
+  "source": "official",
+  "user": {
+    "id": 92584,
+    "name": "Teddy",
+    "username": "teddysbeach",
+    "bio": "12 years in development, South Korea, Seoul",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b771a9567b1ac39d9b55f8ad7983bbcf2ebdc28919060dda15c13cf4dac9827a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Summarization Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainSummarization",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Information Extractor",
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-02-14T03:10:30.202Z",
+  "path": "official/template_2904/workflow.json"
+}

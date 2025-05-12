@@ -1,0 +1,18 @@
+{
+  "id": 1999,
+  "name": "(De)activate n8n workflows using Telegram commands",
+  "totalViews": 2499,
+  "purchaseUrl": null,
+  "user": {
+    "id": 91262,
+    "name": "MilanWR",
+    "username": "milanwr",
+    "bio": null,
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/250cc11c9a8bb778dcc43c7b21112f5ffbb438820be9c4ceb57a188bcd44dc69?r=pg&d=retro&size=200"
+  },
+  "description": "Telegram N8N workflow (de)activator\n\nWhat does it do?\nThis workflow helps you to quickly activate or deactivate a workflow through Telegram. Sometimes we are not able to access a PC to resolve an issue if something goes wrong with a workflow. If you, like me, use Telegram to send yourself error reports, you can quickly react in case of urgency. Just by sending '/stop' combined with the name you use for a workflow, you can deactivate a workflow, or reactivate it with '/start'. For example '/stop marketing'.\n\nWalkthrough: https://watch.screencastify.com/v/uWQ88gZKj57WTGOOqSW2 (6min)\n\nInstructions\nCreate a Telegram API key through botfather (https://t.me/botfather). Add it to the telegram credentials.\nFor the N8N nodes, go to settings in your n8n instance. Then 'n8n API' and 'create an API key'. \nTo ensure that only we can send commands to the bot, we need the chat ID of our DM with our newly created bot. Open the the Telegram trigger and click on 'listen to events'.\nGo to Telegram and send a direct message to the bot, this will trigger the Telegram node.\nGo to the filter node and fill in the chat id you want to filter for with the data you got from the test event in the Telegram node.\nIn the first Switch node you can find the commands, in this case it is '/start' and '/stop'. When you send a message to your bot starting with either of those, it will go to the next switch nodes.\nNext it will check what other word it contains. As an example I have used the words 'marketing' and 'sales', both corresponding to a marketing and sales workflow. \nThe last nodes will either activate or deactivate a workflow.",
+  "createdAt": "2023-12-02T23:01:32.973Z",
+  "nodes": []
+}

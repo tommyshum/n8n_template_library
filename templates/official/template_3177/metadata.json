@@ -1,0 +1,55 @@
+{
+  "id": 3177,
+  "name": "Sync Notion to Clockify including Clients Projects and Tasks",
+  "description": "Purpose\n\nThis workflow synchronizes three entities from Notion to Clockify, allowing tracked time to be linked to client-related projects or tasks.\n\nDemo & Explanation\n\nHow it works\n\nOn every run active Clients, Projects and Tasks are retrieved from both Notion and Clockify before being compared by the Clockify ID, which is again stored in Notion for reference\nPotential differences are then applied to Clockify\nIf an item has been archived or closed in Notion, it is also marked as archived in Clockify\nAll entities are processed sequentially, since they are related hierarchically to each other\nBy default this workflow runs once per day or when called via webhook (e.g. embedded into a Notion Button)\n\nPrerequisites\n\nA set of Notion databases with a specific structure is required to use this workflow\nYou can either start with this Notion Template or adapt your system based on the requirements described in the big yellow sticky note of this workflow template\n\nSetup\n\nClone the workflow and select the belonging credentials\nFollow the instructions given in the yellow sticky notes\nActivate the workflow\n\nRelated workflows:\n\nBackup Clockify to Github based on monthly reports\nPrevent simultaneous workflow executions with Redis\n",
+  "totalViews": 634,
+  "source": "official",
+  "user": {
+    "id": 91699,
+    "name": "Mario",
+    "username": "octionic",
+    "bio": "Workflow Optimization Expert | Software Architect. Use my link to book an initial consultation for custom built workflows using n8n.",
+    "verified": true,
+    "links": "[\"https://octionic.com\"]",
+    "avatar": "https://gravatar.com/avatar/48bf351cec848d87566d8cc78c9a783ec4807408366648de04cfe955d7a5ba21?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Clockify",
+      "type": "n8n-nodes-base.clockify",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-03-15T22:12:58.511Z",
+  "path": "official/template_3177/workflow.json"
+}

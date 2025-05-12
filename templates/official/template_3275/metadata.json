@@ -1,0 +1,61 @@
+{
+  "id": 3275,
+  "name": "Convert PDF to HTML using PDF.co and Google Drive",
+  "description": "This n8n workflow automates the process of converting a newly stored PDF file from Google Drive into an HTML file and saving it back to Google Drive. The workflow is triggered whenever a new PDF is uploaded to a specific folder, ensuring seamless conversion and storage without any manual intervention.\n\nThis workflow provides an efficient, automated solution for converting PDFs to HTML, eliminating the need for manual file handling and ensuring a smooth document transformation process. It is particularly useful for scenarios where PDFs need to be dynamically converted and stored in an organised manner for web usage, archiving, or further processing.\nPrerequisites :\n\nBefore setting up this workflow, ensure the following:\nPDF.co API Key: Sign up at PDF.co and obtain an API key for PDF to HTML conversion.\nProper Authentication: Ensure authentication is configured for Google Drive in n8n.\n\nCustomisation Options : \nModify the API request to convert PDFs to other formats like Text, CSV, or XML.\nExtend the IF Node to reject files based on size or other properties.\nSend a notification once the conversion is complete using an Email or Telegram Node.\n\nSteps :\n\nStep 1: Google Drive Trigger Node (Watch for New Files)\n\nClick \"Add Node\" and search for Google Drive.\nSelect \"Google Drive Trigger\" and add it to the workflow.\nAuthenticate with your Google Account.\nSelect the folder to monitor.\nSet the trigger to activate whenever a new file is added.\nClick \"Execute Node\" to test.\nClick \"Save\".\n\nStep 2: IF Node (Check if File is a PDF)\n\nClick \"Add Node\" and search for IF.\nAdd a condition to check if the file extension is  .pdf\nIf true → Send the file to the next step.\nIf false → Stop the workflow.\nClick \"Execute Node\" to test.\nClick \"Save\".\n\nStep 3: HTTP Request Node (Convert PDF to HTML)\n\nClick \"Add Node\" and search for HTTP Request.\nSet the Method to POST.\nEnter the PDF.co API endpoint for PDF to HTML conversion.\nIn the Headers, add API key which we have get from pdf.co\nSend the binary PDF data as the request body.\nClick \"Execute Node\" to test.\nClick \"Save\".\n\nStep 4: Function Node (Convert Response to Binary)\n\nClick \"Add Node\" and search for Function.\nWrite a JavaScript function to transform the API response into a binary file.\nClick \"Execute Node\" to test.\nClick \"Save\".\n\nStep 5: Google Drive Node (Save Converted HTML File)\n\nClick \"Add Node\" and search for Google Drive.\nSelect \"Upload File\" as the action.\nAuthenticate with your Google Account.\nSet the destination folder for storing the HTML file.\nMap the binary data from the Function Node.\nClick \"Execute Node\" to test.\nClick \"Save\".\n\nStep 6: Connect & Test the Workflow\n\nLink the nodes in this  order (Google Drive Trigger → IF Node → HTTP Request → Function Node → Google Drive Upload)\nRun the workflow manually.\nUpload a test PDF to Google Drive.\nCheck Google Drive for the converted HTML file.\n\nWho’s behind this?\n\nWeblineIndia’s AI development team. \n\nWe've delivered 3500+ software projects across 25+ countries since 1999. From no-code automations to complex AI systems — our AI team builds tools that drive results. \n\nLooking to hire AI developers? Start with us.",
+  "totalViews": 1372,
+  "source": "official",
+  "user": {
+    "id": 92407,
+    "name": "WeblineIndia",
+    "username": "weblineindia",
+    "bio": "A Leading Software Engineering, Consulting & Outsourcing Services Company in USA & India serving Clients Globally since 1999.",
+    "verified": true,
+    "links": "[\"https://www.weblineindia.com/\"]",
+    "avatar": "https://gravatar.com/avatar/a229d43aefca4588581583c58bb37b4773aebbdf4c1fef86a08bb1d38eae91fa?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-03-21T11:40:37.861Z",
+  "path": "official/template_3275/workflow.json"
+}

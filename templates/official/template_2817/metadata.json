@@ -1,0 +1,81 @@
+{
+  "id": 2817,
+  "name": "AI Social Media Caption Creator creates social media post captions in Airtable",
+  "description": "Welcome to my AI Social Media Caption Creator Workflow!\n\nWhat this workflow does\nThis workflow automatically creates a social media post caption in an editorial plan in Airtable. It also uses background information on the target group, tonality, etc. stored in Airtable.\n\nThis workflow has the following sequence:\n\nAirtable trigger (scan for new records every minute)\nWait 1 Minute so the Airtable record creator has time to write the Briefing field\nretrieval of Airtable record data\nAI Agent to write a caption for a social media post. The agent is instructed to use background information stored in Airtable (such as target group, tonality, etc.) to create the post.\nFormat the output and assign it to the correct field in Airtable.\nPost the caption into Airtable record.\n\nRequirements\nAirtable Database: Documentation\nAI API access (e.g. via OpenAI, Anthropic, Google or Ollama)\n\nExample of an editorial plan in Airtable:\nEditorial Plan example in Airtable\n\nFor this workflow you need the Airtable fields \"created_at\", \"Briefing\" and \"SoMe_Text_AI\"\n\nFeel free to contact me via LinkedIn, if you have any questions!",
+  "totalViews": 3103,
+  "source": "official",
+  "user": {
+    "id": 92319,
+    "name": "Friedemann Schuetz",
+    "username": "freddy-schuetz",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/friedemann-schuetz\"]",
+    "avatar": "https://gravatar.com/avatar/eb8eb92141f57c72c5f5a9fb5e8c85dca42047f764de54ab5466999cbb691079?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-01-29T08:07:40.999Z",
+  "path": "official/template_2817/workflow.json"
+}

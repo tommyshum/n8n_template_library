@@ -1,0 +1,72 @@
+{
+  "id": 2637,
+  "name": "Chat Assistant (OpenAI assistant) with Postgres Memory And API Calling Capabalities",
+  "description": "Workflow Description\n\nYour workflow is an intelligent chatbot, using ++OpenAI assistant++, integrated with a backend that supports WhatsApp Business, designed to handle various use cases such as sales and customer support. Below is a breakdown of its functionality and key components:\n\nWorkflow Structure and Functionality\n\nChat Input (Chat Trigger)\nThe flow starts by receiving messages from customers via WhatsApp Business.\nCollects basic information, such as session_id, to organize interactions.\n\nCondition Check (If Node)\nChecks if additional customer data (e.g., name, age, dependents) is sent along with the message.\nIf additional data is present, a customized prompt is generated, which includes this information. The prompt specifies that this data is for the assistant's awareness and doesn’t require a response.\n\nData Preparation (Edit Fields Nodes)\nFormats customer data and the interaction details to be processed by the AI assistant.\nCompiles the customer data and their query into a single text block.\n\nAI Responses (OpenAI Nodes)\nThe assistant’s prompt is carefully designed to guide the AI in providing accurate and relevant responses based on the customer’s query and data provided.\nPrompts describe the available functionalities, including which APIs to call and their specific purposes, helping to prevent “hallucinated” or irrelevant responses.\n\nMemory and Context (Postgres Chat Memory)\nStores context and messages in continuous sessions using a database, ensuring the chatbot maintains conversation history.\n\nAPI Calls\nThe workflow allows the use of APIs with any endpoints you choose, depending on your specific use case. This flexibility enables integration with various services tailored to your needs.\nThe OpenAI assistant understands JSON structures, and you can define in the prompt how the responses should be formatted. This allows you to structure responses neatly for the client, ensuring clarity and professionalism.\nMake sure to describe the purpose of each endpoint in the assistant’s prompt to help guide the AI and prevent misinterpretation.\n\nCustomer Response Delivery\nAfter processing and querying APIs, the generated response is sent to the backend and ultimately delivered to the customer through WhatsApp Business.\n\nBest Practices Implemented\n\nPreventing Hallucinations**  \n  Every API has a clear description in its prompt, ensuring the AI understands its intended use case.\n\nVersatile Functionality**  \n  The chatbot is modular and flexible, capable of handling both sales and general customer inquiries.\n\nContext Persistence**  \n  By utilizing persistent memory, the flow maintains continuous interaction context, which is crucial for longer conversations or follow-up queries.\n\nAdditional Recommendations\n\nInclude practical examples in the assistant’s prompt, such as frequently asked questions or decision-making flows based on API calls.\nEnsure all responses align with the customer’s objectives (e.g., making a purchase or resolving technical queries).\nLog interactions in detail for future analysis and workflow optimization.\n\nThis workflow provides a solid foundation for a robust and multifunctional virtual assistant 🚀\n",
+  "totalViews": 4698,
+  "source": "official",
+  "user": {
+    "id": 92264,
+    "name": "Fernanda Silva",
+    "username": "ferzinia",
+    "bio": "Software Developer.\nInstagram @ferzinia",
+    "verified": false,
+    "links": "[\"https://community.n8n.io/u/fernanda_silva/\"]",
+    "avatar": "https://gravatar.com/avatar/58d1fdf2eaf9624c371a45c4aa98f7d9ad598617c48be5703fe7f249b4d064b4?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Postgres Chat Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "Other memories"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-12-13T14:59:00.443Z",
+  "path": "official/template_2637/workflow.json"
+}

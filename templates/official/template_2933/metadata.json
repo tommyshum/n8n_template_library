@@ -1,0 +1,75 @@
+{
+  "id": 2933,
+  "name": "Convert RSS to tweet with text and image using free Twitter API",
+  "description": "🎯 Who is this automation for?\n\nPerfect for content creators, marketers, and any X (Twitter) user looking to grow their account quickly without manual effort.\n\n⚙️ How does this workflow work?\n\n✔️ Auto-publishing: Whenever a new article appears in your RSS feed, a tweet is generated and posted on X.\n✔️ Optimized content: A unique, engaging tweet with text and an image is created in under 280 characters. (Verified users can bypass this limit for longer tweets).\n✔️ Free X API: No extra subscription costs for automation.\n✔️ AI-powered: Use models like OpenAI, gemini and Perplexity, but you can configure your preferred model, whether free or paid.\n\n🛠️ Easy Setup\n\n📂 The downloaded file includes a step-by-step video tutorial. If you need help, I’m here for you!\n\n💡 Save time and grow your X audience efficiently with this n8n automation.",
+  "totalViews": 1001,
+  "source": "official",
+  "user": {
+    "id": 92756,
+    "name": "Víctor Manuel",
+    "username": "grimvik90",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/073f464671d69906a11ac8a7aaba5970c326a0fd0b9091eb9f3989bebf829bee?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Marketing",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "X (Formerly Twitter)",
+      "type": "n8n-nodes-base.twitter",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-02-18T07:33:19.114Z",
+  "path": "official/template_2933/workflow.json"
+}

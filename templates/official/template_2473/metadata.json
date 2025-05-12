@@ -1,0 +1,56 @@
+{
+  "id": 2473,
+  "name": "Generate SEO Seed Keywords Using AI",
+  "description": "What this workflow does:\nThis flow uses an AI node to generate Seed Keywords to focus SEO efforts on based on your ideal customer profile. You can use these keywords to form part of your SEO strategy.\n\nOutputs:\nList of 20 Seed Keywords\n\nSetup\nFill the Set Ideal Customer Profile (ICP)\nConnect with your credentials\nReplace the Connect to your own database with your own database\n\nPre-requisites / Dependencies\nYou know your ideal customer profile (ICP)\nAn AI API account (either OpenAI or Anthropic recommended)\n\nMore templates and n8n workflows &gt;&gt;&gt; @simonscrapes\n",
+  "totalViews": 20582,
+  "source": "official",
+  "user": {
+    "id": 92048,
+    "name": "simonscrapes",
+    "username": "simonscrapes",
+    "bio": "Automate all your work with AI & Automation @simonscrapes on YouTube. Automation expert with 6 years of experience helping organisations automate processes. Built over 100+ N8N workflows.",
+    "verified": true,
+    "links": "[\"https://www.youtube.com/@simonscrapes\"]",
+    "avatar": "https://gravatar.com/avatar/f8b1fce5ccc8cb76e1843532809adf2ed863ddd8d2eb8a30c48ec938b19b4833?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Anthropic Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-10-20T15:48:43.894Z",
+  "path": "official/template_2473/workflow.json"
+}

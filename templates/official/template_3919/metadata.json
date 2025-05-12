@@ -1,0 +1,60 @@
+{
+  "id": 3919,
+  "name": "Lead Tracking System for HubSpot with Automated Notifications via Gmail & Slack",
+  "description": "🎯 Project Purpose\n\nThis project automates the process of collecting and managing new leads submitted through a web form. It eliminates the need for manual data entry and ensures that each lead is:\n\nProperly recorded and time-stamped in a structured format\nAutomatically communicated to the sales or support team\nReady for follow-up, with a reminder system in place\n\nIt’s a lightweight but effective solution suitable for freelancers, small teams, and growing businesses that want to streamline their lead intake process.\n\n🛠️ Tools & Technologies Used\n\nGoogle Forms / Web Form** – Frontend for capturing leads\nGoogle Sheets** – Central database for storing lead information\nn8n** – Automation platform that connects and coordinates all services\nGmail** – Handles email notifications for new leads\nSlack* *(optional) – Provides instant team notifications\nDate & Time nodes** – Tracks and manages lead response timing\nConditional (IF) nodes** – Filters out duplicate and incomplete entries\n\n🔄 Workflow Overview\n\n✨ Key Features\n\n✅ No-code integration using n8n\n✅ Instant alerts via Gmail and/or Slack\n✅ Google Sheets as an easily accessible backend\n✅ Modular design — easy to expand with CRM tools (like HubSpot)\n✅ Clean JSON structure and logic, beginner-friendly\n\n📈 Possible Improvements\n\nAdd email validation via external API (e.g., NeverBounce, Hunter)\nIntegrate with a CRM for deeper automation\nAdd lead scoring based on answers\nInclude automatic follow-up emails after X days\nSchedule weekly summary reports via email\n\n🧑🏻‍💻 Creator Information\nDeveloped by: Adem Tasin\n Adem T.\n\n🌐 Website: Dataplusminus+-\n📧 Email:dataplusminuss@gmail.com\n 💼 LinkedIn: Adem Tasin\n",
+  "totalViews": 44,
+  "source": "official",
+  "user": {
+    "id": 94344,
+    "name": "dataplusminus+-",
+    "username": "dataplusminus",
+    "bio": "I've been building automation workflows for over 3 years, mostly using tools like n8n, Zapier, and Make. I enjoy creating clean, reliable, and scalable automations that help small businesses and freelancers streamline their daily operations. My focus is on practical solutions — from lead tracking to API integrations — that are easy to understand and customize.",
+    "verified": false,
+    "links": "[\"https://www.dataplusminus.com/\"]",
+    "avatar": "https://gravatar.com/avatar/f5f245acd291709ff349eac215e13c792728e4036172c21ccaf4060eddba94c3?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Sales"
+  ],
+  "nodes": [
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "HubSpot",
+      "type": "n8n-nodes-base.hubspot",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-05-07T12:02:27.662Z",
+  "path": "official/template_3919/workflow.json"
+}

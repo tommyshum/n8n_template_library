@@ -1,0 +1,38 @@
+{
+  "id": 3866,
+  "name": "Asynchronous Bulk Web Scraping with Bright Data & Webhook Notifications",
+  "description": "Who this is for\nThe Async Structured Bulk Data Extract with Bright Data Web Scraper workflow is designed for data engineers, market researchers, competitive intelligence teams, and automation developers who need to programmatically collect and structure high-volume data from the web using Bright Data's dataset and snapshot capabilities.\n\nThis workflow is built for:\n\nData Engineers - Building large-scale ETL pipelines from web sources\n\nMarket Researchers - Collecting bulk data for analysis across competitors or products\n\nGrowth Hackers & Analysts - Mining structured datasets for insights\n\nAutomation Developers - Needing reliable snapshot-triggered scrapers\n\nProduct Managers - Overseeing data-backed decision-making using live web information\n\nWhat problem is this workflow solving?\nWeb scraping at scale often requires asynchronous operations, including waiting for data preparation and snapshots to complete. Manual handling of this process can lead to timeouts, errors, or inconsistencies in results. \n\nThis workflow automates the entire process of submitting a scraping request, waiting for the snapshot, retrieving the data, and notifying downstream systems all in a structured, repeatable fashion.\n\nIt solves:\n\nAsynchronous snapshot completion handling\n\nReliable retrieval of large datasets using Bright Data\n\nAutomated delivery of scraped results via webhook\n\nDisk persistence for traceability or historical analysis\n\nWhat this workflow does\nSet Bright Data Dataset ID & Request URL: Takes in the Dataset ID and Bright Data API endpoint used to trigger the scrape job\n\nHTTP Request: Sends an authenticated request to the Bright Data API to start a scraping snapshot job\n\nWait Until Snapshot is Ready: Implements a loop or wait mechanism that checks snapshot status (e.g., polling every 30 seconds) until completion i.e ready state\n\nDownload Snapshot: Downloads the structured dataset snapshot once ready\n\nPersist Response to Disk: Saves the dataset to disk for archival, review, or local processing\n\nWebhook Notification: Sends the final result or a summary of it to an external webhook\n\nSetup\n\nSign up at Bright Data.\nNavigate to Proxies & Scraping and create a new Web Unlocker zone by selecting Web Unlocker API under Scraping Solutions.\nIn n8n, configure the Header Auth account under Credentials (Generic Auth Type: Header Authentication).\n\nThe Value field should be set with the \nBearer XXXXXXXXXXXXXX. The XXXXXXXXXXXXXX should be replaced by the Web Unlocker Token.\nUpdate the Set Dataset Id, Request URL for setting the brand content URL.\nUpdate the Webhook HTTP Request node with the Webhook endpoint of your choice.\n\nHow to customize this workflow to your needs\n\nPolling Strategy : Adjust polling interval (e.g., every 15–60 seconds) based on snapshot complexity\nInput Flexibility : Accept datasetId and request URL dynamically from a webhook trigger or input form\nWebhook Output : Send notifications to -\n\n\tInternal APIs – for use in dashboards\n\n\tZapier/Make – for multi-step automation\n\nPersistence\n\tSave output to:\n\n\t\tRemote FTP or SFTP storage\n\t\tAmazon S3, Google Cloud Storage etc.\n",
+  "totalViews": 331,
+  "source": "official",
+  "user": {
+    "id": 93657,
+    "name": "Ranjan Dailata",
+    "username": "ranjancse",
+    "bio": "",
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/7b74fe44a7ad32db7c783b972deb5848a4b1f043377bce4039737ed66da8305f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-05-04T22:44:02.145Z",
+  "path": "official/template_3866/workflow.json"
+}

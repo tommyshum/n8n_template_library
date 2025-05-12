@@ -1,0 +1,84 @@
+{
+  "id": 3537,
+  "name": "Process Multiple Prompts in Parallel with Azure OpenAI Batch API",
+  "description": "Process Multiple Prompts in Parallel with Azure OpenAI Batch API\n\nWho is this for?\nThis workflow is designed for developers and data scientists who want to efficiently send multiple prompts to the Azure OpenAI Batch API and retrieve responses in a single batch process. It is particularly useful for applications that require processing large volumes of text data, such as chatbots, content generation, or data analysis.\n\nWhat problem is this workflow solving?\nSending multiple prompts to the Azure OpenAI API can be time-consuming and inefficient if done sequentially. This workflow automates the process of batching requests, allowing users to submit multiple prompts at once and retrieve the results in a streamlined manner. This not only saves time but also optimizes resource usage.\n\nWhat this workflow does\nThis workflow:\nAccepts an array of requests, each containing a prompt and associated parameters.\nConverts the requests into a JSONL format suitable for batch processing.\nUploads the batch file to the Azure OpenAI API.\nCreates a batch job to process the prompts.\nPolls for the job status and retrieves the output once processing is complete.\nParses the output and returns the results.\n\nKey Features of Azure OpenAI Batch API\nThe Azure OpenAI Batch API is designed to handle large-scale and high-volume processing tasks efficiently. Key features include:\nAsynchronous Processing**: Handle groups of requests with separate quotas, targeting a 24-hour turnaround at 50% less cost than global standards.\nBatch Requests**: Send a large number of requests in a single file, avoiding disruption to online workloads.\nKey Use Cases\nLarge-Scale Data Processing**: Quickly analyze extensive datasets in parallel.\nContent Generation**: Create large volumes of text, such as product descriptions or articles.\nDocument Review and Summarization**: Automate the review and summarization of lengthy documents.\nCustomer Support Automation**: Handle numerous queries simultaneously for faster responses.\nData Extraction and Analysis**: Extract and analyze information from vast amounts of unstructured data.\nNatural Language Processing (NLP) Tasks**: Perform tasks like sentiment analysis or translation on large datasets.\nMarketing and Personalization**: Generate personalized content and recommendations at scale.\n\nSetup\nAzure OpenAI Credentials: Ensure you have your Azure OpenAI API credentials set up in n8n.\nConfigure the Workflow: \n   Set the az_openai_endpoint in the \"Setup defaults\" node to your Azure OpenAI endpoint.\n   Adjust the api-version in the \"Set desired 'api-version'\" node if necessary.\nRun the Workflow: Trigger the workflow using the \"Run example\" node to see it in action.\n\nHow to customize this workflow to your needs\nModify Prompts**: Change the prompts in the \"One query example\" node to suit your application.\nAdjust Parameters**: Update the parameters in the requests to customize the behavior of the OpenAI model.\nAdd More Requests**: You can add more requests in the input array to process additional prompts.\n\nExample Input\n[\n  {\n    \"api-version\": \"2025-03-01-preview\",\n    \"requests\": [\n      {\n        \"custom_id\": \"first-prompt-in-my-batch\",\n        \"params\": {\n          \"messages\": [\n            {\n              \"content\": \"Hey ChatGPT, tell me a short fun fact about cats!\",\n              \"role\": \"user\"\n            }\n          ]\n        }\n      },\n      {\n        \"custom_id\": \"second-prompt-in-my-batch\",\n        \"params\": {\n          \"messages\": [\n            {\n              \"content\": \"Hey ChatGPT, tell me a short fun fact about bees!\",\n              \"role\": \"user\"\n            }\n          ]\n        }\n      }\n    ]\n  }\n]\n\nExample Output\n[\n  {\n    \"custom_id\": \"first-prompt-in-my-batch\",\n    \"response\": {\n      \"body\": {\n        \"choices\": [\n          {\n            \"message\": {\n              \"content\": \"Did you know that cats can make over 100 different sounds?\"\n            }\n          }\n        ]\n      }\n    }\n  },\n  {\n    \"custom_id\": \"second-prompt-in-my-batch\",\n    \"response\": {\n      \"body\": {\n        \"choices\": [\n          {\n            \"message\": {\n              \"content\": \"Bees communicate through a unique dance called the 'waggle dance'.\"\n            }\n          }\n        ]\n      }\n    }\n  }\n]\n\nAdditional Notes\nJob Management**: You can cancel a job at any time, and any remaining work will be canceled while already completed work is returned. You will be charged for any completed work.\nData Residency**: Data stored at rest remains in the designated Azure geography, while data may be processed for inferencing in any Azure OpenAI location.\nExponential Backoff**: If your batch jobs are large and hitting the enqueued token limit, certain regions support queuing multiple batch jobs with exponential backoff.\n\nThis template provides a comprehensive solution for efficiently processing multiple prompts using the Azure OpenAI Batch API, making it a valuable tool for developers and data scientists alike.",
+  "totalViews": 268,
+  "source": "official",
+  "user": {
+    "id": 93555,
+    "name": "Greg Evseev",
+    "username": "greg",
+    "bio": "15+ years in AI/ML development & integration. Now specializing in establishing ISO 42001-compliant AI management systems. Background includes AI/ML research, system development, AI governance, and ISO 42001 Lead Auditor training (in progress).\n\nHelping organizations:\n✓ Evaluate AI maturity & governance\n✓ Implement ISO 42001 systems\n✓ Bridge technical & regulatory requirements\n✓ Design practical AI governance frameworks\n\nExpertise: AI Risk Assessment, Compliance Strategy, Technical Due Diligence.",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/aimsgreg\"]",
+    "avatar": "https://gravatar.com/avatar/a2532827cb048e2c6433b7d6c3bf075066d9fac93092eca13593902b502e75b1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Chat Memory Manager",
+      "type": "@n8n/n8n-nodes-langchain.memoryManager",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-04-13T09:34:04.418Z",
+  "path": "official/template_3537/workflow.json"
+}

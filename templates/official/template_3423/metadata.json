@@ -1,0 +1,88 @@
+{
+  "id": 3423,
+  "name": "Get Exchange & Sentiment Insights with CoinMarketCap AI Agent",
+  "description": "Analyze exchange data, market indexes, and community sentiment from CoinMarketCap—powered by AI.  \n\nThis sub-agent provides access to exchange listings, token holdings, metadata, and high-level metrics like the CMC 100 Index and the Fear & Greed Index. It’s designed for use within your larger CoinMarketCap AI Analyst system or as a standalone workflow.\n\nThis agent can be triggered by a supervisor or manually used with message and sessionId inputs.\n\nSupported Tools (5 Total)\n\n🔍 Exchange Map  \nGet CoinMarketCap IDs, names, and slugs for exchanges (used as lookup before deeper queries).  \n\n🧾 Exchange Info  \nMetadata including launch date, social links, country, and operational status.  \n\n💰 Exchange Assets  \nToken balances, wallet addresses, and total USD value held by a specific exchange.\n\n📈 CoinMarketCap 100 Index  \nConstituents and weights of the CMC 100 Index, updated live.\n\n😱 Fear & Greed Index  \nMarket sentiment score updated daily, ranging from Extreme Fear to Extreme Greed.\n\nWhat You Can Do with This Agent  \n🔹 Map exchanges to retrieve their ID and slug  \n🔹 Analyze exchange holdings by token and blockchain  \n🔹 Pull metadata for major CEXs like Binance or Coinbase  \n🔹 Compare global sentiment using the Fear & Greed Index  \n🔹 Access index data to understand CMC’s top 100 crypto asset breakdown\n\nExample Queries You Can Use  \n✅ \"What is the latest Fear and Greed Index reading?\"  \n✅ \"Get a list of all exchanges on CoinMarketCap.\"  \n✅ \"What tokens are held by Binance?\"  \n✅ \"Retrieve metadata for Coinbase.\"  \n✅ \"Show me the top assets in the CMC 100 Index.\"  \n\nAgent Architecture  \nAI Brain**: GPT-4o-mini  \nMemory**: Window buffer memory using sessionId  \nTools**: 5 API-connected nodes  \nTrigger**: External input via message and sessionId  \n\nSetup Instructions  \nGet a CoinMarketCap API Key  \n   Apply here: https://coinmarketcap.com/api/  \nConfigure n8n Credentials  \n   Use HTTP Header Auth to store your CoinMarketCap API key.  \nOptional: Trigger from a Supervisor  \n   Connect to a parent agent using Execute Workflow with message and sessionId inputs.  \nTest Sample Prompts  \n   “Get all exchanges”, “Fetch CMC index”, “Show Binance token holdings”\n\nSticky Notes Included  \n\nExchange & Community Guide – Explains agent purpose and component connections  \n\nUsage & Examples – Walkthrough for sample use cases  \n\nError Handling & Licensing – Includes API error code reference and licensing details\n\n✅ Final Notes  \nThis agent is part of a broader CoinMarketCap AI Analyst System. Visit my Creator profile to download all available sub-agents and supervisor flows.\n\nUnderstand exchange behavior and community sentiment—automated with AI and CoinMarketCap.",
+  "totalViews": 1991,
+  "source": "official",
+  "user": {
+    "id": 93152,
+    "name": "Don Jayamaha Jr",
+    "username": "don-the-gem-dealer",
+    "bio": "With 12 years of experience as a Blockchain Strategist and Web3 Architect, I specialize in bridging the gap between traditional industries and decentralized technologies. My expertise spans tokenized assets, crypto payment integrations, and blockchain-driven market solutions.",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/donjayamahajr/\"]",
+    "avatar": "https://gravatar.com/avatar/95f70084b3fec5ed68a61eef6dc6128dfb085d865a02ed631d0853d2730696bf?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-04-03T13:33:12.092Z",
+  "path": "official/template_3423/workflow.json"
+}

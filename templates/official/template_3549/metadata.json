@@ -1,0 +1,57 @@
+{
+  "id": 3549,
+  "name": "Audit Google Drive File Permissions for Access Control Management",
+  "description": "This n8n template reviews and audits recently active Google Drive files and reports on files with excessively open permissions. This shows how you can automate simple compliance tasks for access control management.\n\nFile Sharing Permissions are routinely abused when access needs and scopes expand to many colleagues, clients and users. Often, granting excessively open permissions means you can get back to work rather than deal with numerous access request notifications. Whilst sometimes justified, the problem is that the permissions are rarely reverted to a safer setting at a later date when it is no longer needed.\n\nThis template serves to improve your security posture by giving frequent reminders of these open files so that they can be actioned and not forgotten about.\n\nSee example Audit Report here: https://docs.google.com/spreadsheets/d/1V2aiLhp3_nH7EBniMn7D0kFHg7-A5NjpDZXMhb4F5UI/edit?gid=503992967\n\nHow it works\nA scheduled trigger runs everyday to generate a new audit report. A new sheet is created in a designated Google Sheets document to store the day's results.\nThe Google Drive node is used with Advanced Search params to fetch recently modified files for the user with each file result containing the current permission settings.\nThe results are filtered for those with publicly accessible \"anyone with link\" and sharing with external users via domain.\nThe results are then manipulated into rows so that we can append them to the Sheet we created earlier.\nThe audit Google Sheet is updated with the results and an audit report is sent to the user to action.\n\nHow to use\nSet the scheduled trigger to a more appropriate interval which works for you or your organisation.\nConsider using allowlists for organisations you frequently share with to reduce the number of false positives.\nThe results can be forwarded to other security or analytical products as required.\n\nRequirements\nGoogle Drive for Document Management\nGoogle Sheet for Reports and Data Collection\nGmail to Email Reports\n\nCustomising the workflow\nNot using Google? Apply the same approach using Microsoft Sharepoint or Dropbox.\nIf your security policies require it, you could automate fixing the file permissions as a proactive action instead and notify the user later.",
+  "totalViews": 1061,
+  "source": "official",
+  "user": {
+    "id": 91804,
+    "name": "Jimleuk",
+    "username": "jimleuk",
+    "bio": "Freelance consultant based in the UK specialising in AI-powered automations. I work with select clients tackling their most challenging projects. For business enquiries, send me an email at hello@jimle.uk\n\nLinkedIn: https://www.linkedin.com/in/jimleuk/\nX/Twitter: https://x.com/jimle_uk",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4ab99e51473df76838beeaac908747f7928c625f869794815cabe34016967d51?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-04-14T14:38:23.283Z",
+  "path": "official/template_3549/workflow.json"
+}

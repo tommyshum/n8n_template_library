@@ -1,0 +1,72 @@
+{
+  "id": 3131,
+  "name": "Chatbot Appointment Scheduler With Google Calendar for Dental assistant",
+  "description": "This workflow template is designed for dental assistants and anyone looking to automate appointment scheduling. It integrates Google Calendar for booking appointments and Google Sheets as a database to store patient information.\n\nHow It Works\n\nThe user interacts with the chatbot to schedule an appointment.\n\nThe chatbot collects necessary details and checks availability via Google Calendar.\nIf the requested time is available, the AI books the appointment.\n\nIf unavailable, the AI suggests alternative time slots.\n\nOnce booked, the AI logs the appointment details into Google Sheets for record-keeping.\n\nSetup Instructions\n\n📌 Watch this 🎥 Setup Video for detailed instructions on running and customizing this workflow.\n\nStep 1: Set Up Credentials\n\nOpenAI API Key (for chatbot functionality).\nGoogle Account (for Google Sheets & Google Calendar integration).\n\nStep 2: Choose the Right Tools\n\nSelect the correct Google Calendar in the Google Calendar tool.\nChoose the appropriate Google Sheets file in the Google Sheets tool.\n\nStep 3: Test \n\nRun a test to ensure everything works correctly.\nOnce tested.\n\nExample Templates\n\nBelow are sample Google Sheets template to help you get started.\n\n",
+  "totalViews": 7951,
+  "source": "official",
+  "user": {
+    "id": 93168,
+    "name": "Zakaria Ben",
+    "username": "nocodeinnovate",
+    "bio": "🚀 Passionate about automation & AI! I explore intelligent solutions to optimize processes & boost efficiency 🤖✨ I don't code, but I leverage AI tools & strategies to drive innovation.\n\n",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/66fd70bbf856acd6b35111a6283468fb241148e97c83de7a1b4eb4b569eaf09e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-03-11T06:54:18.228Z",
+  "path": "official/template_3131/workflow.json"
+}

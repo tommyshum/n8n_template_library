@@ -1,0 +1,123 @@
+{
+  "id": 3714,
+  "name": "YouTube Video to WordPress Blog Automation with Gemini AI & Affiliate Integration",
+  "description": "🚀 YouTube to WordPress AI-Powered Automation\nTransform your YouTube content into professional blog posts automatically!  \nThis n8n template seamlessly converts your YouTube videos into fully-formatted, SEO-optimized WordPress blog posts using AI-powered content generation—all without lifting a finger.\n\n🎯 What This Automation Does\n📺 Monitors your YouTube channel for new video uploads\n🔍 Extracts key video information (title, description, URL, thumbnail)\n🤖 Leverages AI to generate comprehensive blog content based on video material\n✏️ Creates SEO-optimized titles, excerpts, and tags\n🖼️ Formats posts beautifully with embedded videos and proper HTML structure\n📝 Publishes directly to WordPress via secure API connection\n⏱️ Runs on your schedule — daily, weekly, or after each new upload\n\n🧑‍🏫 Step-by-Step Video Tutorial\n🎥 Watch the implementation tutorial:  \n  \n📌 See the complete workflow setup and content transformation in action.\n\n🌐 Useful Links\n🔗 Get started with n8n Cloud:  \n  👉 https://n8n.io/cloud/\n📘 YouTube Data API documentation:  \n  👉 https://developers.google.com/youtube/v3\n📚 WordPress REST API handbook:  \n  👉 https://developer.wordpress.org/rest-api/\n🧠 OpenAI API documentation:  \n  👉 https://platform.openai.com/docs/api-reference\n\n🛠 Prerequisites\n✅ n8n installation (self-hosted or cloud)\n✅ YouTube Data API key\n✅ AI provider API key (OpenAI, Google Gemini, etc.)\n✅ WordPress website with REST API enabled\n✅ WordPress application password for secure authentication\n\n📋 Step-by-Step Implementation\n\n1️⃣ YouTube Video Detection\nYoutube RSS Feedlink to fetch new video automatically\nImplement filtering to process only videos not yet published to WordPress\n\n2️⃣ Content Preparation\nExtract essential video metadata (ID, title, description, thumbnail URL)\nStructure the information for AI processing and WordPress publication\nFormat video thumbnails for use as featured images in blog posts\n\n3️⃣ AI Content Generation\nConfigure your preferred AI provider (OpenAI, Gemini, etc.)\nCreate detailed prompts that instruct the AI to:\n  Maintain your brand voice and writing style\n  Structure content with proper headings and subheadings\n  Creates Internal Links from existing blogposts\n  Creators Extenal links using affilaite links and other link database.\n  Engaging SEO frendly.\n  Automatically monetizes by embedding social PartnerStack Links\n  Include key points from the video\n  Generate SEO-friendly paragraphs and conclusions\n\n4️⃣ Content Enhancement\nFormat the AI-generated content with proper HTML structure\nAdd responsive embedded YouTube player\nInclude attribution links back to original video\nCreate custom intro and conclusion sections\n\n5️⃣ WordPress Publishing\nSecurely connect to WordPress via REST API\nSet post parameters (title, content, excerpt, categories, tags)\nConfigure post status (publish immediately or save as draft)\nAdd featured image using video thumbnail\n\n6️⃣ Notification & Logging\nReceive email or Slack notifications when new posts are published\nLog workflow executions for troubleshooting\nTrack successful publications for reporting\n\n💰 Automatic Affiliate Marketing Integration\n\nTransform your blog posts into passive income generators by automatically embedding relevant affiliate links based on your video content:\n\nPartnerStack Integration\nDynamically fetch relevant affiliate links** from your PartnerStack account\nIntelligently match products** to video content using AI-powered relevance scoring\nAutomatically insert formatted affiliate links** with proper disclosure notices\nTrack performance metrics** for each generated post's affiliate conversions\n\nExample setup: Connect PartnerStack API → Filter relevant products → Insert links in strategic post positions\n\nCustom Affiliate Database via Airtable\nCreate a centralized product-keyword Airtable database:\n  Product name and description\n  Affiliate link with your unique ID\n  Category and keyword triggers\n  Commission rates and expiration dates\nAuto-scan blog content** to identify keyword matches\nInsert highest-converting links** based on historical performance\nRotate affiliate links** to test different products and placements\n\nAdvanced Monetization Features\nAmazon Associates product matching** based on video content\nTime-sensitive promo codes** inserted for limited-time offers\nGeo-targeted affiliate links** based on visitor location\nA/B testing system** to optimize link placement and conversion\nAutomated disclosure statements** to maintain FTC compliance\n\nImplementation Steps\nConnect to your PartnerStack account via API\nCreate an Airtable base with your affiliate product database\nConfigure the AI to identify product-mention opportunities\nAdd a post-processing node to insert relevant affiliate links\nImplement tracking parameters to measure performance\n\nThis integration not only saves time manually adding affiliate links, but also increases conversion rates through intelligent product matching and optimal placement within your automatically generated blog content.\n\n&gt; 💡 Pro Tip: Create separate tracking IDs for your automated YouTube-to-WordPress posts to measure this specific channel's performance in your affiliate dashboards.\n\n💡 Advanced Customizations\n\nContent Templates\nCreate specialized formatting based on video categories:\nTutorial videos**: Step-by-step instructions with timestamps\nReview videos**: Pros/cons sections with ratings\nInterview videos**: Question-answer format with speaker attribution\n\nCategory & Tag Management\nAutomatically organize your WordPress content:\nAssign categories based on video topics or playlists\nGenerate tags from video keywords and descriptions\nCreate custom taxonomies for video series\n\nMulti-Platform Distribution\nExtend your content reach by adding:\nSocial media announcement posts\nEmail newsletter inclusion\nContent syndication to Medium or LinkedIn\n\n⚠️ Troubleshooting\n\n| Issue | Solution |\n|-------|----------|\n| AI generation timeout | Increase timeout settings or use chunked processing |\n| WordPress API errors | Verify application password and user permissions |\n| Missing video embedding | Check oEmbed settings in WordPress |\n| Duplicate posts | Implement content fingerprinting for detection |\n| Poor content quality | Refine AI prompts with better instructions |\n\n🙌 Why Use This Template\n\nContent creators typically spend 2-4 hours converting each video into a quality blog post. This automation:\n\n⏱️ Saves 10+ hours weekly for active YouTube creators\n🔍 Boosts SEO performance with multi-platform content\n🌐 Expands audience reach to text-preferring visitors\n💰 Increases monetization opportunities across platforms\n🧠 Frees creative energy for producing better videos\n\nDon't choose between video and written content—have both automatically!\n\n🚀 Get Started Now\nImport the template → Connect your accounts → Watch your blog grow alongside your channel.\n\n👉 AMJID ALI'S PROFILE  \n👉 website  \n👉 Explore more on youtube\n\nKnowledge Base: youtube-api, wordpress-automation, content-repurposing, ai-blog-generation, n8n-workflow, creator-tools, video-to-text, multi-platform-publishing",
+  "totalViews": 1652,
+  "source": "official",
+  "user": {
+    "id": 92318,
+    "name": "Amjid Ali",
+    "username": "amjid",
+    "bio": "**Amjid Ali** is an automation expert and AI enthusiast specializing in creating intelligent workflows using low-code platforms like **n8n**. With a passion for simplifying complex processes, he designs solutions that enhance productivity and streamline operations. As an active contributor to the **n8n Creator Hub**, Amjid shares innovative use cases, practical templates, and best practices, empowering the community to unlock the full potential of workflow automation.",
+    "verified": true,
+    "links": "[\"https://amjidali.com\"]",
+    "avatar": "https://gravatar.com/avatar/8760ed64a38ed65da42983737659c7e295e4a7f14b59ed5ce1b0b1077435f573?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Marketing",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "YouTube",
+      "type": "n8n-nodes-base.youTube",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-04-26T03:05:51.189Z",
+  "path": "official/template_3714/workflow.json"
+}

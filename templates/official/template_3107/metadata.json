@@ -1,0 +1,149 @@
+{
+  "id": 3107,
+  "name": "Startup Funding Research Automation with Claude, Perplexity AI, and Airtable",
+  "description": "Startup Funding Research Automation with Claude, Perplexity AI, and Airtable\n\nHow it works\nThis intelligent workflow automatically discovers and analyzes recently funded startups by:\nMonitoring multiple news sources (TechCrunch and VentureBeat) for funding announcements\nUsing AI to extract key funding details (company name, amount raised, investors)\nConducting automated deep research on each company through perplexity deep research or jina deep search.\nOrganizing all findings into a structured Airtable database for easy access and analysis\n\nSet up steps (10-15 minutes)\nConnect your news feed sources (TechCrunch and VentureBeat). Could be extended. These were easy to scrape and this data can be expensive.\nSet up your AI service credentials (Claude and Perplexity or jina which has generous free tier)\nConnect your Airtable account and create a base with appropriate fields (can be imported from my base) or see structure below.\nAirtable Base\n\nStructure Funding Round Base\n\n| Field Name | Data Type | Description |\n|------------|-----------|-------------|\n| website_url | String | URL of the company website |\n| company_name | String | Name of the company |\n| funding_round | String | The funding stage or round (e.g., Series A, Seed, etc.) |\n| funding_amount | Number | The amount of funding received |\n| lead_investor | String | The primary investor leading the funding round |\n| market | String | The market or industry sector the company operates in |\n| participating_investors | String | List of other investors participating in the funding round |\n| press_release_url | String | URL to the press release about the funding |\n| evaluation | Number | The company's valuation |\n\nStructure Company Deep Research Base\n\n| Field Name | Data Type | Description |\n|------------|-----------|-------------|\n| website_url | String | URL of the company website |\n| company_name | String | Name of the company |\n| funding_round | String | The funding stage or round (e.g., Series A, Seed, etc.) |\n| funding_amount | Number | The amount of funding received |\n| currency | String | Currency of the funding amount |\n| announcement_date | String | Date when the funding was announced |\n| lead_investor | String | The primary investor leading the funding round |\n| participating_investors | String | List of other investors participating in the funding round |\n| industry | String | The industry sectors the company operates in |\n| company_description | String | Description of the company's business |\n| hq_location | String | Company headquarters location |\n| founding_year | Number | Year the company was founded |\n| founder_names | String | Names of the company founders |\n| ceo_name | String | Name of the company CEO |\n| employee_count | Number | Number of employees at the company |\n| total_funding | Number | Total funding amount received to date |\n| total_funding_currency | String | Currency of total funding |\n| funding_purpose | String | Purpose or use of the funding |\n| business_model | String | Company's business model |\n| valuation | Object | Company valuation information |\n| previous_rounds | Object | Information about previous funding rounds |\n| source_urls | String | Source URLs for the funding information |\n| original_report | String | Original report text about the funding |\n| market | String | The market the company operates in |\n| press_release_url | String | URL to the press release about the funding |\n| evaluation | Number | The company's valuation |\n\nNotes\nI found that by using perplexity via open router, we lose access to the sources, as they are not stored in the same location as the report itself so I opted to use perplexity API via HTTP node.\n\nFor using perplexity and or jina you have to configure header auth as described in Header Auth - n8n Docs\n\nWhat you can learn\nHow to scrape data using sitemaps\nHow to extract strucutred data from unstructured text\nHow to execute parts of the workflow as subworkflow\nHow to use deep research in a practical scenario\nHow to define more complex JSON schemas",
+  "totalViews": 4963,
+  "source": "official",
+  "user": {
+    "id": 92760,
+    "name": "Julian Kaiser",
+    "username": "jksr",
+    "bio": "Full Stack Developer turned AI & Automation Engineer, implementing intelligent solutions with custom code, LLMs & n8n. Use my link to book a free 30-minute call to discuss your AI challenges and see if my services might be a good fit for your needs.",
+    "verified": true,
+    "links": "[\"https://juliankaiser.neetocal.com/introduction-call\"]",
+    "avatar": "https://gravatar.com/avatar/b8108390ad4740aaba8fd05c203fc1d9418524cebf94cc2b9966a28b52120563?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Anthropic Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Auto-fixing Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Information Extractor",
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenRouter Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 9,
+  "createdAt": "2025-03-08T17:58:20.284Z",
+  "path": "official/template_3107/workflow.json"
+}

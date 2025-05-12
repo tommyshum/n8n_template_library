@@ -1,0 +1,32 @@
+{
+  "id": 990,
+  "name": "Manage contacts via Autopilot",
+  "description": "This workflow allows you to create a new list, add a new contact to that list, update the contact, and get all contacts in the list using the Autopilot node.\n\n\n\nAutopilot node: This node will create a new list called n8n-docs in Autopilot.\n\nAutopilot1 node: This node creates a new contact and adds it to the list created in the previous node.\n\nAutopilot2 node: This node updates the information of the contact that we created in the previous node.\n\nAutopilot3 node: This node returns all the contacts of the n8n-docs list that we created using the Autopilot node.",
+  "totalViews": 301,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Marketing"
+  ],
+  "nodes": [
+    {
+      "name": "Autopilot",
+      "type": "n8n-nodes-base.autopilot",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2021-03-18T13:09:47.231Z",
+  "path": "official/template_990/workflow.json"
+}

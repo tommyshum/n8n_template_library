@@ -1,0 +1,86 @@
+{
+  "id": 3883,
+  "name": "Auto-Post Dev.to Articles to LinkedIn with Airtable Tracking & Telegram Alerts",
+  "description": "🧠 Problem This Solves:\nFor developers and creators, consistently posting quality content on LinkedIn can be time-consuming. This workflow automates the process by:\n\nFetching the latest Dev.to articles\n\nPosting them to LinkedIn twice daily\n\nPreventing duplicates using Airtable\n\nSending success alerts to Telegram\n\nThis ensures you're always active on LinkedIn, with zero manual effort.\n\n👥 Who This Template Is For\nDevelopers who want to build their presence on LinkedIn\n\nTech creators or solo founders looking to grow an audience\n\nCommunity/page managers who want regular, curated content\n\nBusy professionals aiming for consistent LinkedIn engagement without doing it manually\n\n⚙️ Workflow Breakdown\nThis automation runs twice a day (9:00 AM and 7:00 PM) and performs the following steps:\n\nFetches Dev.to articles based on a tag\n\nChecks Airtable to avoid reposting the same article\n\nPosts to LinkedIn if it’s new\n\nSends a Telegram message after posting successfully\n\n🧩 Step-by-Step Setup Instructions\n✅ 1. Airtable Configuration\nCreate a new base in Airtable with just one table and one column:\n\nTable Name: PostedArticles\n\nColumn:\n\nArticleID (Single line text – stores the unique ID of each Dev.to article posted)\n\nThis column is used to track posted articles and prevent duplicates.\n\n🔗 2. Dev.to API Setup\nUse the following endpoint in the HTTP Request node:\n\narduino\nCopy\nEdit\nhttps://dev.to/api/articles?tag=YOUR_TAG_HERE&per_page=10\nReplace YOUR_TAG_HERE with a tag like android, webdev, ai, etc.\n\n💬 3. Telegram Bot Setup\nOpen @BotFather in Telegram and create a new bot\n\nSave the bot token\n\nGet your chat ID using @userinfobot or via Telegram API\n\nAdd a Telegram node in n8n using this token and chat ID\n\nThis will notify you when a post is successfully published.\n\n🧾 4. LinkedIn Setup\nCreate a LinkedIn Developer App\n\nUse OAuth2 to connect it in n8n\n\nChoose to post on either a user profile or a company page\n\n🧱 5. n8n Workflow Structure\nHere’s the basic structure of the workflow:\n\nCron Node – Triggers at 9:00 AM and 7:00 PM daily\n\nHTTP Request – Fetches latest articles from Dev.to\n\nAirtable Search – Checks if ArticleID already exists\n\nIF Node – Filters new vs. already-posted articles\n\nLinkedIn Post – Publishes new article\n\nAirtable Create – Saves the new ArticleID\n\nTelegram Message – Sends success confirmation\n\n🛠️ Customization Tips\nChange the Dev.to tag in the API URL\n\nModify LinkedIn post format (add hashtags, emojis, personal notes)\n\nAdjust posting times in the Cron node\n\nUse additional filters (e.g., only post articles with a cover image or certain word count)",
+  "totalViews": 99,
+  "source": "official",
+  "user": {
+    "id": 94193,
+    "name": "Krishna Kumar Eswaran",
+    "username": "mrprogrammer",
+    "bio": "Android developer exploring the power of automation with n8n. I build apps and streamline backend processes with custom workflows and integrations.",
+    "verified": false,
+    "links": "[\"https://www.linkedin.com/in/krishnakumareswaran/\"]",
+    "avatar": "https://gravatar.com/avatar/caf8b84f8ba15c152308c9d15e1d50ada932525edfd306c4b88fb151890d6c99?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "Marketing"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "LinkedIn",
+      "type": "n8n-nodes-base.linkedIn",
+      "categories": [
+        "Marketing",
+        "Communication"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-05-06T02:00:24.554Z",
+  "path": "official/template_3883/workflow.json"
+}

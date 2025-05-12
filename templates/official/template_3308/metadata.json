@@ -1,0 +1,38 @@
+{
+  "id": 3308,
+  "name": "Push Multiple Files to GitHub Repository via Github REST API",
+  "description": "Introduction\nThis workflow offers a streamlined solution for uploading multiple files to a GitHub repository simultaneously using GitHub's REST API. It addresses a significant limitation of n8n's native GitHub node, which only supports single-file uploads at a time. By leveraging GitHub's Git Data API, this workflow creates a new Git tree containing multiple files, commits this tree, and updates the target branch—all in a single automated process.\n\nThe workflow is particularly valuable for automation scenarios that require batch file operations, such as deploying website updates, publishing documentation, or maintaining configuration files across repositories. It eliminates the need for multiple separate API calls when working with multiple files, making your automation more efficient and less prone to partial update issues.\n\nBy abstracting the complexities of GitHub's Git Data API into a reusable workflow, it provides a practical solution for developers, content managers, and DevOps professionals who need to programmatically manage repository content at scale.\n\nWho is this for?\nThis workflow is designed for:\n\nDevelopers and DevOps engineers who need to automate file updates in GitHub repositories\nContent managers who regularly publish multiple files to GitHub-hosted websites or documentation\nAutomation specialists looking to integrate GitHub operations into larger workflows\nTeams using n8n for CI/CD processes who need to push code or configuration changes\n\nUsers should have basic familiarity with GitHub concepts (repositories, branches, commits) and should be comfortable obtaining and using GitHub Personal Access Tokens. While the workflow handles the API complexity, users should understand the fundamentals of version control to effectively utilize and customize it.\n\nWhat problem is this workflow solving?\nThis workflow addresses several key challenges:\n\nLimited batch operations: n8n's native GitHub node only supports uploading one file at a time, making multi-file operations cumbersome and inefficient.\n\nAPI complexity: GitHub's Git Data API requires multiple sequential calls with interdependent data to create commits with multiple files, which is complex to implement manually.\n\nAutomation bottlenecks: Without this workflow, automating multi-file updates would require either multiple separate API calls (risking partial updates) or custom scripting outside of n8n.\n\nConsistency issues: When files need to be updated together (e.g., code and corresponding documentation), this workflow ensures they're committed in a single atomic operation.\n\nBy solving these issues, the workflow enables reliable, atomic updates of multiple files, maintaining repository consistency and simplifying automation processes.\n\nWhat this workflow does\nOverview\nThis workflow uses GitHub's REST API to push multiple files to a repository in a single operation. It follows Git's internal model by:\nRetrieving the current state of the repository\nCreating a new tree with the files to be added or updated\nCreating a new commit with this tree\nUpdating the branch reference to point to the new commit\n\nProcess\nInitialization: The workflow starts with a manual trigger and sets up GitHub credentials and repository information.\n\nFile Content Definition: Two \"Set\" nodes define the content for the files to be uploaded.\n\nRepository State Retrieval: \n   The workflow fetches the latest commit SHA for the specified branch\n   It then retrieves the base tree SHA from this commit\n\nTree Creation: A new Git tree is created that includes both files (file1.txt and file2.txt), specifying their paths and content.\n\nCommit Creation: A new commit is created with the specified commit message, referencing the new tree and the parent commit.\n\nBranch Update: Finally, the branch reference is updated to point to the new commit, making the changes visible in the repository.\n\nSetup\nTo use this workflow:\n\nImport the workflow: Download the workflow JSON and import it into your n8n instance.\n\nCreate a GitHub Personal Access Token:\n   Go to GitHub Settings → Developer Settings → Personal Access Tokens → Fine-grained tokens\n   Create a new token with \"Contents\" permission (Read and write) for your target repository\n\nConfigure the workflow:\n   Update the \"Set Github Info\" node with:\n     Your GitHub Personal Access Token\n     Your GitHub username\n     Your repository name\n     The target branch (default is \"main\")\n     A commit message\n\nDefine file content:\n   Modify the \"File 1\" and \"File 2\" nodes with the content you want to upload\n\nAdjust file paths if needed:\n   In the \"Create new tree\" node, update the file paths if you want to change where the files are stored in the repository\n\nSave and run the workflow: Click \"Test workflow\" to execute the process.\n\nHow to customize this workflow to your needs\nThis workflow can be adapted in several ways:\n\nAdd more files: \n   Create additional \"Set\" nodes for more file content\n   In the \"Create new tree\" node, add more tree entries following the same pattern (path, mode, type, content)\n\nChange file locations:\n   Modify the \"path\" parameters in the \"Create new tree\" node to place files in different directories\n\nDynamic file content:\n   Replace the static content in the \"File\" nodes with data from other sources\n   Use previous nodes or HTTP requests to generate file content dynamically\n\nConditional file updates:\n   Add IF nodes to determine which files should be updated based on certain conditions\n   Create separate branches in your workflow for different update scenarios\n\nScheduled updates:\n   Replace the manual trigger with a Schedule node to run the workflow at specific intervals\n   Combine with other triggers like Webhook or database events to push files when certain events occur\n\nError handling:\n   Add Error Trigger nodes to handle potential API failures\n   Implement notification nodes to alert you of successful pushes or failures",
+  "totalViews": 569,
+  "source": "official",
+  "user": {
+    "id": 93195,
+    "name": "Custom Workflows AI",
+    "username": "customworkflowsai",
+    "bio": "We specializes in crafting tailored automation solutions that help businesses streamline their operations and boost productivity. With expertise in creating custom n8n workflows, we transform complex business processes into seamless, automated systems that save time and reduce manual effort.",
+    "verified": true,
+    "links": "[\"https://customworkflows.ai\"]",
+    "avatar": "https://gravatar.com/avatar/8b94720cd9c980204474d25605eb1bd96393f7e0bf0cb9c6e2b36b92262fa778?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-03-24T12:24:08.927Z",
+  "path": "official/template_3308/workflow.json"
+}

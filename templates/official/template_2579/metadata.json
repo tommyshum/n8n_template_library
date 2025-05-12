@@ -1,0 +1,107 @@
+{
+  "id": 2579,
+  "name": "Handling Job Application Submissions with AI and n8n Forms",
+  "description": "This n8n template leverages n8n's multi-form feature to build a 2 part job application submission journey which aims to eliminate the need for applicants to re-enter data found on their CVs/Resumes.\n\nHow it works\nThe application submission process starts with an n8n form trigger to accept CV files in the form of PDFs.\nThe PDF is validated using the text classifier node to determine if it is a valid CV else the applicant is asked to reupload.\nA basic LLM node is used to extract relevant information from the CV as data capture. A copy of the original job post is included to ensure relevancy.\nApplicant's data is then sent to an ATS for processing. For our demo, we used airtable because we could attach PDFs to rows.\nFinally, a second form trigger is used for the actual application form. However, it is prefilled to save the applicant's time and allow them to amend any of the generated application fields.\n\nHow to use\nEnsure to change the redirect URL in the form ending node to use the host domain of your n8n instance.\n\nRequirements\nOpenAI for LLM\nAirtable to capture applicant data\n\nCustomising the workflow\nApplication form is pretty basic for this demonstration but could be extended to ask more in-depth questions.\nIf it fits the job, why not ask applicants to upload portfolio works and have AI describe/caption them.",
+  "totalViews": 7004,
+  "source": "official",
+  "user": {
+    "id": 91804,
+    "name": "Jimleuk",
+    "username": "jimleuk",
+    "bio": "Freelance consultant based in the UK specialising in AI-powered automations. I work with select clients tackling their most challenging projects. For business enquiries, send me an email at hello@jimle.uk\n\nLinkedIn: https://www.linkedin.com/in/jimleuk/\nX/Twitter: https://x.com/jimle_uk",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4ab99e51473df76838beeaac908747f7928c625f869794815cabe34016967d51?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Text Classifier",
+      "type": "@n8n/n8n-nodes-langchain.textClassifier",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2024-11-26T17:34:46.794Z",
+  "path": "official/template_2579/workflow.json"
+}

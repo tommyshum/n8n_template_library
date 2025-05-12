@@ -1,0 +1,103 @@
+{
+  "id": 2735,
+  "name": "Stock Technical Analysis with Google Gemini",
+  "description": "The purpose of this workflow, \"Sell: Stock Vision,\" is to create an AI-powered technical analysis agent capable of analyzing financial charts for equity stocks and cryptocurrencies. This workflow provides users with actionable insights into market trends, price movements, candlestick patterns, and technical indicators to support informed trading decisions.\n\nHow It Works\n\nIntegration with TradingView:** The workflow uses the Chart-Img.com API to fetch detailed financial charts for the specified stock or cryptocurrency.\nAI-Powered Analysis:** The workflow employs advanced AI models, including Google's Gemini Chat Model, to analyze the retrieved charts for candlestick patterns, support/resistance levels, and technical indicators like MACD and RSI.\nNews and Sentiment Analysis:** By integrating with SerpAPI, the workflow gathers relevant news about the stock or cryptocurrency to evaluate its potential impact on market movements.\nComprehensive Insights:** It provides detailed trading strategies, including buy/sell recommendations, stop-loss levels, and risk-reward evaluations.\nContinuous Memory:** The AI agent uses buffer memory to retain context for enhanced analysis and continuity.\n\nUse Case\nThis workflow is perfect for traders and analysts who need reliable and AI-powered market analysis to make informed trading decisions efficiently.\n\nTutorial\n\nObtain API keys for Chart-Img.com and SerpAPI.\nConfigure the workflow in your n8n instance by inputting the required API keys and connecting the nodes.\nTrigger the workflow by providing the stock or cryptocurrency symbol, and let the agent do the rest!\n\nhttps://youtu.be/9fR4qNMT5LM\n",
+  "totalViews": 3898,
+  "source": "official",
+  "user": {
+    "id": 92457,
+    "name": "Udit Rawat",
+    "username": "ailistmaster",
+    "bio": "Hi, I’m Udit, an Acquia-certified developer with a strong background in web development and creating enterprise solutions. Recently, I’ve transitioned into AI and ML, I hold DIAT Professional AI Certification. I specialize in building AI-driven automation to streamline workflows, improve efficiency, and solve complex problems. With expertise in AI/ML tools and years of experience in Acquia and Drupal, I’m passionate about leveraging tech to drive innovation and create smarter solutions.",
+    "verified": true,
+    "links": "[\"https://x.com/AilistMaster\"]",
+    "avatar": "https://gravatar.com/avatar/6e96ede8d526c20ff6df15da46bbafb0fbe8862f1e12faa6de21514bb3c641e8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "SerpApi (Google Search)",
+      "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-01-16T08:21:40.374Z",
+  "path": "official/template_2735/workflow.json"
+}

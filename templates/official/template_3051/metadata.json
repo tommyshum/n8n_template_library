@@ -1,0 +1,74 @@
+{
+  "id": 3051,
+  "name": "Effortless Job Hunting: Let this Automation Find Your Next Role",
+  "description": "Find Job Postings from LinkedIn, Indeed, and Glassdoor and Save Them to Google Sheets Using AI\n\nOverview\nEffortlessly discover and apply to jobs tailored to your profile—AI handles the search, you handle the interviews.\n\nSay goodbye to endless job board scrolling. This automation leverages AI to analyze your resume, identify your skills, experience, and more, to match you with the most relevant job opportunities. It sources job postings from LinkedIn, Indeed, Glassdoor, ZipRecruiter, Monster, and other public job sites on the web. With seamless integration and automatic organization of results, you can focus on applying rather than searching.\n\nKey Features\n\nIntelligent Resume Parsing\nExtracts key information from your PDF resume using AI.\nIdentifies skills, experience, education, and job preferences.\n\nTargeted Job Matching\nUses the parsed resume data to search for jobs that align with your profile.\nEnsures relevance by analyzing job descriptions for matching criteria.\n\nAutomated Data Organization\nCompiles job listings into a structured Google Spreadsheet.\nEliminates the need for manual data entry, saving valuable time.\n\nEasy Access and Review\nStores results in a familiar Google Sheets format for easy tracking.\nAllows for filtering and sorting to prioritize applications.\n\nSetup Instructions\n\nPrerequisites\nA free API key for the job search service.\nGoogle Drive and Google Sheets accounts.\nAn updated resume in PDF format.\n\nStep 1: Connect Your Resume Parsing AI\nUpload your PDF resume to Google Drive.\nConfigure the AI parser node in n8n to extract relevant information.\nMap the extracted fields (e.g., skills, job title, experience) for job searching.\n\nStep 2: Automate the Job Search\nUse the extracted data to perform a job search on LinkedIn, Indeed, Glassdoor, and other supported job sites.\nRetrieve job postings based on relevant keywords and location preferences.\n\nStep 3: Save Job Listings to Google Sheets\nCreate a new Google Sheet to store job listings.\nSet up the automation to write job details (e.g., title, company, location, link) into the sheet.\nFormat the sheet for better readability and tracking.\n\nStep 4: Review and Apply to Jobs\nOpen your Google Sheet to view job matches.\nClick on the links to apply directly on the respective job sites.\nUpdate the status of each job application as you progress.\n\nWhy Use This Automation?\nSaves Time**: Automates job searching and listing compilation.\nEnhances Efficiency**: Eliminates manual scrolling and data entry.\nImproves Organization**: Keeps all job opportunities in a structured format.\nOptimizes Your Job Hunt**: Increases chances of landing the perfect role.\n\nDesigned specifically for job seekers aiming to optimize their search process, this automation integrates with Google Drive and Sheets, streamlining your job hunt and enhancing your chances of finding the right opportunity. Get started today and accelerate your career growth!",
+  "totalViews": 7858,
+  "source": "official",
+  "user": {
+    "id": 92893,
+    "name": "Mateo Fiorito Rocha",
+    "username": "lemolex",
+    "bio": "Passionate about AI-driven automation, LLMs, and intelligent systems that enhance efficiency and engagement. Let’s build smarter workflows, send me a message!",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/mateofioritorocha/\"]",
+    "avatar": "https://gravatar.com/avatar/1547577657bcdb579dd2c1946c4382029800b8e23e112916e4fe11cc66a6f9fa?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-03-01T14:56:21.432Z",
+  "path": "official/template_3051/workflow.json"
+}

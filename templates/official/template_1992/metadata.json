@@ -1,0 +1,90 @@
+{
+  "id": 1992,
+  "name": "Phishing Analysis - URLScan.io and VirusTotal",
+  "description": "This n8n workflow automates the analysis of email messages received in a Microsoft Outlook inbox to identify indicators of compromise (IOCs), specifically suspicious URLs. It can be triggered manually or scheduled to run daily at midnight.\n\nThe workflow begins by retrieving up to 100 read email messages from the Outlook inbox. However, there seems to be a configuration issue as it should retrieve unread messages, not read ones. It then marks these messages as read to avoid processing them again in the future.\n\nThe messages are then split into individual items using the Split In Batches node for sequential processing. For each email, the workflow analyzes its content to find URLs, which are considered potential IOCs. If URLs are found, the workflow proceeds to check these URLs for potential threats using two services, URLScan.io and VirusTotal, in parallel.\n\nIn the first path, URLScan.io scans each URL, and if there are no errors, the results from URLScan.io and VirusTotal are merged. If there are errors, the workflow waits 1 minute before attempting to retrieve the URLScan results again. The loop then continues for the next email. In the second path, VirusTotal is used to scan the URLs, and the results are retrieved.\n\nFinally, the workflow checks if the data field is not empty, filtering out items where no data was found. It then sends a summarized Slack message to report details about the analyzed email, including the subject, sender, date, URLScan report URL, and VirusTotal verdict for URLs that were reported as malicious.\n\nPotential issues during setup include configuring the Outlook node to retrieve unread messages, resolving a configuration issue in the VirusTotal node, and handling authentication and API keys for both URLScan.io and VirusTotal nodes. Additionally, proper error handling and testing with various email content types and URLs are essential to ensure the workflow accurately identifies IOCs and reports them to the Slack channel.\n",
+  "totalViews": 11684,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "Utility"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Microsoft Outlook",
+      "type": "n8n-nodes-base.microsoftOutlook",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "urlscan.io",
+      "type": "n8n-nodes-base.urlScanIo",
+      "categories": [
+        "Development",
+        "Utility"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2023-11-27T12:14:03.870Z",
+  "path": "official/template_1992/workflow.json"
+}

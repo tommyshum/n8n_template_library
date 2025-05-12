@@ -1,0 +1,72 @@
+{
+  "id": 1826,
+  "name": "Working with Excel spreadsheet files (xls & xlsx)",
+  "description": "This workflow will help guide you through obtaining a spreadsheet file, reading it, making a change then saving it to local or cloud storage.",
+  "totalViews": 19636,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage",
+    "Utility"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Microsoft OneDrive",
+      "type": "n8n-nodes-base.microsoftOneDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "FTP",
+      "type": "n8n-nodes-base.ftp",
+      "categories": [
+        "Core Nodes",
+        "Data & Storage",
+        "Development",
+        "Utility"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Files",
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2022-11-18T14:09:05.977Z",
+  "path": "official/template_1826/workflow.json"
+}

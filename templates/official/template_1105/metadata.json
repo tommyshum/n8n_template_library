@@ -1,0 +1,47 @@
+{
+  "id": 1105,
+  "name": "Check To Do on Notion and send message on Slack",
+  "description": "This workflow allows you to check the To-Do list on Notion and send a message on Slack.\n\nPrerequisites\nCreate a Notion page similar to this page.\nCreate credentials for Notion by following the instructions mentioned in the documentation.\nFollow the steps mentioned in the documentation to create credentials for Slack.\n\nCron node: This node triggers the workflow every day.\n\nNotion node: This node fetches all the tasks from Notion.\n\nIF node: This node checks if the task is assigned to a particular user.\n\nCreate a Direct Message: This node will create a direct message channel with the user.\n\nSend a Direct Message: This node will send the to-do lists in the direct message.\n\nNoOp: This node is connected to the false output of the IF node. If the condition is false, no further action will be taken.",
+  "totalViews": 2702,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2021-05-31T10:57:23.768Z",
+  "path": "official/template_1105/workflow.json"
+}

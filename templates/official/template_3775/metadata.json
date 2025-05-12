@@ -1,0 +1,38 @@
+{
+  "id": 3775,
+  "name": "🎥 Gemini AI Video Analysis",
+  "description": "📝 Overview\n\nThis workflow leverages Google Gemini 2.0 Flash multimodal AI to automatically generate detailed descriptions of video content from any public URL. It streamlines video understanding, making it ideal for content cataloging, accessibility, and content moderation.\n\n💡 Use Cases\n\n♿ Accessibility: Automatically generate detailed video descriptions for visually impaired users.\n🛡️ Content Moderation: Detect inappropriate or off-brand material without manual watching.\n🗂️ Media Cataloging: Enrich your media library with automatically extracted metadata.\n📈 Marketing & Branding: Gain fast insights into key elements, tone, and branding in video content.\n\n⚙️ Setup Instructions\n\n🔑 Get a Gemini API Key\n   Register at ai.google.dev and create an API key.\n   Before running the workflow, set your Gemini API key as an environment variable named GeminiKey for secure access within the workflow.\n   In the Set Input node, reference this environment variable instead of hardcoding the key.\n\n🌐 Configure Video URL\n   Replace the sample URL in the Set Input node with your desired public video URL.\n   Ensure the video is directly accessible (no login or special permissions required).\n\n📝 Optional: Customize the Analysis\n   Edit the prompt in the Analyze video Gemini node to focus on the most relevant video details for your use case (e.g., branding, key actions, visual elements).\n\n🔒 Security Tip\n   Use n8n's credentials manager or environment variables (like GeminiKey) to store your API key securely.\n   Avoid hardcoding API keys directly in workflow nodes, especially in production environments.\n\n🔄 How It Works\n\n📥 Download the video from the provided URL.\n☁️ Upload the video to Gemini’s server for processing.\n⏳ Wait for Gemini to complete processing.\n🤖 Analyze the video with Gemini AI using your customized prompt.\n📄 Output a comprehensive description of the video as videoDescription.\n\n⚡ Technical Details\n\nUses HTTP Request nodes to interact with Gemini API endpoints.\nHandles file download, upload, status checking, and result retrieval.\nCustomizable Gemini AI parameters for fine-tuned response.\nMain output: videoDescription (detailed text describing video content).\n\n🚀 Quickstart\n\nSet your Gemini API key as the GeminiKey environment variable and configure your video URL in the workflow.\nExecute the workflow.\nRetrieve your rich, AI-generated video description for downstream use such as automation, tagging, or reporting.\n",
+  "totalViews": 170,
+  "source": "official",
+  "user": {
+    "id": 93857,
+    "name": "SamirLiu",
+    "username": "samir",
+    "bio": "Seasoned Data Engineer with over 8 years of experience in digital marketing analytics and workflow automation. Expert in leveraging tools like n8n, Python, and SQL to streamline data integration and optimize operational efficiency. Passionate about enhancing productivity through innovative automation strategies.",
+    "verified": true,
+    "links": "[\"https://www.smiliu.xyz\"]",
+    "avatar": "https://gravatar.com/avatar/7ac2e42b7a5ccea3716e53d75401b1bbd41ef6dcf21323b6415088e3585d188d?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-04-28T19:03:44.131Z",
+  "path": "official/template_3775/workflow.json"
+}

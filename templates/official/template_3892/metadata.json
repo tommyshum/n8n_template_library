@@ -1,0 +1,129 @@
+{
+  "id": 3892,
+  "name": "PostgreSQL Conversational Agent with Claude & DeepSeek (Multi-KPI, Secure)",
+  "description": "🧠 Conversational PostgreSQL Agent \n\nEnable AI-driven conversations with your PostgreSQL database using a secure and visual-free agent powered by n8n’s Model Context Protocol (MCP). This template allows users to ask multiple KPIs in a single message, returning consolidated insights — more efficient than the original Conversing with Data template.\n\n🚀 Why This Template\n\nUnlike the Conversing with Data workflow, which handles one KPI per message, this version:\n\n✅ Supports multi-KPI questions  \n✅ Returns structured, human-readable reports  \n✅ Uses fewer AI calls, making it faster and cheaper  \n✅ Avoids raw SQL execution for enhanced security\n\n💲 Estimated cost per full multi-request run: ~$0.01\n\nThis template is optimized for efficiency. Each message can return 2–4 KPIs (You can change the MaxIteration of the Agent to make it more, it is currently set up at 30 iterations) using a single Claude 3.5 Haiku session and DeepSeek-based SQL generation — balancing speed, reasoning, and affordability.\n\n💬 Sample Use Case\n\nUser:  \n“Can you show product performance, revenue trends, and top 5 customers?”\n\nAgent:  \nUses ListTables and GetTableSchema  \nGenerates three SQL queries using get_query_and_data  \nReturns:\n\n📊 Product Performance  \nHigh-Waist Jeans — 10 units, $1,027 revenue  \nDenim Jacket — 10 units, $783 revenue  \n\n📈 Sales Trends  \nPeak Month: January 2024 — 32 units, $2,378  \nAverage Monthly Units: 10–16  \n\n🧍 Customer Insights  \nBob Brown — $1,520 spent  \nDiana Wilson — $925 spent  \n\nAll from one natural prompt.\n\n🖼️ Real-World Interaction Screenshot\n\n🧰 What’s Inside\n\n| Node                        | Purpose                                                   |\n|----------------------------|-----------------------------------------------------------|\n| MCP Server Trigger         | Receives user queries via /mcp/...                      |\n| AI Agent + Memory          | Understands and plans multi-step queries                  |\n| Think Tool                 | Breaks down the user’s question into structured goals     |\n| get_query_and_data         | Generates SQL securely from natural language              |\n| ListTables, GetSchema      | AI tools to explore DB safely                             |\n| Read/Insert/Update Tools   | Execute structured operations (never raw SQL)             |\n| checkdatabase Subflow      | Validates SQL, formats response as clean text             |\n\n🤖 Model Selection Recommendations\n\nThis template uses two types of models, selected for cost-performance balance and role alignment:\n\n1. Claude 3.5 Haiku (Anthropic) – for the MCP Agent  \nThe main conversational agent uses Claude 3.5 Haiku, ideal for MCP because it was built by Anthropic — the creators of the MCP standard. It’s fast, affordable, and performs excellently in tool-calling and reasoning tasks.\n\n2. DeepSeek – for the SQL subworkflow  \nThe subworkflow that turns natural language into SQL uses DeepSeek. It’s one of the most affordable and performant models available today for structured outputs like SQL, making it a perfect fit for utility logic.\n\n✅ This setup provides top-tier reasoning + low-cost execution.\n\n🔐 Security Benefits\n\nNo raw SQL accepted from the user or LLM  \nAll queries are parameterized  \nSchema is dynamically retrieved  \nFinal output is clean, safe, and human-readable\n\n🧪 Try a Prompt\n\n&gt; “Show me the top 5 products by units sold and revenue, total monthly sales trend, and top 5 customers by spending.”\n\nIn one message, the agent will:  \nGenerate and run multiple queries  \nUse the schema to validate logic  \nReturn a single, comprehensive answer\n\n🛠 How to Use\n\n📥 Upload both workflow files into your n8n instance:\n   Build_your_own_PostgreSQL_MCP_server_No_visuals_.json\n   checkdatabase.json\n🔐 Set up PostgreSQL credentials (e.g. “Postgres account 3”)\n🧠 Confirm model setup:\n   Claude 3.5 Haiku for the main agent\n   DeepSeek for the subflow\n🌐 Use the /mcp/... URL from the MCP Server Trigger to connect your frontend or chatbot\n🗣 Ask questions naturally — the agent takes care of planning, querying, and formatting\n\n🔄 Customization Ideas\n\nSwap Claude or DeepSeek for OpenAI, Mistral, Gemini, etc.  \nExport insights to Slack, Notion, or Google Sheets  \nAdd Switch nodes to control access to specific tables  \nIntegrate with any front-end app, internal dashboard, or bot\n\n📦 What's Included\n\nBuild_your_own_PostgreSQL_MCP_server_No_visuals_.json – MCP agent logic  \ncheckdatabase.json – SQL generation and formatting utility workflow\n\n📝 These must be uploaded into your n8n workspace for the template to function.\n\n📊 Comparison: Conversing with Data vs This Workflow\n\n| Feature                       | Conversing with Data      | This Workflow                   |\n|------------------------------|---------------------------|---------------------------------|\n| Handles multi-KPI questions  | ❌ No                     | ✅ Yes                          |\n| Secure query execution       | ✅ Yes                    | ✅ Yes                          |\n| Structured response          | ⚠️ JSON / raw            | ✅ Clean natural language       |\n| Cost-efficiency              | ⚠️ More calls            | ✅ Optimized with fewer calls   |\n| Endpoint support             | ❌ Manual interaction     | ✅ MCP-ready (/mcp/...)       |\n\n🔗 Prefer something more lightweight and cost-sensitive?  \nTry the original Conversing with Data template (single KPI + chart support):  \nConversing with Data: Transforming Text into SQL Queries and Visual Curves\n\n&gt; I used this version for over 3 months and only spent $0.80 total, making it a great entry point if you're just getting started or on a limited budget.\n\n📚 More from the Same Creator\n\nLooking for a different kind of AI reporting workflow?\n\nExplore:  \nCustomer Feedback Analysis with AI, QuickChart & HTML Report Generator  \n→ Automatically analyze customer input and generate full reports with insights and charts.  \nCustomer Feedback Analysis with AI, QuickChart & HTML Report Generator\n",
+  "totalViews": 144,
+  "source": "official",
+  "user": {
+    "id": 92736,
+    "name": "hippolyte-hu",
+    "username": "hippolyte-hu",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/50c235b82d1a4f0d0c1a50338c1c84780db38e2846daad908ca00999151a69e5?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Data & Storage",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Postgres",
+      "type": "n8n-nodes-base.postgres",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Anthropic Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    },
+    {
+      "name": "Think Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolThink",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "MCP Client Tool",
+      "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Model Context Protocol",
+          "Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-05-06T09:56:26.479Z",
+  "path": "official/template_3892/workflow.json"
+}

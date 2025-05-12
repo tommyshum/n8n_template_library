@@ -1,0 +1,41 @@
+{
+  "id": 1325,
+  "name": "Transf meeting booking into Notion's Task with verified information",
+  "description": "This workflow allows you to transform a meeting booking into Notion's task in order to centralize all of your activity.\n\n\n\nCalendly trigger**: This node triggers the workflow when a new event gets scheduled.\n\nDropcontact**: This node will find the verified email of the contact and enrich it to be able to contact him\nNotion**: This node will create a new task in Notion using the information from the previous node.\n",
+  "totalViews": 654,
+  "source": "official",
+  "user": {
+    "id": 11407,
+    "name": "Pauline",
+    "username": "pauline",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/26b6f126594978870012d6649d3dc58b45104fa9632566cb9919c311ee57b674?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Productivity",
+    "Sales"
+  ],
+  "nodes": [
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Dropcontact",
+      "type": "n8n-nodes-base.dropcontact",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2021-11-15T15:41:09.378Z",
+  "path": "official/template_1325/workflow.json"
+}

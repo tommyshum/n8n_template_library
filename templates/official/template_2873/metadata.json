@@ -1,0 +1,96 @@
+{
+  "id": 2873,
+  "name": "Author and Publish Blog Posts From Google Sheets",
+  "description": "What it is:\n\nAn automation to plan→draft→finalize and publish your textual blog post ideas to your wordpress blog\nWorks in stages and hand back control to you in between those\nYou can use a Google Spreadsheet for planning topics and configuring LLM models and prompts\n\nWhat it does:\n\nplans→drafts→finalizes blog post topics you specify in a Google Spreadsheet using an LLM with prompts that also ar configured in that spreadsheet (even which model to use)\nsavs the results in the corresponding \ncolumns of the \"Schedule\" sheet in the spreadsheet\nhands control back to the user for inspecting or changing the results and for setting the next \"Action\" for th workflow\nFinally publishes the blog post to your Wordpress instance\n\nLimitations\nProbably slightly over-engineered ;-)\nNo media generation yet\nsome LLM models don't work because of their output format\n\nHow it works:\n\nThe Workflow is triggered manually or scheduled every hour\nIt ingests a Google Spreadsheet to get\n  Config for prompts/context tc\n  Blog-Topics and their status and next action\nDepending on each blog topics \"Status\" and \"Action\" it then either uses an LLM for th next action (\"plan\"→\"draft\"→\"final\" actions) or publishes the written content to your Wordpress instance (\"publish\" actions)\n\nSet up steps:\n\nImport the workflow\nMake your own copy of the Google Spreadsheet\nUpdate the credentials using your individual credentials for:\n  Google Spreadsheets\n  OpenRouter\nEdit the \"Settings\" node and enter your individual values for\n  Your spreadsheet copy URL\n  Your wordpress blog URL\n  Your wordpress blog username\n  Your wordpress blog app password (a 4x4 alphanumeric sequence), that you probably have to create first, for which your wordpress user has to have 2-factor-authentication enabled.\nIn your own copy of the spreadsheet:\n  individualize the \"Config\" sheet's \"Value\" column for the prompts/context/etc\n  Populate the \"Schedule\" sheet with at least one line in which you specify\n    a \"Topic\"\n    a \"Schedulded\" date (YYYY-MM-DD HH:mm:ss)\n    a \"Status\" of \"idea\"\n    an \"Action\" of \"plan\" (to kick off that action)\n",
+  "totalViews": 5355,
+  "source": "official",
+  "user": {
+    "id": 92666,
+    "name": "Daniel Nolde",
+    "username": "dnolde",
+    "bio": "",
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/d086ae47fe6c069e1dd7c9c76cd4ecb7a86eb59a00c19b3dd5a4abb3e8932b24?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-02-10T12:01:15.051Z",
+  "path": "official/template_2873/workflow.json"
+}

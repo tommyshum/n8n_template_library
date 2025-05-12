@@ -1,0 +1,127 @@
+{
+  "id": 2490,
+  "name": "Build an endpoint to perform CRUD operations with multiple HTTP methods",
+  "totalViews": 2683,
+  "purchaseUrl": null,
+  "user": {
+    "id": 91279,
+    "name": "Giulio",
+    "username": "gandreini",
+    "bio": "Product designer at n8n, founder of Mondo surf atlas and forecast",
+    "verified": false,
+    "links": "[\"https://www.linkedin.com/in/giulioandreini/\"]",
+    "avatar": "https://gravatar.com/avatar/8881c112afdb9ed815d053eef68dd3d35629caec4ec9ab505eb57e7279791230?r=pg&d=retro&size=200"
+  },
+  "description": "This n8n workflow template allows you to create a CRUD endpoint that performs the following actions:\n\nCreate a new record\nGet a record\nGet many records\nUpdate a record\nDelete a record\n\nThis template is connected with Airtable but you can replace the Airtable nodes with anything you need to interact with (e.g. Postgres, MySQL, Notion, Coda...).\n\nThe template uses the n8n Webhook node setting 'Allow Multiple HTTP Methods' to enable multiple HTTP methods on the same node.\n\nFeatures\n\nJust two nodes to create 5 endpoints\nUse it with Airtable or replace the Airtable nodes for your own customization\nAdd your custom logic exploiting all n8n's possibilities\n\nWorkflow Steps\n\nWebhook node**: exposes the endpoints to get many records and create a new record\nWebhook (with ID) node**: exposes the endpoints to get, update, and delete a record. Due to a n8n limitation, this endpoint will have an additional code in the path (e.g. https://my.app.n8n.cloud/webhook/580ccc56-f308-4b64-961d-38323501a170/customers/:id). Keep this in mind when using these endpoints in your application\nVarious Airtable nodes**: execute various specific operations to interact with Airtable records\n\nGetting Started\n\nTo deploy and use this template:\n\nImport the workflow into your n8n workspace\nCustomize the endpoint paths by tweaking the 'Path' parameters in the 'Webhook' and 'Webhook (with ID)' nodes (currently customers)\nSet up your Airtable credentials by following this guide and customize the Airtable nodes by selecting your base, table, and the correct fields to update. ...or... replace the Airtable nodes and connect the endpoint to any other service (e.g. Postgres, MySQL, Notion, Coda)\n\nHow to use the workflow\n\nActivate the workflow\nConnect your app to the endpoints (production URLs) to perform the various operations allowed by the workflow\n\nNote that the Webhook nodes have two URLs, one for testing and one for production. The testing URL is activated when you click on 'Test workflow' button and can't be used for production. The production URL is available after you activate the workflow. More info here.\n\nFeel free to get in touch with me if you have questions about this workflow.\n",
+  "createdAt": "2024-10-23T16:32:21.930Z",
+  "nodes": [
+    {
+      "id": 2,
+      "icon": "file:airtable.svg",
+      "name": "n8n-nodes-base.airtable",
+      "codex": {
+        "data": {
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/2021-goals-level-up-your-vocabulary-with-vonage-and-n8n/",
+                "icon": "🎯",
+                "label": "2021 Goals: Level Up Your Vocabulary With Vonage and n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/2021-the-year-to-automate-the-new-you-with-n8n/",
+                "icon": "☀️",
+                "label": "2021: The Year to Automate the New You with n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/how-to-build-a-low-code-self-hosted-url-shortener/",
+                "icon": "🔗",
+                "label": "How to build a low-code, self-hosted URL shortener in 3 steps"
+              },
+              {
+                "url": "https://n8n.io/blog/how-to-get-started-with-crm-automation-and-no-code-workflow-ideas/",
+                "icon": "👥",
+                "label": "How to get started with CRM automation (with 3 no-code workflow ideas"
+              },
+              {
+                "url": "https://n8n.io/blog/automate-google-apps-for-productivity/",
+                "icon": "💡",
+                "label": "15 Google apps you can combine and automate to increase productivity"
+              },
+              {
+                "url": "https://n8n.io/blog/building-an-expense-tracking-app-in-10-minutes/",
+                "icon": "📱",
+                "label": "Building an expense tracking app in 10 minutes"
+              },
+              {
+                "url": "https://n8n.io/blog/why-this-product-manager-loves-workflow-automation-with-n8n/",
+                "icon": "🧠",
+                "label": "Why this Product Manager loves workflow automation with n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/learn-to-build-powerful-api-endpoints-using-webhooks/",
+                "icon": "🧰",
+                "label": "Learn to Build Powerful API Endpoints Using Webhooks"
+              },
+              {
+                "url": "https://n8n.io/blog/sending-sms-the-low-code-way-with-airtable-twilio-programmable-sms-and-n8n/",
+                "icon": "📱",
+                "label": "Sending SMS the Low-Code Way with Airtable, Twilio Programmable SMS, and n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/automating-conference-organization-processes-with-n8n/",
+                "icon": "🙋‍♀️",
+                "label": "Automating Conference Organization Processes with n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/benefits-of-automation-and-n8n-an-interview-with-hubspots-hugh-durkin/",
+                "icon": "🎖",
+                "label": "Benefits of automation and n8n: An interview with HubSpot's Hugh Durkin"
+              },
+              {
+                "url": "https://n8n.io/blog/how-goomer-automated-their-operations-with-over-200-n8n-workflows/",
+                "icon": "🛵",
+                "label": "How Goomer automated their operations with over 200 n8n workflows"
+              },
+              {
+                "url": "https://n8n.io/blog/aws-workflow-automation/",
+                "label": "7 no-code workflow automations for Amazon Web Services"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.airtable/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/airtable/"
+              }
+            ]
+          },
+          "categories": [
+            "Data & Storage"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "Airtable"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMTcwIj48cGF0aCBmaWxsPSIjZmNiNDAwIiBkPSJNODkgNC44IDE2LjIgMzQuOWMtNC4xIDEuNy00IDcuNC4xIDkuMWw3My4yIDI5YzYuNCAyLjYgMTMuNiAyLjYgMjAgMGw3My4yLTI5YzQuMS0xLjYgNC4xLTcuNC4xLTkuMWwtNzMtMzAuMUMxMDMuMiAyIDk1LjcgMiA4OSA0LjgiLz48cGF0aCBmaWxsPSIjMThiZmZmIiBkPSJNMTA1LjkgODguOXY3Mi41YzAgMy40IDMuNSA1LjggNi43IDQuNWw4MS42LTMxLjdjMS45LS43IDMuMS0yLjUgMy4xLTQuNVY1Ny4yYzAtMy40LTMuNS01LjgtNi43LTQuNUwxMDkgODQuM2MtMS45LjgtMy4xIDIuNi0zLjEgNC42Ii8+PHBhdGggZmlsbD0iI2Y4MmI2MCIgZD0ibTg2LjkgOTIuNi0yNC4yIDExLjctMi41IDEuMkw5LjEgMTMwYy0zLjIgMS42LTcuNC0uOC03LjQtNC40VjU3LjVjMC0xLjMuNy0yLjQgMS42LTMuM3EuNi0uNiAxLjItLjljMS4yLS43IDMtLjkgNC40LS4zbDc3LjUgMzAuN2M0IDEuNSA0LjMgNy4xLjUgOC45Ii8+PHBhdGggZmlsbD0iI2JhMWU0NSIgZD0ibTg2LjkgOTIuNi0yNC4yIDExLjctNTkuNC01MHEuNi0uNiAxLjItLjljMS4yLS43IDMtLjkgNC40LS4zbDc3LjUgMzAuN2M0IDEuNCA0LjMgNyAuNSA4LjgiLz48L3N2Zz4="
+      },
+      "displayName": "Airtable",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 3,
+          "name": "Data & Storage"
+        }
+      ]
+    }
+  ]
+}

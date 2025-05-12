@@ -1,0 +1,40 @@
+{
+  "id": 2951,
+  "name": "Check VPS resource usage every 15 minutes",
+  "description": "This n8n workflow template is designed to help system administrators and DevOps professionals monitor key resource usage metrics — CPU, RAM, and Disk — on a VPS (Virtual Private Server). The workflow automatically checks these resources every 15 minutes and sends an email alert if any resource usage exceeds the 80% threshold. This proactive monitoring helps maintain optimal server performance and prevents resource-related downtimes.\n\nWho This Workflow Is For\n\n• System Administrators managing Linux-based servers who need to ensure their systems are running smoothly without manual monitoring.\n• DevOps Professionals who manage multiple environments and need automated tools to alert them to potential issues before they affect operations.\n • IT Support Teams who require an easy way to keep tabs on server health across an organization’s infrastructure.\n\nHow It Works\nSchedule Trigger: The workflow is triggered every 15 minutes by a Cron node.\nResource Checks: Separate SSH Command nodes are configured to execute specific commands that check the current usage of RAM, Disk, and CPU.\nData Aggregation: The results from each check are merged using a Merge node, which combines the data into a single payload for analysis.\nThreshold Analysis: A Function node evaluates whether any resource’s usage exceeds the predefined 80% threshold.\nAlerts: If any metric exceeds the threshold, an email alert is sent through an Email node, ensuring that administrators can react promptly to potential issues.\n\nSetup Steps\nConfigure SSH Nodes: Update each SSH node with the appropriate credentials and target server details where the resource checks will be performed.\nSet Thresholds: If different sensitivity levels are required, review and adjust the resource usage thresholds within the Function node.\nEmail Configuration: Enter the correct email addresses in the Email node for where alerts should be sent. Ensure that your email-sending credentials and server details are correctly configured.",
+  "totalViews": 2782,
+  "source": "official",
+  "user": {
+    "id": 92764,
+    "name": "Hostinger",
+    "username": "hostinger",
+    "bio": "Hostinger aims to make online presence accessible to everyone worldwide – from developers to aspiring bloggers and business owners. With our fast hosting technology, AI-powered Website Builder, and easy-to-operate hPanel you can succeed online faster and easier.",
+    "verified": true,
+    "links": "[\"https://www.hostinger.com/vps/n8n-hosting\"]",
+    "avatar": "https://gravatar.com/avatar/be87ae832a10297a42d8d92ade9b7b680e2e0cdd81c519603277b10956e46c86?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "categories": [
+        "Communication",
+        "HITL",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-02-20T13:25:49.796Z",
+  "path": "official/template_2951/workflow.json"
+}

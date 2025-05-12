@@ -1,0 +1,54 @@
+{
+  "id": 837,
+  "name": "Track changes of product prices",
+  "description": "This workflow automatically tracks changes on specific websites, typically in e-commerce where you want to get information about price changes. \n\nPrerequisites\n\nBasic knowledge of HTML and JavaScript\n\nNodes\n\nExecute Command nodes create a file named kopacky.json in the /data/ folder (Make sure that n8n has the permissions to make changes to the folder in your setup) and clean data.\nCron node triggers the workflow at regular intervals (default is 15 minutes), depending on how often you want to crawl URLs of your watchers. \nFunction Item node (Change me) adds the URL watchers. You can put as many URLs (watchers) as you want by changing the JavaScript code in the node. There are four properties for each watcher:\n\n|Property|Meaning|\n|-|-|\n|slug|Unique identifier for the watcher.|\n|link|URL of the website where you want to track changes.|\n|selector|CSS selector of the HTML tag, where your price is placed. You can use browser web tools to get a specific selector.|\n|currency|Currency code in which your price is set.|\n\nFunction Item node (Init item) saves all required data from each watcher to the kopacky.json file.\nHTTP Request node fetches data from the website.\nHTML Extract node extracts the required information from the webpage.\nSend Email nodes (NotifyBetterPrice) send you an email  when there is an issue with getting the price, and when a better price is available (this could happen if the website is down, your tracking product is not available anymore, or the owner of the website changed the selector or HTML).\nIF nodes filter the incoming data and route the workflow.\nMove Binary Data nodes convert the JSON file to binary data.\nWrite Binary File nodes write the product prices in the file.\n\nNOTE: This is the first (beta) version of this workflow, so it could have some issues. For example, there is an issue with getting content of those websites, where the owner of the website blocks any calls from unknown foreign services - it's typical protection against crawlers.\n",
+  "totalViews": 11871,
+  "source": "official",
+  "user": {
+    "id": 2762,
+    "name": "sthosstudio",
+    "username": "stehos",
+    "bio": null,
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/a18c8c33b79fd022f41678e33f48c83553a20a0d23644f34c25b0080cb1cc5b5?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Core Nodes",
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "categories": [
+        "Communication",
+        "HITL",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2020-12-19T10:26:27.570Z",
+  "path": "official/template_837/workflow.json"
+}

@@ -1,0 +1,185 @@
+{
+  "id": 2112,
+  "name": "Send outreach/cold email using Gmail to new Hubspot contacts",
+  "totalViews": 2538,
+  "purchaseUrl": null,
+  "user": {
+    "id": 91243,
+    "name": "Mutasem",
+    "username": "mutasem",
+    "bio": "Team lead @ n8n",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/mutasemdmour/\"]",
+    "avatar": "https://gravatar.com/avatar/16d9c92db78317b6af7d0935bee34a47c522cb81d35c234ff76ea580ff1f6c29?r=pg&d=retro&size=200"
+  },
+  "description": "Use case\n\nThis workflow uses Gmail to send outreach emails to new Hubspot contacts that have yet to be contacted (usually unknown contacts), and records the outreach in Hubspot. \n\nSetup\nSetup HubSpot Oauth2 creds (Be careful with scopes. They have to be exact, not less or more. Yes, it's not simple, but it's well documented in the n8n docs. Be smarter than me, read the docs)\nSetup Gmail creds. \nChange the from email and from name in the Record outreach in HubSpot node\n\nHow to adjust this template to your needs\nChange the email message in the Set keys node\nThink about your criteria to reach out to new contacts. Here we simply filter for only contacts with unknown dates.\n\n\n",
+  "createdAt": "2024-02-21T17:25:36.403Z",
+  "nodes": [
+    {
+      "id": 76,
+      "icon": "file:hubspot.svg",
+      "name": "n8n-nodes-base.hubspot",
+      "codex": {
+        "data": {
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/how-to-sync-data-between-two-systems/",
+                "icon": "🏬",
+                "label": "How to synchronize data between two systems (one-way vs. two-way sync"
+              },
+              {
+                "url": "https://n8n.io/blog/how-to-get-started-with-crm-automation-and-no-code-workflow-ideas/",
+                "icon": "👥",
+                "label": "How to get started with CRM automation (with 3 no-code workflow ideas"
+              },
+              {
+                "url": "https://n8n.io/blog/your-business-doesnt-need-you-to-operate/",
+                "icon": " 🖥️",
+                "label": "Hey founders! Your business doesn't need you to operate"
+              },
+              {
+                "url": "https://n8n.io/blog/benefits-of-automation-and-n8n-an-interview-with-hubspots-hugh-durkin/",
+                "icon": "🎖",
+                "label": "Benefits of automation and n8n: An interview with HubSpot's Hugh Durkin"
+              },
+              {
+                "url": "https://n8n.io/blog/how-goomer-automated-their-operations-with-over-200-n8n-workflows/",
+                "icon": "🛵",
+                "label": "How Goomer automated their operations with over 200 n8n workflows"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.hubspot/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/hubspot/"
+              }
+            ]
+          },
+          "categories": [
+            "Sales"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"output\"]",
+      "defaults": {
+        "name": "HubSpot"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiB2aWV3Qm94PSIwIDAgNjIuODgzIDY5Ljg4MyI+PHVzZSB4bGluazpocmVmPSIjYSIgeD0iMi40NDIiIHk9IjIuNDQyIi8+PHN5bWJvbCBpZD0iYSIgb3ZlcmZsb3c9InZpc2libGUiPjxwYXRoIGZpbGw9IiNmODc2MWYiIGZpbGwtcnVsZT0ibm9uemVybyIgc3Ryb2tlPSJub25lIiBkPSJNNTUuNTA0IDMwLjQwMWExNi4yNiAxNi4yNiAwIDAgMC01LjkwNC01Ljg2NGMtMS44NjUtMS4wODQtMy43OTQtMS43NzMtNS45NzItMi4wN3YtNy43OThhNS43MSA1LjcxIDAgMCAwIDMuNTI1LTUuMzU3IDUuODYgNS44NiAwIDAgMC01Ljg1OS01Ljg4OSA1LjkxIDUuOTEgMCAwIDAtNS45MDggNS44ODljMCAyLjM5MyAxLjI3IDQuNDM0IDMuNDUyIDUuMzU3djcuNzU0YTE3IDE3IDAgMCAwLTUuMTk1IDEuNjMxTDEyLjc2OSA4LjI0N2MuMTQ2LS41NTIuMjczLTEuMTIzLjI3My0xLjcyNEE2LjUyIDYuNTIgMCAwIDAgNi41MTkgMCA2LjUyIDYuNTIgMCAwIDAgMCA2LjUyNGE2LjUyMyA2LjUyMyAwIDAgMCA2LjUyNCA2LjUyNCA2LjQ3IDYuNDcgMCAwIDAgMy4zNS0uOTUybDEuMzY3IDEuMDM1IDE4LjcyNiAxMy41MDFjLS45OTEuOTA4LTEuOTE0IDEuOTQzLTIuNjUxIDMuMTA1LTEuNDk0IDIuMzY4LTIuNDA3IDQuOTcxLTIuNDA3IDcuODEzdi41ODZhMTYuNCAxNi40IDAgMCAwIDEuMDI1IDUuNjQ1QzI2LjUgNDUuMzI0IDI3LjMzIDQ2LjczIDI4LjM2MSA0OGwtNi4yMjEgNi4yMzVhNS4wMSA1LjAxIDAgMCAwLTUuMjk4IDEuMTYyYy0uOTQ3Ljk0Mi0xLjQ4IDIuMjI3LTEuNDc1IDMuNTY1cy41MjcgMi42MTIgMS40NzkgMy41NjQgMi4yMjcgMS40OCAzLjU2NSAxLjQ4YTUgNSAwIDAgMCAzLjU2NS0xLjQ4IDUuMDUgNS4wNSAwIDAgMCAxLjQ3NS0zLjU2NCA1IDUgMCAwIDAtLjIzNC0xLjUxNGw2LjQyNi02LjQyNmExNiAxNiAwIDAgMCAyLjg1NiAxLjU2MyAxNi43IDE2LjcgMCAwIDAgNi42ODUgMS40MDZoLjQzOWExNS43NiAxNS43NiAwIDAgMCA3LjYyNy0xLjkyOSAxNS43NyAxNS43NyAwIDAgMCA1Ljk3Ny01LjYzYzEuNDk5LTIuMzkzIDIuMzE5LTUuMDQ0IDIuMzE5LTcuOTU5di0uMTQ2YzAtMi44NjYtLjY2NC01LjUwOC0yLjA1MS03Ljkzem0tNy44NDcgMTMuNDg3Yy0xLjc0MyAxLjkzOC0zLjc1IDMuMTM1LTYuMDE2IDMuMTM1aC0uNDNjLTEuMjk0IDAtMi41NjQtLjM1Ni0zLjc5OS0xLjAxMWE4LjggOC44IDAgMCAxLTMuMzMtMy4wMzJjLS44OTgtMS4yNy0xLjM4Ny0yLjY1Ni0xLjM4Ny00LjEyNnYtLjQzOWMwLTEuNDQ1LjI3OC0yLjgxNy45NzctNC4xMTEuNzQ3LTEuNDY1IDEuNzU4LTIuNTE1IDMuMTAxLTMuMzg5YTcuNiA3LjYgMCAwIDEgNC4yOTctMS4yOTRoLjE0N2MxLjQxNiAwIDIuNzY5LjI3OCA0LjAzOC45MjhhOC41NiA4LjU2IDAgMCAxIDMuMTc0IDIuODg2IDkuMiA5LjIgMCAwIDEgMS40MjEgNC4wNTNsLjAzNC45MTNjMCAxLjk4Ny0uNzYyIDMuODI4LTIuMjggNS40OTh6Ii8+PC9zeW1ib2w+PC9zdmc+"
+      },
+      "displayName": "HubSpot",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 2,
+          "name": "Sales"
+        }
+      ]
+    },
+    {
+      "id": 356,
+      "icon": "file:gmail.svg",
+      "name": "n8n-nodes-base.gmail",
+      "codex": {
+        "data": {
+          "alias": [
+            "email",
+            "human",
+            "form",
+            "wait",
+            "hitl",
+            "approval"
+          ],
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/why-business-process-automation-with-n8n-can-change-your-daily-life/",
+                "icon": "🧬",
+                "label": "Why business process automation with n8n can change your daily life"
+              },
+              {
+                "url": "https://n8n.io/blog/supercharging-your-conference-registration-process-with-n8n/",
+                "icon": "🎫",
+                "label": "Supercharging your conference registration process with n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/no-code-ecommerce-workflow-automations/",
+                "icon": "store",
+                "label": "6 e-commerce workflows to power up your Shopify s"
+              },
+              {
+                "url": "https://n8n.io/blog/how-to-get-started-with-crm-automation-and-no-code-workflow-ideas/",
+                "icon": "👥",
+                "label": "How to get started with CRM automation (with 3 no-code workflow ideas"
+              },
+              {
+                "url": "https://n8n.io/blog/automate-google-apps-for-productivity/",
+                "icon": "💡",
+                "label": "15 Google apps you can combine and automate to increase productivity"
+              },
+              {
+                "url": "https://n8n.io/blog/your-business-doesnt-need-you-to-operate/",
+                "icon": " 🖥️",
+                "label": "Hey founders! Your business doesn't need you to operate"
+              },
+              {
+                "url": "https://n8n.io/blog/using-automation-to-boost-productivity-in-the-workplace/",
+                "icon": "💪",
+                "label": "Using Automation to Boost Productivity in the Workplace"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.gmail/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/google/oauth-single-service/"
+              }
+            ]
+          },
+          "categories": [
+            "Communication",
+            "HITL"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0",
+          "subcategories": {
+            "HITL": [
+              "Human in the Loop"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Gmail"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNTYiIGhlaWdodD0iMTkzIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCI+PHBhdGggZmlsbD0iIzQyODVGNCIgZD0iTTU4LjE4MiAxOTIuMDVWOTMuMTRMMjcuNTA3IDY1LjA3NyAwIDQ5LjUwNHYxMjUuMDkxYzAgOS42NTggNy44MjUgMTcuNDU1IDE3LjQ1NSAxNy40NTV6Ii8+PHBhdGggZmlsbD0iIzM0QTg1MyIgZD0iTTE5Ny44MTggMTkyLjA1aDQwLjcyN2M5LjY1OSAwIDE3LjQ1NS03LjgyNiAxNy40NTUtMTcuNDU1VjQ5LjUwNWwtMzEuMTU2IDE3LjgzNy0yNy4wMjYgMjUuNzk4eiIvPjxwYXRoIGZpbGw9IiNFQTQzMzUiIGQ9Im01OC4xODIgOTMuMTQtNC4xNzQtMzguNjQ3IDQuMTc0LTM2Ljk4OUwxMjggNjkuODY4bDY5LjgxOC01Mi4zNjQgNC42NyAzNC45OTItNC42NyA0MC42NDRMMTI4IDE0NS41MDR6Ii8+PHBhdGggZmlsbD0iI0ZCQkMwNCIgZD0iTTE5Ny44MTggMTcuNTA0VjkzLjE0TDI1NiA0OS41MDRWMjYuMjMxYzAtMjEuNTg1LTI0LjY0LTMzLjg5LTQxLjg5LTIwLjk0NXoiLz48cGF0aCBmaWxsPSIjQzUyMjFGIiBkPSJtMCA0OS41MDQgMjYuNzU5IDIwLjA3TDU4LjE4MiA5My4xNFYxNy41MDRMNDEuODkgNS4yODZDMjQuNjEtNy42NiAwIDQuNjQ2IDAgMjYuMjN6Ii8+PC9zdmc+"
+      },
+      "displayName": "Gmail",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 6,
+          "name": "Communication"
+        },
+        {
+          "id": 28,
+          "name": "HITL"
+        }
+      ]
+    }
+  ]
+}

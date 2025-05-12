@@ -1,0 +1,168 @@
+{
+  "id": 3183,
+  "name": "Self-Learning AI Assistant with Permanent Memory | GPT,Telegram & Pinecone RAG",
+  "description": "Your AI secretary that self-learning every day and remembers everything you said (text, audio, image). \n\nImagine having a personal AI secretary accessible right from your Telegram, ready to assist you with information and remember everything you discuss. This n8n workflow transforms Telegram into your intelligent assistant, capable of understanding text, audio, and images, and continuously learning from your interactions. It integrates RAG's offline data ingestion and online querying functionalities, letting you save inspiration and key information permanently in real-time, and giving you an AI assistant that remembers all your dialogues and information. It builds and queries a powerful vector database in real-time, ensuring relevant and accurate responses. Video guidance on how to set up Telegram integration is also included. \n\nWho is this for?\n\nThis template is ideal for:\n\nIndividuals seeking a personal AI assistant for quick information retrieval and note-taking.\nProfessionals who need to keep track of important conversations and insights.\nAnyone interested in leveraging the power of Retrieval-Augmented Generation (RAG) and vector databases for personal knowledge management.\nUsers who want a self-learning AI that improves over time based on their interactions.\n\nWhat problem is this workflow solving?\n\nThis workflow integrates RAG's offline data ingestion and online querying functionalities, letting you save inspiration and key information permanently in real-time, and giving you an AI assistant that remembers all your dialogues and information. This workflow addresses the challenge of information overload and the need for an easily accessible, personalized knowledge base. It eliminates the need to manually organize notes and search through past conversations. By automatically storing and retrieving information from a vector database, this workflow makes it effortless to access the knowledge you need, when you need it. It also provides a way to retain information from various media types like voice notes and images.\n\nWhat this workflow does:\n\nThis workflow automates the following steps:\n\nInstant Information Capture:** Receives text messages, audio notes (transcribed), and images (with content analysis) directly from your Telegram.\nIntelligent Question Answering:** When you ask a question, the AI searches its knowledge base (Pinecone vector store) for relevant information and provides a comprehensive answer. It even considers your recent conversations for context.\nAutomatic Knowledge Storage:** When you make a statement or provide information, the AI extracts key details and saves them in a Google Docs \"memory palace.\"\nDaily Self-Learning:** Every day, the workflow automatically takes all the information stored in the Google Docs, converts it into a vector representation, and adds it to its knowledge base (Pinecone vector store). This ensures the AI continuously learns and remembers everything you've shared.\nImage Understanding:** Extracts text and information from images you send.\nAudio Transcription:** Automatically transcribes your voice notes into text for processing and storage.\nShort-Term Memory:** Remembers recent interactions within a session for more context-aware conversations.\n\nSetup:\n\nTo get started, you'll need to connect the following services to your n8n instance:\n\nTelegram: Connect your Telegram bot API credentials. A video guidance is included for telegram integration setup.\nOpenAI: Provide your OpenAI API key for audio transcription and image analysis.\nPinecone: Set up a Pinecone account and provide your API key and environment. Create a namespace in Pinecone.\nGoogle Docs: Connect your Google account with access to Google Docs. You'll need to create a Google Doc that will serve as the daily \"memory palace\" and provide its ID in the workflow.\n\nHow to customize this workflow:\n\nAdjust the AI Agent's Personality:** Modify the system prompt in the \"AI Agent\" node to tailor the AI's tone and behavior.\nExpand Knowledge Sources:** Integrate other data sources into the daily learning process, such as emails or other documents, by adding more nodes to the scheduled trigger workflow.\nAdd More Tools for the AI Agent:** Integrate additional tools into the AI Agent, such as web search or other APIs, to further enhance its capabilities.\nModify the Daily Schedule:** Adjust the schedule trigger to run at a different time or interval.",
+  "totalViews": 3839,
+  "source": "official",
+  "user": {
+    "id": 92701,
+    "name": "Tianyi",
+    "username": "muzi",
+    "bio": "Ph.D. in Machine Learning from the University of Toulouse.\nExperienced automation consultant specializing in optimizing workflows for Content creation and Marketing teams. ",
+    "verified": true,
+    "links": "[\"www.linkedin.com/in/tianyi-li-v\"]",
+    "avatar": "https://gravatar.com/avatar/43163225998120af2d88664551ec779ceb7518ef30b5a6c27f81649a0fb641d0?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Miscellaneous",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Google Docs",
+      "type": "n8n-nodes-base.googleDocs",
+      "categories": [
+        "Miscellaneous"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Recursive Character Text Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Pinecone Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 10,
+  "createdAt": "2025-03-16T18:04:22.938Z",
+  "path": "official/template_3183/workflow.json"
+}

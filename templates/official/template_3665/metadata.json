@@ -1,0 +1,81 @@
+{
+  "id": 3665,
+  "name": "Automated Property Lead Generation with BatchData and CRM Integration",
+  "description": "How It Works\nThis N8N workflow creates an automated system for discovering high-potential real estate investment opportunities. The workflow runs on a customizable schedule to scan the market for properties that match your specific criteria, then alerts your team about the most promising leads.\n\nThe process follows these steps:\n\nConnects to BatchData API on a regular schedule to search for properties matching your parameters\nCompares new results with previous scans to identify new listings and property changes\nApplies intelligent filtering to focus on high-potential opportunities (high equity, absentee owners, etc.)\nRetrieves comprehensive property details and owner information for qualified leads\nDelivers formatted alerts through multiple channels (email and Slack/Teams)\n\nEach email alert includes detailed property information, owner details, equity percentage, and a direct Google Maps link to view the property location. The workflow also posts concise notifications to your team's communication channels for quick updates.\n\nWho It's For\nThis workflow is designed for:\n\nReal Estate Investors: Find off-market properties with high equity and motivated sellers\nReal Estate Agents: Identify potential listing opportunities before they hit the market\nProperty Acquisition Teams: Streamline the lead generation process with automated scanning\nReal Estate Wholesalers: Discover properties with significant equity spreads for potential deals\nREITs and Property Management Companies: Monitor market changes and expansion opportunities\n\nThe workflow is especially valuable for professionals who want to:\n\nSave hours of manual market research time\nGet early notifications about high-potential properties\nAccess comprehensive property and owner information in one place\nFocus their efforts on the most promising opportunities\n\nAbout BatchData\nBatchData is a powerful property data platform for real estate professionals. Their API provides access to comprehensive property and owner information across the United States, including:\n\nProperty details (bedrooms, bathrooms, square footage, year built, etc.)\nValuation and equity estimates\nOwner information (name, mailing address, contact info)\nTransaction history and sales data\nForeclosure and distressed property status\nDemographic and neighborhood data\n\nThe platform specializes in providing accurate, actionable property data that helps real estate professionals make informed decisions and identify opportunities efficiently. BatchData's extensive database covers millions of properties nationwide and is regularly updated to ensure data accuracy.\nThe API's flexible search capabilities allow you to filter properties based on numerous criteria, making it an ideal data source for automated lead generation workflows like this one.",
+  "totalViews": 543,
+  "source": "official",
+  "user": {
+    "id": 93985,
+    "name": "Preston Zeller",
+    "username": "zellerhaus",
+    "bio": "Growth strategist and technologist, seeing companies from $25MM to $300MM ARR. Building innovative solutions with AI, workflows, desktop and mobile applications. ",
+    "verified": true,
+    "links": "[\"https://roomboost.ai\"]",
+    "avatar": "https://gravatar.com/avatar/399dc9c4dd97a72b5e5f9dc85766d25f26a4a7902c4bb0ba6025916d3b150101?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Core Nodes",
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "categories": [
+        "Communication",
+        "HITL",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-04-22T21:17:22.569Z",
+  "path": "official/template_3665/workflow.json"
+}

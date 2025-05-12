@@ -1,0 +1,18 @@
+{
+  "id": 3605,
+  "name": " Gmail MCP Server – Your All‑in‑One AI Email Toolkit",
+  "totalViews": 2019,
+  "purchaseUrl": null,
+  "user": {
+    "id": 93485,
+    "name": "Brian Money",
+    "username": "aspereo",
+    "bio": "Experienced Linux administrator, entrepreneur, and automation enthusiast, I specialize in crafting robust, scalable workflows with n8n. I have a passion for business automation, integrating complex systems seamlessly, and sharing practical templates that empower others to automate effectively.",
+    "verified": false,
+    "links": "[\"https://bsky.app/profile/brianmoney.bsky.social\"]",
+    "avatar": "https://gravatar.com/avatar/244f54f034e13ab6631747c8e6104f06a7fb6abc5d144ee35bb84be896f6e1c7?r=pg&d=retro&size=200"
+  },
+  "description": "Gmail MCP Server\nExpose Gmail’s full API as a single SSE “tool server” endpoint for your AI agents.\n\nWhat it does\nSpins up an MCP Trigger that streams Server‑Sent Events to LangChain/N8N AI Agent nodes. ​\n\nMaps 20+ common Gmail operations (search, send, reply, draft, label & thread management, mark read/unread, delete, etc.) to ai_tool connections, so agents can invoke them with a simple JSON payload. \n\nWhy you’ll love it\nAgent‑ready: Plug the SSE URL into any N8N Agent or any other AI tool that uses MCP and start reasoning over email immediately.\n\nExtensible: Add more GmailTool operations or swap credentials without touching your agent logic.\n\nHow to use\nImport the workflow (n8n ≥ v1.88).\n\nSet up a gmailOAuth2 credential and select it on the GmailTool nodes.\n\nOpen the Gmail MCP Server node, copy the SSE URL, and paste it into your AI agent’s “Tool Server” field.\n",
+  "createdAt": "2025-04-18T20:12:47.018Z",
+  "nodes": []
+}

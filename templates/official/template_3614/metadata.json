@@ -1,0 +1,49 @@
+{
+  "id": 3614,
+  "name": "Automate Telegram Channel Posts Using Postgres (Module \"Cross-Posting\")",
+  "description": "Who is this for?\nThis template is ideal for users managing Telegram channels who want to automate the process of posting messages, including text and images, directly from an bot.\n\nWhat problem is this workflow solving?\nManually posting content to multiple Telegram channels can be time-consuming and inconsistent. This workflow automates that process, enabling efficient and consistent content delivery to one or more channels.\n\nWhat this workflow does\nThis workflow connects to a Postgres database to retrieve post content and automatically sends text or image posts to designated Telegram channels where the bot is an admin. It supports scheduling and content customization through the database.\n\nSetup\n1. Create the necessary tables in your Postgres database\nOpen the SQL script provided in the workflow.\nReplace \"n8n\" with your actual schema name.\nRun the script in your database to set up the required tables.\n\n2. Add credentials\nTelegram**: Create and connect a bot, ensuring it has admin access to the target channels.\nPostgres**: Connect your Postgres instance using valid credentials.\n\nHow to customize this workflow to your needs\nModify the SQL script to match your specific table or schema naming conventions.\nAdjust the content format or post frequency directly from your database.",
+  "totalViews": 98,
+  "source": "official",
+  "user": {
+    "id": 93883,
+    "name": "Andrew",
+    "username": "boanse",
+    "bio": "Analyst-Developer",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/61d84d897d0411ddab1209f44480478b3e19bc319b0a3b69dd0419d51b2fbdd3?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Data & Storage",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Postgres",
+      "type": "n8n-nodes-base.postgres",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-04-19T17:41:14.399Z",
+  "path": "official/template_3614/workflow.json"
+}

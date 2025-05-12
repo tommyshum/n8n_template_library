@@ -1,0 +1,52 @@
+{
+  "id": 2562,
+  "name": "Simple Bluesky multi-image post using native Bluesky API",
+  "description": "Who is this workflow for?\nThis workflow is the baseline workflow for anyone who needs to automate the process of posting 1-4 images to Bluesky using the Bluesky API. It is ideal for anyone looking to streamline their social media posting process, saving time and ensuring consistent content delivery.\n\nUse Case / Problem Solved\nManually posting images and captions on Instagram can be time-consuming, especially for businesses and content creators managing multiple accounts. This workflow automates the process from image preparation to publishing, reducing manual effort and increasing efficiency.\n\nWhat this workflow does\nTrigger Initialization: The workflow starts with a manual trigger that can be adapted to other triggers (e.g., HTTP webhook or schedule).\nSet Parameters: The workflow includes a node that sets essential parameters, such as the Bluesky account ID, image URLs, and caption.\nPrepare Bluesky Session: A node creates the authenticated session data used by the upload and post operations later in the workflow.\nPublish Media: Nodes retrieve image files from the specified URLS and uploads them as blobs to Bluesky, a necessary pre-requisite for a Bluesky post to have images attached.\nPost text caption + images: A node does the final call to the Bluesky API, including the text caption and relevant image references.\n\nSetup\nSign-in to Bluesky and create an App Password\nAdd your username and App Password to the Define Credentials node.\nSet the caption (text content) of your post in the Set Caption node.\nSet 1-4 image URLs in the Set Images node\nAdapt the initial trigger as needed to fit your workflow's requirements (e.g., schedule, webhook). \nAdapt the caption and images nodes to accept dynamic parameters.\n\nLimitations\nThis workflow assumes a minimum of 1 image URL to function. If you want a text-only post, remove the whole embed section from the JSON in last Post to Bluesky node, as well as relevant image attachment nodes.\n\nThe 300-character limit in Bluesky includes the caption + hashtags + image alt text. Going over 300 will return a Record/description must not be longer than 300 graphemes error.\n",
+  "totalViews": 2295,
+  "source": "official",
+  "user": {
+    "id": 92185,
+    "name": "Tom Sekula",
+    "username": "tsekula",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/b8b7167fcca1eaa6f34161bc1dc7d5b21edb402424fa5d10c606006ebafcf3b3?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-11-21T13:17:26.961Z",
+  "path": "official/template_2562/workflow.json"
+}

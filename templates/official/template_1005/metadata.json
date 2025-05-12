@@ -1,0 +1,45 @@
+{
+  "id": 1005,
+  "name": "Send daily weather updates to a phone number via Plivo",
+  "description": "This workflow allows you to send daily weather updates via an SMS message using the Plivo node.\n\n\n\nCron node: The Cron node will trigger the workflow daily at 9 AM.\n\nOpenWeatherMap node: This node will return data about the current weather in Berlin. To get the weather updates for your city, you can enter the name of your city instead.\n\nPlivo node: This node will send an SMS with the weather update, which was sent by the previous node.\n",
+  "totalViews": 809,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Miscellaneous",
+    "Utility",
+    "Communication",
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "OpenWeatherMap",
+      "type": "n8n-nodes-base.openWeatherMap",
+      "categories": [
+        "Miscellaneous",
+        "Utility"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Plivo",
+      "type": "n8n-nodes-base.plivo",
+      "categories": [
+        "Communication",
+        "Development"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2021-03-26T14:07:40.392Z",
+  "path": "official/template_1005/workflow.json"
+}

@@ -1,0 +1,49 @@
+{
+  "id": 2451,
+  "name": "Download and Compress Folder from S3 to ZIP File",
+  "description": "\nThis workflow downloads all files from a specific folder in a S3 Bucket and compresses them so you can download it via n8n or do further processings.\n\nFill in your Credentials and Settings in the Nodes marked with \"*\".\n\nMight serve well as Blueprint or as manual Download for S3 Folders. \n\nSince I found it rather tricky to compress all binary files into one zip file I figured might it be an interesting Template. \n\nHint:\nThis is the expression to get every binary key to compress them dynamically. \n(used in the \"Compress\"-Node)\n\n\nEnjoy the Workflow! ❤️ \nhttps://let-the-work-flow.com\nWorkflow Automation & Development",
+  "totalViews": 1043,
+  "source": "official",
+  "user": {
+    "id": 91823,
+    "name": "Marcel Claus-Ahrens",
+    "username": "geckse",
+    "bio": "Hey 👋 I'm an Automation Expert with a passion for AI workflow automations and AI agents in general. Coming from a software background, I bring the necessary hard skills but love using NoCode to get the job done faster – hence n8n.",
+    "verified": true,
+    "links": "[\"https://let-the-work-flow.com\"]",
+    "avatar": "https://gravatar.com/avatar/4765e05c5f4cdab88efcfd24b9c464910cea34e6121d350b452dd166cbc27abb?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Data & Storage",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "AWS S3",
+      "type": "n8n-nodes-base.awsS3",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Compression",
+      "type": "n8n-nodes-base.compression",
+      "categories": [
+        "Core Nodes",
+        "Data & Storage"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Files",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-10-04T22:59:30.391Z",
+  "path": "official/template_2451/workflow.json"
+}

@@ -1,0 +1,61 @@
+{
+  "id": 808,
+  "name": "Create, update and get a case in TheHive",
+  "totalViews": 1652,
+  "purchaseUrl": null,
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "description": "",
+  "createdAt": "2020-12-03T12:38:43.744Z",
+  "nodes": [
+    {
+      "id": 417,
+      "icon": "file:thehive.svg",
+      "name": "n8n-nodes-base.theHive",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.thehive/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/thehive/"
+              }
+            ]
+          },
+          "categories": [
+            "Development"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "TheHive"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGlkPSJMYXllcl8xIiBkYXRhLW5hbWU9IkxheWVyIDEiIHZpZXdCb3g9IjAgMCAzMDAgMzAwIj48ZGVmcz48c3R5bGU+LmNscy0ye2ZpbGw6I2ZmZn08L3N0eWxlPjwvZGVmcz48cGF0aCBmaWxsPSIjZjNkMDJmIiBkPSJNMjkwIDE1MEExNDAgMTQwIDAgMSAxIDE1MCAxMGExNDAgMTQwIDAgMCAxIDE0MCAxNDAiLz48cGF0aCBkPSJNMjA0LjYyIDIxMC42YTE1LjEgMTUuMSAwIDAgMS02LjY4IDEuMzggMTcuNDkgMTcuNDkgMCAwIDEtMTYuMTEtMTAuOTNsLTQuODMtMTEuNi03LjMxLTE4LjI4YTUuMDUgNS4wNSAwIDAgMC0uNy0yLjEybC0xMC4xLTI1LjMxYzE2LjE1IDIuODYgNDUuOTMgMjAuMTYgNTUuNjggNDMuNzIgMy40OCA5LjQ5LS43NiAxOS42Ni05LjkgMjMuMTRtLTU0Ljg3IDI3LjIxYy0xMS41OCAwLTIxLTguNS0yNC44NS0yMS41bDQ5Ljg1LjE2Yy0zLjkgMTMuMzMtMTMuNDEgMjEuMzgtMjUgMjEuMzRtLTQ4LTI2LjE0YTE0LjMgMTQuMyAwIDAgMS02LjY3LTEuNDNjLTguNzYtMy44OS0xMy4yOS0xNC4wOS05LjQtMjIuODUgOS45MS0yMy44NSAzOS44MS00MC45NSA1Ni00My4zNkwxMzEgMTcwbC03Ljc5IDE5LjI5LTUgMTEuNTdhMTguMzQgMTguMzQgMCAwIDEtMTYuNTMgMTAuODNtNDIuNjMtNDUuMTYgNS42OS0xMy42OSA1LjU3IDEzLjcxem0tNy43OSAxOS4yOSAzLjE5LTguMDYgMjAuMzcuMDcgMy4xMyA4LjA4em0tNSAxMS41NyAzNi4xNy4xMiAzLjEzIDguMDktNDIuNDgtLjE1em0xOC41Ni05MC44N2M5LjQ4IDAgMTcuNTMgOS4xOCAxNy41IDE2LjU2IDAgOC43Ny0xNC40MyA5LjQzLTE3LjIzIDkuNDEtMy4xNiAwLTE3LjIxLS40LTE3LjE4LTkuNTMtLjY3LTcuMzggNy40My0xNi40OCAxNi45MS0xNi40NG0tMTMuMi0uNDJhMy43NSAzLjc1IDAgMCAxLTMuMzktMi4xNWwtNS44MS0xMi4zNGEzLjc0IDMuNzQgMCAxIDEgNi43Ny0zLjE5bDUuODEgMTIuMzRhMy43NCAzLjc0IDAgMCAxLTEuNzkgNSAzLjggMy44IDAgMCAxLTEuNTkuMzZtMjYuMjQtLjAyYTMuOCAzLjggMCAwIDEtMS41OS0uMzYgMy43NCAzLjc0IDAgMCAxLTEuNzktNWw1LjgyLTEyLjM1YTMuNzQgMy43NCAwIDEgMSA2Ljc3IDMuMkwxNjYuNTEgMTA0YTMuNzUgMy43NSAwIDAgMS0zLjM5IDIuMTUiIGNsYXNzPSJjbHMtMiIvPjxwYXRoIGQ9Ik0yMDQuMzYgMTU3LjgxYTMuNzQgMy43NCAwIDAgMS0zLjI2LTUuNTZsMTQuNDEtMjUuODctMzIuODctNTYuN2gtNjUuMjhMODQuNTQgMTI2LjNsMTUuNjYgMjUuODNhMy43NCAzLjc0IDAgMCAxLTYuNCAzLjg3TDc3IDEyOC4yOGEzLjcyIDMuNzIgMCAwIDEgMC0zLjgxbDM1LTYwLjQxYTMuNzcgMy43NyAwIDAgMSAzLjI0LTEuODdoNjkuNmEzLjc1IDMuNzUgMCAwIDEgMy4xNiAxLjg3bDM1IDYwLjQxYTMuNzMgMy43MyAwIDAgMSAwIDMuN2wtMTUuNDQgMjcuNzJhMy43NSAzLjc1IDAgMCAxLTMuMjggMS45MiIgY2xhc3M9ImNscy0yIi8+PC9zdmc+"
+      },
+      "displayName": "TheHive",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 5,
+          "name": "Development"
+        }
+      ]
+    }
+  ]
+}

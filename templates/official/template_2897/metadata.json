@@ -1,0 +1,72 @@
+{
+  "id": 2897,
+  "name": "Use OpenRouter in n8n versions <1.78",
+  "description": "What it is:\n\nIn version 1.78, n8n introduced a dedicated node to use the OpenRouter service, which lets you to use a lot of different LLM models and providers and change models on the fly in an agentic workflow.\n\nFor prior n8n versions, there's a workaround to make OpenRouter accessible, by using the OpenAI node with a OpenRouter-specific BaseURL.\n\nThis trivial workflow demonstrates this for version before 1.78, so that you can use different LLM model dynamically with the available n8n nodes for OpenAI LLM and OpenAI credentials.\n\nWhat you can do:\n\nUse any of the OpenRouter models\nHave the model even dynamically configured or changing (by some external config, some rule, or some specific chat message)\n\nSetup steps:\n\nImport the workflow\nEnsure you have registered and account, purchased some credits and created and API key for OpenRouter.ai\nConfigure the \"OpenRouter\" credentials with your own credentials, using an OpenAI  type credential, but making sure in the credential's config form its \"Base URL\" is set to https://openrouter.ai/api/v1 so OpenRouter is used instead of OpenAI. \nOpen the \"Settings\" node and change the model value to any valid model id from the OpenRouter models list or even have the model property set dynamically",
+  "totalViews": 2188,
+  "source": "official",
+  "user": {
+    "id": 92666,
+    "name": "Daniel Nolde",
+    "username": "dnolde",
+    "bio": "",
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/d086ae47fe6c069e1dd7c9c76cd4ecb7a86eb59a00c19b3dd5a4abb3e8932b24?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-02-13T12:32:31.015Z",
+  "path": "official/template_2897/workflow.json"
+}

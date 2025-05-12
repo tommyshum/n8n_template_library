@@ -1,0 +1,73 @@
+{
+  "id": 2087,
+  "name": "Streamline data from an n8n form into Google Sheet, Airtable and Email Sending",
+  "description": "Streamline data from an n8n form into Google Sheet Airtable and and Email Sending\nVideo for workflow process\n\nThis workflow facilitates efficient data collection and management by leveraging the capabilities of various nodes within the n8n platform. It commences with the n8n Form Trigger node, where users provide their name, location, and email address. Subsequently, the data seamlessly flows through nodes like Google Sheets, Code, Set, Airtable, Gmail, and Gmail1 for processing and storage.\n\nn8n Form Trigger:** Gathers user input data, including Name, City, and Email.\nGoogle Sheets:** Manages data operations related to Google Sheets.\nCode:** Executes JavaScript code to manipulate data fields.\nSet:** Formats and sets data values for further processing.\nAirtable:** Facilitates data operations specific to Airtable.\nGmail:** Sends custom emails to the provided Email address.\nGmail:** Sends additional emails using different templates.\n\nEach node within the workflow performs specialized tasks such as extracting date and time fields, formatting data, appending it to Google Sheets and Airtable, and sending personalized emails to the submitter. This streamlined process ensures effective handling of collected information and enhances overall data management efficiency.\n\nWorkflow Description:\n\nn8n Form Trigger:\n   A trigger node that initiates the workflow upon form submission.\n   Captures essential user details like Name, City, and Email.\n\nExtracting Date and Time Fields from 'submittedAt' Field:\n   Utilizes a code node to extract Date and Time information from the submitted data.\n\nFormat the Fields:\n   Standardizes the format of extracted fields (Name, City, Date, Time, Email) for consistency.\n\nAirtable:\n   Creates a new record in Airtable with the formatted data.\n   Includes columns for Name, City, Email, Time, and Date.\n\nGoogle Sheets:\n   Appends the formatted data to a designated Google Sheet.\n   Includes columns for Name, City, Email, Date, and Time.\n\nGmail:\n   Sends an email to the provided Email address with a customized message.\n   Subject: \"Testing Text Message Delivery\"\n   Message: Personalized content with a Name placeholder.\n\nGmail1:\n   Sends another email using a different template.\n   Subject incorporates the Date field for variation.\n   Message content tailored to the subject line.\n\nWorkflow Connections:\nn8n Form Trigger -&gt; Extracting Date and Time Fields -&gt; Format the Fields -&gt; Google Sheets & Airtable -&gt; Gmail\nGoogle Sheets -&gt; Gmail1\n\nThis comprehensive workflow efficiently collects user data, processes it to extract Date and Time fields, stores the formatted information in Google Sheets and Airtable, and delivers tailored emails to the recipients.\n\nCopy these templates to get started :\nGoogle Sheet\nAirtable\n\nLinks to Node Documentation:\nn8n Form Trigger Documentation\nCode Node Documentation\nSet Node Documentation\nAirtable Node Documentation\nGoogle Sheets Node Documentation\nGmail Node Documentation\n",
+  "totalViews": 4204,
+  "source": "official",
+  "user": {
+    "id": 91423,
+    "name": "AlQaisi",
+    "username": "omar",
+    "bio": "I'm specialize in automation and AI, developing innovative solutions to enhance efficiency and drive innovation. With expertise in advanced technologies, I create predictive models for optimal resource allocation. Collaborating with teams, I implement customized automation solutions. Passionate about shaping the future of intelligent automation through digital transformation.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/d8ed2f53474f44e189350538560e2dbcc2299c9f38c80d30b6a2f56e8bbc7b1f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Communication",
+    "HITL",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2024-02-08T08:52:43.035Z",
+  "path": "official/template_2087/workflow.json"
+}

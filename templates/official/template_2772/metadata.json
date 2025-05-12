@@ -1,0 +1,119 @@
+{
+  "id": 2772,
+  "name": "Realtime Notion Todoist 2-way Sync with Redis",
+  "description": "Purpose\n\nThis solution enables you to manage all your Notion and Todoist tasks from different workspaces as well as your calendar events in a single place.\n\nAll tasks can be managed in Todoist and additionally Fantastical can be used to manage scheduled tasks & events all together.\n\nDemo & Explanation\n\nHow it works\n\nThe realtime sync consists of two workflows, both triggered by a registered webhook from either Notion or Todoist\nTo avoid overwrites by lately arriving webhook calls, every time the current task is retrieved from both sides.\nRedis is used to prevent from endless loops, since an update in one system triggers another webhook call again. Using the ID of the task, the trigger is being locked down for 15 seconds.\nDepending on the detected changes, the other side is updated accordingly.\nGenerally Notion is treaded as the main source. Using an \"Obsolete\" Status, it is guaranteed, that tasks never get deleted entirely by accident.\nThe Todoist ID is stored in the Notion task, so they stay linked together\nAn additional full sync workflow daily fixes inconsistencies, if any of them occurred, since webhooks cannot be trusted entirely.\nSince Todoist requires a more complex setup, a tiny workflow helps with activating the webhook.\nAnother tiny workflow helps generating a global config, which is used by all workflows for mapping purposes.\n\nMapping (Notion &gt;&gt; Todoist)\n\nName: Task Name\nPriority: Priority (1: do first, 2: urgent, 3: important, 4: unset)\nDue: Date\nStatus: Section (Done: completed, Obsolete: deleted)\n&lt;page_link&gt;: Description (read-only)\nTodoist ID: &lt;task_id&gt;\n\nCurrent limitations\n\nChanges on the same task cannot be made simultaneously in both systems within a 15-20 second time frame\nSubtasks are not linked automatically to their parent yet\nRecurring tasks are not supported yet\nTasks names do not support URL’s yet\n\nPrerequisites\n\nNotion\nA database must already exist (get a basic template here) with the following properties (case matters!):\n  Text: \"Name\"\n  Status: \"Status\", containing at least the options \"Backlog\", \"In progress\", \"Done\", \"Obsolete\"\n  Select: \"Priority\", containing the options \"do first\", \"urgent\", \"important\"\n  Date: \"Due\"\n  Checkbox: \"Focus\"\n  Text: \"Todoist ID\"\nTodoist\nA project must already exist with the same sections like defined as Status in Notion (except Done and Obsolete)\nRedis\nCreate a Free Redis Cloud instance or self-host\n\nSetup\n\n\n\nThe setup involves quite a lot of steps, yet many of them can be automated for business internal purposes.\n\nJust follow the video or do the following steps:\nSetup credentials for Notion (access token), Todoist (access token) and Redis - you can also create empty credentials and populate these later during further setup\nClone this workflow by clicking the \"Use workflow\" button and then choosing your n8n instance - otherwise you need to map the credentials of many nodes.\nFollow the instructions described within the bundle of sticky notes on the top left of the workflow\n\nHow to use\n\nYou can apply changes (create, update, delete) to tasks both in Notion and Todoist which then get synced over within a couple of seconds (this is handled by the differential realtime sync)\nThe daily running full sync, resolves possible discrepancies in Todoist and sends a summary via email, if anything needed to be updated. In case that contains an unintended change, you can jump to the Task from the email directly to fix it manually.",
+  "totalViews": 5319,
+  "source": "official",
+  "user": {
+    "id": 91699,
+    "name": "Mario",
+    "username": "octionic",
+    "bio": "Workflow Optimization Expert | Software Architect. Use my link to book an initial consultation for custom built workflows using n8n.",
+    "verified": true,
+    "links": "[\"https://octionic.com\"]",
+    "avatar": "https://gravatar.com/avatar/48bf351cec848d87566d8cc78c9a783ec4807408366648de04cfe955d7a5ba21?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage",
+    "Productivity",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Redis",
+      "type": "n8n-nodes-base.redis",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Todoist",
+      "type": "n8n-nodes-base.todoist",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Crypto",
+      "type": "n8n-nodes-base.crypto",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 8,
+  "createdAt": "2025-01-21T22:51:02.952Z",
+  "path": "official/template_2772/workflow.json"
+}

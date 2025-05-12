@@ -1,0 +1,70 @@
+{
+  "id": 2122,
+  "name": "Automatically email great leads when they submit a form and record in HubSpot",
+  "description": "Use case\nThis workflow automatically qualifies great leads from a form and sends them an email 😮..\nIt also adds the user to Hubspot if not already added and records the outreach.\n\nHow to setup\nAdd you MadKudu, Hunter, and Gmail credentials \nSetup your HubSpot Oauth2 creds using n8n docs\nSet the email content and subject\nClick the Test Workflow button, enter your email and check the Slack channel\nActivate the workflow and use the form trigger production URL to collect your leads in a smart way \n\nHow to adjust this template\nYou may want to raise or lower the threshold for your leads, as you see fit. \nYou also need to update the content (the email and the subject), obviously 😅.",
+  "totalViews": 2804,
+  "source": "official",
+  "user": {
+    "id": 91243,
+    "name": "Mutasem",
+    "username": "mutasem",
+    "bio": "Team lead @ n8n",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/mutasemdmour/\"]",
+    "avatar": "https://gravatar.com/avatar/16d9c92db78317b6af7d0935bee34a47c522cb81d35c234ff76ea580ff1f6c29?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Sales",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "HubSpot",
+      "type": "n8n-nodes-base.hubspot",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Hunter",
+      "type": "n8n-nodes-base.hunter",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2024-02-22T16:30:20.688Z",
+  "path": "official/template_2122/workflow.json"
+}

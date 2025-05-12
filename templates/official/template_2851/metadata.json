@@ -1,0 +1,84 @@
+{
+  "id": 2851,
+  "name": "Modular & Customizable AI-Powered Email Routing: Text Classifier for eCommerce",
+  "description": "How It Works\nForm Submission:\n   The workflow starts with the On form submission node, which triggers when a user submits a contact form. The form collects the user's name, email, and message.\n\nText Classification:\n   The Text Classifier node uses an AI model (GPT-4) to classify the submitted message into one of the predefined categories:\n     Request Quote: For quote requests.\n     Product info: For general product inquiries.\n     General problem: For issues or problems related to products.\n     Order: For questions about placed orders.\n     Other: For any messages that don’t fit the above categories.\n\nEmail Routing:\n   Based on the classification, the workflow routes the message to the appropriate department via email:\n     Prod. Dep.: For product-related inquiries.\n     Quote Dep.: For quote requests.\n     Gen. Dep.: For general problems.\n     Order Dep.: For order-related questions.\n     Other Dep.: For all other inquiries.\n   Each email includes the user's name, email, message, and the classified category.\n\nData Logging:\n   The workflow logs the form submission and classification results into a Google Sheets document. Each department has its own sheet where the data is appended, including:\n     User’s name, email, and message.\n     Submission date and time.\n     Assigned category.\n     Email recipient details.\n\nAI Model Integration:\n   The OpenAI node provides the AI model (GPT-4) used by the Text Classifier to classify the messages. The model is instructed to classify the text into one of the predefined categories without additional explanations.\n\nSet Up Steps\nConfigure the Form Trigger:\n   Set up the On form submission node to collect user inputs (name, email, and message) and trigger the workflow.\n\nSet Up the Text Classifier:\n   Configure the Text Classifier node to use the OpenAI model (GPT-4) for text classification.\n   Define the categories and their descriptions (e.g., \"Request Quote\", \"Product info\", etc.).\n   Set the fallback category to \"Other\" for unclassifiable messages.\n\nConfigure Email Sending:\n   Set up the Email Send nodes for each department (Prod. Dep., Quote Dep., Gen. Dep., Order Dep., Other Dep.).\n   Configure the email subject, body, and reply-to address using the form data and classification results.\n   Ensure SMTP credentials are correctly configured for sending emails.\n\nSet Up Google Sheets Integration:\n   Configure the Google Sheets nodes to append data to the appropriate sheets for each department.\n   Map the form data (name, email, message, date, category, and recipient) to the corresponding columns in the Google Sheets document.\n\nTest the Workflow:\n   Submit a test form to ensure the workflow correctly classifies the message, sends the email to the right department, and logs the data in Google Sheets.\n   Verify that the OpenAI model is classifying messages accurately.\n\nActivate the Workflow:\n   Once tested, activate the workflow to automate the process of handling contact form submissions.\n\nKey Features\nAutomated Classification**: Uses AI to classify messages into relevant categories, reducing manual effort.\nEmail Routing**: Sends emails to the appropriate department based on the classification.\nData Logging**: Logs all form submissions and classification results in Google Sheets for tracking and analysis.\nScalability**: Easily adaptable to additional categories or departments by modifying the workflow.\n\nThis workflow is ideal for eCommerce businesses or customer support teams looking to automate and streamline the handling of contact form submissions.\n\nNeed help customizing?  \nContact me for consulting and support or add me on Linkedin. \n\n",
+  "totalViews": 3385,
+  "source": "official",
+  "user": {
+    "id": 92207,
+    "name": "Davide",
+    "username": "n3witalia",
+    "bio": "Full-stack Web Developer based in Italy specialising in Marketing & AI-powered automations. For business enquiries, send me an email at info@n3w.it or add me on Linkedin.com/in/davideboizza",
+    "verified": true,
+    "links": "[\"https://n3w.it\"]",
+    "avatar": "https://gravatar.com/avatar/d41b8a0aa81139243509c58870f5b4be292824a507ab57d10ed066d8628ed8da?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Core Nodes",
+    "Data & Storage",
+    "Productivity",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "categories": [
+        "Communication",
+        "HITL",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Text Classifier",
+      "type": "@n8n/n8n-nodes-langchain.textClassifier",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-02-05T10:23:35.794Z",
+  "path": "official/template_2851/workflow.json"
+}

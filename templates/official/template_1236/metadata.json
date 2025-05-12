@@ -1,0 +1,42 @@
+{
+  "id": 1236,
+  "name": "Use Redis to rate-limit your low-code API",
+  "description": "This workflow demonstrates how to can use Redis to implement rate limits to your API.\n\n\n\nThe workflow uses the incoming API key to uniquely identify the user and use it as a key in Redis. Every time a request is made, the value is incremented by one, and we check for the threshold using the IF node.\n\nDuplicate the following Airtable to try out the workflow: https://airtable.com/shraudfG9XAvqkBpF",
+  "totalViews": 1864,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Redis",
+      "type": "n8n-nodes-base.redis",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2021-09-21T12:44:00.787Z",
+  "path": "official/template_1236/workflow.json"
+}

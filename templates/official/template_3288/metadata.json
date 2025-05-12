@@ -1,0 +1,164 @@
+{
+  "id": 3288,
+  "name": "Youtube RAG search with Frontend using Apify, Qdrant and AI",
+  "description": "Ever wanted to build your own RAG search over Youtube videos? Well, now you can! This n8n template shows how you can build a very capable Youtube search engine powered by Apify, Qdrant and your LLM of choice to quickly and efficiently browse over many videos for research.\n\nI originally started to template to ask questions on the \"n8n @ scale office-hours\" livestream videos but then extended it to include the latest videos on the official channel.\n\nCheck out a demo here: https://jimleuk.app.n8n.cloud/webhook/n8n_videos\n\nHow it works\nStage 1 is to collect the Youtube video transcripts and push them into a vector database. For this, I've used Apify to scrape Youtube and Qdrant to store the embeddings.\nTranscripts are broken down into smaller chunks and carefully tagged with metadata to assist in later search and filtering.\nStage 2 is to build a web frontend for the user to query the vectorised transcripts. I'm using a webhook to serve a simple web app and API to dynamically fetch the results.\nWhen searching for a video, I've opted to use Qdrant's search groups API which in this use-case, performs better as it returns a wider range of videos results.\nIn the web frontend, when the user clicks on the results, the matching Youtube video plays in an embedded video player.\n\nHow to use\nOnce credentials are all set, first run steps 1 - 3 to populate your vector store.\nNext, set the workflow to active to expose the web frontend. Visit the webhook URL in your browser to use it.\nIf only for personal use, you may want to remove the rate limiting mechanism in step 4.\n\nRequirements\nApify for Youtube Channel and Video Scraping\nQdrant for Vector store\nOpenAI for LLM and Embeddings\n\nCustomising the template\nNot interested in official n8n videos? Swap to a different channel - this template will work on many as long as videos are not private or set to prevent embeds.\nTechnically any vector store should work but may not have the same grouping API. Use the simple vector store node and revert back to basic searching instead.",
+  "totalViews": 2498,
+  "source": "official",
+  "user": {
+    "id": 91804,
+    "name": "Jimleuk",
+    "username": "jimleuk",
+    "bio": "Freelance consultant based in the UK specialising in AI-powered automations. I work with select clients tackling their most challenging projects. For business enquiries, send me an email at hello@jimle.uk\n\nLinkedIn: https://www.linkedin.com/in/jimleuk/\nX/Twitter: https://x.com/jimle_uk",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4ab99e51473df76838beeaac908747f7928c625f869794815cabe34016967d51?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Redis",
+      "type": "n8n-nodes-base.redis",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Recursive Character Text Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    },
+    {
+      "name": "Qdrant Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreQdrant",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Information Extractor",
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 10,
+  "createdAt": "2025-03-22T22:04:12.727Z",
+  "path": "official/template_3288/workflow.json"
+}

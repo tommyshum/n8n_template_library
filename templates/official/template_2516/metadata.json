@@ -1,0 +1,98 @@
+{
+  "id": 2516,
+  "name": "📈 Receive Daily Market News from FT.com to your Microsoft outlook inbox",
+  "description": "📈 Daily Financial News - Description \n\nThis workflow automates the process of collecting, organizing, and delivering a daily summary of financial news by following these key steps:\n\nScheduled Activation  \n   The workflow starts at 7:00 AM each day, triggered by the Schedule Trigger node.\n\nNews Retrieval  \n   The HTTP Request node fetches the latest financial news from FT.com.\n\nContent Extraction  \n   The Extract Specific Content node scrapes targeted sections of the HTML (headlines, editor's picks, top stories, etc.) using CSS selectors to locate and capture relevant content.\n\nNews Aggregation  \n   The Set Node gathers and organizes the extracted news data, preparing it for summarization. Categories like \"Headline #1,\" \"Editor's Picks,\" and \"Europe News\" are all structured into a single data block.\n\nSummarization  \n   An AI Agent (Google Gemini) takes the aggregated news data and creates a concise, HTML-formatted summary tailored to give investors an insightful market snapshot.\n\nEmail Delivery  \n   Finally, the Microsoft Outlook node sends the summary via email to the designated recipient with the subject \"Financial news from today.\"\n\nThis process ensures that financial news is efficiently curated, summarized, and delivered without manual intervention.\n",
+  "totalViews": 9304,
+  "source": "official",
+  "user": {
+    "id": 92110,
+    "name": "Louis",
+    "username": "louisdl",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://youtube.com/@LouisTKRoom\"]",
+    "avatar": "https://gravatar.com/avatar/4d7e7878004eb467bfa9c40f197ff70d7155caa84ef0fb3ab8d3221fdd28303b?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Microsoft Outlook",
+      "type": "n8n-nodes-base.microsoftOutlook",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2024-11-01T13:38:33.684Z",
+  "path": "official/template_2516/workflow.json"
+}

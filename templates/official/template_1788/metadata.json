@@ -1,0 +1,47 @@
+{
+  "id": 1788,
+  "name": "Add a new lead to Pipedrive once GitHub repo is forked",
+  "description": "This workflow automatically adds a new lead to Pipedrive once someone forks your GitHub repository. \n\nPrerequisites\nPipedrive account and Pipedrive credentials\nGitHub account and GitHub credentials\n\nHow it works\nGitHub Trigger node starts the workflow once someone forks your GitHub repository.\nHTTP Request node gets user's data from GitHub and sends it further.\nPipedrive node searches forkee's data in Pipedrive by email.\nIF node decides whether to create a new person in Pipedrive in case contact doesn't exist yet or update an existing contact in Pipedrive.\nIn case there's no contact existing yet, the Pipedrive node creates a lead and adds a note with GitHub URL.\n",
+  "totalViews": 443,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Sales"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Pipedrive",
+      "type": "n8n-nodes-base.pipedrive",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2022-09-09T14:29:21.688Z",
+  "path": "official/template_1788/workflow.json"
+}

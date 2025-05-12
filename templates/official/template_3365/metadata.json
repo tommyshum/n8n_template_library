@@ -1,0 +1,52 @@
+{
+  "id": 3365,
+  "name": "Convert Parquet, Feather, ORC & Avro Files with ParquetReader",
+  "description": "📄 Convert Parquet, Feather, ORC & Avro Files with ParquetReader\n\nThis workflow allows you to upload and inspect Parquet, Feather, ORC, or Avro files via the ParquetReader API. It instantly returns a structured JSON preview of your data — including rows, schema, and metadata — without needing to write any custom code.\n\n✅ Perfect For\nValidating schema and structure before syncing or transformation\nPreviewing raw columnar files on the fly\nAutomating QA, ETL, or CI/CD workflows\nConverting Parquet, Avro, Feather, or ORC to JSON\n\n⚙️ Use Cases\nCatch schema mismatches before pipeline runs\nAutomate column audits in incoming data files\nEnrich metadata catalogs with real-time schema detection\nIntegrate file validation into automated workflows\n\n🚀 How to Use This Workflow\n\n📥 Trigger via File Upload\n\nYou can trigger this flow by sending a POST request with a file using curl, Postman, or from another n8n flow.\n\n🔧 Example (via curl):\ncurl -X POST http://localhost:5678/webhook-test/convert \\\n-F \"file=@converted.parquet\"\n&gt; Replace converted.parquet with your local file path. You can also send Avro, ORC or Feather files.\n\n🔁 Reuse from Other Flows\nYou can reuse this flow by calling the webhook from another n8n workflow using an HTTP Request node.  \nMake sure to send the file as form-data with the field name file.\n\n🔍 What This Flow Does:\nReceives the uploaded file via webhook (file)\nSends it to https://api.parquetreader.com/parquet as multipart/form-data (field name: file)\nReceives parsed data (rows), schema, and metadata in JSON format\n\n🧪 Example JSON Response from this flow\n{\n  \"data\": [\n    {\n      \"full_name\": \"Pamela Cabrera\",\n      \"email\": \"bobbyharrison@example.net\",\n      \"age\": \"24\",\n      \"active\": \"True\",\n      \"latitude\": \"-36.1577385\",\n      \"longitude\": \"63.014954\",\n      \"company\": \"Carter, Shaw and Parks\",\n      \"country\": \"Honduras\"\n    }\n  ],\n  \"meta_data\": {\n    \"created_by\": \"pyarrow\",\n    \"num_columns\": 21,\n    \"num_rows\": 10,\n    \"serialized_size\": 7598,\n    \"format_version\": \"0.12\"\n  },\n  \"schema\": [\n    { \"column_name\": \"full_name\", \"column_type\": \"string\" },\n    { \"column_name\": \"email\", \"column_type\": \"string\" },\n    { \"column_name\": \"age\", \"column_type\": \"int64\" },\n    { \"column_name\": \"active\", \"column_type\": \"bool\" },\n    { \"column_name\": \"latitude\", \"column_type\": \"double\" },\n    { \"column_name\": \"longitude\", \"column_type\": \"double\" },\n    { \"column_name\": \"company\", \"column_type\": \"string\" },\n    { \"column_name\": \"country\", \"column_type\": \"string\" }\n  ]\n}\n\n🔐 API Info\nAuthentication: None required\nSupported formats: .parquet, .avro, .orc, .feather\nFree usage: No signup needed; API is currently open to the public\nLimits: Usage and file size limits may apply in the future (TBD)",
+  "totalViews": 145,
+  "source": "official",
+  "user": {
+    "id": 93499,
+    "name": "ParquetReader",
+    "username": "parquetreader",
+    "bio": "",
+    "verified": false,
+    "links": "[\"https://parquetreader.com\"]",
+    "avatar": "https://gravatar.com/avatar/35e56dc29a0a6bee7b7cc4d7dc04167fc9062ff375d39892b1b569439a2ee0ad?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-03-30T09:17:15.940Z",
+  "path": "official/template_3365/workflow.json"
+}

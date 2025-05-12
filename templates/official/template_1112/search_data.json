@@ -1,0 +1,61 @@
+{
+  "id": 1112,
+  "name": "Create, update, and get a monitor using UptimeRobot",
+  "totalViews": 1539,
+  "purchaseUrl": null,
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "description": "This workflow allows you to create, update, and get a monitor using the UptimeRobot node.\n\n\n\nUptimeRobot node: This node creates a new monitor of the type HTTP(S).\n\nUptimeRobot1 node: This node will update the monitor that we created in the previous node.\n\nUptimeRobot2 node: This node will get the information of the monitor that we created in the previous node.",
+  "createdAt": "2021-06-04T14:06:00.224Z",
+  "nodes": [
+    {
+      "id": 491,
+      "icon": "file:uptimerobot.svg",
+      "name": "n8n-nodes-base.uptimeRobot",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.uptimerobot/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/uptimeRobot/"
+              }
+            ]
+          },
+          "categories": [
+            "Development"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"output\"]",
+      "defaults": {
+        "name": "UptimeRobot"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxjaXJjbGUgY3g9IjI1NiIgY3k9IjI1NiIgcj0iMjU2IiBmaWxsPSIjMkE4QzAwIi8+PGNpcmNsZSBjeD0iMjU2LjUiIGN5PSIyNTYuNSIgcj0iMTQxLjUiIGZpbGw9IiMyMDIwMUYiIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIyMCIvPjwvZz48L3N2Zz4="
+      },
+      "displayName": "UptimeRobot",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 5,
+          "name": "Development"
+        }
+      ]
+    }
+  ]
+}

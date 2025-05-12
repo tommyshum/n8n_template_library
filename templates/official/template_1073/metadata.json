@@ -1,0 +1,56 @@
+{
+  "id": 1073,
+  "name": "Scrape and store data from multiple website pages",
+  "description": "This workflow allows extracting data from multiple pages website.\n\nThe workflow:\n1) Starts in a country list at https://www.theswiftcodes.com/browse-by-country/.\n2) Loads every country page (https://www.theswiftcodes.com/albania/) \n3) Paginates every page in the country page.\n4) Extracts data from the country page.\n5) Saves data to MongoDB.\n6) Paginates through all pages in all countries.\n\nIt uses getWorkflowStaticData('global') method to recover the next page (saved from the previous page), and it goes ahead with all the pages.\n\nThere is a first section where the countries list is recovered and extracted.\n\nLater, I try to read if a local cache page is available and I recover the cached page from the disk.\n\nFinally, I save data to MongoDB, and we paginate all the pages in the country and for all the countries.\n\nI have applied a cache system to save a visited page to n8n local disk. If I relaunch workflow, we check if a cache file exists to discard non-required requests to the webpage.\n\nIf the data present in the website changes, you can apply a Cron node to check the website once per week.\n\nFinally, before inserting data in MongoDB, the best way to avoid duplicates is to check that swift_code (the primary value of the collection) doesn't exist.\n\nI recommend using a proxy for all requests to avoid IP blocks. A good solution for proxy plus IP rotation is scrapoxy.io.\n\nThis workflow is perfect for small data requirements. If you need to scrape dynamic data, you can use a Headless browser or any other service.\n\nIf you want to scrape huge lists of URIs, I recommend using Scrapy + Scrapoxy.",
+  "totalViews": 56282,
+  "source": "official",
+  "user": {
+    "id": 5774,
+    "name": "Miquel Colomer",
+    "username": "mcolomer",
+    "bio": "As a passionate developer and AI agent creator, I’ve been at the forefront of automation, pioneering workflows and training AI to handle complex tasks seamlessly. I’m an early adopter and expert of n8n, having worked with its powerful capabilities to create automation solutions for diverse industries. I founded n8nhackers, the first AI-powered agency focused on n8n, where we help businesses transform their workflows with cutting-edge automation.",
+    "verified": true,
+    "links": "[\"https://n8nhackers.com\"]",
+    "avatar": "https://gravatar.com/avatar/c4974f5be3985d7f30465d2d963967905bcb2f9b8a8ecaf8ba4396bfbd034db2?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "MongoDB",
+      "type": "n8n-nodes-base.mongoDb",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "uProc",
+      "type": "n8n-nodes-base.uproc",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2021-05-07T14:48:56.297Z",
+  "path": "official/template_1073/workflow.json"
+}

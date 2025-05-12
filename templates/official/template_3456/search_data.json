@@ -1,0 +1,229 @@
+{
+  "id": 3456,
+  "name": "Automated Discord Chatbot for chat Interaction in channel using Gemini 2.0 Flash",
+  "totalViews": 123,
+  "purchaseUrl": null,
+  "user": {
+    "id": 93653,
+    "name": "JPres",
+    "username": "stardawnai",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://github.com/JimPresting/\"]",
+    "avatar": "https://gravatar.com/avatar/c1767436a4c7e4856114365bcac5df2f32cfb367c6dc607106edffd6d3df4b2e?r=pg&d=retro&size=200"
+  },
+  "description": "A Discord bot that responds to mentions by sending messages to n8n workflows and returning the responses. Connects Discord conversations with custom automations, APIs, and AI services through n8n.\n\nFull guide on: https://github.com/JimPresting/AI-Discord-Bot/blob/main/README.md \n\nDiscord Bot Summary\n\nOverview\nThe Discord bot listens for mentions, forwards questions to an n8n workflow, processes responses, and replies in Discord.\nThis workflow is intended for all Discord users who want to offer AI interactions with their respective channels.\n\nWhat do you need?\nYou need a Discord account as well as a Google Cloud Project\n\nKey Features\n\n1. Listens for Mentions\nThe bot monitors Discord channels for messages that mention it.\nOptional Configuration**: Can be set to respond only in a specific channel.\n\n2. Forwards Questions to n8n\nWhen a user mentions the bot and asks a question:\n  The bot extracts the question.\n  Sends the question, along with channel and user information, to an n8n webhook URL.\n\n3. Processes Data in n8n\nThe n8n workflow receives the question and can:\n  Interact with AI services (e.g., generating responses).\n  Access databases or external APIs.\n  Perform custom logic.\nn8n formats the response and sends it back to the bot.\n\n4. Replies to Discord with n8n's Response\nThe bot receives the response from n8n.\nIt replies to the user's message in the Discord channel with the answer.\nLong Responses**: Handles responses exceeding Discord's 2000-character limit by chunking them into multiple messages.\n\n5. Error Handling\nIncludes error handling for:\n  Issues with n8n communication.\n  Response formatting problems.\nManages cases where:\n  No question is asked.\n  An invalid response is received from n8n.\n\n6. Typing Indicator\nWhile waiting for n8n's response, the bot sends a \"typing...\" indicator to the Discord channel.\n\n7. Status Update\nFor lengthy n8n processes, the bot sends a message to the Discord channel to inform the user that it is still processing their request.\n\nStep-by-Step Setup Guide as per Github Instructions\n\n\nKey Takeaways\n\nYou’ll configure an n8n webhook to receive Discord messages, process them with your workflow, and respond.  \nYou’ll set up a Discord application and bot, grant the right permissions/intents, and invite it to your server.  \nYou’ll prepare your server environment (Node.js), scaffold the project, and wire up environment variables.  \nYou’ll implement message‐chunking, “typing…” indicators, and robust error handling in your bot code.  \nYou’ll deploy with PM2 for persistence and know how to test and troubleshoot common issues.\n\n1. n8n: Create & Expose Your Webhook\n\nNew Workflow  \n   Log into your n8n instance.  \n   Click Create Workflow (➕), name it e.g. Discord Bot Handler.  \n\nWebhook Trigger  \n   Add a node (➕) → search Webhook.  \n   Set:  \n     Authentication: None (or your choice)  \n     HTTP Method: POST  \n     Path: e.g. /discord-bot  \n   Click Execute Node to activate.\n\nCopy Webhook URL  \n   After execution, copy the Production Webhook URL.  \n   You’ll paste this into your bot’s .env.  \n\nBuild Your Logic  \n   Chain additional nodes (AI, database lookups, etc.) as required.\n\nFormat the JSON Response  \n   Insert a Function node before the end:  \n          return {\n       json: { answer: \"Your processed reply\" }\n     };\n     \nRespond to Webhook  \n   Add Respond to Webhook as the final node.  \n   Point it at your Function node’s output (with the answer field).\n\nActivate  \n   Toggle Active in the top‐right and Save.\n\n2. Discord Developer Portal: App & Bot\n\nNew Application  \n   Visit the Discord Developer Portal.  \n   Click New Application, name it.  \n   Go to Bot → Add Bot.\n\nEnable Intents & Permissions  \n   Under Privileged Gateway Intents, toggle Message Content Intent.  \n   Under Bot Permissions, check:  \n     Read Messages/View Channels  \n     Send Messages  \n     Read Message History  \n\nGrab Your Token  \n   In Bot → click Copy (or Reset Token).  \n   Store it securely.\n\nInvite Link (OAuth2 URL)  \n   Go to OAuth2 → URL Generator.  \n   Select scopes: bot, applications.commands.  \n   Under Bot Permissions, select the same permissions as above.  \n   Copy the generated URL, open it in your browser, and invite your bot.\n\n3. Server Prep: Node.js & Project Setup\n\nInstall Node.js v20.x  \n      sudo apt purge nodejs npm\n   sudo apt autoremove\n   curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -\n   sudo apt install -y nodejs\n   node -v    # Expect v20.x.x\n   npm -v     # Expect 10.x.x\n   \nProject Folder  \n      mkdir discord-bot\n   cd discord-bot\n   \nInitialize & Dependencies  \n      npm init -y\n   npm install discord.js axios dotenv\n4. Bot Code & Configuration\n\nEnvironment Variables  \n   Create .env:  \n          nano .env\n        Populate:  \n          DISCORD_BOT_TOKEN=your_bot_token\n     N8N_WEBHOOK_URL=https://your-n8n-instance.com/webhook/discord-bot\nOptional: restrict to one channel\nTARGET_CHANNEL_ID=123456789012345678\n     \nBot Script  \n   Create index.js:  \n          nano index.js\n        Implement:  \n     Import dotenv, discord.js, axios.  \n     Set up client with MessageContent intent.  \n     On messageCreate:  \n       Ignore bots or non‐mentions.  \n       (Optional) Filter by channel ID.  \n       Extract and validate the user’s question.  \n       Send “typing…” every 5 s; after 20 s send a status update if still processing.  \n       POST to your n8n webhook with question, channelId, userId, userName.  \n       Parse various response shapes to find answer.  \n       If answer.length ≤ 2000, message.reply(answer).  \n       Else, split into ~1900‑char chunks at sentence/paragraph breaks and send sequentially.  \n       On errors, clear intervals, log details, and reply with an error message.\n\nLogin  \n      client.login(process.env.DISCORD_BOT_TOKEN);\n5. Deployment: Keep It Alive with PM2\n\nInstall PM2  \n      npm install -g pm2\n   \nStart & Monitor  \n      pm2 start index.js --name discord-bot\n   pm2 status\n   pm2 logs discord-bot\n   \nAuto‐Start on Boot  \n      pm2 startup\nFollow the printed command (e.g. sudo env PATH=$PATH:/usr/bin pm2 startup systemd -u your_user --hp /home/your_user)\n   pm2 save\n6. Test & Troubleshoot\n\nFunctional Test  \n   In your Discord server:  \n          @YourBot What’s the weather like?\n        Expect a reply from your n8n workflow.\n\nCommon Pitfalls  \n   No reply → check pm2 logs discord-bot.  \n   Intent Errors → verify Message Content Intent in Portal.  \n   Webhook failures → ensure workflow is active and URL is correct.  \n   Formatting issues → confirm your Function node returns json.answer.\n\nInspect Raw Data  \n   Search your logs for Complete response from n8n: to debug payload shapes.\n\n`",
+  "createdAt": "2025-04-07T09:39:02.177Z",
+  "nodes": [
+    {
+      "id": 834,
+      "icon": "file:code.svg",
+      "name": "n8n-nodes-base.code",
+      "codex": {
+        "data": {
+          "alias": [
+            "cpde",
+            "Javascript",
+            "JS",
+            "Python",
+            "Script",
+            "Custom Code",
+            "Function"
+          ],
+          "details": "The Code node allows you to execute JavaScript in your workflow.",
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.code/"
+              }
+            ]
+          },
+          "categories": [
+            "Development",
+            "Core Nodes"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0",
+          "subcategories": {
+            "Core Nodes": [
+              "Helpers",
+              "Data Transformation"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Code"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwMF8xMTcxXzQ0MSkiPgo8cGF0aCBkPSJNMTcwLjI4MyA0OEgxOTYuNUMyMDMuMTI3IDQ4IDIwOC41IDQyLjYyNzQgMjA4LjUgMzZWMTJDMjA4LjUgNS4zNzI1OCAyMDMuMTI3IDAgMTk2LjUgMEgxNzAuMjgzQzEyNi4xIDAgOTAuMjgzIDM1LjgxNzIgOTAuMjgzIDgwVjE3NkM5MC4yODMgMjA2LjkyOCA2NS4yMTA5IDIzMiAzNC4yODMgMjMySDIzQzE2LjM3MjYgMjMyIDExIDIzNy4zNzIgMTEgMjQ0VjI2OEMxMSAyNzQuNjI3IDE2LjM3MjQgMjgwIDIyLjk5OTYgMjgwTDM0LjI4MyAyODBDNjUuMjEwOSAyODAgOTAuMjgzIDMwNS4wNzIgOTAuMjgzIDMzNlY0NDBDOTAuMjgzIDQ3OS43NjQgMTIyLjUxOCA1MTIgMTYyLjI4MyA1MTJIMTk2LjVDMjAzLjEyNyA1MTIgMjA4LjUgNTA2LjYyNyAyMDguNSA1MDBWNDc2QzIwOC41IDQ2OS4zNzMgMjAzLjEyNyA0NjQgMTk2LjUgNDY0SDE2Mi4yODNDMTQ5LjAyOCA0NjQgMTM4LjI4MyA0NTMuMjU1IDEzOC4yODMgNDQwVjMzNkMxMzguMjgzIDMwOS4wMjIgMTI4LjAxMSAyODQuNDQzIDExMS4xNjQgMjY1Ljk2MUMxMDYuMTA5IDI2MC40MTYgMTA2LjEwOSAyNTEuNTg0IDExMS4xNjQgMjQ2LjAzOUMxMjguMDExIDIyNy41NTcgMTM4LjI4MyAyMDIuOTc4IDEzOC4yODMgMTc2VjgwQzEzOC4yODMgNjIuMzI2OSAxNTIuNjEgNDggMTcwLjI4MyA0OFoiIGZpbGw9IiNGRjk5MjIiLz4KPHBhdGggZD0iTTMwNSAzNkMzMDUgNDIuNjI3NCAzMTAuMzczIDQ4IDMxNyA0OEgzNDIuOTc5QzM2MC42NTIgNDggMzc0Ljk3OCA2Mi4zMjY5IDM3NC45NzggODBWMTc2QzM3NC45NzggMjAyLjk3OCAzODUuMjUxIDIyNy41NTcgNDAyLjA5OCAyNDYuMDM5QzQwNy4xNTMgMjUxLjU4NCA0MDcuMTUzIDI2MC40MTYgNDAyLjA5OCAyNjUuOTYxQzM4NS4yNTEgMjg0LjQ0MyAzNzQuOTc4IDMwOS4wMjIgMzc0Ljk3OCAzMzZWNDMyQzM3NC45NzggNDQ5LjY3MyAzNjAuNjUyIDQ2NCAzNDIuOTc5IDQ2NEgzMTdDMzEwLjM3MyA0NjQgMzA1IDQ2OS4zNzMgMzA1IDQ3NlY1MDBDMzA1IDUwNi42MjcgMzEwLjM3MyA1MTIgMzE3IDUxMkgzNDIuOTc5QzM4Ny4xNjEgNTEyIDQyMi45NzggNDc2LjE4MyA0MjIuOTc4IDQzMlYzMzZDNDIyLjk3OCAzMDUuMDcyIDQ0OC4wNTEgMjgwIDQ3OC45NzkgMjgwSDQ5MEM0OTYuNjI3IDI4MCA1MDIgMjc0LjYyOCA1MDIgMjY4VjI0NEM1MDIgMjM3LjM3MyA0OTYuNjI4IDIzMiA0OTAgMjMyTDQ3OC45NzkgMjMyQzQ0OC4wNTEgMjMyIDQyMi45NzggMjA2LjkyOCA0MjIuOTc4IDE3NlY4MEM0MjIuOTc4IDM1LjgxNzIgMzg3LjE2MSAwIDM0Mi45NzkgMEgzMTdDMzEwLjM3MyAwIDMwNSA1LjM3MjU4IDMwNSAxMlYzNloiIGZpbGw9IiNGRjk5MjIiLz4KPC9nPgo8ZGVmcz4KPGNsaXBQYXRoIGlkPSJjbGlwMF8xMTcxXzQ0MSI+CjxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiBmaWxsPSJ3aGl0ZSIvPgo8L2NsaXBQYXRoPgo8L2RlZnM+Cjwvc3ZnPgo="
+      },
+      "displayName": "Code",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 5,
+          "name": "Development"
+        },
+        {
+          "id": 9,
+          "name": "Core Nodes"
+        }
+      ]
+    },
+    {
+      "id": 1119,
+      "icon": "fa:robot",
+      "name": "@n8n/n8n-nodes-langchain.agent",
+      "codex": {
+        "data": {
+          "alias": [
+            "LangChain",
+            "Chat",
+            "Conversational",
+            "Plan and Execute",
+            "ReAct",
+            "Tools"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Agents",
+              "Root Nodes"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "AI Agent",
+        "color": "#404040"
+      },
+      "iconData": {
+        "icon": "robot",
+        "type": "icon"
+      },
+      "displayName": "AI Agent",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1163,
+      "icon": "fa:database",
+      "name": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.memorybufferwindow/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Memory"
+            ],
+            "Memory": [
+              "For beginners"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Simple Memory"
+      },
+      "iconData": {
+        "icon": "database",
+        "type": "icon"
+      },
+      "displayName": "Simple Memory",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1262,
+      "icon": "file:google.svg",
+      "name": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatgooglegemini/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Language Models",
+              "Root Nodes"
+            ],
+            "Language Models": [
+              "Chat Models (Recommended)"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Google Gemini Chat Model"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgNDggNDgiPjxkZWZzPjxwYXRoIGlkPSJhIiBkPSJNNDQuNSAyMEgyNHY4LjVoMTEuOEMzNC43IDMzLjkgMzAuMSAzNyAyNCAzN2MtNy4yIDAtMTMtNS44LTEzLTEzczUuOC0xMyAxMy0xM2MzLjEgMCA1LjkgMS4xIDguMSAyLjlsNi40LTYuNEMzNC42IDQuMSAyOS42IDIgMjQgMiAxMS44IDIgMiAxMS44IDIgMjRzOS44IDIyIDIyIDIyYzExIDAgMjEtOCAyMS0yMiAwLTEuMy0uMi0yLjctLjUtNCIvPjwvZGVmcz48Y2xpcFBhdGggaWQ9ImIiPjx1c2UgeGxpbms6aHJlZj0iI2EiIG92ZXJmbG93PSJ2aXNpYmxlIi8+PC9jbGlwUGF0aD48cGF0aCBmaWxsPSIjRkJCQzA1IiBkPSJNMCAzN1YxMWwxNyAxM3oiIGNsaXAtcGF0aD0idXJsKCNiKSIvPjxwYXRoIGZpbGw9IiNFQTQzMzUiIGQ9Im0wIDExIDE3IDEzIDctNi4xTDQ4IDE0VjBIMHoiIGNsaXAtcGF0aD0idXJsKCNiKSIvPjxwYXRoIGZpbGw9IiMzNEE4NTMiIGQ9Im0wIDM3IDMwLTIzIDcuOSAxTDQ4IDB2NDhIMHoiIGNsaXAtcGF0aD0idXJsKCNiKSIvPjxwYXRoIGZpbGw9IiM0Mjg1RjQiIGQ9Ik00OCA0OCAxNyAyNGwtNC0zIDM1LTEweiIgY2xpcC1wYXRoPSJ1cmwoI2IpIi8+PC9zdmc+"
+      },
+      "displayName": "Google Gemini Chat Model",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    }
+  ]
+}

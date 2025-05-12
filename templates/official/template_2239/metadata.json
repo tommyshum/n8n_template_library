@@ -1,0 +1,32 @@
+{
+  "id": 2239,
+  "name": "Extract Domain and verify email syntax on the go",
+  "description": "What problem is this workflow solving?\n\nThis workflow is aimed for email marketing enthusiasts looking for an easy way to either extract the domain from an email ad also check if the syntax is correct without having to use the code node.\n\nHow this works\n\n\nFor this to work, replace the debugger node with your actual data source. \nMap your data at match the above layout\nRun your workflow and check for all the emails that are either valid or not\n\nOnce done, you will have a list of all your emails, domains, and whether they are valid or not.\n\n \n  ",
+  "totalViews": 1049,
+  "source": "official",
+  "user": {
+    "id": 91335,
+    "name": "Imperol",
+    "username": "imperolq",
+    "bio": "Automation expert with years of experience helping businesses improve their efficiency and productivity with smart automations that are affordable, scalable, and flexible. ",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/zacharia-kimotho/\"]",
+    "avatar": "https://gravatar.com/avatar/13b050fd63dc0c9242774c4b8769c4788df8b47268c1fb183d6f1da085b9e6e2?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "DebugHelper",
+      "type": "n8n-nodes-base.debugHelper",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-04-22T06:31:37.656Z",
+  "path": "official/template_2239/workflow.json"
+}

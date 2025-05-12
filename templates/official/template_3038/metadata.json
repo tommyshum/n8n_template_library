@@ -1,0 +1,38 @@
+{
+  "id": 3038,
+  "name": "Error Handler send Telegram: Real-Time Workflow Failure Alerts",
+  "description": "This workflow acts as an error handler, sending real-time notifications to Telegram when another workflow fails. It provides detailed error information, including workflow name, timestamp, execution URL, last executed node, and error message.\n\nPre-Conditions  \nA Telegram bot created via BotFather.  \nThe bot token and Telegram group/channel chatId.  \nAn active n8n instance with the Telegram and Error Trigger nodes installed.  \n\nSetup  \nWorkflow Configuration:  \n   Import the workflow into n8n.  \n   Update the Telegram chatId in the Config node.  \n   Add your Telegram bot token in the Telegram node credentials.  \n\nError Workflow Setup:  \n   Set this workflow as the Error Workflow in other workflows.  \n\nTesting:  \n   Trigger an error in another workflow to verify Telegram notifications.  \n\nWho the Workflow is For  \nDevelopers:** Monitoring workflow failures in real-time.  \nTeams:** Managing multiple n8n workflows and needing instant error alerts.  \nn8n Users:** Looking for a simple way to handle workflow errors via Telegram.  \n\nPrimary Use  \nAutomates error notifications for failed workflows.  \nSends detailed error reports to Telegram for quick troubleshooting.  \nEasily customizable to fit specific monitoring needs.",
+  "totalViews": 1979,
+  "source": "official",
+  "user": {
+    "id": 92642,
+    "name": "L Hùng",
+    "username": "meow-cde",
+    "bio": "Helu World.",
+    "verified": false,
+    "links": "[\"https://x.com/luuhung93\"]",
+    "avatar": "https://gravatar.com/avatar/531b3e4ac6b5747a401dc89244eadad45df3467d9f9bba962fe9f6378769bf7f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-02-28T06:49:04.649Z",
+  "path": "official/template_3038/workflow.json"
+}

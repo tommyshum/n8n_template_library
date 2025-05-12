@@ -1,0 +1,47 @@
+{
+  "id": 2237,
+  "name": "Automated Customer Service Ticket Creation & Notifications with Asana & WhatsApp",
+  "description": "How it works:\nThis workflow automates your customer service with built in notifications for your users & ticket creation with Asana.\n\nIf a user submits a form, he gets send a confirmation message via WhatsApp a task is opened in Asana with his request in it.\n\nSetup:\nYou need to add your credentials to the WhatsApp Business Cloud node.\nYou need to add your credentials to the Asana node.\nReplace the placeholders with the correct phone number, id, and so on.\nChange the confirmation message to your liking.\n\nOptional Changes:\nYou could extend this workflow to update your user on the progress of the ticket in Asana.\nYou can change the messaging from WhatsApp to E-Mail.\nYou can change the form submission service from n8n-native to Typeform or similar.\nYou can change the task management software from Asana to the one you use.\n\n\nClick here to find a blog post with additional information.",
+  "totalViews": 6053,
+  "source": "official",
+  "user": {
+    "id": 91415,
+    "name": "Bela",
+    "username": "bwiertz",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://n8n-automation.com/our-services/\"]",
+    "avatar": "https://gravatar.com/avatar/9ee80c295a2f128e898348c2b2349f369b065d504f5b214ced40800eb3b6a46d?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Productivity",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Asana",
+      "type": "n8n-nodes-base.asana",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "WhatsApp Business Cloud",
+      "type": "n8n-nodes-base.whatsApp",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-04-18T15:06:46.754Z",
+  "path": "official/template_2237/workflow.json"
+}

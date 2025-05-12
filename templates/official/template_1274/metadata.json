@@ -1,0 +1,32 @@
+{
+  "id": 1274,
+  "name": "Assign issues to interested contributors",
+  "description": "This workflow handles the incoming issues and issues comments for your open-source project. If a contributor is interested, the workflow will assign them the issue.\n\n\n\nNote: For organizations, you will have to use the Webhook node to trigger the workflow. You will also have to use the HTTP Request node instead of the regular GitHub node.\n\nYou can learn more about this workflow by reading the blog on https://n8n.io/blog.",
+  "totalViews": 756,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "GitHub",
+      "type": "n8n-nodes-base.github",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2021-10-18T07:48:23.464Z",
+  "path": "official/template_1274/workflow.json"
+}

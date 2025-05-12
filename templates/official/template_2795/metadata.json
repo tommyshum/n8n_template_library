@@ -1,0 +1,50 @@
+{
+  "id": 2795,
+  "name": "Programmatically Retrieve Embeddable Getty Images",
+  "description": "How it works:\nThis workflow empowers marketers and content creators to seamlessly include Getty Images in their posts, provided they adhere to Getty Images' guidelines:\n\nEnter a search phrase and select criteria for Getty Images' editorial collection.\nRetrieve the latest images that match your input parameters.\nExtract embeddable links for use in your content.\nAutomate this previously manual process to save time and maintain compliance.\n\nSet up steps:\nEstimated time: ~10 minutes.\nConfigure the input node with your desired search terms and criteria.\nLink the workflow to your preferred CMS or storage solution.\nPerform a test run to ensure proper retrieval and embedding of images.\nReview Getty Images' usage guidelines for compliance before publishing.\n\nThis solution is ideal for independent news channels and small publications looking for a legal, automated way to use Getty Images on their websites without incurring costs.",
+  "totalViews": 217,
+  "source": "official",
+  "user": {
+    "id": 91565,
+    "name": "Ludwig",
+    "username": "ludwig",
+    "bio": "If you have any questions about any of the templates I've built, please reach out to me on LinkedIn (https://www.linkedin.com/in/ludwiggerdes) or via my website down below. 👇",
+    "verified": true,
+    "links": "[\"https://www.lwwg.me\"]",
+    "avatar": "https://gravatar.com/avatar/85fa5dd88d3b3b71e5719184d2d889fe3c0fba02e925b2b9ad4ba34d9a774002?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-01-24T21:51:37.266Z",
+  "path": "official/template_2795/workflow.json"
+}

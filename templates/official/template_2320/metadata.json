@@ -1,0 +1,110 @@
+{
+  "id": 2320,
+  "name": "Invoice data extraction with LlamaParse and OpenAI",
+  "description": "This n8n workflow automates the process of parsing and extracting data from PDF invoices. With this workflow, accounts and finance people can realise huge time and cost savings in their busy schedules.\n\nRead the Blog: https://blog.n8n.io/how-to-extract-data-from-pdf-to-excel-spreadsheet-advance-parsing-with-n8n-io-and-llamaparse/\n\nHow it works\n\nThis workflow will watch an email inbox for incoming invoices from suppliers\nIt will download the attached PDFs and processing them through a third party service called LlamaParse.\nLlamaParse is specifically designed to handle and convert complex PDF data structures such as tables to markdown.\nMarkdown is easily to process for LLM models and so the data extraction by our AI agent is more accurate and reliable.\nThe workflow exports the extracted data from the AI agent to Google Sheets once the job complete.\n\nRequirements\n\nThe criteria of the email trigger must be configured to capture emails with attachments.\nThe gmail label \"invoice synced\" must be created before using this workflow.\nA LlamaIndex.ai account to use the LlamaParse service.\nAn OpenAI account to use GPT for AI work.\nGoogle Sheets to save the output of the data extraction process although this can be replaced for whatever your needs.\n\nCustomizing this workflow\n\nThis workflow uses Gmail and Google Sheets but these can easily be swapped out for equivalent services such as Outlook and Excel.\n\nNot using Excel? Simple redirect the output of the AI agent to your accounting software of choice.  \n",
+  "totalViews": 30208,
+  "source": "official",
+  "user": {
+    "id": 91804,
+    "name": "Jimleuk",
+    "username": "jimleuk",
+    "bio": "Freelance consultant based in the UK specialising in AI-powered automations. I work with select clients tackling their most challenging projects. For business enquiries, send me an email at hello@jimle.uk\n\nLinkedIn: https://www.linkedin.com/in/jimleuk/\nX/Twitter: https://x.com/jimle_uk",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4ab99e51473df76838beeaac908747f7928c625f869794815cabe34016967d51?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Model",
+      "type": "@n8n/n8n-nodes-langchain.lmOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Text Completion Models"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2024-07-09T10:24:28.654Z",
+  "path": "official/template_2320/workflow.json"
+}

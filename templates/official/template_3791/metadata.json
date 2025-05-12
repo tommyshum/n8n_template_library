@@ -1,0 +1,80 @@
+{
+  "id": 3791,
+  "name": "Generate & Enrich LinkedIn Leads with Apollo.io, LinkedIn API, Mail.so & GPT-3.5",
+  "description": "Note: Now includes an Apify alternative for Rapid API (Some users cant create new accounts on Rapid API, so I have added an alternative for you. But immediately you are able to get access to Rapid API, please use that option, it returns more detailed data). *Scroll to bottom for APify setup guide*\n\nThis n8n workflow automates LinkedIn lead generation, enrichment, and activity analysis using Apollo.io, RapidAPI, Google Sheets and Mail.so.\n\nPerfect for sales teams, founders, B2B marketers, and cold outreach pros who want personalized lead insights to drive better conversion rates.\n\n⚙️ How This Workflow Works\n\nThe workflow is broken down into several key steps, each designed to help you build and enrich a valuable list of LinkedIn leads:\n\n1. 🔑 Lead Discovery (Keyword Search via Apollo)\nPulls leads using Apollo.io's API based on keywords, industries, or job titles.\nSaves lead name, title, company, and LinkedIn URL to your Google Sheet.\nYou can replace the trigger node from the form node to a webhook, whatsapp, telegram, etc, any way for you to send over your query variables over to initiate the workflow.\n\n2. 🧠 Username Extraction (from LinkedIn URL)\nExtracts the LinkedIn username from profile URLs using a simple script node.\nThis is required for further enrichment via RapidAPI.\n\n3. ✉️ Email Lookup (via Apollo User ID)\nUses the Apollo User ID to retrieve the lead’s verified work email.\nEnsures high-quality leads with reliable contact info.\nTo double check that the email is currently valid, we use the mail.so api and filter out emails that fail deliverability and mx-record check. We don't wanna risk sending emails to no longer existent addresses, right?\n\n4. 🧾 Profile Summary Enrichment (via RapidAPI)\nQueries the LinkedIn Data API to fetch a lead’s profile summary/bio.\nGives you a deeper understanding of their background and expertise.\n\n5. 📰 Recent Activity Collection (Posts & Reposts)\nRetrieves recent posts or reposts from each lead’s profile.\nGreat for tailoring outreach with reference to what they’re currently talking about.\n\n6. 🗂️ Leads Database Update\nAll enriched data is written to the same Google Sheet.\nNew columns are filled in without overwriting existing data.\n\n✅ Smart Retry & Row Status Logic\n\nEvery subworkflow includes a fail-safe mechanism to ensure:\n\n✅ Each row has status columns (e.g., done, failed, pending).\n🕒 A scheduled retry workflow resets failed rows to pending after 2 weeks (customizable).\n💬 This gives failed enrichments another chance to be processed later, reducing data loss.\n\n📋 Google Sheets Setup\n\nTemplate 1: Apollo Leads Scraping & Enrichment  \n\nTemplate 2: Enriched Leads Database  \n\nMake a copy to your Drive and use.\n\nColumns will be filled as each subworkflow runs (email, summary, interests, etc.)\n\n🔐 Required API Keys\n\nTo use this workflow, you’ll need the following credentials:\n\n🧩 Apollo.io\nSign up and get your key here: Apollo.io API Keys\n⚠️ Important: Toggle the “Master API Key” option to ON when generating your key.  \nThis ensures the same key can be used for all Apollo endpoints in this workflow.\n\n🌐 RapidAPI (LinkedIn Data API)\nSubscribe to the API here: LinkedIn Data API on RapidAPI\nUse the key in the x-rapidapi-key header in the relevant nodes.\n\n✉️ Mail.so\nSign up and get your key here: Mail.so API\n\n\n&gt; 💡 For both APIs, set up the credentials in n8n as “Generic Credential” types.  \nThis way, you won’t need to reconfigure the headers in each node.\n\n🛠️ Customization Options\n\nModify the Apollo filters (location, industry, seniority) to target your ideal customers.\nChange retry interval in the scheduler (e.g., weekly instead of 2 weeks).\nConnect the database to your email campaign tool like Mailchimp or Instantly.ai.\nReplace the AI nodes with your desired AI agents and customize the system messages further to get desired results.\n\n🆕 Apify Update Guide\n\nTo use this workflow, you’ll need the following credentials:\n\nLogin to Apify, then open this link; https://console.apify.com/actors/2SyF0bVxmgGr8IVCZ/\n\nClick on integrations and scroll down to API Solutions and select \"Use API endpoints\". Scroll to \"Run Actor synchronously and get dataset items\" and copy the actor endpoint url then paste it in the placeholder inside the http node aof apify alternative flow \"apify-actor-endpoint\". Thats it, you are set to go.\n\n\nI am available for custom n8n workflows, if you like my work, please get in touch with me on email at joseph@uppfy.com\n",
+  "totalViews": 9182,
+  "source": "official",
+  "user": {
+    "id": 93572,
+    "name": "Joseph",
+    "username": "mjomba",
+    "bio": "Automation expert specializing in building smart, scalable workflows using tools like n8n, Make, and Airtable. I help businesses save time, reduce manual work, and grow faster with tailored automation solutions. Feel free to reach out at joseph@uppfy.com to discuss your project.",
+    "verified": true,
+    "links": "[\"https://x.com/juppfy\"]",
+    "avatar": "https://gravatar.com/avatar/460cadca403550e24f9e17a9ee3f4670046503b32fb59618a1b390378b803162?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-04-29T19:44:52.069Z",
+  "path": "official/template_3791/workflow.json"
+}

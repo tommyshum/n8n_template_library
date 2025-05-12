@@ -1,0 +1,38 @@
+{
+  "id": 2041,
+  "name": "Get CSV from URL and convert to Excel",
+  "description": "This workflow demonstrates the conversion of a CSV file to Excel format.\n\nFirst, an example CSV file is downloaded via a direct link. The source file is taken from the European Open Data Portal:\nhttps://data.europa.eu/data/datasets/veranstaltungsplaetze-potsdam-potsdam?locale=en\n\nThe binary data is then imported via the Spreadsheet File node and converted to Excel format.\n\nN.B. Note that as of version 1.23.0 n8n, the Spreadsheet File node has been redesigned and is now called Convert to File node. Learn more on the release notes page: https://docs.n8n.io/release-notes/#n8n1230",
+  "totalViews": 4306,
+  "source": "official",
+  "user": {
+    "id": 91386,
+    "name": "Yulia",
+    "username": "yulia",
+    "bio": "Let's connect! ",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/yulia-dmitrievna-1112361b5/\"]",
+    "avatar": "https://gravatar.com/avatar/d29a8262aa8835d430919f8002957a77169f8da987dee0740aa494ae67a061b7?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-01-07T22:49:42.984Z",
+  "path": "official/template_2041/workflow.json"
+}

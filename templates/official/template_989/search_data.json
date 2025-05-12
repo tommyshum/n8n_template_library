@@ -1,0 +1,61 @@
+{
+  "id": 989,
+  "name": "Create an invoice based on the Typeform submission",
+  "totalViews": 2930,
+  "purchaseUrl": null,
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "description": "This workflow allows you to create an invoice with the information received via Typeform submission.\n\n\n\nTypeform node: This node triggers the workflow. Whenever the form is submitted, the node triggers the workflow. We will use the information received in this node to generate the invoice.\n\nAPITemplate.io node: This node generates the invoice using the information from the previous node.\n\n",
+  "createdAt": "2021-03-18T11:13:17.734Z",
+  "nodes": [
+    {
+      "id": 461,
+      "icon": "file:apiTemplateIo.svg",
+      "name": "n8n-nodes-base.apiTemplateIo",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.apitemplateio/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/apiTemplateIo/"
+              }
+            ]
+          },
+          "categories": [
+            "Marketing"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "APITemplate.io"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDIzLjE2NyAyMS4xNjciPjxwYXRoIGZpbGw9IiM5MWJjZTUiIGQ9Ik0xOC42MTEuNTA0IDMuNDczIDExLjI0bDQuNTk3IDIuMjEzIDEuMDY2IDMuODgzIDMuMTcxLTIuMjI2IDIuODAyLjk1MXoiLz48cGF0aCBmaWxsPSIjMWYyMTJiIiBkPSJNOS4xNzIgMTcuNTk3YS4yNjQuMjY0IDAgMCAxLS4yOS0uMTkybC0xLjAzNS0zLjc2Ny00LjQ4OC0yLjE2YS4yNjUuMjY1IDAgMCAxLS4wMzktLjQ1NEwxOC40NTguMjg4YS4yNjQuMjY0IDAgMCAxIC40MS4yNzRsLTMuNSAxNS41NTZhLjI2NS4yNjUgMCAwIDEtLjM0NC4xOTNsLTIuNjc0LS45MDgtMy4wNjEgMi4xNWEuMy4zIDAgMCAxLS4xMTcuMDQ0bS01LjE4LTYuNDAxIDQuMTkzIDIuMDE3Yy4wNjkuMDM0LjEyLjA5NS4xNC4xNjlsLjk2NyAzLjUyIDIuODYzLTIuMDFhLjI3LjI3IDAgMCAxIC4yMzctLjAzM2wyLjUyNC44NTZMMTguMiAxLjExOXoiLz48cGF0aCBmaWxsPSIjM2E4NGMxIiBkPSJtOS4zMzkgMTcuMDc5Ljk0Ni0yLjkxM0wxOC42NDIuNzI4IDguMjI2IDEzLjIzNXoiLz48cGF0aCBmaWxsPSIjMWYyMTJiIiBkPSJNOS4zNTYgMTcuMjFhLjEzMi4xMzIgMCAwIDEtLjE0My0uMTcybC45NDYtMi45MTMuMDE0LS4wMyA3LjM5My0xMS44ODgtOS40MTkgMTEuMTU2YS4xMzMuMTMzIDAgMCAxLS4yMDItLjE3MUwxOC41NC42NDJhLjEzMi4xMzIgMCAwIDEgLjIxNC4xNTZsLTguMzQ4IDEzLjQyNC0uOTQxIDIuODk4YS4xMy4xMyAwIDAgMS0uMTA5LjA5bS0zLjIxNSAxLjA0NWMtMS4xNjguMDI5LTIuMzAzLS4zNzMtMy4wNjctMS4yODctLjQ4NS0uNTgtLjY4My0xLjU3NC4yNzUtMS43MDUuODU5LS4xMTkgMS4yMjkuNDg1IDEuNDggMS4xOTYuODA0IDIuMDI2LjE2IDIuOTM4LTEuNjggNC4yNzItLjE0NC4wOS4wMTUuMjk2LjE1OS4yMDYgMS4yMTgtMSAxLjgyOS0xLjQ2NiAyLjEtMi40NDguMTM0LTEuMzYtLjQwMi0zLjA5MS0xLjM4NC0zLjQzNi0xLjEyLS4zODItMi4wNjMuNTE2LTEuNDk5IDEuNTg1LjY5OSAxLjMyNCAyLjIzIDEuOTE0IDMuNjUyIDEuODc4LjE3LS4wMDQuMTMzLS4yNjYtLjAzNi0uMjYxIi8+PHBhdGggZmlsbD0iIzFmMjEyYiIgZD0iTTcuMjM1IDE4LjE0YTE1IDE1IDAgMCAxLS43NTkuMDljLS4xNy4wMTctLjEzMy4yNzkuMDM2LjI2Mi4yNTMtLjAyNS41MDctLjA1Mi43NTgtLjA5LjE2OS0uMDI2LjEzMy0uMjg4LS4wMzUtLjI2Mm0xLjE5NC0uNTA0YTkgOSAwIDAgMS0uODY1LjM0NGMtLjE2Mi4wNTQtLjA1Ny4yOTcuMTA0LjI0M2E4IDggMCAwIDAgLjg2NS0uMzQ0Yy4xNTQtLjA3MS4wNS0uMzE1LS4xMDQtLjI0MyIvPjxwYXRoIGQ9Ik0xMi41OTkgMTUuMjJhLjEzLjEzIDAgMCAxLS4wNy0uMDFsLTIuMTY4LS45MjRhLjEzMy4xMzMgMCAwIDEgLjEwMy0uMjQzbDIuMTY5LjkyM2EuMTMzLjEzMyAwIDAgMS0uMDM0LjI1M3oiLz48L3N2Zz4="
+      },
+      "displayName": "APITemplate.io",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 27,
+          "name": "Marketing"
+        }
+      ]
+    }
+  ]
+}

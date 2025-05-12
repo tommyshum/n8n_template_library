@@ -1,0 +1,205 @@
+{
+  "id": 3135,
+  "name": "✨🩷Automated Social Media Content Publishing Factory + System Prompt Composition",
+  "description": "Social Media Content Publishing Factory for Streamlined Content Creation Across Platforms\n\nWho is this for?\nThis workflow is designed for content creators, social media managers, and marketing teams who need to efficiently create and publish content across multiple social media platforms. It's perfect for businesses looking to maintain a consistent presence across X (Twitter), Instagram, Facebook, LinkedIn, Threads, and YouTube Shorts without spending hours crafting platform-specific content manually.\n\nWhat problem is this workflow solving?\nCreating tailored content for different social media platforms is time-consuming and requires understanding each platform's unique requirements and audience expectations. This workflow solves the challenge of:\nMaintaining consistent messaging across platforms while respecting platform-specific formats\nGenerating optimized content that follows best practices for each platform\nCreating accompanying visuals without graphic design skills\nStreamlining the approval process before publishing\nReducing the time spent on repetitive content creation tasks\n\nWhat this workflow does\nThis automated content factory takes your content idea and transforms it into platform-optimized posts for all major social media channels. The workflow:\n\nAccepts your content idea or topic through a chat interface\nLeverages AI to generate tailored content for each platform (X/Twitter, Instagram, Facebook, LinkedIn, Threads, YouTube Shorts)\nCreates appropriate images using AI image generation\nSends content for approval via email before publishing\nPublishes approved content to selected platforms\nMaintains chat memory to improve future content generation\n\nSetup\nConnect your social media platform credentials (X/Twitter, Instagram, Facebook, LinkedIn)\nSet up your email account for the approval process\nConfigure your OpenAI API key for AI content generation\nUpdate the image generation service credentials (Pollinations.ai is used by default)\nCustomize the system prompts and schemas in the Google Docs nodes with your brand voice and content requirements\n\nHow to customize this workflow to your needs\nModify the system prompts in the Google Docs nodes to match your brand voice and content strategy\nAdjust the social media schemas to include specific fields relevant to your content\nUpdate the approval process to include additional stakeholders if needed\nAdd or remove social media platforms based on your marketing strategy\nCustomize the image generation prompts to better match your visual branding\nIntegrate with your existing content calendar or CRM systems\n\nThis workflow eliminates the need to manually craft different versions of the same content for each platform, saving hours of work while ensuring your social media presence remains consistent and optimized for maximum engagement.\n",
+  "totalViews": 40906,
+  "source": "official",
+  "user": {
+    "id": 92125,
+    "name": "Joseph LePage",
+    "username": "joe",
+    "bio": "As an AI Automation consultant based in Canada, I partner with forward-thinking organizations to implement AI solutions that streamline operations and drive growth.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/e7ca218dfc87b68344bbd66f40da01546d2f6fc1cf884267821e8a77e3e8410a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "Data & Storage",
+    "Marketing",
+    "Miscellaneous",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Facebook Graph API",
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "X (Formerly Twitter)",
+      "type": "n8n-nodes-base.twitter",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "LinkedIn",
+      "type": "n8n-nodes-base.linkedIn",
+      "categories": [
+        "Marketing",
+        "Communication"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Google Docs",
+      "type": "n8n-nodes-base.googleDocs",
+      "categories": [
+        "Miscellaneous"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "SerpApi (Google Search)",
+      "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 14,
+  "createdAt": "2025-03-11T16:46:06.931Z",
+  "path": "official/template_3135/workflow.json"
+}

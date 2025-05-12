@@ -1,0 +1,32 @@
+{
+  "id": 1834,
+  "name": "Send new Clockify invoice to Notion database",
+  "description": "This workflow sends a new Clockify invoice to a Notion database of your choosing when a new invoice is created in Clockify.\n\nPrerequisites\n\nNotion account and Notion credentials.\nClockify account.\n\nHow it works\n\nOn new invoice in Clockify webhook node will trigger when a new invoice is created in Clockify. Setup is involved.\nCreate database page Notion node will create a database page with the information specified from the Clockify trigger. You can add additional fields if required by following the setup.\n\nSetup\n\nThis workflow requires that you set up a webhook in Clockify. Follow the steps below to set up the webhook:\n\nCreate a Clockify webhook by going to the webhooks section in Clockify.\nCreate the webhook specifying the \"Invoice created\" event and paste in the URL provided from On new invoice in Clockify webhook step.\n\nYou will also have to set up a Notion database:\n\nIn Notion, create a new database.\nAdd the following columns to the database:\n    Invoice number (renamed from \"Name\")\n    Issue date (with type \"Date\")\n    Due date (with type \"Date\")\n    Amount (with type \"Number\")\n    Add any other fields you require to the database.\nShare the database to n8n.\nBy default, the workflow will fill all the fields provided above, except for any other additional fields you add.",
+  "totalViews": 614,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2022-12-09T09:42:48.668Z",
+  "path": "official/template_1834/workflow.json"
+}

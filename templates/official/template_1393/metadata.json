@@ -1,0 +1,51 @@
+{
+  "id": 1393,
+  "name": "Extract and store text from chat images using AWS S3",
+  "description": "This workflow extracts text from images sent in a Telegram chat and uploads the images to AWS S3.\n\n\n\nTelegram Trigger node** triggers the workflow when an image is sent in a Telegram channel.\nAWS S3 node** uploads the sent image to an S3 bucket.\nAWS Textract node** extracts text from the image.\nAirtable node** adds the extracted text and image information to a table. ",
+  "totalViews": 3401,
+  "source": "official",
+  "user": {
+    "id": 12733,
+    "name": "Lorena",
+    "username": "lorenanda",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/df6358bcce2351cf878beab8f89b9f000f50588aaa728f7ea57127c1b85e7b06?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Utility"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AWS S3",
+      "type": "n8n-nodes-base.awsS3",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AWS Textract",
+      "type": "n8n-nodes-base.awsTextract",
+      "categories": [
+        "Utility"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2022-01-11T12:16:19.702Z",
+  "path": "official/template_1393/workflow.json"
+}

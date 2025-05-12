@@ -1,0 +1,48 @@
+{
+  "id": 3818,
+  "name": "Sync New Shopify Customers to Odoo Contacts",
+  "description": "This workflow functions by integrating Shopify customers into Odoo customers.\n\nTrigger: Shopify – New Customer Created\n   The workflow starts when a new customer is added in Shopify.\n\nAction: Odoo – Search Contact by Email\n   It checks in Odoo to see if a contact already exists with the same email address as the Shopify customer.\n\nCondition: Email Match Check\n    If a contact with the same email is found, the workflow ends (no duplicate contact is created).\n    If no match is found, the workflow proceeds to the next step.\n\nAction: Odoo – Create New Contact\n   A new contact is created in Odoo using the customer's:\n    Full name\n    Email address\n    Phone number\n    Full Address (whichever is available)",
+  "totalViews": 36,
+  "source": "official",
+  "user": {
+    "id": 93455,
+    "name": "Evozard",
+    "username": "evozardconsulting",
+    "bio": "🚀 AI & Automation Expert | n8n Creator\n\nI specialize in building AI-powered automation and workflow solutions using n8n and no-code/low-code tools. With extensive experience in process automation, system integration, and AI-driven workflows, I help businesses streamline operations, enhance productivity, and reduce manual effort. Passionate about scalable automation that drives efficiency and growth.",
+    "verified": false,
+    "links": "[\"https://www.evozard.com/business-workflow-and-automation\"]",
+    "avatar": "https://gravatar.com/avatar/c74b93180318a4ab4566d518d50ed5f006499d46e6b129f70c093a51978ad41e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Odoo",
+      "type": "n8n-nodes-base.odoo",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-05-01T10:40:04.019Z",
+  "path": "official/template_3818/workflow.json"
+}

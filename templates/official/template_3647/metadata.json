@@ -1,0 +1,91 @@
+{
+  "id": 3647,
+  "name": "📥 Transform Google Drive Documents into Vector Embeddings",
+  "description": "Automatically convert documents from Google Drive into vector embeddings using OpenAI, LangChain, and PGVector — fully automated through n8n.\n\n⚙️ What It Does\n\nThis workflow monitors a Google Drive folder for new files, supports multiple file types (PDF, TXT, JSON), and processes them into vector embeddings using OpenAI’s text-embedding-3-small model. These embeddings are stored in a Postgres database using the PGVector extension, making them query-ready for semantic search or RAG-based AI agents.\n\nAfter successful processing, files are moved to a separate “vectorized” folder to avoid duplication.\n\n💡 Use Cases\n\nPowering Retrieval-Augmented Generation (RAG) AI agents  \nSemantic search across private documents  \nAI assistant knowledge ingestion  \nAutomated document pipelines for indexing or classification  \n\n🧠 Workflow Highlights\n\nTrigger Options:** Manual or Scheduled (3 AM daily by default)  \nSupported File Types:** PDF, TXT, JSON  \nEmbedding Stack:** LangChain Text Splitter, OpenAI Embeddings, PGVector  \nDeduplication:** Files are moved after processing  \nLicense:** CC BY-SA 4.0  \nAuthor:** AlexK1919\n\n🛠 What You’ll Need\n\nGoogle Drive OAuth2** credentials (connected to Search Folder, Download File, and Move File nodes)  \nOpenAI API Key** (used in the Embeddings OpenAI node)  \nPostgres + PGVector** database (connected in the Postgres PGVector Store node)\n\n🔧 Step-by-Step Setup Instructions\n\nCreate Google OAuth2 credentials in n8n and connect them to all Google Drive nodes.\nSet your source folder ID in the Search Folder node — this is where incoming files are placed.\nSet your processed folder ID in the Move File node — files will be moved here after vectorization.\nEnsure you have a PGVector-enabled Postgres instance and input the table name and collection in the Postgres PGVector Store node.\nAdd your OpenAI credentials to the Embeddings OpenAI node and select text-embedding-3-small.\nOptional: Activate the Schedule Trigger node to run daily or configure your own schedule.\nRun manually by triggering When clicking ‘Test workflow’ for on-demand ingestion.\n\n🧩 Customization Tips\n\nWant to support more file types or enhance the pipeline?\n\nAdd new extractors**: Use Extract from File with other formats like DOCX, Markdown, or HTML.\nRefine logic by file type**: The Switch node routes files to the correct extraction method based on MIME type (application/pdf, text/plain, application/json).\nPre-process with OCR**: Add an OCR step before extraction to handle scanned PDFs or images.\nAdd filters**: Enhance the Search Folder or Switch node logic to skip specific files or folders.\n\n📄 License\n\nCreative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)  \nUse, adapt, and share - even commercially - as long as you give proper credit and share alike.  \nFull License Details\n",
+  "totalViews": 1573,
+  "source": "official",
+  "user": {
+    "id": 91693,
+    "name": "Alex Kim",
+    "username": "alexk1919",
+    "bio": "n8n Ambassador & Verified Partner",
+    "verified": true,
+    "links": "[\"https://wot-ai.com\"]",
+    "avatar": "https://gravatar.com/avatar/2b74c7f530e250439f5d752f2623ead4921fbb8aef56343c922b2873ef8a619f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    },
+    {
+      "name": "Recursive Character Text Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    },
+    {
+      "name": "Postgres PGVector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePGVector",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-04-21T18:34:36.809Z",
+  "path": "official/template_3647/workflow.json"
+}

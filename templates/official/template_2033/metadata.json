@@ -1,0 +1,52 @@
+{
+  "id": 2033,
+  "name": "Real-time lead routing in Webflow",
+  "description": "This workflow will allow you to enrich in real-time a form submission from Webflow using Datagma. \n\nBased on the result of this workflow, a specific Calendly link will be shown on the website.\n\nIf the process outcome is '1', a link for a one-on-one demo will be provided.\nIf the process outcome is '2', a link for a group demo will be shown.\n\nFull guide here: Real-time Lead Routing\n",
+  "totalViews": 1557,
+  "source": "official",
+  "user": {
+    "id": 91319,
+    "name": "Lucas Perret",
+    "username": "lucasperret",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/0b3273e259147247b9921e13c536e06521ebd68ba5198aaff9b141db51eb3d94?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2023-12-28T22:10:10.596Z",
+  "path": "official/template_2033/workflow.json"
+}

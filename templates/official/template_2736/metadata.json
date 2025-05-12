@@ -1,0 +1,71 @@
+{
+  "id": 2736,
+  "name": "Summarize YouTube Videos from Transcript",
+  "description": "Who is this template for?  \nThis workflow template is designed for content creators, researchers, educators, and professionals who need quick, accurate summaries of YouTube videos. It’s ideal for those looking to save time, extract key insights, or repurpose video content into concise formats for reports, studies, or social media.  \n\nWhat does it do?  \nThe workflow automates the process of summarizing YouTube videos by extracting the transcript, analyzing the content, and generating a concise summary. It leverages AI tools to ensure accuracy and relevance, making it easier to digest lengthy videos in seconds.  \n\nWhy is it useful?  \nThis template saves hours of manual effort by automating video summarization, enabling users to focus on analyzing or sharing insights rather than watching entire videos. It’s particularly useful for staying updated with trends, conducting research, or creating content efficiently.  \n\nHow does it work?  \nThe workflow integrates with YouTube’s Transcript API powered by Apify Actor to fetch video transcripts, process the text using AI-powered summarization tools, and deliver a clear, concise summary.\n\nSetup Instructions\n\nYou need an Apify account and an API key to connect with the Actor. Follow the steps below:\n\nCreate a Free Account.\nChoose the appropriate Actor from the Apify search.  \nUnder the Integration tab, click on “Use API endpoints.”  \nSelect the API that best suits your needs.  \n",
+  "totalViews": 8164,
+  "source": "official",
+  "user": {
+    "id": 92459,
+    "name": "Ahmed Alnaqa",
+    "username": "ahmedalnaqa",
+    "bio": "21+ years in IT across Education, Manufacturing, Telecom, and Banking. I’ve built innovative solutions and now focus on cloud-based Data Engineering and AI. Discovering n8n revolutionized my workflow—its power, flexibility, and open-source nature enable seamless integrations and scalable workflows. I’ve used n8n to automate nearly every process, enhancing productivity and delivering cost-effective, efficient solutions.",
+    "verified": false,
+    "links": "[\"https://www.linkedin.com/in/ahmedelnaqa/\"]",
+    "avatar": "https://gravatar.com/avatar/c6c5bcce4b2b47b09f2d95714dc7a980097e11495515846cd73f016ee879afba?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Summarization Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainSummarization",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-01-16T12:37:51.928Z",
+  "path": "official/template_2736/workflow.json"
+}

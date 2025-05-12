@@ -1,0 +1,32 @@
+{
+  "id": 2037,
+  "name": "Convert image URLs to an uploaded attachment in Airtable",
+  "description": "Super simple workflow to convert image URLs to an uploaded attachment in Airtable.\n\nYou'll need to adjust the field names to match your specific data, including in the filter formula where it says \"Cover image URL\". Just replace that with the field name where you are storing the image URL.",
+  "totalViews": 1431,
+  "source": "official",
+  "user": {
+    "id": 91256,
+    "name": "GiovanniSegar",
+    "username": "giosegar",
+    "bio": null,
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/67b99b53bec68d7b3b7b74ce422cb97ef337c54d1c6c5bf55a6bcdb3ba485d50?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-01-01T22:46:33.822Z",
+  "path": "official/template_2037/workflow.json"
+}

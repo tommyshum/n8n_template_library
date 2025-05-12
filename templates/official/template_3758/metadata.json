@@ -1,0 +1,128 @@
+{
+  "id": 3758,
+  "name": "AI-Personalized Multi-Product Email Outreach with SMTP Rotation (GPT-4o/o3-mini)",
+  "description": "Multi Product AI Email Automation with SMTP Rotation & No-Code Workflow(OpenAI GPT-4o or o3-mini)\n\n🚀 Why This Workflow Matters\nTrue Multi-Offer Campaigns**  \n  Promote any mix of products, services or solutions in one run; no separate workflows needed.\nSMTP Load Balancing**  \n  A Switch node rotates sends across five Gmail/SMTP accounts to spread volume, avoid rate limits and boost deliverability.\nModel Flexibility**  \n  Supports GPT-4o, GPT-3 or OpenAI o3-mini for query generation and email personalization.\nPersonalized Outreach**  \n  The AI reads each prospect’s website, then crafts concise (&lt;200 words) HTML emails tailored to their needs, embedding the right offer and link.\nSEO & Conversion Focus**  \n  Every message uses SEO-smart phrasing, clear hooks and a direct call to action to your specific page.\n\n🛠️ How It Works\nDefine All Offers  \n   In the pinData node, list each product/service with its name, description and URL.  \nSmart Query Generation  \n   The AI builds 100 targeted Google Maps searches per offer to uncover ideal leads.  \nData Extraction  \n   Scrape website content, dedupe URLs and emails, then compile verified email lists.  \nDynamic Email Creation  \n   For each lead, the workflow picks an offer, analyzes their site and generates a personalized HTML email with the correct link.  \nSMTP Rotation & Throttling  \n   A Switch node randomly assigns one of five Gmail/SMTP accounts, then applies a random delay to mimic human sending patterns and manage quotas.\n\n💡 Key Benefits\nScale Effortlessly**: Run thousands of personalized emails daily without manual effort.  \nProtect Sender Reputation**: Distribute sends across multiple accounts and built-in delays.  \nDrive Targeted Traffic**: SEO-optimized outreach that resonates with prospects and points them to the right solution.\n\n📈 Ideal Use Cases\nLaunching multiple products or service lines  \nSeasonal or promotional campaigns  \nAccount-Based Marketing with varied solutions  \nAgencies running outreach for diverse clients\n\n⚙️ Quick Start\nImport the JSON into n8n.  \nConnect your GPT-4o or o3-mini credentials and five Gmail/SMTP accounts.  \nPopulate pinData with all your offers.  \nRun the workflow—let automation build your pipeline.",
+  "totalViews": 262,
+  "source": "official",
+  "user": {
+    "id": 92022,
+    "name": "Badr",
+    "username": "b4dr",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/035184cdd91cc274d7293ceaed93c97d64e57fc49fc4ba8346956a812dc35b3e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-04-27T13:18:00.381Z",
+  "path": "official/template_3758/workflow.json"
+}

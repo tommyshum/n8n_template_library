@@ -1,0 +1,52 @@
+{
+  "id": 3281,
+  "name": "Download and Merge Multiple PDFs from URLs with the CustomJS API",
+  "description": "\nThis n8n template demonstrates how to download multiple PDF files from public URLs and merge them into a single PDF using the PDF Toolkit from www.customjs.space.\n\n@custom-js/n8n-nodes-pdf-toolkit\n\nWhat this workflow does\n\nDefines** an array of PDF URLs.\nSplits** the array to process each URL individually.\nDownloads** each PDF using an HTTP Request.\nMerges** all downloaded PDFs using the Merge PDF node from the @custom-js/n8n-nodes-pdf-toolkit.\nWrites** the final merged PDF to disk.\n\nRequirements\n\nA free CustomJS account.\nAn API Key saved in n8n as credentials of type CustomJS account.\n\nNotice\n\nCommunity nodes can only be installed on self-hosted instances of n8n.\n\nUsage\n\nGet API key from customJS\n\nSign up to customJS platform.\nNavigate to your profile page\nPress \"Show\" button to get API key\n\nSet Credentials for CustomJS API on n8n\n\nCopy and paster your API key generated from CustomJS here.\n\nDesign workflow\n\nA Manual Trigger for starting workflow.\nA code node that returns URLs of PDF files as an array\nSplit Out node for concurrent processing\nHTTP node for downloading PDF file locally\nMerge PDFs node for merging files\nWrite to Disk node for saving merged PDF file.\n\nYou can replace logic for triggering and returning results.\nFor example, you can trigger this workflow by calling a webhook and get a result as a response from webhook. Simply replace Manual Trigger and Write to Disk nodes.\n\nPerfect for\n\nBundling reports or invoices.\nGenerating document sets from external sources.\nAutomating PDF handling without writing custom code.\n",
+  "totalViews": 726,
+  "source": "official",
+  "user": {
+    "id": 93320,
+    "name": "CustomJS",
+    "username": "customjs",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://www.customjs.space\"]",
+    "avatar": "https://gravatar.com/avatar/942ecdadf17761bc7f516b67fb0f3617809720caf8912cfd1815ed2a9f8b9ad3?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-03-21T17:19:55.309Z",
+  "path": "official/template_3281/workflow.json"
+}

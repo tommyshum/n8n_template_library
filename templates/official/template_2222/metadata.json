@@ -1,0 +1,38 @@
+{
+  "id": 2222,
+  "name": "Convert an XML file to JSON via webhook call",
+  "description": "Who this template is for\nThis template is for everyone who needs to work with XML data a lot and wants to convert it to JSON instead.\n\nUse case\nMany products still work with XML files as their main language. Unfortunately, not every software still supports XML, as many switched to more modern storing languages such as JSON. This workflow is designed to handle the conversion of XML data to JSON format via a webhook call, with error handling and Slack notifications integrated into the process. \n\nHow this workflow works\nTriggering the workflow:\n    This workflow initiates upon receiving an HTTP POST request at the webhook endpoint specified in the \"POST\" node. The endpoint, designated as , can be accessed externally by sending a POST request to that URL.\nData routing and processing:\n    Upon receiving the POST request, the Switch node routes the workflow's path based on conditions determined by the content type of the incoming data or any encountered errors.\n    The Extract From File and Edit Fields (Set) nodes manage XML input processing, adapting their actions according to the data's content type.\nXML to JSON conversion:\n    The XML data extracted from the input is passed through the \"XML\" node, which performs the conversion process, transforming it into JSON format.\nResponse handling:\nIf the XML-to-JSON conversion is successful, a success response is sent back with a status of \"OK\" and the converted JSON data.\nIf there are any errors during the XML-to-JSON conversion process, an error response is sent back with a status of \"error\" and an error message.\nError handling: in case of an error during processing, the workflow sends a notification to a Slack channel designated for error reporting.\n\nSet up steps\nSet up your own  in the Webhook node. While building or testing a workflow, use a test webhook URL. When your workflow is ready, switch to using the production webhook URL. \nSet credentials for Slack.",
+  "totalViews": 3560,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-04-09T08:52:33.336Z",
+  "path": "official/template_2222/workflow.json"
+}

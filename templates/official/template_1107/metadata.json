@@ -1,0 +1,41 @@
+{
+  "id": 1107,
+  "name": "Enrich and manage candidates data in Notion",
+  "description": "This workflow allows you to add candidates’ profile assessments to Notion before an interview.\n\nPrerequisites\nAdd an input field on your Calendly Invite page where the candidate can enter their LinkedIn URL.\nCreate credentials for your Calendly account. Follow the steps mentioned in the documentation to learn how to do that.\nCreate credentials for Humantic AI following the steps mentioned here.\nCreate a page on Notion similar to this page.\nCreate credentials for the Notion node by following the steps in the documentation.\n\n\n\nCalendly Trigger node: This node will trigger the workflow when an interview gets scheduled. Make sure to add a field to collect the candidates' LinkedIn URL on your invite page.\n\nHumantic AI: This node uses the LinkedIn URL received by the previous node to create a candidate profile in Humantic AI.\n\nHumantic AI1: This node will analyze the candidates' profile.\n\n\nNotion node: This node will create a new page in Notion using the information from the previous node.",
+  "totalViews": 1608,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Analytics",
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "Humantic AI",
+      "type": "n8n-nodes-base.humanticAi",
+      "categories": [
+        "Analytics"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2021-06-03T08:50:57.191Z",
+  "path": "official/template_1107/workflow.json"
+}

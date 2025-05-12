@@ -1,0 +1,47 @@
+{
+  "id": 1918,
+  "name": "Load data into Snowflake",
+  "description": "This workflow automatically downloads a CSV from the web, and parses it in a format that n8n can access. It then ensures that the data from the CSV is matched to the names of the columns in the database, and inserts this data as new rows in Snowflake.\n\nPrerequisites:\nA CSV with data\nA Snowflake account and credentials\nA Snowflake database to upload your CSV to\n\nNodes:\nA HTTP Request node to download the CSV file\nA Spreadsheet File node to access the data from the CSV\nA Set node to ensure the data from the CSV is mapped to the column names of the Snowflake database\nA Snowflake node to insert these new rows into the database. ",
+  "totalViews": 1522,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Snowflake",
+      "type": "n8n-nodes-base.snowflake",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2023-05-31T08:29:28.111Z",
+  "path": "official/template_1918/workflow.json"
+}

@@ -1,0 +1,68 @@
+{
+  "id": 724,
+  "name": "Manage room members in Matrix",
+  "totalViews": 708,
+  "purchaseUrl": null,
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "description": "",
+  "createdAt": "2020-10-16T14:22:35.707Z",
+  "nodes": [
+    {
+      "id": 378,
+      "icon": "file:matrix.png",
+      "name": "n8n-nodes-base.matrix",
+      "codex": {
+        "data": {
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/how-to-host-virtual-coffee-breaks-with-n8n/",
+                "icon": "☕️",
+                "label": "How to host virtual coffee breaks with n8n"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.matrix/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/matrix/"
+              }
+            ]
+          },
+          "categories": [
+            "Communication"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"output\"]",
+      "defaults": {
+        "name": "Matrix"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAMAAAANIilAAAAAkFBMVEX///8AAAA3Nzfc3NyWlpYMDAzAwMD6+vopKSl1dXUUFBRKSkq0tLT39/cyMjIlJSXU1NS7u7suLi4eHh4GBgbf39/Q0NCkpKSBgYFpaWnKysqysrKcnJyQkJCMjIxUVFRGRkZEREQ2NjYRERHy8vLv7+/t7e3l5eXY2NjDw8O1tbWGhoZZWVlPT086OjoYGBjPH1EBAAAA2UlEQVRIx+3UxxLCIBCA4V0VTaKB9KKm2+v7v51ZczUFZ5xxMvwXlsPHCQCVSiLOnRw6s0qHR/AxXFvTbrywjhFvwT70ty1b8HQAnk0UVhjAPPmBCftZcg1oG6ZpOBzbHqKVICXggO/CoXjOEDNsikWzsrUERpbpGlIT/Ub7pQRmNsDOpUMAYFOvDwlc0HCvkU2Dh6hJYJ2GZY0v9AcYX+KVwr/FdLdjGooabwgzRDEQnx3xjGiIXWHM6Zlx183//jNQeOTYX5g91IRtG648rdsGRoUOqFTj7wXJNQw4Ue/oewAAAABJRU5ErkJggg=="
+      },
+      "displayName": "Matrix",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 6,
+          "name": "Communication"
+        }
+      ]
+    }
+  ]
+}

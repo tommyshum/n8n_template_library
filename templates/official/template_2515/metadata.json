@@ -1,0 +1,38 @@
+{
+  "id": 2515,
+  "name": "Summarize your emails with A.I. (via Openrouter) and send to Line messenger",
+  "description": "Who is this template for?\nAnyone who is drowning in emails\nBusy parents who has alot of school emails\nBusy executives with too many emails\n\nCase Study\nI get too many emails from my kid's school about soccer practice, lunch orders and parent events. I use this workflow to read all the emails and tell me what is important and what requires actioning. \n\nRead more -&gt; How I used A.I. to read all my emails\n\nWhat this workflow does\nIt uses IMAP to read the emails from your email account (i.e. Gmail). \nIt then passes the email to Openrouter.ai and uses a free A.I. model to read and summarize the email. \nIt then sends the summary as a message to your messenger (i.e. Line).\n\nSetup\nYou need to find your email server IMAP credentials. \nInput your openrouter.ai API credentials or replace the HTTP request node with an A.I. node such as OpenAI. \nInput your messenger credentials. I use Line but you can change the node to another messenger line Telegram.\nYou need to change the message ID to your ID inside the http request. You can find your user ID inside the https://developers.line.biz/console/. Change the \"to\": {insert your user ID}.\n\nHow to adjust it to your needs\nYou can change the A.I. prompt to fit your needs by telling it to mark emails from a certain address as important. \nYou can change the A.I. model from the current meta-llama/llama-3.1-70b-instruct:free to a paid model or other free models. \nYou can change the messenger node to telegram or any other messenger app you like.\n\n",
+  "totalViews": 3371,
+  "source": "official",
+  "user": {
+    "id": 92000,
+    "name": "Keith Rumjahn",
+    "username": "rumjahn",
+    "bio": "I create automations with A.I. for SEO content and other smart automations.",
+    "verified": true,
+    "links": "[\"https://rumjahn.com/\"]",
+    "avatar": "https://gravatar.com/avatar/e037c9d6e16284c4cf5149094a1725ed92f76e61813b8f8c32c1b83dcf4f9f4b?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-11-01T07:46:21.338Z",
+  "path": "official/template_2515/workflow.json"
+}

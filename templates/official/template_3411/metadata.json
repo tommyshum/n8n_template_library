@@ -1,0 +1,38 @@
+{
+  "id": 3411,
+  "name": "Generate 360° Virtual Try-on Videos for Clothing with Kling API (unofficial)",
+  "description": "What's the workflow used for？\nLeverage this Kling API (unofficial) provided by PiAPI workflow to streamline virtual try-on video creation. This tool is designed for e-commerce platforms, fashion brands, content creators and content influencers. By uploading model and clothing images and linking PiAPI account, users can swiftly generate a realistic video of the model sporting the outfit with a 360° turn, offering an immersive viewing experience. \n\nStep-by-step Instruction\nFor basic settings of virtual try-on, check API doc to get best practice. \nFill in your X-API-Key of your PiAPI account in Preset Parameters node.\nUpload the model photo and provide target clothing image urls.\nClick Test Workflow to generate virtual try-on image.\nGet the video output in the final node.\n\nParam Settings\nIf you want to change into a dress, input the model_input URL and the dress_input URL in the parameters.\nIf you want to change into separates, input model_input URL, upper_input URL and lower_input URL in Preset Parameters.\n\nUse Case\nInput images：\n\n\n\n\nOutput Video\n\nThe output demonstrates that the model is wearing the clothing from the specified image and showcases a rotating runway-style view.\n\nThis workflow enables you to efficiently test garment-on-model presentation effects while reducing business model validation costs to a certain extent.",
+  "totalViews": 667,
+  "source": "official",
+  "user": {
+    "id": 93303,
+    "name": "PiAPI",
+    "username": "piapi",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4e47cc9f6664191e5fd06db7f9bafc58d224c50104b09e70e20e18a5e94721b7?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-04-03T06:56:12.469Z",
+  "path": "official/template_3411/workflow.json"
+}

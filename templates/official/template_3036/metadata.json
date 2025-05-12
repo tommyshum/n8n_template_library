@@ -1,0 +1,47 @@
+{
+  "id": 3036,
+  "name": "CallForge - 06 - Automate Sales Insights with Gong.io, Notion & AI",
+  "description": "\nCallForge - AI-Powered Sales Call Data Processor  \nAutomate sales call analysis and store structured insights in Notion with AI-powered intelligence.  \n\nWho is This For?  \nThis workflow is ideal for:  \n✅ Sales teams looking to automate call insight processing.  \n✅ Sales operations managers managing AI-driven call analysis.  \n✅ Revenue teams using Gong, Fireflies.ai, Otter.ai, or similar transcription tools.  \n\nIt streamlines sales call intelligence, ensuring that insights such as competitor mentions, objections, and customer pain points are efficiently categorized and stored in Notion for easy access.  \n\n🔍 What Problem Does This Workflow Solve?  \nManually reviewing and documenting sales call takeaways is time-consuming and error-prone.  \n\nWith CallForge, you can:  \n✔ Identify competitors mentioned in sales calls.  \n✔ Capture objections and customer pain points for follow-up.  \n✔ Track sales call outcomes and categorize insights automatically.  \n✔ Store structured sales intelligence in Notion for future reference.  \n✔ Improve sales strategy with AI-driven, automated call analysis.  \n\n📌 Key Features & Workflow Steps  \n\n🎙️ AI-Powered Call Data Processing  \nThis workflow processes AI-generated sales call insights and structures them in Notion databases:  \nTriggers automatically when AI call analysis data is received.  \nExtracts competitor mentions from the call transcript and logs them in Notion.  \nIdentifies and categorizes sales objections for better follow-ups.  \nProcesses integration mentions, capturing tools or platforms referenced in the call.  \nExtracts customer use cases, categorizing pain points and feature requests.  \nAggregates all extracted insights and updates relevant Notion databases.  \n\n📊 Notion Database Integration  \nCompetitors → Logs mentioned competitors for sales intelligence.  \nObjections → Tracks and categorizes common objections from prospects.  \nIntegrations → Captures third-party tools & platforms discussed in calls.  \nUse Cases → Stores customer challenges & product feature requests.  \n\n🛠 How to Set Up This Workflow  \n\n1. Prepare Your AI Call Analysis Data  \nEnsure AI-generated sales call data is passed into the workflow.  \nCompatible with Gong, Fireflies.ai, Otter.ai, and other AI transcription tools.  \n\n2. Connect Your Notion Database  \nSet up Notion databases for:  \n  🔹 Competitors (tracks competing products)  \n  🔹 Objections (logs customer objections & concerns)  \n  🔹 Integrations (captures mentioned platforms & tools)  \n  🔹 Use Cases (categorizes customer pain points & feature requests)  \n\n3. Configure n8n API Integrations  \nConnect your Notion API key** in n8n under “Notion API Credentials.”  \nSet up webhook triggers** to receive data from your AI transcription tool.  \nTest the workflow** using a sample AI-generated call transcript.  \nCallForge - 01 - Filter Gong Calls Synced to Salesforce by Opportunity Stage\nCallForge - 02 - Prep Gong Calls with Sheets & Notion for AI Summarization\nCallForge - 03 - Gong Transcript Processor and Salesforce Enricher\nCallForge - 04 - AI Workflow for Gong.io Sales Calls\nCallForge - 05 - Gong.io Call Analysis with Azure AI & CRM Sync\nCallForge - 06 - Automate Sales Insights with Gong.io, Notion & AI\nCallForge - 07 - AI Marketing Data Processing with Gong & Notion\nCallForge - 08 - AI Product Insights from Sales Calls with Notion\n\n🔧 How to Customize This Workflow  \n💡 Modify Notion Data Structure – Adjust fields to match your company’s CRM setup.  \n💡 Enhance AI Data Processing – Align fields with different AI transcription providers.  \n💡 Expand with CRM Integration – Sync insights with HubSpot, Salesforce, or Pipedrive.  \n💡 Add Notifications – Send alerts via Slack, email, or webhook when key competitor mentions or objections are detected.  \n\n⚙️ Key Nodes Used in This Workflow  \n\n🔹 If Nodes – Checks if AI-generated data includes competitors, integrations, objections, or use cases.  \n🔹 Notion Nodes – Creates or updates entries in Notion databases.  \n🔹 Split Out & Aggregate Nodes – Processes multiple insights and consolidates AI outputs.  \n🔹 Wait Nodes – Ensures smooth sequencing of API calls and database updates.  \n🔹 HTTP Request Node – Sends AI-extracted insights to Notion for structured storage.  \n\n🚀 Why Use This Workflow?  \n✔ Eliminates manual data entry and speeds up sales intelligence processing.  \n✔ Ensures structured and categorized sales insights for decision-making.  \n✔ Improves team collaboration with AI-powered competitor tracking & objections logging.  \n✔ Seamlessly integrates with Notion to centralize and manage sales call insights.  \n✔ Scalable for teams using n8n Cloud or self-hosted deployments.  \n\nThis workflow empowers sales teams with automated AI insights, streamlining sales strategy and follow-ups with minimal effort. 🚀  \n",
+  "totalViews": 1229,
+  "source": "official",
+  "user": {
+    "id": 16588,
+    "name": "Angel Menendez",
+    "username": "djangelic",
+    "bio": "Angel Menendez is a Staff Developer Advocate at n8n.io, specializing in low-code tools for cybersecurity workflows. From Puerto Rico, Angel's tech journey began by helping his father translate technical books. He later started a web development business and transitioned from a career as a flight attendant to cybersecurity engineering. His workflows have saved companies significant time. Outside work, Angel enjoys time with his two sons, riding electric bikes, reading, and exploring new places.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/fdbe38425d21378d8c9ba8916e1eb0b320add299f12cc23fcd4961d4e6e00bec?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-02-28T06:45:03.536Z",
+  "path": "official/template_3036/workflow.json"
+}

@@ -1,0 +1,29 @@
+# Logs
+logs
+template-tools/logs
+*.log
+
+# Temporary files
+api_response.json
+sample.json
+test_workflow.json
+
+# Test files (can be excluded if not needed for documentation)
+test_*.js
+!test_n8n_templates.js
+*_test.js
+
+# Deployment specific files
+n8n_template_library_deploy_gcp.bat
+n8n_template_library_deploy_github.bat
+n8n_template_library_deploy_github.sh
+*_deploy_*.bat
+*_deploy_*.sh
+
+# Node.js
+node_modules/
+npm-debug.log
+
+# Deployment directories
+n8n-template-library-deploy-*
+n8n-template-library-github-*

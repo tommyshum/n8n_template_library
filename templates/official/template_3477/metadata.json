@@ -1,0 +1,59 @@
+{
+  "id": 3477,
+  "name": "Automated LinkedIn Profile Discovery with Airtop and Google Search",
+  "description": "About The LinkedIn Profile Discovery Automation\n\nAre you tired of manually searching for LinkedIn profiles or paying expensive data providers for often outdated information? If you spend countless hours trying to find accurate LinkedIn URLs for your prospects or candidates, this automation will change your workflow forever. Just give this workflow the information you have about a contact, and it will automatically augment it with a LinkedIn profile.\n\nHow to find a LinkedIn Profile Link\n\nIn this guide, you'll learn how to automate LinkedIn profile link discovery using Airtop's built-in node in n8n. Using this automation, you'll have a fully automated workflow that saves you hours of manual searching while providing accurate, validated LinkedIn URLs.\n\nWhat You'll Need\n\nA free Airtop API key\nA Google Workspace account. If you have a Gmail account, you’re all set\nEstimated setup time: 10 minutes\n\nUnderstanding the Process\n\nThis automation leverages the power of intelligent search algorithms combined with LinkedIn validation to ensure accuracy. Here's how it works:\n\nTakes your input data (name, company, etc.) and constructs intelligent search queries\nUtilizes Google search to identify potential LinkedIn profile URLs\nValidates the discovered URLs directly against LinkedIn to ensure accuracy\nReturns confirmed, accurate LinkedIn profile URLs\n\nSetting Up Your Automation\n\nGetting started with this automation is straightforward:\n\nPrepare Your Google Sheet\n\nCreate a new Google Sheet with columns for input data (name, company, domain, etc.)\nAdd columns for the output LinkedIn URL and validation status (see this example)\n\nConfigure the Automation\n\nConnect your Google Workspace account to n8n if you haven't already\nAdd your Airtop API credentials\n(Optionally) Configure your Airtop Profile and sign-in to LinkedIn in order to validate profile URL's\n\nRun Your First Test\n\nAdd a few test entries to your Google Sheet\nRun the workflow\nCheck the results in your output columns\n\nCustomization Options\n\nWhile the default setup uses Google Sheets, this automation is highly flexible:\n\nWebhook Integration**: Perfect for integrating with tools like Clay, Instantly, or your custom applications\nAlternatives**: Replace Google Sheets with Airtable, Notion, or any other tools you already use for more robust database capabilities\nCustom Output Formatting**: Modify the output structure to match your existing systems\nBatch Processing**: Configure for bulk processing of multiple profiles\n\nReal-World Applications\n\nThis automation has the potential to transform how we organizations handle profile enrichment.\n\nRecruiting Firm Success Story\n\nWith this automation, a recruiting firm could save hundreds of dollars a month in data enrichment fees, achieve better accuracy, and eliminate subscription costs. They would also be able to process thousands of profiles weekly with near-perfect accuracy.\n\nSales Team Integration\n\nA B2B sales team could integrate this automation with their CRM, automatically enriching new leads with validated LinkedIn profiles and saving their SDRs hours per week on manual research.\n\nBest Practices\n\nTo maximize the accuracy of your results:\n\nAlways include company information (domain or company name) with your search queries\nUse full names rather than nicknames or initials when possible\nConsider including location data for more accurate results with common names\nImplement rate limiting to respect LinkedIn's usage guidelines\nKeep your input data clean and standardized for best results\nUse the integrated proxy to navigate more effectively through Google and LinkedIn\n\nWhat's Next?\n\nNow that you've automated LinkedIn profile discovery, consider exploring related automations:\n\nAutomated lead scoring based on LinkedIn profile data\nEmail finder automation using validated LinkedIn profiles\nIntegration with your CRM for automated contact enrichment\n",
+  "totalViews": 7035,
+  "source": "official",
+  "user": {
+    "id": 93583,
+    "name": "Airtop",
+    "username": "cesar-at-airtop",
+    "bio": "Airtop provides an intelligent browser automation API for AI agents, enabling seamless web interaction, including login, navigation, and data extraction from any site, even those with complex authentication - all with  natural language instructions.In simple terms, we allow you to automate anything humans can do online, on any site with just words",
+    "verified": true,
+    "links": "[\"https://www.airtop.ai/\"]",
+    "avatar": "https://gravatar.com/avatar/d5894c2c744b03ab0766a6d1846484ea7cc1a19e57310afad70044183766dbf4?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Airtop",
+      "type": "n8n-nodes-base.airtop",
+      "categories": [
+        "Productivity",
+        "Development"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-04-08T17:36:04.378Z",
+  "path": "official/template_3477/workflow.json"
+}

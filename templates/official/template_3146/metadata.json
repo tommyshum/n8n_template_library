@@ -1,0 +1,61 @@
+{
+  "id": 3146,
+  "name": "Download TikTok Videos without Watermarks and Upload to Google Drive",
+  "description": "Who is this for?\nContent creators, social media managers, digital marketers, and researchers who need to download original TikTok videos without watermarks for analysis, repurposing, or archiving purposes.\n\nWhat problem does this workflow solve?\nDownloading TikTok videos without watermarks typically requires using questionable third-party websites that may have limitations, ads, or privacy concerns. This workflow provides a clean, automated solution that can be integrated into your own systems and processes.\n\nWhat this workflow does\nThis workflow automates the process of downloading TikTok videos without watermarks in three simple steps:\n\nFetch the TikTok video page by providing the video URL\nExtract the raw video URL from the page's HTML data\nDownload the original video file without watermark\n(Optional) Upload to Google Drive with public sharing link generation\n\nThe workflow uses web scraping techniques to extract the original video source directly from TikTok's own servers, maintaining the highest possible quality without any added watermarks or branding.\n\nSetup (Est. time: 5-10 minutes)\nBefore getting started, you'll need:\nn8n installation\nThe URL of a TikTok you want to download\n(Optional) Google Drive API enabled in Google Cloud Console with OAuth Client ID and Client Secret credentials if you want to use the upload feature\n\nHow to customize this workflow to your needs\nReplace the example TikTok URL with your desired video links\nModify the file naming convention for downloaded videos\nIntegrate with other nodes to process videos after downloading\nCreate a webhook to trigger the workflow from external applications\nSet up a schedule to regularly download videos from specific accounts\n\nThis workflow can be extended to support various use cases like trending content analysis, competitor research, creating compilation videos, or building a content library for inspiration. It provides a foundation that can be customized to fit into larger automated workflows for content creation and social media management.",
+  "totalViews": 9163,
+  "source": "official",
+  "user": {
+    "id": 93059,
+    "name": "Cameron Wills",
+    "username": "camerondwills",
+    "bio": "Vibe code and chill",
+    "verified": false,
+    "links": "[\"https://x.com/CameronDWills\"]",
+    "avatar": "https://gravatar.com/avatar/0e30a06479dd5ec16de3c5fd1304920cc946fda1370eccf2b06106ed2fc6a899?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-03-12T19:10:36.178Z",
+  "path": "official/template_3146/workflow.json"
+}

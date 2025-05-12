@@ -1,0 +1,86 @@
+{
+  "id": 3538,
+  "name": "Create AI News Videos with HeyGen Avatars and Auto-Post to Social Media",
+  "description": "Automatically generate short AI avatar videos based on trending news, then post them across social media platforms—fully automated using n8n, HeyGen, ChatGPT, and Blotato.\n\nTools & Services Used:\n\nn8n (Self-hosted required due to Community Nodes)\nHeyGen (for creating AI avatar videos)\nOpenAI (for script and caption generation)\nBlotato (for social media distribution)\nHacker News (for sourcing trending articles)\n\nWorkflow Overview:\n\nThis automation performs the following steps:\n\nFetches trending news from Hacker News\nGenerates a short script using ChatGPT\nCreates an AI avatar video with HeyGen\nGenerates platform-specific captions\nPosts the content across social media with Blotato\n\nPrerequisites:\n\nMake sure you have active accounts and API keys for:\n\nHeyGen\nOpenAI\nBlotato\n\nHow to Use This Template\n\nStep 1: Import the Template\n\nOpen your self-hosted n8n instance  \nGo to \"Workflows\" &gt; \"Create Workflow\"  \nClick the three dots (…) &gt; \"Import from File\"  \nUpload the downloaded JSON file  \n\nStep 2: Configure API Keys\n\nOnly two nodes need customization:\n\nSetup HeyGen: Add your HeyGen API key, avatar ID, and voice ID\nPrepare for Publish: Add your Blotato API key, account IDs, and page IDs\n\nOptional platforms like Pinterest and Bluesky are already disabled by default.\n\nFinding Your HeyGen Avatar & Voice IDs\nTo customize the AI avatar video:\n\nLog into your HeyGen Dashboard\n\nNavigate to \"Avatars\" → choose or create an avatar → copy the Avatar ID\n\nNavigate to \"Voices\" → select a preferred voice → copy the Voice ID\n\nYou can upload a custom avatar or voice if you have access to those features in your plan\n\nThis allows you to align the video style with your brand’s tone and personality.\n\nInitial Test Run\n\nFor your first run:\n\nShorten the AI script in the prompt to 5 seconds\nEnable only one social media platform\nAdjust the wait time to 2 minutes to speed up testing\nVerify that the video is created and successfully posted\n\nOnce successful, enable more platforms and scale your automation.\n\nWorkflow Diagram:\n\nUse Cases\n\nBusiness owners automating daily content\nCreators scaling short-form video production\nFreelancers offering automation as a service\nAnyone building an AI-driven media workflow\n\nDisclaimer\nThis workflow uses Community Nodes, which only function on self-hosted n8n instances.\nThis workflow may not work on n8n Cloud without some modifications.\n\n",
+  "totalViews": 517,
+  "source": "official",
+  "user": {
+    "id": 93760,
+    "name": "Sam Yassine",
+    "username": "samyassine",
+    "bio": "AI Automation Expert | n8n Wizard | Workflow Simplifier\nI turn complex processes into powerful automations using n8n. Whether you're scaling your business or saving hours of manual work, I've got plug-and-play templates that bring AI and automation together—fast, smart, and easy. Let’s make your systems work for you.\n",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/67be1e8f23ec65c1d212eee41b1e7d7da3fb35b29f7e5957e738c2aaadf3b098?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-04-13T10:19:03.143Z",
+  "path": "official/template_3538/workflow.json"
+}

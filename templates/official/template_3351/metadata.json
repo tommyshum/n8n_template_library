@@ -1,0 +1,87 @@
+{
+  "id": 3351,
+  "name": "Automated Discord Spam Moderation with AI and Human-in-the-Loop",
+  "description": "This n8n template demonstrates how you can automate community moderation using human-in-the-loop functionality for Discord.\n\nThe use-case is for detecting and dealing with spam messages in a predefined and consistent way. Human-in-the-loop allows for a balance between overly aggressive bots and time and effort from the moderation team.\n\nHow it works\nA scheduled trigger is used to scan the most recent messages in a Discord Channel. Messages are tagged via the \"Remove Duplicates\" node so they don't get processed again in the future.\nMessages are grouped by user to allow for minimising of number of notifications sent.\nAn AI text classifier node is then used to detect for spam in each user's message.\nWhen detected, a notification is sent to a moderation channel using the Send-and-wait mode for Discord. This notification comes with an n8n form and dropdown list of predefined actions to take in dealing with the spam messages. Once sent the workflow waits until a response is received.\nOnce a moderator selects an action, the workflow continues and carries out a predefined moderation action.\n\nHow to use\nDepending on how busy your community is and subject to spammers, you may need to increase the scheduled interval.\nAdd as many or few moderation actions as required.\nRemember to activate the workflow to  get it started.\n\nRequirements\nDiscord channel for messages to moderate\nOpenAI for text classification\n\nCustomising this template\nIt is possible to cover multiple channels. Add as many as your community needs.\nNot using Discord. The template can also work in slack or other services which offer the same bot functionality.",
+  "totalViews": 69,
+  "source": "official",
+  "user": {
+    "id": 91804,
+    "name": "Jimleuk",
+    "username": "jimleuk",
+    "bio": "Freelance consultant based in the UK specialising in AI-powered automations. I work with select clients tackling their most challenging projects. For business enquiries, send me an email at hello@jimle.uk\n\nLinkedIn: https://www.linkedin.com/in/jimleuk/\nX/Twitter: https://x.com/jimle_uk",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4ab99e51473df76838beeaac908747f7928c625f869794815cabe34016967d51?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Discord",
+      "type": "n8n-nodes-base.discord",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Text Classifier",
+      "type": "@n8n/n8n-nodes-langchain.textClassifier",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-03-29T15:35:52.637Z",
+  "path": "official/template_3351/workflow.json"
+}

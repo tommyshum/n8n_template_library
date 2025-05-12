@@ -1,0 +1,38 @@
+{
+  "id": 2609,
+  "name": "Automatically Correct Wrong Shipping Addresses in Billbee Orders",
+  "description": "Address Validation Workflow\n\nAbout\nThis workflow automates the process of validating and correcting client shipping addresses in Billbee, ensuring accurate delivery information. It's ideal for e-commerce businesses looking to save time and reduce errors in their order fulfillment process. The workflow uses Billbee, an order management platform for small to medium-sized online retailers, and the Endereco API for address validation.\n\nWho Is This For?\nE-Commerce Businesses**: Streamline order fulfillment by automatically correcting common shipping address errors.\nWarehouse Teams**: Reduce manual work and ensure packages are shipped to the correct address.\nSmall to Medium-Sized Retailers**: Businesses using Billbee to manage orders and requiring efficient, automated solutions for address validation.\n\nHow it Works\nTrigger: Workflow starts via a Billbee Webhook when an order is imported.  \nFetch Data: Retrieve the client's shipping address using the Order ID.  \nValidate Address: Send the address to the Endereco API for validation and correction (e.g., house number errors).  \nConditional Actions:  \n   Valid Address: Update the address in Billbee.  \n   Invalid Address: Tag the order with \"Validation Error.\"  \nTrack Status: Add tags in Billbee for processed orders.\n\nSetup Steps\nAPI Keys: Obtain Billbee Developer/User API Keys and Endereco API Key.  \nBillbee Rule: Create an automation rule:  \n   Trigger: Order imported.  \n   Action: Call External URL with OrderId to trigger n8n workflow.  \nOptional: Use a secondary trigger (e.g., order state changes to \"gepackt\") for manual corrections.\n\nCustomization Options\nFilter Delivery Addresses:  \n   Customize filters to exclude specific delivery types, such as pickup shops (\"Postfiliale,\" \"Paketshop,\" or \"Packstation\").  \n   Filters can be adjusted within Billbee or in the workflow.\n\nError Handling:  \n   Configure additional actions for orders that fail validation, such as notifying your team or flagging orders for manual review.\n\nOrder Tags:  \n   Define custom tags in Billbee to better track order statuses (e.g., \"Address Corrected,\" \"Validation Error\").\n\nTrigger Types:  \n   Use additional triggers such as changes to order states (e.g., \"gepackt\" or \"In Fulfillment\") for manual corrections or validations.\n\nAddress Fields:  \n   Modify the workflow to focus on specific address components, such as postal codes, city names, or country codes.\n\nValidation Rules:  \n   Adjust Endereco API settings or add custom logic to refine validation criteria based on your business needs.\n\nAPI Documentation\nEndereco**: Endereco API Docs  \nBillbee**: Billbee API Docs\n",
+  "totalViews": 432,
+  "source": "official",
+  "user": {
+    "id": 92124,
+    "name": "Simon",
+    "username": "simonfes",
+    "bio": "I am an E-commerce entrepreneur specializing in spare parts, with a strong passion for automation and AI.\n\nI leverage n8n to build complex workflows, integrating tools like SeaTable, Supabase with various E-com platforms. \n\nI'm dedicated to continuously improving workflow processes, particularly in the e-commerce sector.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/602c41571e8b6e23ec9804f20339d7d817476d734532baa8b52326e7b5eab5f3?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-12-05T10:23:11.248Z",
+  "path": "official/template_2609/workflow.json"
+}

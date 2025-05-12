@@ -1,0 +1,59 @@
+{
+  "id": 3479,
+  "name": "Build Lists of Profiles from Any Platform using Airtop and Google Sheets",
+  "description": "About The List Building Automation\n\nThis automation will guide you on how to automate list building using Airtop. You’ll have a streamlined workflow that can reduce your research time by up to 90% while improving the accuracy of your target lists.\n\nHow to automate list building\n\nIt can be challenging to spend too much time on tasks like compiling lists of potential investors, customers, job candidates, industry influencers, or key decision-makers. Verifying contact details often requires significant effort, whether building an outreach list, tracking thought leaders, or researching potential customers. Not anymore. With Airtop's List Building Automation, turn hours of tedious research into clean, reliable and accurate lists, built in just minutes. \n\nCheck this out:\n\nWhat You'll Need\n\nA free Airtop API Key\nTarget audience parameters (persona and which network. i.e. \"AI Influencers on LinkedIn)\nMake a copy of this template to start\n\nUnderstanding the Process\n\nThis automation leverages Airtop's advanced data processing capabilities powered by AI to scan multiple unstructured sources and compile accurate, targeted lists based on your specific requirements. The magic lies in its ability to understand context and verify information across different platforms.\n\nThis workflow:\n Handles multi-source data collection and consolidation\n Manages automatic verification of social profiles and domains\n Automates the filtering and ranking of results based on relevance\n\nSetting Up Your Automation\n\nEnter your search criteria in the \"Parameters\" node:\n    Who: Your target audience (e.g., \"Angel investors in Europe,\" \"Top AI influencers\")\n    Where: The platform or domain to focus on (e.g., \"LinkedIn,\" \"TikTok\") \nConfigure your Airtop API Key\n    Create one for free at the Airtop Portal\n In the last node, select the spreadsheet that you copied earlier\n Run the workflow\n\nCustomization Options\n\nWhile our template works out of the box, you might want to customize it for your specific needs:\n\nAdd custom filtering criteria for more targeted results\nImplement automatic data enrichment from additional sources\nSet up automatic exports to your preferred CRM or database\n\nReal-World Applications\n\nHere's how businesses can use this automation:\n\nA VC firm could use this automation to build a comprehensive EU angel investors database. What previously required their analysts to work 15 hours per week now runs automatically in the background, providing fresh leads daily.\n\nA PR agency could automate its influencer discovery process across multiple platforms, reducing its research time from 10 hours to 30 minutes per client while increasing the relevance of its outreach lists.\n\nBest Practices\n\nTo get the most out of this automation:\n\nStart with specific, well-defined parameters to ensure relevant results\nRegularly update your parameters to keep your lists fresh and relevant\nCombine multiple runs with different parameters for comprehensive coverage\n\nWhat's Next?\n\nNow that you've automated your list building, you might be interested in:\n\nSetting up automated outreach sequences\nCreating dynamic lead scoring systems\nImplementing automatic list updating and maintenance\n\nHappy automating!\n",
+  "totalViews": 1075,
+  "source": "official",
+  "user": {
+    "id": 93583,
+    "name": "Airtop",
+    "username": "cesar-at-airtop",
+    "bio": "Airtop provides an intelligent browser automation API for AI agents, enabling seamless web interaction, including login, navigation, and data extraction from any site, even those with complex authentication - all with  natural language instructions.In simple terms, we allow you to automate anything humans can do online, on any site with just words",
+    "verified": true,
+    "links": "[\"https://www.airtop.ai/\"]",
+    "avatar": "https://gravatar.com/avatar/d5894c2c744b03ab0766a6d1846484ea7cc1a19e57310afad70044183766dbf4?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Airtop",
+      "type": "n8n-nodes-base.airtop",
+      "categories": [
+        "Productivity",
+        "Development"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-04-08T17:50:38.487Z",
+  "path": "official/template_3479/workflow.json"
+}

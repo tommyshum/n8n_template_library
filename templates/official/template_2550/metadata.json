@@ -1,0 +1,65 @@
+{
+  "id": 2550,
+  "name": "Waitlist Form Stored in GoogleSheet with Email Verification Step",
+  "description": "Instructions\n\nThis automation streamlines the process of collecting user information using a Form Node, enabling individuals to join a waitlist managed via Google Sheets.\n\nIt also generates a verification code, prompting users to input this code in the Second Form Step. If the code is _nvalid, the workflow keeps the user in a verification loop until a valid code is entered.\n\nOnce a valid code is provided, the workflow proceeds to the final step, where additional information can be collected.\n\nAll entered data and intermediate states are securely stored in the Google Sheet.\n\nStructure of the GoogleSheet\n\nFirstname | Lastname | Email | Company | Verification-Code | Verified | Intended Use\nMarcel | Claus-Ahrens | foo[at]bar| foobar | abc123 | TRUE | Just testing\n\nSetup\n\nSet Up a Google Sheet: Create a Google Sheet with the specified columns, or customize them to suit your needs.\nVerify the \"Send Mail\" Node: Ensure your \"Send Mail\" node is functional, or replace it with another email-sending node.\nCustomize Texts and Fields: Update email content, form texts, and form fields to align with your specific use case.\nDone!\n\n  \nEnjoy the workflow! ❤️  \nlet the workf low — Workflow Automation & Development",
+  "totalViews": 1660,
+  "source": "official",
+  "user": {
+    "id": 91823,
+    "name": "Marcel Claus-Ahrens",
+    "username": "geckse",
+    "bio": "Hey 👋 I'm an Automation Expert with a passion for AI workflow automations and AI agents in general. Coming from a software background, I bring the necessary hard skills but love using NoCode to get the job done faster – hence n8n.",
+    "verified": true,
+    "links": "[\"https://let-the-work-flow.com\"]",
+    "avatar": "https://gravatar.com/avatar/4765e05c5f4cdab88efcfd24b9c464910cea34e6121d350b452dd166cbc27abb?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Core Nodes",
+    "Data & Storage",
+    "Productivity",
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "categories": [
+        "Communication",
+        "HITL",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Crypto",
+      "type": "n8n-nodes-base.crypto",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-11-15T20:38:32.392Z",
+  "path": "official/template_2550/workflow.json"
+}

@@ -1,0 +1,79 @@
+{
+  "id": 2665,
+  "name": "Analyze Suspicious Email Contents with ChatGPT Vision",
+  "description": "Phishing Email Detection and Reporting with n8n\n\nWho is this for?\nThis workflow is designed for IT teams, security professionals, and managed service providers (MSPs) looking to automate the process of detecting, analyzing, and reporting phishing emails.\n\nWhat problem is this workflow solving?\nPhishing emails are a significant cybersecurity threat, and manually detecting and reporting them is time-consuming and prone to errors. This workflow streamlines the process by automating email analysis, generating detailed reports, and logging incidents in a centralized system like Jira.\n\nWhat this workflow does\nThis workflow automates phishing email detection and reporting by integrating Gmail and Microsoft Outlook email triggers, analyzing the content and headers of incoming emails, and generating Jira tickets for flagged phishing emails. Here’s what happens:\n\nEmail Triggers: Captures incoming emails from Gmail or Microsoft Outlook.\nEmail Analysis: Extracts email content, headers, and metadata for analysis.\nHTML Screenshot: Converts the email’s HTML body into a visual screenshot.\nAI Phishing Detection: Leverages ChatGPT to analyze the email and detect potential phishing indicators.\nJira Integration: Automatically creates a Jira ticket with detailed analysis and attaches the email screenshot for review by the security team.\nCustomizable Reports: Includes options to customize ticket descriptions and adapt the workflow to organizational needs.\n\nSetup\nAuthentication: Set up Gmail and Microsoft Outlook OAuth credentials in n8n to access your email accounts securely.\nAPI Keys: Add API credentials for the HTML screenshot service (hcti.io) and ChatGPT.\nJira Integration: Configure your Jira project and issue types in the workflow.\nWorkflow Configuration: Update sticky notes and nodes to include any additional setup or configuration details unique to your system.\n\nHow to customize this workflow to your needs\nEmail Filters**: Modify email triggers to filter specific subjects or sender addresses.\nAnalysis Scope**: Adjust the ChatGPT prompt to refine phishing detection logic.\nIntegration**: Replace Jira with your preferred ticketing system or modify the ticket fields to include additional information.\n\nThis workflow provides an end-to-end automated solution for phishing email management, enhancing efficiency and reducing security risks. It’s perfect for teams looking to minimize manual effort and improve incident response times.",
+  "totalViews": 3015,
+  "source": "official",
+  "user": {
+    "id": 16588,
+    "name": "Angel Menendez",
+    "username": "djangelic",
+    "bio": "Angel Menendez is a Staff Developer Advocate at n8n.io, specializing in low-code tools for cybersecurity workflows. From Puerto Rico, Angel's tech journey began by helping his father translate technical books. He later started a web development business and transitioned from a career as a flight attendant to cybersecurity engineering. His workflows have saved companies significant time. Outside work, Angel enjoys time with his two sons, riding electric bikes, reading, and exploring new places.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/fdbe38425d21378d8c9ba8916e1eb0b320add299f12cc23fcd4961d4e6e00bec?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Productivity",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Jira Software",
+      "type": "n8n-nodes-base.jira",
+      "categories": [
+        "Development",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2024-12-20T23:00:52.354Z",
+  "path": "official/template_2665/workflow.json"
+}

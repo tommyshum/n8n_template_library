@@ -1,0 +1,161 @@
+{
+  "id": 2667,
+  "name": "⚡Auto Workflow Positioning !",
+  "description": "Check Online Version !\n[https://n8n-tools.streamlit.app/](https://n8n-tools.streamlit.app/\n)\nWho is it for?  \nThis workflow is perfect for n8n users who want to maintain clean and organized workflows without manually repositioning nodes.\n\nWhether you're building complex workflows or sharing them with a team, maintaining visual clarity is essential for efficiency and collaboration.\n\nThis template automates the positioning process, saving time and ensuring consistent layout standards.\n\nHow does it work?  \nThe template is divided into two parts:  \n\nPositioning Engine:  \n   A webhook node kicks off the process by receiving a workflow ID.  \n   Using the provided workflow ID, an n8n API node fetches the workflow details.  \n   The fetched workflow is sent to a processing webhook that calculates optimized positions for the nodes.  \n   Finally, an n8n API node updates the workflow with the newly positioned nodes, ensuring a clean and professional layout.  \n\nReusable Positioning Block:  \n   This is an HTTP Request node that can be seamlessly integrated into any workflow you create. When triggered, it sends the current workflow for automatic positioning via the first part of this template.  \n\nHow to set it up?  \n\nEnable n8n API Access:  \n   Ensure that your n8n instance has API access enabled with the appropriate credentials.  \n\nInput Your n8n API URL and Credentials:  \n   Open the template, locate the n8n API nodes, and update them with your instance API key.\n   Update the URL of the 'Magic Positioning' Http Request node to point to your n8n instance webhook URL.\n\nEmbed the Reusable Block:  \n   Add the provided HTTP Request node to any of your workflows to instantly connect to the auto-positioning engine.",
+  "totalViews": 2010,
+  "source": "official",
+  "user": {
+    "id": 91332,
+    "name": "Lucas Peyrin",
+    "username": "lucaspeyrin",
+    "bio": "Innovative builder with a passion for crafting automation solutions that solve real-world challenges. From streamlining workflows to driving efficiency, my work empowers teams and individuals to achieve more with less effort. Experienced in developing scalable tools and strategies that deliver results.",
+    "verified": false,
+    "links": "[\"https://n8n.partnerlinks.io/g3yh568uv03t\"]",
+    "avatar": "https://gravatar.com/avatar/74234187cf4a650d53f6a86e7b03d1bcb8cfef4cbd0552eabd8d966cd808cc54?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Question and Answer Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainRetrievalQa",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Vector Store Retriever",
+      "type": "@n8n/n8n-nodes-langchain.retrieverVectorStore",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Retrievers"
+        ]
+      }
+    },
+    {
+      "name": "Simple Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreInMemory",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 9,
+  "createdAt": "2024-12-21T21:35:21.612Z",
+  "path": "official/template_2667/workflow.json"
+}

@@ -1,0 +1,171 @@
+{
+  "id": 2504,
+  "name": "WordPress -  AI Chatbot to enhance user experience - with Supabase and OpenAI",
+  "description": "This is the first version of a template for a RAG/GenAI App using WordPress content.\n\nAs creating, sharing, and improving templates brings me joy 😄, feel free to reach out on LinkedIn if you have any ideas to enhance this template!\n\nHow It Works\n\nThis template includes three workflows:\n\nWorkflow 1**: Generate embeddings for your WordPress posts and pages, then store them in the Supabase vector store.\nWorkflow 2**: Handle upserts for WordPress content when edits are made.\nWorkflow 3**: Enable chat functionality by performing Retrieval-Augmented Generation (RAG) on the embedded documents.\n\nWhy use this template?\n\nThis template can be applied to various use cases:\n\nBuild a GenAI application that requires embedded documents from your website's content.\nEmbed or create a chatbot page on your website to enhance user experience as visitors search for information.\nGain insights into the types of questions visitors are asking on your website.\nSimplify content management by asking the AI for related content ideas or checking if similar content already exists. Useful for internal linking.\n\nPrerequisites\nAccess to Supabase for storing embeddings.\nBasic knowledge of Postgres and pgvector.\nA WordPress website with content to be embedded.\nAn OpenAI API key\nEnsure that your n8n workflow, Supabase instance, and WordPress website are set to the same timezone (or use GMT) for consistency.\n\nWorkflow 1 : Initial Embedding\n\nThis workflow retrieves your WordPress pages and posts, generates embeddings from the content, and stores them in Supabase using pgvector.\n\nStep 0 : Create Supabase tables\n\nNodes : \nPostgres - Create Documents Table: This table is structured to support OpenAI embedding models with 1536 dimensions\nPostgres - Create Workflow Execution History Table\n\nThese two nodes create tables in Supabase:\n\nThe documents table, which stores embeddings of your website content.\nThe n8n_website_embedding_histories table, which logs workflow executions for efficient management of upserts. This table tracks the workflow execution ID and execution timestamp.\n\nStep 1 : Retrieve and Merge WordPress Pages and Posts\n\nNodes :\nWordPress - Get All Posts\nWordPress - Get All Pages\nMerge WordPress Posts and Pages\n\nThese three nodes retrieve all content and metadata from your posts and pages and merge them. \nImportant: ** **Apply filters to avoid generating embeddings for all site content.\n\nStep 2 : Set Fields, Apply Filter, and Transform HTML to Markdown\n\nNodes :\nSet Fields\nFilter - Only Published & Unprotected Content\nHTML to Markdown\n\nThese three nodes prepare the content for embedding by:\n\nSetting up the necessary fields for content embeddings and document metadata.\nFiltering to include only published and unprotected content (protected=false), ensuring private or unpublished content is excluded from your GenAI application.\nConverting HTML to Markdown, which enhances performance and relevance in Retrieval-Augmented Generation (RAG) by optimizing document embeddings.\n\nStep 3: Generate Embeddings, Store Documents in Supabase, and Log Workflow Execution\n\nNodes:\nSupabase Vector Store\n  Sub-nodes:\n    Embeddings OpenAI\n    Default Data Loader\n    Token Splitter\n    Aggregate\nSupabase - Store Workflow Execution\n\nThis step involves generating embeddings for the content and storing it in Supabase, followed by logging the workflow execution details.\n\nGenerate Embeddings: The Embeddings OpenAI node generates vector embeddings for the content.\nLoad Data: The Default Data Loader prepares the content for embedding storage. The metadata stored includes the content title, publication date, modification date, URL, and ID, which is essential for managing upserts. \n\n\n⚠️ Important Note : Be cautious not to store any sensitive information in metadata fields, as this information will be accessible to the AI and may appear in user-facing answers.\n\nToken Management: The Token Splitter ensures that content is segmented into manageable sizes to comply with token limits.\nAggregate: Ensure the last node is run only for 1 item.\nStore Execution Details: The Supabase - Store Workflow Execution node saves the workflow execution ID and timestamp, enabling tracking of when each content update was processed.\n\nThis setup ensures that content embeddings are stored in Supabase for use in downstream applications, while workflow execution details are logged for consistency and version tracking.\n\nThis workflow should be executed only once for the initial embedding. \nWorkflow 2, described below, will handle all future upserts, ensuring that new or updated content is embedded as needed.\n\nWorkflow 2: Handle document upserts\n\nContent on a website follows a lifecycle—it may be updated, new content might be added, or, at times, content may be deleted. \n\nIn this first version of the template, the upsert workflow manages:\nNewly added content**\nUpdated content**\n\nStep 1: Retrieve WordPress Content with Regular CRON\n\nNodes:\nCRON - Every 30 Seconds\nPostgres - Get Last Workflow Execution\nWordPress - Get Posts Modified After Last Workflow Execution\nWordPress - Get Pages Modified After Last Workflow Execution\nMerge Retrieved WordPress Posts and Pages\n\nA CRON job (set to run every 30 seconds in this template, but you can adjust it as needed) initiates the workflow. A Postgres SQL query on the n8n_website_embedding_histories table retrieves the timestamp of the latest workflow execution.\n\nNext, the HTTP nodes use the WordPress API (update the example URL in the template with your own website’s URL and add your WordPress credentials) to request all posts and pages modified after the last workflow execution date. This process captures both newly added and recently updated content. The retrieved content is then merged for further processing.\n\nStep 2 : Set fields, use filter\n\nNodes :\nSet fields2\nFilter - Only published and unprotected content\n\nThe same that Step 2 in Workflow 1, except that HTML To Makrdown is used in further Step.\n\nStep 3: Loop Over Items to Identify and Route Updated vs. Newly Added Content\n\n\nHere, I initially aimed to use 'update documents' instead of the delete + insert approach, but encountered challenges, especially with updating both content and metadata columns together. Any help or suggestions are welcome! :)\n\n\nNodes:\nLoop Over Items\nPostgres - Filter on Existing Documents\nSwitch\n\n  Route existing_documents (if documents with matching IDs are found in metadata):\n    Supabase - Delete Row if Document Exists: Removes any existing entry for the document, preparing for an update.\n    Aggregate2: Used to aggregate documents on Supabase with ID to ensure that Set Fields3 is executed only once for each WordPress content to avoid duplicate execution.\n    Set Fields3: Sets fields required for embedding updates.\n    \n  Route new_documents (if no matching documents are found with IDs in metadata):\n    Set Fields4: Configures fields for embedding newly added content.\n\n\nIn this step, a loop processes each item, directing it based on whether the document already exists. The Aggregate2 node acts as a control to ensure Set Fields3 runs only once per WordPress content, effectively avoiding duplicate execution and optimizing the update process.\n\nStep 4 : HTML to Markdown, Supabase Vector Store, Update Workflow Execution Table\n\nThe HTML to Markdown node mirrors Workflow 1 - Step 2. Refer to that section for a detailed explanation on how HTML content is converted to Markdown for improved embedding performance and relevance.\n\nFollowing this, the content is stored in the Supabase vector store to manage embeddings efficiently. Lastly, the workflow execution table is updated. These nodes mirros the **Workflow 1 - Step 3 nodes.\n\nWorkflow 3 : An example of GenAI App with Wordpress Content : Chatbot to be embed on your website\n\nStep 1: Retrieve Supabase Documents, Aggregate, and Set Fields After a Chat Input\n\nNodes:\nWhen Chat Message Received\nSupabase - Retrieve Documents from Chat Input\nEmbeddings OpenAI1\nAggregate Documents\nSet Fields\n\n\nWhen a user sends a message to the chat, the prompt (user question) is sent to the Supabase vector store retriever. The RPC function match_documents (created in Workflow 1 - Step 0) retrieves documents relevant to the user’s question, enabling a more accurate and relevant response.\n\nIn this step:\nThe Supabase vector store retriever fetches documents that match the user’s question, including metadata.\nThe Aggregate Documents node consolidates the retrieved data.\nFinally, Set Fields organizes the data to create a more readable input for the AI agent.\n\nDirectly using the AI agent without these nodes would prevent metadata from being sent to the language model (LLM), but metadata is essential for enhancing the context and accuracy of the AI’s response. By including metadata, the AI’s answers can reference relevant document details, making the interaction more informative.\n\nStep 2: Call AI Agent, Respond to User, and Store Chat Conversation History\n\nNodes:\nAI Agent**\n  Sub-nodes:\n    OpenAI Chat Model\n    Postgres Chat Memories\nRespond to Webhook**\n\nThis step involves calling the AI agent to generate an answer, responding to the user, and storing the conversation history.  The model used is gpt4-o-mini, chosen for its cost-efficiency. ",
+  "totalViews": 9553,
+  "source": "official",
+  "user": {
+    "id": 91734,
+    "name": "Dataki",
+    "username": "dataki",
+    "bio": "I am passionate about transforming complex processes into seamless automations with n8n. My expertise spans across creating ETL pipelines, sales automations, and data & AI-driven workflows. As an avid problem solver, I thrive on optimizing workflows to drive efficiency and innovation.",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/nicolas-aknin/\"]",
+    "avatar": "https://gravatar.com/avatar/0437c659b1ec6916896ebb30cc237391f0e1de89df5465c103e12d2cb12ce42d?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage",
+    "Marketing",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Postgres",
+      "type": "n8n-nodes-base.postgres",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Wordpress",
+      "type": "n8n-nodes-base.wordpress",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Supabase",
+      "type": "n8n-nodes-base.supabase",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Token Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterTokenSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Supabase Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    },
+    {
+      "name": "Postgres Chat Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "Other memories"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 11,
+  "createdAt": "2024-10-28T12:11:32.191Z",
+  "path": "official/template_2504/workflow.json"
+}

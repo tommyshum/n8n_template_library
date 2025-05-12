@@ -1,0 +1,38 @@
+{
+  "id": 3673,
+  "name": "AI-Powered Research Assistant with Perplexity Sonar API",
+  "description": "Name:\nAI-Powered Research Agent using Perplexity Sonar\n\nDescription:\nThis workflow acts as an AI-powered research assistant using the Perplexity Sonar model. When triggered by another workflow, it sends a user-defined prompt to the Perplexity API to retrieve up-to-date search results. The response is then parsed into a clean format for downstream processing.\n\nHow it Works:\nTrigger: Activated from another workflow via Execute Workflow Trigger.\n\nPrompt Setup: Sets a system role message and user query dynamically.\n\nAPI Call: Sends a POST request to Perplexity's /chat/completions endpoint with your credentials.\n\nResponse Handling: Extracts the message content from the API response.\n\nOutput: Returns the result, ready for display or further processing.\n\nRequirements:\nA Perplexity AI API Key\n\nSet up authentication via Header Auth with Bearer token\n\nEnsure your account allows outbound HTTP requests in n8n\n\nCustomization Tips:\nModify the system prompt to suit your research domain\n\nChain this workflow with other automation like blog creation, summaries, etc.\n\nReplace the output handling logic to fit into Google Sheets, Notion, or Telegram\n\n\n",
+  "totalViews": 282,
+  "source": "official",
+  "user": {
+    "id": 94001,
+    "name": "HoangSP",
+    "username": "hoangsp",
+    "bio": "",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/12c9a6d2de8e99344f8dcbe99d48ac81f48d35789e3250604acc461dfaef31bd?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-04-23T13:15:00.750Z",
+  "path": "official/template_3673/workflow.json"
+}

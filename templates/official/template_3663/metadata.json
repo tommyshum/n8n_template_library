@@ -1,0 +1,72 @@
+{
+  "id": 3663,
+  "name": "Business Model Canvas AI-Powered Generator (LLM Flexible)",
+  "description": "👥 Who is this for?\n\nStartup founders validating or pitching new ideas  \nBusiness consultants running strategy sessions  \nProduct teams defining business logic visually  \nAgencies offering planning frameworks to clients  \n\n❓ What problem does this workflow solve?\n\nCreating a Business Model Canvas manually is time-consuming and often scattered across tools. This workflow solves that by allowing users to generate a fully populated, formatted, and printable Business Model Canvas in seconds using the power of AI, all structured in a professional A4 landscape layout.\n\n⚙️ What this workflow does\n\nStarts with a chat input asking for your business idea  \nSends it to 9 separate AI agents, each focused on one section:\n  Key Partners  \n  Key Activities  \n  Value Proposition  \n  Customer Relationships  \n  Customer Segments  \n  Key Resources  \n  Channels  \n  Cost Structure  \n  Revenue Streams  \nUses your preferred LLM (see below) to generate meaningful bullet points  \nConverts output into a specific format  \nMerges all sections into a clean, A4-styled HTML canvas  \nExports the result as a downloadable .html file\n\n🛠️ Setup\n\nImport the workflow into your n8n instance  \nStart the flow from the “When chat message received” node  \nDescribe your business idea when prompted (e.g., “Online bookshop with rare Persian literature”)  \nWait for AI processing to complete  \nVisit the last node “HTML code to HTML file”  \nClick Download to get your final canvas in .html format  \n\n🤖 LLM Flexibility (Choose Your Model)\n\nThis template supports any AI model with a chat interface:\n\nOllama (self-hosted models like LLaMA, etc.)  \nOpenAI (GPT-4, GPT-3.5)  \nAnything with a compatible node\n\nYou can easily change the LLM by updating the Language Model Node.  \nNo need to modify any other logic or formatting.\n\n🧪 How to customize this workflow\n\nChange the LLM** model from the Ollama node to OpenAI, etc.  \nModify the final HTML layout in the “Turn to HTML” node  \nAdd a PDF export, email delivery, or Google Drive sync  \nReplace the chat trigger with a webform, CRM hook, etc.\n\n✅ Requirements\n\nA working LLM integration (Ollama or OpenAI recommended)\nn8n (self-hosted or cloud)\n\n📌 Notes\n\nSticky notes included for setup and instructions  \nEach node clearly named by function (e.g. \"Customer Segments Generator\")  \nDesigned for speed, structure, and professional presentation  \n\n📩 Need help?\n\nFor setup questions, custom features, or LLM integration support, contact:  \nsinamirshafiee@gmail.com\n",
+  "totalViews": 194,
+  "source": "official",
+  "user": {
+    "id": 93945,
+    "name": "Sina",
+    "username": "sina2266",
+    "bio": "Once upon a time (about 11 years ago), I started my coding journey, from Android & iOS apps to backend and even some blockchain magic. I’ve worked with many startups, worn many hats. (I’m also getting my Doctorate degree because… why not?)\n\nI’m new to n8n, but not new to building smart stuff that works.\n\nIf you see something weird in my templates or just want to chat, feel free to message me on LinkedIn or email me at sinamirshafiee@gmail.com.\n\nLet’s automate some chaos! ",
+    "verified": false,
+    "links": "[\"https://www.linkedin.com/in/sina-mirshafiei/\"]",
+    "avatar": "https://gravatar.com/avatar/17c462c1ef539c71d9ef8b9cdfe5535a4e68e71618bac63b0dd9b6048f38ab42?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Ollama Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOllama",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-04-22T20:10:18.366Z",
+  "path": "official/template_3663/workflow.json"
+}

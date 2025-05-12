@@ -1,0 +1,48 @@
+{
+  "id": 3080,
+  "name": "Automatically Update YouTube Video Descriptions with Inserted Text",
+  "description": "Who is this for?\n\nThis workflow is designed for YouTubers who want to update their video descriptions in bulk without manually editing each one. It's especially useful for creators who include a standard set of links in their descriptions and need to insert a new link between existing ones across multiple videos.\nWhat problem does this workflow solve?\n\nManually updating video descriptions for multiple videos can be tedious and time-consuming. If you have a section in your video descriptions that contains important links, adding a new one in a specific position (e.g., between two existing links) can be a challenge. This workflow automates that process, allowing you to insert a specific string between two predefined rows in all of your video descriptions at once.\nWhat this workflow does\n\nFetches all videos from your YouTube channel.\nIterates through each video to retrieve its existing description.\nIdentifies two predefined rows in the description.\nInserts a new row between the two specified rows.\nUpdates the video description with the modified text.\n\nSetup\n\nConnect your YouTube account to n8n and grant necessary permissions.\nDefine your variables in the \"Set String to Insert\" node:\n   rowBefore: The existing row after which the new row will be inserted.\n   rowToInsert: The new text or link to insert.\n   rowAfter: The existing row before which the new row will be inserted.\nRun the workflow using the manual trigger.\nReview the updated descriptions to ensure accuracy.\n\nHow to customize this workflow to your needs\n\nChange the insertion criteria** by modifying the rowBefore and rowAfter values.\nInsert multiple rows** by adjusting the JavaScript code in the Code node.\nExtend the workflow** by adding conditions (e.g., only updating descriptions of videos with certain tags).\nFilter specific** videos instead of updating all by modifying the \"Get All Videos\" node.\n\nThis workflow ensures that all your YouTube descriptions stay updated and consistent with minimal effort.",
+  "totalViews": 1145,
+  "source": "official",
+  "user": {
+    "id": 92128,
+    "name": "Akram Kadri",
+    "username": "akramkadri",
+    "bio": "n8n Automation Freelancer\n------------------------\nContact me at: akram@digispruce.com",
+    "verified": true,
+    "links": "[\"https://youtube.com/@kadri_akram\"]",
+    "avatar": "https://gravatar.com/avatar/e57785a112fbcca1ac70d537a9ed5c5a68be59f808ed8b36475bde0e2c8f384b?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Marketing",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "YouTube",
+      "type": "n8n-nodes-base.youTube",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-03-04T20:14:04.289Z",
+  "path": "official/template_3080/workflow.json"
+}

@@ -1,0 +1,32 @@
+{
+  "id": 2289,
+  "name": "Restore backed up workflows from GitHub to n8n",
+  "description": "Restore backed up workflows from GitHub to your n8n workspace.\nThis workflow was inspired by this one that lets you back up your n8n workflows to GitHub.\nIt will let you restore your backed up workflows in your workspace, without creating duplicates.\nIn case of issue with your instance, it will save you a lot of time to restore them.\n\nHow it works\nIt retrieves the workflows saved in a GitHub repository.\nThen compares these saved workflows with the ones in your n8n workspace based on the name.\nIt will only create them if they don't already exist.\n\nSet up steps\n\nOpen the \"Global\" node and set your own information (see Configuration below)\nClick on \"Test workflow\" \nIt will run through all the workflows in the GitHub repository, check if the name doesn't already exist in your workspace and, in this case, create it.\n\nConfiguration\nrepo.owner: your GitHub owner name\nrepo.name: your GitHub repository name\nrepo.path: the path within the GitHub repository",
+  "totalViews": 4642,
+  "source": "official",
+  "user": {
+    "id": 91624,
+    "name": "Agent Studio",
+    "username": "agentstudio",
+    "bio": "We are a product studio that helps organizations leverage no-code and generative AI to automate internal processes and launch new digital products.\nLinkedIn: https://www.linkedin.com/in/baptistej/",
+    "verified": true,
+    "links": "[\"https://agentstudio.io/\"]",
+    "avatar": "https://gravatar.com/avatar/e9cf0d0fccead46655b11b2ce215cf14d33ecdaa2ce52828f003574c1800e77a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "GitHub",
+      "type": "n8n-nodes-base.github",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-06-11T09:05:22.408Z",
+  "path": "official/template_2289/workflow.json"
+}

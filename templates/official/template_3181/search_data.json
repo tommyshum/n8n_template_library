@@ -1,0 +1,239 @@
+{
+  "id": 3181,
+  "name": "Import Odoo Product Images from Google Drive",
+  "totalViews": 1738,
+  "purchaseUrl": null,
+  "user": {
+    "id": 93186,
+    "name": "AArtIntelligent",
+    "username": "aurelien-andre",
+    "bio": "With AArtIntelligent, turn your ideas into powerful automations: from Zero to Hero, scale your business to maximum efficiency!",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/53bbb31798713703b0b6ba058a7160cb4f9f6413d66f9463c8e0398119e36b8f?r=pg&d=retro&size=200"
+  },
+  "description": "Objective\nThis workflow automatically imports product images from Google Drive and associates them with templates and products in Odoo.\n",
+  "createdAt": "2025-03-16T11:58:14.749Z",
+  "nodes": [
+    {
+      "id": 58,
+      "icon": "file:googleDrive.svg",
+      "name": "n8n-nodes-base.googleDrive",
+      "codex": {
+        "data": {
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/your-business-doesnt-need-you-to-operate/",
+                "icon": " 🖥️",
+                "label": "Hey founders! Your business doesn't need you to operate"
+              },
+              {
+                "url": "https://n8n.io/blog/why-this-product-manager-loves-workflow-automation-with-n8n/",
+                "icon": "🧠",
+                "label": "Why this Product Manager loves workflow automation with n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/aws-workflow-automation/",
+                "label": "7 no-code workflow automations for Amazon Web Services"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googledrive/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/google/oauth-single-service/"
+              }
+            ]
+          },
+          "categories": [
+            "Data & Storage"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "Google Drive"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiB2aWV3Qm94PSIwIDAgODEgNzMiPjx1c2UgeGxpbms6aHJlZj0iI2EiIHg9Ii41IiB5PSIuNSIvPjxzeW1ib2wgaWQ9ImEiIG92ZXJmbG93PSJ2aXNpYmxlIj48ZyBmaWxsLXJ1bGU9Im5vbnplcm8iIHN0cm9rZT0ibm9uZSI+PHBhdGggZmlsbD0iIzAwNjZkYSIgZD0ibTYuMDQ4IDYxLjI2IDMuNTI4IDYuMDk0Yy43MzMgMS4yODMgMS43ODcgMi4yOTEgMy4wMjQgMy4wMjRsMTIuNi0yMS44MUgwYTguMyA4LjMgMCAwIDAgMS4xIDQuMTI0eiIvPjxwYXRoIGZpbGw9IiMwMGFjNDciIGQ9Ik00MCAyMi45MSAyNy40IDEuMWMtMS4yMzcuNzMzLTIuMjkxIDEuNzQxLTMuMDI0IDMuMDI0TDEuMSA0NC40NDVBOC4zIDguMyAwIDAgMCAwIDQ4LjU2OGgyNS4yeiIvPjxwYXRoIGZpbGw9IiNlYTQzMzUiIGQ9Ik02Ny40IDcwLjM3OGMxLjIzNy0uNzMzIDIuMjkxLTEuNzQxIDMuMDI0LTMuMDI0bDEuNDY2LTIuNTIgNy4wMS0xMi4xNDJhOC4zIDguMyAwIDAgMCAxLjEtNC4xMjRINTQuNzk4bDUuMzYzIDEwLjUzOHoiLz48cGF0aCBmaWxsPSIjMDA4MzJkIiBkPSJNNDAgMjIuOTEgNTIuNiAxLjFDNTEuMzYzLjM2NyA0OS45NDMgMCA0OC40NzcgMEgzMS41MjRjLTEuNDY2IDAtMi44ODcuNDEyLTQuMTI0IDEuMXoiLz48cGF0aCBmaWxsPSIjMjY4NGZjIiBkPSJNNTQuNzk5IDQ4LjU2OEgyNS4ybC0xMi42IDIxLjgxYzEuMjM3LjczMyAyLjY1NyAxLjEgNC4xMjQgMS4xaDQ2LjU1MmMxLjQ2NiAwIDIuODg3LS40MTIgNC4xMjQtMS4xeiIvPjxwYXRoIGZpbGw9IiNmZmJhMDAiIGQ9Ik02Ny4yNjIgMjQuMjg0IDU1LjYyNCA0LjEyNEM1NC44OTEgMi44NDEgNTMuODM3IDEuODMzIDUyLjYgMS4xTDQwIDIyLjkxbDE0LjggMjUuNjU5aDI1LjE1NWE4LjMgOC4zIDAgMCAwLTEuMS00LjEyNHoiLz48L2c+PC9zeW1ib2w+PC9zdmc+"
+      },
+      "displayName": "Google Drive",
+      "typeVersion": 3,
+      "nodeCategories": [
+        {
+          "id": 3,
+          "name": "Data & Storage"
+        }
+      ]
+    },
+    {
+      "id": 553,
+      "icon": "file:googleChat.svg",
+      "name": "n8n-nodes-base.googleChat",
+      "codex": {
+        "data": {
+          "alias": [
+            "human",
+            "form",
+            "wait",
+            "hitl",
+            "approval"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googlechat/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/google/service-account/"
+              }
+            ]
+          },
+          "categories": [
+            "Communication",
+            "HITL"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0",
+          "subcategories": {
+            "HITL": [
+              "Human in the Loop"
+            ]
+          }
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "Google Chat"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAuMDAgMC4wMCAzMTEuMDAgMzIwLjAwIj4KPGcgc3Ryb2tlLXdpZHRoPSIyLjAwIiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0iYnV0dCI+CjxwYXRoIHN0cm9rZT0iIzdlOTE2ZiIgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiBkPSIgICBNIDc2LjM3IDAuNTEgICBMIDc2LjM4IDc2Ljk4Ii8+CjxwYXRoIHN0cm9rZT0iIzEzNzVlYiIgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiBkPSIgICBNIDc2LjM4IDc2Ljk4ICAgTCAwLjAwIDc2Ljk2Ii8+CjxwYXRoIHN0cm9rZT0iI2YzODAxZCIgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiBkPSIgICBNIDIzNS4wOCAxLjA5ICAgUSAyMzQuOTIgMS4xNSAyMzQuODEgMS4yMiAgIFEgMjM0LjY0IDEuMzEgMjM0LjY0IDEuNTAgICBMIDIzNC42MiA3Ny4wMSIvPgo8cGF0aCBzdHJva2U9IiM3ZWI0MjYiIHZlY3Rvci1lZmZlY3Q9Im5vbi1zY2FsaW5nLXN0cm9rZSIgZD0iICAgTSAyMzQuNjIgNzcuMDEgICBRIDIzNC42MCA3Ny4wMSAyMzQuNTcgNzcuMDEiLz4KPHBhdGggc3Ryb2tlPSIjOTFhMDgwIiB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIGQ9IiAgIE0gNzYuNDEgNzcuMDEgICBRIDc2LjQwIDc3LjAwIDc2LjM4IDc2Ljk4Ii8+CjxwYXRoIHN0cm9rZT0iIzc1NzgzZSIgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiBkPSIgICBNIDMxMC41MyA3Ni43NyAgIEwgMjM0LjYyIDc3LjAxIi8+CjxwYXRoIHN0cm9rZT0iIzEzODQ5NSIgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiBkPSIgICBNIDc2LjQzIDE4Mi42OSAgIEwgMC4wMCAxODIuNjciLz4KPHBhdGggc3Ryb2tlPSIjMDA5ODNhIiB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIGQ9IiAgIE0gNzYuNDQgMjU5LjEzICAgTCA3Ni40MyAyMjAuODUiLz4KPC9nPgo8cGF0aCBmaWxsPSIjMDA2NmRhIiBkPSIgICBNIDc2LjM3IDAuNTEgICBMIDc2LjM4IDc2Ljk4ICAgTCAwLjAwIDc2Ljk2ICAgTCAwLjAwIDIwLjc3ICAgUSAwLjg1IDE0LjgxIDMuNTMgMTAuNzYgICBRIDEwLjE0IDAuNzQgMjIuNzUgMC42NyAgIFEgNDkuNDEgMC41MyA3Ni4zNyAwLjUxICAgWiIvPgo8cGF0aCBmaWxsPSIjZmJiYzA0IiBkPSIgICBNIDc2LjM3IDAuNTEgICBMIDIzMy43OSAwLjUzICAgQSAxLjYxIDEuNTcgLTI2LjcgMCAxIDIzNC43MSAwLjgyICAgTCAyMzUuMDggMS4wOSAgIFEgMjM0LjkyIDEuMTUgMjM0LjgxIDEuMjIgICBRIDIzNC42NCAxLjMxIDIzNC42NCAxLjUwICAgTCAyMzQuNjIgNzcuMDEgICBRIDIzNC42MCA3Ny4wMSAyMzQuNTcgNzcuMDEgICBMIDc2LjQxIDc3LjAxICAgUSA3Ni40MCA3Ny4wMCA3Ni4zOCA3Ni45OCAgIEwgNzYuMzcgMC41MSAgIFoiLz4KPHBhdGggZmlsbD0iI2VhNDMzNSIgZD0iICAgTSAyMzUuMDggMS4wOSAgIEwgMzEwLjUzIDc2Ljc3ICAgTCAyMzQuNjIgNzcuMDEgICBMIDIzNC42NCAxLjUwICAgUSAyMzQuNjQgMS4zMSAyMzQuODEgMS4yMiAgIFEgMjM0LjkyIDEuMTUgMjM1LjA4IDEuMDkgICBaIi8+CjxwYXRoIGZpbGw9IiMyNjg0ZmMiIGQ9IiAgIE0gMC4wMCA3Ni45NiAgIEwgNzYuMzggNzYuOTggICBRIDc2LjQwIDc3LjAwIDc2LjQxIDc3LjAxICAgTCA3Ni40MyAxODIuNjkgICBMIDAuMDAgMTgyLjY3ICAgTCAwLjAwIDc2Ljk2ICAgWiIvPgo8cGF0aCBmaWxsPSIjMDBhYzQ3IiBkPSIgICBNIDMxMC41MyA3Ni43NyAgIEwgMzExLjAwIDc3LjExICAgTCAzMTEuMDAgMjM5LjAxICAgUSAzMDguMzQgMjUzLjU0IDI5NS45NCAyNTcuNzggICBRIDI5MS41MiAyNTkuMzAgMjgyLjkxIDI1OS4yOCAgIFEgMjI3LjAyIDI1OS4xOSAxNjkuOTkgMjU5LjExICAgUSAxNjEuNzEgMjU5LjEwIDE1My4xOSAyNTkuMjMgICBRIDE1Mi43MiAyNTkuMjQgMTUyLjM5IDI1OS41NyAgIFEgMTI0LjQ5IDI4Ny4zNCA5Ni4zOSAzMTUuNTkgICBDIDkzLjUyIDMxOC40OCA5MC4yNyAzMjAuMDkgODYuMTUgMzE5LjQ4ICAgUSA4MC4zOSAzMTguNjMgNzcuNjYgMzEzLjU0ICAgUSA3Ni41MSAzMTEuMzggNzYuNDkgMzA1LjY2ICAgUSA3Ni40MiAyODIuNDcgNzYuNDQgMjU5LjEzICAgTCA3Ni40MyAyMjAuODUgICBMIDExNC4yMSAxODMuMDcgICBBIDEuNzkgMS43NyAyMi4zIDAgMSAxMTUuNDcgMTgyLjU1ICAgTCAyMzMuNzcgMTgyLjU5ICAgQSAwLjgzIDAuODMgMC4wIDAgMCAyMzQuNjAgMTgxLjc2ICAgTCAyMzQuNTcgNzcuMDEgICBRIDIzNC42MCA3Ny4wMSAyMzQuNjIgNzcuMDEgICBMIDMxMC41MyA3Ni43NyAgIFoiLz4KPHBhdGggZmlsbD0iIzAwODMyZCIgZD0iICAgTSA3Ni40MyAxODIuNjkgICBMIDc2LjQzIDIyMC44NSAgIEwgNzYuNDQgMjU5LjEzICAgUSA1Mi40NyAyNTkuMjcgMjguOTEgMjU5LjIyICAgUSAxOS4wOSAyNTkuMjAgMTQuNzYgMjU3LjY4ICAgUSAyLjYyIDI1My40NCAwLjAwIDIzOC44OCAgIEwgMC4wMCAxODIuNjcgICBMIDc2LjQzIDE4Mi42OSAgIFoiLz4KPC9zdmc+Cg=="
+      },
+      "displayName": "Google Chat",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 6,
+          "name": "Communication"
+        },
+        {
+          "id": 28,
+          "name": "HITL"
+        }
+      ]
+    },
+    {
+      "id": 559,
+      "icon": "file:odoo.svg",
+      "name": "n8n-nodes-base.odoo",
+      "codex": {
+        "data": {
+          "alias": [
+            "ERP"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.odoo/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/odoo/"
+              }
+            ]
+          },
+          "categories": [
+            "Data & Storage"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Odoo"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNTAiIGhlaWdodD0iMTUwIj48Y2lyY2xlIGN4PSI3NSIgY3k9Ijc1IiByPSI3Mi40IiBmaWxsPSIjOWM1Nzg5Ii8+PGNpcmNsZSBjeD0iNzUiIGN5PSI3NSIgcj0iNDIuNyIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg=="
+      },
+      "displayName": "Odoo",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 3,
+          "name": "Data & Storage"
+        }
+      ]
+    },
+    {
+      "id": 834,
+      "icon": "file:code.svg",
+      "name": "n8n-nodes-base.code",
+      "codex": {
+        "data": {
+          "alias": [
+            "cpde",
+            "Javascript",
+            "JS",
+            "Python",
+            "Script",
+            "Custom Code",
+            "Function"
+          ],
+          "details": "The Code node allows you to execute JavaScript in your workflow.",
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.code/"
+              }
+            ]
+          },
+          "categories": [
+            "Development",
+            "Core Nodes"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0",
+          "subcategories": {
+            "Core Nodes": [
+              "Helpers",
+              "Data Transformation"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Code"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwMF8xMTcxXzQ0MSkiPgo8cGF0aCBkPSJNMTcwLjI4MyA0OEgxOTYuNUMyMDMuMTI3IDQ4IDIwOC41IDQyLjYyNzQgMjA4LjUgMzZWMTJDMjA4LjUgNS4zNzI1OCAyMDMuMTI3IDAgMTk2LjUgMEgxNzAuMjgzQzEyNi4xIDAgOTAuMjgzIDM1LjgxNzIgOTAuMjgzIDgwVjE3NkM5MC4yODMgMjA2LjkyOCA2NS4yMTA5IDIzMiAzNC4yODMgMjMySDIzQzE2LjM3MjYgMjMyIDExIDIzNy4zNzIgMTEgMjQ0VjI2OEMxMSAyNzQuNjI3IDE2LjM3MjQgMjgwIDIyLjk5OTYgMjgwTDM0LjI4MyAyODBDNjUuMjEwOSAyODAgOTAuMjgzIDMwNS4wNzIgOTAuMjgzIDMzNlY0NDBDOTAuMjgzIDQ3OS43NjQgMTIyLjUxOCA1MTIgMTYyLjI4MyA1MTJIMTk2LjVDMjAzLjEyNyA1MTIgMjA4LjUgNTA2LjYyNyAyMDguNSA1MDBWNDc2QzIwOC41IDQ2OS4zNzMgMjAzLjEyNyA0NjQgMTk2LjUgNDY0SDE2Mi4yODNDMTQ5LjAyOCA0NjQgMTM4LjI4MyA0NTMuMjU1IDEzOC4yODMgNDQwVjMzNkMxMzguMjgzIDMwOS4wMjIgMTI4LjAxMSAyODQuNDQzIDExMS4xNjQgMjY1Ljk2MUMxMDYuMTA5IDI2MC40MTYgMTA2LjEwOSAyNTEuNTg0IDExMS4xNjQgMjQ2LjAzOUMxMjguMDExIDIyNy41NTcgMTM4LjI4MyAyMDIuOTc4IDEzOC4yODMgMTc2VjgwQzEzOC4yODMgNjIuMzI2OSAxNTIuNjEgNDggMTcwLjI4MyA0OFoiIGZpbGw9IiNGRjk5MjIiLz4KPHBhdGggZD0iTTMwNSAzNkMzMDUgNDIuNjI3NCAzMTAuMzczIDQ4IDMxNyA0OEgzNDIuOTc5QzM2MC42NTIgNDggMzc0Ljk3OCA2Mi4zMjY5IDM3NC45NzggODBWMTc2QzM3NC45NzggMjAyLjk3OCAzODUuMjUxIDIyNy41NTcgNDAyLjA5OCAyNDYuMDM5QzQwNy4xNTMgMjUxLjU4NCA0MDcuMTUzIDI2MC40MTYgNDAyLjA5OCAyNjUuOTYxQzM4NS4yNTEgMjg0LjQ0MyAzNzQuOTc4IDMwOS4wMjIgMzc0Ljk3OCAzMzZWNDMyQzM3NC45NzggNDQ5LjY3MyAzNjAuNjUyIDQ2NCAzNDIuOTc5IDQ2NEgzMTdDMzEwLjM3MyA0NjQgMzA1IDQ2OS4zNzMgMzA1IDQ3NlY1MDBDMzA1IDUwNi42MjcgMzEwLjM3MyA1MTIgMzE3IDUxMkgzNDIuOTc5QzM4Ny4xNjEgNTEyIDQyMi45NzggNDc2LjE4MyA0MjIuOTc4IDQzMlYzMzZDNDIyLjk3OCAzMDUuMDcyIDQ0OC4wNTEgMjgwIDQ3OC45NzkgMjgwSDQ5MEM0OTYuNjI3IDI4MCA1MDIgMjc0LjYyOCA1MDIgMjY4VjI0NEM1MDIgMjM3LjM3MyA0OTYuNjI4IDIzMiA0OTAgMjMyTDQ3OC45NzkgMjMyQzQ0OC4wNTEgMjMyIDQyMi45NzggMjA2LjkyOCA0MjIuOTc4IDE3NlY4MEM0MjIuOTc4IDM1LjgxNzIgMzg3LjE2MSAwIDM0Mi45NzkgMEgzMTdDMzEwLjM3MyAwIDMwNSA1LjM3MjU4IDMwNSAxMlYzNloiIGZpbGw9IiNGRjk5MjIiLz4KPC9nPgo8ZGVmcz4KPGNsaXBQYXRoIGlkPSJjbGlwMF8xMTcxXzQ0MSI+CjxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiBmaWxsPSJ3aGl0ZSIvPgo8L2NsaXBQYXRoPgo8L2RlZnM+Cjwvc3ZnPgo="
+      },
+      "displayName": "Code",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 5,
+          "name": "Development"
+        },
+        {
+          "id": 9,
+          "name": "Core Nodes"
+        }
+      ]
+    }
+  ]
+}

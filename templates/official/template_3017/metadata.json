@@ -1,0 +1,47 @@
+{
+  "id": 3017,
+  "name": "Extract and Normalize Facebook Lead Data for CRM Integration  ",
+  "description": "Who Is This For?  \nMarketing teams** using Facebook Lead Ads.  \nData analysts** needing structured lead data.  \nCRM administrators** automating lead imports.  \n\nWhat Problem Does This Solve?  \nAutomates extraction of Facebook form leads, resolves inconsistent field naming (e.g., \"programo\" → \"program\"), and prepares data for seamless integration with CRMs like HubSpot, analytics tools, or databases.  \n\nKey Features  \nPagination Handling**: Limits of 10,000 records per API call to avoid complexity.  \nField Standardization**: Renames and orders fields (e.g., source, medium, email) for consistency.  \nData Simplification**: Extracts first values from multi-value fields.  \nFlexibility**: Easily extendable to send data to 100+ apps via n8n integrations.  \n\nHow It Works  \nTrigger: Start manually or schedule the workflow.  \nForm Retrieval: Fetch all leadgen forms from your Facebook Page.  \nData Preparation:  \n   Split bulk data into individual records.  \n   Filter forms by name (case-insensitive).  \nLead Extraction: Get raw lead data with metadata (ad campaigns, timestamps).  \nData Transformation:  \n   Code Node: Renames fields and enforces canonical order.  \n   Set Node: Exposes normalized fields (e.g., field_data.email).  \nOutput: Structured data ready for CRM/analytics tools.  \n\nSetup Guide  \nFacebook Configuration:  \n   Replace xxxxxxxxxxxxxxx with your Facebook Page ID.  \n   Ensure leadgen_forms API access in Meta Developer Portal.  \nCustomization:  \n   Adjust field mappings in the Code - Order fields node if needed.  \n   Add nodes to send data to your CRM (e.g., HubSpot, Salesforce).  \n\nCustomization Tips  \nAdd Error Handling**: Include an IF node to flag incomplete records.  \nEnrich Data**: Use nodes like Clearbit to append company info.  \nAutomate**: Replace the manual trigger with a schedule or webhook.  \n\nWhy This Works  \nTime Savings**: Reduces manual data cleaning by 80%.  \nScalability**: Processes 10,000+ leads per run.  \nAdaptability**: Handles multilingual or inconsistently named form fields.  \n\nTags: Facebook Lead Ads, CRM Integration, Data Normalization, Marketing Automation",
+  "totalViews": 0,
+  "source": "official",
+  "user": {
+    "id": 92920,
+    "name": "Arturo Crespo",
+    "username": "lionasoler",
+    "bio": "Soy el coordinador de una fábrica de software en Colombia.\nPuedes buscarme en Telegram como LionaSoler si tienes dudas sobre los flujos aqui publicados.",
+    "verified": false,
+    "links": "[\"https://mnml.top\"]",
+    "avatar": "https://gravatar.com/avatar/2fd42746b7d3b7905b57a965a400be352503dda32a94581135994544c6e92841?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Facebook Graph API",
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-02-26T02:20:49.240Z",
+  "path": "official/template_3017/workflow.json"
+}

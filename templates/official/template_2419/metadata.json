@@ -1,0 +1,111 @@
+{
+  "id": 2419,
+  "name": "Visual Regression Testing with Apify and AI Vision Model",
+  "description": "This n8n workflow is a proof-of-concept template exploring how we might work with multimodal LLMs and their multi-image analysis capabilities. In this demo, we compare 2 screenshots of a webpage taken at different timestamps and pass both to our multimodal LLM for a visual comparison of differences. Handling multiple binary inputs (ie. images) in an AI request is supported by n8n's basic LLM node.\n\nHow it works\n\nThis template is intended to run as 2 parts: first to generate the base screenshots and next to run the visual regression test which captures fresh screenshots.\n\nStarting with a list of webpages captured in a Google sheet,  base screenshots are captured for each using a external web scraping service called Apify.com (I prefer Apify but feel free to use whichever web scraping service available to you)\nThese base screenshots are uploaded to Google Drive and will be referenced later when we run our testing.\nPhase 2 of the workflow, we'll use a scheduled trigger to fire sometime in the future which will reuse our web scraping service to generate fresh screenshots of our desired webpages.\nNext, re-download our base screenshots in parallel and with both old and new captures, we'll pass these to our LLM node. In the LLM node's options, we'll define 2 \"user message\" inputs with the type of binary (data) for our images.\nFinally, we'll prompt our LLM with our testing criteria and capture the regressions detected. Note, results will vary depending on which LLM you use.\nA final report can be generated using the LLM's output and is uploaded to Linear.\n\nRequirements\n\nApify.com API key for web screenshotting service\nGoogle Drive and Sheets access to store list of webpages and captures\n\nCustomising this workflow\n\nHave your own preferred web screenshotting service? Feel free to swap out Apify with your service of choice.\n\nIf the web screenshot is too large, it may prove difficult for the LLM to spot differences with precision. Try splitting up captures into smaller images instead.",
+  "totalViews": 3973,
+  "source": "official",
+  "user": {
+    "id": 91804,
+    "name": "Jimleuk",
+    "username": "jimleuk",
+    "bio": "Freelance consultant based in the UK specialising in AI-powered automations. I work with select clients tackling their most challenging projects. For business enquiries, send me an email at hello@jimle.uk\n\nLinkedIn: https://www.linkedin.com/in/jimleuk/\nX/Twitter: https://x.com/jimle_uk",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4ab99e51473df76838beeaac908747f7928c625f869794815cabe34016967d51?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Linear",
+      "type": "n8n-nodes-base.linear",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2024-09-18T12:48:22.119Z",
+  "path": "official/template_2419/workflow.json"
+}

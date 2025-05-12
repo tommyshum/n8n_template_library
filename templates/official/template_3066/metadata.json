@@ -1,0 +1,200 @@
+{
+  "id": 3066,
+  "name": "✨🤖Automate Multi-Platform Social Media Content Creation with AI",
+  "description": "Automate Multi-Platform Social Media Content Creation with AI\n\nWho is this for?  \nSocial Media Managers and Digital Marketers seeking to streamline content production across 7+ platforms (X/Twitter, Instagram, LinkedIn, Facebook, TikTok, Threads, YouTube Shorts) using AI-powered automation.\n\nWhat problem does this solve?  \nCreating platform-optimized content at scale while maintaining brand consistency across multiple channels, reducing manual work by 80% through AI generation and automated publishing.\n\nWhat this workflow does  \nAI Content Generation:  \n   Uses GPT-4/Gemini to create platform-specific posts  \n   Automatically generates hashtags, CTAs, and emoji placement  \n   Supports image/video suggestions and image creation using OpenAI or Pollinations.ai\n   Uses SERP api to search for relavent content\n\nApproval Workflow:  \n   Sends formatted HTML emails for human review  \n   Implements double-approval system with Gmail integration  \n\nCross-Platform Publishing:  \n   One-click deployment to:  \n     Instagram/Facebook (via Graph API)  \n     X/Twitter (Official API)  \n     LinkedIn (Sales Navigator integration)  \n\nSetup  \nCredentials:  \n   OpenAI API key  \n   Google Gemini API  \n   Social media platform tokens (X, LinkedIn, Facebook)  \n   ImgBB for image hosting  \n   Gmail\n   SERP API\n   Telegram\n\nConfiguration:  \n   Update all \"your-unique-id\" placeholders in API nodes  \n   Set email recipients in Gmail nodes  \n   Customize AI prompts \n\nCustomization:  \n   Adjust character limits per platform  \n   Modify approval thresholds  \n   Add/remove social platforms as needed  \n\nHow to customize  \nContent Style**: Edit prompt templates in the \"Social Media Content Factory\" agent node  \nApproval Process**: Modify email templates  \nAnalytics**: Connect to Google Sheets for performance tracking  \nImage Generation**: Switch between Pollinations.ai/DALL-E/Midjourney  \n\n",
+  "totalViews": 93718,
+  "source": "official",
+  "user": {
+    "id": 92125,
+    "name": "Joseph LePage",
+    "username": "joe",
+    "bio": "As an AI Automation consultant based in Canada, I partner with forward-thinking organizations to implement AI solutions that streamline operations and drive growth.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/e7ca218dfc87b68344bbd66f40da01546d2f6fc1cf884267821e8a77e3e8410a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "Marketing",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Facebook Graph API",
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "X (Formerly Twitter)",
+      "type": "n8n-nodes-base.twitter",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "LinkedIn",
+      "type": "n8n-nodes-base.linkedIn",
+      "categories": [
+        "Marketing",
+        "Communication"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "SerpApi (Google Search)",
+      "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 13,
+  "createdAt": "2025-03-03T03:47:15.283Z",
+  "path": "official/template_3066/workflow.json"
+}

@@ -1,0 +1,47 @@
+{
+  "id": 1223,
+  "name": "Capture leads in HubSpot from Typeform",
+  "description": "This workflow is triggered when a typeform is submitted, then it saves the sender's information into HubSpot as a new contact.\n\n\n\nTypeform Trigger: triggers the workflow when a typeform is submitted.\n\nSet: sets the fields for the values from Typeform.\n\nHubSpot 1: creates a new contact with information from Typeform.\n\nIF: filters contacts who expressed their interest in business services.\n\nHubSpot 2: updates the contact's stage to opportunity.\n\nGmail: sends an email to the opportunity contacts with informational material.\n\nNoOp: takes no action for contacts who are not interested. ",
+  "totalViews": 3204,
+  "source": "official",
+  "user": {
+    "id": 12733,
+    "name": "Lorena",
+    "username": "lorenanda",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/df6358bcce2351cf878beab8f89b9f000f50588aaa728f7ea57127c1b85e7b06?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Sales",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "HubSpot",
+      "type": "n8n-nodes-base.hubspot",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2021-09-09T13:14:41.934Z",
+  "path": "official/template_1223/workflow.json"
+}

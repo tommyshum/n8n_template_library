@@ -1,0 +1,84 @@
+{
+  "id": 2946,
+  "name": "#️⃣Nostr #damus AI Powered Reporting + Gmail + Telegram",
+  "description": "The n8n Nostr Community Node is a tool that integrates Nostr functionality into n8n workflows, allowing users to interact with the Nostr protocol seamlessly. It provides both read and write capabilities and can be used for various automation tasks.\n\nDisclaimer\nThis node is ideal for self-hosted n8n setups, as ++community nodes are not supported on n8n cloud++. It opens up exciting possibilities for integrating workflows with the decentralized Nostr protocol.\n\nn8n Community Node for Nostr \nn8n-nodes-nostrobots\n\nFeatures\nWrite Operations**: Send notes and events (kind1) to the Nostr network.\nRead Operations**: Fetch events based on criteria such as event ID, public key, hashtags, mentions, or search terms.\nUtility Functions**: Convert events into different formats like naddr or nevent and handle key transformations between bech32 and hex formats.\nTrigger Events**: Monitor the Nostr network for specific mentions or events and trigger workflows automatically.\n\nUse Cases\nAutomating note posting without exposing private keys.\nSetting up notifications for mentions or specific events.\nCreating bots or AI assistants that respond to mentions on Nostr.\n\nInstallation\nInstall n8n on your system.\nAdd the Nostr Community Node to your instance.\nConfigure your credentials using a Nostr secret key (supports bech32 or hex formats).\n\n\n",
+  "totalViews": 1459,
+  "source": "official",
+  "user": {
+    "id": 92125,
+    "name": "Joseph LePage",
+    "username": "joe",
+    "bio": "As an AI Automation consultant based in Canada, I partner with forward-thinking organizations to implement AI solutions that streamline operations and drive growth.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/e7ca218dfc87b68344bbd66f40da01546d2f6fc1cf884267821e8a77e3e8410a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-02-19T17:50:19.783Z",
+  "path": "official/template_2946/workflow.json"
+}

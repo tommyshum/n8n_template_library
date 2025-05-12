@@ -1,0 +1,140 @@
+{
+  "id": 2537,
+  "name": "Simple Social: Instagram Single Image Post with Facebook API",
+  "totalViews": 16137,
+  "purchaseUrl": null,
+  "user": {
+    "id": 92107,
+    "name": "Edoardo Guzzi",
+    "username": "mredodos",
+    "bio": "Automation expert with 10+ years in programming, AI, Chrome extensions, and mobile apps. Specializing in PHP, JS, and Python, I design custom n8n workflows to streamline processes and boost productivity. Explore my templates or contact me for tailored solutions.",
+    "verified": false,
+    "links": "[\"https://www.youtube.com/@edoardododoguzzi\"]",
+    "avatar": "https://gravatar.com/avatar/a21b05da374078b706406431d629d2020336978b83edffe55ae4c36a8f77cd0c?r=pg&d=retro&size=200"
+  },
+  "description": "Simple Social: Instagram Single Image Post with Facebook API\n\nWho is this workflow for?\nThis workflow is designed for businesses, social media managers, content creators, and developers who need to automate the process of posting single images to Instagram using the Facebook API. It is ideal for anyone looking to streamline their social media posting process, saving time and ensuring consistent content delivery.\n\nUse Case / Problem Solved\nManually posting images and captions on Instagram can be time-consuming, especially for businesses and content creators managing multiple accounts. This workflow automates the process from image preparation to publishing, reducing manual effort and increasing efficiency.\n\nWhat this workflow does\nTrigger Initialization: The workflow starts with a manual trigger that can be adapted to other triggers (e.g., HTTP webhook or schedule).\nSet Parameters: The workflow includes a node that sets essential parameters, such as the image URL, Instagram business account ID, and caption.\nPrepare Instagram Media: A node prepares the media for upload using the Facebook API, sending the image and caption for pre-publication processing.\nCheck Media Upload Status: The workflow verifies if the media preparation is complete.\nConditional Check: If the media preparation is successful, the workflow proceeds to publish; otherwise, it triggers an error-handling path.\nPublish Media: The media is published on Instagram if the conditions are met.\nPost-Publish Check: The workflow checks the status after publication.\nConditional Check for Publication: If the publication status is \"PUBLISHED,\" it triggers a success path; otherwise, it triggers a failure handling.\nEmail Notifications: The workflow sends email notifications to indicate successful or unsuccessful outcomes.\n\nSetup \n\nHere is a quick video in italian language with sub eng(https://youtu.be/obWJFJvg_6g)\n\nAdd API Credentials: Ensure that valid Facebook API credentials are added and configured for use.\nPermissions Required: Ensure your app has the necessary permissions (ads_management, business_management, instagram_basic, instagram_content_publish, pages_read_engagement). App review may be required for external user access.\nNode Configuration: Customize the Set Instagram Parameters node to specify the image URL, caption, and Instagram business account ID.\nTrigger Adaptation: Adapt the initial trigger if needed to fit your workflow's requirements (e.g., schedule, webhook).\n\nHow to customize this workflow\nChange the Image URL and Caption**: Modify the Set Instagram Parameters node to change the image and caption.\nTrigger Customization**: Replace the manual trigger with other triggers like a webhook to automate posting based on external events.\nNotifications**: Adjust the email nodes to send customized messages or trigger other workflows based on the outcome.\n\nLimitations\nImage Format**: Only JPEG images are supported. Extended JPEG formats such as MPO and JPS are not compatible.\nUnsupported Tags**: Shopping tags, branded content tags, and filters are not supported.\nInstagram TV**: Publishing to Instagram TV is not supported.\nRate Limit**: Instagram accounts are limited to 50 API-published posts within a rolling 24-hour period. Carousels count as a single post. Check usage with GET /{ig-user-id}/content_publishing_limit.\n\nExample Usage\nImagine managing a business account that needs consistent posts. You can schedule this workflow or trigger it manually to automatically post images with captions at the right time, ensuring that your audience stays engaged without manual posting efforts.",
+  "createdAt": "2024-11-12T12:13:49.467Z",
+  "nodes": [
+    {
+      "id": 11,
+      "icon": "fa:envelope",
+      "name": "n8n-nodes-base.emailSend",
+      "codex": {
+        "data": {
+          "alias": [
+            "SMTP",
+            "email",
+            "human",
+            "form",
+            "wait",
+            "hitl",
+            "approval"
+          ],
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/2021-the-year-to-automate-the-new-you-with-n8n/",
+                "icon": "☀️",
+                "label": "2021: The Year to Automate the New You with n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/build-your-own-virtual-assistant-with-n8n-a-step-by-step-guide/",
+                "icon": "👦",
+                "label": "Build your own virtual assistant with n8n: A step by step guide"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.sendemail/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/credentials/sendemail/"
+              }
+            ]
+          },
+          "categories": [
+            "Communication",
+            "HITL",
+            "Core Nodes"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0",
+          "subcategories": {
+            "HITL": [
+              "Human in the Loop"
+            ]
+          }
+        }
+      },
+      "group": "[\"output\"]",
+      "defaults": {
+        "name": "Send Email",
+        "color": "#00bb88"
+      },
+      "iconData": {
+        "icon": "envelope",
+        "type": "icon"
+      },
+      "displayName": "Send Email",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 6,
+          "name": "Communication"
+        },
+        {
+          "id": 9,
+          "name": "Core Nodes"
+        },
+        {
+          "id": 28,
+          "name": "HITL"
+        }
+      ]
+    },
+    {
+      "id": 314,
+      "icon": "file:facebook.svg",
+      "name": "n8n-nodes-base.facebookGraphApi",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.facebookgraphapi/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/facebookGraph/"
+              }
+            ]
+          },
+          "categories": [
+            "Development"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Facebook Graph API"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MCA2MCI+PHBhdGggZmlsbD0iIzE4NzdmMiIgZD0iTTU5LjUgMzBDNTkuNSAxMy43MSA0Ni4yOS41IDMwIC41Uy41IDEzLjcxLjUgMzBjMCAxNC43MiAxMC43OSAyNi45MyAyNC44OSAyOS4xNFYzOC41M0gxNy45VjMwaDcuNDl2LTYuNWMwLTcuMzkgNC40LTExLjQ4IDExLjE0LTExLjQ4IDMuMjMgMCA2LjYuNTggNi42LjU4djcuMjZoLTMuNzJjLTMuNjYgMC00LjgxIDIuMjctNC44MSA0LjYxVjMwaDguMThsLTEuMzEgOC41M0gzNC42djIwLjYxQzQ4LjcxIDU2LjkzIDU5LjUgNDQuNzIgNTkuNSAzMCIvPjxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik00MS40OCAzOC41MyA0Mi43OSAzMGgtOC4xOHYtNS41M2MwLTIuMzMgMS4xNC00LjYxIDQuODEtNC42MWgzLjcyVjEyLjZzLTMuMzgtLjU4LTYuNi0uNThjLTYuNzQgMC0xMS4xNCA0LjA4LTExLjE0IDExLjQ4VjMwaC03LjV2OC41M2g3LjQ5djIwLjYxYzEuNS4yNCAzLjA0LjM2IDQuNjEuMzZzMy4xMS0uMTIgNC42MS0uMzZWMzguNTN6Ii8+PC9zdmc+"
+      },
+      "displayName": "Facebook Graph API",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 5,
+          "name": "Development"
+        }
+      ]
+    }
+  ]
+}

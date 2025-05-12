@@ -1,0 +1,103 @@
+{
+  "id": 3498,
+  "name": "Build an IT Support Assistant Chatbot Leveraging Existing Support Portal",
+  "description": "This n8n template demonstrates how you can leverage existing support site search to power your Support Chatbots and agents.\n\nBuilding a support chatbot need not be complicated! If building and indexing vector stores or duplicating data isn't necessarily your thing, an alternative implementation of the RAG approach is to leverage existing knowledge-bases such as support portals. In this way, document management and maintenance of your support agent is significantly reduced.\n\nDisclaimer: This template example uses AcuityScheduling's help center website but is not associated, supported nor endorsed by the company.\n\nHow it works\nA simple AI agent is connected with chat trigger to receive user queries.\nThe AI agent is instructed to fetch information from the knowledge-base via the attached custom workflow tool (aka \"knowledgebase tool\").\nThere is no step to replicate the entire support articles database into a vector store. You may choose not too because of time, cost and maintainence involved.\nInstead, the tool leverages the existing support portal's search API to retrieve knowledge-base articles.\nFinally, the search results are formatted before sending an aggregated response back to the agent.\n\nHow to use?\nCustomise the subworkflow to work with your own support portal API and format accordingly.\nTry the following queries\n  How do I connect my icloud to acuityScheduling?\n  How do I download past invoices for my Acuity account?\n\nRequirements\nOpenAI for LLM.\nIf your organisation's APIs require authorisation, you may need to add custom credentials as necessary.\n\nCustomising this workflow\nAdd additional tools to reach other parts of your internal knowledgebase.\nNot using OpenAI? Feel free to swap but ensure the LLM has tools/function calling support.",
+  "totalViews": 3519,
+  "source": "official",
+  "user": {
+    "id": 91804,
+    "name": "Jimleuk",
+    "username": "jimleuk",
+    "bio": "Freelance consultant based in the UK specialising in AI-powered automations. I work with select clients tackling their most challenging projects. For business enquiries, send me an email at hello@jimle.uk\n\nLinkedIn: https://www.linkedin.com/in/jimleuk/\nX/Twitter: https://x.com/jimle_uk",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4ab99e51473df76838beeaac908747f7928c625f869794815cabe34016967d51?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-04-09T11:53:49.647Z",
+  "path": "official/template_3498/workflow.json"
+}

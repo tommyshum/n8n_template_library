@@ -1,0 +1,82 @@
+{
+  "id": 3601,
+  "name": "Scrape Indeed Job Listings for Hiring Signals Using Bright Data and LLMs",
+  "description": "Scrape Indeed Job Listings for Hiring Signals Using Bright Data and LLMs\n\nHow the flow runs\nFill the form with job position you're hunting for.\nBright data's scraper will scrape Indeed based on your requirments.  \nWorkflow waits for the snapshot.  \nData returns as JSON.  \nJobs append to Google Sheets.  \nEach row goes to an LLM to analyze if you're a good fit for the job (based on your prompts).  \nThe LLMswrites YES or NO next to each job opportunity, helping you find job posts that are relevant to you.\n\nWhat you need\nGoogle Sheets with our template.  \nBright Data dataset and API key.  \nOpenAI key for GPT‑4o mini (or any other LLM).  \nn8n with required nodes.\n\nForm fields To Fill\nJob Location** – city or region.  \nKeyword** – role or skills.  \nCountry** – two‑letter code.\n\nSetup steps\nCopy the sheet template link.  \nImport the JSON workflow. \nAdd your credentials in nodes.  \nTest the form manually.  \nAdd a schedule if desired.\n\nBright Data filter example\n[\n  {\n    \"country\": \"US\",\n    \"domain\": \"indeed.com\",\n    \"keyword_search\": \"Growth Marketer\",\n    \"location\": \"Miami\",\n    \"date_posted\": \"Last 24 hours\"\n  }\n]\n\nTips\n-Choose Last 24 hours often.\n\n-Increase wait time for big snapshots.\n\n-Narrow keywords to save credits.\n\n\n**Need help?\n**Email me anytime: \nYaron@nofluff.online\nYouTube: @YaronBeen\nLinkedIn: https://www.linkedin.com/in/yaronbeen/\n\nBright Data Docs: https://docs.brightdata.com/introduction\n\n",
+  "totalViews": 747,
+  "source": "official",
+  "user": {
+    "id": 93770,
+    "name": "Yaron Been",
+    "username": "yaron-nofluff",
+    "bio": "Building AI Agents and Automations | Growth Marketer | Entrepreneur | Book Author & Podcast Host",
+    "verified": true,
+    "links": "[\"nofluff.online\"]",
+    "avatar": "https://gravatar.com/avatar/a4e4dcaa1f76ff5266bbf80e8df86d22efda890474c68f7796e72fd82e3f2375?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-04-18T10:30:44.845Z",
+  "path": "official/template_3601/workflow.json"
+}

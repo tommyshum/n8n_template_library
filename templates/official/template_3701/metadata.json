@@ -1,0 +1,65 @@
+{
+  "id": 3701,
+  "name": "Scrape Books from URL with Dumpling AI, Clean HTML, Save to Sheets, Email as CSV",
+  "description": "\n👥 Who is this for?\n\nThis workflow is ideal for virtual assistants, researchers, developers, automation specialists, and data analysts who need to regularly extract and organize structured product information (like books) from a website. It’s especially useful for those working with catalog-based websites who want to automate extraction and delivery of clean, sorted data.\n\n🧩 What problem is this solving?\n\nManually copying product listings like book titles and prices from a website into a spreadsheet is slow and repetitive. This automation solves that problem by scraping content using Dumpling AI, extracting the right data using CSS selectors, and formatting it into a clean CSV file that is sent to your email—all triggered automatically when a new URL is added to Google Sheets.\n\n⚙️ What this workflow does\n\nThis template automates an entire content scraping and delivery process:\n\nWatches a Google Sheet for new URLs\nScrapes the HTML content of the given webpage using Dumpling AI\nUses CSS selectors in the HTML node to extract each book from the page\nSplits the HTML array into individual items\nExtracts the book title and price from each HTML block\nSorts the books in descending order based on price\nConverts the sorted data to a CSV file\nSends the CSV via email using Gmail\n\n🛠️ Setup\n\nGoogle Sheets\n   Create a sheet titled something like URLs\n   Add your product listing URLs (e.g., http://books.toscrape.com)\n   Connect the Google Sheets trigger node to your sheet\n   Ensure you have proper credentials connected\n\nDumpling AI\n   Create an account at Dumpling AI)   - Generate your API key\n   \n   Set the HTTP Method to POST and pass the URL dynamically from the Google Sheet\n   Use Header Auth to include your API key in the request header\n   Make sure \"cleaned\": \"True\" is included in the body for optimized HTML output\n\nHTML Node\n   The first HTML node extracts the main book container blocks using:  \n     .row &gt; li\n   The second HTML node parses out the individual fields:  \n     title: h3 &gt; a (via the title attribute)  \n     price: .price_color\n\nSort Node\n   Sorts books by price in descending order  \n   Note: price is extracted as a string, ensure it's parsable if you plan to use numeric filtering later\n\nConvert to CSV\n   The JSON data is passed into a Convert node and transformed into a CSV file\n\nGmail\n   Sends the CSV as an attachment to a designated email\n\n🔄 How to customize this workflow\n\nExtract more data**: Add more CSS selectors in the second HTML node to pull fields like author, availability, or product links\nSwitch destinations**: Replace Gmail with Slack, Google Drive, Dropbox, or another platform\nAdjust sorting**: Sort alphabetically or based on another extracted value\nUse a different source**: As long as the site structure is consistent, this can scrape any listing-like page\nTrigger differently**: Use a webhook, form submission, or schedule trigger instead of Google Sheets\n\n⚠️ Dependencies and Notes\n\nThis workflow uses Dumpling AI to perform the web scraping. This requires an API key and uses credits per request.\nThe HTML node depends on valid CSS selectors. If the site layout changes, the selectors may need to be updated.\nEnsure you’re not scraping content from websites that prohibit automated scraping.\n",
+  "totalViews": 1116,
+  "source": "official",
+  "user": {
+    "id": 93751,
+    "name": "Yang",
+    "username": "yang",
+    "bio": "",
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/6c996ff9ed140535b522858466c376f84e755b851b34b0ad900e4e6568568f84?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-04-24T23:10:27.733Z",
+  "path": "official/template_3701/workflow.json"
+}

@@ -1,0 +1,49 @@
+{
+  "id": 3098,
+  "name": "Fetch Squarespace Blog & Event Collections to Google Sheets",
+  "description": "Overview  \nThis workflow retrieves all blog and event collection items from a Squarespace site and saves them into a Google Sheets spreadsheet. It uses pagination to fetch 20 items per request, ensuring all content is collected efficiently.  \n\nHow It Works  \nThe workflow queries your Squarespace blog and event collections.  \nIt fetches data in paginated batches (20 items per page).  \nThe retrieved data is formatted and inserted into Google Sheets.  \nThe workflow runs on demand or on a schedule, ensuring your data stays up to date.  \n\nRequirements  \nCredentials  \nTo use this template, you need:  \nYour Squarespace collection URL  \nGoogle Sheets API credentials  \n\nGoogle Sheets Setup  \nUse this sample Google Sheets template to get started quickly.  \n\nWho Is This For?  \nThis template is designed for:  \nBloggers looking to manage and analyze content externally.  \nBusinesses and marketers tracking content performance.  \nAnyone who needs an automated way to extract Squarespace blog and event data.  \n\nExplore More Templates  \nCheck out my other n8n templates:  \n👉 n8n.io/creators/bangank36  \n",
+  "totalViews": 425,
+  "source": "official",
+  "user": {
+    "id": 92981,
+    "name": "bangank36",
+    "username": "bangank36",
+    "bio": "Automation specialist with 10+ years of experience helping SME website owners streamline their workflows—specializing in Squarespace, Shopify, and WordPress. Book an initial consultation for custom n8n automation using my link.",
+    "verified": true,
+    "links": "[\"https://beyondspace.studio\"]",
+    "avatar": "https://gravatar.com/avatar/499b5f6868bff3f56c51a6650bf87b946b25b2e17d353e3c9bbf5b34d2bd5bf4?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-03-06T14:05:23.492Z",
+  "path": "official/template_3098/workflow.json"
+}

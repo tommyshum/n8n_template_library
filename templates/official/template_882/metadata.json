@@ -1,0 +1,43 @@
+{
+  "id": 882,
+  "name": "Store the output of a phantom in Airtable",
+  "description": "This workflow allows you to store the output of a phantom in Airtable. This workflow uses the LinkedIn Profile Scraper phantom. Configure and launch this phantom from your Phantombuster account before executing the workflow.\n\n\n\nThe workflow uses the following node:\n\nPhantombuster node: The Phantombuster node gets the output of the LinkedIn Profile Scraper phantom that ran earlier. You can select a different phantom from the Agent dropdown list, but make sure to configure the workflow accordingly.\n\nSet node: Using the Set node we are setting the data for the workflow. The data that we set in this node will be used by the next nodes in the workflow. Based on your use-case, you can modify the node.\n\nAirtable node: The Airtable node allows us to append the data in an Airtable. Based on your use-case you can replace this node with any other node.\n\nInstead of storing the data in Airtable, you can store the data in a database or Google Sheet, or send it as an email using the Send Email node, Gmail node, or Microsoft Outlook node.",
+  "totalViews": 1225,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Sales",
+    "Marketing"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Phantombuster",
+      "type": "n8n-nodes-base.phantombuster",
+      "categories": [
+        "Sales",
+        "Marketing"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2021-01-08T10:50:07.539Z",
+  "path": "official/template_882/workflow.json"
+}

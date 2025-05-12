@@ -1,0 +1,49 @@
+{
+  "id": 3651,
+  "name": "Automated Customer Reservations via Telegram and PostgreSQL (Module \"Booking\")",
+  "description": "Who is this for?  \nThis workflow is for businesses or services that require managing customer reservations or appointments through a Telegram bot and storing reservation details in a PostgreSQL database.\n\nWhat problem is this workflow solving?  \nThis workflow automates the process of capturing reservation data via a Telegram bot and storing it in a PostgreSQL database. It eliminates the need for manual entry and reduces errors, improving efficiency in managing bookings.\n\nWhat this workflow does  \nThe workflow allows customers to select a day and time for their reservation through a Telegram bot.\nCustomers provide their phone number and name, which are then added to the reservation table in the PostgreSQL database.\nSuccessfully added reservations are confirmed via the bot, ensuring both the business and customer are updated.\n\nSetup  \nCreate tables in Postgres DB  \n   Replace \"n8n\" in the provided SQL script with the name of your schema in the database.\n   Execute the SQL script to set up the required tables.\n\nAdd Credentials  \n   Add your Telegram bot credentials.\n   Add your PostgreSQL database credentials to the workflow for seamless integration.\n\nHow to customize this workflow to your needs  \nModify the available days and times in the Telegram bot according to your business hours or schedule.\nAdjust the database schema or add additional fields for customer preferences, special requests, or payment information as needed.",
+  "totalViews": 453,
+  "source": "official",
+  "user": {
+    "id": 93883,
+    "name": "Andrew",
+    "username": "boanse",
+    "bio": "Analyst-Developer",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/61d84d897d0411ddab1209f44480478b3e19bc319b0a3b69dd0419d51b2fbdd3?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Data & Storage",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Postgres",
+      "type": "n8n-nodes-base.postgres",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "WhatsApp Business Cloud",
+      "type": "n8n-nodes-base.whatsApp",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-04-21T20:02:55.145Z",
+  "path": "official/template_3651/workflow.json"
+}

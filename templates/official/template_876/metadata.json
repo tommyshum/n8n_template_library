@@ -1,0 +1,49 @@
+{
+  "id": 876,
+  "name": "Monitor Strava and send email updates",
+  "description": "Allow your friends to get updates when you do not meet your workout goals so that they can help you get to where you need to be!\n\nMonitors your Strava account and sends an email to three accountability partners each day if you have not had enough activity so that they can reach out to you with some encouragement.\n\n\n\nMake sure that you configure the Accountability Settings to meet your needs along with the Strava and Send Email credentials.",
+  "totalViews": 816,
+  "source": "official",
+  "user": {
+    "id": 4031,
+    "name": "jason",
+    "username": "tephlon",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/ee7788870e9ab8d34c979c940727f579ecc3c3e8f60069d1297d51eb30af831e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Core Nodes",
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "categories": [
+        "Communication",
+        "HITL",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Strava",
+      "type": "n8n-nodes-base.strava",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2021-01-06T01:00:57.710Z",
+  "path": "official/template_876/workflow.json"
+}

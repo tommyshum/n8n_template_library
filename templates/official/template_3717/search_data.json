@@ -1,0 +1,298 @@
+{
+  "id": 3717,
+  "name": "Search LinkedIn companies and add them to Airtable CRM",
+  "totalViews": 2468,
+  "purchaseUrl": null,
+  "user": {
+    "id": 94057,
+    "name": "Matthieu",
+    "username": "yaznow",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/0087102f41989fc3569adf570c8b0417d9c27884311ec012ce71b0dc2a80b11a?r=pg&d=retro&size=200"
+  },
+  "description": "Search LinkedIn companies and add them to Airtable CRM\n\nWho is this for?\nThis template is ideal for sales teams, business development professionals, and marketers looking to build a robust prospect database without manual LinkedIn research. Perfect for agencies, consultants, and B2B companies targeting specific business profiles.\n\nWhat problem does this workflow solve?\nManually researching companies on LinkedIn and adding them to your CRM is time-consuming and error-prone. This automation eliminates the tedious process of finding, qualifying, and importing prospects into your database.\n\nWhat this workflow does\nThis workflow automatically searches for companies on LinkedIn based on your criteria (keywords, size, location), retrieves detailed information about each company, filters them based on quality indicators (follower count and website availability), and adds new companies to your Airtable CRM while preventing duplicates.\n\nSetup\nCreate a Ghost Genius API account and get your API key\nConfigure HTTP Request nodes with Header Auth credentials (Name: \"Authorization\", Value: \"Bearer your_api_key\")\nCreate an Airtable base named \"CRM\" with columns: name, website, LinkedIn, id, etc.\nSet up your Airtable credentials following n8n documentation\nAdd your company search selection criteria to the “Set Variables” node.\n\nHow to customize this workflow\nModify search parameters in the \"Set Variables\" node to target different industries, locations, or company sizes\nAdjust the follower count threshold in the \"Filter Valid Companies\" node based on your qualification criteria\nCustomize the Airtable fields mapping in the \"Add Company to CRM\" node to match your database structure\nAdd notification nodes (Slack, Email) to alert you when new companies are added",
+  "createdAt": "2025-04-26T13:58:44.656Z",
+  "nodes": [
+    {
+      "id": 2,
+      "icon": "file:airtable.svg",
+      "name": "n8n-nodes-base.airtable",
+      "codex": {
+        "data": {
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/2021-goals-level-up-your-vocabulary-with-vonage-and-n8n/",
+                "icon": "🎯",
+                "label": "2021 Goals: Level Up Your Vocabulary With Vonage and n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/2021-the-year-to-automate-the-new-you-with-n8n/",
+                "icon": "☀️",
+                "label": "2021: The Year to Automate the New You with n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/how-to-build-a-low-code-self-hosted-url-shortener/",
+                "icon": "🔗",
+                "label": "How to build a low-code, self-hosted URL shortener in 3 steps"
+              },
+              {
+                "url": "https://n8n.io/blog/how-to-get-started-with-crm-automation-and-no-code-workflow-ideas/",
+                "icon": "👥",
+                "label": "How to get started with CRM automation (with 3 no-code workflow ideas"
+              },
+              {
+                "url": "https://n8n.io/blog/automate-google-apps-for-productivity/",
+                "icon": "💡",
+                "label": "15 Google apps you can combine and automate to increase productivity"
+              },
+              {
+                "url": "https://n8n.io/blog/building-an-expense-tracking-app-in-10-minutes/",
+                "icon": "📱",
+                "label": "Building an expense tracking app in 10 minutes"
+              },
+              {
+                "url": "https://n8n.io/blog/why-this-product-manager-loves-workflow-automation-with-n8n/",
+                "icon": "🧠",
+                "label": "Why this Product Manager loves workflow automation with n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/learn-to-build-powerful-api-endpoints-using-webhooks/",
+                "icon": "🧰",
+                "label": "Learn to Build Powerful API Endpoints Using Webhooks"
+              },
+              {
+                "url": "https://n8n.io/blog/sending-sms-the-low-code-way-with-airtable-twilio-programmable-sms-and-n8n/",
+                "icon": "📱",
+                "label": "Sending SMS the Low-Code Way with Airtable, Twilio Programmable SMS, and n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/automating-conference-organization-processes-with-n8n/",
+                "icon": "🙋��♀️",
+                "label": "Automating Conference Organization Processes with n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/benefits-of-automation-and-n8n-an-interview-with-hubspots-hugh-durkin/",
+                "icon": "🎖",
+                "label": "Benefits of automation and n8n: An interview with HubSpot's Hugh Durkin"
+              },
+              {
+                "url": "https://n8n.io/blog/how-goomer-automated-their-operations-with-over-200-n8n-workflows/",
+                "icon": "🛵",
+                "label": "How Goomer automated their operations with over 200 n8n workflows"
+              },
+              {
+                "url": "https://n8n.io/blog/aws-workflow-automation/",
+                "label": "7 no-code workflow automations for Amazon Web Services"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.airtable/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/airtable/"
+              }
+            ]
+          },
+          "categories": [
+            "Data & Storage"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "Airtable"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMTcwIj48cGF0aCBmaWxsPSIjZmNiNDAwIiBkPSJNODkgNC44IDE2LjIgMzQuOWMtNC4xIDEuNy00IDcuNC4xIDkuMWw3My4yIDI5YzYuNCAyLjYgMTMuNiAyLjYgMjAgMGw3My4yLTI5YzQuMS0xLjYgNC4xLTcuNC4xLTkuMWwtNzMtMzAuMUMxMDMuMiAyIDk1LjcgMiA4OSA0LjgiLz48cGF0aCBmaWxsPSIjMThiZmZmIiBkPSJNMTA1LjkgODguOXY3Mi41YzAgMy40IDMuNSA1LjggNi43IDQuNWw4MS42LTMxLjdjMS45LS43IDMuMS0yLjUgMy4xLTQuNVY1Ny4yYzAtMy40LTMuNS01LjgtNi43LTQuNUwxMDkgODQuM2MtMS45LjgtMy4xIDIuNi0zLjEgNC42Ii8+PHBhdGggZmlsbD0iI2Y4MmI2MCIgZD0ibTg2LjkgOTIuNi0yNC4yIDExLjctMi41IDEuMkw5LjEgMTMwYy0zLjIgMS42LTcuNC0uOC03LjQtNC40VjU3LjVjMC0xLjMuNy0yLjQgMS42LTMuM3EuNi0uNiAxLjItLjljMS4yLS43IDMtLjkgNC40LS4zbDc3LjUgMzAuN2M0IDEuNSA0LjMgNy4xLjUgOC45Ii8+PHBhdGggZmlsbD0iI2JhMWU0NSIgZD0ibTg2LjkgOTIuNi0yNC4yIDExLjctNTkuNC01MHEuNi0uNiAxLjItLjljMS4yLS43IDMtLjkgNC40LS4zbDc3LjUgMzAuN2M0IDEuNCA0LjMgNyAuNSA4LjgiLz48L3N2Zz4="
+      },
+      "displayName": "Airtable",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 3,
+          "name": "Data & Storage"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "icon": "file:httprequest.svg",
+      "name": "n8n-nodes-base.httpRequest",
+      "codex": {
+        "data": {
+          "alias": [
+            "API",
+            "Request",
+            "URL",
+            "Build",
+            "cURL"
+          ],
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/2021-the-year-to-automate-the-new-you-with-n8n/",
+                "icon": "☀️",
+                "label": "2021: The Year to Automate the New You with n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/why-business-process-automation-with-n8n-can-change-your-daily-life/",
+                "icon": "🧬",
+                "label": "Why business process automation with n8n can change your daily life"
+              },
+              {
+                "url": "https://n8n.io/blog/automatically-pulling-and-visualizing-data-with-n8n/",
+                "icon": "📈",
+                "label": "Automatically pulling and visualizing data with n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/learn-how-to-automatically-cross-post-your-content-with-n8n/",
+                "icon": "✍️",
+                "label": "Learn how to automatically cross-post your content with n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/automatically-adding-expense-receipts-to-google-sheets-with-telegram-mindee-twilio-and-n8n/",
+                "icon": "🧾",
+                "label": "Automatically Adding Expense Receipts to Google Sheets with Telegram, Mindee, Twilio, and n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/running-n8n-on-ships-an-interview-with-maranics/",
+                "icon": "🛳",
+                "label": "Running n8n on ships: An interview with Maranics"
+              },
+              {
+                "url": "https://n8n.io/blog/what-are-apis-how-to-use-them-with-no-code/",
+                "icon": " 🪢",
+                "label": "What are APIs and how to use them with no code"
+              },
+              {
+                "url": "https://n8n.io/blog/5-tasks-you-can-automate-with-notion-api/",
+                "icon": "⚡️",
+                "label": "5 tasks you can automate with the new Notion API "
+              },
+              {
+                "url": "https://n8n.io/blog/world-poetry-day-workflow/",
+                "icon": "📜",
+                "label": "Celebrating World Poetry Day with a daily poem in Telegram"
+              },
+              {
+                "url": "https://n8n.io/blog/automate-google-apps-for-productivity/",
+                "icon": "💡",
+                "label": "15 Google apps you can combine and automate to increase productivity"
+              },
+              {
+                "url": "https://n8n.io/blog/automate-designs-with-bannerbear-and-n8n/",
+                "icon": "🎨",
+                "label": "Automate Designs with Bannerbear and n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/how-uproc-scraped-a-multi-page-website-with-a-low-code-workflow/",
+                "icon": " 🕸️",
+                "label": "How uProc scraped a multi-page website with a low-code workflow"
+              },
+              {
+                "url": "https://n8n.io/blog/building-an-expense-tracking-app-in-10-minutes/",
+                "icon": "📱",
+                "label": "Building an expense tracking app in 10 minutes"
+              },
+              {
+                "url": "https://n8n.io/blog/5-workflow-automations-for-mattermost-that-we-love-at-n8n/",
+                "icon": "🤖",
+                "label": "5 workflow automations for Mattermost that we love at n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/how-to-use-the-http-request-node-the-swiss-army-knife-for-workflow-automation/",
+                "icon": "🧰",
+                "label": "How to use the HTTP Request Node - The Swiss Army Knife for Workflow Automation"
+              },
+              {
+                "url": "https://n8n.io/blog/learn-how-to-use-webhooks-with-mattermost-slash-commands/",
+                "icon": "🦄",
+                "label": "Learn how to use webhooks with Mattermost slash commands"
+              },
+              {
+                "url": "https://n8n.io/blog/how-a-membership-development-manager-automates-his-work-and-investments/",
+                "icon": "📈",
+                "label": "How a Membership Development Manager automates his work and investments"
+              },
+              {
+                "url": "https://n8n.io/blog/a-low-code-bitcoin-ticker-built-with-questdb-and-n8n-io/",
+                "icon": "📈",
+                "label": "A low-code bitcoin ticker built with QuestDB and n8n.io"
+              },
+              {
+                "url": "https://n8n.io/blog/how-to-set-up-a-ci-cd-pipeline-with-no-code/",
+                "icon": "🎡",
+                "label": "How to set up a no-code CI/CD pipeline with GitHub and TravisCI"
+              },
+              {
+                "url": "https://n8n.io/blog/automations-for-activists/",
+                "icon": "✨",
+                "label": "How Common Knowledge use workflow automation for activism"
+              },
+              {
+                "url": "https://n8n.io/blog/creating-scheduled-text-affirmations-with-n8n/",
+                "icon": "🤟",
+                "label": "Creating scheduled text affirmations with n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/how-goomer-automated-their-operations-with-over-200-n8n-workflows/",
+                "icon": "🛵",
+                "label": "How Goomer automated their operations with over 200 n8n workflows"
+              },
+              {
+                "url": "https://n8n.io/blog/aws-workflow-automation/",
+                "label": "7 no-code workflow automations for Amazon Web Services"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.httprequest/"
+              }
+            ]
+          },
+          "categories": [
+            "Development",
+            "Core Nodes"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0",
+          "subcategories": {
+            "Core Nodes": [
+              "Helpers"
+            ]
+          }
+        }
+      },
+      "group": "[\"output\"]",
+      "defaults": {
+        "name": "HTTP Request",
+        "color": "#0004F5"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik00MCAyMEM0MCA4Ljk1MzE0IDMxLjA0NjkgMCAyMCAwQzguOTUzMTQgMCAwIDguOTUzMTQgMCAyMEMwIDMxLjA0NjkgOC45NTMxNCA0MCAyMCA0MEMzMS4wNDY5IDQwIDQwIDMxLjA0NjkgNDAgMjBaTTIwIDM2Ljk0NThDMTguODg1MiAzNi45NDU4IDE3LjEzNzggMzUuOTY3IDE1LjQ5OTggMzIuNjk4NUMxNC43OTY0IDMxLjI5MTggMTQuMTk2MSAyOS41NDMxIDEzLjc1MjYgMjcuNjg0N0gyNi4xODk4QzI1LjgwNDUgMjkuNTQwMyAyNS4yMDQ0IDMxLjI5MDEgMjQuNTAwMiAzMi42OTg1QzIyLjg2MjIgMzUuOTY3IDIxLjExNDggMzYuOTQ1OCAyMCAzNi45NDU4Wk0xMi45MDY0IDIwQzEyLjkwNjQgMjEuNjA5NyAxMy4wMDg3IDIzLjE2NCAxMy4yMDAzIDI0LjYzMDVIMjYuNzk5N0MyNi45OTEzIDIzLjE2NCAyNy4wOTM2IDIxLjYwOTcgMjcuMDkzNiAyMEMyNy4wOTM2IDE4LjM5MDMgMjYuOTkxMyAxNi44MzYgMjYuNzk5NyAxNS4zNjk1SDEzLjIwMDNDMTMuMDA4NyAxNi44MzYgMTIuOTA2NCAxOC4zOTAzIDEyLjkwNjQgMjBaTTIwIDMuMDU0MTlDMjEuMTE0OSAzLjA1NDE5IDIyLjg2MjIgNC4wMzA3OCAyNC41MDAxIDcuMzAwMzlDMjUuMjA2NiA4LjcxNDA4IDI1LjgwNzIgMTAuNDA2NyAyNi4xOTIgMTIuMzE1M0gxMy43NTAxQzE0LjE5MzMgMTAuNDA0NyAxNC43OTQyIDguNzEyNTQgMTUuNDk5OCA3LjMwMDY0QzE3LjEzNzcgNC4wMzA4MyAxOC44ODUxIDMuMDU0MTkgMjAgMy4wNTQxOVpNMzAuMTQ3OCAyMEMzMC4xNDc4IDE4LjQwOTkgMzAuMDU0MyAxNi44NjE3IDI5LjgyMjcgMTUuMzY5NUgzNi4zMDQyQzM2LjcyNTIgMTYuODQyIDM2Ljk0NTggMTguMzk2NCAzNi45NDU4IDIwQzM2Ljk0NTggMjEuNjAzNiAzNi43MjUyIDIzLjE1OCAzNi4zMDQyIDI0LjYzMDVIMjkuODIyN0MzMC4wNTQzIDIzLjEzODMgMzAuMTQ3OCAyMS41OTAxIDMwLjE0NzggMjBaTTI2LjI3NjcgNC4yNTUxMkMyNy42MzY1IDYuMzYwMTkgMjguNzExIDkuMTMyIDI5LjM3NzQgMTIuMzE1M0gzNS4xMDQ2QzMzLjI1MTEgOC42NjggMzAuMTA3IDUuNzgzNDYgMjYuMjc2NyA0LjI1NTEyWk0xMC42MjI2IDEyLjMxNTNINC44OTI5M0M2Ljc1MTQ3IDguNjY3ODQgOS44OTM1MSA1Ljc4MzQxIDEzLjcyMzIgNC4yNTUxM0MxMi4zNjM1IDYuMzYwMjEgMTEuMjg5IDkuMTMyMDEgMTAuNjIyNiAxMi4zMTUzWk0zLjA1NDE5IDIwQzMuMDU0MTkgMjEuNjAzIDMuMjc3NDMgMjMuMTU3NSAzLjY5NDg0IDI0LjYzMDVIMTAuMTIxN0M5Ljk0NjE5IDIzLjE0MiA5Ljg1MjIyIDIxLjU5NDMgOS44NTIyMiAyMEM5Ljg1MjIyIDE4LjQwNTcgOS45NDYxOSAxNi44NTggMTAuMTIxNyAxNS4zNjk1SDMuNjk0ODRDMy4yNzc0MyAxNi44NDI1IDMuMDU0MTkgMTguMzk3IDMuMDU0MTkgMjBaTTI2LjI3NjYgMzUuNzQyN0MyNy42MzY1IDMzLjYzOTMgMjguNzExIDMwLjg2OCAyOS4zNzc0IDI3LjY4NDdIMzUuMTA0NkMzMy4yNTEgMzEuMzMyMiAzMC4xMDY4IDM0LjIxNzkgMjYuMjc2NiAzNS43NDI3Wk0xMy43MjM0IDM1Ljc0MjdDOS44OTM2OSAzNC4yMTc5IDYuNzUxNTUgMzEuMzMyNCA0Ljg5MjkzIDI3LjY4NDdIMTAuNjIyNkMxMS4yODkgMzAuODY4IDEyLjM2MzUgMzMuNjM5MyAxMy43MjM0IDM1Ljc0MjdaIiBmaWxsPSIjM0E0MkU5Ii8+Cjwvc3ZnPgo="
+      },
+      "displayName": "HTTP Request",
+      "typeVersion": 4,
+      "nodeCategories": [
+        {
+          "id": 5,
+          "name": "Development"
+        },
+        {
+          "id": 9,
+          "name": "Core Nodes"
+        }
+      ]
+    }
+  ]
+}

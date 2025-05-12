@@ -1,0 +1,38 @@
+{
+  "id": 2733,
+  "name": "Line Message API : Push Message & Reply",
+  "description": "Workflow Description\nThis workflow demonstrates how to use the LINE Messaging API to handle two scenarios:\nReplying to a user's message using a reply token.\nSending a push message to a specific LINE user using their user ID.\n\nKey Features\nWebhook Integration: Receives and processes incoming messages from LINE using a webhook.\nConditional Logic: Checks if the received event type is a message and handles it accordingly.\nReply Message: Automatically responds to the user's message using the LINE reply token.\nPush Message: Sends a test message to a specific LINE user using their unique user ID.\n\nPre-Configuration\nTo simplify the setup process, create a Header Auth credential in n8n:\nName**: Authorization\nValue**: Bearer {line token}  \nThis will authenticate all API requests to the LINE Messaging API.\nNode Configurations\n\n1.1. Webhook from LINE Message\nPurpose**: Captures incoming events from the LINE Messaging API.\nConfiguration**:\n  HTTP Method: POST\n  Path: {n8n-webhook-page}\n\n1.2. If Condition\nPurpose**: Checks if the received event type is message.\nConfiguration**:\n  Condition:\n    {{ $json.body.events[0].type }} equals \"message\"\n\n1.3. Line: Reply with Token\nPurpose**: Replies to the user's message using the LINE reply token.\nConfiguration**:\n  Method: POST\n  URL: https://api.line.me/v2/bot/message/reply\n  JSON Body:\n        {\n      \"replyToken\": \"{{ $('Webhook from Line Message').item.json.body.events[0].replyToken }}\",\n      \"messages\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"收到您的訊息 : {{ $('Webhook from Line Message').item.json.body.events[0].message.text }}\"\n        }\n      ]\n    }\n2.1. Manual Trigger: Test Workflow\nPurpose**: Triggers the workflow for testing the push message functionality.\nConfiguration**: No additional setup required.\n\n2.2. Edit Fields\nPurpose**: Prepares the unique LINE user ID for the push message.\nConfiguration**:\n  Field:\n    line_uid: Uxxxxxxxxxxxx\n\n2.3. Line: Push Message\nPurpose**: Sends a test message to a specific LINE user.\nConfiguration**:\n  Method: POST\n  URL: https://api.line.me/v2/bot/message/push\n  JSON Body:\n        {\n      \"to\": \"{{ $json.line_uid }}\",\n      \"messages\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"推播測試\"\n        }\n      ]\n    }\n工作流程描述\n此工作流程展示如何使用 LINE Messaging API 處理兩種情境：\n使用 reply token 回應使用者的訊息。\n使用使用者的 user ID 發送 推播訊息。\n\n主要功能\nWebhook 整合：透過 Webhook 接收並處理來自 LINE 的訊息。\n條件邏輯：檢查接收到的事件類型是否為訊息並進行處理。\n回應訊息：使用 LINE 的 reply token 自動回覆使用者的訊息。\n推播訊息：使用 LINE User ID 向指定用戶發送測試訊息。\n\n預先設定\n為簡化設定流程，請在 n8n 中建立 Header Auth 憑證：\n名稱**：Authorization\n值**：Bearer {line token}  \n此設定將用於認證所有 LINE Messaging API 的請求。\n節點設定\n\n1.1. Webhook from LINE Message\n用途**：接收來自 LINE Messaging API 的事件。\n設定**：\n  HTTP 方法：POST\n  路徑：{n8n-webhook-page}\n\n1.2. If 條件判斷\n用途**：檢查接收到的事件類型是否為 message。\n設定**：\n  條件：\n    {{ $json.body.events[0].type }} 等於 \"message\"\n\n1.3. Line: Reply with Token\n用途**：使用 LINE reply token 回應使用者訊息。\n設定**：\n  方法：POST\n  URL：https://api.line.me/v2/bot/message/reply\n  JSON 主體：\n        {\n      \"replyToken\": \"{{ $('Webhook from Line Message').item.json.body.events[0].replyToken }}\",\n      \"messages\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"收到您的訊息 : {{ $('Webhook from Line Message').item.json.body.events[0].message.text }}\"\n        }\n      ]\n    }\n2.1. 手動觸發：測試工作流程\n用途**：測試推播訊息功能。\n設定**：無需額外設定。\n\n2.2. Edit Fields\n用途**：準備推播訊息所需的 LINE 使用者 ID。\n設定**：\n  欄位：\n    line_uid：Uxxxxxxxxxxxx\n\n2.3. Line: 推播訊息\n用途**：向特定 LINE 使用者發送測試訊息。\n設定**：\n  方法：POST\n  URL：https://api.line.me/v2/bot/message/push\n  JSON 主體：\n        {\n      \"to\": \"{{ $json.line_uid }}\",\n      \"messages\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"推播測試\"\n        }\n      ]\n    }\n    \n完成示意圖 (Storyboard Example):\n\n",
+  "totalViews": 4557,
+  "source": "official",
+  "user": {
+    "id": 92348,
+    "name": "darrell_tw",
+    "username": "darrelltw",
+    "bio": "Martech Engineer with automation.\nhere is my website: https://www.darrelltw.com/",
+    "verified": true,
+    "links": "[\"https://x.com/DarrellMarTech\"]",
+    "avatar": "https://gravatar.com/avatar/4bf99603c608dc2e9a91e3d17bf47743b41153512a14098c8070213d7dccc199?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-01-15T17:08:04.179Z",
+  "path": "official/template_2733/workflow.json"
+}

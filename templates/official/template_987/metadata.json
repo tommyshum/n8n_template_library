@@ -1,0 +1,32 @@
+{
+  "id": 987,
+  "name": "Create Asana Ticket from Terminal Bash-dash",
+  "description": "This workflow allows creating a new Asana task via bash-dash \n\n\n\nExample usage:\n\\- asana My new task\n\nExample bash-dash config:\ncommands[asana]=\"http://localhost:5678/webhook/asana\"\n",
+  "totalViews": 477,
+  "source": "official",
+  "user": {
+    "id": 8,
+    "name": "Jan Oberhauser",
+    "username": "jan",
+    "bio": "Founder/CEO of n8n",
+    "verified": true,
+    "links": "[\"https://twitter.com/JanOberhauser\"]",
+    "avatar": "https://gravatar.com/avatar/457e4b99bfbbb2d3fb5b045a6d80165b3bc80dc3ff24306ac18fd1180e257786?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "Asana",
+      "type": "n8n-nodes-base.asana",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2021-03-17T10:05:12.611Z",
+  "path": "official/template_987/workflow.json"
+}

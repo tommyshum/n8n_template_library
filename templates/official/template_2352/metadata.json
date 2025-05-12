@@ -1,0 +1,77 @@
+{
+  "id": 2352,
+  "name": "Create Teams Notifications for new Tickets in ConnectWise with Redis",
+  "description": "This Workflow does a HTTPs request to ConnectWise Manage through their REST API. \n\nIt will pull all tickets in the \"New\" status or whichever status you like, and notify your dispatch team/personnel whenever a new ticket comes in using Microsoft Teams. \n\nVideo Explanation https://youtu.be/yaSVCybSWbM",
+  "totalViews": 3445,
+  "source": "official",
+  "user": {
+    "id": 91391,
+    "name": "Gavin",
+    "username": "sniped-you-fool",
+    "bio": null,
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/c9bf5420133c3612bddb5a889d41f5868bb101104e18bb879589c541216010af?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Redis",
+      "type": "n8n-nodes-base.redis",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Microsoft Teams",
+      "type": "n8n-nodes-base.microsoftTeams",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2024-07-22T10:13:42.326Z",
+  "path": "official/template_2352/workflow.json"
+}

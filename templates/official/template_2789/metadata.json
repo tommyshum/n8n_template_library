@@ -1,0 +1,71 @@
+{
+  "id": 2789,
+  "name": "Daily meetings summarization with Gemini AI",
+  "description": "This workflow implements the Gemini AI chat model to summarize your daily meetings and send the summary to a Slack channel daily at 9 AM (or any other time you choose).\n\nIt automatically retrieves your Google Calendar events and feeds them to the model.\n\nThe workflow uses Google’s Gemini AI for response generation.\n\nHow it works\nThe workflow uses a Scheduled Trigger Node as the main trigger.\nThe AI Agent Node uses the Google Calendar action to retrieve relevant meeting data.\nThe AI Agent sends the retrieved information to the Google Gemini Chat Model (gemini-flash).\nThe Google Gemini Chat Model generates a summary and informative response based on today’s meetings.\n\n++Setup Steps++\nGoogle Cloud Project and Vertex AI API:\n\n\tCreate a Google Cloud project.\n\tEnable the Vertex AI API for your project.\n\nGoogle AI API Key:\n\tObtain a Google AI API key from Google AI Studio.\nCredentials in n8n:\n\tConfigure credentials in your n8n environment for:\n\t\tGoogle Gemini (PaLM) API (using your Google AI API key).\nImport the Workflow:\n\tImport this workflow into your n8n instance.\nConfigure the Workflow:\n\tUpdate both Slack and Gemini nodes with your credentials.\n",
+  "totalViews": 3465,
+  "source": "official",
+  "user": {
+    "id": 92508,
+    "name": "Johnny Rafael",
+    "username": "johnnyrafael",
+    "bio": "",
+    "verified": false,
+    "links": "[\"https://github.com/JohnnyRafael\"]",
+    "avatar": "https://gravatar.com/avatar/feca04c9a121ae062574d11508385871c45db2e2fcd2819cc9dc819dcf8e81fd?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-01-24T03:54:33.086Z",
+  "path": "official/template_2789/workflow.json"
+}

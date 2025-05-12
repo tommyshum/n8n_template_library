@@ -1,0 +1,32 @@
+{
+  "id": 959,
+  "name": "Create a collection and create, update, and get a bookmark in Raindrop",
+  "description": "This workflow allows you to create a collection and create, update, and get a bookmark in Raindrop.\n\n\n\nRaindrop node: This node will create a new collection in Raindrop. If you already have a collection, you can skip this node.\n\nRaindrop1 node: This node will create a new bookmark and add it to a collection.\n\nRaindrop2 node: This node will update the bookmark that we created in the previous node.\n\nRaindrop3 node: This node will return the information about the bookmark that we created earlier.",
+  "totalViews": 850,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "Raindrop",
+      "type": "n8n-nodes-base.raindrop",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2021-03-01T10:55:15.001Z",
+  "path": "official/template_959/workflow.json"
+}

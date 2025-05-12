@@ -1,0 +1,160 @@
+{
+  "id": 2840,
+  "name": "Automate SIEM Alert Enrichment with MITRE ATT&CK, Qdrant & Zendesk in n8n",
+  "description": "n8n Workflow: Automate SIEM Alert Enrichment with MITRE ATT&CK & Qdrant  \n\nWho is this for?  \nThis workflow is ideal for:  \nCybersecurity teams & SOC analysts* who want to automate *SIEM alert enrichment**.  \nIT security professionals* looking to integrate *MITRE ATT&CK intelligence** into their ticketing system.  \nOrganizations using Zendesk for security incidents* who need enhanced *contextual threat data**.  \nAnyone using n8n and Qdrant* to build *AI-powered security workflows**.  \n\nWhat problem does this workflow solve?  \nSecurity teams receive large volumes of raw SIEM alerts that lack actionable context. Investigating every alert manually is time-consuming and can lead to delayed response times. This workflow solves this problem by:  \n✔ Automatically enriching SIEM alerts with MITRE ATT&CK TTPs.  \n✔ Tagging & classifying alerts based on known attack techniques.  \n✔ Providing remediation steps to guide the response team.  \n✔ Enhancing security tickets in Zendesk with relevant threat intelligence.  \n\nWhat this workflow does  \n\n1️⃣ Ingests SIEM alerts (via chatbot or ticketing system like Zendesk).  \n2️⃣ Queries a Qdrant vector store containing MITRE ATT&CK techniques.  \n3️⃣ Extracts relevant TTPs (Tactics, Techniques, & Procedures) from the alert.  \n4️⃣ Generates remediation steps using AI-powered enrichment.  \n5️⃣ Updates Zendesk tickets with threat intelligence & recommended actions.  \n6️⃣ Provides structured alert data for further automation or reporting.  \n\nSetup Guide  \n\nPrerequisites  \nn8n instance** (Cloud or Self-hosted).  \nQdrant vector store** with MITRE ATT&CK data embedded.  \nOpenAI API key** (for AI-based threat processing).  \nZendesk account** (for ticket enrichment, if applicable).  \nClean Mitre Data Python Script\nCleaned Mitre Data\nFull Mitre Data\n\nSteps to Set Up  \n\n1️⃣ Embed MITRE ATT&CK data into Qdrant  \n   This workflow pulls MITRE ATT&CK data from Google Drive and loads it into Qdrant.  \n   The data is vectorized using OpenAI embeddings for fast retrieval.  \n\n2️⃣ Deploy the n8n Chatbot  \n   The chatbot listens for SIEM alerts and sends them to the AI processing pipeline.  \n   Alerts are analyzed using an AI agent trained on MITRE ATT&CK.  \n\n3️⃣ Enrich Zendesk Tickets  \n   The workflow extracts MITRE ATT&CK techniques from alerts.  \n   It updates Zendesk tickets with contextual threat intelligence.  \n   The remediation steps are included as internal notes for SOC teams.  \n\nHow to Customize This Workflow  \n\n🔧 Modify the chatbot trigger: Adapt the chatbot node to receive alerts from Slack, Microsoft Teams, or any other tool.  \n\n🔧 Change the SIEM input source: Connect your workflow to Splunk, Elastic SIEM, or Chronicle Security.  \n\n🔧 Customize remediation steps: Use a custom AI model to tailor remediation responses based on organization-specific security policies.  \n\n🔧 Extend ticketing integration: Modify the Zendesk node to also work with Jira, ServiceNow, or another ITSM platform.  \n\nWhy This Workflow is Powerful  \n✅ Saves time: Automates alert triage & classification.  \n✅ Improves security posture: Helps SOC teams act faster on threats.  \n✅ Leverages AI & vector search: Uses LLM-powered enrichment for real-time context.  \n✅ Works across platforms: Supports n8n Cloud, Self-hosted, and Qdrant.  \n\n🚀 Get Started Now!  \n📖 Watch the Setup Video  \n💬 Have Questions? Join the Discussion in the YouTube Comments! ",
+  "totalViews": 8880,
+  "source": "official",
+  "user": {
+    "id": 16588,
+    "name": "Angel Menendez",
+    "username": "djangelic",
+    "bio": "Angel Menendez is a Staff Developer Advocate at n8n.io, specializing in low-code tools for cybersecurity workflows. From Puerto Rico, Angel's tech journey began by helping his father translate technical books. He later started a web development business and transitioned from a career as a flight attendant to cybersecurity engineering. His workflows have saved companies significant time. Outside work, Angel enjoys time with his two sons, riding electric bikes, reading, and exploring new places.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/fdbe38425d21378d8c9ba8916e1eb0b320add299f12cc23fcd4961d4e6e00bec?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Communication",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Zendesk",
+      "type": "n8n-nodes-base.zendesk",
+      "categories": [
+        "Communication"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Token Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterTokenSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    },
+    {
+      "name": "Qdrant Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreQdrant",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 10,
+  "createdAt": "2025-02-03T09:56:24.838Z",
+  "path": "official/template_2840/workflow.json"
+}

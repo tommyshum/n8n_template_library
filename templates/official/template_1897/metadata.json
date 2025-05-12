@@ -1,0 +1,57 @@
+{
+  "id": 1897,
+  "name": "Send specific PDF attachments from Gmail to Google Drive using OpenAI",
+  "description": "This workflow reads PDF textual content and sends the text to OpenAI. Attachments of interest will then be uploaded to a specified Google Drive folder. For example, you may wish to send invoices received from an email to an inbox folder in Google Drive for later processing. This workflow has been designed to easily change the search term to match your needs. See the workflow for more details.\n\nPrerequisites\n\nOpenAI credentials.\nGoogle credentials.\n\nHow it works\n\nTriggers off on the On email received node.\nIterates over the attachments in the email.\nUses the OpenAI node to filter out the attachments that do not match the search term set in the Configure node. You could match on various PDF files (i.e. invoice, receipt, or contract).\nIf the PDF attachment matches the search term, the workflow uses the Google Drive node to upload the PDF attachment to a specific Google Drive folder.",
+  "totalViews": 14824,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes",
+    "Utility"
+  ],
+  "nodes": [
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "n8n-nodes-base.openAi",
+      "categories": [
+        "Utility"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2023-03-10T15:24:29.938Z",
+  "path": "official/template_1897/workflow.json"
+}

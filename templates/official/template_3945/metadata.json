@@ -1,0 +1,70 @@
+{
+  "id": 3945,
+  "name": "Control your discord server with natural language via GPT4o and MCP Client",
+  "description": "What it is-\nVery simple connection to your Discord MCP Server and 4o.\n\nHow to set it up-\nJust specify your MCP Server's url, select your OpenAI credential, and you're set!\n\n\n\nHow to use it-\nYou can now send a chat message to the production URL from anywhere and the actions will occur on discord! It really is that easy.\n\n\n\nNote: If you don't yet have a Discord MCP server set up, there is a template called \"Discord MCP Server\" to get you a jumpstart!",
+  "totalViews": 83,
+  "source": "official",
+  "user": {
+    "id": 94297,
+    "name": "David Ashby",
+    "username": "cfomodz",
+    "bio": "A hacker by nature, programmer by trade\n⚒️ I'm looking to collaborate on things that save human labor 📫 How to reach me Github👇 -> Discord",
+    "verified": false,
+    "links": "[\"https://github.com/Cfomodz\"]",
+    "avatar": "https://gravatar.com/avatar/0118796cfdab829a3307d407dfeeb01a3952eb402584a45a211e4ef7d15edbbf?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "MCP Client Tool",
+      "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Model Context Protocol",
+          "Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-05-08T19:32:58.874Z",
+  "path": "official/template_3945/workflow.json"
+}

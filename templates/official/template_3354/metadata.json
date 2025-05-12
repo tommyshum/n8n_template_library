@@ -1,0 +1,87 @@
+{
+  "id": 3354,
+  "name": "Automatically document and backup N8N workflows",
+  "description": "Automatically backs up your workflows to Github and generates documentation in a Notion database.\n\nWeekly run, uses the \"internal-infra\" tag to look for new or recently modified workflows\nUses a Notion database page to hold the workflow summary, last updated date, and a link to the workflow\nUses OpenAI's 4o-mini to generate a summarization of what the workflow does\nStores a backup of the workflow in GitHub (recommend a private repo)\nSends notification to Slack channel for new or updated workflows\n\nWho is this for\n\nAnyone seeking backup of their most important workflows\nAnyone seeking version control for their most important workflows\n\nCredentials required\n\nN8N: You will need an N8N credential created so the workflow can query the N8N instance to find all active workflows with the \"internal-infra\" tag\nNotion: You will need an Notion credential created\nOpenAI: You will need an OpenAI credential, unless you intend on rewiring this with your AI of choice (ollama, openrouter, etc.)\nGitHub: You will need an GitHub credential\nSlack: You will require an Slack credential, recommend a Bot / access token configuration\n\nSetup\n\nNotion\n\nCreate a database with the following columns. Column type is specified in [type].\n  Workflow Name [text]\n  isActive (dev) [checkbox]\n  Error workflow setup [checkbox]\n  AI Summary [text]\n  Record last update [date/time]\n  URL (dev) [text/url]\n  Workflow created at [date/time]\n  Workflow updated at [date/time]\n\nSlack\n\nCreate a channel for updates to be posted into\n\nGithub\n\nCreate a private repo for your workflows to be exported into\n\nN8N\n\nDownload & install the template\nConfigure the blocks to use your N8N, Notion, OpenAI & Slack credentials for your own\nEdit the \"Set Fields\" block and change the URL to that of your N8N instance (cloud or self-hosted)\nEdit the \"Add to Notion\" action and specify the Database page you wish to update\nEdit the Slack actions to specify the Channel you want slack notifications posted to\nEdit the GitHub actions to specify the Repository Owner & Repository Name\n\n\nSample output in Notion\n\nWorkflow diagram\n",
+  "totalViews": 168,
+  "source": "official",
+  "user": {
+    "id": 93489,
+    "name": "Luke",
+    "username": "ozskywalker",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/1bf68e692beadc2e553bfe1345692b2ce04b37e423ac2355652c072d7d53ffad?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "Productivity",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "GitHub",
+      "type": "n8n-nodes-base.github",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-03-29T17:16:27.848Z",
+  "path": "official/template_3354/workflow.json"
+}

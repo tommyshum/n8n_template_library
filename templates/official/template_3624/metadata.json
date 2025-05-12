@@ -1,0 +1,112 @@
+{
+  "id": 3624,
+  "name": "Scrape Competitor Reviews & Generate Ad Creatives with Bright Data & OpenAI",
+  "description": "Scrape Competitor Reviews & Generate Ad Creatives with Bright data and OpenAI\n\nHow the Flow Runs\n\nFill the Form\n   Enter the Amazon product URL to analyze competitor reviews.\n\nTrigger Bright Data Scraper\n   Bright Data scrapes Amazon reviews based on the provided URL.\n\nWait for Snapshot Completion\n   Periodically checks Bright Data until the scraping is complete.\n\nRetrieve JSON Data\n   Collects the scraped review data in JSON format.\n\nSave Reviews to Google Sheets\n   Automatically appends the scraped reviews to your Google Sheets.\n\nAggregate Reviews\n   Consolidates all reviews into a single summary for simpler analysis.\n\nAnalyze Reviews with OpenAI LLM\n   Sends the aggregated reviews to OpenAI (GPT-4o mini) to summarize competitors’ main weaknesses clearly.\n\nGenerate Creative Ad Image\n   OpenAI generates a visually appealing 1080x1080 ad image addressing these identified pain points.\n\nSend Ad Creative via Gmail\n   Automatically emails the creative and review summary to your media buying team for immediate use in Meta ads.\n\nWhat You Need\n\nGoogle Sheets:** Template\nBright Data:** Dataset and API key:\nwww.brightdata.com\nOpenAI API Key:** For GPT-4o mini or your preferred LLM\nAutomation Tool:** Ensure it supports HTTP Requests, Wait, Conditional (If), Google Sheets integration, Form Trigger, OpenAI integration, and Gmail integration.\n\nForm Fields to Fill\n\nAmazon Product URL:** Enter the competitor’s product URL from Amazon.\n\nSetup Steps\n\nCopy the provided Google Sheet template.\nImport the JSON workflow into your automation tool.\nUpdate credentials for Bright Data, Google Sheets, Gmail, and OpenAI.\nTest manually by submitting the form and verifying functionality.\nOptional: Set a schedule for regular workflow execution.\n\nBright Data Trigger Example\n\n[\n  {\n    \"url\": \"https://www.amazon.com/example-product\"\n  }\n]\n\nTips\nFrequently update URLs to ensure fresh insights.\n\nAllow more wait time for extensive data scrapes.\n\nFocus on targeted products to optimize cost-efficiency.\n\nNeed Help?\nEmail: Yaron@nofluff.online\n\nResources:\n\nYouTube:\nhttps://www.youtube.com/@YaronBeen/videos\n\nLinkedIn:\nhttps://www.linkedin.com/in/yaronbeen/\n\nBright Data Documentation:\nhttps://docs.brightdata.com/introduction",
+  "totalViews": 1273,
+  "source": "official",
+  "user": {
+    "id": 93770,
+    "name": "Yaron Been",
+    "username": "yaron-nofluff",
+    "bio": "Building AI Agents and Automations | Growth Marketer | Entrepreneur | Book Author & Podcast Host",
+    "verified": true,
+    "links": "[\"nofluff.online\"]",
+    "avatar": "https://gravatar.com/avatar/a4e4dcaa1f76ff5266bbf80e8df86d22efda890474c68f7796e72fd82e3f2375?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-04-21T07:44:21.325Z",
+  "path": "official/template_3624/workflow.json"
+}

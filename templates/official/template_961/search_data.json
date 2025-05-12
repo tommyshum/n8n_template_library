@@ -1,0 +1,66 @@
+{
+  "id": 961,
+  "name": "Create a campaign, add a contact, and get the campaign from Emelia",
+  "totalViews": 291,
+  "purchaseUrl": null,
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "description": "This workflow allows you to create a campaign, add a contact, and get the campaign from Emelia.\n\n\n\nEmelia node: This node will create a new campaign in Emelia.\n\nEmelia1 node: This node will add a contact to the campaign that we created in the previous node. Based on your use-case, you can add a Google Sheets node or an Airtable node to get the email address of the contact.\n\nEmelia2 node: This node will get the information about the campaign that we created earlier.",
+  "createdAt": "2021-03-02T09:26:56.393Z",
+  "nodes": [
+    {
+      "id": 457,
+      "icon": "file:emelia.svg",
+      "name": "n8n-nodes-base.emelia",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.emelia/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/emelia/"
+              }
+            ]
+          },
+          "categories": [
+            "Communication",
+            "Marketing"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "Emelia"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0yIDIgNDUgNDUiPjxwYXRoIGZpbGw9IiNmNGI0NTQiIGQ9Ik0yOS43MTQgNi41MzlIOS4wNzhhMi4xMSAyLjExIDAgMCAwLTIuMDA3IDIuNzYybDUuNDg0IDE2Ljg2MyA0LjIxOS0xLjgxN2EzIDMgMCAwIDEtLjAyNC0uMzQgMi42NDEgMi42NDEgMCAxIDEgMS4wMjMgMi4wODEgMjQxNyAyNDE3IDAgMCAxLTQuNDE1IDIuNTQ1bDUuMTU2IDE1Ljg1MmEuODY1Ljg2NSAwIDAgMCAxLjY0NSAwbDExLjQ4LTM1LjI5M2EyLjAyNiAyLjAyNiAwIDAgMC0xLjkyNS0yLjY1MyIgb3BhY2l0eT0iLjkiLz48cGF0aCBmaWxsPSIjZWY2ZDRhIiBkPSJNMzcuMTU0IDIxLjI2MSAxLjA3MSAxMi41NzdhLjg2NS44NjUgMCAwIDAtLjg2MSAxLjRsMTAuOTA5IDEyLjggNS42NTYtMi40MzZhMyAzIDAgMCAxLS4wMjQtLjM0IDIuNjQxIDIuNjQxIDAgMSAxIDEuMDIzIDIuMDgxIDIxNzggMjE3OCAwIDAgMS00Ljg2IDIuOGwxMS4yOTEgMTMuMjU1YTIuMTEgMi4xMSAwIDAgMCAzLjQtLjI2NGwxMC44LTE3LjU4NmEyLjAyNiAyLjAyNiAwIDAgMC0xLjI1MS0zLjAyNiIgb3BhY2l0eT0iLjkiLz48cGF0aCBmaWxsPSIjMjAzNTRjIiBkPSJNMzcuNjM2IDEyLjU3NyAxLjU1MyAyMS4yNjFBMi4wMjUgMi4wMjUgMCAwIDAgLjMwMSAyNC4yOWwzLjQ3MiA1LjY1NiAxMy01LjZhMyAzIDAgMCAxLS4wMjQtLjM0IDIuNjQxIDIuNjQxIDAgMSAxIDEuMDIzIDIuMDgxYy0zLjEgMS43OTEtOS4wNzMgNS4yMzQtMTIuMTA4IDYuOTRsNS40MzIgOC44NDhhMi4xMSAyLjExIDAgMCAwIDMuNC4yNjRsMjMuOTk1LTI4LjE2MWEuODY1Ljg2NSAwIDAgMC0uODU1LTEuNDAxIiBvcGFjaXR5PSIuOSIvPjwvc3ZnPg=="
+      },
+      "displayName": "Emelia",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 6,
+          "name": "Communication"
+        },
+        {
+          "id": 27,
+          "name": "Marketing"
+        }
+      ]
+    }
+  ]
+}

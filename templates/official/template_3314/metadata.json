@@ -1,0 +1,100 @@
+{
+  "id": 3314,
+  "name": "WebSecScan: AI-Powered Website Security Auditor",
+  "description": "WebSecScan: AI-Powered Website Security Auditor\n\nThis n8n workflow provides comprehensive website security analysis by leveraging OpenAI's models to detect vulnerabilities, configuration issues, and security misconfigurations. The workflow generates a professional HTML security report delivered directly via Gmail.\n\nKey Features\n\nDual-Layer Security Analysis:** Performs parallel security audits using specialized OpenAI agents:\n  Header Configuration Audit: Analyzes HTTP headers, CORS policies, CSP implementation, and cookie security\n  Vulnerability Assessment: Identifies XSS vectors, information disclosure, and client-side weaknesses\n  \nDetailed Security Grading:** Automatically calculates a security grade (A+ to F) based on findings severity and quantity\n\nProfessional Report Generation:** Creates a comprehensive HTML report with:\n  Security grade visualization\n  Color-coded vulnerability categories\n  Detailed recommendations with example configuration fixes\n  Header presence/absence indicators\n  Implementation guidance for remediation\n\nNon-Invasive Testing:** Performs analysis without active scanning or exploitation attempts\n\nTechnical Implementation\n\nMulti-Agent Architecture:** Utilizes two specialized OpenAI agents with custom prompts tailored for security analysis\nAdvanced Header Analysis:** Detects presence and proper implementation of critical security headers:\n  Content-Security-Policy\n  Strict-Transport-Security\n  X-Content-Type-Options\n  X-Frame-Options\n  Referrer-Policy\n  Permissions-Policy\n\nIntelligent Issue Detection:** Uses JavaScript processing to analyze OpenAI outputs and count critical/warning issues\nResponsive HTML Report:** Dynamically generates a mobile-friendly report with detailed findings and recommendations\n\nSetup Requirements\n\n1. OpenAI API Configuration\nCreate an OpenAI API key at platform.openai.com\nIn n8n, go to Settings → Credentials → New → OpenAI API\nEnter your API key and save\n\n2. Gmail Integration\nNavigate to Settings → Credentials → New → Gmail OAuth2 API\nComplete the OAuth authentication flow\nConfigure recipient email in the \"Send Security Report\" node\n\n3. Workflow Customization (Optional)\nModify the form title/description in the Landing Page node\nUpgrade from gpt-4o-mini to gpt-4o for more comprehensive analysis\nAdd additional recipients to the email report\n\nUsage Instructions\n\nActivate the workflow and access the form via the generated URL\nEnter any website URL to analyze (including the http:// or https:// prefix)\nReceive a detailed security report via email within minutes\nShare findings with your development team to implement fixes\n\nThis workflow represents a non-invasive security assessment tool. For production environments, complement with professional penetration testing services.",
+  "totalViews": 8483,
+  "source": "official",
+  "user": {
+    "id": 93399,
+    "name": "Dale Dunlop",
+    "username": "daledunlop",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/5388f694f455e66e83773a986d066ef4326c0f05c4e992a5184cddb27d7de00f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-03-24T18:13:24.596Z",
+  "path": "official/template_3314/workflow.json"
+}

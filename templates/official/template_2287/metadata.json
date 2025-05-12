@@ -1,0 +1,109 @@
+{
+  "id": 2287,
+  "name": "Classify lemlist replies using OpenAI and automate reply handling",
+  "description": "Who this is for\nThis workflow is for sales people who want to quickly and efficiently follow up with their leads\n\nWhat this workflow does\nThis workflow starts every time a new reply is received in lemlist. It then classifies the response using openAI and creates the correct follow up task. The follow-up tasks currently include:\nSlack alerts when a lead for each new replies\nTag interested leads in lemlist\nUnsubscription of leads when they request it\n\nThe Slack alerts include: \nLead email address\nSender email address\nReply type (positive, not interested...etc)\nA preview of the reply\n\nSetup\nTo set this template up, simply follow the stickies steps in it\n\nHow to customize this workflow to your needs\nAdjust the follow up tasks to your needs\nChange the Slack notification to your needs\n...",
+  "totalViews": 1532,
+  "source": "official",
+  "user": {
+    "id": 91319,
+    "name": "Lucas Perret",
+    "username": "lucasperret",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/0b3273e259147247b9921e13c536e06521ebd68ba5198aaff9b141db51eb3d94?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "Marketing",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Lemlist",
+      "type": "n8n-nodes-base.lemlist",
+      "categories": [
+        "Communication",
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2024-06-10T16:47:40.469Z",
+  "path": "official/template_2287/workflow.json"
+}

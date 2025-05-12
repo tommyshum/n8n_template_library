@@ -1,0 +1,65 @@
+{
+  "id": 1967,
+  "name": "Prepare CSV files with GPT-4",
+  "totalViews": 6198,
+  "purchaseUrl": null,
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "description": "This workflow generates CSV files containing a list of 10 random users with specific characteristics using OpenAI's GPT-4 model. It then splits this data into batches, converts it to CSV format, and saves it to disk for further use.\n\nThe execution of the workflow begins from here when triggered manually.\n\"OpenAI\" Node. This uses the OpenAI API to generate random user data. The input to the OpenAI API is a fixed string, which asks for a list of 10 random users with some specific attributes. The attributes include a name and surname starting with the same letter, a subscription status, and a subscription date (if they are subscribed). There is also a short example of the JSON object structure. This technique is called one-shot prompting.\n\"Split In Batches\" Node. This node is used to handle the OpenAI responses one by one.\n\"Parse JSON\" Node. This node converts the content of the message received from the OpenAI node (which is in string format) into a JSON object.\n\"Make JSON Table\" Node. This node is used to convert the JSON data into a tabular format, which is easier to handle for further data processing.\n\"Convert to CSV\" Node. This node converts the table format data received from the \"Make JSON Table\" node into CSV format and assigns a file name.\n\"Save to Disk\" Node. This node is used to save the CSV generated in the previous node to disk in the \".n8n\" directory.\n\nThe workflow is designed in a circular manner. So, after saving the file to disk, it goes back to the \"Split In Batches\" node to process the OpenAI output, until all batches are processed.",
+  "createdAt": "2023-10-30T13:32:37.834Z",
+  "nodes": [
+    {
+      "id": 840,
+      "icon": "file:openAi.svg",
+      "name": "n8n-nodes-base.openAi",
+      "codex": {
+        "data": {
+          "alias": [
+            "ChatGPT",
+            "DallE"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-langchain.openai/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/openai/"
+              }
+            ]
+          },
+          "categories": [
+            "Utility"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "OpenAI"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNTYiIGhlaWdodD0iMjYwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCI+PHBhdGggZD0iTTIzOS4xODQgMTA2LjIwM2E2NC43MiA2NC43MiAwIDAgMC01LjU3Ni01My4xMDNDMjE5LjQ1MiAyOC40NTkgMTkxIDE1Ljc4NCAxNjMuMjEzIDIxLjc0QTY1LjU4NiA2NS41ODYgMCAwIDAgNTIuMDk2IDQ1LjIyYTY0LjcyIDY0LjcyIDAgMCAwLTQzLjIzIDMxLjM2Yy0xNC4zMSAyNC42MDItMTEuMDYxIDU1LjYzNCA4LjAzMyA3Ni43NGE2NC42NyA2NC42NyAwIDAgMCA1LjUyNSA1My4xMDJjMTQuMTc0IDI0LjY1IDQyLjY0NCAzNy4zMjQgNzAuNDQ2IDMxLjM2YTY0LjcyIDY0LjcyIDAgMCAwIDQ4Ljc1NCAyMS43NDRjMjguNDgxLjAyNSA1My43MTQtMTguMzYxIDYyLjQxNC00NS40ODFhNjQuNzcgNjQuNzcgMCAwIDAgNDMuMjI5LTMxLjM2YzE0LjEzNy0yNC41NTggMTAuODc1LTU1LjQyMy04LjA4My03Ni40ODNtLTk3LjU2IDEzNi4zMzhhNDguNCA0OC40IDAgMCAxLTMxLjEwNS0xMS4yNTVsMS41MzUtLjg3IDUxLjY3LTI5LjgyNWE4LjYgOC42IDAgMCAwIDQuMjQ3LTcuMzY3di03Mi44NWwyMS44NDUgMTIuNjM2Yy4yMTguMTExLjM3LjMyLjQwOS41NjN2NjAuMzY3Yy0uMDU2IDI2LjgxOC0yMS43ODMgNDguNTQ1LTQ4LjYwMSA0OC42MDFNMzcuMTU4IDE5Ny45M2E0OC4zNSA0OC4zNSAwIDAgMS01Ljc4MS0zMi41ODlsMS41MzQuOTIxIDUxLjcyMiAyOS44MjZhOC4zNCA4LjM0IDAgMCAwIDguNDQxIDBsNjMuMTgxLTM2LjQyNXYyNS4yMjFhLjg3Ljg3IDAgMCAxLS4zNTguNjY1bC01Mi4zMzUgMzAuMTg0Yy0yMy4yNTcgMTMuMzk4LTUyLjk3IDUuNDMxLTY2LjQwNC0xNy44MDNNMjMuNTQ5IDg1LjM4YTQ4LjUgNDguNSAwIDAgMSAyNS41OC0yMS4zMzN2NjEuMzlhOC4yOSA4LjI5IDAgMCAwIDQuMTk1IDcuMzE2bDYyLjg3NCAzNi4yNzItMjEuODQ1IDEyLjYzNmEuODIuODIgMCAwIDEtLjc2NyAwTDQxLjM1MyAxNTEuNTNjLTIzLjIxMS0xMy40NTQtMzEuMTcxLTQzLjE0NC0xNy44MDQtNjYuNDA1em0xNzkuNDY2IDQxLjY5NS02My4wOC0zNi42M0wxNjEuNzMgNzcuODZhLjgyLjgyIDAgMCAxIC43NjggMGw1Mi4yMzMgMzAuMTg0YTQ4LjYgNDguNiAwIDAgMS03LjMxNiA4Ny42MzV2LTYxLjM5MWE4LjU0IDguNTQgMCAwIDAtNC40LTcuMjEzbTIxLjc0Mi0zMi42OS0xLjUzNS0uOTIyLTUxLjYxOS0zMC4wODFhOC4zOSA4LjM5IDAgMCAwLTguNDkyIDBMOTkuOTggOTkuODA4Vjc0LjU4N2EuNzIuNzIgMCAwIDEgLjMwNy0uNjY1bDUyLjIzMy0zMC4xMzNhNDguNjUyIDQ4LjY1MiAwIDAgMSA3Mi4yMzYgNTAuMzkxek04OC4wNjEgMTM5LjA5N2wtMjEuODQ1LTEyLjU4NWEuODcuODcgMCAwIDEtLjQxLS42MTRWNjUuNjg1YTQ4LjY1MiA0OC42NTIgMCAwIDEgNzkuNzU3LTM3LjM0NmwtMS41MzUuODctNTEuNjcgMjkuODI1YTguNiA4LjYgMCAwIDAtNC4yNDYgNy4zNjd6bTExLjg2OC0yNS41OEwxMjguMDY3IDk3LjNsMjguMTg4IDE2LjIxOHYzMi40MzRsLTI4LjA4NiAxNi4yMTgtMjguMTg4LTE2LjIxOHoiLz48L3N2Zz4="
+      },
+      "displayName": "OpenAI",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 7,
+          "name": "Utility"
+        }
+      ]
+    }
+  ]
+}

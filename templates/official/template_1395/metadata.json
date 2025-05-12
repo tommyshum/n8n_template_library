@@ -1,0 +1,57 @@
+{
+  "id": 1395,
+  "name": "Collects images from web search results and send to Google Sheets",
+  "description": "This workflow collects images from web search results on a specific query, analyzes the image for labels, formats the text, and adds the information in Google Sheets.\n\n\n\nHTTP Request node** gets images from the web.\nAWS Rekognition node** analyzes the images (in this case, it detects text in an image).\nSet node** sets the values necessary for the data set.\nFunction node** transforms the text detected in the image to lower case.\nGoogle Sheets node** adds the image information to a sheet that serves as data set.",
+  "totalViews": 2274,
+  "source": "official",
+  "user": {
+    "id": 12733,
+    "name": "Lorena",
+    "username": "lorenanda",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/df6358bcce2351cf878beab8f89b9f000f50588aaa728f7ea57127c1b85e7b06?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "AWS Rekognition",
+      "type": "n8n-nodes-base.awsRekognition",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2022-01-11T12:21:39.059Z",
+  "path": "official/template_1395/workflow.json"
+}

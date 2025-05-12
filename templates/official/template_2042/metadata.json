@@ -1,0 +1,48 @@
+{
+  "id": 2042,
+  "name": "Bulk Automated Google Drive Files Sharing and Direct Download Link Generation",
+  "description": "This N8N workflow automates the process of sharing files from Google Drive. It includes OAuth2 authentication, batch processing, public link generation, and access status modification for efficient file handling. Suitable for users seeking to streamline their Google Drive file sharing process. sutiable for bulk actions, tested on 4.2K files folder working like charm.\n\nHow It Works\n\nInitialize Workflow: The process begins with a Manual Trigger, allowing the user to start the workflow at their convenience.\nFolder ID Specification: A 'Set Folder ID' node where the user can enter the desired Google Drive Folder ID.\nList Files from Google Drive: The 'Google Drive' node lists all files within the specified folder using OAuth2 authentication.\nBatch Processing: The 'Loop Over Items' node processes the files in batches for efficiency.\nGenerate Public Links: The 'Generate Download Links' node creates downloadable links for each file.\nChange File Access: The 'Change Status' node alters the file status to make them publicly accessible.\nMerge and Output: A 'Merge' node consolidates the data, preparing it for further actions or output.\n\nSet Up Steps\n\nEstimated Time**: The setup should take approximately 10-15 minutes.\nInitial Setup**: You'll need to provide OAuth2 credentials for Google Drive and specify a folder ID.\nCustomization**: Adjust the batch size and file access permissions according to your needs.\nDetailed Descriptions**: For specific configuration details, refer to the sticky notes within the workflow.\n\nExample Item output\n{\n\"link\": \"https://drive.google.com/u/3/uc?id=1hojqPfXchNTY8YRTNkxSo-8txK9re-V4&export=download&confirm=t&authuser=0\",\n\"name\": \"firefox_rNjA0ybKu7.png\",\n\"kind\": \"drive#permission\",\n\"id\": \"anyoneWithLink\",\n\"type\": \"anyone\",\n\"role\": \"reader\",\n\"allowFileDiscovery\": false\n}\nYou can store the output data with any data store node you want, for example save them into Excel Sheet or Airtable etc...\nKeywords: n8n workflow, Google Drive integration, file sharing automation, batch file processing, public link generation, OAuth2 authentication, workflow automation\n",
+  "totalViews": 3966,
+  "source": "official",
+  "user": {
+    "id": 91304,
+    "name": "Nskha",
+    "username": "nskha",
+    "bio": "Welcome to Nskha! We're all about making real changes in the no-code tech field, just like with N8N 😉. Check out our amazing collection of free public templates and join us in building a collaborative database of no-code idea projects. Let's revolutionize the way we create without code!",
+    "verified": true,
+    "links": "[\"https://nskha.com\"]",
+    "avatar": "https://gravatar.com/avatar/6f99957ae9e5a66cf0bb95f4584cf321b0644a0ceea6a633bc968b6ec55e8410?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-01-08T12:42:13.574Z",
+  "path": "official/template_2042/workflow.json"
+}

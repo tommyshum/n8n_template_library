@@ -1,0 +1,49 @@
+{
+  "id": 1216,
+  "name": "Detect toxic language in Telegram messages",
+  "description": "This workflow detects toxic language (such as profanity, insults, threats) in messages sent via Telegram. This blog tutorial explains how to configure the workflow nodes step-by-step.\n\n\n\nTelegram Trigger: triggers the workflow when a new message is sent in a Telegram chat.\n\nGoogle Perspective: analyzes the text of the message and returns a probability value between 0 and 1 of how likely it is that the content is toxic.\n\nIF: filters messages with a toxic probability value above 0.7.\n\nTelegram: sends a message in the chat with the text \"I don't tolerate toxic language\" if the probability value is above 0.7.\n\nNoOp: takes no action if the probability value is below 0.7.",
+  "totalViews": 2003,
+  "source": "official",
+  "user": {
+    "id": 12733,
+    "name": "Lorena",
+    "username": "lorenanda",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/df6358bcce2351cf878beab8f89b9f000f50588aaa728f7ea57127c1b85e7b06?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Analytics",
+    "Utility"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Google Perspective",
+      "type": "n8n-nodes-base.googlePerspective",
+      "categories": [
+        "Analytics",
+        "Utility"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2021-09-03T09:46:40.579Z",
+  "path": "official/template_1216/workflow.json"
+}

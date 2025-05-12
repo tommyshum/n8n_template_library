@@ -1,0 +1,86 @@
+{
+  "id": 3644,
+  "name": "🌳 EU Green Legislation Tracker with GPT-4o, Google Sheets and Tasks",
+  "description": "Tags: EU Legislation, Sustainability, Automation, Web Scraping, OpenAI, Google Sheets, Policy Monitoring, Climate\n\nContext\n\nHey! I’m Samir, a Supply Chain Engineer and Data Scientist from Paris, and the founder of LogiGreen Consulting.\n\nWe use AI, automation, and data to support sustainable business practices for small, medium and large companies.\n\nThis workflow is part of our broader initiative to monitor and act on sustainability legislation in Europe.\n\n\n\n&gt; How do you know if new EU laws will impact your business's sustainability goals?\n\nThis n8n workflow automatically scrapes the EU Parliament’s legislative portal to find and flag procedures related to environmental sustainability.\n\n📬 For business inquiries, feel free to connect with me on LinkedIn\n\nWho is this template for?\n\nThis workflow is useful for:\nSustainability consultants** monitoring legal frameworks\nNGOs and researchers** tracking environmental regulations\nCompanies* aligning with *CSRD* or *EU Green Deal** objectives\nPolicy analysts** looking for automation tools\n\nWhat does it do?\n\nThis n8n workflow:\n🌐 Scrapes the EU Parliament legislative portal for yesterday’s entries  \n🧠 Uses OpenAI to classify if each procedure is related to sustainability  \n🗂️ Filters out irrelevant items  \n📊 Saves the results in a Google Sheet  \n✅ Creates a Google Task for each relevant file to review the legislation  \n\nHow it works\n\n\n\nTrigger manually or on schedule\nScrape HTML blocks for scheduled debates\nParse each procedure to extract Title, Committee, Rapporteur, PDF link\nCall GPT-4-turbo to check if the topic matches sustainability criteria\nFilter responses based on “yes” or “no”\nStore valid items into Google Sheets\nGenerate tasks in Google Tasks\n\nThe AI only flags procedures that directly impact the environment, circular economy, or pollution control.\n\nWhat do I need to get started?\n\nYou’ll need:\nA Google Sheet connected to your n8n instance  \nAn OpenAI account with GPT-4 access  \nA Google Task List\n\nFollow the Guide!\nFollow the sticky notes in the workflow or check my tutorial to configure each node and start using AI to monitor sustainability regulations in Europe.\n\n\n\n🎥 Watch My Tutorial\n\nNotes\n\nAI filters are strict — you can customise the system prompt to match your needs  \nThis is ideal for tracking legislative risk for climate regulations\n\nThis workflow was built using n8n version 1.85.4  \nSubmitted: April 21, 2025\n",
+  "totalViews": 727,
+  "source": "official",
+  "user": {
+    "id": 93233,
+    "name": "Samir Saci",
+    "username": "samirsaci",
+    "bio": "Automation, AI and Analytics for Supply Chain & Business Optimization\nHelping businesses streamline operations using n8n, AI agents, and data science to enhance efficiency and sustainability. \nLinkedin: www.linkedin.com/in/samir-saci",
+    "verified": true,
+    "links": "[\"https://linktr.ee/samirsaci\"]",
+    "avatar": "https://gravatar.com/avatar/d3644476a59e5813c5f00a7933977e2be8805cbdc574958b9cc6a53b45bedd6a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Tasks",
+      "type": "n8n-nodes-base.googleTasks",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-04-21T15:29:48.646Z",
+  "path": "official/template_3644/workflow.json"
+}

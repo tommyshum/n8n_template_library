@@ -1,0 +1,38 @@
+{
+  "id": 2571,
+  "name": "Post new RSS feed items as BlueSky posts",
+  "description": "Who is this for?\n\nBlueSky users looking to automate the publication of new posts based on new items from a RSS feed.\n\nWhat this workflow does\n\nThis will create a BlueSky post with each new RSS feed item, including the feed title, post image, link and content (up to 200 characters)\n\nSetup\n\nYou'll need to generate a BlueSky app password\nConfigure your feed URL in the first node\nConfigure your credentials in the second node\n\nHow to customize this workflow to your needs\n\nYou can modify the message posted in the `Create post node, changing the JSON text` value, in case you want to include only the feed item title instead of the content.\n\nIf you RSS feed doesn't provide an image, you can define a static one on the `Download image` node.",
+  "totalViews": 1560,
+  "source": "official",
+  "user": {
+    "id": 92197,
+    "name": "Nukeador",
+    "username": "nukeador",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/f8d358f4b77b9ffec6439badf793fe59fba37a3b56c2445b3f7b8f0988141b9b?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-11-25T10:23:12.892Z",
+  "path": "official/template_2571/workflow.json"
+}

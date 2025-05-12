@@ -1,0 +1,78 @@
+{
+  "id": 2980,
+  "name": "Nightly Discord Channel Cleanup",
+  "totalViews": 802,
+  "purchaseUrl": null,
+  "user": {
+    "id": 92392,
+    "name": "Viktor",
+    "username": "qxuken",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/0b844ec32e170c77c0c855af936eabe56ba91efc6a8c3c8924b6da0dc6133174?r=pg&d=retro&size=200"
+  },
+  "description": "Nightly Discord Channel Cleanup\nThis workflow runs every day at 9:00 p.m. and:\nRetrieves all Discord channels using your provided credentials.\nPauses briefly to respect Discord API rate limits.\nLoops through each channel and fetches messages.\nFilters out messages older than seven days.\nDeletes those older messages, again pausing to stay within deletion rate limits.\n\nBy setting up this workflow on a schedule, you can automatically keep Discord channels tidy and compliant with retention policies.\n👨‍🎤 Setup\nAdd your Discord credentials\nChange the server in each Discord node to the correct one\nClick the Test Workflow button\nActivate the workflow to run on a schedule",
+  "createdAt": "2025-02-22T20:09:12.911Z",
+  "nodes": [
+    {
+      "id": 60,
+      "icon": "file:discord.svg",
+      "name": "n8n-nodes-base.discord",
+      "codex": {
+        "data": {
+          "alias": [
+            "human",
+            "form",
+            "wait",
+            "hitl",
+            "approval"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.discord/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/discord/"
+              }
+            ]
+          },
+          "categories": [
+            "Communication",
+            "HITL"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0",
+          "subcategories": {
+            "HITL": [
+              "Human in the Loop"
+            ]
+          }
+        }
+      },
+      "group": "[\"output\"]",
+      "defaults": {
+        "name": "Discord"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNTYiIGhlaWdodD0iMTk5IiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCI+PHBhdGggZmlsbD0iIzU4NjVGMiIgZD0iTTIxNi44NTYgMTYuNTk3QTIwOC41IDIwOC41IDAgMCAwIDE2NC4wNDIgMGMtMi4yNzUgNC4xMTMtNC45MzMgOS42NDUtNi43NjYgMTQuMDQ2cS0yOS41MzgtNC40NDItNTguNTMzIDBjLTEuODMyLTQuNC00LjU1LTkuOTMzLTYuODQ2LTE0LjA0NmEyMDcuOCAyMDcuOCAwIDAgMC01Mi44NTUgMTYuNjM4QzUuNjE4IDY3LjE0Ny0zLjQ0MyAxMTYuNCAxLjA4NyAxNjQuOTU2YzIyLjE2OSAxNi41NTUgNDMuNjUzIDI2LjYxMiA2NC43NzUgMzMuMTkzQTE2MSAxNjEgMCAwIDAgNzkuNzM1IDE3NS4zYTEzNi40IDEzNi40IDAgMCAxLTIxLjg0Ni0xMC42MzIgMTA5IDEwOSAwIDAgMCA1LjM1Ni00LjIzN2M0Mi4xMjIgMTkuNzAyIDg3Ljg5IDE5LjcwMiAxMjkuNTEgMGExMzIgMTMyIDAgMCAwIDUuMzU1IDQuMjM3IDEzNiAxMzYgMCAwIDEtMjEuODg2IDEwLjY1M2M0LjAwNiA4LjAyIDguNjM4IDE1LjY3IDEzLjg3MyAyMi44NDggMjEuMTQyLTYuNTggNDIuNjQ2LTE2LjYzNyA2NC44MTUtMzMuMjEzIDUuMzE2LTU2LjI4OC05LjA4LTEwNS4wOS0zOC4wNTYtMTQ4LjM2TTg1LjQ3NCAxMzUuMDk1Yy0xMi42NDUgMC0yMy4wMTUtMTEuODA1LTIzLjAxNS0yNi4xOHMxMC4xNDktMjYuMiAyMy4wMTUtMjYuMiAyMy4yMzYgMTEuODA0IDIzLjAxNSAyNi4yYy4wMiAxNC4zNzUtMTAuMTQ4IDI2LjE4LTIzLjAxNSAyNi4xOG04NS4wNTEgMGMtMTIuNjQ1IDAtMjMuMDE0LTExLjgwNS0yMy4wMTQtMjYuMThzMTAuMTQ4LTI2LjIgMjMuMDE0LTI2LjJjMTIuODY3IDAgMjMuMjM2IDExLjgwNCAyMy4wMTUgMjYuMiAwIDE0LjM3NS0xMC4xNDggMjYuMTgtMjMuMDE1IDI2LjE4Ii8+PC9zdmc+"
+      },
+      "displayName": "Discord",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 6,
+          "name": "Communication"
+        },
+        {
+          "id": 28,
+          "name": "HITL"
+        }
+      ]
+    }
+  ]
+}

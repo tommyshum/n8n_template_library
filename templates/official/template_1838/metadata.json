@@ -1,0 +1,81 @@
+{
+  "id": 1838,
+  "name": "lemlist <> GPT-3: Supercharge your sales workflows",
+  "description": "Use GPT-3 to classify email responses in lemlist.\n\nAnd automate:\n\nSlack alerts when a lead is interested\nthe creation of tasks when a lead is OOO\nunsubscription of leads when they request it",
+  "totalViews": 2803,
+  "source": "official",
+  "user": {
+    "id": 36027,
+    "name": "Lucas Perret",
+    "username": "lempire",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/b0a32f127a6ad690cd4ee808cb4d1b59d3b5e53410181d54f91d10c0027ebb43?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "Sales",
+    "Marketing",
+    "Utility"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "HubSpot",
+      "type": "n8n-nodes-base.hubspot",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Lemlist",
+      "type": "n8n-nodes-base.lemlist",
+      "categories": [
+        "Communication",
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "OpenAI",
+      "type": "n8n-nodes-base.openAi",
+      "categories": [
+        "Utility"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2022-12-19T20:17:08.310Z",
+  "path": "official/template_1838/workflow.json"
+}

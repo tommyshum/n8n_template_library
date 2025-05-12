@@ -1,0 +1,38 @@
+{
+  "id": 696,
+  "name": "Send email via Gmail on workflow error",
+  "description": "\n\nSend an email via Gmail when a workflow error occurs.\n\nThe email subject line will contain the workflow name; the message body will contain the following information:\n\nWorkflow name\nError message\nLast node executed\nExecution URL\nStacktrace\n\nError workflows do not need to be activated in order to be used, but they do need to be selected in the Settings menu of whatever workflows you want to use it.\n\nTo use this workflow, you'll need to:\nCreate and select credentials in the Gmail node\nChoose the email recipient(s) in the Gmail node\nSave and select the created workflow as the \"Error Workflow\" in the Settings menu of whatever workflows you want to email on error",
+  "totalViews": 7276,
+  "source": "official",
+  "user": {
+    "id": 7309,
+    "name": "Trey",
+    "username": "trey",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/a34b927d14a6b3b96f3a6e588ee0fbfd519efd1c8cec0586b1a6e5976fc72d2a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2020-10-01T18:53:44.644Z",
+  "path": "official/template_696/workflow.json"
+}

@@ -1,0 +1,56 @@
+{
+  "id": 3771,
+  "name": "Generate & Email Personalized Certificates from Google Forms with Score Threshold",
+  "description": "Description\nThis workflow automatically generates personalized certificates in Google Slides and emails them to respondents only if they meet a minimum score threshold, using data submitted via Google Forms (stored in Google Sheets).\n\nIdeal for:\nOnline courses\nQuizzes and workshops\nEvent participation certificates\n\nSheet Requirements\nYour connected Google Sheet (from the Google Form) must contain:\nFull Name – The name to appear on the certificate.\nEmail – Recipient’s email address.\nScore – The test/quiz score used for threshold logic.\n\nSetup Instructions\nConnect Google Sheets – Make sure your Form responses are linked to a Sheet with the columns mentioned above.\nSet Score Threshold – Modify the If node to your desired minimum score (e.g., &gt;= 80).\nCustomize Certificate Template – Use a Google Slides file with text placeholders like {{Full Name}}.\nConnect Gmail & Google Drive – For sending emails and saving generated certificates.\nUpdate File IDs – Replace any placeholder Slide and Drive file IDs with your own.\n\nServices Used\nGoogle Sheets (Form responses)\nGoogle Slides (Certificate template)\nGoogle Drive (Storage)\nGmail (Email delivery)\n\nTroubleshooting\nIssue: \"Cannot read property 'Score'\" → Ensure your column names match exactly (Score, Full Name, etc.).\nSlides not replacing placeholders → Double-check placeholder format ({{Full Name}}) and capitalization.\nEmails not sending → Verify Gmail authentication and make sure the If node is correctly filtering results.\n\n",
+  "totalViews": 65,
+  "source": "official",
+  "user": {
+    "id": 93887,
+    "name": "Jakkrapat Ampring",
+    "username": "guitarpmacc",
+    "bio": "Working as a marketer in a bilingual school in Phuket with no coding background. I am a lazy person so I constantly looking for a way to make me work less. Been learning about AI stuff for around 2 years now.",
+    "verified": true,
+    "links": "[\"https://www.jakkrapat.com\"]",
+    "avatar": "https://gravatar.com/avatar/1285e20f29afd682de2f36205a83b3fa214858859b54db627975915ff9720a26?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Communication",
+    "HITL",
+    "Marketing"
+  ],
+  "nodes": [
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Google Slides",
+      "type": "n8n-nodes-base.googleSlides",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-04-28T12:53:47.538Z",
+  "path": "official/template_3771/workflow.json"
+}

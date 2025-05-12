@@ -1,0 +1,32 @@
+{
+  "id": 1253,
+  "name": "Add Netlify Form submissions to Airtable",
+  "description": "This workflow demonstrates how to use the Netlify Trigger node to capture form submissions and add it Airtable. You can reuse the workflow to add the data to another similar database by replacing the Airtable node with the corresponding node.\n\n\n\nNetlify Trigger node: This node triggers the workflow when a new form is submitted. Select your site from the Site Name/ID dropdown list and the form from the Form ID dropdown list.\n\nSet node: This node extract the required data from the Netlify Trigger node. In this example, we only want to add the Name, Email, and Role of the user.\n\nAirtable node: This node appends the data to Airtable. If you want the data to Google Sheets or a database, replace this node with the corresponding node.",
+  "totalViews": 714,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2021-10-04T10:36:40.635Z",
+  "path": "official/template_1253/workflow.json"
+}

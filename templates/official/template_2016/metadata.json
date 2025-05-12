@@ -1,0 +1,63 @@
+{
+  "id": 2016,
+  "name": "Batch verify emails in Google Sheet with Icypeas ",
+  "description": "This template can be used to verify email addresses with Icypeas. Be sure to have an active account to use this template. \n\n\nHow it works\nThis workflow can be divided into four steps :\n\n    The workflow initiates with a manual trigger (On clicking ‘execute’).\n    It reads your Google Sheet file.\n    It converts your file to an array.\n    It connects to your Icypeas account.\n    It performs an HTTP request to verify the emails.\n\nSet up steps\n    You will need a formated Google sheet file with email addresses. \n    You will need a working icypeas account to run the workflow and get your API Key, API Secret and User ID.\n    You will need email addresses to verify them.",
+  "totalViews": 724,
+  "source": "official",
+  "user": {
+    "id": 91350,
+    "name": "Corentin Ribeyre",
+    "username": "corentinribeyre",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/f64d48cad119716a23e6c996611fe994d642daddcf5f01b23d2958047f001084?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2023-12-12T11:05:39.355Z",
+  "path": "official/template_2016/workflow.json"
+}

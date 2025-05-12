@@ -1,0 +1,48 @@
+{
+  "id": 3512,
+  "name": "Google Drive Duplicate File Manager",
+  "description": "Google Drive Duplicate File Manager 🧹📁\n\nPurpose: Automate the process of finding and managing duplicate files in your Google Drive.\n\nWho's it for?\n\nIndividuals and teams aiming to streamline their Google Drive.\nAnyone tired of manual duplicate file cleanup.\n\nWhat it Solves:\n\nSaves storage space 💾.\nReduces file confusion 😕➡️🙂.\nAutomates tedious cleanup tasks 🤖.\n\nHow it works:\n\nTrigger: Monitors a Google Drive folder for new files.\nConfiguration: Sets rules for keeping and handling duplicates.\nFind Duplicates: Identifies duplicate files based on their content (MD5Checksum).\nAction: Either moves duplicates to trash or renames them.\n\nSetup Guide:\n\nGoogle Drive Trigger ⏰:\n    Set up the trigger to watch a specific folder or your entire drive (use caution with the root folder! ⚠️).\n    Configure the polling interval (default: every 15 minutes).\nConfig Node ⚙️:\n    keep: Choose whether to keep the \"first\" or \"last\" uploaded file (default: \"last\").\n    action: Select \"trash\" to delete duplicates or \"flag\" to rename them with \"DUPLICATE-\" (default: \"flag\").\n    owner & folder: Taken from the trigger. Only change if needed.\n\nKey Considerations:\n\nGoogle Drive API limits:** Be mindful of API usage.\nFolder Scope:* The workflow handles one folder depth by default. (WARNING: If configured to work with the Root folder / all files in all sub-directories are processed so *USE THIS OPTION WITH CAUTION** since the workflow might trash/rename important files)\nGoogle Apps:** Google docs are ignored since they are not actual binary-files and their content can't be compared.\n\n\nEnjoy your clean Google Drive! ✨",
+  "totalViews": 440,
+  "source": "official",
+  "user": {
+    "id": 92972,
+    "name": "Ventsislav Minev",
+    "username": "vminev",
+    "bio": "IT professional and n8n enthusiast",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/81bf71deeabd5b328211a1a4cc81a3ffe15e95a5490733e0942b73bfb428ec08?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-04-10T15:01:08.237Z",
+  "path": "official/template_3512/workflow.json"
+}

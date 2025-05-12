@@ -1,0 +1,76 @@
+{
+  "id": 1045,
+  "name": "ETL pipeline for text processing",
+  "description": "This workflow allows you to collect tweets, store them in MongoDB, analyse their sentiment, insert them into a Postgres database, and post positive tweets in a Slack channel.\n\n\n\nCron node: Schedule the workflow to run every day\n\nTwitter node: Collect tweets\n\nMongoDB node: Insert the collected tweets in MongoDB\n\nGoogle Cloud Natural Language node: Analyse the sentiment of the collected tweets\n\nSet node: Extract the sentiment score and magnitude\n\nPostgres node: Insert the tweets and their sentiment score and magnitude in a Posgres database\n\nIF node: Filter tweets with positive and negative sentiment scores\n\nSlack node: Post tweets with a positive sentiment score in a Slack channel\n\nNoOp node: Ignore tweets with a negative sentiment score\n\n",
+  "totalViews": 7147,
+  "source": "official",
+  "user": {
+    "id": 12733,
+    "name": "Lorena",
+    "username": "lorenanda",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/df6358bcce2351cf878beab8f89b9f000f50588aaa728f7ea57127c1b85e7b06?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Data & Storage",
+    "Communication",
+    "HITL",
+    "Marketing",
+    "Analytics"
+  ],
+  "nodes": [
+    {
+      "name": "Postgres",
+      "type": "n8n-nodes-base.postgres",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "MongoDB",
+      "type": "n8n-nodes-base.mongoDb",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "X (Formerly Twitter)",
+      "type": "n8n-nodes-base.twitter",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Google Cloud Natural Language",
+      "type": "n8n-nodes-base.googleCloudNaturalLanguage",
+      "categories": [
+        "Analytics"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2021-04-19T11:00:48.536Z",
+  "path": "official/template_1045/workflow.json"
+}

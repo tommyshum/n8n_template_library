@@ -1,0 +1,65 @@
+{
+  "id": 3808,
+  "name": "YouTube to WhatsApp Sales Automation with WordPress, FluentCRM and Whinta",
+  "description": "🚀 WhatsApp Automation Template  \nDesigned & Developed by Infridet Solutions Private Limited  \n\n🔧 Objective:  \nAutomate your lead nurturing and sales process from YouTube/Instagram → Landing Page → CRM → Email → WhatsApp → Sales → Deal Closure using tools like:  \n\n🌐 WordPress (Landing Page + Fluent Forms)  \n🧾 Google Sheets (Backup Log)  \n📩 FluentCRM (Lead Tagging + Email Sequences)  \n💬 Whinta.com (WhatsApp Messaging API)  \n⚙️ N8N (Workflow Automation Engine)  \n\n🧩 System Flow Overview:\n\nLead Source: YouTube or Instagram CTA  \nLanding Page: Built on WordPress with a story-driven design  \nForm Capture: Fluent Forms with dynamic input fields  \nData Sync:\n   Backup to Google Sheets  \n   Push lead to FluentCRM and tag as New Lead  \nEmail Sequence:\n   Warm-up emails (1 to 5)  \n   Introduce offer or service  \nWhatsApp Outreach:\n   Send personalized message via Whinta  \n   Triggered 1 hour after form fill or last email  \nSales Follow-Up:\n   Sales team handles replies manually  \n   CRM tag updated to Customer upon closing  \n\n📁 Folder Structure (Optional Git/Zip File):\n📦 WhatsApp-Automation-Infridet/\n│\n├── whatsapp-automation-n8n.json      # N8N Flowchart Import File\n├── email-templates.docx              # Warm-up Email Scripts\n├── whinta-api-integration.pdf        # API Documentation\n├── crm-tagging-notes.txt             # CRM Tag Setup Details\n└── readme.md                         # This Instruction File\n\n🛠️ Required Integrations & Setup\n\n✅ Fluent Forms (WordPress)  \nEmbed form with Name, Email, Phone  \nEnable webhook to N8N: /lead-capture  \n\n✅ Google Sheets  \nUse n8n-nodes-base.googleSheets node  \nCapture name, email, phone, source, timestamp  \n\n✅ FluentCRM  \nREST API enabled  \nPush contact and assign tag New Lead  \nSetup Email Automation via tag trigger  \n\n✅ SMTP Email (Optional)  \nUse Gmail SMTP or Brevo  \nTrigger email on form submission  \n\n✅ Whinta.com (WhatsApp API)  \nSend POST request  \nPayload includes phone, message, sender_id  \nCustomize message with personalization  \n\n💬 Sample WhatsApp Message:\nHey {{name}}, Gyan here from Account Craft 👋  \nI saw your form submission – would you like help in starting your YouTube journey this week?  \nLet me know. I'm just one text away. ✅  \n\n📧 Sample Email (Warmup Day 1):\n&gt; Subject: Welcome to Account Craft 🚀  \n&gt; Body:  \n&gt; Hi {{name}},  \n&gt;  \n&gt; I’m Gyan from Account Craft. Thanks for joining us!  \n&gt; Here’s what’s coming next: exclusive videos, personalized tips, and real support to get your YouTube channel earning.  \n&gt;  \n&gt; Let’s go!  \n&gt; – Gyan\n\n🔁 CRM Tag Updates:\n| Action            | Tag Assigned     |\n|-------------------|------------------|\n| On form fill      | New Lead       |\n| After WhatsApp    | Engaged        |\n| After sale closed | Customer       |\n\n📌 Final Output:\nOnce completed, the system will:\nLog all leads into a database  \nAutomatically send emails and WhatsApp messages  \nNotify your sales team  \nUpdate lead status without manual entry  \n\n&gt; Automation Template Designed & Deployed by  \n&gt; Infridet Solutions Private Limited  \n&gt; Smart Integrations. Seamless Business.  \n&gt; 🌐 www.infridetsolutions.com | 📞 +91-8853354829  \n",
+  "totalViews": 174,
+  "source": "official",
+  "user": {
+    "id": 94168,
+    "name": "GYANENDRA DWIVEDI",
+    "username": "gyandwivedi",
+    "bio": "Gyanendra (Gyan) Dwivedi is a systems thinker and automation specialist who designs lead management and customer communication workflows using tools like N8N, WhatsApp APIs, CRMs, and web integrations. His work focuses on helping creators and businesses streamline their processes—turning online engagement into structured, trackable, and scalable outcomes. With a strong grasp of both technology and user behavior, Gyan bridges the gap between traffic and conversion with precision-driven systems.",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/c1bbeb0c3212fc6b1d52bd107352e7a25c8d3ceaf147d2aeef51035c152947f1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Core Nodes",
+    "Data & Storage",
+    "Productivity",
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "categories": [
+        "Communication",
+        "HITL",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-04-30T17:23:09.567Z",
+  "path": "official/template_3808/workflow.json"
+}

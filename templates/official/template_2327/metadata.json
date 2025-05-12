@@ -1,0 +1,77 @@
+{
+  "id": 2327,
+  "name": "Host your own Uptime Monitoring with Scheduled Triggers",
+  "description": "This n8n workflow demonstrates how to build a simple uptime monitoring service using scheduled triggers.\n\nUseful for webmasters with a handful of sites who want a cost-effective solution without the need for all the bells and whistles.\n\nHow it works\nScheduled trigger reads a list of website urls in a Google Sheet every 5 minutes\nEach website url is checked using the HTTP node which determines if the website is either in the UP or DOWN state.\nAn email and Slack message are sent for websites which are in the DOWN state.\nThe Google Sheet is updated with the website's state and a log created.\nLogs can be used to determine total % of UP and DOWN time over a period.\n\nRequirements\nGoogle Sheet for storing websites to monitor and their states\nGmail for email alerts\nSlack for channel alerts\n\nCustomising the workflow\n\nDon't use Google Sheets? This can easily be exchanged with Excel or Airtable.",
+  "totalViews": 14855,
+  "source": "official",
+  "user": {
+    "id": 91804,
+    "name": "Jimleuk",
+    "username": "jimleuk",
+    "bio": "Freelance consultant based in the UK specialising in AI-powered automations. I work with select clients tackling their most challenging projects. For business enquiries, send me an email at hello@jimle.uk\n\nLinkedIn: https://www.linkedin.com/in/jimleuk/\nX/Twitter: https://x.com/jimle_uk",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4ab99e51473df76838beeaac908747f7928c625f869794815cabe34016967d51?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2024-07-10T11:17:45.710Z",
+  "path": "official/template_2327/workflow.json"
+}

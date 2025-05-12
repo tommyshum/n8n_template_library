@@ -1,0 +1,204 @@
+{
+  "id": 3563,
+  "name": "Build an AI Powered Phone Agent 📞🤖 with Retell, Google Calendar and RAG",
+  "description": "This Workflow simulates an AI-powered phone agent with two main functions:\n\n📅 Appointment Booking – It can schedule appointments directly into Google Calendar.  \n🧠 RAG-based Information Retrieval – It provides answers using a Retrieval-Augmented Generation (RAG) system. For example, it can respond to questions such as store opening hours, return policies, or product details.\n\nThe guide also explains how to purchase a dedicated phone number (with a +1 prefix) and link it to the AI agent. This setup is cost-effective, as it uses a FREE $10 credit to operate without additional charges in the beginning.\n\n✨ Advantages\n\n🕐 24/7 Availability** – The AI agent can answer calls and assist customers at any time.  \n🤖 Automation** – It reduces the workload on human staff by handling repetitive tasks like appointment scheduling and FAQ responses.  \n🔌 Easy Integration** – Built with n8n, it’s flexible and customizable for various platforms and tools.  \n💸 Low-cost Setup** – Using the free credit, businesses can get started without an upfront investment.\n\n📦 Use Cases\n\n🛍 E-commerce** – Answer common product questions or order inquiries.  \n🏬 Retail Stores** – Provide store hours, address info, and return policies.  \n🍽 Restaurants** – Take reservations or share menu information.  \n💼 Service Providers** – Book appointments or consultations.  \n📞 Any Local Business** – Offer phone support without needing a live operator.\n\nHow It Works  \nThis Workflow simulates an AI-powered phone agent with two primary functions:  \n\nAppointment Booking  \n   The workflow captures call events (e.g., call_ended or call_analyzed) and extracts key details (transcript, caller info, duration, etc.).  \n   Using OpenAI, it summarizes the conversation and parses structured data (e.g., names, contact info, dates).  \n   For scheduling, it converts user-provided dates into Google Calendar-compatible formats and creates events automatically.  \n\nRAG-Based Information Retrieval  \n   When a query is received (e.g., store hours, product details), the workflow retrieves relevant information from a Qdrant vector store.  \n   An AI agent processes the query using the retrieved data and responds via a webhook, ensuring accurate, context-aware answers.   \n\nSet Up Steps  \nPrepare Qdrant Vector Store  \n   Create/refresh a Qdrant collection (via HTTP requests).  \n   Upload and vectorize documents (e.g., from Google Drive) using OpenAI embeddings.  \n\nConfigure RetellAI Agent  \n   Sign up for RetellAI, create an agent, and set the webhook URLs (n8n_call for call events, n8n_rag_function for RAG queries).  \n   Purchase a Twilio phone number and link it to the agent.  \n\nn8n Workflow Setup  \n   Connect OpenAI, Qdrant, Google Calendar, and Telegram nodes with credentials.  \n   Customize prompts for summarization, date parsing, and RAG responses.  \n   Test the workflow to ensure data flows from call events → processing → actions (e.g., calendar bookings, Telegram alerts).  \n\nDeploy  \n   Trigger the workflow via RetellAI webhooks during calls.  \n   Monitor outputs (e.g., call summaries in Telegram, calendar events).  \n\nNote: Replace placeholders (e.g., QDRANTURL, COLLECTION, CHAT_ID) with actual values. \n\nNeed help customizing?  \nContact me for consulting and support or add me on Linkedin. ",
+  "totalViews": 9693,
+  "source": "official",
+  "user": {
+    "id": 92207,
+    "name": "Davide",
+    "username": "n3witalia",
+    "bio": "Full-stack Web Developer based in Italy specialising in Marketing & AI-powered automations. For business enquiries, send me an email at info@n3w.it or add me on Linkedin.com/in/davideboizza",
+    "verified": true,
+    "links": "[\"https://n3w.it\"]",
+    "avatar": "https://gravatar.com/avatar/d41b8a0aa81139243509c58870f5b4be292824a507ab57d10ed066d8628ed8da?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "Data & Storage",
+    "Productivity",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Google Calendar",
+      "type": "n8n-nodes-base.googleCalendar",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Token Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterTokenSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    },
+    {
+      "name": "Qdrant Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreQdrant",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Vector Store Question Answer Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolVectorStore",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 13,
+  "createdAt": "2025-04-15T12:55:32.914Z",
+  "path": "official/template_3563/workflow.json"
+}

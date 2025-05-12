@@ -1,0 +1,124 @@
+{
+  "id": 2269,
+  "name": "🦅 Get a bird's-eye view of your n8n instance with the Workflow Dashboard!",
+  "totalViews": 7942,
+  "purchaseUrl": null,
+  "user": {
+    "id": 21242,
+    "name": "Eduard",
+    "username": "eduard",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/parsadanyan/\"]",
+    "avatar": "https://gravatar.com/avatar/a551e67c6fe7affd5f882a527dee154bb6c3ac90cf878326accb3fb3ec77c8a6?r=pg&d=retro&size=200"
+  },
+  "description": "⚡ UPDATE on May 2025 – added section with all n8n instance webhooks\n\nUsing n8n a lot?\n\nSoar above the limitations of the default n8n dashboard! This template gives you an overview of your workflows, nodes, and tags – all in one place. 💪\n\nBuilt using XML stylesheets and the Bootstrap 5 library, this workflow is self-contained and does not depend on any third-party software. 🙌 It generates a comprehensive overview JSON that can be easily integrated with other BI tools for further analysis and visualization. 📊\n\nReach out to Eduard if you need help adapting this workflow to your specific use-case!\n\n🚀 Benefits:\nWorkflow Summary** 📈: Instant overview of your workflows, active counts, and triggers.\nLeft-Side Panel** 📋: Quick access to all your workflows, nodes, and tags for seamless navigation.\nWorkflow Details** 🔬: Deep dive into each workflow's nodes, timestamps, and tags.\nNode Analysis** 🧩: Identify the most frequently used nodes across your workflows.\nTag Organization** 🗂️: Workflows are grouped according to their tags.\nWebhooks** ⚡: List of all webhook endpoints with the links to workflows.\nVisually Stunning** 🎨: Clean, intuitive, and easy-to-navigate dashboard design.\nXML & Bootstrap 5** 🛠️: Built using XML stylesheets and Bootstrap 5, ensuring a self-contained and responsive dashboard.\nNo Dependencies** 🔒: The workflow does not rely on any third-party software. Bootstrap 5 files are loaded via CDN but can be delivered directly from your server.\n\n⚠️ Important note for cloud users\nSince the cloud version doesn't support environmental variables, please make the following changes:\n\nget-nodes-via-jmespath node. Update the instance_url variable: enter your n8n URL instead of {{$env[\"N8N_PROTOCOL\"]}}://{{$env[\"N8N_HOST\"]}}\nCreate HTML node. Please provide the n8n instance URL instead of {{ $env.WEBHOOK_URL }}\n\n🌟Example:\n\n\nFollow me on LinkedIn for more tips on AI automation and n8n workflows!",
+  "createdAt": "2024-05-17T11:16:22.248Z",
+  "nodes": [
+    {
+      "id": 834,
+      "icon": "file:code.svg",
+      "name": "n8n-nodes-base.code",
+      "codex": {
+        "data": {
+          "alias": [
+            "cpde",
+            "Javascript",
+            "JS",
+            "Python",
+            "Script",
+            "Custom Code",
+            "Function"
+          ],
+          "details": "The Code node allows you to execute JavaScript in your workflow.",
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.code/"
+              }
+            ]
+          },
+          "categories": [
+            "Development",
+            "Core Nodes"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0",
+          "subcategories": {
+            "Core Nodes": [
+              "Helpers",
+              "Data Transformation"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Code"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwMF8xMTcxXzQ0MSkiPgo8cGF0aCBkPSJNMTcwLjI4MyA0OEgxOTYuNUMyMDMuMTI3IDQ4IDIwOC41IDQyLjYyNzQgMjA4LjUgMzZWMTJDMjA4LjUgNS4zNzI1OCAyMDMuMTI3IDAgMTk2LjUgMEgxNzAuMjgzQzEyNi4xIDAgOTAuMjgzIDM1LjgxNzIgOTAuMjgzIDgwVjE3NkM5MC4yODMgMjA2LjkyOCA2NS4yMTA5IDIzMiAzNC4yODMgMjMySDIzQzE2LjM3MjYgMjMyIDExIDIzNy4zNzIgMTEgMjQ0VjI2OEMxMSAyNzQuNjI3IDE2LjM3MjQgMjgwIDIyLjk5OTYgMjgwTDM0LjI4MyAyODBDNjUuMjEwOSAyODAgOTAuMjgzIDMwNS4wNzIgOTAuMjgzIDMzNlY0NDBDOTAuMjgzIDQ3OS43NjQgMTIyLjUxOCA1MTIgMTYyLjI4MyA1MTJIMTk2LjVDMjAzLjEyNyA1MTIgMjA4LjUgNTA2LjYyNyAyMDguNSA1MDBWNDc2QzIwOC41IDQ2OS4zNzMgMjAzLjEyNyA0NjQgMTk2LjUgNDY0SDE2Mi4yODNDMTQ5LjAyOCA0NjQgMTM4LjI4MyA0NTMuMjU1IDEzOC4yODMgNDQwVjMzNkMxMzguMjgzIDMwOS4wMjIgMTI4LjAxMSAyODQuNDQzIDExMS4xNjQgMjY1Ljk2MUMxMDYuMTA5IDI2MC40MTYgMTA2LjEwOSAyNTEuNTg0IDExMS4xNjQgMjQ2LjAzOUMxMjguMDExIDIyNy41NTcgMTM4LjI4MyAyMDIuOTc4IDEzOC4yODMgMTc2VjgwQzEzOC4yODMgNjIuMzI2OSAxNTIuNjEgNDggMTcwLjI4MyA0OFoiIGZpbGw9IiNGRjk5MjIiLz4KPHBhdGggZD0iTTMwNSAzNkMzMDUgNDIuNjI3NCAzMTAuMzczIDQ4IDMxNyA0OEgzNDIuOTc5QzM2MC42NTIgNDggMzc0Ljk3OCA2Mi4zMjY5IDM3NC45NzggODBWMTc2QzM3NC45NzggMjAyLjk3OCAzODUuMjUxIDIyNy41NTcgNDAyLjA5OCAyNDYuMDM5QzQwNy4xNTMgMjUxLjU4NCA0MDcuMTUzIDI2MC40MTYgNDAyLjA5OCAyNjUuOTYxQzM4NS4yNTEgMjg0LjQ0MyAzNzQuOTc4IDMwOS4wMjIgMzc0Ljk3OCAzMzZWNDMyQzM3NC45NzggNDQ5LjY3MyAzNjAuNjUyIDQ2NCAzNDIuOTc5IDQ2NEgzMTdDMzEwLjM3MyA0NjQgMzA1IDQ2OS4zNzMgMzA1IDQ3NlY1MDBDMzA1IDUwNi42MjcgMzEwLjM3MyA1MTIgMzE3IDUxMkgzNDIuOTc5QzM4Ny4xNjEgNTEyIDQyMi45NzggNDc2LjE4MyA0MjIuOTc4IDQzMlYzMzZDNDIyLjk3OCAzMDUuMDcyIDQ0OC4wNTEgMjgwIDQ3OC45NzkgMjgwSDQ5MEM0OTYuNjI3IDI4MCA1MDIgMjc0LjYyOCA1MDIgMjY4VjI0NEM1MDIgMjM3LjM3MyA0OTYuNjI4IDIzMiA0OTAgMjMyTDQ3OC45NzkgMjMyQzQ0OC4wNTEgMjMyIDQyMi45NzggMjA2LjkyOCA0MjIuOTc4IDE3NlY4MEM0MjIuOTc4IDM1LjgxNzIgMzg3LjE2MSAwIDM0Mi45NzkgMEgzMTdDMzEwLjM3MyAwIDMwNSA1LjM3MjU4IDMwNSAxMlYzNloiIGZpbGw9IiNGRjk5MjIiLz4KPC9nPgo8ZGVmcz4KPGNsaXBQYXRoIGlkPSJjbGlwMF8xMTcxXzQ0MSI+CjxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiBmaWxsPSJ3aGl0ZSIvPgo8L2NsaXBQYXRoPgo8L2RlZnM+Cjwvc3ZnPgo="
+      },
+      "displayName": "Code",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 5,
+          "name": "Development"
+        },
+        {
+          "id": 9,
+          "name": "Core Nodes"
+        }
+      ]
+    },
+    {
+      "id": 842,
+      "icon": "file:html.svg",
+      "name": "n8n-nodes-base.html",
+      "codex": {
+        "data": {
+          "alias": [
+            "extract",
+            "template",
+            "table"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.html/"
+              }
+            ]
+          },
+          "categories": [
+            "Core Nodes"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0",
+          "subcategories": {
+            "Core Nodes": [
+              "Data Transformation"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "HTML"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTguNjQwNjIgMEgxMC40Mzc1VjEuNzgxMjVIMTIuMDkzN1YwSDEzLjg5MDZWNS4zOTA2MkgxMi4wOTM3VjMuNTkzNzVIMTAuNDUzMVY1LjM5MDYySDguNjQwNjJNMTYuMjY1NiAxLjc5Njg3SDE0LjY3OTdWMEgxOS42NTYyVjEuNzk2ODdIMTguMDYyNVY1LjM5MDYySDE2LjI2NTZNMjAuNDQ1MyAwSDIyLjMyODFMMjMuNDg0NCAxLjg5ODQ0TDI0LjY0MDYgMEgyNi41MjM0VjUuMzkwNjJIMjQuNzI2NlYyLjcxODc1TDIzLjQ2ODcgNC42NTYyNUwyMi4yMTA5IDIuNzE4NzVWNS4zOTA2MkgyMC40NDUzTTI3LjQxNDEgMEgyOS4yMTA5VjMuNjA5MzdIMzEuNzU3OFY1LjM5MDYySDI3LjQxNDEiIGZpbGw9ImJsYWNrIi8+CjxwYXRoIGQ9Ik04LjU3ODEyIDM2Ljc5NjlMNiA3Ljg1OTM4SDM0LjM0MzdMMzEuNzY1NiAzNi43ODEyTDIwLjE0ODQgNDAiIGZpbGw9IiNFNDREMjYiLz4KPHBhdGggZD0iTTIwLjE3MTkgMzcuNTM5MVYxMC4yMzQ0SDMxLjc1NzhMMjkuNTQ2OSAzNC45MjE5IiBmaWxsPSIjRjE2NTI5Ii8+CjxwYXRoIGQ9Ik0xMS4yNjU2IDEzLjc3MzRIMjAuMTcxOVYxNy4zMjAzSDE1LjE1NjJMMTUuNDg0NCAyMC45NTMxSDIwLjE3MTlWMjQuNDkyMkgxMi4yMzQ0TTEyLjM5MDYgMjYuMjczNEgxNS45NTMxTDE2LjIwMzEgMjkuMTA5NEwyMC4xNzE5IDMwLjE3MTlWMzMuODc1TDEyLjg5MDYgMzEuODQzNyIgZmlsbD0iI0VCRUJFQiIvPgo8cGF0aCBkPSJNMjkuMDQ2OSAxMy43NzM0SDIwLjE1NjJWMTcuMzIwM0gyOC43MTg3TTI4LjM5ODQgMjAuOTUzMUgyMC4xNTYyVjI0LjVIMjQuNTMxMkwyNC4xMTcyIDI5LjEwOTRMMjAuMTU2MiAzMC4xNzE5VjMzLjg1OTRMMjcuNDIxOSAzMS44NDM3IiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K"
+      },
+      "displayName": "HTML",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 9,
+          "name": "Core Nodes"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "id": 1468,
+  "name": "Update HubSpot when a new invoice is registered in Stripe",
+  "description": "This workflow automatically posts a message in Slack when a new invoice is uploaded in Stripe, and it updates the fields in the HubSpot CRM.\n\nPrerequisites\n\nA Slack account and credentials\nA HubSpot account and credentials\nA Stripe account and credentials\n\nNodes\n\nStripe Trigger node triggers the workflow when a new invoice is uploaded.\nIF nodes filter the invoices that don't have a PO number and if there is no deal for the PO.\nHubSpot nodes retrieve deals with the specific PO number and update the deal status to 'paid'.\nSlack nodes post messages about the deals in a Slack channel.",
+  "totalViews": 4469,
+  "source": "official",
+  "user": {
+    "id": 25789,
+    "name": "Jonathan",
+    "username": "jon-n8n",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/5240094f838126182ceefb50ca4a3cf75cc7dc0808efd4b9920d792e41bfc45e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Sales"
+  ],
+  "nodes": [
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "HubSpot",
+      "type": "n8n-nodes-base.hubspot",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2022-02-17T15:09:29.183Z",
+  "path": "official/template_1468/workflow.json"
+}

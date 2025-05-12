@@ -1,0 +1,38 @@
+{
+  "id": 2713,
+  "name": "Using External Workflows as Tools in n8n",
+  "description": "This guide will show you how to use a workflow as a reusable tool in n8n, such as integrating an AI Agent or other specialized processes into your workflows.\n\nBy the end of this example, you'll have a simple, reusable workflow that can be easily plugged into larger projects, making your automations more efficient and scalable.\n\n\n\nWith this approach, you can create reusable workflows like \"Scrape a Page,\" \"Search Brave,\" or \"Generate an Image,\" which you can then call whenever needed.\n\nWhile n8n makes it easy to build these workflows from scratch, setting them up as reusable components saves time as your automations grow in complexity.\n\nSetup\n\nAdd the \"Execute Workflow Trigger\" node\n\nAdd the node(s) to perform the desired tasks in the workflow\n\nAdd a final \"Set\" or \"Edit Fields\" node at the end to ensure all external workflows return a consistent output format\n\nDetails\n\nIn this example, the \"Execute Workflow Trigger\" expects input in the following JSON format:\n\n[\n  {\n    \"query\": {\n      \"url\": \"https://en.wikipedia.org/wiki/some_info\"\n    }\n  }\n]\n\nOnce your external workflow is ready, you can instruct the AI Agent to use this tool by connecting it to the external workflow. Set up the schema type to \"Generate from JSON Example\" using this structure:\n\n{\n  \"url\": \"URL_TO_GET\"\n}\n\n\nFinally, ensure your external workflow includes a \"Set\" or \"Edit Fields\" node at the end to define the response format. This helps keep the outputs of your reusable workflows consistent and predictable.\n\n",
+  "totalViews": 3061,
+  "source": "official",
+  "user": {
+    "id": 92077,
+    "name": "Alfred Nutile",
+    "username": "dailyaistudio",
+    "bio": "Software development expert with 25 years of enterprise application experience, now specializing in AI and automation solutions for the past 2-3 years. \n\nAs the founder of DailyAI.Studio, I bridge traditional development with modern AI-driven approaches, helping businesses transform their operations using tools like n8n and LLM agents. ",
+    "verified": false,
+    "links": "[\"https://www.youtube.com/@AlfredNutile\"]",
+    "avatar": "https://gravatar.com/avatar/434722a22655b2112631717622cb0f954ee7caeada1afaca831cd2ffe6d095a1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-01-09T16:45:57.560Z",
+  "path": "official/template_2713/workflow.json"
+}

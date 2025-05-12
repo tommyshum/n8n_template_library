@@ -1,0 +1,63 @@
+{
+  "id": 2785,
+  "name": "RSS Feed News Processing and Distribution Workflow",
+  "description": "Who is this for?\n\nThis workflow is designed for professionals and teams who need to monitor multiple RSS feeds, filter the latest content, and distribute actionable updates as a Trello comment. Ideal for content managers, marketers, and team leads managing news or content pipelines.\n\nWhat problem is this workflow solving?\n\nManually monitoring RSS feeds and keeping track of the latest content can be time-consuming. This workflow automates the aggregation, filtering, and distribution of news, ensuring that only relevant and timely updates are shared with your team or audience.\n\nWhat this workflow does:\nAggregates RSS Feeds: Pulls data from up to three RSS feeds simultaneously.\nFilters Content: Filters articles based on their publication date (default: last 7 days).\nOrganizes and Sorts: Sorts filtered articles by date for clarity.\nFormats Updates: Transforms news items into Markdown format for better readability.\nPublishes and Notifies: Posts comments to Trello cards and sends an email to a moderator to check the comment.\n\nSetup:\nConnect your RSS feeds by configuring the RSS Read nodes.\nLink your Trello and Gmail accounts for seamless integration.\nAdjust the schedule trigger to set how often the workflow should run (e.g., daily, weekly).\nTest the workflow to ensure all connections and configurations are correct.\n\nHow to customize this workflow to your needs:\nChange the Number of RSS Feeds: Add or remove RSS Read nodes and update the merge configuration accordingly.\nAdjust the Date Filter: Modify the date logic in the “Filter by date” node to include more or fewer days.\nLimit the Number of Articles: Adjust the limit in the “Limit news to x” node.\nCustom Formatting: Update the Transform node to format the news items differently.\nAlternative Notifications: Replace Trello and Gmail with other integrations, such as Slack or Microsoft Teams.\n\nThis workflow ensures your team stays informed with minimal effort and delivers content updates in an organized and professional manner.",
+  "totalViews": 6942,
+  "source": "official",
+  "user": {
+    "id": 92501,
+    "name": "PollupAI",
+    "username": "zeerobug",
+    "bio": "We create bespoke AI solutions, automations and agents that help your business as it scales.",
+    "verified": true,
+    "links": "[\"https://pollup.ai\"]",
+    "avatar": "https://gravatar.com/avatar/6d3d2053279bc63e9be7bf4cd3fb74e13e7cc1309d32eab0b72140332cff577e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Productivity",
+    "Communication",
+    "HITL",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Trello",
+      "type": "n8n-nodes-base.trello",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-01-23T16:39:37.327Z",
+  "path": "official/template_2785/workflow.json"
+}

@@ -1,0 +1,47 @@
+{
+  "id": 2596,
+  "name": "Export Zammad Objects (Users, Roles, Groups, Organizations) to Excel",
+  "description": "This n8n workflow enables you to export data from Zammad, including Users, Roles, Groups, and Organizations, into individual Excel files. It simplifies data handling and reporting by creating structured outputs for further processing or sharing.\n\nFeatures\nExport Users with associated details such as email, firstname, lastname, role_ids, and group_ids.\nExport Roles and Organizations with their respective identifiers and names.\nConvert all data into separate Excel files for easy access and use.\n\nUsage\nImport this workflow into your n8n instance.\nConfigure the required Zammad API credentials (zammad_base_url and zammad_api_key) in the Basic Variables node.\nRun the workflow to generate Excel files containing Zammad data.\n\nIssues and Suggestions\nIf you encounter any issues or have suggestions for improvement, please report them on the GitHub repository.\n\nWe appreciate your feedback to help enhance this workflow!",
+  "totalViews": 524,
+  "source": "official",
+  "user": {
+    "id": 92074,
+    "name": "Sirhexalot",
+    "username": "sirhexalot",
+    "bio": "Open source enthusiast and Zammad user with a passion for sharing knowledge and building simple, effective automation solutions with n8n.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/c83a308119f1aadd64ec0d79a2c26eac616d6ffa916ab89db0e1aa324466be43?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Zammad",
+      "type": "n8n-nodes-base.zammad",
+      "categories": [
+        "Communication"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-12-01T11:12:12.671Z",
+  "path": "official/template_2596/workflow.json"
+}

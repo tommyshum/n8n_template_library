@@ -1,0 +1,32 @@
+{
+  "id": 1134,
+  "name": "Release a new version via Telegram bot command",
+  "description": "This workflow allows you to release a new version via a Telegram bot command. This workflow can be used in your Continous Delivery pipeline.\n\n\n\nTelegram Trigger node: This node will trigger the workflow when a message is sent to the bot. If you want to trigger the workflow via a different messaging platform or a service, replace the Telegram Trigger node with the Trigger node of that service.\n\nIF node The IF node checks for the incoming command. If the command is not deploy, the IF node will return false, otherwise true.\n\nSet node: This node extracts the value of the version from the Telegram message and sets the value. This value is used later in the workflow.\n\nGitHub node: This node creates a new version release. It uses the version from the Set node to create the tag.\n\nNoOp node: Adding this node is optional.",
+  "totalViews": 1537,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "GitHub",
+      "type": "n8n-nodes-base.github",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2021-06-18T08:54:22.164Z",
+  "path": "official/template_1134/workflow.json"
+}

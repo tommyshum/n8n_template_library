@@ -1,0 +1,61 @@
+{
+  "id": 930,
+  "name": "Create, update and get a post via Discourse",
+  "totalViews": 373,
+  "purchaseUrl": null,
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "description": "This workflow allows you to create, update and get a post using the Discourse node.\n\n\n\nDiscourse node: This node creates a new post under a category. Based on your use-case, you can select a different category.\n\nDiscourse1 node: This node updates the content of the post.\n\nDiscourse2 node: This node fetches the node that we created using the Discourse node. \n\nBased on your use-case, you can add or remove nodes to connect Discourse to different services.",
+  "createdAt": "2021-02-08T12:04:02.222Z",
+  "nodes": [
+    {
+      "id": 442,
+      "icon": "file:discourse.svg",
+      "name": "n8n-nodes-base.discourse",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.discourse/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/discourse/"
+              }
+            ]
+          },
+          "categories": [
+            "Communication"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "Discourse"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgLTEgMTA0IDEwNiI+PGcgZGF0YS1uYW1lPSJMYXllciAyIj48ZyBkYXRhLW5hbWU9IkxheWVyIDMiPjxwYXRoIGZpbGw9IiMyMzFmMjAiIGQ9Ik01MS44NyAwQzIzLjcxIDAgMCAyMi44MyAwIDUxdjUyLjgxbDUxLjg2LS4wNWMyOC4xNiAwIDUxLTIzLjcxIDUxLTUxLjg3UzgwIDAgNTEuODcgMCIvPjxwYXRoIGZpbGw9IiNmZmY5YWUiIGQ9Ik01Mi4zNyAxOS43NGEzMS42MiAzMS42MiAwIDAgMC0yNy43OSA0Ni42N2wtNS43MiAxOC40IDIwLjU0LTQuNjRhMzEuNjEgMzEuNjEgMCAxIDAgMTMtNjAuNDN6Ii8+PHBhdGggZmlsbD0iIzAwYWVlZiIgZD0iTTc3LjQ1IDMyLjEyYTMxLjYgMzEuNiAwIDAgMS0zOC4wNSA0OGwtMjAuNTQgNC43IDIwLjkxLTIuNDdhMzEuNiAzMS42IDAgMCAwIDM3LjY4LTUwLjIzIi8+PHBhdGggZmlsbD0iIzAwYTk0ZiIgZD0iTTcxLjYzIDI2LjI5QTMxLjYgMzEuNiAwIDAgMSAzOC44IDc4bC0xOS45NCA2LjgyIDIwLjU0LTQuNjVhMzEuNiAzMS42IDAgMCAwIDMyLjIzLTUzLjg4Ii8+PHBhdGggZmlsbD0iI2YxNWQyMiIgZD0iTTI2LjQ3IDY3LjExYTMxLjYxIDMxLjYxIDAgMCAxIDUxLTM1IDMxLjYxIDMxLjYxIDAgMCAwLTUyLjg5IDM0LjNsLTUuNzIgMTguNHoiLz48cGF0aCBmaWxsPSIjZTMxYjIzIiBkPSJNMjQuNTggNjYuNDFhMzEuNjEgMzEuNjEgMCAwIDEgNDcuMDUtNDAuMTIgMzEuNjEgMzEuNjEgMCAwIDAtNDkgMzkuNjNsLTMuNzYgMTguOXoiLz48L2c+PC9nPjwvc3ZnPg=="
+      },
+      "displayName": "Discourse",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 6,
+          "name": "Communication"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "id": 3450,
+  "name": "Auto-Generate YouTube Chapters with Gemini AI & YouTube Data API v3",
+  "description": "Auto-Generate YouTube Chapters with AI-Powered Transcript Analysis  \nOverview  \nThis workflow uses YouTube Data API v3  and Google Gemini 1.5 Flash AI  to automatically generate timestamped chapters for videos by analyzing SRT captions. It enhances viewer navigation, improves SEO , and saves creators time by automating manual tasks.  \n\nPrerequisites  \nYouTube API Setup  \nCreate a Google Cloud Project  \n   Go to the Google Cloud Console.  \n   Click Select a project &gt; New Project and name it (e.g., \"YouTube Chapters Automation\") .  \n\nEnable YouTube Data API v3  \n   Navigate to APIs & Services &gt; Library.  \n   Search for \"YouTube Data API v3\" and click Enable .  \n\nConfigure OAuth Consent Screen  \n   Go to APIs & Services &gt; OAuth consent screen.  \n   Select External (public) or Internal (testing), then add required details (app name, support email) .  \n\nGenerate OAuth 2.0 Credentials  \n   Under Credentials, click Create Credentials &gt; OAuth client ID.  \n   Choose Web app, then download the JSON key file .  \n\nAdd Credentials to n8n  \nOther Requirements  \nGoogle Gemini API**: Configure access for the gemini-1.5-flash-8b-exp-0924 model by getting the api key.  \nWorkflow Steps  \nSet Video ID  \n   Input the target video ID (e.g., r1wqsrW2vmE) using the Set Video ID node.  \n\nFetch Video Metadata  \n   Use the YouTube API node to retrieve the video’s title, category, and existing description .  \n\nDownload SRT Captions  \n   Get Caption ID: Call https://www.googleapis.com/youtube/v3/captions to fetch the caption track ID .  \n   Download Transcript: Use the ID to retrieve SRT data via https://www.googleapis.com/youtube/v3/captions/{{ID}}?tfmt=srt .  \n\nAnalyze Transcript with Gemini AI  \n   Process the SRT file with Google Gemini AI to identify chapters using a prompt like:  \n          \"Classify this transcript into timestamped chapters (e.g., 00:00 - Introduction).\"  \n        Validate output with a structured parser (e.g., Structured Captions node) .  \n\nUpdate Video Description  \n   Append chapters to the description using the YouTube API’s videos.update method .  \n\nValue Proposition  \nViewer Experience**: Chapters improve navigation and reduce drop-off rates .  \nSEO Benefits**: Structured descriptions enhance search visibility .  \nTime Savings**: Eliminates manual chapter creation .  \n\n",
+  "totalViews": 1900,
+  "source": "official",
+  "user": {
+    "id": 93641,
+    "name": "irfan saeed",
+    "username": "irfansaeed",
+    "bio": "",
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/f7235d3181c74fb49c645fe9c54c71529eaef0130db1c11d5d0fdc589dbed3e5?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Marketing",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "YouTube",
+      "type": "n8n-nodes-base.youTube",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-04-06T18:49:17.804Z",
+  "path": "official/template_3450/workflow.json"
+}

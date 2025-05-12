@@ -1,0 +1,32 @@
+{
+  "id": 1546,
+  "name": "Create a QuickBooks invoice on a new Onfleet Task creation",
+  "description": "Summary\n\nOnfleet is a last-mile delivery software that provides end-to-end route planning, dispatch, communication, and analytics to handle the heavy lifting while you can focus on your customers.\n\nThis workflow template listens to an Onfleet event and interacts with the QuickBooks API. You can easily streamline this with your QuickBooks invoices or other entities. Typically, you can create an invoice when an Onfleet task is created to allow your customers to pay ahead of an upcoming delivery.\n\nConfigurations\n\nUpdate the Onfleet trigger node with your own Onfleet credentials, to register for an Onfleet API key, please visit https://onfleet.com/signup to get started\nYou can easily change which Onfleet event to listen to. Learn more about Onfleet webhooks with Onfleet Support\nUpdate the QuickBooks Online node with your QuickBooks credentials",
+  "totalViews": 847,
+  "source": "official",
+  "user": {
+    "id": 11223,
+    "name": "James Li",
+    "username": "ilsemaj",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/f2676b8a1c6bf7a2b2c9c4df054571d29662ea0dab6f11e7a423c01af7259574?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Finance & Accounting"
+  ],
+  "nodes": [
+    {
+      "name": "QuickBooks Online",
+      "type": "n8n-nodes-base.quickbooks",
+      "categories": [
+        "Finance & Accounting"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2022-03-22T02:31:44.880Z",
+  "path": "official/template_1546/workflow.json"
+}

@@ -1,0 +1,195 @@
+{
+  "id": 2852,
+  "name": "AI-Powered Email Automation for Business: Summarize & Respond with RAG",
+  "description": "This workflow is ideal for businesses looking to automate their email responses, especially for handling inquiries about company information. It leverages AI to ensure accurate and professional communication.\n\nHow It Works\nEmail Trigger:\n   The workflow starts with the Email Trigger (IMAP) node, which monitors an email inbox for new messages. When a new email arrives, it triggers the workflow.\n\nEmail Preprocessing:\n   The Markdown node converts the email's HTML content into plain text for easier processing by the AI models.\n\nEmail Summarization:\n   The Email Summarization Chain node uses an AI model (DeepSeek R1) to generate a concise summary of the email. The summary is limited to 100 words and is written in Italian.\n\nEmail Classification:\n   The Email Classifier node categorizes the email into predefined categories (e.g., \"Company info request\"). If the email does not fit any category, it is classified as \"other\".\n\nEmail Response Generation:\n   The Write email node uses an AI model (OpenAI) to draft a professional response to the email. The response is based on the email content and is limited to 100 words.\n   The Review email node uses another AI model (DeepSeek) to review and format the drafted response. It ensures the response is professional and formatted in HTML (e.g., using `, , , ` tags where necessary).\n\nEmail Sending:\n   The Send Email node sends the reviewed and formatted response back to the original sender.\n\nVector Database Integration:\n   The Qdrant Vector Store node retrieves relevant information from a vector database (Qdrant) to assist in generating accurate responses. This is particularly useful for emails classified as \"Company info request\".\n   The Embeddings OpenAI node generates embeddings for the email content, which are used to query the vector database.\n\nDocument Vectorization:\n   The workflow includes steps to create and refresh a Qdrant collection (Create collection and Refresh collection nodes).\n   Documents from Google Drive are downloaded (Get folder and Download Files nodes), processed into embeddings (Embeddings OpenAI1 node), and stored in the Qdrant vector store (Qdrant Vector Store1 node).\n\nSet Up Steps\nConfigure Email Trigger:\n   Set up the Email Trigger (IMAP) node with the appropriate IMAP credentials to monitor the email inbox.\n\nSet Up AI Models:\n   Configure the DeepSeek R1, OpenAI, and DeepSeek nodes with the appropriate API credentials for text summarization, response generation, and review.\n\nSet Up Email Classification:\n   Define the categories in the Email Classifier node (e.g., \"Company info request\", \"Other\").\n   Ensure the OpenAI 4-o-mini node is configured to assist in classification.\n\nSet Up Vector Database:\n   Configure the Qdrant Vector Store and Qdrant Vector Store1 nodes with the appropriate Qdrant API credentials and collection details.\n   Set up the Embeddings OpenAI and Embeddings OpenAI1 nodes to generate embeddings for the email content and documents.\n\nSet Up Document Processing:\n   Configure the Get folder and Download Files nodes to access and download documents from Google Drive.\n   Use the Token Splitter and Default Data Loader nodes to process and split the documents into manageable chunks for vectorization.\n\nSet Up Email Sending:\n   Configure the Send Email node with the appropriate SMTP credentials to send responses.\n\nTest the Workflow:\n   Trigger the workflow manually using the When clicking ‘Test workflow’ node to ensure all steps execute correctly.\n   Verify that emails are summarized, classified, and responded to accurately.\n\nActivate the Workflow:\n   Once tested, activate the workflow to automate the process of handling incoming emails.\n\nKey Features\nAutomated Email Handling**: Automatically processes incoming emails, summarizes them, and generates professional responses.\nAI-Powered Classification**: Uses AI to classify emails into relevant categories for targeted responses.\nVector Database Integration**: Retrieves relevant information from a vector database to enhance response accuracy.\nDocument Vectorization**: Processes and stores documents from Google Drive in a vector database for quick retrieval.\nProfessional Email Formatting**: Ensures responses are professionally formatted and concise.\n\nNeed help customizing?  \nContact me for consulting and support or add me on Linkedin. ",
+  "totalViews": 9601,
+  "source": "official",
+  "user": {
+    "id": 92207,
+    "name": "Davide",
+    "username": "n3witalia",
+    "bio": "Full-stack Web Developer based in Italy specialising in Marketing & AI-powered automations. For business enquiries, send me an email at info@n3w.it or add me on Linkedin.com/in/davideboizza",
+    "verified": true,
+    "links": "[\"https://n3w.it\"]",
+    "avatar": "https://gravatar.com/avatar/d41b8a0aa81139243509c58870f5b4be292824a507ab57d10ed066d8628ed8da?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Core Nodes",
+    "Development",
+    "Data & Storage",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "categories": [
+        "Communication",
+        "HITL",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Summarization Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainSummarization",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Token Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterTokenSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    },
+    {
+      "name": "Qdrant Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreQdrant",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Text Classifier",
+      "type": "@n8n/n8n-nodes-langchain.textClassifier",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 12,
+  "createdAt": "2025-02-05T13:22:24.743Z",
+  "path": "official/template_2852/workflow.json"
+}

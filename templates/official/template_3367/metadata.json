@@ -1,0 +1,52 @@
+{
+  "id": 3367,
+  "name": "🚀 Instagram Reels Automation - Turn YouTube Videos into Viral Instagram Reels ✨",
+  "description": "Automatically Create and Post Instagram Reels from Podcasts and Other Videos Using AI & Spikes Studio (Simplified)\n\nTransform podcasts and other videos into engaging, fully optimized Instagram Reels with this all-in-one automation solution—designed for content creators who love repurposing dynamic clips.\n\nOverview\n\nThis automation transforms YouTube videos into engaging, professional-grade Instagram Reels using AI-powered editing. Perfect for content creators, podcasters, marketers, and brands, the workflow extracts your most captivating moments, enhances them with dynamic captions, transitions, and effects, and auto-schedules them for Instagram—all without manual editing or uploading.\n\nWith just a YouTube link, this template automates the entire lifecycle of short-form content creation—from input to upload—so you can repurpose long-form videos into viral clips in minutes.\n\nKey Features\n\nInsights-Driven Highlight Extraction:**  \n  Automatically analyzes engagement metrics to select the most resonant moments from podcasts or other creators’ videos, ensuring each clip connects with your audience.\n\nAI-Powered Editing:**  \n  Utilizes professional-grade editing—adding captions, effects, transitions, and more—to produce visually stunning, high-impact reels.\n\nAuto-Generated Metadata:** \n  Effortlessly creates dynamic titles, descriptions, and hashtags to optimize your clips for immediate upload on Instagram.\n\nCustomizable Scheduling:**  \n  Allows you to set upload intervals that fit your content strategy, ensuring a consistent flow of engaging reels on your profile.\n\nSeamless Instagram Integration:**  \n  Directly connects with Instagram’s API, streamlining the posting process so your profile stays active and engaging with minimal effort.\n\nCustomization Options\n\n🎨 Style & Branding: Modify the Spikes Studio API request to include your custom branding, text overlays, or templates.\n🎥 Clips Length: Previously adjust the length of each clip generated. \n🕒 Scheduling Delay: Adjust the time interval to control how often posts are made.\n🔁 Multi-Platform Support: Add additional nodes to also post to TikTok, Facebook, or LinkedIn.\n\nStep-by-Step Setup Instructions\n\nPrepare Prerequisites:  \n   Ensure you have a Spikes Studio account (free at spikes.studio), a YouTube video URL, an Upload-Post account (free at Upload-Post), and a working n8n instance.\n\nConfigure APIs:  \n   Spikes Studio: Obtain your API key and connect credentials.\n   Upload-Post: Obtain your API key and connect credentials and customize the request.\n\nAssemble the Workflow:  \n   Trigger: Trigger the workflow with a YouTube video URL and desired clip length.  \n   Output: Auto-upload the formatted Reels to Instagram on a scheduled basis.\n\nDesigned specifically for content creators repurposing YouTube videos—and requiring only a Spikes Studio account (it’s Free) for full functionality—this simplified automation template streamlines the conversion of long-form content into bite-sized, shareable clips. Elevate your content strategy, maximize audience engagement, and reclaim valuable time with a solution built to drive your channel’s growth.\n\n",
+  "totalViews": 905,
+  "source": "official",
+  "user": {
+    "id": 92893,
+    "name": "Mateo Fiorito Rocha",
+    "username": "lemolex",
+    "bio": "Passionate about AI-driven automation, LLMs, and intelligent systems that enhance efficiency and engagement. Let’s build smarter workflows, send me a message!",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/mateofioritorocha/\"]",
+    "avatar": "https://gravatar.com/avatar/1547577657bcdb579dd2c1946c4382029800b8e23e112916e4fe11cc66a6f9fa?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-03-30T12:26:42.247Z",
+  "path": "official/template_3367/workflow.json"
+}

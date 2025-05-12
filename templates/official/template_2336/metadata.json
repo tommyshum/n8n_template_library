@@ -1,0 +1,65 @@
+{
+  "id": 2336,
+  "name": "Summarize emails and save them as notes on sales opportunity in Odoo",
+  "description": "Use Case:\nThis n8n workflow automates the process of extracting information from emails. It uses OpenAI to summarize sales emails and adds this information in Odoo.\n\nHow it works:\nWhen an email is received with a certain label, it sends the email to OpenAI for summarization\nA sales opportunity is created in Odoo with the email subject as title and the email summary as internal note\n\nSet up steps:\nConfigure Google Cloud credentials with Gmail access\nIn the Gmail node, choose an email label in the filter section\nConfigure OpenAI credentials\nConfigure Odoo credentials",
+  "totalViews": 6214,
+  "source": "official",
+  "user": {
+    "id": 91633,
+    "name": "Mihai Farcas",
+    "username": "mihailtd",
+    "bio": "Full-stack developer with 5+ years streamlining healthcare processes. Proficient in NodeJS, VueJS, MongoDB, PostgreSQL, Kubernetes, and n8n. Ready to optimize your workflows – book a consult via my link.",
+    "verified": true,
+    "links": "[\"https://mihai.ltd\"]",
+    "avatar": "https://gravatar.com/avatar/a73ca84b07b557e95322815bc04859245e9243c7cfd5bf9a14568fd0ce3e72c5?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Odoo",
+      "type": "n8n-nodes-base.odoo",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Summarization Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainSummarization",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Model",
+      "type": "@n8n/n8n-nodes-langchain.lmOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Text Completion Models"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-07-11T06:36:20.715Z",
+  "path": "official/template_2336/workflow.json"
+}

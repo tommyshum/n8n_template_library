@@ -1,0 +1,68 @@
+{
+  "id": 1809,
+  "name": "Sync Shopify orders with Zendesk tickets",
+  "totalViews": 976,
+  "purchaseUrl": null,
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "description": "This workflow automatically syncs Shopify orders with your Zendesk tickets. Using this workflow, Shopify orders will be added or have their information updated straight to your Zendesk tickets. \n\nPrerequisites\nShopify account and Shopify credentials\nZendesk account and Zendesk credentials\n\nHow it works\nShopify Trigger starts the workflow whenever an order is updated.\nZendesk node finds if the order already exists and has a ticket assigned.\nSet node keeps and passes only ticket ID.\nMerge by Key node combines the Shopify order data with the Zendesk ticket data.\nIf node splits the workflow conditionally, checks if the ticket already exists or not.\nIf order is new, Zendesk node creates a new ticket for the order.\n",
+  "createdAt": "2022-10-07T10:16:55.733Z",
+  "nodes": [
+    {
+      "id": 123,
+      "icon": "file:zendesk.svg",
+      "name": "n8n-nodes-base.zendesk",
+      "codex": {
+        "data": {
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/your-business-doesnt-need-you-to-operate/",
+                "icon": " 🖥️",
+                "label": "Hey founders! Your business doesn't need you to operate"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.zendesk/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/zendesk/"
+              }
+            ]
+          },
+          "categories": [
+            "Communication"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"output\"]",
+      "defaults": {
+        "name": "Zendesk"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgZmlsbD0ibm9uZSI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTAgMjRDMCAxMC43NDUgMTAuNzQ1IDAgMjQgMHMyNCAxMC43NDUgMjQgMjQtMTAuNzQ1IDI0LTI0IDI0UzAgMzcuMjU1IDAgMjQiLz48cGF0aCBmaWxsPSIjMDMzNjNEIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xNS40NDggMTguNjUzYzQuMDUgMCA3LjMzMi0zLjM3NSA3LjMzMi03LjUzOEg4LjExNmMwIDQuMTYzIDMuMjgzIDcuNTM4IDcuMzMyIDcuNTM4bTcuMzMyIDE3LjE5OVYxNy42NDhMOC4xMTYgMzUuODUyem0yLjQxNSAwYzAtNC4xNjQgMy4yODMtNy41NCA3LjMzMi03LjU0IDQuMDUgMCA3LjMzMiAzLjM3NiA3LjMzMiA3LjU0em0wLTI0LjczN3YxOC4yMDNMMzkuODYgMTEuMTE1eiIgY2xpcC1ydWxlPSJldmVub2RkIi8+PC9zdmc+"
+      },
+      "displayName": "Zendesk",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 6,
+          "name": "Communication"
+        }
+      ]
+    }
+  ]
+}

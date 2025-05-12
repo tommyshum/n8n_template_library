@@ -1,0 +1,47 @@
+{
+  "id": 2533,
+  "name": "Get Comments from Facebook Page",
+  "description": "This workflow automates the collection of comments from posts on a Facebook Page.  \n\nProviding clean, structured data for analysis or further automation.\n\nWhat this workflow does\nFetches recent posts from a Facebook Page.\nRetrieves comments for each post.\nOutputs structured data of Comments and Posts for further use.\n\nSetup\nFacebook Graph API: Connect your Access Token with the required permissions (pages_read_engagement, pages_read_user_content).\nWorkflow: Set the Page ID and the number of posts to fetch in the \"Set Number of Latest Posts to Fetch\" node.\n",
+  "totalViews": 7531,
+  "source": "official",
+  "user": {
+    "id": 92135,
+    "name": "Sira Ekabut",
+    "username": "siraekabut",
+    "bio": "Excel & Power BI Trainer\n\nHobbies : \n- Advanced AI Image Generation with ComfyUI\n- AI Automation with n8n",
+    "verified": true,
+    "links": "[\"https://www.thepexcel.com/\"]",
+    "avatar": "https://gravatar.com/avatar/5895ef0c4917274b518279c1ab54d9fc12db4422ad4d3833fb58176c846e7e45?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Facebook Graph API",
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-11-07T12:48:25.238Z",
+  "path": "official/template_2533/workflow.json"
+}

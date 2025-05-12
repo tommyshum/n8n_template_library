@@ -1,0 +1,53 @@
+{
+  "id": 1416,
+  "name": "Send a message to Telegram on a new item saved to Reader",
+  "description": "What is it\n\n\n\nThis workflow aims to build a simple bot that will send a message to a telegram channel every time there is a new saved item to the Reader.\n\nThis workflow can be easily modify to support other way of sending the notification, thanks to existing n8n nodes.\n\nWarning: This is only for folks who already have access to the Reader, it won't work if you don't\n\nAlso, this workflow use a file to store the last update time in order to not sync everything everytime.\n\nSetup\n\nThe config node :\nIt contains the telegram channel id\nIt also contains the file used as storage\n\nTo get the header auth, you have to :\nGo to the reader\nOpen the devtools, Option + ⌘ + J (on macOS), or Shift + CTRL + J (on Windows/Linux)\nGo to network and find a profile_details/ request, click on it\nGo to Request Headers\nCopy the value for \"Cookie\"\nIn n8n, set the name of the Header auth account to Cookie and the value with the one you copied before\n",
+  "totalViews": 2430,
+  "source": "official",
+  "user": {
+    "id": 27516,
+    "name": "Nicolas",
+    "username": "beaussan",
+    "bio": null,
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/b9d77b116f4d182d1cbee4d12417b2a4a4604e4ac8aaa215b0407ebe22ff6bde?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2022-01-29T23:36:46.432Z",
+  "path": "official/template_1416/workflow.json"
+}

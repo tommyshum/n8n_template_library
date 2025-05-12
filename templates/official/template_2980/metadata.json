@@ -1,0 +1,38 @@
+{
+  "id": 2980,
+  "name": "Nightly Discord Channel Cleanup",
+  "description": "Nightly Discord Channel Cleanup\nThis workflow runs every day at 9:00 p.m. and:\nRetrieves all Discord channels using your provided credentials.\nPauses briefly to respect Discord API rate limits.\nLoops through each channel and fetches messages.\nFilters out messages older than seven days.\nDeletes those older messages, again pausing to stay within deletion rate limits.\n\nBy setting up this workflow on a schedule, you can automatically keep Discord channels tidy and compliant with retention policies.\n👨‍🎤 Setup\nAdd your Discord credentials\nChange the server in each Discord node to the correct one\nClick the Test Workflow button\nActivate the workflow to run on a schedule",
+  "totalViews": 802,
+  "source": "official",
+  "user": {
+    "id": 92392,
+    "name": "Viktor",
+    "username": "qxuken",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/0b844ec32e170c77c0c855af936eabe56ba91efc6a8c3c8924b6da0dc6133174?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Discord",
+      "type": "n8n-nodes-base.discord",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-02-22T20:09:12.911Z",
+  "path": "official/template_2980/workflow.json"
+}

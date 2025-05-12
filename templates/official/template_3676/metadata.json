@@ -1,0 +1,60 @@
+{
+  "id": 3676,
+  "name": "Capture Gumroad sales, add buyer to MailerLite group, log to Google Sheets CRM",
+  "description": "Turn Gumroad buyers into loyal email subscribers and keep your CRM up‑to‑date.\n\nWhen someone makes a purchase on your Gumroad store, this n8n workflow instantly adds that customer to the right MailerLite group (so your nurture sequence starts on time) and writes the sale details into your Google Sheets CRM. You’ll never copy‑and‑paste orders again, and every buyer begins receiving your follow‑up emails the moment they purchase.\n\nRequirements\nA Gumroad account with a product listed\nA MailerLite account. \nA MailerLite group of subscribers created\nEnabled APIs and credentials for Google Sheets, MailerLite and Gumroad\n\nHow it works\nListen for a new sale on Gumroad**\nThe Gumroad trigger watches your account 24/7 and fires as soon as a sale is completed.\n\nCreate (or update) the subscriber in MailerLite**\nTheir name and email are added to MailerLite. If they already exist, the workflow simply updates their profile.\n\nAssign the subscriber to your Gumroad group**\nGrouping lets your MailerLite automation send the right onboarding or upsell sequence without manual tagging.\n\nLog the purchase in Google Sheets**\nThe buyer’s contact details, product, price, and date are appended as a new row in your CRM sheet.\n\nSet‑up steps\nCreate an application in Gumroad. Copy the access token, you’ll paste it into the Gumroad trigger node.\n\nGrab your MailerLite API key\nMailerLite dashboard → Integrations → API. Paste it into the two MailerLite nodes.\n\nPrepare a Google Sheets spreadsheet\nAdd column headers like Name, Email, Product, Price, Date.\n\nOpen the template in n8n Cloud or Desktop\n\nIn the Gumroad node, paste your token.\n\nIn the MailerLite nodes, paste your API keys and replace the group id.\n\nIn the Google Sheets node, replace the credentials, pick your spreadsheet and worksheet.\n\nLearn more\n\nRead our blog article about it\n\nGet in touch with us\nContact us at https://1node.ai\n\n\n\n\n\n\n\n\n\n",
+  "totalViews": 105,
+  "source": "official",
+  "user": {
+    "id": 94008,
+    "name": "Aitor | 1node.ai",
+    "username": "aitoralonso",
+    "bio": "Hi, I’m Aitor, cofounder of 1node.ai. We help businesses integrate full-scale AI solutions that save time, cut costs, and increase revenue. Guaranteed. Need help building smarter workflows? Visit 1node.ai and let's connect.",
+    "verified": true,
+    "links": "[\"https://1node.ai\"]",
+    "avatar": "https://gravatar.com/avatar/2f850f7b4c218087a3e7d9775daf6bd8dad05b5eb5ea82242d4bfd1a97465455?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "Marketing"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "MailerLite",
+      "type": "n8n-nodes-base.mailerLite",
+      "categories": [
+        "Communication",
+        "Marketing"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-04-23T18:03:02.278Z",
+  "path": "official/template_3676/workflow.json"
+}

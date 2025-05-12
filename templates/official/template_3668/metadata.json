@@ -1,0 +1,110 @@
+{
+  "id": 3668,
+  "name": "Altcoin News to LinkedIn Posts with DeepSeek AI & Google Sheets",
+  "description": "Altcoin News to LinkedIn Posts with DeepSeek AI & Google Sheets\n\nAutomate your daily crypto content creation and publishing using this n8n workflow. This automation fetches the latest altcoin news from an RSS feed, rewrites it into LinkedIn-style posts using DeepSeek AI, stores it in Google Sheets, and schedules it for publishing—completely hands-free.\n\n🔧 Prerequisites\nn8n instance (cloud or self-hosted)\n\nDeepSeek AI or OpenAI API key\n\nGoogle account with Sheets API enabled\n\nRSS feed URL of your preferred altcoin news source\n\n(Optional) LinkedIn API or scheduling tool\n\n⚙️ Workflow Breakdown\nFetch RSS Feed – Retrieve altcoin news articles.\n\nFilter Articles – Only select posts from today and containing keywords like \"altcoin\", \"crypto\", \"defi\", etc.\n\nRewrite with DeepSeek – Convert article into a LinkedIn-style post using a prompt template (includes Hook, Body, CTA).\n\nStore in Google Sheets – Save the generated content into your sheet.\n\nPost to LinkedIn (optional) – Schedule or publish via LinkedIn API or integration.\n\nSetup\nConnect RSS Feed: Set up the CoinDesk RSS feed to be fetched automatically.\n\nAPI Keys: Add your DeepSeek AI API key to enable content generation.\n\nGoogle Sheets: Link your Google Sheet to store both raw RSS data and AI-generated LinkedIn posts.\n\nScheduling: Set the time intervals for when the posts will be scheduled (e.g., every 6 hours).\n\nCustomization Instructions\n**Change RSS Feed URL:\n**\nOpen the Fetch RSS Feed node.\n\nReplace the current URL with your new RSS feed URL in the \"URL\" field.\n\n**Change GPT Model:\n**\nOpen the DeepSeek Chat Model node.\n\nFind the \"Model\" field and select your preferred model (e.g., gpt-4).\n\n**Change Prompt:\n**\nOpen the DeepSeek Chat Model node.\n\nEdit the prompt text in the \"Prompt\" field to customize the tone, content, or keywords.\n\n**Change Wait Time:\n**\nOpen the Schedule Tweet node.\n\nAdjust the \"Wait Time\" (in seconds) to your desired interval:\n\nFor 6 hours: 21600\n\nFor 1 hour: 3600\n\nFor 30 minutes: 1800\n\nFor 15 minutes: 900\n\n",
+  "totalViews": 150,
+  "source": "official",
+  "user": {
+    "id": 93998,
+    "name": "Lawal Ridwan",
+    "username": "letsautomate",
+    "bio": "",
+    "verified": false,
+    "links": "[\"https://www.linkedin.com/in/leksidenation\"]",
+    "avatar": "https://gravatar.com/avatar/0d762f4ad260c18e85506c7ec0bc833cc8e9e078c5b0bb63a8065c1083ce0192?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Marketing",
+    "Communication",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "LinkedIn",
+      "type": "n8n-nodes-base.linkedIn",
+      "categories": [
+        "Marketing",
+        "Communication"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "DeepSeek Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatDeepSeek",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-04-23T08:18:57.744Z",
+  "path": "official/template_3668/workflow.json"
+}
