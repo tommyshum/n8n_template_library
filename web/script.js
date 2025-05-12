@@ -506,6 +506,18 @@ async function openTemplateModal(template) {
         downloadLink.href = `/templates/${template.path}`;
         downloadLink.download = `template_${template.id}.json`;
     }
+    
+    // Show modal
+    modal.style.display = 'block';
+}
+
+// Close template modal
+function closeTemplateModal() {
+    modal.style.display = 'none';
+}
+
+// Setup event listeners
+function setupEventListeners() {
     // Category filter
     categoryFilter.addEventListener('change', () => {
         currentFilters.category = categoryFilter.value;
