@@ -1,0 +1,143 @@
+{
+  "id": 3140,
+  "name": "Audio Conversation Analysis & Visualization with DeepGram and GPT-4o",
+  "description": "Transcript Evalu8r – AI-Powered Transcribing and Transcript Analysis Workflow\n\nOverview\n\nTranscript Evalu8r is an AI-powered transcript analysis workflow that automates the processing, visualization, and evaluation of transcribed conversations. This n8n workflow template is designed to help users quickly analyze sentiment, extract topics and intents, generate key insights, and enhance transcript navigation. \n\nIt is ideal for customer service teams, legal professionals, researchers, content creators, and businesses seeking actionable intelligence from recorded conversations.\n\nKey Features\n\n🔹 Automated Transcript Processing\nAudio-to-Text Conversion** – Upload an audio file and generate transcripts.\nFile Upload Management** – Track file uploads with real-time progress indicators.\nTranscript Selection** – Browse and select previously analyzed transcripts from a dropdown.\nDownload Transcripts* – Export transcripts in various formats (Google Docs and JSON*).\nError Handling** – Detects and alerts users about upload or processing failures.\n\n🔹 Advanced UI Components\nInteractive Transcript Viewer** – Displays full transcripts with:\n  Timestamps and speaker identification.\n  Clickable words for easy navigation.\n  Auto-scrolling to highlight the active portion of the transcript.\nKey Points & Action Items Summary** – AI extracts:\n  Critical insights from conversations.\n  Actionable follow-ups detected in the discussion.\nSpeaker Labeling* – Dynamically assigns *real speaker names** instead of generic placeholders (e.g., \"Speaker 1\").\nCollapsible Sections* – Enables users to *expand/collapse** transcript details, key insights, and analysis sections.\n\n🔹 AI-Powered Conversation Analysis\nSentiment Analysis & Visualization**\n  Dynamic sentiment graph tracks emotional shifts.\n  Color-coded speaker sentiment tracking:\n    🔵 Positive\n    ⚫ Neutral\n    🔴 Negative\n  Time-based sentiment tracking – Shows sentiment fluctuations across the conversation.\n\nTopic & Intent Recognition**\n  Automated Topic Extraction – Identifies key themes discussed.\n  Hierarchical Topic Organization – Groups related topics for structured insights.\n  Intent Classification – Recognizes whether statements reflect:\n    Questioning\n    Commands\n    Decision-making\n    Information seeking\n  Confidence Scoring – Displays confidence levels for topic and intent detection.\n\nSpeaker Contribution Metrics**\n  Talk-time percentages per speaker.\n  Interruption detection – Highlights moments where speakers cut each other off.\n  Word Frequency Analysis – Identifies commonly used terms and phrases.\n\n🔹 Seamless Workflow Automation\nAPI Integration* – Connects with transcription engines like *OpenAI Whisper, AWS Transcribe, and Deepgram**.\nWebhook Support** – Automates workflows when new transcripts are available.\nBatch Processing* – Handles *multiple transcript analyses** simultaneously.\nExport & Reporting** – Sends insights to Google Sheets, Notion, Airtable, or Slack.\n\nHow It Works\n\nUpload an audio file or select a pre-existing transcript.\nTranscript Processing:\n   Speech-to-text conversion (if required).\n   AI-driven sentiment, topic, and intent analysis.\nVisualizations & Insights:\n   Review sentiment charts, speaker contributions, and key topics.\n   Extract action items and critical takeaways.\nDownload results or trigger automated follow-ups.\n\nUse Cases\n\n✅ Customer Support Review – Detect customer concerns and analyze sentiment trends.  \n✅ Podcast & Video Content Analysis – Summarize episodes and extract key themes.  \n✅ Sales Call Insights – Identify common objections and customer pain points.  \n✅ Market Research – Extract trends from focus groups and discussions.  \n✅ Legal Compliance Monitoring – Track policy violations in recorded conversations.  \n\nSetup Instructions\n\nImport the Transcript Evalu8r workflow into your n8n instance.\nConnect DeepGram Speech to Text API.\nConfigure workflow parameters (sentiment thresholds, topic extraction settings).\nRun the workflow to analyze and visualize transcript data.\nReview insights and export as needed.\n\nWhy Use Transcript Evalu8r?\n\n🚀 Automate tedious transcript analysis  \n💡 Unlock hidden insights in conversations  \n📊 Visualize conversations with interactive sentiment tracking  \n⚡ Boost efficiency with AI-powered automation  \n🔗 Seamlessly integrate with your existing workflows  \n\nRequirements\nn8n instance** (cloud or self-hosted)\nAPI key for DeegGram API",
+  "totalViews": 521,
+  "source": "official",
+  "user": {
+    "id": 92159,
+    "name": "RealSimple Solutions",
+    "username": "joeperes",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://joeperes.com\"]",
+    "avatar": "https://gravatar.com/avatar/4ad55fbdcc7808056aa180c02d52e3e373d4b894df7fa986e2dfd6c7eb127bfc?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage",
+    "Communication",
+    "HITL",
+    "Miscellaneous",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Google Docs",
+      "type": "n8n-nodes-base.googleDocs",
+      "categories": [
+        "Miscellaneous"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 9,
+  "createdAt": "2025-03-12T04:16:30.073Z",
+  "path": "official/template_3140/workflow.json"
+}

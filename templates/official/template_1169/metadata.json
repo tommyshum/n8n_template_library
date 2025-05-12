@@ -1,0 +1,38 @@
+{
+  "id": 1169,
+  "name": "Handle pagination in HTTP Requests",
+  "description": "This example workflow demonstrates how to handle pagination. \n\nThis example assumes that the API you are making the request to has pagination, and returns a cursor (something that points to the next page).\n\nThis example workflow makes a request to the HubSpot API to fetch contacts. You will have to modify the parameters based on your API.\n\n\n\nConfig URL node: This node sets the URL that the HTTP Request node calls.\n\nHTTP Request node: This node makes the API call and returns the data from the API. Based on your API, you will have to modify the parameters of the node.\n\nNoOp node and Wait node: These nodes help me avoiding any rate limits. If you're API has rate limits, make sure you configure the correct time in the Wait node.\n\nCheck if pagination: This IF node checks if the API returns any cursor. If the API doesn't return any cursor, it means that there is no data to be fetched, and the node returns false. If the API returns a cursor, it means that there is still some data that needs to be fetched. In this case, the node returns true.\n\nSet next URL: This Set node is used to set the URL. In the next cycle, the HTTP Request node makes a call to this URL.\n\nCombine all data: This node combines all the data that gets returned by the API calls from the HTTP Request node.\n",
+  "totalViews": 9959,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2021-07-20T14:44:59.718Z",
+  "path": "official/template_1169/workflow.json"
+}

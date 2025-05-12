@@ -1,0 +1,34 @@
+{
+  "id": 1970,
+  "name": "Create Unique Jira tickets from Splunk alerts",
+  "description": "The workflow is an automated process designed for incident management and tracking, specifically by integrating Splunk alerts with a Jira ticketing system using n8n. The initial step in the workflow is a Webhook Trigger, which is set up to receive POST requests with data from Splunk to initiate the workflow. Once the workflow is triggered, the \"Set Host Name\" node cleans up the hostname received from Splunk, ensuring that it is alphanumeric for consistency and security purposes.\n\nSubsequently, the \"Search Ticket\" node interacts with Jira through a Jira Query Language (JQL) request to locate any existing issues that match the sanitized hostname. The workflow splits at the \"IF Ticket Not Exists\" node, which checks for the presence of a key indicating a matching issue.\n\nIf an issue exists, the workflow proceeds to add a comment to the identified issue, and if not, it creates a new Jira issue. At the false path, the \"Add Ticket Comment\" node appends a new comment to the existing Jira issue, encapsulating details from the Splunk alert, such as the timestamp and the alert description.\n\n",
+  "totalViews": 2042,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "Jira Software",
+      "type": "n8n-nodes-base.jira",
+      "categories": [
+        "Development",
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2023-11-07T06:23:53.943Z",
+  "path": "official/template_1970/workflow.json"
+}

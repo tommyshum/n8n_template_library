@@ -1,0 +1,96 @@
+{
+  "id": 3497,
+  "name": "Conversing with Data: Transforming Text into SQL Queries and Visual Curves",
+  "description": "Conversational Data Retrieval and Visualization Workflow\n\nThis workflow enables users to interact with a PostgreSQL database using natural language. It translates text inputs into SQL queries, retrieves the corresponding data, and generates visualizations using QuickChart, facilitating seamless data analysis without manual query writing.\n\nTable of Contents\n\nPre-conditions and Requirements\nDatabase Schema Setup\nStep-by-Step Workflow Explanation\nCustomization Guide\n\nPre-conditions and Requirements\n\n1. API Keys and Services Required\n\nTo operate this workflow, access to the following services is necessary:\n\nDeepSeek API**: For converting natural language into SQL queries.\n  API Key: Obtain from your DeepSeek account.\nQuickChart**: For generating data visualizations.\n  Service URL: https://quickchart.io/chart\n\n2. n8n Instance Setup\n\nn8n Installation**: Install and run n8n using the Official Guide.\nCredential Configuration**:\n  DeepSeek API: Set up DeepSeek credentials in n8n by adding your API key.\n  PostgreSQL Database:\n    Local Database Access: If your PostgreSQL database is hosted locally and needs to be accessed over the internet (e.g., by n8n running on a different machine or in the cloud), you can expose it using ngrok:\n      Install ngrok: Download and install ngrok from ngrok.com.\n      Start ngrok Tunnel: Run the command ngrok tcp 5432 to expose your local PostgreSQL server.\n         This will provide a forwarding address like tcp://0.tcp.ngrok.io:12345 that can be used to connect to your local database remotely.\n      Update n8n Credentials: In n8n, configure the PostgreSQL node to use the ngrok forwarding address, ensuring remote access to your local database.\n\nDatabase Schema Setup\n\nBefore initiating the workflow, ensure that the database schema is extracted and saved:\n\nExtract Schema: Retrieve the database schema, including table names and column details.\nSave Schema: Store the extracted schema in a JSON file for reference during query generation.\n\nStep-by-Step Workflow Explanation\n\nUser Input Handling\n   The workflow begins by receiving a natural language query from the user.\n\nSchema Retrieval\n   Loads the previously saved database schema from the JSON file.\n\nAI-Based SQL Generation\n   Combines the user's query with the database schema.\n   Utilizes the DeepSeek API to translate the natural language query into a SQL statement.\n\nSQL Query Execution\n   Executes the generated SQL query against the PostgreSQL database.\n   Retrieves the data corresponding to the query.\n\nData Visualization\n   Formats the retrieved data into a structure compatible with QuickChart.\n   Sends the data to QuickChart to generate a visual representation.\n     Example: To create a bar chart, construct a URL with the chart configuration:\n              https://quickchart.io/chart?c={type:'bar',data:{labels:['Label1','Label2'],datasets:[{label:'Dataset1',data:[10,20]}]}}\n              This URL returns an image of the chart.\n\nResponse Delivery\n   Presents the generated visualizations and data insights to the user.\n\nCustomization Guide\n\nModifying the AI Model\n\nAlternative AI Services**: Replace DeepSeek with other AI models by adjusting the API call configurations in the workflow.\n\nChanging Visualization Services\n\nVisualization Tools**: Swap QuickChart with other visualization services by modifying the data processing and visualization steps.\n\nExpanding Database Support\n\nAdditional Databases**: Adapt the workflow to support other databases (e.g., MySQL, MongoDB) by configuring the respective database credentials and query execution nodes.\n\nThis workflow streamlines the process of data retrieval and visualization, allowing users to interact with their database using natural language, thereby enhancing accessibility and efficiency in data analysis.\n\n",
+  "totalViews": 1685,
+  "source": "official",
+  "user": {
+    "id": 92736,
+    "name": "hippolyte-hu",
+    "username": "hippolyte-hu",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/50c235b82d1a4f0d0c1a50338c1c84780db38e2846daad908ca00999151a69e5?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Data & Storage",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Postgres",
+      "type": "n8n-nodes-base.postgres",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-04-09T10:47:20.113Z",
+  "path": "official/template_3497/workflow.json"
+}

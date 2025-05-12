@@ -1,0 +1,98 @@
+{
+  "id": 3295,
+  "name": "🧑‍🎓 AI Powered Language Teacher with Telegram, Google Sheet and GPT-4o",
+  "description": "Tags: Productivity, Education, Learning, Language\n\nContext\nI’m a Supply Chain Data Scientist from Paris who lived six years in China — and yes, learning Mandarin while working full-time was tough.\n\n\n\nLearning Mandarin as an adult can be very difficult, especially if you have a full-time job. With AI, you can now have a Chinese tutor available 24/7 on your phone — no excuses left!\n\nIt is with this spirit that I designed this workflow to support fellow Mandarin learners with a Chinese Teacher powered by GPT-4o. \n\n&gt;Boost your language skills with AI using N8N!\n\n📬 For business inquiries, you can add me on LinkedIn\n\nWho is this template for?\nThis workflow template is designed for language learners and educators who need support to learn a vocabulary list in Mandarin (or any other language) using Open AI GPT-4o, an AI agent and a Telegram Bot to interact with users.\n\n \n\nFor the vocabulary list, you can use another template shared in my profile 🉑 Generate Anki Flash Cards for Language Learning with Google Translate and GPT-4o to generate the Google Sheet needed in this workflow.\n\nHow does it work?\nThe workflow loads a vocabulary list stored in your Google Sheet.\n\n \n\nThe bot will:\n📥 Load your vocabulary list from Google Sheets\n🧠 Generate multiple-choice questions with GPT-4o\n✅ Evaluate your answer and give instant feedback\n🔁 Loop to the next word until you're fluent\n\n\n\n\nThese fields will be automatically added to a Google Sheet, ready to be loaded in Anki to create flash cards.\n\nWhat do I need to start?\nThis workflow does not require any advanced programming skills.\nPrerequisite\nA Google Drive Account with a folder including a Google Sheet filled with the vocabulary list you want to learn.\nAPI Credentials: Open AI API for the chat model, Google Drive API and Google Sheets API activated with OAuth2 credentials\nA Telegram Bot with its token recorded in the Telegram Node Credentials\nA Google Sheet** with two columns (initialText: words in your own language, translatedText: words in the target language)\n\nNext Steps\nFollow the sticky notes to set up the parameters inside each node and get ready to pump your learning skills.\n\n\n🎥 Watch My Tutorial\n\n🚀 Curious how N8N can supercharge learning or supply chain?\n📬 Let’s connect on LinkedIn\n\nNotes\nThis workflow can be used for any language. In the AI Agent prompt, you just need to replace Chinese with your language.\n\nThis workflow has been created with N8N 1.82.1\nSubmitted: March 23th, 2025\n",
+  "totalViews": 4895,
+  "source": "official",
+  "user": {
+    "id": 93233,
+    "name": "Samir Saci",
+    "username": "samirsaci",
+    "bio": "Automation, AI and Analytics for Supply Chain & Business Optimization\nHelping businesses streamline operations using n8n, AI agents, and data science to enhance efficiency and sustainability. \nLinkedin: www.linkedin.com/in/samir-saci",
+    "verified": true,
+    "links": "[\"https://linktr.ee/samirsaci\"]",
+    "avatar": "https://gravatar.com/avatar/d3644476a59e5813c5f00a7933977e2be8805cbdc574958b9cc6a53b45bedd6a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-03-23T12:31:06.542Z",
+  "path": "official/template_3295/workflow.json"
+}

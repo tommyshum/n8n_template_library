@@ -1,0 +1,168 @@
+{
+  "id": 2440,
+  "name": "Building RAG Chatbot for Movie Recommendations with Qdrant and Open AI",
+  "description": "Create a recommendation tool without hallucinations based on RAG with the Qdrant Vector database. This example is based on movie recommendations on the IMDB-top1000 dataset. You can provide your wishes and your \"big no's\" to the chatbot, for example: \"A movie about wizards but not Harry Potter\", and get top-3 recommendations.\n\nHow it works\na video with the full design process\nUpload IMDB-1000 dataset to Qdrant Vector Store, embedding movie descriptions with OpenAI;\nSet up an AI agent with a chat. This agent will call a workflow tool to get movie recommendations based on a request written in the chat;\nCreate a workflow which calls Qdrant's Recommendation API to retrieve top-3 recommendations of movies based on your positive and negative examples. \n\nSet Up Steps\nYou'll need to create a free tier Qdrant Cluster (Qdrant can also be used locally; it's open-sourced) and set up API credentials\nYou'll OpenAI credentials \nYou'll need GitHub credentials & to upload the IMDB Kaggle dataset to your GitHub.",
+  "totalViews": 28075,
+  "source": "official",
+  "user": {
+    "id": 92002,
+    "name": "Jenny ",
+    "username": "mrscoopers",
+    "bio": "Qdrant DevRel, ML/NLP/math nerd with yapping skills",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/evgeniya-sukhodolskaya/\"]",
+    "avatar": "https://gravatar.com/avatar/8b585d8184c5f6b4e7d30a2249984244045e769bcc4a06c645e68f96fa125c3e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "GitHub",
+      "type": "n8n-nodes-base.github",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Token Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterTokenSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    },
+    {
+      "name": "Qdrant Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreQdrant",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 10,
+  "createdAt": "2024-09-28T14:16:30.110Z",
+  "path": "official/template_2440/workflow.json"
+}

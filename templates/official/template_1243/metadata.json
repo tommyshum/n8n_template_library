@@ -1,0 +1,44 @@
+{
+  "id": 1243,
+  "name": "Avoid rate limiting by batching HTTP requests",
+  "description": "This workflow demonstrates the use of the Split In Batches node and the Wait node to avoid API rate limits.\n\nCustomer Datastore node: The workflow fetches data from the Customer Datastore node. Based on your use case, replace it with a relevant node.\n\nSplit In Batches node: This node splits the items into a single item. Based on the API limit, you can configure the Batch Size.\n\nHTTP Request node: This node makes API calls to a placeholder URL. If the Split In Batches node returns 5 items, the HTTP Request node will make 5 different API calls.\n\nWait node: This node will pause the workflow for the time you specify. On resume, the Split In Batches node gets executed node, and the next batch is processed.\n\nReplace Me (NoOp node): This node is optional. If you want to continue your workflow and process the items, replace this node with the corresponding node(s).",
+  "totalViews": 3596,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Customer Datastore (n8n training)",
+      "type": "n8n-nodes-base.n8nTrainingCustomerDatastore",
+      "categories": [],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2021-09-27T13:14:07.273Z",
+  "path": "official/template_1243/workflow.json"
+}

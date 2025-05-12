@@ -1,0 +1,124 @@
+{
+  "id": 2878,
+  "name": "Host Your Own AI Deep Research Agent with n8n, Apify and OpenAI o3",
+  "description": "This template attempts to replicate OpenAI's DeepResearch feature which, at time of writing, is only available to their pro subscribers.\n\n&gt; An agent that uses reasoning to synthesize large amount of online information and complete multi-step research tasks for you.\nSource\n\nThough the inner workings of DeepResearch have not been made public, it is presumed the feature relies on the ability to deep search the web, scrape web content and invoking reasoning models to generate reports. All of which n8n is really good at!\n\nUsing this workflow, n8n users can enjoy a variation of the Deep Research experience for themselves and their teams at a fraction of the cost. Better yet, learn and customise this Deep Research template for their businesses and/or organisations.\n\nCheck out the generated reports here: https://jimleuk.notion.site/19486dd60c0c80da9cb7eb1468ea9afd?v=19486dd60c0c805c8e0c000ce8c87acf\n\nHow it works\nA form is used to first capture the user's research query and how deep they'd like the researcher to go.\nOnce submitted, a blank Notion page is created which will later hold the final report and the researcher gets to work.\nThe user's query goes through a recursive series of web serches and web scraping to collect data on the research topic to generate partial learnings.\nOnce complete, all learnings are combined and given to a reasoning LLM to generate the final report.\nThe report is then written to the placeholder Notion page created earlier. \n\nHow to use\nDuplicate this Notion database template and make sure all Notion related nodes point to it.\nSign-up for APIFY.com API Key for web search and scraping services.\nEnsure you have access to OpenAI's o3-mini model. Alternatively, switch this out for o1 series.\nYou must publish this workflow and ensure the form url is publically accessible.\n\nOn depth & breadth configuration\nFor more detailed reports, increase depth and breadth but be warned the workflow will take exponentially longer and cost more to complete. The recommended defaults are usually good enough.\n\nDepth=1 & Breadth=2 - will take about 5 - 10mins.\nDepth=1 & Breadth=3 - will take about 15 - 20mins.\nDpeth=3 & Breadth=5 - will take about 2+ hours!\n\nCustomising this workflow\nI deliberately chose not to use AI-powered scrapers like Firecrawl as I felt these were quite costly and quotas would be quickly exhausted. However, feel free to switch web search and scraping services which suit your environment.\nMaybe you don't decide to source the web and instead, data collection comes from internal documents instead. This template gives you freedom to change this.\nExperiment with different Reasoning/Thinking models such as Deepseek and Google's Gemini 2.0.\nFinally, the LLM prompts could definitely be improved. Refine them to fit your use-case.\n\nCredits\nThis template is largely based off the work by David Zhang (dzhng) and his open source implementation of Deep Research: https://github.com/dzhng/deep-research",
+  "totalViews": 29233,
+  "source": "official",
+  "user": {
+    "id": 91804,
+    "name": "Jimleuk",
+    "username": "jimleuk",
+    "bio": "Freelance consultant based in the UK specialising in AI-powered automations. I work with select clients tackling their most challenging projects. For business enquiries, send me an email at hello@jimle.uk\n\nLinkedIn: https://www.linkedin.com/in/jimleuk/\nX/Twitter: https://x.com/jimle_uk",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4ab99e51473df76838beeaac908747f7928c625f869794815cabe34016967d51?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Productivity",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-02-11T00:02:26.780Z",
+  "path": "official/template_2878/workflow.json"
+}

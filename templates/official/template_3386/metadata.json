@@ -1,0 +1,53 @@
+{
+  "id": 3386,
+  "name": "Automate Docker Container Updates with Telegram Approval System",
+  "description": "Who is this for?\nThis workflow is for DevOps engineers, system administrators, and Docker users who want to automate the process of checking for updates, verifying them, and applying updates to their Docker-based deployment in a controlled manner.\nFor example, this workflow is used to update the n8n Docker image.\n\nWhat does this workflow do?\nFetches the latest Docker image version from GitHub.\nCompares it with the currently running version on the server.\nSends a Telegram message requesting confirmation if an update is available.\nIf confirmed, pulls the latest n8n Docker image, updates the container, and restarts it.\nSends a Telegram message confirming the update is completed.\nSchedules automatic checks, Uses a cron trigger in n8n to check for updates at regular intervals.\n\nSetup\nEnsure n8n is installed and running in a Docker container.\nCreate a Telegram bot using BotFather.\nSet up Telegram credentials. \nSet up SSH credentials (ensure the SSH user has sudo access).\nObtain the bot token and chat ID.\nSet the Default variable node\n   telegram-id (You can find it by messaging @get_id_bot).\n   n8n-container-name (Specify the name of the n8n container.)\n   working-directory (The directory where your docker-compose.yml is).\n You can use a manual trigger or a schedule trigger to update (for n8n, I use Cron every 3 days to check for a new version).\n\nHow to customize this workflow\nChange the update mechanism: Modify the Docker commands if using a different container runtime or orchestration tool.\nModify the confirmation flow: Add extra validation steps, such as checking for breaking changes before updating.\nUse a different notification method: Replace Telegram with Slack, email, or another notification service.\n\n",
+  "totalViews": 999,
+  "source": "official",
+  "user": {
+    "id": 93493,
+    "name": "Jaber Zare",
+    "username": "j4b3r",
+    "bio": "I'm Jaber Zare, a freelance DevOps engineer specializing in cloud infrastructure, automation, and scalable systems. With expertise in Kubernetes, CI/CD, and cloud platforms, I help businesses optimize their workflows and improve system reliability. If you're looking for top-notch DevOps/Cloud solutions, let's connect!",
+    "verified": false,
+    "links": "[\"https://www.linkedin.com/in/jaberzare/\"]",
+    "avatar": "https://gravatar.com/avatar/38e8e819c9e34e8427c2b55dfa81ddae13c0713f34efe4bec51b50df26f89bdd?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-03-31T15:35:34.305Z",
+  "path": "official/template_3386/workflow.json"
+}

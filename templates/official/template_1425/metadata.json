@@ -1,0 +1,62 @@
+{
+  "id": 1425,
+  "name": "Send a random recipe once a day to Telegram",
+  "description": "This telegram bot is designed to send one random recipe a day. \n\nThis specific bot has filtered out only vegan recipes, so you can choose your diet type and send only recipes for a specific diet. \n\nWhat credentials you need:\nSet up a telegram bot.\nAirtable for listing who has joined your bot. This is needed to send one random recipe a day.\nRecipe (or other) API.  This one uses Spoonacular.\n\nI hope you enjoy your bot! \n",
+  "totalViews": 2216,
+  "source": "official",
+  "user": {
+    "id": 26119,
+    "name": "Hilary Torn",
+    "username": "rhenium3",
+    "bio": null,
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/e3778ae546eb426c00ca57e7192dcea610d05b2d390279397e65e7bf80f67136?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2022-02-03T07:38:45.132Z",
+  "path": "official/template_1425/workflow.json"
+}

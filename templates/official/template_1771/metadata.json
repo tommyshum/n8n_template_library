@@ -1,0 +1,43 @@
+{
+  "id": 1771,
+  "name": "Send or update new Mailchimp subscribers in HubSpot",
+  "description": "This workflow sends new Mailchimp subscribers to HubSpot as new or updated contacts. \n\nPrerequisites\nMailchimp account and Mailchimp credentials\nHubSpot account and HubSpot credentials\n\nHow it works\nCron node triggers this workflow every day at 7:00.\nMailchimp node searches for new subscribers.\nNew Mailchimp subscribes get sent to HubSpot.\nHubSpot node either updates the existing contact or adds a new one to the pipeline.\n",
+  "totalViews": 884,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Marketing",
+    "Communication",
+    "Sales"
+  ],
+  "nodes": [
+    {
+      "name": "Mailchimp",
+      "type": "n8n-nodes-base.mailchimp",
+      "categories": [
+        "Marketing",
+        "Communication"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HubSpot",
+      "type": "n8n-nodes-base.hubspot",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2022-08-17T12:49:59.163Z",
+  "path": "official/template_1771/workflow.json"
+}

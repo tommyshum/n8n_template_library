@@ -1,0 +1,63 @@
+{
+  "id": 2585,
+  "name": "Upload images to an S3 Bucket via a Slack Bot",
+  "description": "Upload Public-Facing Images to an S3 Cloudflare Bucket via Slack Modal\n\n🛠 Who is this for?\n\nThis workflow is for teams that use Slack for internal communication and need a streamlined way to upload public-facing images to an S3 Cloudflare bucket. It's especially beneficial for DevOps, marketing, or content management teams who frequently share assets and require efficient cloud storage integration.\n\n💡 What problem does this workflow solve?\n\nManually uploading images to cloud storage can be time-consuming and disruptive, especially if you're already working in Slack. This workflow automates the process, allowing you to upload images directly from Slack via a modal popup. It reduces friction and keeps your workflow within a single platform.\n\n🔍 What does this workflow do?\n\nThis workflow connects Slack with an S3 Cloudflare bucket to simplify the image-uploading process:\nSlack Modal Interaction**: Users trigger a Slack modal to select images for upload.\nDynamic Folder Management**: Choose to create a new folder or use an existing one for uploads.\nS3 Integration**: Automatically uploads the images to a specified S3 Cloudflare bucket.\nSlack Confirmation**: After upload, Slack sends a confirmation with the uploaded file URLs.\n\n🚀 Setup Instructions\n\nPrerequisites\nSlack Bot with the following permissions:\n   commands\n   files:write\n   files:read\n   chat:write\nCloudflare S3 Credentials: Create an API token with write access to your S3 bucket.\nn8n Instance: Ensure n8n is properly set up with webhook capabilities.\n\nSteps\nConfigure Slack Bot:\n   Set up a Slack app and enable the Events API.\n   Add your n8n webhook URL to the Events Subscription section.\nAdd Credentials:\n   Add your Slack API and S3 Cloudflare credentials to n8n.\nCustomize the Workflow:\n   Open the Idea Selector Modal node and update folder options to suit your needs.\n   Update the Post Image to Channel node with your Slack channel ID.\nDeploy the Workflow:\n   Activate the workflow and test by triggering the Slack modal.\n\n🛠 How to Customize This Workflow\n\nAdjust the Slack Modal\nYou can modify the modal layout in the Idea Selector Modal node to add additional fields or adjust the styling.\n\nChange the Bucket Structure\nUpdate the Upload to S3 Bucket node to customize the folder paths or change naming conventions.\n\n🔗 References and Helpful Links\nSlack API Documentation\nCloudflare S3 Setup\nn8n Documentation\n\n📓 Workflow Notes\nKey Features:\nSlack Integration**: Uses Slack modal interactions to streamline the upload process.\nCloud Storage**: Automatically uploads to a Cloudflare S3 bucket.\nUser Feedback**: Sends a Slack message with file URLs upon successful upload.\n\nSetup Dependencies:\nSlack API token\nCloudflare S3 credentials\nn8n webhook configuration\n\nSticky Notes Included\nSticky notes are embedded within the workflow to guide you through configuration and explain node functionality.\n\n🌟 Why Use This Workflow?\n\nThis workflow keeps your image-uploading process intuitive, efficient, and fully integrated with tools you already use. By leveraging n8n's flexibility, you can ensure smooth collaboration and quick sharing of public-facing assets without switching contexts.\n\n",
+  "totalViews": 1969,
+  "source": "official",
+  "user": {
+    "id": 16588,
+    "name": "Angel Menendez",
+    "username": "djangelic",
+    "bio": "Angel Menendez is a Staff Developer Advocate at n8n.io, specializing in low-code tools for cybersecurity workflows. From Puerto Rico, Angel's tech journey began by helping his father translate technical books. He later started a web development business and transitioned from a career as a flight attendant to cybersecurity engineering. His workflows have saved companies significant time. Outside work, Angel enjoys time with his two sons, riding electric bikes, reading, and exploring new places.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/fdbe38425d21378d8c9ba8916e1eb0b320add299f12cc23fcd4961d4e6e00bec?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "S3",
+      "type": "n8n-nodes-base.s3",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-11-29T06:14:01.540Z",
+  "path": "official/template_2585/workflow.json"
+}

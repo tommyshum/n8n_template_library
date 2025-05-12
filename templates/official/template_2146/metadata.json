@@ -1,0 +1,38 @@
+{
+  "id": 2146,
+  "name": "Automatically archive Gmail emails from Inbox",
+  "description": "Use Case\nAutomatically archive emails in your Gmail inbox from the last day, unless they have been starred.\n\nBeen using this with my personal and work emails to stick to an Inbox Zero strategy, without having to click or swipe a lot. \n\nSetup \nAdd your Gmail creds\n\nHow to adjust this template\nSet your own schedule for when to run this. Otherwise, should be good to go. 🤞🏽",
+  "totalViews": 2513,
+  "source": "official",
+  "user": {
+    "id": 91243,
+    "name": "Mutasem",
+    "username": "mutasem",
+    "bio": "Team lead @ n8n",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/mutasemdmour/\"]",
+    "avatar": "https://gravatar.com/avatar/16d9c92db78317b6af7d0935bee34a47c522cb81d35c234ff76ea580ff1f6c29?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-02-28T18:15:13.466Z",
+  "path": "official/template_2146/workflow.json"
+}

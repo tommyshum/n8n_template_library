@@ -1,0 +1,112 @@
+{
+  "id": 3930,
+  "name": "Voice-to-Email Response System with Telegram, OpenAI Whisper & Gmail",
+  "description": "This workflow gives you the ability to reply to a long email with a voice note, rather than having to type everything out. \n\nChatGPT will format your audio response and create an email draft for you.\n\nHow it works\nWhen a new email arrives in your inbox, the workflow checks if it needs a response, and it it does, it sends a message to you on Telegram via a VoiceEmailer bot.\n\nWhen you reply to that message with an audio message, the second part of this workflow is triggered. It checks if the message is in the right format, transcribes the audio, and creates a draft response that shows up in the same email thread.\n\nSet up steps\nAdd your credentials for Gmail and OpenAI\nCreate an Telegram bot following the instructions here.\nConnect your telegram credentials so the workflow will use your bot.\nTurn on the workflow, and message the bot from your telegram. Find the Chat ID from the Executions tab of your workflow, and enter it in as a variable.\n\n\n",
+  "totalViews": 329,
+  "source": "official",
+  "user": {
+    "id": 94155,
+    "name": "Adam Janes",
+    "username": "adamjanes",
+    "bio": "I am a product-minded technologist with hacker DNA building things in AI automation. \n\nI have a broad and varied background - having worked in Product, Design, and Sales - combined with deep technical experience as a Senior Developer and Fractional CTO.\n\nI am also a best-selling Udemy instructor (with 25K+ students), and founder of WOOFCODE - a free coding camp for fullstack developers.\n\nI practice non-violent communication, motivational interviewing, and Tibetan Buddhist meditation.",
+    "verified": false,
+    "links": "[\"https://www.linkedin.com/in/adamjanes/\"]",
+    "avatar": "https://gravatar.com/avatar/1ffac81a3c36347b065a27a6a4d489c7d2c6fe52ac17d3fe9e6ff89db9d9ce6a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-05-08T04:01:50.996Z",
+  "path": "official/template_3930/workflow.json"
+}

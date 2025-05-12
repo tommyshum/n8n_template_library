@@ -1,0 +1,340 @@
+{
+  "id": 3277,
+  "name": "Smart Email Auto-Responder Template using AI",
+  "totalViews": 9000,
+  "purchaseUrl": null,
+  "user": {
+    "id": 92318,
+    "name": "Amjid Ali",
+    "username": "amjid",
+    "bio": "**Amjid Ali** is an automation expert and AI enthusiast specializing in creating intelligent workflows using low-code platforms like **n8n**. With a passion for simplifying complex processes, he designs solutions that enhance productivity and streamline operations. As an active contributor to the **n8n Creator Hub**, Amjid shares innovative use cases, practical templates, and best practices, empowering the community to unlock the full potential of workflow automation.",
+    "verified": true,
+    "links": "[\"https://amjidali.com\"]",
+    "avatar": "https://gravatar.com/avatar/8760ed64a38ed65da42983737659c7e295e4a7f14b59ed5ce1b0b1077435f573?r=pg&d=retro&size=200"
+  },
+  "description": "Smart Email Auto-Responder with AI Classification  \nAutomatically Categorize and Reply to Emails using LangChain + Google Gemini + Gmail + SMTP + Brevo\n \nThis n8n workflow is designed to intelligently manage incoming emails and automatically send personalized responses based on the content. It classifies emails using LangChain's Text Classifier, sends HTML responses depending on the category, and updates Gmail and Brevo CRM accordingly.\n\nKey Features  \n\nTriggers and Classifies Emails  \nListens for new Gmail messages every hour  \nUses AI-based classification to identify the type of inquiry For Example:  \n  Guest Post  \n  YouTube Review  \n  Udemy Course Inquiry\n\nResponds Automatically  \nSends professional HTML replies customized for each type  \nUses SMTP to deliver emails from your domain  \n\nEnhances Workflow with Automation  \nMarks processed emails as read  \nApplies Gmail labels  \nAdds sender to Brevo contact list  \n\nOptional AI Chat Integration  \nUses Google Gemini (PaLM 2) to enhance classification or summarization  \n\nTools & Integrations Required  \n\nGmail account (OAuth2)\nLangChain (Text Classifier node)\nGoogle Gemini API account\nSMTP credentials (e.g., Gmail SMTP, Brevo, etc.)\nBrevo/Sendinblue account and API key\n\nStep-by-Step Node Guide  \n\n1. Gmail Trigger  \nPolls Gmail every hour for new emails.  \nFilters out internal addresses (e.g., @syncbricks.com).  \nAvoids replying to already-responded emails (Re: subject filter).\n\n2. LangChain Text Classifier  \nUses AI to categorize the content of the email based on pre-defined categories:  \nGuest Post**  \nYoutube**  \nUdemy Courses**\n\n3. Google Gemini (PaLM) Chat Model (Optional)  \nProvides additional AI support to enhance classification accuracy.  \nCan be used to summarize or enrich the context if needed.\n\n4. Email Send Nodes  \nEach response category has a separate SMTP node with a custom HTML email:\nGuest Post Inquiry**  \nYouTube Video Inquiry**  \nUdemy Course Inquiry**\n\n5. Gmail: Mark as Read  \nMarks the email so it isn’t processed again.\n\n6. Gmail: Apply Label  \nAdds a label (e.g., Handled by Bot) for organization.\n\n7. Brevo: Create/Update Contact  \nSaves the sender to your CRM for future communication or marketing.\n\nEmail Templates Included\n\nGuest Post Template  \nIncludes pricing, website list, submission guidelines, and payment instructions.\n\nYouTube Review Template  \nIncludes package pricing, review samples, video thumbnails, and inquiry instructions.  \nStep by Step Tutorial\n\nGET n8n Now  \n\nN8N COURSE  \nn8n Book  \n \n \n\nMore courses:  \nhttp://lms.syncbricks.com\n\nYouTube Channel:  \nhttps://youtube.com/@syncbricks\n\nHow to Use\n\nImport the template into your n8n instance.\nConfigure your Gmail OAuth2 and SMTP credentials.\nSet up your LangChain Text Classifier and Google Gemini API credentials.\nUpdate label ID in the Gmail node and ensure all custom fields like from.value[0].name match your use case.\nRun the workflow and watch it respond intelligently to new inquiries.\n\nBest Practices\n\nAlways test with mock emails first.\nKeep the Google Gemini node optional if you want to reduce cost/API calls.\nUse Gmail filters to auto-label certain types of emails.\nMonitor your Brevo contacts to track new leads.\n\nAttribution & Support\n\nDeveloped by Amjid Ali  \nThis template took extensive time and effort to build. If you find it useful, please consider supporting my work.\n\nBuy My Book:  \nMastering n8n on Amazon\n\nFull Courses & Tutorials:  \nhttp://lms.syncbricks.com\n\nFollow Me Online:  \nLinkedIn: https://linkedin.com/in/amjidali  \nWebsite: https://amjidali.com  \nYouTube: https://youtube.com/@syncbricks  \n",
+  "createdAt": "2025-03-21T14:03:18.184Z",
+  "nodes": [
+    {
+      "id": 11,
+      "icon": "fa:envelope",
+      "name": "n8n-nodes-base.emailSend",
+      "codex": {
+        "data": {
+          "alias": [
+            "SMTP",
+            "email",
+            "human",
+            "form",
+            "wait",
+            "hitl",
+            "approval"
+          ],
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/2021-the-year-to-automate-the-new-you-with-n8n/",
+                "icon": "☀️",
+                "label": "2021: The Year to Automate the New You with n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/build-your-own-virtual-assistant-with-n8n-a-step-by-step-guide/",
+                "icon": "👦",
+                "label": "Build your own virtual assistant with n8n: A step by step guide"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.sendemail/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/credentials/sendemail/"
+              }
+            ]
+          },
+          "categories": [
+            "Communication",
+            "HITL",
+            "Core Nodes"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0",
+          "subcategories": {
+            "HITL": [
+              "Human in the Loop"
+            ]
+          }
+        }
+      },
+      "group": "[\"output\"]",
+      "defaults": {
+        "name": "Send Email",
+        "color": "#00bb88"
+      },
+      "iconData": {
+        "icon": "envelope",
+        "type": "icon"
+      },
+      "displayName": "Send Email",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 6,
+          "name": "Communication"
+        },
+        {
+          "id": 9,
+          "name": "Core Nodes"
+        },
+        {
+          "id": 28,
+          "name": "HITL"
+        }
+      ]
+    },
+    {
+      "id": 356,
+      "icon": "file:gmail.svg",
+      "name": "n8n-nodes-base.gmail",
+      "codex": {
+        "data": {
+          "alias": [
+            "email",
+            "human",
+            "form",
+            "wait",
+            "hitl",
+            "approval"
+          ],
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/why-business-process-automation-with-n8n-can-change-your-daily-life/",
+                "icon": "🧬",
+                "label": "Why business process automation with n8n can change your daily life"
+              },
+              {
+                "url": "https://n8n.io/blog/supercharging-your-conference-registration-process-with-n8n/",
+                "icon": "🎫",
+                "label": "Supercharging your conference registration process with n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/no-code-ecommerce-workflow-automations/",
+                "icon": "store",
+                "label": "6 e-commerce workflows to power up your Shopify s"
+              },
+              {
+                "url": "https://n8n.io/blog/how-to-get-started-with-crm-automation-and-no-code-workflow-ideas/",
+                "icon": "👥",
+                "label": "How to get started with CRM automation (with 3 no-code workflow ideas"
+              },
+              {
+                "url": "https://n8n.io/blog/automate-google-apps-for-productivity/",
+                "icon": "💡",
+                "label": "15 Google apps you can combine and automate to increase productivity"
+              },
+              {
+                "url": "https://n8n.io/blog/your-business-doesnt-need-you-to-operate/",
+                "icon": " 🖥️",
+                "label": "Hey founders! Your business doesn't need you to operate"
+              },
+              {
+                "url": "https://n8n.io/blog/using-automation-to-boost-productivity-in-the-workplace/",
+                "icon": "💪",
+                "label": "Using Automation to Boost Productivity in the Workplace"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.gmail/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/google/oauth-single-service/"
+              }
+            ]
+          },
+          "categories": [
+            "Communication",
+            "HITL"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0",
+          "subcategories": {
+            "HITL": [
+              "Human in the Loop"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Gmail"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNTYiIGhlaWdodD0iMTkzIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCI+PHBhdGggZmlsbD0iIzQyODVGNCIgZD0iTTU4LjE4MiAxOTIuMDVWOTMuMTRMMjcuNTA3IDY1LjA3NyAwIDQ5LjUwNHYxMjUuMDkxYzAgOS42NTggNy44MjUgMTcuNDU1IDE3LjQ1NSAxNy40NTV6Ii8+PHBhdGggZmlsbD0iIzM0QTg1MyIgZD0iTTE5Ny44MTggMTkyLjA1aDQwLjcyN2M5LjY1OSAwIDE3LjQ1NS03LjgyNiAxNy40NTUtMTcuNDU1VjQ5LjUwNWwtMzEuMTU2IDE3LjgzNy0yNy4wMjYgMjUuNzk4eiIvPjxwYXRoIGZpbGw9IiNFQTQzMzUiIGQ9Im01OC4xODIgOTMuMTQtNC4xNzQtMzguNjQ3IDQuMTc0LTM2Ljk4OUwxMjggNjkuODY4bDY5LjgxOC01Mi4zNjQgNC42NyAzNC45OTItNC42NyA0MC42NDRMMTI4IDE0NS41MDR6Ii8+PHBhdGggZmlsbD0iI0ZCQkMwNCIgZD0iTTE5Ny44MTggMTcuNTA0VjkzLjE0TDI1NiA0OS41MDRWMjYuMjMxYzAtMjEuNTg1LTI0LjY0LTMzLjg5LTQxLjg5LTIwLjk0NXoiLz48cGF0aCBmaWxsPSIjQzUyMjFGIiBkPSJtMCA0OS41MDQgMjYuNzU5IDIwLjA3TDU4LjE4MiA5My4xNFYxNy41MDRMNDEuODkgNS4yODZDMjQuNjEtNy42NiAwIDQuNjQ2IDAgMjYuMjN6Ii8+PC9zdmc+"
+      },
+      "displayName": "Gmail",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 6,
+          "name": "Communication"
+        },
+        {
+          "id": 28,
+          "name": "HITL"
+        }
+      ]
+    },
+    {
+      "id": 820,
+      "icon": "file:brevo.svg",
+      "name": "n8n-nodes-base.sendInBlue",
+      "codex": {
+        "data": {
+          "alias": [
+            "sendinblue"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.brevo/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/brevo/"
+              }
+            ]
+          },
+          "categories": [
+            "Marketing",
+            "Communication"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Brevo"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgZmlsbD0ibm9uZSI+PGNpcmNsZSBjeD0iMjQiIGN5PSIyNCIgcj0iMjQiIGZpbGw9IiMwQjk5NkUiLz48cGF0aCBmaWxsPSIjZmZmIiBkPSJNMzEuNTA0IDIxLjgxYzEuNDgzLTEuNDU0IDIuMTc5LTMuMTMzIDIuMTc5LTUuMTc1IDAtNC4yMi0zLjEwNi03LjAzNS03Ljc4Ny03LjAzNUgxNC40djMwaDkuMjdDMzAuNzE4IDM5LjYgMzYgMzUuMjg5IDM2IDI5LjU3YzAtMy4xMzItMS42MjItNS45NDUtNC40OTYtNy43Nm0tMTIuOTMyLTguMzA4aDYuODZjMi4zMTcgMCAzLjg0OCAxLjMxNiAzLjg0OCAzLjMxMyAwIDIuMjY5LTEuOTkzIDMuOTk0LTYuMDcyIDUuMzEtMi43ODEuODYxLTQuMDMyIDEuNTg4LTQuNDk2IDIuNDUxbC0uMTQuMDAyem00LjcyNyAyMi4xOTZoLTQuNzI3di00LjYzYzAtMi4wNDIgMS43NjItNC4wMzkgNC4yMTktNC44MSAyLjE3OS0uNzI3IDMuOTg1LTEuNDU0IDUuNTE2LTIuMjI0IDIuMDM5IDEuMTgxIDMuMjkgMy4yMjIgMy4yOSA1LjM1NiAwIDMuNjMtMy41MjMgNi4zMDgtOC4yOTggNi4zMDgiLz48L3N2Zz4="
+      },
+      "displayName": "Brevo",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 6,
+          "name": "Communication"
+        },
+        {
+          "id": 27,
+          "name": "Marketing"
+        }
+      ]
+    },
+    {
+      "id": 1262,
+      "icon": "file:google.svg",
+      "name": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatgooglegemini/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Language Models",
+              "Root Nodes"
+            ],
+            "Language Models": [
+              "Chat Models (Recommended)"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Google Gemini Chat Model"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgNDggNDgiPjxkZWZzPjxwYXRoIGlkPSJhIiBkPSJNNDQuNSAyMEgyNHY4LjVoMTEuOEMzNC43IDMzLjkgMzAuMSAzNyAyNCAzN2MtNy4yIDAtMTMtNS44LTEzLTEzczUuOC0xMyAxMy0xM2MzLjEgMCA1LjkgMS4xIDguMSAyLjlsNi40LTYuNEMzNC42IDQuMSAyOS42IDIgMjQgMiAxMS44IDIgMiAxMS44IDIgMjRzOS44IDIyIDIyIDIyYzExIDAgMjEtOCAyMS0yMiAwLTEuMy0uMi0yLjctLjUtNCIvPjwvZGVmcz48Y2xpcFBhdGggaWQ9ImIiPjx1c2UgeGxpbms6aHJlZj0iI2EiIG92ZXJmbG93PSJ2aXNpYmxlIi8+PC9jbGlwUGF0aD48cGF0aCBmaWxsPSIjRkJCQzA1IiBkPSJNMCAzN1YxMWwxNyAxM3oiIGNsaXAtcGF0aD0idXJsKCNiKSIvPjxwYXRoIGZpbGw9IiNFQTQzMzUiIGQ9Im0wIDExIDE3IDEzIDctNi4xTDQ4IDE0VjBIMHoiIGNsaXAtcGF0aD0idXJsKCNiKSIvPjxwYXRoIGZpbGw9IiMzNEE4NTMiIGQ9Im0wIDM3IDMwLTIzIDcuOSAxTDQ4IDB2NDhIMHoiIGNsaXAtcGF0aD0idXJsKCNiKSIvPjxwYXRoIGZpbGw9IiM0Mjg1RjQiIGQ9Ik00OCA0OCAxNyAyNGwtNC0zIDM1LTEweiIgY2xpcC1wYXRoPSJ1cmwoI2IpIi8+PC9zdmc+"
+      },
+      "displayName": "Google Gemini Chat Model",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1265,
+      "icon": "fa:tags",
+      "name": "@n8n/n8n-nodes-langchain.textClassifier",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.text-classifier/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Chains",
+              "Root Nodes"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Text Classifier"
+      },
+      "iconData": {
+        "icon": "tags",
+        "type": "icon"
+      },
+      "displayName": "Text Classifier",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    }
+  ]
+}

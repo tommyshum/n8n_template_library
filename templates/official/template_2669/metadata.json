@@ -1,0 +1,110 @@
+{
+  "id": 2669,
+  "name": "📚 Auto-generate documentation for n8n workflows with GPT and Docsify",
+  "description": "This workflow creates a documentation system for n8n instances using Docsify.js. It serves a dynamic documentation website that allows users to:\n\nView an overview of all workflows in a tabular format\nFilter workflows by tags\nAccess automatically generated documentation for each workflow\nEdit documentation with a live Markdown preview\nVisualize workflow structures using Mermaid.js diagrams\n\n&gt; 📺 Check out the short 2-min demonstration on LinkedIn. Don't forget to connect!\n\n🔧 Key Components\n\nMain Documentation Portal\nServes a Docsify-powered website\nProvides a navigation sidebar with workflow tags\nDisplays workflow status, creation date, and documentation links\n\nDocumentation Generator\nUses GPT model to auto-generate workflow descriptions\nCreates Mermaid.js diagrams of workflow structures\nMaintains consistent documentation format\n\nLive Editor\nSplit-screen Markdown editor with preview\nReal-time Mermaid diagram rendering\nSave/Cancel functionality\n\n⚙️ Technical Details\n\nEnvironment Setup\nRequires write access to the specified project directory\nUses environment variables for n8n instance URL configuration\nImplements webhook endpoints for serving documentation\n\n⚠️ Security Considerations\n&gt; Note: The current implementation doesn't include authentication for editing. Consider adding authentication for production use.\n\nDependencies\nDocsify.js for documentation rendering\nMermaid.js for workflow visualization\nOpenAI GPT for documentation generation\n\n🔍 Part of the n8n Observability Series\n\nThis workflow is part of a broader series focused on n8n instance observability. Check out these related workflows:\n\nWorkflow Dashboard - Get comprehensive analytics of your n8n instance\nVisualize Your n8n Workflows with Mermaid.js - Create beautiful workflow visualizations\n\nEach workflow in this series helps you better understand and manage your n8n automation ecosystem!",
+  "totalViews": 7305,
+  "source": "official",
+  "user": {
+    "id": 21242,
+    "name": "Eduard",
+    "username": "eduard",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/parsadanyan/\"]",
+    "avatar": "https://gravatar.com/avatar/a551e67c6fe7affd5f882a527dee154bb6c3ac90cf878326accb3fb3ec77c8a6?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Auto-fixing Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2024-12-22T21:51:40.651Z",
+  "path": "official/template_2669/workflow.json"
+}

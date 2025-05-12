@@ -1,0 +1,34 @@
+{
+  "id": 1902,
+  "name": "Convert PostgreSQL table to CSV",
+  "description": "Convert PostgreSQL table to CSV\nCSV is a super useful and universal way to transfer data between different tools. This workflow gives an example of how to take data from PostgreSQL and convert it easily into a CSV.\n\nWhat you need\nBefore running the workflow, please make sure you have access to a remote PostgreSQL server and have table data:\n\nbook_title,book_author,read_date\nDemons,Fyodor Dostoyevsky,2022-09-08\nUlysses,James Joyce,2022-05-06\nCatch-22,Joseph Heller,2023-01-04\nThe Bell Jar,Sylvia Plath,2023-01-21\nFrankenstein,Mary Shelley,2023-02-14\nHow it works\nTrigger the workflow on click\nDeclare the name of the Excel file and sheet names\nRemotely connect to the PostgreSQL database and specify query execution \nWrite the query data to CSV \n\nThe detailed process is explained further in the tutorial:\nhttps://blog.n8n.io/postgres-export-to-csv/",
+  "totalViews": 2606,
+  "source": "official",
+  "user": {
+    "id": 51745,
+    "name": "Alex Emerich",
+    "username": "alexe",
+    "bio": null,
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/ac4149dba44bd26b4eb2f1e5ddaccbb97aa2f577e16e18e55f13aaa64b674fb3?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "Postgres",
+      "type": "n8n-nodes-base.postgres",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2023-03-20T11:44:56.990Z",
+  "path": "official/template_1902/workflow.json"
+}

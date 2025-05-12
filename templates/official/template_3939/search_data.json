@@ -1,0 +1,19 @@
+{
+  "id": 3939,
+  "name": "Jira MCP Server",
+  "totalViews": 113,
+  "price": 10,
+  "purchaseUrl": "https://www.patreon.com/tamerelzein/shop/jira-mcp-server-n8n-template-1593631?utm_medium=clipboard_copy&utm_source=copyLink&utm_campaign=productshare_creator&utm_content=join_link",
+  "user": {
+    "id": 94365,
+    "name": "Tamer",
+    "username": "tamerelzein",
+    "bio": "",
+    "verified": false,
+    "links": "[\"https://tamerelzein.com\"]",
+    "avatar": "https://gravatar.com/avatar/01901cb770f7ad3e4c01b5113f5e594e3cb516863ade8f9f9c5cd05a50abf714?r=pg&d=retro&size=200"
+  },
+  "description": "What it does\nThis n8n workflow creates a powerful AI-powered Jira management system that allows you to use Claude or other AI assistants to create, update, and manage Jira tickets through natural language requests. The workflow exposes key Jira functions as AI tools, enabling you to interact with your Jira instance through conversational commands.\nHow it works\n\nThe workflow sets up an MCP (Model Control Protocol) server, allowing compatible AI assistants to use a suite of Jira management tools\nThe AI assistant can perform various Jira operations including:\n\nCreating new tickets with customized fields\nAdding comments to existing tickets\nRetrieving available status transitions for tickets\nAttaching files to tickets\nChanging ticket statuses\nRetrieving detailed information about tickets\nGetting available projects and issue types\n\n\nWhen you make a request to your AI assistant, it determines which Jira operation to perform and executes it through this workflow\n\nSetup Steps\n\nPrerequisites:\n\nActive Jira Cloud account with admin access\nn8n instance with the Langchain and MCP nodes installed\nClaude Desktop App or another compatible AI assistant\n\n\nJira Credentials Setup:\n\nConfigure your Jira Cloud API credentials in n8n \nEnsure your Jira account has sufficient permissions for all operations\n\n\nWorkflow Configuration:\n\nImport this template into your n8n instance\nSet up the MCP Trigger node with your desired path (currently \"test_mcp\")\nVerify that all Jira tool nodes are correctly connected to the MCP Server node\nActivate the workflow\n\n\nUsing Claude as an MCP Client:\n\nOpen your Claude Desktop App\nNavigate to Settings &gt; Developer Settings\nEnable \"Connect to local MCP servers\"\nAdd a new connection with the URL path to your n8n MCP server (e.g., \"http://localhost:5678/webhook/test_mcp\")\nStart a new conversation and ask Claude to perform Jira tasks\n\n\n\nExample Usage with Claude\nOnce you've set up the connection between Claude and your MCP server, you can use natural language to manage your Jira tickets. Here are some examples:\n\nCreating a ticket:\n\"Claude, please create a new Jira ticket in the Web Development project with bug issue type. The summary should be 'Homepage loading slowly' and the description should be 'Users are experiencing delays of 5+ seconds when loading the homepage on mobile devices.'\"\nAdding a comment:\n\"Claude, please add a comment to Jira ticket WEB-123 saying 'This issue has been reproduced on multiple devices and browsers. Priority should be increased.'\"\nChecking status:\n\"Claude, can you get the details of ticket WEB-123 and tell me its current status?\"\nChanging status:\n\"Claude, please move ticket WEB-123 to 'In Progress' status.\"\n\nThis workflow creates a seamless bridge between your AI assistant and Jira, making project management more efficient through natural language interactions.",
+  "createdAt": "2025-05-08T12:10:18.039Z",
+  "nodes": []
+}

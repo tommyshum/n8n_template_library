@@ -1,0 +1,72 @@
+{
+  "id": 3321,
+  "name": "Capture URL Screenshots from Google Sheets with ScreenshotOne & Save to Drive with Gmail Alerts",
+  "description": "Capture URL Screenshots Automatically from Google Sheets & Drive with ScreenshotOne & Gmail Alerts\n\nSummary\nThis automation template streamlines the process of capturing screenshots for multiple URLs. Instead of manually visiting each URL, taking a screenshot, and organizing the results, this workflow automates everything. When a spreadsheet is added to a designated Google Drive folder, the template extracts URLs from the column named \"Url.\" These URLs are then processed through ScreenshotOne to capture screenshots, which are saved back to the same folder. Finally, an email notification is sent via Gmail with a link to the folder containing the screenshots.\n\nProblem Solved\nThis template addresses the challenge of manual screenshot capture for multiple URLs. Without this automation, a user would need to:\n\nOpen each URL from a spreadsheet.\nTake a screenshot manually.\nSave each screenshot with an appropriate name.\nOrganize the screenshots in a folder.\nNotify stakeholders when the process is complete.\n\nThese steps are not only time-consuming but also repetitive, especially when handling a large number of URLs.\n\nWho Can Benefit:\nDigital Marketers:** Monitor website appearances for competitive analysis or to track campaign landing pages.\nWeb Developers/Designers:** Capture screenshots of multiple websites for inspiration or reference.\nQA Teams:** Document the visual state of web pages during various stages of development.\nSEO Specialists:** Track visual changes to websites they are optimizing.\nContent Managers:** Monitor how content appears across various web properties.\n\nPrerequisites\nGoogle Drive Node:** Must have appropriate permissions to create and access folders.\nConnected Google Sheets Node:** To extract URLs from the spreadsheet.\nAuthenticated Gmail Node:** For sending notifications.\nScreenshotOne Account:* Either a free or paid plan depending on volume needs, along with an *Access key**.  \n  Ensure you replace the placeholder --YOUR ACCESS KEY-- with your generated access key in the \"Get Screenshots\" node.\n\nWorkflow Details\nStep 1: Google Drive Integration\nTrigger Node:**  \n  Monitors a specific folder in Google Drive. When a spreadsheet is added, the workflow is initiated.  \n\nStep 2: Google Sheets Processing\nGoogle Sheets Node:**  \n  Extracts URLs from the column named \"Url.\"\n\nStep 3: Screenshot Capture\nGet Screenshots Node:**  \n  Sends each extracted URL to ScreenshotOne to capture screenshots.\n\nStep 4: Saving Screenshots and Notifications\nGoogle Drive Node:**  \n  Saves the captured screenshots back into the same folder.\nGmail Node:**  \n  Sends an email notification with a link to the folder, alerting stakeholders that the screenshots are ready.\n\nCustomization Guidance\nFolder Monitoring:\n\tThe workflow is set to monitor a specific Google Drive folder. It can be customized by selecting a different folder in the node settings.\n\nSpreadsheet Structure:\n\tWhile the template expects a spreadsheet with a column named \"Url.\" for extracting URLs, users can add additional columns (e.g., titles, categories, or tags) and modify the workflow to utilize them as needed.\n\nEmail Settings:\n\tCustomize the recipient, subject, and body of the notification email to suit your needs. If required, enable optional notifications for different stakeholders.\n\nScreenshotOne Access Key & Configurations:\n\tA valid ScreenshotOne Access key is required to capture screenshots. Users can further refine screenshot settings (e.g., viewport size, device emulation, or delay timing) by exploring the available options in the ScreenshotOne API documentation.",
+  "totalViews": 877,
+  "source": "official",
+  "user": {
+    "id": 93266,
+    "name": "Niko",
+    "username": "niko",
+    "bio": "Software / Automation Engineer, dedicated to crafting efficient and elegant solutions. Specialize in leveraging n8n to automate tedious tasks, streamline workflows, and integrate diverse systems. With a strong foundation in JavaScript, API interactions and AI, can tackle complex challenges and deliver significant results.",
+    "verified": false,
+    "links": "[\"https://www.linkedin.com/in/nikoloz-chkhaidze/\"]",
+    "avatar": "https://gravatar.com/avatar/5997f51ce34342db7d392bf2cd947fca567d034126c3f9573540d66fb687b07a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-03-25T11:27:09.805Z",
+  "path": "official/template_3321/workflow.json"
+}

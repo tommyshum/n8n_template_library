@@ -1,0 +1,198 @@
+{
+  "id": 3606,
+  "name": "Document Analysis & Chatbot Creation with Llama Parser, Gemini LLM & Pinecone DB",
+  "description": "📄Description\nThis automation workflow enables users to upload files via an N8N form, automatically analyzes the content using Google Gemini agents, and delivers the analyzed results via email along with a chatbot link. The system leverages Llama Cloud API, Google Gemini LLM, Pinecone vector database, and Gmail to provide a seamless, multilingual content analysis experience.\n\n✅ Prerequisites\nBefore setting up this workflow, ensure the following are in place:\n\nAn active N8N instance.\n\nAccess to Llama Cloud API.\n\nGoogle Gemini LLM API keys (for Translator & Analyzer agents).\n\nA Pinecone account with an active index.\n\nA Gmail account with API access configured.\n\nBasic knowledge of N8N workflow setup.\n\n⚙️ Setup Instructions\nDeploy the N8N Form\n\nCreate a public-facing form using N8N.\n\nConfigure it to accept:\n\nFile uploads.\n\nUser email input.\n\nFile Preprocessing\n\nStore the uploaded files temporarily.\n\nOrganize and preprocess them as needed.\n\nContent Extraction using Llama Cloud API\n\nFeed the files into the Llama Cloud API.\n\nExtract and parse the content for further processing.\n\nTranslation (if required)\n\nUse a Translator Agent (Google Gemini).\n\nCheck if the content is in English. If not, translate it.\n\nContent Analysis\n\nForward the (translated) content to the Analyzer Agent (Google Gemini).\n\nPerform deep analysis to extract insights.\n\nVector Storage in Pinecone\n\nStore both:\n\nThe parsed and translated content.\n\nThe analyzed content.\n\nUse Pinecone to store the content as embeddings for chatbot use.\n\nUser Notification via Gmail\n\nSend the analyzed content and chatbot link to the user’s provided email using Gmail API.\n\n🧩 Customization Guidance\nTo add more languages: Update the translation logic to include additional language support.\n\nTo modify analysis depth: Adjust the prompts sent to the Gemini Analyzer Agent.\n\nTo change the chatbot behavior: Retrain or reconfigure the chatbot to utilize the new Pinecone index contextually.\n\n🔁 Workflow Summary\nUser uploads files and email via N8N form.\n\nFiles are parsed using Llama Cloud API.\n\nContent is translated (if needed) using Gemini Translator Agent.\n\nTranslated content is analyzed by the Gemini Analyzer Agent.\n\nParsed and analyzed data is stored in Pinecone.\n\nUser receives email with analyzed results and a chatbot link.\n\n",
+  "totalViews": 1343,
+  "source": "official",
+  "user": {
+    "id": 93689,
+    "name": "pavith",
+    "username": "pavith",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/ce3cacd38c6948fe65510304dd1e3554e724c9e0d774078f942842327481a37d?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Question and Answer Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainRetrievalQa",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Vector Store Retriever",
+      "type": "@n8n/n8n-nodes-langchain.retrieverVectorStore",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Retrievers"
+        ]
+      }
+    },
+    {
+      "name": "Recursive Character Text Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Pinecone Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    },
+    {
+      "name": "Embeddings Mistral Cloud",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsMistralCloud",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Information Extractor",
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 12,
+  "createdAt": "2025-04-19T06:23:10.288Z",
+  "path": "official/template_3606/workflow.json"
+}

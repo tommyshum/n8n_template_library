@@ -1,0 +1,49 @@
+{
+  "id": 2139,
+  "name": "Twitter Virtual AI Influencer",
+  "description": "Twitter Virtual AI Influencer Workflow Template\n\nThis n8n workflow template empowers creators to launch a virtual AI influencer that tweets regularly, engaging audiences with a unique niche, writing style, and inspiration. By automating content creation and posting, it ensures a consistent and natural online presence, tailored to your specific influencer profile.\n\nFeatures\n\nScheduled Posting**: Automates tweet posting every 6 hours, with randomized posting minutes to mimic natural activity.\nOn-Demand Posting**: Offers flexibility with manual trigger options for immediate content sharing.\nInfluencer Profile Configuration**: Customize your virtual influencer by defining a target niche, personal writing style, and sources of inspiration.\nContent Generation**: Leverages advanced AI to craft tweets that resonate with your audience, aiming for viral engagement.\nTweet Validation**: Ensures all generated content adheres to Twitter's character limit, maintaining quality and relevance.\n\nWorkflow Steps\n\nSchedule Posting: Configured to post every 6 hours, this step introduces randomness in posting time to simulate human behavior.\nTrigger Posting Manually: Provides an option to manually initiate a tweet, offering control over the timing of your content.\nConfigure Influencer Profile: Set up your influencer's niche, style, and inspiration to guide the AI in generating targeted content.\nGenerate Tweet Content: Utilizes a sophisticated AI model to produce engaging tweets based on the configured profile.\nValidate Tweet: Checks if the generated tweet meets Twitter's length constraints, ensuring all content is ready for posting.\nPost Tweet: Finalizes the process by sharing the AI-generated tweet to your designated Twitter account.\n\nConfiguration Notes\n\nNiche**: Define a specific area of interest, such as \"Modern Stoicism,\" to focus your influencer's content.\nWriting Style**: Customize the tone and style of the tweets to reflect a personal touch, enhancing relatability.\nInspiration**: Input sources of inspiration, including books and philosophies, to steer the content generation process.\n\nGetting Started\n\nTo deploy this template:\nImport the workflow into your n8n workspace.\nCustomize the influencer profile settings to match your desired niche, style, and inspiration.\nConnect your Twitter account through the provided OAuth2 credentials setup.\nActivate the workflow to start building your virtual influencer's presence on Twitter.\n\nEmbrace the power of AI to create a distinctive and engaging virtual influencer, captivating your audience with minimal effort.\n",
+  "totalViews": 24764,
+  "source": "official",
+  "user": {
+    "id": 91493,
+    "name": "Alex Grozav",
+    "username": "alexgrozav",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/65f6d093bc5d4056d6ca0bba7ac836ac1b3669ee7f55421cb242169238e74fe6?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Marketing",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "X (Formerly Twitter)",
+      "type": "n8n-nodes-base.twitter",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-02-28T15:01:15.522Z",
+  "path": "official/template_2139/workflow.json"
+}

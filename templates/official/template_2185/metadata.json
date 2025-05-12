@@ -1,0 +1,47 @@
+{
+  "id": 2185,
+  "name": "Automatically optimise images added to a Google drive folder",
+  "description": "How it works\nThis workflow watches a selected Google Drive folder for any images added to it.\nIt then takes that image, sends it the the tinypng.com service which optimises and reduces its size (where possible)\nTinypng then returns the updated image which is then automatically saved in your chose Google Drive folder\n\nSetting things up\nIt's pretty simple to configure and should only take around 5-10mins. \nYou only need to set up credentials for Google Drive and Tinypng.com\nFor Tinypng.com you can sign up for their free tier API access which gives you 500 optimisations per month\nOnce you have those two things, you just need choose your 'input' folder to watch for images and your 'output' folder for where these images should be stored\nThere are a few more optional things you can do such as the naming of your final image and also lots more you could do with the Tinypng API for more advanced image optimisation\n",
+  "totalViews": 1630,
+  "source": "official",
+  "user": {
+    "id": 91511,
+    "name": "Jonathan",
+    "username": "jcn8n",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/d87ae19d5593d764a6c5b62d9270c7b079554a5deb8a03f4e8d8b635f8fff36c?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-03-20T09:35:25.344Z",
+  "path": "official/template_2185/workflow.json"
+}

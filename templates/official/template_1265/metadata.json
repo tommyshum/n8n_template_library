@@ -1,0 +1,46 @@
+{
+  "id": 1265,
+  "name": "Post unassigned Zendesk tickets to Slack",
+  "description": "&gt; This has been updated to support the Query feature added to the Zendesk node in 0.144.0\n\nThis workflow will post all New and Open tickets without an agent assigned to a Slack channel on a schedule.\n\n\n\nThe function node is used in this example to merge multiple inputs into one output message which is then used as the Slack message.\n\nThe output in Slack will be similar to the below message, The \"TICKET_ID\" will be a link to the ticket.\n\n&gt; Unassigned Tickets\nTICKET_ID [STATUS] - TICKET_SUBJECT\n\nUsage\nUpdate the Cron schedule, The default value is 16:30 daily.\nUpdate the Credentials in the Zendesk nodes\nUpdate the Credentials and Channel in the Slack Node\nGrab a coffee and enjoy!\n\nZendesk Query\nIn the Zendesk node we are using the query assignee:none status&lt;pending this returns all New and Open tickets with no assignee allowing us to remove the extra nodes.",
+  "totalViews": 642,
+  "source": "official",
+  "user": {
+    "id": 8363,
+    "name": "Jonathan Bennetts",
+    "username": "8688",
+    "bio": null,
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/f2e7933df4af633926f0e616cc73fffbb3274208e0954a054f8e1d2ee026ade6?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Zendesk",
+      "type": "n8n-nodes-base.zendesk",
+      "categories": [
+        "Communication"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2021-10-11T11:13:06.276Z",
+  "path": "official/template_1265/workflow.json"
+}

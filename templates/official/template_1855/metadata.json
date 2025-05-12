@@ -1,0 +1,71 @@
+{
+  "id": 1855,
+  "name": "Sync Stripe charges to HubSpot contacts",
+  "description": "This workflow pushes Stripe charges to HubSpot contacts. It uses the Stripe API to get all charges and the HubSpot API to update the contacts. The workflow will create a new HubSpot property to store the total amount charged. If the property already exists, it will update the property.\n\nPrerequisites\n\nStripe credentials.\nHubSpot credentials.\n\nHow it works\n\nOn a schedule, check if the property exists in HubSpot. If it doesn't exist, create it. The default schedule is once a day at midnight.\nOnce property is acertained, the first Stripe node gets all charges.\nOnce the charges are returned, the second Stripe node gets extra customer information.\nOnce the customer information is returned, Merge data node will merge the customer information with the charges so that the next node Aggregate totals can calculate the total amount charged per contact.\nOnce we have the total amount charged per contact, the Create or update customer node will create a new HubSpot contact if it doesn't exist or update the contact if it does exist with the total amount charged.",
+  "totalViews": 1355,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Sales",
+    "Finance & Accounting"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "HubSpot",
+      "type": "n8n-nodes-base.hubspot",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Stripe",
+      "type": "n8n-nodes-base.stripe",
+      "categories": [
+        "Finance & Accounting",
+        "Sales"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2023-01-05T14:08:51.094Z",
+  "path": "official/template_1855/workflow.json"
+}

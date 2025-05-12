@@ -1,0 +1,49 @@
+{
+  "id": 3481,
+  "name": "Automate Product Hunt Discovery with Airtop and Slack",
+  "description": "About The Product Hunt Automation\n\nStaying up-to-date with specific topics and launches on Product Hunt can be time-consuming. Manually checking the site multiple times a day interrupts your workflow and risks missing important launches. What if you could automatically get relevant launches delivered to your Slack workspace?\n\nHow to Monitor Product Hunt\n\nIn this guide, you'll learn how to create a Product Hunt monitoring system using Airtop's built-in node in n8n. This automation will scan Product Hunt for your chosen topics and deliver the most relevant launches directly to Slack.\n\nWhat You'll Need\n\nA free Airtop API key\nA Slack workspace with permissions to add incoming webhooks\nEstimated setup time: 5 minutes\n\nUnderstanding the Process\n\nThe Monitor Product Hunt automation uses Airtop's cloud browser capabilities to access Product Hunt and extract launch information. Here's what happens:\n\nAirtop visits Product Hunt and navigates the page\nIt searches for and extracts up to 5 launches related to your chosen topic\nThe information is formatted and sent to your specified Slack channel\n\nThis process can run on your preferred schedule, ensuring you never miss relevant launches.\n\nSetting Up Your Automation\n\nWe've created a ready-to-use template that handles all the complex parts. Here's how to get started:\n\nConnect your Airtop account by adding the API key you created\nConnect your Slack account\nSet your prompt in the Airtop node. For this example, we’ve set it to be “Extract up to 5 launches related to AI products”\nChoose your preferred monitoring schedule.\n\nCustomization Options\n\nWhile our template works immediately, you might want to customize it for your specific needs:\n\nAdjust the prompt and the maximum number of launches to monitor\nCustomize the Slack message format\nChange the monitoring frequency\nAdd filters for particular keywords or companies\n\nReal-World Applications\n\nHere's how teams can use this automation:\n\nA startup's engineering team could track trends in other product’s tech stack, helping them stay informed about potential issues and improvements.\n\nA product manager can track launches of competitor products, enabling them to gather valuable market insights and user feedback directly from the tech community on that launch.\n\nBest Practices\n\nTo get the most out of this automation:\n\nChoose Specific Search Terms**: For more relevant results, instead of broad terms like \"AI,\" use specific phrases like \"machine learning for healthcare\"\nOptimize Scheduling**: When setting the monitoring frequency, consider your team's workflow. Running the scenario every 4 hours during working hours often provides a good balance between staying updated and avoiding notification fatigue.\nSet Up Error Handling**: Enable n8n's error output to alert you if the automation encounters any issues with accessing Product Hunt or sending messages to Slack.\nRegular Topic Review**: Schedule a monthly review of your monitored topics to ensure they're still relevant to your needs and adjust as necessary.\n\nWhat's Next?\n\nNow that you've set up your Product Hunt monitor automation, you might be interested in:\n\nCreating a similar monitor for other tech websites\nSetting up automated content curation for your team's newsletter\nBuilding a competitive intelligence dashboard using web monitoring\n\nHappy Automating!",
+  "totalViews": 529,
+  "source": "official",
+  "user": {
+    "id": 93583,
+    "name": "Airtop",
+    "username": "cesar-at-airtop",
+    "bio": "Airtop provides an intelligent browser automation API for AI agents, enabling seamless web interaction, including login, navigation, and data extraction from any site, even those with complex authentication - all with  natural language instructions.In simple terms, we allow you to automate anything humans can do online, on any site with just words",
+    "verified": true,
+    "links": "[\"https://www.airtop.ai/\"]",
+    "avatar": "https://gravatar.com/avatar/d5894c2c744b03ab0766a6d1846484ea7cc1a19e57310afad70044183766dbf4?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Productivity",
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Airtop",
+      "type": "n8n-nodes-base.airtop",
+      "categories": [
+        "Productivity",
+        "Development"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-04-08T18:16:07.546Z",
+  "path": "official/template_3481/workflow.json"
+}

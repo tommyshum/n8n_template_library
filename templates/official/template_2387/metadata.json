@@ -1,0 +1,67 @@
+{
+  "id": 2387,
+  "name": "Send file to kindle with Telegram Bot and Outlook",
+  "description": "Workflow Overview\nThis workflow automates the process of forwarding e-book files to a Kindle device using a Telegram bot and Outlook email.\n\nSetup Steps:\n\nTelegram Bot Setup:  \n   Create a Telegram bot via BotFather and configure its credentials in the workflow.\n\nOutlook Email Configuration:  \n   Set up your Outlook email credentials. (Currently, only Outlook is supported, but you can modify the workflow to support other email providers.)\n\nAmazon Kindle Email Setup:  \n   Find your Kindle device's email address from your Amazon account. This will be the recipient address for the e-books.\n\nAllow Email Sending to Kindle:  \n   Ensure your Amazon account is configured to allow emails from your Outlook address to send files to your Kindle.\n\nWorkflow Explanation:\n\nThe workflow begins with a Telegram bot trigger node that listens for new chat messages.\n\nWhen a new message is received, the workflow checks if the message contains a file attachment.  \n  If no file is detected, the bot will send a warning reply to the user in the chat.\n\nIf a file is found, it will be renamed to ensure it appears correctly on the Kindle device when sent.\n\nThe workflow then composes an email with the file attached and sends it to the Kindle's receiving address.  \n  If the email is sent successfully, the bot will notify the user with a success message in the chat.\n\nOnly Amazon-supported file types will be accepted by Kindle.  \n  If sending fails, you will receive a notification email from Amazon in your Outlook inbox.  \n  In case of delivery issues, retry sending the file as network issues may occasionally interfere with the process.\n",
+  "totalViews": 1279,
+  "source": "official",
+  "user": {
+    "id": 91925,
+    "name": "CreativeCreature",
+    "username": "hulb",
+    "bio": "",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/f8aff50a90d311778cdd870da15ab45f0e4b3dfa6515083a14e1dad8a4eb4866?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Microsoft Outlook",
+      "type": "n8n-nodes-base.microsoftOutlook",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-08-23T03:03:13.336Z",
+  "path": "official/template_2387/workflow.json"
+}

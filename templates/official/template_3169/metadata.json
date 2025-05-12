@@ -1,0 +1,165 @@
+{
+  "id": 3169,
+  "name": "AI Email Analyzer: Process PDFs, Images & Save to Google Drive + Telegram",
+  "description": "This workflow automates the process of analyzing emails and their attachments (PDFs and images) using AI models (DeepSeek, Gemini, and OpenRouter). It extracts and summarizes the content of emails and attachments, saves the summaries to Google Sheets, and sends a final consolidated summary via Telegram. \n\nThis is a powerful tool for automating email analysis and summarization, saving time and ensuring that important information is easily accessible and actionable.\n\nBelow is a breakdown of the workflow:\n\n1. How It Works\nThe workflow is designed to process incoming emails, analyze their content and attachments, and generate summaries. Here's how it works:\n\nEmail Trigger:\n   The workflow starts with the Email Trigger (IMAP) node, which monitors an email inbox for new emails.\n   If an email contains attachments, the workflow processes them.\n\nCheck for Attachments:\n   The Contain Attachments? node checks if the email has attachments.\n   If attachments are present, the workflow proceeds to process them.\n\nProcess Attachments:\n   The Get PDF and Images Attachments node extracts PDF and image attachments from the email.\n   The Switch node separates PDFs and images for further processing:\n     PDFs: The Extract from PDF node extracts text from PDFs, and the PDF Analyzer node summarizes the content.\n     Images: The Analyze Image node uses AI to describe the content of images.\n\nSummarize Email Content:\n   The Convert Text node converts the email's HTML content to plain text.\n   The Email Summarization Chain node uses AI to generate a summary of the email's text content.\n\nSave Summaries:\n   The Save Summary PDF, Save Summary Image, and Save Summary Text nodes save the summaries of PDFs, images, and email text, respectively, to Google Sheets.\n\nConsolidate Summaries:\n   The All Summaries node aggregates the summaries of the email text, PDFs, and images.\n   The Create Final Summary node uses AI to generate a unified summary of all the content.\n\nSend Final Summary:\n   The Send Final Summary node sends the consolidated summary via Telegram to a specified chat ID.\n\n2. Set Up Steps\nTo set up and use this workflow in n8n, follow these steps:\n\nIMAP Configuration:\n   Set up IMAP credentials in n8n for the Email Trigger (IMAP) node.\n   Ensure the email account is accessible via IMAP.\n\nAI Model Configuration:\n   Configure the DeepSeek, Gemini, and OpenRouter credentials in n8n for the Email Summarization Chain, PDF Analyzer, and Create Final Summary nodes.\n   Ensure the AI models are set up to generate summaries.\n\nGoogle Sheets Integration:\n   Set up Google Sheets credentials in n8n for the Save Summary PDF, Save Summary Image, and Save Summary Text nodes.\n   Specify the Google Sheet and worksheet where the summaries will be saved.\n\nTelegram Integration:\n   Set up Telegram credentials in n8n for the Send Final Summary node.\n   Insert your Chat ID in the Telegram node to receive the final summary.\n\nTest the Workflow:\n   Send an email with attachments (PDFs and images) to the monitored email account.\n   The workflow will:\n     Extract and summarize the email content and attachments.\n     Save the summaries to Google Sheets.\n     Send a consolidated summary via Telegram.\n\nOptional Customization:\n     replace IMAP trigger with Gmail or Outlook trigger \n     Modify the workflow to include additional features, such as:\n     Adding more AI models for different types of analysis.\n     Sending notifications via other channels (e.g., Slack, email).\n     Integrating with other storage services (e.g., Dropbox, AWS S3).\n\nNeed help customizing?  \nContact me for consulting and support or add me on Linkedin. ",
+  "totalViews": 15862,
+  "source": "official",
+  "user": {
+    "id": 92207,
+    "name": "Davide",
+    "username": "n3witalia",
+    "bio": "Full-stack Web Developer based in Italy specialising in Marketing & AI-powered automations. For business enquiries, send me an email at info@n3w.it or add me on Linkedin.com/in/davideboizza",
+    "verified": true,
+    "links": "[\"https://n3w.it\"]",
+    "avatar": "https://gravatar.com/avatar/d41b8a0aa81139243509c58870f5b4be292824a507ab57d10ed066d8628ed8da?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Communication",
+    "HITL",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Summarization Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainSummarization",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenRouter Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 10,
+  "createdAt": "2025-03-14T16:27:15.934Z",
+  "path": "official/template_3169/workflow.json"
+}

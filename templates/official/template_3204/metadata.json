@@ -1,0 +1,86 @@
+{
+  "id": 3204,
+  "name": "🚚 Automate Delivery Confirmation with Telegram Bot, Google Drive and Gmail",
+  "description": "Tags: Supply Chain Management, Logistics, Transportation\n\nContext\nHey! I'm Samir, a Supply Chain Engineer and Data Scientist from Paris founder of \nLogiGreen Consulting\n\nWe design tools to help small and medium businesses in improving their logistics processes using data analytics and automation.\n\n&gt; Let's use N8N to make supply chains more efficient and sustainable Supply Chains!\n\n📬 For business inquiries, you can add me on Here\n\nWho is this template for?\nThis workflow template is designed for logistics operations that cannot rely on a Transportation Management System to record proofs of deliveries.\n\nWhat is a delivery confirmation?\nThis workflow uses a Telegram bot to automatically notify logistics teams by email when a shipment is delivered.\n\n\n\nDrivers (equipped with their smartphones) can record their arrival with all the necessary information for accurate distribution planning.\n\nHow do we notify the delivery?\nLet us imagine a truck driver arriving at the destination; he can contact the bot to be guided on how to record the delivery.\n\n\n\nUser Guide: the first bot's message is a brief explanation of the process \nRecord Shipment Number: the bot asks the driver to share the shipment number and record it\nCollect GPS Location: the bot asks the driver to share its GPS location and record them\nPicture of the Shipment: the bot asks for a picture of the shipment and saves it in Google Drive\nSend Confirmation: after data collection, the bot proposes to send a confirmation to the logistics management team\n\nAn email is then automatically sent by the N8N workflow including all the information recorded by the flow and a picture of the shipment.\n\nPrerequisite\nThis workflow does not require any additional paying subscription.\n\nA Google Drive Account with a folder including a Google Sheet\nAPI Credentials: Google Drive API, Google Sheets API and Gmail API\nA Telegram Bot with its API token from BotFather\nA Google sheet to store the shipment records with these five columns prepared: shipmentNumber, recordTime, gpsLattitude, gpsLongitude, cargoPicture, deliveryTime\n\nNext Steps\nFollow the sticky notes to set up the parameters inside each node and get ready to improve your logistics operations!\n\nI have detailed the steps in a short tutorial 👇\n\n 🎥 Check My Tutorial\n\n🚀 Interested in applications of N8N for Logistics & Supply Chain Management? Let's connect on Linkedin\n\nNotes\nThis workflow can be adapted to add more functionalities. I explain how in the video.\nThe bot can handle multiple drivers at the same time.\nIf you want to learn more about the original tool designed with Python: 🚚 Blog Article about Telegram Shipment Tracking Bot\n\nThis workflow has been created with N8N  1.82.1\nSubmitted: March 17th, 2025",
+  "totalViews": 1686,
+  "source": "official",
+  "user": {
+    "id": 93233,
+    "name": "Samir Saci",
+    "username": "samirsaci",
+    "bio": "Automation, AI and Analytics for Supply Chain & Business Optimization\nHelping businesses streamline operations using n8n, AI agents, and data science to enhance efficiency and sustainability. \nLinkedin: www.linkedin.com/in/samir-saci",
+    "verified": true,
+    "links": "[\"https://linktr.ee/samirsaci\"]",
+    "avatar": "https://gravatar.com/avatar/d3644476a59e5813c5f00a7933977e2be8805cbdc574958b9cc6a53b45bedd6a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Communication",
+    "HITL",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-03-17T20:51:18.971Z",
+  "path": "official/template_3204/workflow.json"
+}

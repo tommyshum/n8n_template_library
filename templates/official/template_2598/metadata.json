@@ -1,0 +1,38 @@
+{
+  "id": 2598,
+  "name": "Update Zammad Roles by Excel",
+  "description": "This n8n workflow allows you to update user roles in Zammad based on data from an Excel file. The workflow automates role assignments, ensuring efficient and consistent updates.\n\nFeatures\nExcel Integration**: Import user data from an Excel file containing emails and role assignments.\nDynamic Updates**: Match Zammad users by email and update their roles.\nError Handling**: Continue workflow execution even if some updates fail.\nCustomizable Variables**: Configure Zammad API URL, API key, and Excel file URL.\n\nUsage\nImport the Workflow: Upload the provided .json file into your n8n instance.\nSet Variables:\n   zammad_base_url: Your Zammad instance URL.\n   excel_source_url: URL of the Excel file containing user data.\nAuthentication for Zammad\nCreate in the Node \"Find Zammad User by email\" and \"Update User Roles\" a Header Auth Authentication\nName**: Authorization\nValue**: Bearer &lt;put here your zammad api token&gt;\nRun the Workflow: Execute the workflow to update user roles based on the Excel data.\n\nIssues and Suggestions\nFor issues or suggestions, visit the GitHub Repository.",
+  "totalViews": 327,
+  "source": "official",
+  "user": {
+    "id": 92074,
+    "name": "Sirhexalot",
+    "username": "sirhexalot",
+    "bio": "Open source enthusiast and Zammad user with a passion for sharing knowledge and building simple, effective automation solutions with n8n.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/c83a308119f1aadd64ec0d79a2c26eac616d6ffa916ab89db0e1aa324466be43?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-12-01T12:18:42.597Z",
+  "path": "official/template_2598/workflow.json"
+}

@@ -1,0 +1,65 @@
+{
+  "id": 2088,
+  "name": "Send multiple emails in Gmail directly via Google Sheets",
+  "description": "Send multiple emails in Gmail directly via Google Sheets\n\n[Video for workflow process](https://www.canva.com/design/DAF8VnLBBQA/BKog1CSHs7_goAYse3mEzQ/watch?utm_content=DAF8VnLBBQA&utm_campaign=designshare&utm_medium=link&utm_source=editor\n)\n\n\nIn today's fast-paced digital world, businesses are constantly seeking ways to streamline their processes and enhance customer engagement. One powerful tool that facilitates these goals is n8n, an automation platform that allows users to create workflows to automate tasks and workflows.\n\nBenefits of the Workflow:\n\nEfficiency**: By automating the process of sending emails to customers based on data from Google Sheets, this n8n workflow significantly reduces manual effort and saves time.\nAccuracy**: The workflow ensures that emails are sent to the right recipients at the right time by filtering items based on specific conditions and the current date.\nPersonalization**: Personalized emails can be sent to customers based on the information provided in the Google Sheet, resulting in enhanced customer engagement.\nReal-time Updates**: The workflow updates the Google Sheet with the status of the sent emails, providing real-time insights into the communication process.\nConsistency**: Through automation, this workflow helps maintain consistency in communication with customers, ensuring a seamless experience.\n\nWorkflow Overview:\n\nThe workflow begins with the \"Google Sheets Trigger\" node, which monitors a specified Google Sheet for new row additions. Upon detection of a new row, the workflow progresses to the \"Filter Status (Waiting for sending)\" node, where items are filtered based on specific conditions.\n\nSubsequently, the workflow moves to the \"Filter Items by Current Date\" node, which filters items based on the current date. Items matching the current date are then processed further.\n\nThe filtered items are then forwarded to the \"Gmail\" node, where personalized emails are composed and sent to recipients based on the Google Sheet data. Finally, the workflow updates the Google Sheet using the \"Google Sheets\" node with the status of the sent emails and other relevant information.\n\nCopy this template to get started :\nGoogle Sheets\n\nWorkflow Nodes Documentation:\n\nSchedule Trigger\nFilter Items by Current Date\nGmail\nGoogle Sheets\nFilter Status (Waiting for sending)\nSet data\nMerge feild\n\nConclusion:\n\nIn conclusion, this n8n workflow presents a powerful solution for automating email communication processes based on Google Sheets data. By leveraging automation, businesses can enhance their operational efficiency, accuracy, and customer engagement. The seamless integration of nodes in this workflow streamlines the communication process and ensures timely and personalized interactions with customers.\n\nAs businesses continue to prioritize efficiency and customer satisfaction, n8n workflows offer a versatile and effective means to achieve these objectives.\n",
+  "totalViews": 5978,
+  "source": "official",
+  "user": {
+    "id": 91423,
+    "name": "AlQaisi",
+    "username": "omar",
+    "bio": "I'm specialize in automation and AI, developing innovative solutions to enhance efficiency and drive innovation. With expertise in advanced technologies, I create predictive models for optimal resource allocation. Collaborating with teams, I implement customized automation solutions. Passionate about shaping the future of intelligent automation through digital transformation.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/d8ed2f53474f44e189350538560e2dbcc2299c9f38c80d30b6a2f56e8bbc7b1f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Communication",
+    "HITL",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-02-09T22:03:53.898Z",
+  "path": "official/template_2088/workflow.json"
+}

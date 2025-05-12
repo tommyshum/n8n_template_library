@@ -1,0 +1,38 @@
+{
+  "id": 2528,
+  "name": "Sync Google Calendar Events to Outlook",
+  "description": "What this workflow does\nThis workflow is used as a bridge between your private Google Calendar to your Work Outlook Calendar. The same mentality can be used with other calendar types.\n\nDescription\nSend a copy of a Google Calendar event to your Outlook work account as a reminder to yourself or co-workers that you are booked for private matters like \"Dentist appointment\", \"Taking kids to Disney Land\" etc.\n\nHow it works\nCreate event\n-- You create a Google Calendar event.\n-- A trigger in n8n reacts and collects the event info.\n-- An Outlook event is created with the same information in your Outlook Calendar.\nCancel\n-- You cancel an event in Google Calendar\n-- A trigger in n8n reacts and collects the canceled event info.\n-- Using the Outlook node to getAll events searches for the event in your Outlook Calendar.\n-- If the event is found it is then deleted.\n-- An email with the details of the cancelation is then sent to your Outook e-mail address.\n\nThe n8n Merge node is used to combine results from two different nodes that are necessary to create the cancelled event e-mail notification.\n\nImportant notice\nMake sure you use a dedicated Google Calendar for private events that will be displayed in your work Outlook calendar in order to avoid displaying unwanted calendar events that you do not wish to share with your co-workers.\n\nRequirements\nActive workflow*\nGoogle Calendar OAuth2 API\nMicrosoft Outlook OAuth2 API\n\n.*The Google Calendar trigger is activated only if this workflow is active. You can however TEST the workflow in the editor by clicking “Test step”. You will then receive a response from Google Calendar that you can use in order to view what data Google Sends.\n",
+  "totalViews": 3937,
+  "source": "official",
+  "user": {
+    "id": 92132,
+    "name": "Alexander Bentlund",
+    "username": "nld-alex",
+    "bio": "Gen-AI creator that fell in love with n8n's simplicity and diversitity.",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/1cd002ee45ad6bd46aa53abf75f64049d4876f5cd292f98ee1a47be36e724af4?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Microsoft Outlook",
+      "type": "n8n-nodes-base.microsoftOutlook",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-11-05T10:07:58.573Z",
+  "path": "official/template_2528/workflow.json"
+}

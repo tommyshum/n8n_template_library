@@ -1,0 +1,65 @@
+{
+  "id": 2706,
+  "name": "Auto-Categorize blog posts in wordpress using A.I.",
+  "description": "WordPress Post Auto-Categorization Workflow\n\n\n\n💡 Click here to read detailed case study\n\n📺 Click here to watch youtube tutorial \n\n🎯 Purpose\nAutomatically categorize WordPress blog posts using AI, saving hours of manual work. This workflow analyzes your post titles and assigns them to predefined categories using artificial intelligence.\n\n🔄 What This Workflow Does\n• Connects to your WordPress site\n• Retrieves all uncategorized posts\n• Uses AI to analyze post titles\n• Automatically assigns appropriate category IDs\n• Updates posts with new categories\n• Processes dozens of posts in minutes\n\n⚙️ Setup Requirements\nWordPress site with admin access\nPredefined categories in WordPress\nOpenAI API credentials (or your preferred AI provider)\nn8n with WordPress credentials\n\n🛠️ Configuration Steps\nAdd your WordPress categories (manually in WordPress)\nNote down category IDs\nUpdate the AI prompt with your category IDs\nConfigure WordPress credentials in n8n\nSet up AI API connection\n\n🔧 Customization Options\n• Modify AI prompts for different categorization criteria\n• Adjust for multiple category assignments\n• Add tag generation functionality\n• Customize for different content types\n• Add additional metadata updates\n\n⚠️ Important Notes\n• Backup your WordPress database before running\n• Test with a few posts first\n• Review AI categorization results initially\n• Categories must be created manually first\n\n🎁 Bonus Features\n• Can be modified for tag generation\n• Works with scheduled posts\n• Handles bulk processing\n• Maintains categorization consistency\n\nPerfect for content managers, bloggers, and website administrators looking to organize their WordPress content efficiently.\n\n#n8n #WordPress #ContentManagement #Automation #AI\n\nCreated by rumjahn",
+  "totalViews": 3775,
+  "source": "official",
+  "user": {
+    "id": 92000,
+    "name": "Keith Rumjahn",
+    "username": "rumjahn",
+    "bio": "I create automations with A.I. for SEO content and other smart automations.",
+    "verified": true,
+    "links": "[\"https://rumjahn.com/\"]",
+    "avatar": "https://gravatar.com/avatar/e037c9d6e16284c4cf5149094a1725ed92f76e61813b8f8c32c1b83dcf4f9f4b?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Marketing",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Wordpress",
+      "type": "n8n-nodes-base.wordpress",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-01-08T06:30:40.394Z",
+  "path": "official/template_2706/workflow.json"
+}

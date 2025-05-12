@@ -1,0 +1,157 @@
+{
+  "id": 3350,
+  "name": " Telegram AI Bot-to-Human Handoff for Sales Calls",
+  "description": "This n8n template demonstrates an approach to perform bot-to-human handoff using Human-in-the-loop functionality as a switch.\n\nIn this experiment, we play with the idea of states we want our agent to be in which controls it's interacton with the user.\nFirst state** - the agent is onboarding the user by collecting their details for a sales inquiry. After which, they are handed-off / transferred to a human to continue the call.\nSecond state** - the agent is essentially \"deactivated\" as further messages to the bot will not reach it. Instead, a canned response is given to the user. The human agent must \"reactivate\" the bot by completing the human-in-the-loop form and give a summary of their conversation with the user.\nThird state** - the agent is \"reactivated\" with context of the human-to-user conversation and is set to provide after sales assistance. An tool is made available to the agent to again delegate back to the human agent when requested.\n\nHow it works\nThis template uses telegram to handle the interaction between the user and the agent.\nEach user message is checked for a session state to ensure it is guided to the right stage of the conversation. For this, we can use Redis as a simple key-value store.\nWhen no state is set, the user is directed through an onboarding step to attain their details. Once complete, the agent will \"transfer\" the user to a human agent - technically, all this involves is an update to the session state and a message to another chat forwarding the user's details.\nDuring this \"human\" state, the agent cannot reply to the user and must wait until the human \"transfers\" the conversation back. The human can do this by replying to \"human-in-the-loop\" message with a summary of their conversation with the user. This session state now changes to \"bot\" and the context is implanted in the agent's memory so that the agent can respond to future questions.\nAt this stage of the conversation, the agent is now expected to handle and help the user with after-sales questions. The user can at anytime request transfer back to the human agent, repeating the previous steps as necessary.\n\nHow to use\nPlan your user journey! Here is a very basic example of a sales inquiry with at most 3 states. More thought should be developed when many more states are involved.\nYou may want to better log and manage session states so no user is left in limbo. Try connecting the user and sessions to your CRM.\nNote, the Onboarding agent and After-Sales agent have separate chat memories. When adding more agents, it is recommend to continue having separate chat memories to help focus between states.\n\nRequirements\nTelegram for chatbot & interface\nRedis for session store and chat memory\nOpenAI for AI agent\n\nCustomising this workflow\nNot using Telegram? This template works with Whatsapp and other services with equivalent functionality.",
+  "totalViews": 9921,
+  "source": "official",
+  "user": {
+    "id": 91804,
+    "name": "Jimleuk",
+    "username": "jimleuk",
+    "bio": "Freelance consultant based in the UK specialising in AI-powered automations. I work with select clients tackling their most challenging projects. For business enquiries, send me an email at hello@jimle.uk\n\nLinkedIn: https://www.linkedin.com/in/jimleuk/\nX/Twitter: https://x.com/jimle_uk",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4ab99e51473df76838beeaac908747f7928c625f869794815cabe34016967d51?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Data & Storage",
+    "Communication",
+    "HITL",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Redis",
+      "type": "n8n-nodes-base.redis",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Redis Chat Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryRedisChat",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "Other memories"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    },
+    {
+      "name": "Chat Memory Manager",
+      "type": "@n8n/n8n-nodes-langchain.memoryManager",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Information Extractor",
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 9,
+  "createdAt": "2025-03-29T15:23:05.743Z",
+  "path": "official/template_3350/workflow.json"
+}

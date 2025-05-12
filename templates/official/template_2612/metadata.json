@@ -1,0 +1,56 @@
+{
+  "id": 2612,
+  "name": "AI Agent to chat with Supabase/PostgreSQL DB",
+  "description": "Video Guide\n\nI prepared a detailed guide that showed the whole process of building a resume analyzer.\n\nWho is this for?\nThis workflow is ideal for developers, data analysts, and business owners who want to enable conversational interactions with their database. It’s particularly useful for cases where users need to extract, analyze, or aggregate data without writing SQL queries manually.\n\nWhat problem does this workflow solve?\nAccessing and analyzing database data often requires SQL expertise or dedicated reports, which can be time-consuming. This workflow empowers users to interact with a database conversationally through an AI-powered agent. It dynamically generates SQL queries based on user requests, streamlining data retrieval and analysis.\n\nWhat this workflow does\nThis workflow integrates OpenAI with a Supabase database, enabling users to interact with their data via an AI agent. The agent can:\nRetrieve records from the database.\nExtract and analyze JSON data stored in tables.\nProvide summaries, aggregations, or specific data points based on user queries.\n\nDynamic SQL Querying: The agent uses user prompts to create and execute SQL queries on the database.\nUnderstand JSON Structure: The workflow identifies JSON schema from sample records, enabling the agent to parse and analyze JSON fields effectively.\nDatabase Schema Exploration: It provides the agent with tools to retrieve table structures, column details, and relationships for precise query generation.\n\nSetup\n\nPreparation\nCreate Accounts:\n   N8N: For workflow automation.\n   Supabase: For database hosting and management.\n   OpenAI: For building the conversational AI agent.\nConfigure Database Connection:\n   Set up a PostgreSQL database in Supabase.\n   Use appropriate credentials (username, password, host, and database name) in your workflow.\n\nN8N Workflow\n\nAI agent with tools:\n\nCode Tool:\n   Execute SQL queries based on user input.\nDatabase Schema Tool:\n   Retrieve a list of all tables in the database.\n   Use a predefined SQL query to fetch table definitions, including column names, types, and references.\nTable Definition:\n   Retrieve a list of columns with types for one table.\n\n\n",
+  "totalViews": 14302,
+  "source": "official",
+  "user": {
+    "id": 92018,
+    "name": "Mark Shcherbakov",
+    "username": "lowcodingdev",
+    "bio": "I am a business analyst with a development background, dedicated to helping small businesses and entrepreneurs leverage cloud services for increased efficiency. My expertise lies in automating manual workflows, integrating data from multiple cloud service providers, creating insightful dashboards, and building custom CRM systems.\n\nhttps://www.linkedin.com/in/marklowcoding/",
+    "verified": true,
+    "links": "[\"https://www.skool.com/5minai-pro\"]",
+    "avatar": "https://gravatar.com/avatar/3055cd5035cfb1030d9d1923b60646d1a156927eead957956bea71f88c5186cd?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-12-06T14:08:05.408Z",
+  "path": "official/template_2612/workflow.json"
+}

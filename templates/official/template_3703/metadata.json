@@ -1,0 +1,124 @@
+{
+  "id": 3703,
+  "name": "Indeed Data Scraper & Summarization with Airtable, Bright Data & Google Gemini",
+  "description": "Who this is for?\nIndeed Data Scraper & Summarization with Airtable, Bright Data and Google Gemini is an automated workflow that extracts company profile information from Indeed using Bright Data Web Unlocker, transforms the data using Google Gemini's LLM, and forward the transformed response with the summary to a specified webhook for downstream use.\n\nThis workflow is tailored for:\n\nRecruiters and HR teams who want quick summaries of companies listed on Indeed.\n\nMarket researchers and analysts needing structured insights into businesses.\n\nFounders, investors, and consultants scouting potential competitors, partners, or clients.\n\nNo-code enthusiasts looking to automate data extraction and enrichment pipelines without manual scraping or parsing.\n\nWhat problem is this workflow solving?\nManually gathering structured information about companies on Indeed is time-consuming and inconsistent. Pages vary in structure, and extracting clean, digestible summaries can require technical scraping expertise.\n\nThis workflow automates:\n\nExtracting company data from Indeed reliably using Bright Data Web Unlocker.\n\nCleaning and summarizing the extracted content using Google Gemini LLM.\n\nStoring structured insights directly into Airtable for easy access and further workflows.\n\nEliminates manual research, saves hours, and produces AI-enhanced, easily searchable records.\n\nWhat this workflow does\n\nTriggers on-demand.\n\nPulls company page URLs from Airtable.\n\nScrapes content from each Indeed company profile using Bright Data Web Unlocker.\n\nSends the raw HTML to Google Gemini for extraction and summarization.\n\nSends the summarized data to other platforms via a Webhook notification mechanism.\n\nSetup\nSign up at Bright Data.\nNavigate to Proxies & Scraping and create a new Web Unlocker zone by selecting Web Unlocker API under Scraping Solutions.\nIn n8n, configure the Header Auth account under Credentials for Bright Data.\n\nThe Value field should be set with the\nBearer XXXXXXXXXXXXXX. The XXXXXXXXXXXXXX should be replaced by the Web Unlocker Token.\nIn n8n, configure the Google Gemini(PaLM) Api account with the Google Gemini API key (or access through Vertex AI or proxy).\nIn n8n, configure the Airtable Personal Access Token account under Credentials.\nUpdate the Webhook Notifier with the Webhook endpoint of your choice.\n\nHow to customize this workflow to your needs\nThis workflow is built to be flexible - whether you're a company or a market researcher, entrepreneur, or data analyst. Here's how you can adapt it to fit your specific use case:\n\nExtend the scraper**: Modify Bright Data targets to pull job listings, salaries, or employee reviews via the Airtable data source.\n\nCustomize the summary prompt**: Ask Gemini to extract different attributes hiring trends, practices etc.\n\nRouting the output to different destinations**:\nSend summaries or transformed response to Google Sheets, Airtable, or CRMs like HubSpot or Salesforce etc.\n\n",
+  "totalViews": 854,
+  "source": "official",
+  "user": {
+    "id": 93657,
+    "name": "Ranjan Dailata",
+    "username": "ranjancse",
+    "bio": "",
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/7b74fe44a7ad32db7c783b972deb5848a4b1f043377bce4039737ed66da8305f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Summarization Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainSummarization",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-04-25T00:21:41.601Z",
+  "path": "official/template_3703/workflow.json"
+}

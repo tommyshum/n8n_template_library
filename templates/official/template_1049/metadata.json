@@ -1,0 +1,48 @@
+{
+  "id": 1049,
+  "name": "Send location updates of the ISS every minute to a table in Google BigQuery",
+  "description": "This workflow allows you to send position updates of the ISS every minute to a table in Google BigQuery.\n\n\n\nCron node: The Cron node will trigger the workflow every minute.\n\nHTTP Request node: This node will make a GET request to the API https://api.wheretheiss.at/v1/satellites/25544/positions to fetch the position of the ISS. This information gets passed on to the next node in the workflow.\n\nSet node: We will use the Set node to ensure that only the data that we set in this node gets passed on to the next nodes in the workflow.\n\nGoogle BigQuery: This node will send the data from the previous node to the position table in Google BigQuery. If you have created a table with a different name, use that table instead.",
+  "totalViews": 1377,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google BigQuery",
+      "type": "n8n-nodes-base.googleBigQuery",
+      "categories": [
+        "Data & Storage",
+        "Development"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2021-04-21T07:46:42.249Z",
+  "path": "official/template_1049/workflow.json"
+}

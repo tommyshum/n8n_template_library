@@ -1,0 +1,38 @@
+{
+  "id": 1375,
+  "name": "Create a document in outline for each new GitLab release",
+  "description": "Create a document in Outline for each new GitLab release.\n\nDepends on this PR being merged.\n\nCopy workflow\nSet credentials for GitLab and Outline\nInside HTTP Request node, set the following:\n   collectionId\n   parentDocumentId (or remove if unwanted)\n\nExample result\n",
+  "totalViews": 2016,
+  "source": "official",
+  "user": {
+    "id": 24063,
+    "name": "Manu",
+    "username": "tennox",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://txlab.io\"]",
+    "avatar": "https://gravatar.com/avatar/2d81612cea16a74b43a68c932b1519d95d075a9176396649fdd837c68e2de12b?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2021-12-22T21:52:11.277Z",
+  "path": "official/template_1375/workflow.json"
+}

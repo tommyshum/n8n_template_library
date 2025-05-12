@@ -1,0 +1,100 @@
+{
+  "id": 3420,
+  "name": "🌲 AI Agent for Sustainability Report Audit with Gmail and GPT-40",
+  "description": "Tags: Sustainability, CSRD, Reporting, ESG, Compliance, Automation\n\nContext  \nHey! I'm Samir, a Supply Chain Engineer and Data Scientist from Paris, founder of  \nLogiGreen Consulting  \n\nWe help companies automate sustainability workflows using AI, Data Analytics, and No-Code tools like N8N.  \n\n&gt; Sustainability Reporting meets Automation with n8n!\n\n📬 For business inquiries, you can add me on Here\n\nWhat is a CSRD XHTML Report?  \nUnder the Corporate Sustainability Reporting Directive (CSRD), companies must publish their ESG disclosures in a machine-readable XHTML format, embedding XBRL tags that make the report structured and standardized.  \n\n\n\nThese files must follow strict formatting and tagging rules to ensure compliance, traceability, and accessibility for both regulators and analysts.\n\nWho is this template for?  \nThis workflow is designed for sustainability teams, ESG consultants, or developers who want to automatically check the structure and format of CSRD reports submitted in XHTML.\n\nHow does it work?  \nThis N8N workflow automates the audit process:  \n📤 Input Node → Uploads or fetches the XHTML file via URL or Webhook.  \n🧪 Validates Structure → Uses a custom code node to parse HTML and identify required tags (e.g., &lt;ix:nonNumeric&gt;, namespaces).  \n📋 Outputs a Report → Returns a summary report of errors, warnings, and key metadata (like entity name, reporting period).  \n📤 Export Option → Save the results in Google Sheets or send via email.\n\nPrerequisite  \nA sample XHTML file that you can find in my GitHub Repository\nGoogle Sheets API* and *OpenAI API** credentials\n\nNext Steps  \nFollow the sticky notes inside each node to adjust parsing rules or extend validation to specific XBRL tags relevant to your sector (e.g., GHG emissions, water usage).\n\n*📺 Check my complete tutorial to understand how to use it: *  \n  \n🎥 Check My Tutorial\n\n🚀 Interested in combining CSRD compliance with automation and analytics? Let’s connect on LinkedIn\n\nNotes  \nThis workflow includes an example XHTML file to test the validator.  \nYou can plug this into your internal systems or even extend it with AI to auto-summarize the sustainability report.\n\nThis workflow has been created with N8N 1.82.1  \nSubmitted: April 3rd, 2025\n",
+  "totalViews": 815,
+  "source": "official",
+  "user": {
+    "id": 93233,
+    "name": "Samir Saci",
+    "username": "samirsaci",
+    "bio": "Automation, AI and Analytics for Supply Chain & Business Optimization\nHelping businesses streamline operations using n8n, AI agents, and data science to enhance efficiency and sustainability. \nLinkedin: www.linkedin.com/in/samir-saci",
+    "verified": true,
+    "links": "[\"https://linktr.ee/samirsaci\"]",
+    "avatar": "https://gravatar.com/avatar/d3644476a59e5813c5f00a7933977e2be8805cbdc574958b9cc6a53b45bedd6a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-04-03T13:25:00.897Z",
+  "path": "official/template_3420/workflow.json"
+}

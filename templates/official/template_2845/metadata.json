@@ -1,0 +1,184 @@
+{
+  "id": 2845,
+  "name": "Complete business WhatsApp AI-Powered RAG Chatbot using OpenAI",
+  "description": "The provided workflow in n8n is designed to create a Business WhatsApp AI RAG (Retrieval-Augmented Generation) Chatbot.\n\nHow it works:\nWebhook Setup: The workflow begins by setting up webhooks for verification and response. The Verify webhook receives GET requests and sends back a verification code, while the Respond webhook handles incoming POST requests from Meta regarding WhatsApp messages.\nMessage Handling: Once a message is received, the workflow checks if the incoming JSON contains a user message. If it does, the message is processed further; otherwise, a generic response is sent.\nAI Agent Interaction: The user's message is passed to the AI Agent node, which uses a conversational agent with a predefined system message tailored for an electronics store. This ensures that the AI provides accurate and professional responses based on the knowledge base.\nKnowledge Base Utilization: The AI Agent references a knowledge base stored in Qdrant, a vector database. Documents from Google Drive are downloaded, vectorized using OpenAI embeddings, and stored in Qdrant for retrieval during conversations.\nResponse Generation: The AI Agent generates a response using the OpenAI chat model (gpt-4o-mini) and sends it back to the user via WhatsApp.\n\nSet up steps:\nCreate Qdrant Collection:\n   Update the QDRANTURL and COLLECTION variables in the workflow.\n   Use the Create collection HTTP request node to initialize the collection in Qdrant.\n\nVectorize Documents:\n   Configure the Get folder and Download Files nodes to fetch documents from a specified Google Drive folder.\n   Use the Embeddings OpenAI node to generate embeddings for the downloaded files.\n   Store the vectorized documents in Qdrant using the Qdrant Vector Store node.\n\nConfigure Webhooks:\n   Ensure both Verify and Respond webhooks have the same URL.\n   Set the Verify webhook to use the GET HTTP method and the Respond webhook to use the POST HTTP method.\n\nSet Up AI Agent:\n   Define the system prompt for the AI Agent, specifying guidelines for product information, technical support, customer service, and knowledge base usage.\n   Link the AI Agent to the OpenAI chat model and configure any additional tools as needed.\n\nTest Workflow:\n   Trigger the workflow manually using the When clicking ‘Test workflow’ node to ensure all components are functioning correctly.\n   Monitor the flow of data through the nodes and verify that responses are being generated and sent accurately.\n\nBy following these steps, the workflow will be fully operational, enabling a robust AI-powered chatbot capable of handling customer inquiries via WhatsApp.\n\nNeed help customizing?  \nContact me for consulting and support or add me on Linkedin. ",
+  "totalViews": 28286,
+  "source": "official",
+  "user": {
+    "id": 92207,
+    "name": "Davide",
+    "username": "n3witalia",
+    "bio": "Full-stack Web Developer based in Italy specialising in Marketing & AI-powered automations. For business enquiries, send me an email at info@n3w.it or add me on Linkedin.com/in/davideboizza",
+    "verified": true,
+    "links": "[\"https://n3w.it\"]",
+    "avatar": "https://gravatar.com/avatar/d41b8a0aa81139243509c58870f5b4be292824a507ab57d10ed066d8628ed8da?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "WhatsApp Business Cloud",
+      "type": "n8n-nodes-base.whatsApp",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Token Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterTokenSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    },
+    {
+      "name": "Qdrant Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreQdrant",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Vector Store Question Answer Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolVectorStore",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 11,
+  "createdAt": "2025-02-04T10:29:23.985Z",
+  "path": "official/template_2845/workflow.json"
+}

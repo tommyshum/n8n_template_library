@@ -1,0 +1,80 @@
+{
+  "id": 2945,
+  "name": "Fetch Keyword From Google Sheet and Classify Them Using AI",
+  "description": "Who is this template for\n\nThis template is for marketers, SEO specialists, or content managers who need to analyze keywords to identify which ones contain references to a specific area or topic, in this case – IT software, services, tools, or apps.\n\nUse case\n\nAutomating the process of scanning a large list of keywords to determine if they reference known IT products or services (like ServiceNow, Salesforce, etc.), and updating a Google Sheet with this classification. This helps in categorizing keywords for targeted SEO campaigns, content creation, or market analysis.\n\nHow this workflow works\n\nFetches keyword data from a Google Sheet\nProcesses keywords in batches to prevent rate limiting\nUses an AI agent (OpenAI) to analyze each keyword and determine if it contains a reference to an IT service/software\nUpdates the original Google Sheet with the results in a \"Service?\" column\nContinues processing until all keywords are analyzed\n\nSet up steps\n\nConnect your Google Sheets account credentials\nSet the Google Sheet document ID (currently using \"Copy of Sheet1 1\")\nConfigure the OpenAI API credentials for the AI agent\nAdjust the batch size (currently 6) if needed based on your API rate limits\nEnsure the Google Sheet has the required columns: \"Number\", \"Keyword\", and \"Service?\"\n\n\n\nThe AI agent's prompt is highly customizable to match different identification needs. For example, instead of looking for IT software/services, you could modify the prompt to identify:\n\nIndustry-specific terms (healthcare, finance, education)\nGeographic references (cities, countries, regions)\nProduct categories (electronics, clothing, food)\nCompetitor brand mentions\n\nHere's how you could modify the prompt for different use cases:\n\nCopy\n// For identifying educational content keywords\n\"Check the keyword I provided and define if this keyword relates to educational content, courses, or learning materials and return yes or no.\"\n\n// For identifying local service keywords\n\"Check the keyword I provided and determine if it contains location-specific terms (city names, neighborhoods, regions) that suggest local service intent and return yes or no.\"\n\n// For identifying competitor mentions\n\"Check the keyword I provided and determine if it mentions any of our competitors (CompetitorA, CompetitorB, CompetitorC) and return yes or no.\"\n`",
+  "totalViews": 2616,
+  "source": "official",
+  "user": {
+    "id": 91994,
+    "name": "Polina Medvedieva",
+    "username": "polina-n8n",
+    "bio": "I do SEO & marketing for n8n and here I share workflows that help with creating content, optimizing on-page SEO and automate SEO processes. ",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/polina-medvedieva-69b947149/\"]",
+    "avatar": "https://gravatar.com/avatar/e8c28438af55553831bad4960d059e4363d390b1d9fd226f4283aad2e335c68c?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-02-19T11:08:17.781Z",
+  "path": "official/template_2945/workflow.json"
+}

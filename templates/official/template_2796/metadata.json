@@ -1,0 +1,65 @@
+{
+  "id": 2796,
+  "name": "Voiceflow Demo Support Chatbot ",
+  "description": "Submission Overview for Voiceflow Demo Workflow\n\nView the YouTube video for this workflow here.\n\nWho is this for?\nThis workflow is ideal for businesses and developers using Voiceflow to power AI voice chatbots. It benefits teams that want to enhance chatbot functionality through integrations with platforms like Zendesk, Google Calendar, and Airtable.\n\nWhat problem is this workflow solving?\nThe workflow addresses the need for seamless integration of chatbot interactions with backend systems. It automates customer service tasks such as ticket creation, meeting scheduling, and data reporting, reducing manual effort and enhancing efficiency.\n\nWhat does this workflow do?\nCustomer Lookup:** Checks the database for existing customers and returns relevant details or a \"NOT_FOUND\" status.\nZendesk Ticket Creation:** Automates the creation of support tickets for customer issues.\nMeeting Scheduling:** Integrates with Google Calendar to provide availability and schedule meetings.\nTranscript Reporting:** Aggregates interaction data and sends it to Airtable for analysis by the product team.\n\nSetup\nConfigure your Voiceflow chatbot to connect to this workflow via a webhook.\nSet up the required integrations:\n   Zendesk API: For ticket creation.\n   Google Calendar API: For scheduling.\n   Airtable API: For storing transcripts.\nCustomize the workflow's nodes to match your use case, such as database fields or API endpoints.\nDeploy the workflow on your n8n instance and test the integrations.\n\nHow to customize this workflow to your needs\nAdjust database queries to match your customer data schema.\nModify the Zendesk ticket payload to include additional fields or custom formats.\nUpdate Google Calendar configurations for different scheduling requirements.\nAdd or remove Airtable fields based on the product team's analysis needs.\n\nThis template adheres to n8n’s submission guidelines, ensuring clarity, relevance, and broad applicability for users in customer service, product development, and automation.",
+  "totalViews": 8632,
+  "source": "official",
+  "user": {
+    "id": 16588,
+    "name": "Angel Menendez",
+    "username": "djangelic",
+    "bio": "Angel Menendez is a Staff Developer Advocate at n8n.io, specializing in low-code tools for cybersecurity workflows. From Puerto Rico, Angel's tech journey began by helping his father translate technical books. He later started a web development business and transitioned from a career as a flight attendant to cybersecurity engineering. His workflows have saved companies significant time. Outside work, Angel enjoys time with his two sons, riding electric bikes, reading, and exploring new places.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/fdbe38425d21378d8c9ba8916e1eb0b320add299f12cc23fcd4961d4e6e00bec?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Calendar",
+      "type": "n8n-nodes-base.googleCalendar",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-01-24T22:53:18.722Z",
+  "path": "official/template_2796/workflow.json"
+}

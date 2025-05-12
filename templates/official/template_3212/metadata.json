@@ -1,0 +1,39 @@
+{
+  "id": 3212,
+  "name": "Deploy Docker Immich, API Backend for WHMCS/WISECP",
+  "description": "Setting up n8n workflow\n\nOverview\n\nThe Docker Immich WHMCS module uses a specially designed workflow for n8n to automate deployment processes. The workflow provides an API interface for the module, receives specific commands, and connects via SSH to a server with Docker installed to perform predefined actions.\n\nPrerequisites\n\nYou must have your own n8n server.\nAlternatively, you can use the official n8n cloud installations available at: n8n Official Site\n\nInstallation Steps\n\nInstall the Required Workflow on n8n\n\nYou have two options:\n\nOption 1: Use the Latest Version from the n8n Marketplace\n\nThe latest workflow templates for our modules are available on the official n8n marketplace.\nVisit our profile to access all available templates: PUQcloud on n8n\n\nOption 2: Manual Installation\n\nEach module version comes with a workflow template file.  \n    \nYou need to manually import this template into your n8n server.  \nn8n Workflow API Backend Setup for WHMCS/WISECP\n\nConfigure API Webhook and SSH Access\n\nCreate a Basic Auth Credential for the Webhook API Block in n8n.  \n    \n    \n      \n      \n    \n    \n      \n      \n    \nCreate an SSH Credential for accessing a server with Docker installed.  \nModify Template Parameters\n\nIn the Parameters block of the template, update the following settings:\n\n\n\n\n\nserver_domain – Must match the domain of the WHMCS/WISECP Docker server.\nclients_dir – Directory where user data related to Docker and disks will be stored.\nmount_dir – Default mount point for the container disk (recommended not to change).\n\nDo not modify the following technical parameters:\n\nscreen_left\nscreen_right\n\nDeploy-docker-compose\n\nIn the Deploy-docker-compose element, you have the ability to modify the Docker Compose configuration, which will be generated in the following scenarios:\n\nWhen the service is created\nWhen the service is unlocked\nWhen the service is updated\n\nnginx\n\nIn the nginx element, you can modify the configuration parameters of the web interface proxy server.\n\nThe main section allows you to add custom parameters to the server block in the proxy server configuration file.\nThe main\\_location section contains settings that will be added to the location / block of the proxy server configuration. Here, you can define custom headers and other parameters specific to the root location.\n\nBash Scripts\n\nManagement of Docker containers and all related procedures on the server is carried out by executing Bash scripts generated in n8n. These scripts return either a JSON response or a string.\n\nAll scripts are located in elements directly connected to the SSH element.\nYou have full control over any script and can modify or execute it as needed.\n\n",
+  "totalViews": 22,
+  "source": "official",
+  "user": {
+    "id": 93078,
+    "name": "PUQcloud",
+    "username": "puqcloud",
+    "bio": "PUQ sp. z o.o. is an international IT company building solutions to automate cloud and IT service sales. We created PUQcloud — a free, open-source platform for billing, automation, and IT business management. We also develop modules for WHMCS and WISECP, helping people start their own business without big tech. Our offices are in Poland and Canada, with a global team.\n\n",
+    "verified": true,
+    "links": "[\"https://puqcloud.com/\"]",
+    "avatar": "https://gravatar.com/avatar/c03b18d6e05c10fa40e09c98ea57cb4253d44d36e20ec769bf87c0e01aa3221f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-03-18T20:34:54.965Z",
+  "path": "official/template_3212/workflow.json"
+}

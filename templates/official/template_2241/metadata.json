@@ -1,0 +1,64 @@
+{
+  "id": 2241,
+  "name": "Unsubscribe Mautic contacts from automated unsubscribe emails",
+  "description": "Who is this for?\nThis template is designed for businesses and organizations that use Mautic for email marketing and want to automate the process of removing contacts from specific segments when they receive an unsubscribe request via email.\n\nWhat problem is this workflow solving? / use case\nMany email recipients, especially those who are less tech-savvy, may not follow the standard unsubscribe link provided in emails. Instead, for example in Gmail, they click the \"Unsubscribe\" button in the Gmail web interface, which in turn sends an email with a consistent format, these emails contain the word unsubscribe in the 'To' field using the following structure:\n\nhello+unsubscribe_6629823aa976f053068426@example.com\n\nThis workflow automates the process of identifying such unsubscribe emails and removing the contact from the relevant Mautic segments, ensuring compliance with unsubscribe requests and maintaining a clean mailing list.\n\nWhat this workflow does\n\nMonitors a Gmail account for incoming emails.\nIdentifies unsubscribe emails based on specific patterns in the \"To\" field (e.g., containing the word \"unsubscribe\").\nRetrieves the contact's ID from Mautic based on the email address.\nRemoves the contact from the specified \"newsletter\" segment in Mautic.\nAdds the contact to the \"unsubscribed\" segment in Mautic.\nSends a confirmation email to the contact, acknowledging their unsubscribe request.\n\nSetup\n\nConfigure your email address and unsubscribe message in the \"Edit Fields\" node.\nSet your credentials in the Gmail trigger and in the Mautic nodes.\nSet the segments for the \"newsletter\" and \"unsubscribed\" in the Mautic nodes.\nMake sure your n8n installation has a public endpoint for your Gmail trigger to work correctly.\nDeploy the workflow.\n\nHow to customize this workflow to your needs\n\nAdjust the conditions for identifying unsubscribe emails based on your specific requirements.\nModify the segments or actions taken in Mautic according to your desired behavior.\nCustomize the confirmation email message and sender details.\n\nNote: This workflow assumes a consistent structure for unsubscribe emails, where the \"From\" field contains the word \"unsubscribe\" using the \"+\" sign. If your email provider follows a different convention, adjust the conditions in the \"Is automated unsubscribe?\" node accordingly.",
+  "totalViews": 1068,
+  "source": "official",
+  "user": {
+    "id": 91654,
+    "name": "Victor Gonzalez",
+    "username": "aficiomaquinas",
+    "bio": "",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/7ce9dce7ebf675304f3eb39dc10f37f520d483c92763fe79ad3a706c122b0f05?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Marketing",
+    "Communication",
+    "HITL",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Mautic",
+      "type": "n8n-nodes-base.mautic",
+      "categories": [
+        "Marketing",
+        "Communication"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-04-26T02:43:17.522Z",
+  "path": "official/template_2241/workflow.json"
+}

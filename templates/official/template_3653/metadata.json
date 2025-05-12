@@ -1,0 +1,49 @@
+{
+  "id": 3653,
+  "name": "Collect WhatsApp questionnaire responses in Postgres (Module \"Anketa\")",
+  "description": "Who is this for?\nThis workflow is designed for businesses or organizations looking to collect and store user responses from questionnaires via a WhatsApp bot, with data saved in a Postgres database.\n\nWhat problem is this workflow solving?\nThis workflow streamlines the process of collecting and managing user responses to questionnaires. It helps automate data collection from multiple users and stores the responses in a centralized database for easy access and analysis.\n\nWhat this workflow does\nThis workflow allows you to:\nAdd questions to the anketa_question table.\nSave the responses of users who complete the questionnaire in whatsapp into the database.\n\nSetup\nCreate Tables in Postgres DB  \n   Replace \"n8n\" in the provided SQL script with your database schema name.\n   Run the SQL script in your Postgres database (this is available within the workflow).\n\nAdd Credentials  \n   Set up WhatsApp OAuth credentials and account details.\n   Set up Postgres credentials to connect the workflow to your database.\n\nHow to customize this workflow to your needs\nModify the questions in the anketa_question table to suit your specific survey or data collection requirements.\nAdjust the WhatsApp link and communication flow to align with your branding or messaging needs.\nCustomize the database table schema if you need to capture additional fields or change the format of the data stored.",
+  "totalViews": 182,
+  "source": "official",
+  "user": {
+    "id": 93883,
+    "name": "Andrew",
+    "username": "boanse",
+    "bio": "Analyst-Developer",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/61d84d897d0411ddab1209f44480478b3e19bc319b0a3b69dd0419d51b2fbdd3?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Data & Storage",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Postgres",
+      "type": "n8n-nodes-base.postgres",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "WhatsApp Business Cloud",
+      "type": "n8n-nodes-base.whatsApp",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-04-21T20:05:33.864Z",
+  "path": "official/template_3653/workflow.json"
+}

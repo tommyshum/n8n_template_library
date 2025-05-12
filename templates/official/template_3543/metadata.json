@@ -1,0 +1,121 @@
+{
+  "id": 3543,
+  "name": "Automated LinkedIn Job Hunter: Get Your Best Daily Job Matches by Email ",
+  "description": "Overview\n\nThis n8n template automates the tedious process of searching for jobs on LinkedIn. By integrating with tools for web scraping and leveraging AI (Google Gemini) for intelligent matching, this workflow delivers a curated list of the top 5 most relevant job opportunities published within past 24h directly to your inbox daily, based on your unique resume and preferences.The cost is only 0.1 USD per day and there is no subscription needed.\n\nWho is this for?\n\nThis template is ideal for:\n\nActive job seekers wanting to save time and effort.\nProfessionals looking to discreetly monitor relevant new opportunities.\nIndividuals seeking a highly personalized job feed tailored to their resume and preferences.\nAnyone overwhelmed by manual job searching on LinkedIn.\n\nWhat is Included:\n\nn8n Workflow Template:** The complete workflow file (.json) ready to import into your n8n instance.\nVideo Guidance:** A step-by-step video walkthrough showing you exactly how to set up and configure the workflow.\n\nWhat problem is this workflow solving?\n\nFinding the right job on LinkedIn can be overwhelming and time-consuming. Sifting through hundreds of listings, tailoring searches, and checking daily takes significant effort. This workflow solves the problem of manual, repetitive job searching by automating the discovery and filtering process, ensuring you see the most relevant opportunities without the daily grind and reducing the risk of missing out on your ideal role.\n\nWhat this workflow does:\n\nThis workflow automates the following steps:\n\nScheduled Job Fetching: Runs automatically (default: daily at 8 AM) to find the latest jobs.\nResume Processing: Downloads your resume (PDF) from Google Drive and extracts the text content.\nTargeted LinkedIn Scraping: Uses Apify to scrape recent job listings from LinkedIn based on your custom search URL.\nAI-Powered Matching: Employs an AI agent (Google Gemini) to analyze scraped jobs against your resume text and specified preferences.\nTop 5 Ranking & Selection: Identifies and ranks the opportunities, selecting the 5 best matches for you.\nPersonalized Email Reporting: Generates and sends a detailed HTML email containing the top 5 jobs, including company name, job title, industry, a personalized reason for the match, and a direct application link.\n\nSetup:\n\nFollow these steps to configure the workflow:\n\nCore Connections:\n    Connect your Google Drive and Gmail accounts to n8n via the Credentials section.\n    Ensure your n8n environment has access/credentials configured for the AI model used by the AI Agent node (e.g., Google Gemini).\nApify Integration:\n    Sign up for an Apify account (apify.com) and obtain your API key.\n    Action: In the Input node, paste your Apify API Key into the Value field for the ApifyAPIKey assignment.\nResume Setup:\n    Upload your current resume in PDF format to your Google Drive.\n    Action: Find the File ID of the uploaded resume in Google Drive (part of the shareable link). Paste this File ID into the File ID parameter within the DownloadResume (Google Drive) node.\nLinkedIn Search Definition:\n    Go to LinkedIn Jobs (www.linkedin.com/jobs/search/) using an incognito/private browser window to ensure you get a public URL.\n    Apply all your desired filters (keywords, location, date posted, job type, industry, etc.).\n    Copy the complete URL from your browser's address bar.\n    Action: In the ScrapeLinkedin (HTTP Request) node, navigate to the Body &gt; JSON parameter. Replace the example URL within the urls array [ \"YOUR_LINKEDIN_SEARCH_URL_HERE\" ] with the URL you just copied. Make sure the URL is enclosed in double quotes.\nPersonalization Inputs:\n    Action: Go to the Input node:\n        In the Preference assignment, replace the example text in the Value field with your detailed job preferences (e.g., \"Seeking remote Data Scientist roles in SaaS companies with less than 1000 employees, strong preference for Python/ML focus\").\n        In the EmailAddressToReceiveJobRecommendations assignment, enter the email address where you want to receive the daily job list in the Value field.\nEmail Sender Configuration:\n    Action: In the Email the top job recommendations (Gmail) node, ensure the correct Gmail credential (the account you want to send emails from) is selected.\n\nHow to customize this workflow:\n\nRun Schedule:** Modify the settings in the Schedule Trigger node to change the time or frequency (e.g., twice daily, weekly).\nJob Search Criteria:** Update the LinkedIn search URL in the ScrapeLinkedin node whenever you want to target different roles, industries, or locations.\nMatching Preferences:** Refine the text in the Preference field within the Input node to guide the AI's matching process more accurately.\nAI Behavior:** Advanced users can adjust the system prompt within the AI Agent: Find Best-matched jobs node to change how the AI analyzes or presents information (ensure the output structure still matches the Structured Output Parser and email node expectations).\nNumber of Jobs Scraped:** Change the count value (e.g., from 100) in the JSON Body of the ScrapeLinkedin node. Note that higher numbers may increase Apify costs/usage.\nNumber of Jobs Emailed:** To change the number of recommendations (e.g., top 3 or top 10), you'll need to:\n    Modify the AI prompt in the AI Agent: Find Best-matched jobs node to request the desired number.\n    Adjust the Structured Output Parser node's example/schema if needed.\n    Update the HTML code in the Email the top job recommendations node to correctly loop through and display the new number of jobs.\nEmail Appearance:** Edit the HTML within the Message field of the Email the top job recommendations node to customize the email's style, colours, or layout.\n\nCategory:\n\nJob Search, Automation, AI, Productivity, Career Management",
+  "totalViews": 1105,
+  "source": "official",
+  "user": {
+    "id": 92701,
+    "name": "Tianyi",
+    "username": "muzi",
+    "bio": "Ph.D. in Machine Learning from the University of Toulouse.\nExperienced automation consultant specializing in optimizing workflows for Content creation and Marketing teams. ",
+    "verified": true,
+    "links": "[\"www.linkedin.com/in/tianyi-li-v\"]",
+    "avatar": "https://gravatar.com/avatar/43163225998120af2d88664551ec779ceb7518ef30b5a6c27f81649a0fb641d0?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Auto-fixing Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-04-13T16:34:43.497Z",
+  "path": "official/template_3543/workflow.json"
+}

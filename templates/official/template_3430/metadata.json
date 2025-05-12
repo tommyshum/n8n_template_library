@@ -1,0 +1,87 @@
+{
+  "id": 3430,
+  "name": "Generate Multiple T-shirt Design Prompts From Images With GPT-4o",
+  "description": "Disclaimer\nThis Workflow uses a community node.\n\nWhat It Does\nWorkflow Demonstration\n\nThis powerful workflow eliminates hours of trial and error when trying to craft the perfect prompt for AI-generated images. By simply saving an image of the design you want to model your generated images after into a designated folder on your desktop, the workflow is automatically triggered. Once the image is saved, n8n pulls it into the workflow, where an Analyze Image AI agent powered by GPT-4o analyzes it and generates a detailed text description. This description is then passed to another Prompt/Text Generator AI agent, which uses it as a template to create five entirely new and unique image prompts using the power of GPT-4o. These prompts produce images that share a similar art style with the original, while remaining creatively distinct. In addition, the AI will extract the original phrase and generate nine brand-new phrases that can be incorporated into the image. Finally, all this information is automatically saved into a folder on your computer, ready for you to use whenever you like.\nWho This Is For\nThis workflow is ideal for anyone looking to create high-quality AI-generated images with ease. It’s especially valuable for those running a print-on-demand business or working in logo and artwork design. By automating the process of crafting image prompts that match a desired style, it saves you hours of manual effort and guesswork. With this streamlined system, you can focus less on prompt engineering and more on what truly matters—growing your business.\nHow It Works\nOnce you find an image or design that perfectly matches the style you're aiming for, the rest of the process is seamless. With the workflow running, simply save the image to the designated folder that triggers the automation. This action activates the workflow, and the image is automatically pulled into n8n using the Get Image From File node.\nFrom there, the Analyze Image AI Agent, powered by GPT-4o, takes over. It examines the image in depth—assessing its overall theme, art style, text phrase, font, aesthetic, and complexity (whether it’s a simple design or a more detailed composition). Based on this analysis, it generates a detailed description of the image along with the original text phrase it contains.\nOnce the analysis is complete, a second AI agent, Prompt/Text Generator, receives this information and uses GPT-4o to create five unique image prompts. These prompts are designed to replicate the essence and style of the original image, while still producing completely original results when used with any AI image generator. In addition to the original phrase, the agent also generates nine brand-new text phrases.\nBy combining each of the five prompts with the ten total text phrases (original + nine new), the workflow gives you the potential to generate 50 unique image variations.\nFinally, the Save to File node takes the entire output from the Prompt/Text Generator—including all five image prompts and ten text phrases—that was converted to text and automatically saves it into a designated folder on your computer for future use.\nAfter a completed workflow has been saved to the designated folder you must change the name of the file prior to running the workflow again. The workflow will only save the same file name each time.\nSet Up Steps\nYou will need to create a folder on your computer where you would like to save your original image. You will then copy the pathway to this folder into the local file trigger node.\nYou will need to obtain an Open AI API key from platform.openai.com/api-keys\nAfter you obtain this Open AI API key you will need to connect it to the Analyze Image AI Agent and the Open AI Chat Model connected to the Prompt/Text Generator AI Agent.\nYou will now need to fund your Open AI account. GPT 4o costs ~$0.01-$0.02 to run the workflow.\nFinally create a folder on your computer you wish to have the summarizations saved to. Copy the pathway to this folder into the Save to File node.\n\n\n\n\n",
+  "totalViews": 66,
+  "source": "official",
+  "user": {
+    "id": 93276,
+    "name": "AiAgent",
+    "username": "lifehacks",
+    "bio": "As a self-taught entrepreneur, I’m passionate about automating everyday tasks to simplify life. Every system I create is designed to enhance efficiency and free up valuable time. Once I perfect an automation that transforms my own routine, I’m excited to share it with you—so you can experience the same benefits.",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/af6caa2c84043e51a8859227ed233fc3eb5137a348174f32ec7cb80d9ca790de?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-04-04T04:35:59.170Z",
+  "path": "official/template_3430/workflow.json"
+}

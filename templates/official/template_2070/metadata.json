@@ -1,0 +1,76 @@
+{
+  "id": 2070,
+  "name": "Airtable - Automate Recurring Tasks",
+  "description": "Hello there!\n\nThis is a supporting workflow for an Airtable Base that handles Recurring Tasks. The objective of the workflow is to handle creating tasks on a recurring basis depending on the Airtable Setup\n\nYou can access that Airtable Template here for complete context- Airtable Universe\n\nThe functionality of the workflow can be easliy adapted to any data source. Feel free to contact us with any doubts or questions at http://sidetool.co\n​\nUse this as is, or adapted to your existing Airtable Base – embrace automated simplicity! 🚀🌟",
+  "totalViews": 1629,
+  "source": "official",
+  "user": {
+    "id": 91312,
+    "name": "Sidetool",
+    "username": "sidetool",
+    "bio": "",
+    "verified": false,
+    "links": "[\"https://sidetool.co/\"]",
+    "avatar": "https://gravatar.com/avatar/9bdaae888e401658cfd8d2aca7e66a876189588345b60a4a882992229d8a9eb7?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2024-01-29T17:46:59.625Z",
+  "path": "official/template_2070/workflow.json"
+}

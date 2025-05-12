@@ -1,0 +1,32 @@
+{
+  "id": 2214,
+  "name": "Grist: On row confirmed, create row in other table",
+  "description": "In Grist, when I mark a row as confirmed (via a toggle):\n\n\na webhook is set up to notify n8n, and this workflow will create derived records in the destination table.\n\nDesign decisions\nConfirmation-based\nIn the source table there is a boolean column \"Confirmed\" that will trigger the transfer.\nThis way there is a manual check involved & it's a conscious step to trigger the workflow.\nRuns once\nIf the destination table already contains an entry, we will not re-create/update it (as it might've already been changed manually)\n\nSetup\nCreate a boolean column Confirmed in source table\nAdd a webhook in Grist Settings\nAdd grist API credentials in n8n\nSet document ID & source table ID/Name in the 'get existing' node\nSet docID, the destination table ID/Name - and the columns & values you want in the Create Row node",
+  "totalViews": 651,
+  "source": "official",
+  "user": {
+    "id": 24063,
+    "name": "Manu",
+    "username": "tennox",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://txlab.io\"]",
+    "avatar": "https://gravatar.com/avatar/2d81612cea16a74b43a68c932b1519d95d075a9176396649fdd837c68e2de12b?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "Grist",
+      "type": "n8n-nodes-base.grist",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-04-05T09:40:08.227Z",
+  "path": "official/template_2214/workflow.json"
+}

@@ -1,0 +1,72 @@
+{
+  "id": 2273,
+  "name": "Automated Workflow for Daily LinkedIn Posts Using Notion",
+  "description": "This workflow automates daily LinkedIn posts using Notion. It starts by fetching the day's post from a Notion database, processes and formats the content, including images, then publishes it on LinkedIn. Finally, it updates the post status in the Notion database. \n\n\nSet up Notion and LinkedIn credentials as required.",
+  "totalViews": 19336,
+  "source": "official",
+  "user": {
+    "id": 91713,
+    "name": "Matheus Weckwerth",
+    "username": "matheusweck",
+    "bio": "",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/6c33fde69a065ccba416c71aab3a2a13ab865633894ec3a8782b9538bcd2935a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Marketing",
+    "Communication",
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "LinkedIn",
+      "type": "n8n-nodes-base.linkedIn",
+      "categories": [
+        "Marketing",
+        "Communication"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2024-05-28T00:32:18.488Z",
+  "path": "official/template_2273/workflow.json"
+}

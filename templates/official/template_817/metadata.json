@@ -1,0 +1,46 @@
+{
+  "id": 817,
+  "name": "Save your workflows into a GitHub repository",
+  "description": "Basics\n\nProvides a mechanism to save all your workflows into a github repository and path (of your choosing).  These can then be shared through your entire org and used to track changes (if you make any sad 'oopsies'.\n\nFlow\n\nObtains and creates listing of currently configured workflows.\nIterates through each workflow looking at the following\n\tGithub source (if present)\n\tActual workflow code (from N8N)\nWorkflow code is sorted and compared for any changes\nIf changed (or new) the workflows are saved / archived into github.\n\nConfiguration\n\nMost of the configuration is done in the Globals node which houses the repo detail for github nodes.  The only other dependency is that it by default looks for a GitHub credential, if you use something other than that precise wording you will need to change the credential used on the respective nodes.  We gave it 'Manage' rights, but that was only so that it was able to override a requirement for checks to complete?  Most would probably only need 'Write' privileges.\n\nBackground\n\nWell, so we initially started using N8N just as a kubernetes-based service housed with its DB running inside the pod.  Worked great for getting to know N8N and we jut kept all our workflows and credentials listed in a readme.  Fast forward about a year...\n\nWe have migrated this into our 'production' toolsets and maintain a bunch of team worflows inside it (not company-wide, but LOTS of team fun).  While trying to spin a copy of our production RDS database, the ++actual++ production database was deleted, and in doing so AWS was nice enough to wipe our snapshots too!! Yea!\n\nThankfully it only took us a few hours to get everything back up and running thanks to this, so I'm sharing it for everyone to benefit.  We have used it to restore old workflows, changes, and now to test our full DR proceedures! (Ok, I might have taken that a bit far)",
+  "totalViews": 8508,
+  "source": "official",
+  "user": {
+    "id": 9380,
+    "name": "Brian Burnett",
+    "username": "hikerspath",
+    "bio": null,
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/9cab36a2a8e4fc9b20cb0b8c8c2c52d879d20a1fe5b66a6afa298acf06b1993e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "GitHub",
+      "type": "n8n-nodes-base.github",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2020-12-09T16:07:45.661Z",
+  "path": "official/template_817/workflow.json"
+}

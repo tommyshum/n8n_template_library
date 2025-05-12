@@ -1,0 +1,46 @@
+{
+  "id": 1222,
+  "name": "Backup workflows to GitHub",
+  "description": "Note: This workflow uses the internal API which is not official. This workflow might break in the future.\n\nThe workflow executes every night at 23:59. You can configure a different time bin the Cron node.\n\nConfigure the GitHub nodes with your username, repo name, and the file path.\n\nIn the HTTP Request nodes (making a request to localhost:5678), create Basic Auth credentials with your n8n instance username and password.\n",
+  "totalViews": 9012,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "GitHub",
+      "type": "n8n-nodes-base.github",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2021-09-08T16:39:29.708Z",
+  "path": "official/template_1222/workflow.json"
+}

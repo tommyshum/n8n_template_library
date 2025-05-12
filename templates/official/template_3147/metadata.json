@@ -1,0 +1,55 @@
+{
+  "id": 3147,
+  "name": "Backup Clockify to Github based on monthly reports",
+  "description": "Purpose\n\nThis workflow creates a versioned backup of an entire Clockify workspace split up into monthly reports.\n\nHow it works\n\nThis backup routine runs daily by default\nThe Clockify reports API endpoint is used to get all data from the workspace based on time entries\nA report file is being retrieved for every month starting with the current one, going back 3 month in total by default\nIf changes happened during a day to any report, it is being updated in Github\n\nPrerequisites\n\nCreate a private Github repository\nCreate credentials for both Clockify and Github (make sure to give permissions for read and write operations)\n\nSetup\n\nClone the workflow and select the belonging credentials\nFollow the instructions given in the yellow sticky notes\nActivate the workflow",
+  "totalViews": 289,
+  "source": "official",
+  "user": {
+    "id": 91699,
+    "name": "Mario",
+    "username": "octionic",
+    "bio": "Workflow Optimization Expert | Software Architect. Use my link to book an initial consultation for custom built workflows using n8n.",
+    "verified": true,
+    "links": "[\"https://octionic.com\"]",
+    "avatar": "https://gravatar.com/avatar/48bf351cec848d87566d8cc78c9a783ec4807408366648de04cfe955d7a5ba21?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "GitHub",
+      "type": "n8n-nodes-base.github",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Clockify",
+      "type": "n8n-nodes-base.clockify",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-03-12T23:38:50.500Z",
+  "path": "official/template_3147/workflow.json"
+}

@@ -1,0 +1,77 @@
+{
+  "id": 3493,
+  "name": "Monitor SSL Certificate Expiry with Google Sheets and Multi-Channel Alert",
+  "description": "SSL Expiry Alert System\n\nWho is this for?\nThis workflow is ideal for administrators or IT professionals responsible for monitoring SSL certificates of multiple websites to ensure they do not expire unexpectedly.\n\nProblem\nSSL certificates play a crucial role in ensuring secure communication over the internet. However, if not monitored closely, they can expire, leading to potential security risks and service disruption. This workflow helps in proactively monitoring SSL certificate expiry dates.\n\nFunctionality\nPulls URLs to monitor from a Google Sheet.\nChecks SSL certificates using SSL-Checker.io.\nUpdates Google Sheet with SSL details such as expiry date and certificate status.\nSends email alerts for SSL certificates nearing expiry (&lt;30 days) or invalid certificates.\n\nSetup\nClone the provided Google Sheet and update the Google Sheet URL in the \"URLs to Monitor\" node.\nSet up Google Sheets and Gmail credentials in n8n.\nConfigure the Discourse Trigger for weekly monitoring.\nCustomize email/telegram/ntfy alert settings as needed.\n\nCustomization\nModify the frequency of monitoring by adjusting the trigger interval in the \"Weekly Trigger\" node.\nCustomize email content and recipients in the \"Send Alert Email\" node.\nExtend functionality by adding additional checks or actions based on SSL certificate status.\n\nNote\nEnsure proper authentication and authorization for accessing Google Sheets, SSL-Checker.io, and Gmail accounts within the workflow.",
+  "totalViews": 1261,
+  "source": "official",
+  "user": {
+    "id": 93690,
+    "name": "Jesse Davids",
+    "username": "cultrix",
+    "bio": "Medical doctor and self-taught IT-enthusiast.",
+    "verified": false,
+    "links": "[\"https://www.linkedin.com/in/jesse-th-davids/\"]",
+    "avatar": "https://gravatar.com/avatar/76318f1b2a2b5eeda9bfb5b82e19e5e581808300de071a1c620b55f143bffea3?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-04-09T07:25:10.177Z",
+  "path": "official/template_3493/workflow.json"
+}

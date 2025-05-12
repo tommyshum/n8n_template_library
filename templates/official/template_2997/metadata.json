@@ -1,0 +1,49 @@
+{
+  "id": 2997,
+  "name": "Automated AI image tagging and writing keywords into image (via community node)",
+  "description": "Welcome to my Automated Image Metadata Tagging Workflow!\n\nDISCLAIMER: This workflow only works with self-hosted n8n instances! You have to install the n8n-nodes-exif-data Community Node! An alternative for cloud using is this workflow\n\nThis workflow automatically analyzes the image content with the help of AI and writes it directly back into the image file as keywords.\n(https://n8n.io/workflows/2995).**\n\nThis workflow has the following steps:\n\nGoogle Drive trigger (scan for new files added in a specific folder)\nDownload the added image file\nAnalyse the content of the image\nMerge Metadata and image file\nWrite the Keywords into the Metadata (dc:subject/keywords) and create new image file\nUpdate the original file in the Google Drive folder\n\nThe following accesses are required for the workflow:\nYou have to install the n8n-nodes-exif-data Community Node**\nGoogle Drive: Documentation\nAI API access (e.g. via OpenAI, Anthropic, Google or Ollama)\n\nYou can contact me via LinkedIn, if you have any questions: https://www.linkedin.com/in/friedemann-schuetz",
+  "totalViews": 800,
+  "source": "official",
+  "user": {
+    "id": 92319,
+    "name": "Friedemann Schuetz",
+    "username": "freddy-schuetz",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/friedemann-schuetz\"]",
+    "avatar": "https://gravatar.com/avatar/eb8eb92141f57c72c5f5a9fb5e8c85dca42047f764de54ab5466999cbb691079?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-02-24T13:51:57.036Z",
+  "path": "official/template_2997/workflow.json"
+}

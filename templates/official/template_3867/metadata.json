@@ -1,0 +1,81 @@
+{
+  "id": 3867,
+  "name": "Store Chat Data in Supabase PostgreSQL for WhatsApp/Slack Chatbot ",
+  "description": "n8n Template: Store Chat Data in Supabase PostgreSQL for WhatsApp/Slack Integration\n\nThis n8n template captures chat data (like user ID, name, or address) and saves it to a Supabase PostgreSQL database. It’s built for testing now but designed to work with WhatsApp, Slack, or similar platforms later, where chat inputs aren’t predefined.\nGuide with images can be found on: https://github.com/JimPresting/Supabase-n8n-Self-Hosted-Integration/\n\nStep 1: Configure Firewall Rules in Your VPC Network\n\nTo let your n8n instance talk to Supabase, add a firewall rule in your VPC network settings (e.g., Google Cloud, AWS, etc.).\n\nGo to VPC Network settings.\nAdd a new firewall rule:\n   Name: allow-postgres-outbound\n   Direction: Egress (outbound traffic)\n   Destination Filter: IPv4 ranges\n   Destination IPv4 Ranges: 0.0.0.0/0 (allows all; restrict to Supabase IPs for security)\n   Source Filter: \n     Pick IPv4 ranges and add the n8n VM’s IP range, or\n     Pick None if any VM can connect\n   Protocols and Ports:\n     Protocol: TCP\n     Port: 5432 (default PostgreSQL port)\n\nSave the rule.\n\nStep 2: Get the Supabase Connection String\n\nLog into your Supabase Dashboard.\nGo to your project, click the Connect button in the header.\nCopy the PostgreSQL connection string:\n\n      postgresql://postgres.fheraruzdahjd:[YOUR-PASSWORD]@aws-0-eu-central-1.pooler.supabase.com:6543/postgres\n   \n   Replace [YOUR-PASSWORD] with your Supabase account password (no brackets) and replace the string before that with your actual unique identifier.\n   Note the port (6543 or 5432)—use what’s in the string.\n\nStep 3: Set Up the n8n Workflow\n\nThis workflow takes chat data, maps it to variables, and stores it in Supabase. It’s built to handle messy chat inputs from platforms like WhatsApp or Slack in production.\n\nWorkflow Steps\n\nTrigger Node: \"When clicking 'Test workflow'\" (manual trigger).\n   For now, it’s manual. In production, this will be a WhatsApp or Slack message trigger, which won’t have a fixed input format.\n\nSet Node: \"Set sample input variables (manual)\".\n   This node sets variables like id, name, address to mimic chat data.\n   Why? Chat platforms send unstructured data (e.g., a message with a user’s name or address). We map it to variables so we can store it properly. The id will be something unique like a phone number, account ID, or account number.\n\nSample Agent Node: Uses a model (e.g., GeminiFlash2.0 but doesn't matter).\n   This is a placeholder to process data (e.g., clean or validate it) before saving. You can skip or customize it.\n\nSupabase PostgreSQL Node: \"Supabase PostgreSQL Database\".\n   Connects to Supabase using the connection string from Step 2.\n   Saves the variables (id, name, address) to a table.\n   Why store extra fields? The id (like a phone number or account ID) is the key. Extra fields like name or address let us keep all user info in one place for later use (e.g., analytics or replies).\n\nOutput Node: \"Update additional values e.g., name, address\".\n   Confirms the data is saved. In production, this could send a reply to the chat platform.\n\nWhy This Design?\n\nHandles Unstructured Chat Data**: WhatsApp or Slack messages don’t have a fixed format. The \"Set\" node lets us map any incoming data (e.g., id, name) to our database fields.\nScales for Production**: Using id as a key (phone number, account ID, etc.) with extra fields like name makes this workflow flexible for many use cases, like user profiles or support logs.\nFuture-Ready**: It’s built to swap the manual trigger for a real chat platform trigger without breaking.\n\nStep 4: Configure the Supabase PostgreSQL Node\n\nIn the n8n workflow, set up the Supabase PostgreSQL node:\n   Host: aws-0-eu-central-1.pooler.supabase.com (from the connection string)\n   Port: 6543 (or what’s in the connection string)\n   Database: postgres\n   User: postgres.fhspudlibstmpgwqmumo (from the connection string)\n   Password: Your Supabase password\n   SSL: Enable (Supabase usually requires it)\n\nSet the node to Insert or Update:\n   Map id to a unique column in your Supabase table (e.g., phone number, account ID).\n   Map fields like name, address to their columns.\n\nTest the workflow to confirm data saves correctly.\n\nSecurity Tips\n\nLimit Firewall Rules**: Don’t use 0.0.0.0/0. Find Supabase’s IP ranges in their docs and use those.\nHide Passwords**: Store your Supabase password in n8n’s environment variables.\nUse SSL**: Enable SSL in the n8n node for secure data transfer.\n\n\n\n",
+  "totalViews": 136,
+  "source": "official",
+  "user": {
+    "id": 93653,
+    "name": "JPres",
+    "username": "stardawnai",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://github.com/JimPresting/\"]",
+    "avatar": "https://gravatar.com/avatar/c1767436a4c7e4856114365bcac5df2f32cfb367c6dc607106edffd6d3df4b2e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Supabase",
+      "type": "n8n-nodes-base.supabase",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Postgres Chat Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "Other memories"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-05-05T09:30:12.206Z",
+  "path": "official/template_3867/workflow.json"
+}

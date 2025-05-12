@@ -1,0 +1,103 @@
+{
+  "id": 3442,
+  "name": "Fully Automated AI Video Generation & Multi-Platform Publishing",
+  "description": "Description\n\nThis comprehensive n8n automation template orchestrates a complete end-to-end workflow for generating engaging short-form Point-of-View (POV) style videos using multiple AI services and automatically publishing them across major social media platforms. It takes ideas from a Google Sheet and transforms them into finished videos with captions, voiceovers, and platform-specific descriptions, ready for distribution.\n\nWho Is This For?\n\nContent Creators & Agencies:** Mass-produce unique short-form video content for various clients or channels with minimal manual effort.\nDigital Marketers:** Automate video content pipelines to boost online presence and engagement across multiple platforms simultaneously.\nSocial Media Managers:** Schedule and distribute consistent video content efficiently without juggling multiple tools and manual uploads.\nBusinesses:** Leverage AI to create branded video content for marketing, reducing production time and costs.\n\nWhat Problem Does This Workflow Solve?\n\nCreating and distributing high-quality short-form video content consistently across multiple social networks is incredibly time-consuming and resource-intensive. This workflow tackles these challenges by:\n\nAutomating Idea-to-Video Pipeline:** Generates video concepts, image prompts, scripts, images, video clips, and voiceovers using AI.\nStreamlining Video Assembly:** Automatically combines generated assets into a final video using a template.\nGenerating Platform-Optimized Descriptions:** Creates relevant descriptions for posts by transcribing the final video audio.\nAutomating Multi-Platform Publishing:** Uploads the final video and description to TikTok, Instagram, YouTube, Facebook, and LinkedIn simultaneously.\nReducing Manual Workload:** Drastically cuts down the time and effort required for video production and distribution.\nCentralized Tracking:** Updates a Google Sheet with results, costs, and status for easy monitoring.\n\nHow It Works\n\nTrigger & Input: Runs on a daily schedule (configurable) and fetches new video ideas from a designated Google Sheet.\nAI Content Generation:\n    Uses OpenAI to generate video captions and image prompts based on the idea.\n    Uses PiAPI (Flux) to generate images from prompts.\n    Uses PiAPI (Kling) to generate video clips from the images (Image-to-Video).\n    Uses OpenAI to generate a voiceover script based on the captions.\n    Uses ElevenLabs to generate voiceover audio from the script and uploads it to Google Drive.\nVideo Assembly: Combines the generated video clips, captions, and voiceover audio using a Creatomate template to render the final video.\nDescription Generation: Uploads the final video to Google Drive, extracts the audio using OpenAI (Whisper), and generates a social media description using OpenAI (GPT).\nMulti-Platform Distribution: Uses upload-post.com to upload the final video and generated description to TikTok, Instagram, YouTube, Facebook, and LinkedIn.\nTracking & Notification: Updates the original Google Sheet row with output details (video link, costs, tokens used) and sends a completion notification via Discord.\n\nSetup\n\nAccounts & API Keys: Obtain accounts and generate API keys/credentials for:\n    n8n\n    Google Cloud Platform (for Google Sheets & Google Drive APIs + OAuth Credentials)\n    OpenAI\n    PiAPI\n    ElevenLabs\n    Creatomate\n    upload-post.com\n    Discord (Webhook URL)\nGoogle Sheet: Make a copy of the provided Google Sheet Template and connect it in the Load Google Sheet node.\nCreatomate Template: Set up a video template in Creatomate (use the provided JSON source code as a base) and note its Template ID.\nConfigure Nodes:\n    Enter all API Keys/Credentials in the Set API Keys node and other relevant credential sections (Google nodes, upload-post nodes, etc.).\n    Configure Google Drive nodes (Folder IDs, Permissions).\n    Configure the upload-post.com nodes with your user identifier and necessary platform details (e.g., Facebook Page ID).\n    Customize AI prompts within the OpenAI nodes (Generate Video Captions, Generate Image Prompts, Generate Script, Generate Description...) if desired.\n    Set the Discord Webhook URL in the Notify me on Discord node.\nEnable Google APIs: Ensure Google Drive API and Google Sheets API are enabled in your Google Cloud Project.\n\nRequirements\n\nAccounts:** n8n, Google (Sheets, Drive, Cloud Platform), OpenAI, PiAPI, ElevenLabs, Creatomate, upload-post.com, Discord.\nAPI Keys & Credentials:** API Keys for OpenAI, PiAPI, ElevenLabs, Creatomate, upload-post.com. Google Cloud OAuth 2.0 Credentials. Discord Webhook URL.\nTemplates:** A configured Google Sheet based on the template, a configured Creatomate video template.\n(Potentially) Paid Plans:** Some services (OpenAI, PiAPI, Creatomate, upload-post.com) may require paid plans depending on usage volume after free trials/credits are exhausted.\n\nUse this template to build a powerful, automated video content factory, scaling your production and distribution efforts across the social media landscape.",
+  "totalViews": 58328,
+  "source": "official",
+  "user": {
+    "id": 92698,
+    "name": "Juan Carlos Cavero Gracia",
+    "username": "carlosgracia",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://x.com/fotoexamen\"]",
+    "avatar": "https://gravatar.com/avatar/e1fc0901703aede75c35d38ff26caf8e44b424893e1330efb483d68f5f67e059?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Discord",
+      "type": "n8n-nodes-base.discord",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-04-05T18:28:46.255Z",
+  "path": "official/template_3442/workflow.json"
+}

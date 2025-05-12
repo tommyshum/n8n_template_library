@@ -1,0 +1,66 @@
+{
+  "id": 2435,
+  "name": "Monitor Multiple Github Repos via Webhook",
+  "description": "What this workflow does\nThis workflow allows you to monitor multiple Github repos simultaneously without polling due to use of Webhooks. It programmatically allows for adding and deleting of repos to your watchlist to make management convenient.\n\nDescription\nCan monitor multiple repos simultaneously.\nProgrammatically register or unregister repos from a list. No need for manual work.\nWebhook notification means no constant polling necessary.\n\nSetup\n1. Creating Credentials on Github\nGenerate a personal access token on github by following these esteps;\nRight hand side of page -> Settings -> scroll to bottom -> Developer Settings > Personal Access Token > Tokens (classic) > Generate New Token\nGive scopes:\n   admin:repo_hook\n   repo (if you want to use it for your own private repo)\n\nif you need more help, see here:\nhttps://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens\n\n2. Setting Credentials in n8n\nIn Register Github Webhook\nAuthenticaion > Generic Credential Type\nGeneric Auth Type > Header Auth\nHeader Auth > Create New Credential with Name set to 'Authorization' and Value set to 'Bearer '.\n(You can reuse this for Delete Github Webhook and Get Existing Webhooks).\nNow in Register Github Webhook, scroll down to Send Body > JSON and inside the JSON, change the value of \"url\" to the webhook address given as Production URL in the node Webhook Trigger.\n\n3. Notification settings\nIn the third row, link up the Webhook Trigger to any API of your choice. Slack and Telegram are given as examples.\nYou can also format the notification message as you wish.\n\nSetup time: roughly 10 minutes.\n\nInstructions Video:\nhttps://vimeo.com/1013473758\n\nTest\n1. Register Webhooks\nIn Repos to Monitor, add any repo you want to monitor changes for. \nDisable Webhook Trigger, Click Test Workflow and if your Github credentials were set correctly, it will automatically register the webhooks. - You can test this by running the single node Get Existing Webhook and confirming it outputs the repo addresses.\n2. Handle Github Events\nNow that you have registered the webhooks, re-enable Webhook Trigger and activate the workflow.\nMake a commit to any of the registered repos.\nConfirm that the notification went through.\nThat's it!",
+  "totalViews": 5374,
+  "source": "official",
+  "user": {
+    "id": 91959,
+    "name": "Jay Hartley",
+    "username": "jay",
+    "bio": "Low-code/no-code developer for automated solutions. Several years experience in automated workflow building for content creation management, distribution and marketing.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/6c7feb8fe0cc33e0668424a616614c0ddd1adecf273274b690c6b41dd8aea245?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-09-27T10:16:59.342Z",
+  "path": "official/template_2435/workflow.json"
+}

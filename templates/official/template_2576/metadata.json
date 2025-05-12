@@ -1,0 +1,62 @@
+{
+  "id": 2576,
+  "name": "Import Productboard Notes, Companies and Features into Snowflake",
+  "description": "This workflow imports Productboard data into Snowflake, automating data extraction, mapping, and updates for features, companies, and notes. It supports scheduled weekly updates, data cleansing, and Slack notifications summarizing the latest insights.\n\nFeatures\nFetches data from Productboard (features, companies, notes).\nMaps and processes data for Snowflake tables.\nAutomates table creation, truncation, and updates.\nSummarizes new and unprocessed notes.\nSends weekly Slack notifications with key insights.\n\nSetup\nConfigure Productboard and Snowflake credentials in n8n.\nUpdate Snowflake table schemas to match your setup.\nReplace Slack channel ID and dashboard URL in the notification node.\nActivate the workflow and set the desired schedule.",
+  "totalViews": 518,
+  "source": "official",
+  "user": {
+    "id": 92193,
+    "name": "Romain Jouhannet",
+    "username": "rjouhann",
+    "bio": "Technical Product Manager with a background in software development. Experienced in launching products, leading teams, and creating API-first solutions. Skilled in SaaS, Self-Hosted products, major public clouds, and automation, with a focus on simplifying complex technical concepts for enterprise clients.",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/romainj/\"]",
+    "avatar": "https://gravatar.com/avatar/d85f4c3b78e574e660ecc7f0ad9ffa5151f963e7a2c3d7cbc80c01c2ff01ce30?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Snowflake",
+      "type": "n8n-nodes-base.snowflake",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-11-25T17:27:56.565Z",
+  "path": "official/template_2576/workflow.json"
+}

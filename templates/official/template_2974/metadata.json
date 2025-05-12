@@ -1,0 +1,52 @@
+{
+  "id": 2974,
+  "name": "Bitrix24 Task Form Widget Application Workflow with Webhook Integration",
+  "description": "Use Case\nExtend Bitrix24 tasks with custom widgets that display relevant task information and enable seamless interaction through a custom tab interface.\n\nWhat This Workflow Does\nProcesses incoming webhook requests from Bitrix24 task interfaces\nHandles authentication and secure token validation\nManages application installation and placement registration\nDisplays task data in a custom formatted view\nStores and retrieves configuration settings persistently\nProvides user-friendly HTML interfaces for task information\n\nSetup Instructions\nConfigure Bitrix24 webhook endpoints for the task widget\nSet up authentication credentials in your Bitrix24 account\nInstall the application and register the task view tab placement\nCustomize the task data display format as needed\nDeploy and test the application functionality within Bitrix24 tasks",
+  "totalViews": 976,
+  "source": "official",
+  "user": {
+    "id": 92759,
+    "name": "Ferenc Erb",
+    "username": "fefehun",
+    "bio": "With 30+ years in IT and 20+ years in leadership, I specialize in no-code automation with n8n, optimizing workflows and integrating systems efficiently. As an Agile Coach and Project Manager, I’ve led teams, managed R&D, and driven IT transformations. Skilled in n8n, Java, Node.js, and cloud solutions, I help businesses streamline operations. Let’s connect if you need an n8n expert for automation!",
+    "verified": true,
+    "links": "[\"www.it-coach.hu\"]",
+    "avatar": "https://gravatar.com/avatar/89eb1e65e00f5f62ee56498ca48f434eb1abddc9a863699ac96d7a3089eb5ab8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-02-22T08:44:44.327Z",
+  "path": "official/template_2974/workflow.json"
+}

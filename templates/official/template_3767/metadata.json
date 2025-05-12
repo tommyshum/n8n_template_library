@@ -1,0 +1,78 @@
+{
+  "id": 3767,
+  "name": "Update Hubspot engagement by parsing inbox mail with AI",
+  "description": "Who is this for?  \nThis workflow is designed for Customer Success Managers (CSM), sales, support, or marketing teams using HubSpot CRM who want to automate customer engagement tracking when new emails arrive. It’s ideal for businesses looking to streamline CRM updates without manual data entry.  \n\nProblem Solved / Use Case  \nManually logging email interactions in HubSpot is time-consuming. This workflow automatically parses incoming emails, checks if the sender exists in HubSpot, and either:  \nCreates a new contact + logs the email as an engagement (if the sender is new).  \nLogs the email as an engagement for an existing contact.  \n\nWhat This Workflow Does  \nTriggers when a new email arrives in a connected IMAP inbox.  \nParses the email using AI (OpenAI) to extract structured data.  \nSearches HubSpot for the sender’s email address.  \nUpdates HubSpot:  \n   Creates a contact (if missing) and logs the email as an engagement.  \n   Or logs the engagement for an existing contact.  \n\nSetup  \nConfigure Email Account: Replace the default IMAP node with your email provider\nHubSpot Credentials: Add your HubSpot API key in the HubSpot nodes.  \nOpenAI Integration: Ensure your OpenAI API key is set for email parsing.  \nCustomization Tips  \nImprove AI Prompt**: Modify the OpenAI prompt to extract specific email data (e.g., customer intent).  \nAdd Filters**: Exclude auto-replies or spam by adding a filter node.  \nExtend Functionality**: Use the parsed data to trigger follow-up tasks (e.g., Slack alerts, tickets).  \n\nNeed Help? Contact thomas@pollup.net for workflow modifications or help.\n\nDiscover my other workflows here",
+  "totalViews": 242,
+  "source": "official",
+  "user": {
+    "id": 92501,
+    "name": "PollupAI",
+    "username": "zeerobug",
+    "bio": "We create bespoke AI solutions, automations and agents that help your business as it scales.",
+    "verified": true,
+    "links": "[\"https://pollup.ai\"]",
+    "avatar": "https://gravatar.com/avatar/6d3d2053279bc63e9be7bf4cd3fb74e13e7cc1309d32eab0b72140332cff577e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Sales",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HubSpot",
+      "type": "n8n-nodes-base.hubspot",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-04-28T07:46:17.906Z",
+  "path": "official/template_3767/workflow.json"
+}

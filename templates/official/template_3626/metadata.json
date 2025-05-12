@@ -1,0 +1,52 @@
+{
+  "id": 3626,
+  "name": "Create Animated Illustrations from Text Prompts with Midjourney and Kling API",
+  "description": "What does the workflow do?\nThis workflow is primarily designed to generate animated illustrations for content creators and social media professionals with Midjourney (unoffcial) and Kling (unofficial) API served by PiAPI. \nPiAPI is an API platform which provides professional API service. With service provided by PiAPI, users could generate a fantastic animated artwork simply using workflow on n8n without complex settings among various AI models.\n\nWhat is animated illustration?\nAn animated illustration is a digitally enhanced artwork that combines traditional illustration styles with subtle, purposeful motion to enrich storytelling while preserving its original artistic essence.\n\nWho is this workflow for?\n\nSocial Media Content Creators: Produces animated illustrations for social media posts.\nDigital Marketers: Generates marketing materials with motion graphics.\nIndependent Content Producers: Creates animated content without specialized animation skills.\n\nStep-by-step Setting Instructions\nTo simplify workflow settings, usually users just need to change basic prompt of the image and the motion of the final video following the instrution below:\nSign in your PiAPI account and get your X-API-Key.\nFill in your X-API-Key of PiAPI account in Midjourney and Kling nodes.\nEnter your desired image prompt in the Prompt node.\nEnter the motion prompt in Kling Video Generator node.\n\nFor more complex or customization settings, users could also add more nodes to get more output images and generate more videos. Also, they could change the target image to gain a better result. As for recommendation,  users could change the video models for which we would recommend live-wallpaper LoRA of Wanx. Users could check API doc to see more use cases of video models and image models for best practice.\n\nUse Case\nInput Prompt\nA gentle girl and a fluffy rabbit explore a sunlit forest together, playing by a sparkling stream. Butterflies flutter around them as golden sunlight filters through green leaves. Warm and peaceful atmosphere, 4K nature documentary style. --s 500 --sref 4028286908  --niji 6\n\nOutput Video\n\nWhen there is troubleshooting\nCheck if the X-API-Key has been filled in nodes needed.\nCheck your task status in Task History in PiAPI to get more details about task status. \n\nMore Generation Case for Reference\n",
+  "totalViews": 370,
+  "source": "official",
+  "user": {
+    "id": 93303,
+    "name": "PiAPI",
+    "username": "piapi",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4e47cc9f6664191e5fd06db7f9bafc58d224c50104b09e70e20e18a5e94721b7?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-04-21T08:38:58.884Z",
+  "path": "official/template_3626/workflow.json"
+}

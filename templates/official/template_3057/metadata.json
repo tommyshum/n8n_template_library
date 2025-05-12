@@ -1,0 +1,130 @@
+{
+  "id": 3057,
+  "name": "Create Social Media Content from Telegram with AI",
+  "description": " \nDescription:\n\nCreate Social Media Content from Telegram with AI\n\nThis n8n workflow empowers you to effortlessly generate social media content and captivating image prompts, all powered by AI. Simply send a topic request through Telegram (as a voice or text message), and watch as the workflow conducts research, crafts engaging social media posts, and creates detailed image prompts ready for use with your preferred AI art generation tool.\n\nWhat does this workflow do?\n\nThis workflow streamlines the content creation process by automating research, social media content generation, and image prompt creation, triggered by a simple Telegram message.\n\nWho is this for?\n\nSocial Media Managers:** Quickly generate engaging content and image ideas for various platforms.\nContent Creators:** Overcome writer's block and discover fresh content ideas with AI assistance.\nMarketing Teams:** Boost productivity by automating social media content research and drafting.\nAnyone** looking to leverage AI for efficient and creative social media content creation.\n\nBenefits\n\nEffortless Content and Image Prompt Generation:** Automate the creation of social media posts and detailed image prompts.\nAI-Powered Creativity:** Leverage the power of LLMs to generate original content ideas and captivating image prompts.\nIncreased Efficiency:** Save time and resources by automating the research and content creation process.\nVoice-to-Content:** Use voice messages to request content, making content creation even more accessible.\nEnhanced Engagement:** Create high-quality, attention-grabbing content that resonates with your audience.\n\nHow it Works\n\nReceive Request: The workflow listens for incoming voice or text messages on Telegram containing your content request.\nProcess Voice (if necessary): If the message is a voice message, it's transcribed into text using OpenAI's Whisper API.\nAI Takes Over: The AI agent, powered by an OpenAI Chat Model and SerpAPI, conducts online research based on your request.\nContent and Image Prompt Generation: The AI agent generates engaging social media content and a detailed image prompt based on the research.\nImage Generation (Optional): You can use the generated image prompt with your preferred AI art generation tool (e.g., DALL-E, Stable Diffusion) to create a visual.\nOutput: The workflow provides you with the social media content and the detailed image prompt, ready for you to use or refine.\n\nn8n Nodes Used\n\nTelegram Trigger\nSwitch\nTelegram (for fetching voice messages)\nOpenAI (Whisper API for voice-to-text)\nSet (for preparing variables)\nAI Agent (with OpenAI Chat Model and SerpAPI tool)\nHTTP Request (for optional image generation)\nExtract from File (for optional image processing)\nSet (for final output)\n\nPrerequisites\n\nActive n8n instance\nTelegram account with a bot\nOpenAI API key\nSerpAPI account\nHugging Face API key (if you want to generate images within the workflow)\n\nSetup\n\nImport the workflow JSON into your n8n instance.\nConfigure the Telegram Trigger node with your Telegram bot token.\nSet up the OpenAI and SerpAPI credentials in the respective nodes.\nIf you want to generate images directly within the workflow, configure the HTTP Request node with your Hugging Face API key.\nTest the workflow by sending a voice or text message to your Telegram bot with a topic request.\n\nThis workflow combines the convenience of Telegram with the power of AI to provide a seamless content creation experience. Start generating engaging social media content today!\n\n",
+  "totalViews": 9959,
+  "source": "official",
+  "user": {
+    "id": 92846,
+    "name": "Onur",
+    "username": "onurpolat05",
+    "bio": "Hello, I'm Onur\nI've been working as a freelance software developer for about four years. In addition, I develop my own projects. For some time, I have been improving myself and providing various services related to AI and AI workflows. Both by writing low code and code. If you have any questions, don't hesitate to contact me.",
+    "verified": true,
+    "links": "[\"https://onurpolat.bio\"]",
+    "avatar": "https://gravatar.com/avatar/1b89c2342766e3851ac5f68ac7f001c946e313d47a6e0b0d396b62ba9f850c37?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "SerpApi (Google Search)",
+      "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-03-02T10:54:06.090Z",
+  "path": "official/template_3057/workflow.json"
+}

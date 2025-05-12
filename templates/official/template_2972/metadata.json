@@ -1,0 +1,110 @@
+{
+  "id": 2972,
+  "name": "Turn BBC News Articles into Podcasts using Hugging Face and Google Gemini",
+  "description": "Turn BBC News Articles into Podcasts using Hugging Face and Google Gemini\n\nEffortlessly transform BBC news articles into engaging podcasts with this automated n8n workflow.\n\nWho is this for?\n\nThis template is perfect for:\n\nContent creators** who want to quickly produce podcasts from current events.\nStudents** looking for an efficient way to create audio content for projects or assignments.\nIndividuals** interested in generating their own podcasts without technical expertise.\n\nSetup Information\n\nInstall n8n: If you haven't already, download and install n8n from n8n.io.\nImport the Workflow: Copy the JSON code for this workflow and import it into your n8n instance.\nConfigure Credentials:\n    Gemini API: Set up your Gemini API credentials in the workflow's LLM nodes.\n    Hugging Face Token: Obtain an access token from Hugging Face and add it to the HTTP Request node for the text-to-speech model.\nCustomize (Optional):\n    Filtering Criteria: Adjust the News Classifier node to fine-tune the selection of news articles based on your preferences.\n    Output Options: Modify the workflow to save the generated audio file to a cloud storage service or publish it to a podcast hosting platform.\n\nPrerequisites\n\nAn active n8n instance.\nBasic understanding of n8n workflows (no coding required).\nAPI credentials for Gemini and a Hugging Face account with an access token.\n\nWhat problem does it solve?\n\nThis workflow eliminates the manual effort involved in creating podcasts from news articles. It automates the entire process, from fetching and filtering news to generating the final audio file.\n\nWhat are the benefits?\n\nTime-saving:** Create podcasts in minutes, not hours.\nEasy to use:** No coding or technical skills required.\nCustomizable:** Adapt the workflow to your specific needs and preferences.\nCost-effective:** Leverage free or low-cost services like Gemini and Hugging Face.\n\nHow does it work?\n\nThe workflow fetches news articles from the BBC website.\nIt filters articles based on their suitability for a podcast.\nIt extracts the full content of the selected articles.\nIt uses Gemini LLM to create a podcast script.\nIt converts the script to speech using Hugging Face's text-to-speech model.\nThe final podcast audio is ready for use.\n\nNodes in the Workflow\n\nFetch BBC News Page: Retrieves the main BBC News page.\nNews Classifier: Categorizes news articles using Gemini LLM.\nFetch BBC News Detail: Extracts detailed content from suitable articles.\nBasic Podcast LLM Chain: Generates a podcast script using Gemini LLM.\nHTTP Request: Converts the script to speech using Hugging Face.\n\nAdd Story\n\nI'm excited to share this workflow with the n8n community and help content creators and students easily produce engaging podcasts!\n\nAdditional Tips\n\nExplore the n8n documentation and community resources for more advanced customization options.\nExperiment with different filtering criteria and LLM prompts to achieve your desired podcast style.",
+  "totalViews": 3526,
+  "source": "official",
+  "user": {
+    "id": 92846,
+    "name": "Onur",
+    "username": "onurpolat05",
+    "bio": "Hello, I'm Onur\nI've been working as a freelance software developer for about four years. In addition, I develop my own projects. For some time, I have been improving myself and providing various services related to AI and AI workflows. Both by writing low code and code. If you have any questions, don't hesitate to contact me.",
+    "verified": true,
+    "links": "[\"https://onurpolat.bio\"]",
+    "avatar": "https://gravatar.com/avatar/1b89c2342766e3851ac5f68ac7f001c946e313d47a6e0b0d396b62ba9f850c37?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Text Classifier",
+      "type": "@n8n/n8n-nodes-langchain.textClassifier",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-02-22T07:58:58.336Z",
+  "path": "official/template_2972/workflow.json"
+}

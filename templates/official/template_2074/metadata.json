@@ -1,0 +1,48 @@
+{
+  "id": 2074,
+  "name": "Send n8n automation errors to a Monday.com board",
+  "description": "This template is an error handler that will log n8n workflow errors to a Monday.com board for troubleshooting and tracking.\n\nPrerequisites\nMonday account and Monday credential\nCreate a board on Monday for error logging, with the following columns and types:\n\tTimestamp (text)\n\tError Message (text)\n\tStack Trace (long text)\nDetermine the column IDs using Monday's instructions \n\nSetup\nEdit the Monday nodes to use your credential\nEdit the node labeled CREATE ERROR ITEM to point to your error log board and group name\nEdit the column IDs in the \"Column Values\" field of the UPDATE node to match the IDs of the fields on your error log board\nTo trigger error logging, select this automation as the error workflow on any automation\n\tFor more detailed logging, add Stop and Error nodes in your workflow to send specific error messages to your board.\n",
+  "totalViews": 1129,
+  "source": "official",
+  "user": {
+    "id": 91413,
+    "name": "Joey D’Anna",
+    "username": "jdana",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://twitter.com/joeydanna\"]",
+    "avatar": "https://gravatar.com/avatar/e72923eb7b6fddc64bafeb6b1911939d6047a6ec3cf4143054d6753df7d54e29?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Monday.com",
+      "type": "n8n-nodes-base.mondayCom",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-01-30T17:56:20.898Z",
+  "path": "official/template_2074/workflow.json"
+}

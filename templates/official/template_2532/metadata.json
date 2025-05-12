@@ -1,0 +1,47 @@
+{
+  "id": 2532,
+  "name": "Backup workflows to git repository on Github",
+  "description": "Source code, I maintain this worflow here.\n\nUsage Guide\n\nThis workflow backs up all workflows as JSON files named in the [workflow_name].json format.\n\nSteps\n\nCreate GitHub Repository  \n   Skip this step if using an existing repository.\n\nAdd GitHub Credentials  \n   In Credentials, add the GitHub credential for the repository owner.\n\nDownload and Import Workflow  \n   Import this workflow into n8n.\n\nSet Global Values  \n   In the Globals node, set the following:\n     repo.owner: GitHub username of the repository owner.\n     repo.name: Name of the repository for backups.\n     repo.path: Path to the folder within the repository where workflows will be saved.\n\nConfigure GitHub Nodes  \n   Edit each GitHub node in the workflow to use the added credentials.\n\nWorkflow Logic\n\nEach workflow run handles files based on their status:\n\nNew Workflow  \n   If a workflow is new, create a new file in the repository.\n\nUnchanged Workflow  \n   If the workflow is unchanged, skip to the next item.\n\nChanged Workflow  \n   If a workflow has changes, update the corresponding file in the repository.\n\nCurrent Limitations / Needs work\n\nName Change of Workflows  \n   If a workflow is renamed or deleted in n8n, the old file remains in the repository.\nDeleted Workflows  \n   Deleted workflows in n8n are not removed from the repository.\n",
+  "totalViews": 5070,
+  "source": "official",
+  "user": {
+    "id": 24050,
+    "name": "Shashikanth",
+    "username": "shashikanth",
+    "bio": null,
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/a0347caf08206d1dd472ac3605043f94aacdb284e36544cae687f454e49e0fa5?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "GitHub",
+      "type": "n8n-nodes-base.github",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-11-06T19:49:39.666Z",
+  "path": "official/template_2532/workflow.json"
+}

@@ -1,0 +1,120 @@
+{
+  "id": 3510,
+  "name": "AI-Driven WooCommerce Product Importer from Google Sheet with Yoast SEO meta",
+  "description": "This workflow streamlines your WooCommerce product creation process by integrating directly with Google Sheets. Simply input product details into your spreadsheet, and the workflow takes care of the rest-automatically creating new products on your WooCommerce store with inventory management.\n\nBut it doesn’t stop there. A dedicated SEO expert chain analyzes each product’s content and generates optimized meta titles and meta descriptions for the plugin Yoast SEO, enhancing visibility and ranking potential on search engines.\n\nKey Benefits:\n🔄 Automation: No more manual uploads—save time and reduce errors by syncing Google Sheets directly with WooCommerce.\n⚡ Speed: Instantly publish multiple products with just one action.\n🧠 Built-in SEO Intelligence: Automatically generate SEO-friendly meta titles and descriptions tailored to each product.\n📈 Improved Search Visibility: Boost your store's traffic with optimized product listings.\n🧩 Customizable: Easily adapt the workflow to your specific needs or integrate with other platforms.\n\nHow It Works  \nThis workflow automates the creation of WooCommerce products and generates optimized SEO meta tags (title and description) using AI. Here’s the step-by-step process:  \n\nData Retrieval**: The workflow starts by fetching product details (title, category, description, price, etc.) from a Google Sheets document.  \nProduct Creation**: Each product is created in WooCommerce using the retrieved data, including categories, pricing, stock details, and images.  \nAI-Powered SEO Optimization**: An AI model (Google Gemini via OpenRouter) analyzes the product details and generates SEO-optimized meta titles (≤60 chars) and meta descriptions (≤160 chars).  \nMeta Tag Assignment**: The generated meta tags are saved back to the Google Sheets and applied to the WooCommerce product using Yoast SEO metadata.  \nCompletion Tracking**: The workflow marks completed entries in Google Sheets and sends a Telegram notification upon finishing all products.  \nSet Up Steps  \nBefore running the workflow, ensure the following steps are completed:  \n\nStep 1**: Install the Yoast SEO plugin on WordPress and add the provided PHP code to functions.php to enable meta tag API support.  \nStep 2**: Enable the WooCommerce REST API in WordPress and configure the Telegram node with a valid CHAT_ID for notifications.  \nStep 3**: Prepare a Google Sheet with product data (columns A-I in specific formats) and share its ID in the workflow. Ensure columns B, E, and F are in text format, and column I is numeric.  \n\nOnce set up, the workflow can be triggered manually or scheduled to run automatically, streamlining product creation and SEO optimization.\n\nWho is it useful for?\n\nIdeal for eCommerce managers, digital marketers, or anyone managing large product catalogs-this workflow turns your spreadsheet into a powerful product launcher.\n\nNeed help customizing?  \nContact me for consulting and support or add me on Linkedin. ",
+  "totalViews": 1176,
+  "source": "official",
+  "user": {
+    "id": 92207,
+    "name": "Davide",
+    "username": "n3witalia",
+    "bio": "Full-stack Web Developer based in Italy specialising in Marketing & AI-powered automations. For business enquiries, send me an email at info@n3w.it or add me on Linkedin.com/in/davideboizza",
+    "verified": true,
+    "links": "[\"https://n3w.it\"]",
+    "avatar": "https://gravatar.com/avatar/d41b8a0aa81139243509c58870f5b4be292824a507ab57d10ed066d8628ed8da?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Communication",
+    "HITL",
+    "Sales",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "WooCommerce",
+      "type": "n8n-nodes-base.wooCommerce",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "OpenRouter Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-04-10T13:16:18.324Z",
+  "path": "official/template_3510/workflow.json"
+}

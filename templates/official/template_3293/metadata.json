@@ -1,0 +1,21 @@
+{
+  "id": 3293,
+  "name": "Automate NPM Package Installation and Updates for Self-Hosted Environments",
+  "description": "Are you looking to install external libraries for your self-hosted N8N instance? This automated workflow makes adding npm packages to your N8N environment quick and effortless.\n\n\n\nBeware, this workflow only works on self-hosted instances.\nWhat This Workflow Does\nThis solution automatically installs npm packages like axios, cheerio, or node-fetch in your self-hosted N8N Docker container, making them immediately available in Code nodes.\nKey features\n\n✅ Automated Installation: No manual npm commands needed\n✅ Daily Updates: Scheduled trigger keeps packages current\n✅ Smart Installation: Only installs missing packages\n✅ Multiple Triggers: Manual, scheduled, and on startup of the N8N instance so you can upgrade your N8N version without worrying about external libraries.\n\nHow to install and update external libraries automatically\nStep 1: Setting Up Your Environment Variables\nBefore using external libraries in N8N Code nodes, configure these environment variables in your Docker comppose file.\nOption A to allow specific external npm packages in N8N Code nodes\nNODE_FUNCTION_ALLOW_EXTERNAL=axios,cheerio,node-fetch\nOption B to allow all external npm packages in Code nodes\nNODE_FUNCTION_ALLOW_EXTERNAL=*\n\nStep 2: Import the external packages workflow\n\nImport the workflow into your N8N instance by copy pasting all nodes.\n\nStep 3: Input the list of external libraries you need\n\nEdit the libraries_set node\nChange the comma-separated list (e.g., axios,cheerio,node-fetch).\n\nIf you chose Option A above, update your NODE_FUNCTION_ALLOW_EXTERNAL variable with the same packages\n\nStep 4: Start the workflow!\nRun the workflow manually or let it trigger automatically\n\nWhy use this to install NPM packages in N8N?\nManaging external packages manually in N8N can be time-consuming. This workflow automates the entire process, making sure your libraries are always installed and up-to-date.\n",
+  "totalViews": 2383,
+  "source": "official",
+  "user": {
+    "id": 91477,
+    "name": "Joachim Brindeau",
+    "username": "joachimbrindeau",
+    "bio": "",
+    "verified": false,
+    "links": "[\"https://intellectual-property.org\"]",
+    "avatar": "https://gravatar.com/avatar/174b62612bac1c4785b1fae6e60956cdd087547f050c6fdd183b9a14c39e31a2?r=pg&d=retro&size=200"
+  },
+  "categories": [],
+  "nodes": [],
+  "nodeCount": 0,
+  "createdAt": "2025-03-23T06:46:26.211Z",
+  "path": "official/template_3293/workflow.json"
+}

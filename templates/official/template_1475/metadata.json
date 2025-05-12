@@ -1,0 +1,47 @@
+{
+  "id": 1475,
+  "name": "Standup bot (4/4): Worker",
+  "description": "This is the fourth workflow for the Mattermost Standup Bot. This workflow sends the team a message every morning to ask them three standup questions.\n\nWhat have you accomplished since your last report?\nWhat do you want to accomplish until your next report?\nIs anything blocking your progress?\n\nOnce answered, the answers are sent to a Mattermost channel.\n\nThe \"Read Config\" nodes will need to be updated to point to the ID of the \"Standup Bot - Read Config\" workflow and the \"Override Config\" node will need to point to \"Standup Bot - Override Config\"",
+  "totalViews": 4869,
+  "source": "official",
+  "user": {
+    "id": 25789,
+    "name": "Jonathan",
+    "username": "jon-n8n",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/5240094f838126182ceefb50ca4a3cf75cc7dc0808efd4b9920d792e41bfc45e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Mattermost",
+      "type": "n8n-nodes-base.mattermost",
+      "categories": [
+        "Communication"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2022-02-18T12:00:14.006Z",
+  "path": "official/template_1475/workflow.json"
+}

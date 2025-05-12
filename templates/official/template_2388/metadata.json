@@ -1,0 +1,67 @@
+{
+  "id": 2388,
+  "name": "Dynamically generate a webpage from user request using OpenAI Structured Output",
+  "description": "This workflow is a experiment to build HTML pages from a user input using the new Structured Output from OpenAI.\n\nHow it works:\nUsers add what they want to build as a query parameter\nThe OpenAI node generate an interface following a structured output defined in the body\nThe JSON output is then converted to HTML along with a title\nThe HTML is encapsulated in an HTML node (where the Tailwind css script is added)\nThe HTML is rendered to the user via the Webhook response.\n\nSet up steps\nCreate an OpenAI API Key \nCreate the OpenAI credentials\nUse the credentials for both nodes HTTP Request (as Predefined Credential type) and OpenAI\nActivate your workflow\nOnce active, go to the production URL and add what you'd like to build as the parameter \"query\"\nExample: https://production_url.com?query=a%20signup%20form\n\nExample of generated page\n",
+  "totalViews": 10584,
+  "source": "official",
+  "user": {
+    "id": 91624,
+    "name": "Agent Studio",
+    "username": "agentstudio",
+    "bio": "We are a product studio that helps organizations leverage no-code and generative AI to automate internal processes and launch new digital products.\nLinkedIn: https://www.linkedin.com/in/baptistej/",
+    "verified": true,
+    "links": "[\"https://agentstudio.io/\"]",
+    "avatar": "https://gravatar.com/avatar/e9cf0d0fccead46655b11b2ce215cf14d33ecdaa2ce52828f003574c1800e77a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-08-23T11:00:55.708Z",
+  "path": "official/template_2388/workflow.json"
+}

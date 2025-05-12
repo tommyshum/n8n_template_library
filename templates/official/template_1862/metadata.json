@@ -1,0 +1,72 @@
+{
+  "id": 1862,
+  "name": "OpenAI GPT-3: Company Enrichment from website content",
+  "description": "Enrich your company lists with OpenAI GPT-3 ↓\n\nYou’ll get valuable information such as:\n\nMarket (B2B or B2C)\nIndustry\nTarget Audience\nValue Proposition\n\nThis will help you to:\n\nadd more personalization to your outreach\nmake informed decisions about which accounts to target\n\nI've made the process easy with an n8n workflow.\n\nHere is what it does:\n\nRetrieve website URLs from Google Sheets\nExtract the content for each website\nAnalyze it with GPT-3\nUpdate Google Sheets with GPT-3 data",
+  "totalViews": 63275,
+  "source": "official",
+  "user": {
+    "id": 36027,
+    "name": "Lucas Perret",
+    "username": "lempire",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/b0a32f127a6ad690cd4ee808cb4d1b59d3b5e53410181d54f91d10c0027ebb43?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Utility"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "n8n-nodes-base.openAi",
+      "categories": [
+        "Utility"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2023-01-18T13:09:59.054Z",
+  "path": "official/template_1862/workflow.json"
+}

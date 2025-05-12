@@ -1,0 +1,68 @@
+{
+  "id": 2835,
+  "name": "Docker Registry Cleanup Workflow",
+  "description": "Docker Registry Cleanup Template\n\nThis template is designed to automatically clean up old image tags in the Docker registry and perform garbage collection.\n\nFeatures\nList all images in the registry\nPreserve the last 10 tags for each image (latest tag is always preserved)\nDelete old tags\nEmail notification for Successful/Excused cancellation\nRegistry garbage collection automation\nFailure notification in error conditions\n\nPrerequisites\nDocker Registry v2 API access\nBasic Authentication credentials\nSMTP email settings (for notifications)\nSSH node installed on n8n (for garbage collection)\n\nInstallation\n\n1. Identity Information\nAdd the following credentials in n8n:\nHTTP Basic Auth**: For Registry access\nSSH Private Key**: For Garbage collection command\nEmail SMTP**: For notifications\n\n2. Set Variables\nReplace your-registry-url with your actual registry URL on all nodes:\n‘url\": ‘https://your.registry.com/v2/_catalog’.\n\nCustomisation\nRetention Policy: \nSet the number of tags to be retained by changing the slice(0, 10) value in the  Identify Tags to Remove node\nSchedule:\nChange the frequency of operation at the Trigger node\nNotification Content: \nCustomise email templates according to your needs\n\nNotes\nCheck DELETE operations before running in a test environment\n\nMake sure that the registry is not in read-only mode\n\nThe registry may need to be put into maintenance mode for garbage collection\n\nStep Details:\nRetrieving image information:** The workflow starts by fetching a list of images and their associated tags from the Docker registry.\nFiltering and sorting:** The retrieved tags are then filtered and sorted based on specific criteria, such as creation date and tag name.\nDeleting old tags:** The workflow identifies old or unused tags and attempts to delete them from the registry.\nSending notifications:** The workflow sends email notifications to inform the user about the status of the cleanup process, including any errors or successes.\nExecuting additional cleanup tasks:** Finally, the workflow executes an SSH command on the Docker registry server to perform additional cleanup tasks, such as garbage collection.\n\nTL;DR\nIn summary, this n8n template provides a robust and automated solution for managing and cleaning up Docker registries. By regularly running this workflow, users can ensure that their registry remains organized and efficient, and avoid running out of storage space.- ",
+  "totalViews": 2835,
+  "source": "official",
+  "user": {
+    "id": 92589,
+    "name": "Muzaffer AKYIL",
+    "username": "victorious",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/d82f905c5f5158251b6e35489730c002b013299a6e3e48b9ad841cb1ed0ddaa0?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Core Nodes",
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "categories": [
+        "Communication",
+        "HITL",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-02-01T23:26:03.445Z",
+  "path": "official/template_2835/workflow.json"
+}

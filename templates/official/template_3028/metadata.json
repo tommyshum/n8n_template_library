@@ -1,0 +1,80 @@
+{
+  "id": 3028,
+  "name": "Generate & Upload an Audio Summary of a WordPress (or Woocommerce) Article",
+  "description": "This workflow automates the process of summarizing or transcribing a WordPress article, converting the text into speech using Eleven Labs API, and uploading the resulting MP3 file back to WordPress.\n\nHow It Works\t\nTrigger – The workflow starts manually when the user clicks “Test Workflow”.\nRetrieve Article – It fetches a WordPress article based on a given post ID.\nSummarize or Transcribe – An LLM (GPT-4o-mini) generates either:\n\t•\tA summary of the article, or\n\t•\tA full transcription, depending on the chosen prompt.\nGenerate Speech – The processed text (summary or transcription) is converted into an MP3 audio file using Eleven Labs API.\nUpload MP3 to WordPress – The generated MP3 file is uploaded to WordPress.\nUpdate WordPress Post – The article is updated with an embedded audio player, allowing users to listen to the summary or transcription.\n\nSet Up Steps\n\tWordPress API Credentials\n\t•\tConfigure your WordPress API credentials in n8n.\n\tEleven Labs API Key\n\t•\tObtain an API Key from Eleven Labs and configure it in n8n.\n\tChoose Between Summary or Transcription\n\t•\tModify the AI prompt to either generate a summary or keep the full transcription.\n\tTest the Workflow\n\t•\tRun the workflow and ensure the MP3 file is correctly generated and uploaded.\n\n💡 Customization Options\n\t•\tModify the AI prompt to switch between a summary and a transcription.\n\t•\tChange the voice model in Eleven Labs for different speech styles.\n\t•\tAdjust output format to higher/lower quality MP3.\n\n🚀 This automation improves content accessibility and engagement by allowing users to listen to a summarized or full version of the article.\n\nPhil | Inforeole",
+  "totalViews": 2113,
+  "source": "official",
+  "user": {
+    "id": 92304,
+    "name": "phil",
+    "username": "phil",
+    "bio": "Accélérateur de Chiffre d'Affaires : Automatisez votre entreprise pour la rendre plus visible sur Google, pour trouver de nouveaux Clients, pour gagner du temps",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/philippe-eveilleau-inforeole/\"]",
+    "avatar": "https://gravatar.com/avatar/e3fa7358cdb3b5be9c63e79d3d76a9a3f31efed6ea3611ec7bc18c0f34464d16?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Marketing",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Wordpress",
+      "type": "n8n-nodes-base.wordpress",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-02-27T10:20:19.852Z",
+  "path": "official/template_3028/workflow.json"
+}

@@ -1,0 +1,109 @@
+{
+  "id": 2965,
+  "name": "🎦🚀 YouTube Video Comment Analysis Agent",
+  "description": "🎦🚀 YouTube Video Comment Analysis Agent\n\nThis n8n workflow is designed to help YouTube creators analyze video details and comments to generate a comprehensive and actionable report. The workflow provides insights into video performance, audience engagement, and viewer feedback, helping creators identify trends, interests, and opportunities for future content creation.\n\n✨ Key Features\nVideo Performance Analysis: Extracts metrics like views, likes, and comments to evaluate the video's success.\nComment Sentiment Analysis: Determines the tone of comments (positive, neutral, or negative) to understand audience sentiment.\nRecurring Themes Detection: Identifies common topics or questions in comments to highlight viewer interests.\nEngagement Drivers: Pinpoints what aspects of the video resonated most with viewers.\nActionable Recommendations: Offers strategies for creating follow-up content or improving future videos.\nKeyword Suggestions: Extracts frequently mentioned terms for better discoverability on YouTube.\nCollaboration Opportunities: Suggests potential partnerships based on viewer feedback or related channels.\n\n🛠️ How to Use\nSet Up Workflow Variables:\n   Add your GOOGLE_API_KEY and the VIDEO_ID of the YouTube video you want to analyze in the \"Workflow Variables\" node.\n   Ensure your Google API key has access to the YouTube Data API.\n\nRun the Workflow:\n   Trigger the workflow manually or through another workflow using the \"Execute Workflow Trigger\" node.\n   The workflow will fetch video details and comments using pagination to ensure all data is captured.\n\nGenerate Insights:\n   The workflow processes video details and comments to create a detailed report with actionable insights.\n   Outputs include sentiment analysis, engagement drivers, content opportunities, and audience profiling.\n\nView or Share Results:\n   The report is converted into Markdown and can be emailed via Gmail or saved to Google Drive as a document.\n\n🌟 Value from This Workflow\nGain a deeper understanding of your audience's preferences and feedback.\nIdentify trends and engagement drivers to replicate success in future videos.\nDiscover new content opportunities based on viewer questions and suggestions.\nImprove discoverability by leveraging keyword suggestions extracted from comments.\nBuild stronger connections with your audience by addressing their needs effectively.\n\n",
+  "totalViews": 2716,
+  "source": "official",
+  "user": {
+    "id": 92125,
+    "name": "Joseph LePage",
+    "username": "joe",
+    "bio": "As an AI Automation consultant based in Canada, I partner with forward-thinking organizations to implement AI solutions that streamline operations and drive growth.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/e7ca218dfc87b68344bbd66f40da01546d2f6fc1cf884267821e8a77e3e8410a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-02-21T18:15:02.726Z",
+  "path": "official/template_2965/workflow.json"
+}

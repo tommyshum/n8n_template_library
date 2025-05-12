@@ -1,0 +1,32 @@
+{
+  "id": 1132,
+  "name": "Trigger a build in Travis CI when code changes are push to a GitHub repo",
+  "description": "This workflow allows you to trigger a build in Travis CI when code changes are pushed to a GitHub repo or a pull request gets opened.\n\n\n\nGitHub Trigger node: This node will trigger the workflow when changes are pushed or when a pull request is created, updated, or deleted.\n\nIF node: This node checks for the action type. We want to trigger a build when code changes are pushed or when a pull request is opened. We don't want to build the project when a PR is closed or updated.\n\nTravisCI node: This node will trigger the build in Travis CI. If you're using CircleCI in your pipeline, replace the node with the CircleCI node.\n\nNoOp node: Adding this node is optional.",
+  "totalViews": 1292,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "TravisCI",
+      "type": "n8n-nodes-base.travisCi",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2021-06-18T08:23:44.117Z",
+  "path": "official/template_1132/workflow.json"
+}

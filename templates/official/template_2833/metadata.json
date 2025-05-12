@@ -1,0 +1,95 @@
+{
+  "id": 2833,
+  "name": "Smart Email Outreach Sequence – AI-Powered & Customizable",
+  "description": "Automated Email Outreach Workflow\n\nThis intelligent email automation workflow helps you maximize engagement through domain-based outreach. It utilizes AI-powered personalization and strategic follow-ups to increase response rates. The workflow includes a customizable three-step email sequence (initial email + two follow-ups) sent at optimized 3-day intervals.\n\n🔥 Key Features\n✅ Smart Domain Extraction – Automatically extracts domains from email addresses for precise targeting.  \n✅ Website Intelligence – Uses Jina.ai to analyze recipient websites and craft ultra-relevant messaging.  \n✅ AI-Powered Personalization – Leverages GPT-3.5 to generate compelling and highly customized email content.  \n✅ Adjustable AI Prompts – Easily customize AI-generated messages to align with your product, service, or campaign.  \n✅ Automated Follow-Up Sequence – Sends a structured series of three emails over time to increase engagement.  \n✅ Human-Like Sending Patterns – Randomized delays help bypass spam filters and improve deliverability.  \n✅ Error-Resilient Execution – Built-in error handling ensures a smooth, uninterrupted workflow.  \n\n🎯 Ideal Use Cases\n✔️ Domain Sales & Lead Generation – Engage potential buyers with hyper-personalized emails.  \n✔️ B2B Partnerships & Outreach – Automate connections with potential business partners.  \n✔️ Cold Emailing at Scale – Improve engagement with structured, AI-optimized emails.  \n\n⚙️ How It Works\n\n1️⃣ Setup & Configuration\nIntegrate Gmail via OAuth for secure email sending.  \nConnect your Google Sheets with leads for automated processing.  \nCustomize AI-generated messages by adjusting prompt inputs to fit your strategy.  \n\n2️⃣ Workflow Execution\nDomain Extraction – Automatically extracts recipient domains from email addresses.  \nWebsite Analysis – Uses Jina.ai to gather insights for ultra-personalized messaging.  \nAI-Powered Email Generation – GPT-3.5 crafts highly engaging outreach emails.  \nAutomated Email Sending – Initial email is sent, followed by two optimized follow-ups if no response is received.  \nEngagement Tracking & Adaptation – Ensures delivery success and prevents emails from being flagged as spam.  \n\n⚡ Setup Instructions\n\n✅ Preconditions\nYou need a Gmail account with OAuth authentication enabled.  \nYour Google Sheets must contain lead emails formatted correctly.  \nEnsure your n8n instance is running and connected to your workflow.  \n\n🛠 Implementation Steps\nInstall and open n8n.  \nImport the workflow JSON file into your n8n instance.  \nConfigure your Gmail credentials in the workflow settings.  \nLink your Google Sheets containing the leads' email addresses.  \nCustomize AI prompts in the GPT-3.5 node to match your campaign strategy.  \nTest the workflow manually to ensure proper execution.  \nActivate the workflow and let automation take over!  \n\n📈 Expected Results\n🚀 Higher Response Rates – Personalization improves recipient engagement.  \n📊 Increased Conversions – Optimized email sequences boost lead-to-client conversions.  \n💡 Time-Saving Automation – Hands-free execution streamlines your outreach process.  \n\n🔧 Ready to supercharge your outreach? Set up the workflow and start automating today! 🚀🔥  \n",
+  "totalViews": 2791,
+  "source": "official",
+  "user": {
+    "id": 92022,
+    "name": "Badr",
+    "username": "b4dr",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/035184cdd91cc274d7293ceaed93c97d64e57fc49fc4ba8346956a812dc35b3e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-02-01T10:42:30.224Z",
+  "path": "official/template_2833/workflow.json"
+}

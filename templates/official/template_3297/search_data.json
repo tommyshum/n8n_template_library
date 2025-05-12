@@ -1,0 +1,115 @@
+{
+  "id": 3297,
+  "name": "Monitor Dropbox Folders for New Files with DB Comparison",
+  "totalViews": 443,
+  "purchaseUrl": null,
+  "user": {
+    "id": 93379,
+    "name": "David Levesque",
+    "username": "davidlevesque",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/f931f17633f65fabc2e870402c17985083d08f81ee7c55cbd0fa173d730aa9de?r=pg&d=retro&size=200"
+  },
+  "description": "Here's the corrected English text:\n\nDropbox Folder Monitoring Workflow\n\nAs we don't have (yet?) a Dropbox node \"Watching new files\" or \"Watching folder\", I created this central workflow to do it.\n\nHow it works\nTriggered by Dropbox webhook\nI respond immediately to Dropbox to avoid webhook disabling\nThen I add/duplicate one branch per monitored folder, according to my needs\n\nIn my case, I need to monitor several folders, like \"vocal notes to process\", \"transcriptions to LinkedIn posts\" or \"quotes to add\".\n\nThis workflow shows 2 types of folder monitoring:\nWay #1: Each file in the monitored folder calls a sub-workflow\nWay #2: We get all files from the monitored folder and compare them to a database. If the file is not listed in DB, i supposed it's new one.\n\nWay #1 - We get all files from the monitored folder\nI set a variable folder_to_watch to indicate which folder to monitor. This step is here just to be homogeneous and allow setting the folder path only once in this branch.\nI list the folder files\nWe keep only files (exclude folders)\nThen I call the specialized sub-workflow\n\nWay #2 - We want only new files from the monitored folder\nI set a variable folder_to_watch to indicate which folder to monitor \nI list the folder files and keep only files\nMeanwhile, I query my DB to get known files about this folder (I send the query to NocoDB (folder_to_watch,eq,{{ $json.folder_to_watch }}))\nNow I can exclude old files and keep only new ones by merging (I compare from Dropbox file id - as the file could be renamed by the user)\nI add the new file in DB to be sure to recognize it next time - I save the JSON Dropbox data:\n{\n\"id\":\"{{ $json.id }}\",\n\"name\":\"{{ $json.name }}\",\n\"lastModifiedClient\": \"{{ $json.lastModifiedClient }}\",\n\"lastModifiedServer\": \"{{ $json.lastModifiedServer }}\",\n\"rev\": \"{{ $json.rev }}\",\n\"contentSize\": {{ $json.contentSize }},\n\"type\": \"{{ $json.type }}\",\n\"contentHash\": \"{{ $json.contentHash }}\",\n\"pathLower\": \"{{ $json.pathLower }}\",\n\"pathDisplay\": \"{{ $json.pathDisplay }}\",\n\"isDownloadable\": {{ $json.isDownloadable }}\n}\nAnd now I can call my sub-workflow :)\n\nMy DB\nColumns details:\nfolder_to_watch\ndata (json/text)\ntimestamp\nfile_id (Dropbox file ID, to ease future searches)\n\nMy vision:\nI have only one workflow in my n8n that monitors Dropbox folders/files\nThis workflow calls the required sub-workflow specialized for the tasks required\nI will have as many branches as I have folders to monitor (if I have 5 different folders to watch, I will get 5 branches and 5 sub-workflows)",
+  "createdAt": "2025-03-23T17:50:18.345Z",
+  "nodes": [
+    {
+      "id": 8,
+      "icon": "file:dropbox.svg",
+      "name": "n8n-nodes-base.dropbox",
+      "codex": {
+        "data": {
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/your-business-doesnt-need-you-to-operate/",
+                "icon": " 🖥️",
+                "label": "Hey founders! Your business doesn't need you to operate"
+              },
+              {
+                "url": "https://n8n.io/blog/aws-workflow-automation/",
+                "label": "7 no-code workflow automations for Amazon Web Services"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.dropbox/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/dropbox/"
+              }
+            ]
+          },
+          "categories": [
+            "Data & Storage"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "Dropbox"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiB2aWV3Qm94PSIwIDAgNjcgNjIiPjx1c2UgeGxpbms6aHJlZj0iI2EiIHg9IjEiIHk9IjEiLz48c3ltYm9sIGlkPSJhIiBvdmVyZmxvdz0idmlzaWJsZSI+PHBhdGggZmlsbD0iIzAwN2VlNSIgZmlsbC1ydWxlPSJub256ZXJvIiBzdHJva2U9Im5vbmUiIGQ9Ik0xOC44NzQuMDIgMCAxMi4xOGwxMy4wNjYgMTAuNTI2TDMyIDExLjAzMm0tMzIgMjIgMTguODc0IDEyLjRMMzIgMzQuNDIyIDEzLjA2NiAyMi42ODZNMzIgMzQuNDIybDEzLjE4OCAxMS4wMUw2NCAzMy4xNTIgNTAuOTk0IDIyLjY4Nk02NCAxMi4yOCA0NS4xODggMCAzMiAxMS4wMWwxOC45OTQgMTEuNjc0TTMyLjA2IDM2Ljc3OCAxOC44NzIgNDcuNzI2bC01LjY4Ni0zLjY5djQuMTc0TDMyLjA2IDU5LjUyMiA1MC45MzQgNDguMjF2LTQuMTc0bC01LjY4NiAzLjY5Ii8+PC9zeW1ib2w+PC9zdmc+"
+      },
+      "displayName": "Dropbox",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 3,
+          "name": "Data & Storage"
+        }
+      ]
+    },
+    {
+      "id": 510,
+      "icon": "file:nocodb.svg",
+      "name": "n8n-nodes-base.nocoDb",
+      "codex": {
+        "data": {
+          "resources": {
+            "generic": [],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.nocodb/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/nocoDb/"
+              }
+            ]
+          },
+          "categories": [
+            "Data & Storage"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "NocoDB"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiBmaWxsPSJub25lIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzNENDNENSIgcng9IjI1Ii8+PHBhdGggZmlsbD0iI2ZmZiIgZD0ibTM4IDkzLjkwNyAyOS43NiAyOS4wMDZ2NDUuOTJIMzh6bTEyNS02MS42NjV2MTI1LjQxN2MwIDguMDc4LTQuNDk4IDExLjM0MS0xMS43NDIgMTEuMzQxLTEuMzMzIDAtMy43MjUtLjUwMS01Ljc5My0yLjUwMkwzOCA2NS4zMjhWNDIuODRDMzggMzQuNzYzIDQxLjM2MyAzMS41IDQ5LjcyMyAzMS41YzEuMzMzIDAgNC4wMS41MiA2LjA2IDIuNTAybDc3LjQzOCA3MS45MjNWMzIuMjQyeiIvPjwvc3ZnPg=="
+      },
+      "displayName": "NocoDB",
+      "typeVersion": 3,
+      "nodeCategories": [
+        {
+          "id": 3,
+          "name": "Data & Storage"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "id": 2807,
+  "name": "Create QuickBooks Online Customers With Sales Receipts For New Stripe Payments",
+  "description": "Streamline your accounting by automatically creating QuickBooks Online customers and sales receipts whenever a successful Stripe payment is processed. Ideal for businesses looking to reduce manual data entry and improve accounting efficiency.\n\nHow it works\n\nTrigger: The workflow is triggered when a new successful payment intent event is received from Stripe.\nRetrieve Customer Data: Fetches customer details from Stripe associated with the payment.\nCheck QuickBooks Customer: Searches QuickBooks Online to see if the customer already exists using their email address.\nCreate or Use Existing Customer: If the customer doesn't exist in QuickBooks, they are created; otherwise, the existing customer is used.\nGenerate Sales Receipt: A sales receipt is created in QuickBooks Online with payment details, including item descriptions, amounts, and currency.\n\nSet up steps\n\nConnect Accounts: Authenticate both your QuickBooks Online and Stripe accounts in n8n.\nWebhook Setup: Configure the Stripe webhook to send payment_intent.succeeded events to this workflow.\nTest the Workflow: Trigger a test payment in Stripe to validate the integration.\nCustomize Details: Adjust item descriptions or other fields in the QuickBooks sales receipt JSON body as needed.\n\nThis workflow requires basic familiarity with n8n, but setup can be completed in under 15 minutes for most users.",
+  "totalViews": 1513,
+  "source": "official",
+  "user": {
+    "id": 92500,
+    "name": "Artur",
+    "username": "arlusm1",
+    "bio": "Software Engineer & Automations Specialist",
+    "verified": true,
+    "links": "[\"https://www.upwork.com/freelancers/~01651acf09c927fb26\"]",
+    "avatar": "https://gravatar.com/avatar/d8f6cbf5ad5847e53a4b6f809a8738fc33bf20246f2207bcdad4e5d6a10e0a2c?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Finance & Accounting",
+    "Sales"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "QuickBooks Online",
+      "type": "n8n-nodes-base.quickbooks",
+      "categories": [
+        "Finance & Accounting"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Stripe",
+      "type": "n8n-nodes-base.stripe",
+      "categories": [
+        "Finance & Accounting",
+        "Sales"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-01-27T13:06:22.575Z",
+  "path": "official/template_2807/workflow.json"
+}

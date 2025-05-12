@@ -1,0 +1,91 @@
+{
+  "id": 2290,
+  "name": "Store Notion's Pages as Vector Documents into Supabase with OpenAI",
+  "description": "Workflow updated on 17/06/2024:** \nAdded 'Summarize' node to avoid creating a row for each Notion content block in the Supabase table.*\n\nStore Notion's Pages as Vector Documents into Supabase\n\nThis workflow assumes you have a Supabase project with a table that has a vector column. If you don't have it, follow the instructions here: Supabase Langchain Guide\n\nWorkflow Description\n\nThis workflow automates the process of storing Notion pages as vector documents in a Supabase database with a vector column. The steps are as follows:\n\nNotion Page Added Trigger:\n   Monitors a specified Notion database for newly added pages. You can create a specific Notion database where you copy the pages you want to store in Supabase.\n   Node: Page Added in Notion Database\n\nRetrieve Page Content:\n   Fetches all block content from the newly added Notion page.\n   Node: Get Blocks Content\n\nFilter Non-Text Content:\n   Excludes blocks of type \"image\" and \"video\" to focus on textual content.\n   Node: Filter - Exclude Media Content\n\nSummarize Content:\n   Concatenates the Notion blocks content to create a single text for embedding.\n   Node: Summarize - Concatenate Notion's blocks content\n\nStore in Supabase:\n   Stores the processed documents and their embeddings into a Supabase table with a vector column.\n   Node: Store Documents in Supabase\n\nGenerate Embeddings:\n   Utilizes OpenAI's API to generate embeddings for the textual content.\n   Node: Generate Text Embeddings\n\n\nCreate Metadata and Load Content:\n   Loads the block content and creates associated metadata, such as page ID and block ID.\n   Node: Load Block Content & Create Metadata\n\nSplit Content into Chunks:\n   Divides the text into smaller chunks for easier processing and embedding generation.\n   Node: Token Splitter",
+  "totalViews": 5718,
+  "source": "official",
+  "user": {
+    "id": 91734,
+    "name": "Dataki",
+    "username": "dataki",
+    "bio": "I am passionate about transforming complex processes into seamless automations with n8n. My expertise spans across creating ETL pipelines, sales automations, and data & AI-driven workflows. As an avid problem solver, I thrive on optimizing workflows to drive efficiency and innovation.",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/nicolas-aknin/\"]",
+    "avatar": "https://gravatar.com/avatar/0437c659b1ec6916896ebb30cc237391f0e1de89df5465c103e12d2cb12ce42d?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Productivity",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    },
+    {
+      "name": "Token Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterTokenSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Supabase Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2024-06-12T10:33:37.912Z",
+  "path": "official/template_2290/workflow.json"
+}

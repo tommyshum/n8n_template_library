@@ -1,0 +1,85 @@
+{
+  "id": 3455,
+  "name": "Auto-Generate and Post Social Media Content to Bluesky using Groq LLM",
+  "description": "Automatically Generate Content and Post to Bluesky with LLM Workflow\n\nUnlock the power of automation with the Automatically Generate Content and Post to Bluesky with LLM Workflow, an n8n-powered solution that uses Large Language Model (LLM) APIs to create engaging content and seamlessly posts it to Bluesky. Say goodbye to manual content creation and posting—streamline your social media presence in minutes!\n\nHow It Works\nThis workflow harnesses an LLM API (like Openai or your preferred model) to generate tailored content based on your input prompts. Once the content is created, it’s formatted to fit Bluesky’s requirements (e.g., under 300 characters), authenticated via the Bluesky API, and posted automatically. Built-in checks ensure error-free execution, making your content strategy seamless and efficient.\n\nSet Up Steps (10-15 Minutes)\nAuthenticate Bluesky: Add your Bluesky API credentials (username and app password in your Bluesky settings).\nConfigure LLM API: Connect your chosen LLM API (e.g., Groq) with your API key.\nSet Prompt: Define a system prompt in the LLM node (e.g., “Write a witty Bluesky post about AI automation”).\nTest Workflow: Run it manually to verify content generation and posting.\nSchedule (Optional): Set a cron node to automate posts (e.g., daily at 9 AM).\n\nTotal setup time: 10-15 minutes, depending on familiarity with n8n.\n\nFeatures\nLLM-Powered Content**: Generate unique, high-quality posts using any LLM API.\nBluesky Automation**: Posts directly to Bluesky with proper formatting and authentication.\nCharacter Limit Safety**: Ensures posts stay under 300 characters with built-in validation.\nError Handling**: Stops execution on errors to prevent unwanted posts.\nCustomizable Scheduling**: Post instantly or schedule content at your preferred intervals.\nScalable Design**: Easily adapt for multiple platforms or content types.\n\nPerfect for Creators Who Want To\nSave time by automating content creation and posting.\nMaintain a consistent Bluesky presence without manual effort.\nExperiment with AI-generated content tailored to their brand.\nFocus on strategy and engagement rather than repetitive tasks.\n\nSuggested Enhancements\nMulti-Platform Support**: Extend the workflow to post to Twitter, Mastodon, or LinkedIn simultaneously.\nContent Variety**: Add nodes to generate images (e.g., via DALL-E) alongside text for richer posts.\nAnalytics Integration**: Track post performance with a Bluesky API feedback loop.\nDynamic Prompts**: Incorporate trending topics or keywords from the web for timely content.\nApproval Step**: Add a manual review node before posting for extra control.\n\n",
+  "totalViews": 812,
+  "source": "official",
+  "user": {
+    "id": 92278,
+    "name": "Mehdi",
+    "username": "mlstudio",
+    "bio": "",
+    "verified": false,
+    "links": "[\"https://x.com/mehdilamdev\"]",
+    "avatar": "https://gravatar.com/avatar/eddddd10e5487a2fbeb02689670efea1fc7b7415e57fbee1200e55b11692907b?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Groq Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-04-07T09:14:47.000Z",
+  "path": "official/template_3455/workflow.json"
+}

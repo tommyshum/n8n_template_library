@@ -1,0 +1,71 @@
+{
+  "id": 2083,
+  "name": "Translate audio using AI",
+  "description": "Overview\n\nThis workflow takes some French text, and translates it into spoken audio.\n\nIt then transcribes that audio back into text, translates it into English and generates an audio file of the English text.\n\nTo do so, it uses ElevenLabs (which has a free tier) and OpenAI.\n\nSetup\n\nThese steps should only take a few minutes:\n\nIn ElevenLabs, add a voice to your voice lab and copy its ID. Add it to the 'Set voice ID' node\nGet your ElevenLabs API key (click your name in the bottom-left of ElevenLabs and choose ‘profile’)\nIn the 'Generate French audio' node, create a new header auth cred. Set the name to xi-api-key and the value to your API key\nIn the 'credential' field of the 'Transcribe audio' node, create a new OpenAI cred with your OpenAI API key\nRun the workflow by clicking the orange button at the bottom of the canvas",
+  "totalViews": 8498,
+  "source": "official",
+  "user": {
+    "id": 14122,
+    "name": "David Roberts",
+    "username": "davidn8n",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/4cda9c7c1c24fdb61896cac588296d1dad03655a439ab71ef34f4c62c0ba8524?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-02-06T12:37:06.376Z",
+  "path": "official/template_2083/workflow.json"
+}

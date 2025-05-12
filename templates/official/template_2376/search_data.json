@@ -1,0 +1,61 @@
+{
+  "id": 2376,
+  "name": "Backup Tag-Selected Workflows to Gitlab",
+  "totalViews": 1474,
+  "purchaseUrl": null,
+  "user": {
+    "id": 91880,
+    "name": "Hubschrauber",
+    "username": "hubschrauber",
+    "bio": "Software developer specializing in \"back-end plumbing\" to connect and sync data between large corporate systems, enabling application distribution/migration, scaling, and containerization.  Using n8n for various orchestration tasks both at home and \"on the job.\"",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/937647d994a5af6961d76103821d84448e970d74e6d0d303e8a76b56fd1da695?r=pg&d=retro&size=200"
+  },
+  "description": "Fetches workflow definitions from within n8n, selecting only the ones that have one or more (configurable) assigned tags and then:\nDerives a suitable backup filename by reducing the workflow name to a string with alphanumeric characters and no-spaces\n    Note: This isn't bulletproof, but works as long as workflow names aren't too crazy.\nDetermines which workflows need to be backed up based on whether each one:\n    has been modified. (Note: Even repositioning a node counts.)\n   ...or...\n    is new. (Note: Renaming counts as this.)\nCommits JSON copies of each workflow, as necessary, to a Gitlab repository with a generated, date-stamped commit message.\n\nSetup\nCredentials\n  Create a Gitlab Credentials item and assign it to all Gitlab nodes.\n  Create an n8n Credentials item and assign it to the n8n node\n    Note: This was tested with http://localhost:5678/api/v1 but should work with any reachable n8n instance and API key.\n\nModify these values in the \"Globals\" Node\n  gitlab_owner - {{your gitlab account}}\n  gitlab_project - {{ your gitlab project name }}\n  gitlab_workflow_path - {{ subdirectory in the project where backup files should be saved/committed }}\n  tags_to_match_for_backup - {{tag(s) to match for backup selection}}\n    *ALERT: According to the n8n node's Filters -&gt; tags field annotations, and API documentation, this supports a CSV list of multiple tags (e.g. tag1,tag2), but the API behavior requires workflows to have all-of the listed tags, not any-of them.*\n      See: https://github.com/n8n-io/n8n/issues/10348\n      TL/DR - Don't expect a multiple tag list to be more inclusive.\n      Possible workaround: To match more than one tag value, duplicate the n8n node into multiple single-tag matches, or split and iterate multiple values, and merge the results.\n\nPossible Enhancements\nMake the branch (\"Reference\") for all the gitlab nodes configurable.  Fixed on all as \"main\" in the template.\nAdd an n8n node to generate an audit and store the output in gitlab along with the backups.\nExtend the workflow at the end to create a Gitlab release/tag whenever any backup files are actually updated or created.\n\n\n",
+  "createdAt": "2024-08-11T02:28:38.951Z",
+  "nodes": [
+    {
+      "id": 56,
+      "icon": "file:gitlab.svg",
+      "name": "n8n-nodes-base.gitlab",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.gitlab/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/gitlab/"
+              }
+            ]
+          },
+          "categories": [
+            "Development"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "GitLab"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGZpbGw9IiNFMjQzMjkiIGQ9Im0zMC41IDU2Ljk2NyAxMC44NjMtMzMuMjAzSDE5LjYzN3oiLz48cGF0aCBmaWxsPSIjRkM2RDI2IiBkPSJNMzAuNSA1Ni45NjcgMTkuNjM3IDIzLjc2NEg0LjQxeiIvPjxwYXRoIGZpbGw9IiNGQ0EzMjYiIGQ9Ik00LjQxIDIzLjc2NCAxLjExIDMzLjg2Yy0uMy45Mi4wMyAxLjkyOC44MTcgMi40OTZMMzAuNSA1Ni45Njd6Ii8+PHBhdGggZmlsbD0iI0UyNDMyOSIgZD0iTTQuNDEgMjMuNzY0aDE1LjIyNkwxMy4wOTMgMy43ODFjLS4zMzYtMS4wMjktMS44MDItMS4wMjktMi4xMzkgMHoiLz48cGF0aCBmaWxsPSIjRkM2RDI2IiBkPSJtMzAuNSA1Ni45NjcgMTAuODYzLTMzLjIwM0g1Ni41OXoiLz48cGF0aCBmaWxsPSIjRkNBMzI2IiBkPSJtNTYuNTkgMjMuNzY0IDMuMyAxMC4wODZhMi4yMiAyLjIyIDAgMCAxLS44MTcgMi40OTdMMzAuNSA1Ni45Njd6Ii8+PHBhdGggZmlsbD0iI0UyNDMyOSIgZD0iTTU2LjU5IDIzLjc2NEg0MS4zNjJsNi41NDQtMTkuOTkyYy4zMzYtMS4wMyAxLjgwMi0xLjAzIDIuMTM5IDBsNi41NDMgMTkuOTkyeiIvPjwvZz48L3N2Zz4="
+      },
+      "displayName": "GitLab",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 5,
+          "name": "Development"
+        }
+      ]
+    }
+  ]
+}

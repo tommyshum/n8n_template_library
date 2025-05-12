@@ -1,0 +1,62 @@
+{
+  "id": 2034,
+  "name": "Send DingTalk message on new Azure DevOps Pull Request",
+  "description": "This template automates sending a DingTalk message on new Azure Dev Ops Pull Request Created Events. It uses a MySQL database to store mappings between Azure users and DingTalk users; so the right users get notified. \n\nSet up instructions\n\nDefine the path value of ReceiveTfsPullRequestCreatedMessage Webhook node of your own, copy the webhook url to create a Azure DevOps ServiceHook that call webhook with Pull Request Created event.\nIn order to configure the LoadDingTalkAccountMap node, you need to create a MySQL table as below:\n|Name|Type|Length|Key|\n|-|-|-|-|\n|TfsAccount|varchar|255|\n|UserName|varchar|255|\n|DingTalkMobile|varchar|255|\nYou can customize the Ding Talk message content by editing the BuildDingTalkWebHookData node.\nDefine the URL of SendDingTalkMessageViaWebHook Http Request node as your Ding Talk group chat robot webhook URL.\nSend test of production message from Azure DevOps to test.\n\n",
+  "totalViews": 1493,
+  "source": "official",
+  "user": {
+    "id": 91373,
+    "name": "PretenderX",
+    "username": "wuliang",
+    "bio": null,
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/e25fa3642169129dbae8b76273eeaae904fc11c04b8a0d7729dfdfa5e4b7e65a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "MySQL",
+      "type": "n8n-nodes-base.mySql",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2023-12-29T02:20:48.068Z",
+  "path": "official/template_2034/workflow.json"
+}

@@ -1,0 +1,115 @@
+{
+  "id": 1122,
+  "name": "Database alerts with Notion and SIGNL4",
+  "totalViews": 731,
+  "purchaseUrl": null,
+  "user": {
+    "id": 5220,
+    "name": "Ron",
+    "username": "rons4",
+    "bio": "Co-founder at Derdack, Exploration at SIGNL4. Passionate about technology, SaaS, IoT, mobile, alerting, learning and more.",
+    "verified": true,
+    "links": "[\"https://www.signl4.com\"]",
+    "avatar": "https://gravatar.com/avatar/1af910dd96a18543fb15bf2097e28a14a72401781ec1ac4ffce7a07ad11dac7f?r=pg&d=retro&size=200"
+  },
+  "description": "Objective\nIn industry and production sometimes machine data is available in databases. That might be sensor data like temperature or pressure or just binary information.\nIn this sample flow reads machine data and sends an alert to your SIGNL4 team when the machine is down. When the machine is up again the alert in SIGNL4 will get closed automatically.\nSetup\nWe simulate the machine data using a Notion table.\n\n\nWhen we un-check the Up box we simulate a machine-down event. In certain intervals n8n checks the database for down items. If such an item has been found an alert is send using SIGNL4 and the item in Notion is updates (in order not to read it again).\n\n\n\nStatus updates from SIGNL4 (acknowledgement, close, annotation, escalation, etc.) are received via webhook and we update the Notion item accordingly.\n\nThis is how the alert looks like in the SIGNL4 app.\n\n\n\nThe flow can be easily adapted to other database monitoring scenarios.\n",
+  "createdAt": "2021-06-10T15:31:49.046Z",
+  "nodes": [
+    {
+      "id": 334,
+      "icon": "file:signl4.png",
+      "name": "n8n-nodes-base.signl4",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.signl4/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/signl4/"
+              }
+            ]
+          },
+          "categories": [
+            "Communication",
+            "Development"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "SIGNL4"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/png;base64,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"
+      },
+      "displayName": "SIGNL4",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 5,
+          "name": "Development"
+        },
+        {
+          "id": 6,
+          "name": "Communication"
+        }
+      ]
+    },
+    {
+      "id": 487,
+      "icon": "file:notion.svg",
+      "name": "n8n-nodes-base.notion",
+      "codex": {
+        "data": {
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/5-tasks-you-can-automate-with-notion-api/",
+                "icon": "⚡️",
+                "label": "5 tasks you can automate with the new Notion API "
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.notion/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/notion/"
+              }
+            ]
+          },
+          "categories": [
+            "Productivity"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"output\"]",
+      "defaults": {
+        "name": "Notion"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik03LjU4Mjc2IDYuOTc2NzlDOC44MjA0NyA3Ljk4MjM4IDkuMjg0NzkgNy45MDU2NiAxMS42MDkxIDcuNzUwNTdMMzMuNTIwNiA2LjQzNDg4QzMzLjk4NTMgNi40MzQ4OCAzMy41OTg5IDUuOTcxMjcgMzMuNDQzOSA1Ljg5NDIzTDI5LjgwNDkgMy4yNjM0OEMyOS4xMDc2IDIuNzIyMTMgMjguMTc4NiAyLjEwMjE3IDI2LjM5ODIgMi4yNTcyNkw1LjE4MTE1IDMuODA0NzZDNC40MDczNiAzLjg4MTQ4IDQuMjUyODIgNC4yNjgzNyA0LjU2MDk2IDQuNTc4NDdMNy41ODI3NiA2Ljk3Njc5Wk04Ljg5ODI5IDEyLjA4MzNWMzUuMTM4MUM4Ljg5ODI5IDM2LjM3NzEgOS41MTc0NiAzNi44NDA3IDEwLjkxMSAzNi43NjRMMzQuOTkxOSAzNS4zNzA2QzM2LjM4NjIgMzUuMjkzOSAzNi41NDE1IDM0LjQ0MTcgMzYuNTQxNSAzMy40MzUyVjEwLjUzNTFDMzYuNTQxNSA5LjUzMDE5IDM2LjE1NDkgOC45ODgyOSAzNS4zMDE0IDkuMDY1NjRMMTAuMTM2NyAxMC41MzUxQzkuMjA3OTkgMTAuNjEzMSA4Ljg5ODIxIDExLjA3NzcgOC44OTgyMSAxMi4wODMzSDguODk4MjlaTTMyLjY3MDggMTMuMzJDMzIuODI1MiAxNC4wMTcgMzIuNjcwOCAxNC43MTMzIDMxLjk3MjUgMTQuNzkxN0wzMC44MTIzIDE1LjAyMjlWMzIuMDQzNEMyOS44MDQ5IDMyLjU4NDggMjguODc1OSAzMi44OTQ0IDI4LjEwMTggMzIuODk0NEMyNi44NjI1IDMyLjg5NDQgMjYuNTUyMSAzMi41MDcyIDI1LjYyMzcgMzEuMzQ3NEwxOC4wMzQzIDE5LjQzMjlWMzAuOTYwNUwyMC40MzU5IDMxLjUwMjRDMjAuNDM1OSAzMS41MDI0IDIwLjQzNTkgMzIuODk0NCAxOC40OTgzIDMyLjg5NDRMMTMuMTU2OCAzMy4yMDQyQzEzLjAwMTYgMzIuODk0NCAxMy4xNTY4IDMyLjEyMTQgMTMuNjk4NiAzMS45NjY1TDE1LjA5MjUgMzEuNTgwMlYxNi4zMzg1TDEzLjE1NzIgMTYuMTgzNEMxMy4wMDE5IDE1LjQ4NjQgMTMuMzg4NSAxNC40ODE0IDE0LjQ3MzMgMTQuNDAzNUwyMC4yMDM1IDE0LjAxNzJMMjguMTAxOCAyNi4wODY4VjE1LjQwOTdMMjYuMDg4MSAxNS4xNzg2QzI1LjkzMzUgMTQuMzI2NSAyNi41NTIxIDEzLjcwNzggMjcuMzI2NSAxMy42MzExTDMyLjY3MDggMTMuMzJaTTMuMzk5NzMgMS43MTU5OEwyNS40Njg4IDAuMDkwNzQ1N0MyOC4xNzkgLTAuMTQxNjg4IDI4Ljg3NjMgMC4wMTQwMjQ1IDMwLjU3OTYgMS4yNTEzNUwzNy42MjQzIDYuMjAyNzZDMzguNzg2NyA3LjA1NDIxIDM5LjE3NDIgNy4yODYwMiAzOS4xNzQyIDguMjE0MTlWMzUuMzcwNkMzOS4xNzQyIDM3LjA3MjYgMzguNTU0MiAzOC4wNzkxIDM2LjM4NjUgMzguMjMzMUwxMC43NTc3IDM5Ljc4MDdDOS4xMzA0OSAzOS44NTgzIDguMzU2MDcgMzkuNjI2NCA3LjUwMzkyIDM4LjU0MjZMMi4zMTYwOCAzMS44MTE3QzEuMzg2NTggMzAuNTcyNiAxIDI5LjY0NTcgMSAyOC41NjEzVjQuNDIyODNDMSAzLjAzMTA1IDEuNjIwMTkgMS44NzAwNSAzLjM5OTczIDEuNzE1OThWMS43MTU5OFoiIGZpbGw9ImJsYWNrIi8+Cjwvc3ZnPgo="
+      },
+      "displayName": "Notion",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 4,
+          "name": "Productivity"
+        }
+      ]
+    }
+  ]
+}

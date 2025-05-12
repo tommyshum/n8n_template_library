@@ -1,0 +1,107 @@
+{
+  "id": 2619,
+  "name": "Deduplicate Scraping AI Grants for Eligibility using AI",
+  "description": "This n8n template scrapes a list of AI grants from grants.gov and qualifies them using AI; determining interest and eligibility for the business. It then sends an email alert of interesting items to team members in an email.\n\nThe template also shows how you can use the \"Remove Duplicates\" node to simplify deduplication of external listings without the need to manage this yourself.\n\nNot particularly interested in AI Grants? This template works for other tender websites as long as you're able to scrape them.\n\nHow it works\nA scheduled trigger is set to fetch a list of AI grants listed on the grants.gov website in the past day.\nA Remove Duplicates node is used to track Grant IDs to filter out those already processed by the workflow.\nNew grants are summarized and analysed by AI nodes to determine eligibility and interest which is then saved to an Airtable database.\nAnother scheduled trigger starts a little later  than the first to collect and summarize the new grants\nThe results are then compiled into an email template using the HTML node, in the form of a newsletter designed to alert and brief team members of new AI grants.\nThis email is then sent to a list of subscribers using the gmail node.\n\nHow to use\nMake a copy of sample Airtable here: https://airtable.com/appiNoPRvhJxz9crl/shrRdP6zstgsxjDKL\nThe filters for fetching the grants is currently set to the \"AI\" category. Feel free to change this to include more categories.\nNot interested in grants, this template can works for other sources of leads just change the endpoint and how you're defining the item ID to track.\n\nRequirements\nAirtable for database\nOpenAI for LLM\n\nNote: These are not hard requirements and can be exchanged for services available to you.\n\ncustomising the workflow\n\"Eligibility\" criteria at this stage may be better served by identifying hard blockers instead ie. certifications, geographical considerations or certain legal checks. Be sure to mention any hard blockers into the Eligibility prompt.\nNot particularly interested in AI prompts? This template works for other tender websites as long as you're able to scrape them.",
+  "totalViews": 3467,
+  "source": "official",
+  "user": {
+    "id": 91804,
+    "name": "Jimleuk",
+    "username": "jimleuk",
+    "bio": "Freelance consultant based in the UK specialising in AI-powered automations. I work with select clients tackling their most challenging projects. For business enquiries, send me an email at hello@jimle.uk\n\nLinkedIn: https://www.linkedin.com/in/jimleuk/\nX/Twitter: https://x.com/jimle_uk",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4ab99e51473df76838beeaac908747f7928c625f869794815cabe34016967d51?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Information Extractor",
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2024-12-10T11:00:25.179Z",
+  "path": "official/template_2619/workflow.json"
+}

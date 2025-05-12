@@ -1,0 +1,68 @@
+{
+  "id": 3697,
+  "name": "Automate Digital Delivery After PayPal Purchase Using n8n",
+  "description": "Automate Digital Delivery After PayPal Purchase Using n8n  \nA Complete Step-by-Step Guide to Seamless Template Delivery  \nBuilt by Amjid Ali – SyncBricks  \nDeliver personalized files instantly after PayPal transactions using n8n – without writing a single backend line.\n\n🚀 What This n8n Workflow Does  \nThis automation template helps you automatically deliver a digital product (such as an n8n template or JSON file) to customers who pay via PayPal — within seconds.\n\nYou can:\nAutomatically extract customer info  \nIdentify what was purchased  \nSend a clean, branded email with the product file  \nPromote your other courses, books, and tools  \n\n📦 Use Case  \nExample Product: AI-Powered Social Media Content Generator & Publisher   \nWhen a customer buys this product through PayPal, this automation:  \n\nListens for a successful payment event  \nFetches order details via API  \nSends an HTML email with the template attached  \nPromotes your other offerings with embedded links  \n\n🔧 Prerequisites  \nYou’ll need:  \nAn n8n instance (self-hosted or n8n Cloud)  \nA PayPal developer account  \nPayPal OAuth2 credentials configured in n8n  \nYour product hosted as a downloadable .json file (Oracle, Dropbox, GitHub, etc.)  \nSMTP email credentials in n8n  \n\n🧠 Step-by-Step Setup  \n\n1. Webhook Trigger  \nNode: Webhook  \nListens for a POST request from PayPal’s webhook for PAYMENT.CAPTURE.COMPLETED events.  \n📌 Add the webhook to your PayPal Developer App &gt; Webhooks.\n\n2. Wait  \nNode: Wait  \nAdds a brief delay to ensure the payment is completely processed before continuing.\n\n3. Filter Event Type  \nNode: Switch  \nProcesses only when the event is PAYMENT.CAPTURE.COMPLETED.\n\n4. Fetch Order Details  \nNode: HTTP Request  \nRetrieves the order information from PayPal's Orders API.  \nURL format:  \nhttps://api.paypal.com/v2/checkout/orders/{{ order_id }}\n\n5. Extract Email & Product Info  \nNode: Set  \nExtracts first name, last name, email address, and the purchased item name.\n\n6. Identify Product Purchased  \nNode: Switch  \nChecks if the product is “AI-Powered Social Media Content Generator & Publisher”.\n\n7. Download Workflow File  \nNode: HTTP Request  \nFetches the hosted workflow JSON from object storage (Oracle in this case).\n\n8. Convert to Downloadable File  \nNode: Code  \nConverts the JSON content into a binary file and attaches it.\n\n9. Send Custom Email  \nNode: Send Email  \nSends a rich HTML email to the buyer with:  \nTheir name  \nThe file attachment  \nProduct name  \nHelpful resource links:  \n  📘 Mastering n8n Course on Udemy  \n  📖 Step-by-Step Guide (n8n Book)  \n  🎓 n8n Video Tutorials (Free Course)  \n  ☁️ Sign up for n8n Cloud – Use code AMJID10  \n  🎥 YouTube Video Walkthrough\n\n📚 Additional Learning Resources  \n\n🚀 My Full Automation Suite  \nExplore more and master n8n with these resources:  \n🎓 Mastering n8n (Full Udemy Course)  \n📕 Get Your Step-by-Step Guide (n8n Book)  \n🎥 Get Step-by-Step Tutorials (Video Course)  \n☁️ Sign up for n8n Cloud  \n💡 Templates, Tools, and More  \n📺 YouTube Channel – SyncBricks\n\n🙋 Need Help or Customization?  \nReach out!  \nEmail: amjid@amjidali.com  \nLinkedIn: linkedin.com/in/amjidali  \nWebsite: syncbricks.com\n",
+  "totalViews": 165,
+  "source": "official",
+  "user": {
+    "id": 92318,
+    "name": "Amjid Ali",
+    "username": "amjid",
+    "bio": "**Amjid Ali** is an automation expert and AI enthusiast specializing in creating intelligent workflows using low-code platforms like **n8n**. With a passion for simplifying complex processes, he designs solutions that enhance productivity and streamline operations. As an active contributor to the **n8n Creator Hub**, Amjid shares innovative use cases, practical templates, and best practices, empowering the community to unlock the full potential of workflow automation.",
+    "verified": true,
+    "links": "[\"https://amjidali.com\"]",
+    "avatar": "https://gravatar.com/avatar/8760ed64a38ed65da42983737659c7e295e4a7f14b59ed5ce1b0b1077435f573?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Core Nodes",
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "categories": [
+        "Communication",
+        "HITL",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-04-24T17:23:43.839Z",
+  "path": "official/template_3697/workflow.json"
+}

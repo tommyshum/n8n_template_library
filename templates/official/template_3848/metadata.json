@@ -1,0 +1,138 @@
+{
+  "id": 3848,
+  "name": "Build a Document QA System with RAG using Milvus, Cohere, and OpenAI for Google Drive",
+  "description": "\nTemplate Description\n\nThis template creates a powerful Retrieval Augmented Generation (RAG) AI agent workflow in n8n. It monitors a specified Google Drive folder for new PDF files, extracts their content, generates vector embeddings using Cohere, and stores these embeddings in a Milvus vector database. Subsequently, it enables a RAG agent that can retrieve relevant information from the Milvus database based on user queries and generate responses using OpenAI, enhanced by the retrieved context.\n\nFunctionality\n\nThe workflow automates the process of ingesting documents into a vector database for use with a RAG system.\n\n Watch New Files: Triggers when a new file (specifically targeting PDFs) is added to a designated Google Drive folder.\n\n Download New: Downloads the newly added file from Google Drive.\n\n Extract from File: Extracts text content from the downloaded PDF file.\n\n Default Data Loader / Set Chunks: Processes the extracted text, splitting it into manageable chunks for embedding.\n\n Embeddings Cohere: Generates vector embeddings for each text chunk using the Cohere API.\n\n Insert into Milvus: Inserts the generated vector embeddings and associated metadata into a Milvus vector database.\n\n When chat message received: Adapt the trigger tool to fit your needs. \n RAG Agent: Orchestrates the RAG process.\n\n Retrieve from Milvus: Queries the Milvus database with the user's chat query to find the most relevant chunks.\n\nMemory: Manages conversation history for the RAG agent to optimize cost and response speed.\n\nOpenAI / Cohere embeddings: Uses ChatGPT 4o for text generation.\n\nRequirements\n\nTo use this template, you will need:\n\nAn n8n instance (cloud or self-hosted).\n\nAccess to a Google Drive account to monitor a folder.\n\nA Milvus instance or access to a Milvus cloud service like Zilliz. \n\nA Cohere API key for generating embeddings.\n\nAn OpenAI API key for the RAG agent's text generation.\n\nUsage\n\nSet up the required credentials in n8n for Google Drive, Milvus, Cohere, and OpenAI.\n\nConfigure the \"Watch New Files\" node to point to the Google Drive folder you want to monitor for PDFs.\n\nEnsure your Milvus instance is running and the target cluster is set up correctly.\n\nActivate the workflow.\n\nAdd PDF files to the monitored Google Drive folder. The workflow will automatically process them and insert their embeddings into Milvus.\n\nInteract with the RAG agent. The agent will use the data in Milvus to provide context-aware answers.\n\nBenefits\n\nAutomates document ingestion for RAG applications.\n\nLeverages Milvus for high-performance vector storage and search.\n\nUses Cohere for generating high-quality text embeddings.\n\nEnables building a context-aware AI agent using your own documents.\n\nSuggested improvements\nSupport for More File Types:** Extend the \"Watch New Files\" node and subsequent extraction steps to handle various document types (e.g., .docx, .txt, .csv, web pages) in addition to PDFs.\n\nError Handling and Notifications:** Implement robust error handling for each step of the workflow (e.g., failed downloads, extraction errors, Milvus insertion failures) and add notification mechanisms (e.g., email, Slack) to alert the user.\n\nGet in touch with us\n\nContact us at https://1node.ai ",
+  "totalViews": 368,
+  "source": "official",
+  "user": {
+    "id": 94008,
+    "name": "Aitor | 1node.ai",
+    "username": "aitoralonso",
+    "bio": "Hi, I’m Aitor, cofounder of 1node.ai. We help businesses integrate full-scale AI solutions that save time, cut costs, and increase revenue. Guaranteed. Need help building smarter workflows? Visit 1node.ai and let's connect.",
+    "verified": true,
+    "links": "[\"https://1node.ai\"]",
+    "avatar": "https://gravatar.com/avatar/2f850f7b4c218087a3e7d9775daf6bd8dad05b5eb5ea82242d4bfd1a97465455?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Embeddings Cohere",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsCohere",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Recursive Character Text Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    },
+    {
+      "name": "Milvus Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreMilvus",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 8,
+  "createdAt": "2025-05-03T17:38:37.716Z",
+  "path": "official/template_3848/workflow.json"
+}

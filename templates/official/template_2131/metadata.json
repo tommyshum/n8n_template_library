@@ -1,0 +1,47 @@
+{
+  "id": 2131,
+  "name": "Send a notification to Slack when a new high-quality lead is added to Hubspot",
+  "description": "Use Case\nWhen tracking your contacts and leads in Hubspot CRM, every new contact might be a potential customer. To guarantee that you're keeping the overview you'd normally need to look at every new lead that is coming in manually to identify high-quality leads to prioritize their engagement and optimize the sales process. This workflow saves the work and does it for you.\n\nWhat this workflow does\nThe workflow runs every 5 minutes. On every run, it checks the Hubspot CRM for contacts that were added since the last check. It then checks if they meet certain criteria (in this case if they are making +5m annual revenue) and alerts you in Slack for every match.\n\nSetup\nAdd Hubspot, and Slack credentials.\nClick on Test workflow.\n\nHow to adjust this workflow to your needs\nChange the schedule interval\nAdjust the criteria to send alerts",
+  "totalViews": 1758,
+  "source": "official",
+  "user": {
+    "id": 91472,
+    "name": "Ricardo Espinoza",
+    "username": "n8nricardoe105",
+    "bio": "Software engineer at n8n.io",
+    "verified": true,
+    "links": "[\"https://google.com\"]",
+    "avatar": "https://gravatar.com/avatar/38ce96166b806b3aa86c8a9bea13b4e5b59c347750d6f8e18629028a74595eda?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Sales"
+  ],
+  "nodes": [
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "HubSpot",
+      "type": "n8n-nodes-base.hubspot",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-02-23T18:32:12.981Z",
+  "path": "official/template_2131/workflow.json"
+}

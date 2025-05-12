@@ -1,0 +1,72 @@
+{
+  "id": 2859,
+  "name": "Chat with Postgresql Database",
+  "description": "Who is this template for?\n\nThis workflow template is designed for any professionals seeking relevent data from database using natural language.\n\nHow it works\n\nEach time user ask's question using the n8n chat interface, the workflow runs.\nThen the message is processed by AI Agent using relevent tools - Execute SQL Query, Get DB Schema and Tables List and Get Table Definition, if required. Agent uses these tool to form and run sql query which are necessary to answer the questions.\nOnce AI Agent has the data, it uses it to form answer and returns it to the user.\n\nSet up instructions\n\nComplete the Set up credentials step when you first open the workflow. You'll need a Postgresql Credentials, and OpenAI api key.\n\nTemplate was created in n8n v1.77.0\n\n",
+  "totalViews": 58166,
+  "source": "official",
+  "user": {
+    "id": 92546,
+    "name": "KumoHQ",
+    "username": "kumohq",
+    "bio": "AI Automation agency with over 3 years experience helping businesses to streamline their manual processes using AI agents. Use our link to book a free consultation for custom AI solutions and workflows.",
+    "verified": false,
+    "links": "[\"https://www.kumohq.co\"]",
+    "avatar": "https://gravatar.com/avatar/a884a2fe28fad39ce752fa33ab3f65fb5e5632fe84596db19412ec71322acd3c?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-02-07T10:20:16.255Z",
+  "path": "official/template_2859/workflow.json"
+}

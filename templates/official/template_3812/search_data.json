@@ -1,0 +1,18 @@
+{
+  "id": 3812,
+  "name": "Standardize US Phone Numbers with Multiple Format Options and Validation",
+  "totalViews": 26,
+  "purchaseUrl": null,
+  "user": {
+    "id": 94176,
+    "name": "Sunny Thaper",
+    "username": "sunnythaper",
+    "bio": "",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/76b8e83f01f685b73ff6c242c4ef1af9fb62c32fc4686b51b6ae732e225045b3?r=pg&d=retro&size=200"
+  },
+  "description": "Workflow Overview:\n\nThis n8n workflow template takes a US phone number as input, validates it, and returns it in multiple standard formats, including handling extensions. It's designed to streamline the process of standardizing phone number data within your automations.\n\nHow it Works:\n\nInput: Accepts a phone number string as input. This number can be in various common formats (e.g., (555) 123-4567, 555.123.4567, +15551234567, 5551234567x890).\n\nFormatting Removal: Strips all non-numeric characters to isolate the core number and any potential extension.\n\nValidation:\n\nCountry Code Check:** Verifies if the number starts with the US country code (+1 or 1) or assumes US if no country code is present and the length is correct.\n\nLength Check:** Ensures the main number component consists of exactly 10 digits after stripping formatting and the country code.\n\nOutput Generation (if valid): If the number passes validation, the workflow outputs the phone number in several standardized formats:\n\nNumber Only:** 5551234567\n\nE.164 Standard:** +15551234567\n\nNational Standard:** (555) 123-4567\n\nFull National Standard:** 1 (555) 123-4567\n\nInternational Standard:** 00-1-555-123-4567\n\nExtension Handling: If an extension is detected in the input, it is separated and provided as:\n\nExtension (Number):** 890\n\nExtension (String):** \"890\"\n\nUse Cases:\n\nCleaning and standardizing phone number data in CRM systems.\n\nFormatting numbers before sending SMS messages via APIs.\n\nValidating user input from forms.\n\nEnsuring consistent phone number representation across different applications.",
+  "createdAt": "2025-05-01T04:03:14.963Z",
+  "nodes": []
+}

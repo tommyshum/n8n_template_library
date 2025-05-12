@@ -1,0 +1,51 @@
+{
+  "id": 2707,
+  "name": "Food Delivery Notifications and Easy Expense Tracking",
+  "description": "Workflow Description\nThis workflow automates the process of retrieving emails from a food delivery platform, extracting key order details, and sending notifications to a Slack channel. Additionally, the Slack message includes a Moze accounting app URL scheme link for quick expense tracking.\n\nKey Features\nManual Trigger: Allows the workflow to be executed manually for immediate testing.\nGmail Integration: Retrieves emails containing specific keywords in the subject line (e.g., \"透過 Uber Eats 系統送出的訂單\"). (You can adjust the keywords to fit your language.)\nData Extraction: Parses the email content to extract key details such as:\n   Order price\n   Shop name\n   Order date and time\nSlack Notification: Sends a notification to a specified Slack channel using a structured block format, including a link to record the expense in the Moze accounting app.\n\nNode Configurations\n\n1. Manual Trigger\nPurpose**: Starts the workflow manually for testing or immediate execution.\nConfiguration**: No setup needed.\n\n2. Gmail Trigger\nPurpose**: Automatically polls Gmail for new emails matching specific subject keywords.\nConfiguration**:\n  Filters:\n    q: subject:透過 Uber Eats 系統送出的訂單 (You can adjust the keywords to fit your language.)\n  Polling Frequency: Every hour at 30 minutes past the hour.\n  Credentials: Linked Gmail account.\n\n3. Extract Price, Shop, Date, Time\nPurpose**: Extracts key information from the email content using regular expressions.\nExtracted Data**:\n  price: Order price (e.g., $200).\n  shop: Shop name (e.g., \"店名\").\n  date: Order date (e.g., 2024.01.01).\n  time: Order time converted to 24-hour format (e.g., 14:30).\n\n4. Slack Notification\nPurpose**: Sends a formatted message to a Slack channel with extracted order details.\nMessage Content**:\n  Text:\n        Ubereat 訂餐資訊:\n    商家: {{ shop }}\n    金額: {{ price }}\n    日期: {{ date }}\n      Moze App Link: Includes a clickable button in the Slack message with a pre-filled Moze app URL scheme:\n        moze3://expense?amount={{ price }}&account=信用卡&subcategory=外送&store={{ shop }}&date={{ date }}&time={{ time }}&project=生活開銷\n      Channel: Slack channel ID associated with food delivery notifications.\n\nAdditional Notes\nCustomization**: Adjust the email subject filter (subject) to match other types of food delivery platforms or services.\nError Handling**: Ensure regular expressions for data extraction match the email format. Test with sample emails before deployment.\nMoze URL Scheme Reference**: Learn more about Moze app URL schemes for customization by visiting the Moze Documentation.\n\nThis workflow is ideal for automating expense tracking and centralizing notifications for food delivery orders, streamlining personal or team expense management.\n\nImage:\nUberEat Gmail with order information\n\n\nSlack text with button\n\n\nClick the button will call moze url scheme\n\n工作流程描述\n此工作流程自動化從外送平台獲取郵件，提取關鍵訂單詳細資訊，並將通知發送到指定的 Slack 頻道。此外，Slack 消息中包含一個 Moze 記帳 App URL Scheme 的連結，方便快速記帳。\n\n主要功能\nManual Trigger：允許手動執行工作流程，方便測試。\nGmail Integration：從 Gmail 中提取包含特定關鍵字（例如：「透過 Uber Eats 系統送出的訂單」）的郵件。\n資料提取：解析郵件內容，提取以下關鍵資訊：\n   訂單金額\n   商家名稱\n   訂單日期與時間\nSlack 通知：將結構化的通知發送到指定的 Slack 頻道，並包含一個連結供用戶快速記帳。\n\n節點設定\n\n1. Manual Trigger\n用途**：手動啟動工作流程以進行測試或即時執行。\n設定**：無需額外設定。\n\n2. Gmail Trigger\n用途**：自動檢查 Gmail 中是否有符合特定主題關鍵字的新郵件。\n設定**：\n  篩選條件：\n    q: subject:透過 Uber Eats 系統送出的訂單\n  檢查頻率：每小時的 30 分。\n  憑證：已連結的 Gmail 帳號。\n\n3. Extract Price, Shop, Date, Time\n用途**：使用正則表達式從郵件內容中提取關鍵資訊。\n提取的資料**：\n  price：訂單金額（例如：$200）。\n  shop：商家名稱（例如：「店名」）。\n  date：訂單日期（例如：2024.01.01）。\n  time：訂單時間（24 小時制，例如：14:30）。\n\n4. Slack 通知\n用途**：將訂單詳細資訊以格式化消息發送到 Slack。\n消息內容**：\n  文字：\n        Ubereat 訂餐資訊:\n    商家: {{ shop }}\n    金額: {{ price }}\n    日期: {{ date }}\n      Moze App 連結：Slack 消息中包含一個可點擊按鈕，預填 Moze App URL Scheme：\n        moze3://expense?amount={{ price }}&account=信用卡&subcategory=外送&store={{ shop }}&date={{ date }}&time={{ time }}&project=生活開銷\n      頻道：與外送通知相關的 Slack 頻道。\n\n補充說明\n自訂化**：可調整郵件主題篩選條件（subject），以匹配其他外送平台或服務。\n錯誤處理**：確保正則表達式匹配郵件格式。在部署前使用樣本郵件進行測試。\nMoze URL Scheme 參考**：了解更多關於 Moze App URL Scheme 的客製化資訊，請參閱 Moze 官方文件。\n\n此工作流程適合自動化費用記帳以及集中管理外送訂單通知，提升個人或團隊的費用管理效率。",
+  "totalViews": 1418,
+  "source": "official",
+  "user": {
+    "id": 92348,
+    "name": "darrell_tw",
+    "username": "darrelltw",
+    "bio": "Martech Engineer with automation.\nhere is my website: https://www.darrelltw.com/",
+    "verified": true,
+    "links": "[\"https://x.com/DarrellMarTech\"]",
+    "avatar": "https://gravatar.com/avatar/4bf99603c608dc2e9a91e3d17bf47743b41153512a14098c8070213d7dccc199?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-01-08T07:41:52.038Z",
+  "path": "official/template_2707/workflow.json"
+}

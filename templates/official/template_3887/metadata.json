@@ -1,0 +1,95 @@
+{
+  "id": 3887,
+  "name": "Auto-Generate & Publish SEO Articles to WordPress with GPT-4 + Postgres Tracking",
+  "description": "🚀 What this flow does\n• 🔎 Selects the least-used WordPress category (tracked in PostgreSQL)\n• 🤖 Uses GPT (4-mini or better) to generate a fully formatted SEO article with headings, TOC, lists, CTA, and Yoast blocks\n• 🖼️ Creates a placeholder cover image and uploads it to WordPress Media\n• 📬 Publishes the final post via /wp-json/wp/v2/posts with correct category + featured image\n• 🧠 Logs the used category for future rotation (zero duplicates!)\n\n⚙️ Setup in 3 mins\n\n🏷️ Add your WordPress domain with a simple Set node:\n    domain=https://yourdomain.com\n\n🔐 Create these 3 credentials in n8n:\n    YOUR_WORDPRESS_CREDENTIAL — for /media, /posts\n    YOUR_POSTGRES_CREDENTIAL — for category tracking\n    YOUR_OPENAI_CREDENTIAL — GPT-4-mini or better\n\n🧱 Run the SQL from docs to create the used_categories table\n\n✅ Manually test first 3–5 nodes to check WP auth, OpenAI response, and DB connection\n\n🕒 Then just schedule it and let the bot write for you.\n\n🎯 Why it's awesome\nThis is your personal AI content writer + publisher — perfect for:\n• 📰 SEO content farms\n• 📈 Affiliate blogs\n• 🧰 Micro niche sites\n• 🤫 PBNs with rotation-safe automation\n\nNo more manual uploads, broken categories, or GPT spam. Every post is structured, beautiful, and intelligently categorized.\n\n",
+  "totalViews": 442,
+  "source": "official",
+  "user": {
+    "id": 94313,
+    "name": "AlexWantMoreB",
+    "username": "alexwmb",
+    "bio": "Automation consultant helping growth teams, agencies, and founders scale with AI + no-code. I specialize in building GPT-powered content systems, lead gen automations, and PostgreSQL-enhanced flows.\n📬 Book custom n8n work or DM for collabs.",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/373a4ce2624e5e504415827276b0f00ae3e47f05ba114d1607bc4979940d581f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Postgres",
+      "type": "n8n-nodes-base.postgres",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-05-06T07:24:39.990Z",
+  "path": "official/template_3887/workflow.json"
+}

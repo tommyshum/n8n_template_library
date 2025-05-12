@@ -1,0 +1,32 @@
+{
+  "id": 3201,
+  "name": "Automate Video Creation with Luma AI Dream Machine and Airtable (Part 2)",
+  "description": "Automate Video Creation with Luma AI Dream Machine and Airtable (Part 2)\n\nDescription  \nThis is the second part of the Luma AI Dream Machine automation. It captures the webhook response from Luma AI after video generation is complete, processes the data, and automatically updates Airtable with the video and thumbnail URLs. This completes the end-to-end automation for video creation and tracking.  \n\n👉 Airtable Base Template  \n👉 Tutorial Video  \n\nSetup  \n1. Luma AI Setup  \nEnsure you’ve created an account with Luma AI and generated an API key.  \nConfirm that the API key has permission to manage video requests.  \n\n2. Airtable Setup  \nMake sure your Airtable base includes the following fields (set up in Part 1):  \nUse the Airtable Base Template linked above to simplify setup.  \nGeneration ID** – To match incoming webhook data.  \nStatus** – Workflow status (e.g., \"Done\").  \nVideo URL** – Stores the generated video URL.  \nThumbnail URL** – Stores the thumbnail URL.  \n\n3. n8n Setup  \nEnsure that the n8n workflow from Part 1 is set up and configured.  \nImport this workflow and connect it to the webhook callback from Luma AI.  \n\nHow It Works  \n1. Webhook Trigger  \nThe Webhook node listens for a POST response from Luma AI once video generation is finished.  \nThe response includes:  \n   Video URL – Direct link to the video.  \n   Thumbnail URL – Link to the video thumbnail.  \n   Generation ID – Used to match the record in Airtable.  \n\n2. Process Webhook Data  \nThe Set node extracts the video data from the webhook response.  \nThe If node checks if the video URL is valid before proceeding.  \n\n3. Store in Airtable  \nThe Airtable node updates the record with:  \n   Video URL – Direct link to the video.  \n   Thumbnail URL – Link to the video thumbnail.  \n   Status – Marked as \"Done.\"  \nUses the Generation ID to match and update the correct record.  \n\nWhy This Workflow is Useful  \n✅ Automates the completion step for video creation  \n✅ Ensures accurate record-keeping by matching generation IDs  \n✅ Simplifies the process of managing and organizing video content  \n✅ Reduces manual effort by automating the update process  \n\nNext Steps  \nFuture Enhancements** – Adding more complex post-processing, video trimming, and multi-platform publishing.  \n",
+  "totalViews": 1269,
+  "source": "official",
+  "user": {
+    "id": 91693,
+    "name": "Alex Kim",
+    "username": "alexk1919",
+    "bio": "n8n Ambassador & Verified Partner",
+    "verified": true,
+    "links": "[\"https://wot-ai.com\"]",
+    "avatar": "https://gravatar.com/avatar/2b74c7f530e250439f5d752f2623ead4921fbb8aef56343c922b2873ef8a619f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-03-17T14:26:25.517Z",
+  "path": "official/template_3201/workflow.json"
+}

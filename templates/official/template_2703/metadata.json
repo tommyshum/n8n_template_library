@@ -1,0 +1,72 @@
+{
+  "id": 2703,
+  "name": "AI Agent : Google calendar assistant using OpenAI",
+  "description": "This template is a simple AI Agent that acts as a Google Calendar Assistant. \nIt is designed for beginners to have their \"first AI Agent\" performing common tasks and to help them understand how it works.\n\nFor new users of n8n, AI Agents, and OpenAI:\nThis template involves using an OpenAI API Key. If you are new to AI Agents, make sure to research and understand key concepts such as:\n\"Tokens\"** (used for API requests),\n\"Tool calling\"** (how the AI interacts with external tools),\nOpenAI's usage costs** (how you will be billed for API usage).\n\nFunctionality\n\nIt has two main functionalities:\nCreate events** in a calendar\nRetrieve events** from a calendar\n\nHow you can use it\nEverything is explained with sticky notes in the workflow. \nIt is ready-to-use: all you need to do is connect your OpenAI credentials, and you can start using the workflow.\n",
+  "totalViews": 36319,
+  "source": "official",
+  "user": {
+    "id": 91734,
+    "name": "Dataki",
+    "username": "dataki",
+    "bio": "I am passionate about transforming complex processes into seamless automations with n8n. My expertise spans across creating ETL pipelines, sales automations, and data & AI-driven workflows. As an avid problem solver, I thrive on optimizing workflows to drive efficiency and innovation.",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/nicolas-aknin/\"]",
+    "avatar": "https://gravatar.com/avatar/0437c659b1ec6916896ebb30cc237391f0e1de89df5465c103e12d2cb12ce42d?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-01-07T15:09:52.723Z",
+  "path": "official/template_2703/workflow.json"
+}

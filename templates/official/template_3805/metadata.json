@@ -1,0 +1,21 @@
+{
+  "id": 3805,
+  "name": "Connect Retell Voice Agents to Custom Functions",
+  "description": "Overview\nThis workflow allows you to trigger custom logic in n8n directly from Retell's Voice Agent using Custom Functions.\nIt captures a POST webhook from Retell every time a Voice Agent reaches a Custom Function node.\nYou can plug in any logic—call an external API, book a meeting, update a CRM, or even return a dynamic response back to the agent.\n\nWho is it for\nFor builders using Retell who want to extend Voice Agent functionality with real-time custom workflows or AI-generated responses.\n\nPrerequisites\nHave a Retell AI Account\nA Retell agent with a Custom Function node in its conversation flow (see template below)\nSet your n8n webhook URL in the Custom Function configuration (see \"How to use it\" below)\n(Optional) Familiarity with Retell's Custom Function docs\nStart a conversation with the agent (text or voice)\n\nRetell Agent Example\nTo get you started, we've prepared a Retell Agent ready to be imported, that includes the call to this template.\nImport the agent to your Retell workspace (top-right button on your agent's page)\nYou will need to modify the function URL in order to call your own instance.\nThis template is a simple hotel agent that calls the custom function to confirm a booking, passing basic formatted data.\n\nHow it works\nRetell sends a webhook to n8n whenever a Custom Function is triggered during a call (or test chat).\nThe webhook includes:\n    Full call context (transcript, call ID, etc.)\n    Parameters defined in the Retell function node\nYou can process this data and return a response string back to the Voice Agent in real-time.\n\nHow to use it\nCopy the webhook URL (e.g. https://your-instance.app.n8n.cloud/webhook/hotel-retell-template)\nModify the Retell Custom Function webhook URL (see template description for screenshots)\n    Edit the function\n    \n    Modify the URL\n    \nModify the logic in the Set node or replace it with your own custom flow\nDeploy and test: Retell will hit your n8n workflow during the conversation\n\nExtension Ideas\nCall a third-party API to fetch data (e.g. hotel availability, CRM records)\nUse an LLM node to generate dynamic responses\nTrigger a parallel automation (Slack message, calendar invite, etc.)\n\n👉 Reach out to us if you're interested in analyzing your Retell Agent conversations.\n",
+  "totalViews": 110,
+  "source": "official",
+  "user": {
+    "id": 91624,
+    "name": "Agent Studio",
+    "username": "agentstudio",
+    "bio": "We are a product studio that helps organizations leverage no-code and generative AI to automate internal processes and launch new digital products.\nLinkedIn: https://www.linkedin.com/in/baptistej/",
+    "verified": true,
+    "links": "[\"https://agentstudio.io/\"]",
+    "avatar": "https://gravatar.com/avatar/e9cf0d0fccead46655b11b2ce215cf14d33ecdaa2ce52828f003574c1800e77a?r=pg&d=retro&size=200"
+  },
+  "categories": [],
+  "nodes": [],
+  "nodeCount": 0,
+  "createdAt": "2025-04-30T14:18:50.227Z",
+  "path": "official/template_3805/workflow.json"
+}

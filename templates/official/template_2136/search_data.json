@@ -1,0 +1,157 @@
+{
+  "id": 2136,
+  "name": "Verify & enrich form leads with Hunter and Clearbit then add them to Pipedrive",
+  "totalViews": 946,
+  "purchaseUrl": null,
+  "user": {
+    "id": 91250,
+    "name": "Niklas Hatje",
+    "username": "nik8n",
+    "bio": "Product Manager at n8n - Responsible for the creator program",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/niklashatje/\"]",
+    "avatar": "https://gravatar.com/avatar/e16a4426e166713c34626bdde856b1cd15bb6787481a7ead9b74318f19e6259d?r=pg&d=retro&size=200"
+  },
+  "description": "Use case\nWhen collecting leads via an online form, you often need to manually add those new leads into your Pipedrive CRM. This not only takes a lot of time but is also error-prone. This workflow automates this tedious work for you.\nWhat this workflow does\nThe workflow is triggered each time a form is submitted in n8n.\nIt validates the email address using Hunter.io.\nIf the email is valid, the workflow checks for an existing person with that email in Pipedrive.\nIf no existing person is found, it utilizes Clearbit to enrich the person's information.\nIt then verifies if the person's organization already exists in Pipedrive, creating a new organization if necessary.\nThe workflow then registers the person in Pipedrive.\nLastly, it creates a lead in Pipedrive using information from the person and organization.\nSetup\nThis workflow is very quick to set up.\nAdd your Hunter.io, Clearbit and Pipedrive credentials \nClick the test workflow button\nActivate the workflow and use the form trigger production URL to collect your leads in a smart way \nHow to adjust it to your needs\nExchange the n8n form trigger with your form of choice (Typeform, Google Forms, SurveyMonkey...)\nAdd a filter criteria to only add new leads if they match certain requirements\nRemove the email check with Hunter.io if you don't own this tool and expect new form submission to have a correct email anyways\nAdd ways to handle invalid emails or existing Persons",
+  "createdAt": "2024-02-28T11:11:05.616Z",
+  "nodes": [
+    {
+      "id": 28,
+      "icon": "file:pipedrive.svg",
+      "name": "n8n-nodes-base.pipedrive",
+      "codex": {
+        "data": {
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/how-to-sync-data-between-two-systems/",
+                "icon": "🏬",
+                "label": "How to synchronize data between two systems (one-way vs. two-way sync"
+              },
+              {
+                "url": "https://n8n.io/blog/how-to-get-started-with-crm-automation-and-no-code-workflow-ideas/",
+                "icon": "👥",
+                "label": "How to get started with CRM automation (with 3 no-code workflow ideas"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.pipedrive/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/pipedrive/"
+              }
+            ]
+          },
+          "categories": [
+            "Sales"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Pipedrive"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiB2aWV3Qm94PSIwIDAgMzIgMzIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PG1hc2sgaWQ9Im1hc2swMDEiIG1hc2stdHlwZT0iYWxwaGEiIG1hc2tVbml0cz0idXNlclNwYWNlT25Vc2UiIHg9IjAiIHk9IjAiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgZmlsbD0iIzI2MjkyQyI+PHBhdGggZD0iTTIuNzM2OTQgMEgyOS4yNjMxQzMwLjc3NDYgMCAzMiAxLjIyNTA3IDMyIDIuNzM2OTVWMjkuMjYzMUMzMiAzMC43NzQ2IDMwLjc3NDkgMzIgMjkuMjYzMSAzMkgyLjczNjk0QzEuMjI1MzcgMzIgMCAzMC43NzQ5IDAgMjkuMjYzMVYyLjczNjk1QzAgMS4yMjUzNyAxLjIyNTA4IDAgMi43MzY5NCAwWiIgZmlsbD0iIzI2MjkyQyI+PC9wYXRoPjwvbWFzaz48ZyBtYXNrPSJ1cmwoI21hc2swMDEpIiBmaWxsPSIjMjYyOTJDIj48cGF0aCBkPSJNMi43MzY5NCAwSDI5LjI2MzFDMzAuNzc0NiAwIDMyIDEuMjI1MDcgMzIgMi43MzY5NVYyOS4yNjMxQzMyIDMwLjc3NDYgMzAuNzc0OSAzMiAyOS4yNjMxIDMySDIuNzM2OTRDMS4yMjUzNyAzMiAwIDMwLjc3NDkgMCAyOS4yNjMxVjIuNzM2OTVDMCAxLjIyNTM3IDEuMjI1MDggMCAyLjczNjk0IDBaIiBmaWxsPSIjMjYyOTJDIj48L3BhdGg+PC9nPjxtYXNrIGlkPSJtYXNrMSIgbWFzay10eXBlPSJhbHBoYSIgbWFza1VuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeD0iNyIgeT0iNCIgd2lkdGg9IjE4IiBoZWlnaHQ9IjI0IiBmaWxsPSIjMjYyOTJDIj48cGF0aCBkPSJNMTMuMzM0OCAxMy4xNzY2QzEzLjMzNDggMTUuMzE5NCAxNC40MjE5IDE3LjYzMTEgMTYuODE0MSAxNy42MzExQzE4LjU4ODEgMTcuNjMxMSAyMC4zODE5IDE2LjI0NjEgMjAuMzgxOSAxMy4xNDUxQzIwLjM4MTkgMTAuNDI2NCAxOC45NzE4IDguNjAxMjcgMTYuODczMSA4LjYwMTI3QzE1LjE2MyA4LjYwMTI3IDEzLjMzNDggOS44MDI1OCAxMy4zMzQ4IDEzLjE3NjZaTTE3LjcxNTggNC42MzE1OUMyMi4wMDUxIDQuNjMxNTkgMjQuODg5MSA4LjAyODczIDI0Ljg4OTEgMTMuMDg1NkMyNC44ODkxIDE4LjA2MjkgMjEuODUwOSAyMS41Mzc4IDE3LjUwNzYgMjEuNTM3OEMxNS40MzY4IDIxLjUzNzggMTQuMTEwMyAyMC42NTA5IDEzLjQxNjggMjAuMDA4OUMxMy40MjE3IDIwLjE2MTEgMTMuNDI1IDIwLjMzMTYgMTMuNDI1IDIwLjUxMzZWMjcuMjYzMkg4Ljk4MTY0VjkuMjc5N0M4Ljk4MTY0IDkuMDE4MjQgOC44OTgwMiA4LjkzNTUyIDguNjM4OTcgOC45MzU1Mkg3LjExMDg1VjQuOTk3MjlIMTAuODM5M0MxMi41NTYgNC45OTcyOSAxMi45OTU0IDUuODcwOTcgMTMuMDc5IDYuNTQ0NDRDMTMuNzc1OSA1Ljc2MzQyIDE1LjIyMDQgNC42MzE1OSAxNy43MTU4IDQuNjMxNTlaIiBmaWxsPSIjMjYyOTJDIj48L3BhdGg+PC9tYXNrPjxnIG1hc2s9InVybCgjbWFzazEpIiBmaWxsPSIjMjYyOTJDIj48cGF0aCBkPSJNMTMuMzM0OCAxMy4xNzY2QzEzLjMzNDggMTUuMzE5NCAxNC40MjE5IDE3LjYzMTEgMTYuODE0MSAxNy42MzExQzE4LjU4ODEgMTcuNjMxMSAyMC4zODE5IDE2LjI0NjEgMjAuMzgxOSAxMy4xNDUxQzIwLjM4MTkgMTAuNDI2NCAxOC45NzE4IDguNjAxMjcgMTYuODczMSA4LjYwMTI3QzE1LjE2MyA4LjYwMTI3IDEzLjMzNDggOS44MDI1OCAxMy4zMzQ4IDEzLjE3NjZaTTE3LjcxNTggNC42MzE1OUMyMi4wMDUxIDQuNjMxNTkgMjQuODg5MSA4LjAyODczIDI0Ljg4OTEgMTMuMDg1NkMyNC44ODkxIDE4LjA2MjkgMjEuODUwOSAyMS41Mzc4IDE3LjUwNzYgMjEuNTM3OEMxNS40MzY4IDIxLjUzNzggMTQuMTEwMyAyMC42NTA5IDEzLjQxNjggMjAuMDA4OUMxMy40MjE3IDIwLjE2MTEgMTMuNDI1IDIwLjMzMTYgMTMuNDI1IDIwLjUxMzZWMjcuMjYzMkg4Ljk4MTY0VjkuMjc5N0M4Ljk4MTY0IDkuMDE4MjQgOC44OTgwMiA4LjkzNTUyIDguNjM4OTcgOC45MzU1Mkg3LjExMDg1VjQuOTk3MjlIMTAuODM5M0MxMi41NTYgNC45OTcyOSAxMi45OTU0IDUuODcwOTcgMTMuMDc5IDYuNTQ0NDRDMTMuNzc1OSA1Ljc2MzQyIDE1LjIyMDQgNC42MzE1OSAxNy43MTU4IDQuNjMxNTlaIiBmaWxsPSIjRkZGRkZGIj48L3BhdGg+PC9nPjwvc3ZnPgo="
+      },
+      "displayName": "Pipedrive",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 2,
+          "name": "Sales"
+        }
+      ]
+    },
+    {
+      "id": 136,
+      "icon": "file:hunter.png",
+      "name": "n8n-nodes-base.hunter",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.hunter/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/hunter/"
+              }
+            ]
+          },
+          "categories": [
+            "Sales"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"output\"]",
+      "defaults": {
+        "name": "Hunter"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAw1BMVEUAAAD/Qhz/VxX/RQD/RQD/RAD/PQH/SAD/RQD/OwH/RgD/OQD/SAD/SAD/RgD/QQD/RgD/RAD/QQD/OgD/SgD/SgD/SAD/RAD/QgD/QgD/SAD/SgD/SQD/SAD/SAD/RgD/SAD/SgD/SQD/RAD/RQD/QwD/QgD/PAD/SAD/RAD/SAD/RgD/RgD/RAD/RQD/QgD/QwD/QgD/SwD/TQD/SAD/RwD/QwD/QwD/QgD/PgD/RAD/RQD/SQD/TQD/TAD/TgD/VQBe3z92AAAAO3RSTlMABAL6/fwG/PcKZw7XyJYuYVQbF/nxwoBLMvTt59zPzbyxkoR7OikS4qiejId4c1BGQfTitaZbPSclIH7mBkUAAAKqSURBVEjHxZbXdqMwEIYHVCg27r3bcUlPNj1hJPL+T7WSkiCzwWBf7dg+HMx8558iaYD/Z457KuGqryGPRh2oD8E11NFEEx/udHCNVcWA5URrgjhrAwzE5+VRCIdrSYhsQrAQPm7KGRVPECEjSQ3+oCIvwCktVgBrSWKG09aTZDSefJTJOBwGHUrjOKZVdVHoDfBCCfX0rotMExRjZUxG3HELe/5e85DGxr4uXmcAvACoXJ8LqjWs6TockHFVYcKpQJ/GGWN0XAcnl3ChvhDI9iQoo6lM/jps+JJkFAh6xGSDr/kyfREbBysiJ57QfzGstsD9LbJOCMsS3u128yyYKXRvl+rYpZsJShmRN0Zb6oSI6LVU2dx9jd05skxxmTfaQhBwuEqIUiSyutEbjvPvvnI4E75K1jLKCa8qoK2GJjbsXL/ZbjhQmSMm3RFmcsHorNEc3J0hNbI0Ob/s34YvrwpQnz/dZB4O6z1kmWwS7Dx00OomQkhvvGzpuNY01FGEgmX6TgillO3dK/PY56WjGv9SN6s+lBnELOeYZu612Kz9s14cWCmVUiNiGRjA/OZ4BOKLhm3nsBvTciJZ8G/CNIcUu1NKfDF9B+dHZDcrjoupcqGo2s3DoYGHRajyRyG68749PV03eDoYF1X+iXxc9u8D5bmX/NhjBxRigdVVs679eUroRYMezVWIxej5fuemo8Mim5FCcgg5rn1oh9Tfbpl2lJc+kb2hemrdMzI3if+bEFcO6PjzDyW+SBlLrJVCwSBqVwX5h1AnmCKKmCihZI/AqKI1Chm+8qTP0r3hNYGXDkkY9ASSL4hhVDT+7XiphNUEzWnMxC04R41WaDdmKJARSrbHTX6dL7+/mAhMptwi5RC0wovHpXvK64Wm3rZwkjlcUaeaW9D3v/GpwMArl9LJAAAAAElFTkSuQmCC"
+      },
+      "displayName": "Hunter",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 2,
+          "name": "Sales"
+        }
+      ]
+    },
+    {
+      "id": 218,
+      "icon": "file:clearbit.svg",
+      "name": "n8n-nodes-base.clearbit",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.clearbit/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/clearbit/"
+              }
+            ]
+          },
+          "categories": [
+            "Sales"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"output\"]",
+      "defaults": {
+        "name": "Clearbit"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3MiIgaGVpZ2h0PSI3MiI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJhIiB4MT0iNTAlIiB4Mj0iMTAwJSIgeTE9IjAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI0RFRjJGRSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI0RCRjFGRSIvPjwvbGluZWFyR3JhZGllbnQ+PGxpbmVhckdyYWRpZW50IGlkPSJiIiB4MT0iMCUiIHgyPSI1MCUiIHkxPSIwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiM1N0JDRkQiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM1MUI1RkQiLz48L2xpbmVhckdyYWRpZW50PjxsaW5lYXJHcmFkaWVudCBpZD0iYyIgeDE9IjM3LjUlIiB4Mj0iNjIuNSUiIHkxPSIwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMxQ0E3RkQiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxNDhDRkMiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGZpbGw9InVybCgjYSkiIGQ9Ik03MiAzNnYxNi43N2wtLjAwNC44NjhjLS4wNiA2LjAzNS0uNzUgOC4zNTMtMiAxMC42ODhhMTMuNjMgMTMuNjMgMCAwIDEtNS42NyA1LjY3bC0uMzI2LjE3MUM2MS42NTggNzEuMzY0IDU5LjE2IDcyIDUyLjc3IDcySDM2VjM2eiIvPjxwYXRoIGZpbGw9InVybCgjYikiIGQ9Ik02NC4zMjYgMi4wMDNhMTMuNjMgMTMuNjMgMCAwIDEgNS42NyA1LjY3bC4xNzEuMzI3QzcxLjM2NCAxMC4zNDIgNzIgMTIuODQgNzIgMTkuMjNWMzZIMzZWMGgxNi43N2M2LjY4NyAwIDkuMTEyLjY5NiAxMS41NTYgMi4wMDMiLz48cGF0aCBmaWxsPSJ1cmwoI2MpIiBkPSJNMzYgMHY3MkgxOS4yM2wtLjg2OC0uMDA0Yy02LjAzNS0uMDYtOC4zNTMtLjc1LTEwLjY4OC0yYTEzLjYzIDEzLjYzIDAgMCAxLTUuNjctNS42N0wxLjgzMiA2NEMuNjM2IDYxLjY1OCAwIDU5LjE2IDAgNTIuNzdWMTkuMjNjMC02LjY4Ny42OTYtOS4xMTIgMi4wMDMtMTEuNTU2YTEzLjYzIDEzLjYzIDAgMCAxIDUuNjctNS42N0w4IDEuODMyQzEwLjM0Mi42MzYgMTIuODQgMCAxOS4yMyAweiIvPjwvZz48L3N2Zz4="
+      },
+      "displayName": "Clearbit",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 2,
+          "name": "Sales"
+        }
+      ]
+    }
+  ]
+}

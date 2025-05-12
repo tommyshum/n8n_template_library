@@ -1,0 +1,275 @@
+{
+  "id": 3495,
+  "name": "Loading JSON via FTP to Qdrant Vector Database Embedding Pipeline",
+  "totalViews": 463,
+  "purchaseUrl": null,
+  "user": {
+    "id": 93692,
+    "name": "Ghaith Alsirawan",
+    "username": "gsirawan",
+    "bio": "",
+    "verified": false,
+    "links": "[\"https://www.linkedin.com/in/ghaith-alsirawan/\"]",
+    "avatar": "https://gravatar.com/avatar/5625bdb1b13306110c60dab8ca87affdc58386c8f61165d0ebeb33bb7262a272?r=pg&d=retro&size=200"
+  },
+  "description": "🧠 This workflow is designed for one purpose only, to bulk-upload structured JSON articles from an FTP server into a Qdrant vector database for use in LLM-powered semantic search, RAG systems, or AI assistants.\n\nThe JSON files are pre-cleaned and contain metadata and rich text chunks, ready for vectorization. This workflow handles\nDownloading from FTP\nParsing & splitting\nEmbedding with OpenAI-embedding\nStoring in Qdrant for future querying\n\nJSON structure format for blog articles\n{\n  \"id\": \"article_001\",\n  \"title\": \"reseguider\",\n  \"language\": \"sv\",\n  \"tags\": [\"london\", \"resa\", \"info\"],\n  \"source\": \"alltomlondon.se\",\n  \"url\": \"https://...\",\n  \"embedded_at\": \"2025-04-08T15:27:00Z\",\n  \"chunks\": [\n    {\n      \"chunk_id\": \"article_001_01\",\n      \"section_title\": \"Introduktion\",\n      \"text\": \"Välkommen till London...\"\n    },\n    ...\n  ]\n}\n\n🧰 Benefits\n✅ Automated Vector Loading\nHandles FTP → JSON → Qdrant in a hands-free pipeline.\n\n✅ Clean Embedding Input\nSupports pre-validated chunks with metadata: titles, tags, language, and article ID.\n\n✅ AI-Ready Format\nPerfect for Retrieval-Augmented Generation (RAG), semantic search, or assistant memory.\n\n✅ Flexible Architecture\nModular and swappable: FTP can be replaced with GDrive/Notion/S3, and embeddings can switch to local models like Ollama.\n\n✅ Community Friendly\nThis template helps others adopt best practices for vector DB feeding and LLM integration.",
+  "createdAt": "2025-04-09T07:42:31.732Z",
+  "nodes": [
+    {
+      "id": 350,
+      "icon": "fa:server",
+      "name": "n8n-nodes-base.ftp",
+      "codex": {
+        "data": {
+          "alias": [
+            "SFTP",
+            "FTP",
+            "Binary",
+            "File",
+            "Transfer"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.ftp/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/ftp/"
+              }
+            ]
+          },
+          "categories": [
+            "Core Nodes",
+            "Data & Storage",
+            "Development",
+            "Utility"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0",
+          "subcategories": {
+            "Core Nodes": [
+              "Files",
+              "Helpers"
+            ]
+          }
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "FTP",
+        "color": "#303050"
+      },
+      "iconData": {
+        "icon": "server",
+        "type": "icon"
+      },
+      "displayName": "FTP",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 3,
+          "name": "Data & Storage"
+        },
+        {
+          "id": 5,
+          "name": "Development"
+        },
+        {
+          "id": 7,
+          "name": "Utility"
+        },
+        {
+          "id": 9,
+          "name": "Core Nodes"
+        }
+      ]
+    },
+    {
+      "id": 1141,
+      "icon": "file:openAiLight.svg",
+      "name": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsopenai/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Embeddings"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Embeddings OpenAI"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTM2Ljg2NzEgMTYuMzcxOEMzNy43NzQ2IDEzLjY0OCAzNy40NjIxIDEwLjY2NDIgMzYuMDEwOCA4LjE4NjYxQzMzLjgyODIgNC4zODY1MyAyOS40NDA3IDIuNDMxNDkgMjUuMTU1NiAzLjM1MTUxQzIzLjI0OTMgMS4yMDM5NiAyMC41MTA1IC0wLjAxNzMxNDggMTcuNjM5MiAwLjAwMDE4NTUzM0MxMy4yNTkxIC0wLjAwOTgxNDY4IDkuMzcyNzMgMi44MTAyNSA4LjAyNTIgNi45Nzc4M0M1LjIxMTM5IDcuNTU0MSAyLjc4MjU4IDkuMzE1MzggMS4zNjEzIDExLjgxMTdDLTAuODM3NDkzIDE1LjYwMTggLTAuMzM2MjMyIDIwLjM3OTQgMi42MDEzMyAyMy42Mjk0QzEuNjkzODEgMjYuMzUzMiAyLjAwNjMyIDI5LjMzNzEgMy40NTc2IDMxLjgxNDZDNS42NDAxNSAzNS42MTQ3IDEwLjAyNzcgMzcuNTY5NyAxNC4zMTI4IDM2LjY0OTdDMTYuMjE3OSAzOC43OTczIDE4Ljk1NzkgNDAuMDE4NSAyMS44MjkyIDM5Ljk5OThDMjYuMjExOCA0MC4wMTEgMzAuMDk5NCAzNy4xODg1IDMxLjQ0NjkgMzMuMDE3MUMzNC4yNjA4IDMyLjQ0MDkgMzYuNjg5NiAzMC42Nzk2IDM4LjExMDggMjguMTgzM0M0MC4zMDcxIDI0LjM5MzIgMzkuODA0NiAxOS42MTk0IDM2Ljg2ODMgMTYuMzY5M0wzNi44NjcxIDE2LjM3MThaTTIxLjgzMTcgMzcuMzg2QzIwLjA3OCAzNy4zODg1IDE4LjM3OTIgMzYuNzc0NyAxNy4wMzI5IDM1LjY1MDlDMTcuMDk0MSAzNS42MTg0IDE3LjIwMDQgMzUuNTU5NyAxNy4yNjkxIDM1LjUxNzJMMjUuMjM0MyAzMC45MTcxQzI1LjY0MTggMzAuNjg1OCAyNS44OTE4IDMwLjI1MjEgMjUuODg5MyAyOS43ODMzVjE4LjU1NDNMMjkuMjU1NyAyMC40OTgxQzI5LjI5MTkgMjAuNTE1NiAyOS4zMTU3IDIwLjU1MDYgMjkuMzIwNyAyMC41OTA2VjI5Ljg4OTZDMjkuMzE1NyAzNC4wMjQ3IDI1Ljk2NjggMzcuMzc3MiAyMS44MzE3IDM3LjM4NlpNNS43MjY0IDMwLjUwNzFDNC44NDc2MyAyOC45ODk2IDQuNTMxMzcgMjcuMjEwOCA0LjgzMjYzIDI1LjQ4NDVDNC44OTEzOCAyNS41MTk1IDQuOTk1MTMgMjUuNTgzMiA1LjA2ODg4IDI1LjYyNTdMMTMuMDM0MSAzMC4yMjU4QzEzLjQzNzggMzAuNDYyMSAxMy45Mzc4IDMwLjQ2MjEgMTQuMzQyOCAzMC4yMjU4TDI0LjA2NjggMjQuNjEwN1YyOC40OTgzQzI0LjA2OTMgMjguNTM4MyAyNC4wNTA1IDI4LjU3NyAyNC4wMTkzIDI4LjYwMkwxNS45Njc5IDMzLjI1MDlDMTIuMzgxNSAzNS4zMTU5IDcuODAxNDQgMzQuMDg4NCA1LjcyNzY1IDMwLjUwNzFINS43MjY0Wk0zLjYzMDEgMTMuMTIwNUM0LjUwNTEyIDExLjYwMDQgNS44ODY0IDEwLjQzNzkgNy41MzE0NCA5LjgzNDE1QzcuNTMxNDQgOS45MDI5IDcuNTI3NjkgMTAuMDI0MiA3LjUyNzY5IDEwLjEwOTJWMTkuMzEwNkM3LjUyNTE5IDE5Ljc3ODEgNy43NzUxOSAyMC4yMTE5IDguMTgxNDUgMjAuNDQzMUwxNy45MDU0IDI2LjA1N0wxNC41MzkxIDI4LjAwMDhDMTQuNTA1MyAyOC4wMjMzIDE0LjQ2MjggMjguMDI3IDE0LjQyNTMgMjguMDEwOEw2LjM3MjY2IDIzLjM1ODJDMi43OTM4MyAyMS4yODU2IDEuNTY2MzEgMTYuNzA2OCAzLjYyODg1IDEzLjEyMTdMMy42MzAxIDEzLjEyMDVaTTMxLjI4ODIgMTkuNTU2OUwyMS41NjQyIDEzLjk0MTdMMjQuOTMwNiAxMS45OTkyQzI0Ljk2NDMgMTEuOTc2NyAyNS4wMDY4IDExLjk3MjkgMjUuMDQ0MyAxMS45ODkyTDMzLjA5NyAxNi42MzhDMzYuNjgyMSAxOC43MDkzIDM3LjkxMDggMjMuMjk1NyAzNS44Mzk1IDI2Ljg4MDhDMzQuOTYzMyAyOC4zOTgzIDMzLjU4MzIgMjkuNTYwOCAzMS45Mzk1IDMwLjE2NThWMjAuNjg5NEMzMS45NDMyIDIwLjIyMTkgMzEuNjk0NSAxOS43ODk0IDMxLjI4OTQgMTkuNTU2OUgzMS4yODgyWk0zNC42MzgzIDE0LjUxNDJDMzQuNTc5NSAxNC40NzggMzQuNDc1OCAxNC40MTU1IDM0LjQwMiAxNC4zNzNMMjYuNDM2OCA5Ljc3Mjg5QzI2LjAzMzEgOS41MzY2NCAyNS41MzMxIDkuNTM2NjQgMjUuMTI4MSA5Ljc3Mjg5TDE1LjQwNDEgMTUuMzg4VjExLjUwMDRDMTUuNDAxNiAxMS40NjA0IDE1LjQyMDQgMTEuNDIxNyAxNS40NTE2IDExLjM5NjdMMjMuNTAzIDYuNzUxNThDMjcuMDg5NCA0LjY4Mjc5IDMxLjY3NDUgNS45MTQwNiAzMy43NDIgOS41MDE2NEMzNC42MTU4IDExLjAxNjcgMzQuOTMyIDEyLjc5MDUgMzQuNjM1OCAxNC41MTQySDM0LjYzODNaTTEzLjU3NDEgMjEuNDQzMUwxMC4yMDY1IDE5LjQ5OTRDMTAuMTcwMiAxOS40ODE5IDEwLjE0NjUgMTkuNDQ2OCAxMC4xNDE1IDE5LjQwNjhWMTAuMTA3OUMxMC4xNDQgNS45Njc4MSAxMy41MDI4IDIuNjEyNzQgMTcuNjQyOSAyLjYxNTI0QzE5LjM5NDIgMi42MTUyNCAyMS4wODkyIDMuMjMwMjUgMjIuNDM1NSA0LjM1MDI4QzIyLjM3NDMgNC4zODI3OCAyMi4yNjkzIDQuNDQxNTMgMjIuMTk5MiA0LjQ4NDAzTDE0LjIzNDEgOS4wODQxM0MxMy44MjY2IDkuMzE1MzggMTMuNTc2NiA5Ljc0Nzg5IDEzLjU3OTEgMTAuMjE2N0wxMy41NzQxIDIxLjQ0MDZWMjEuNDQzMVpNMTUuNDAyOSAxNy41MDA2TDE5LjczNDIgMTQuOTk5M0wyNC4wNjU1IDE3LjQ5OTNWMjIuNTAwN0wxOS43MzQyIDI1LjAwMDdMMTUuNDAyOSAyMi41MDA3VjE3LjUwMDZaIiBmaWxsPSIjN0Q3RDg3Ii8+Cjwvc3ZnPgo="
+      },
+      "displayName": "Embeddings OpenAI",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1189,
+      "icon": "fa:grip-lines-vertical",
+      "name": "@n8n/n8n-nodes-langchain.textSplitterCharacterTextSplitter",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.textsplittercharactertextsplitter/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Text Splitters"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Character Text Splitter"
+      },
+      "iconData": {
+        "icon": "grip-lines-vertical",
+        "type": "icon"
+      },
+      "displayName": "Character Text Splitter",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1243,
+      "icon": "file:binary.svg",
+      "name": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.documentdefaultdataloader/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Document Loaders"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Default Data Loader"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3NjgiIGhlaWdodD0iMTAyNCI+PHBhdGggZmlsbD0iIzdEN0Q4NyIgZD0iTTAgOTYwVjY0aDU3NmwxOTIgMTkydjcwNHptNzA0LTY0MEw1MTIgMTI4SDY0djc2OGg2NDB6TTMyMCA1MTJIMTI4VjI1NmgxOTJ6bS02NC0xOTJoLTY0djEyOGg2NHptMCA0NDhoNjR2NjRIMTI4di02NGg2NFY2NDBoLTY0di02NGgxMjh6bTI1Ni0zMjBoNjR2NjRIMzg0di02NGg2NFYzMjBoLTY0di02NGgxMjh6bTY0IDM4NEgzODRWNTc2aDE5MnptLTY0LTE5MmgtNjR2MTI4aDY0eiIvPjwvc3ZnPg=="
+      },
+      "displayName": "Default Data Loader",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1248,
+      "icon": "file:qdrant.svg",
+      "name": "@n8n/n8n-nodes-langchain.vectorStoreQdrant",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoreqdrant/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Vector Stores",
+              "Tools",
+              "Root Nodes"
+            ],
+            "Tools": [
+              "Other Tools"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Qdrant Vector Store"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjU2cHgiIGhlaWdodD0iMjk2cHgiIHZpZXdCb3g9IjAgMCAyNTYgMjk2IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIj4KICAgIDx0aXRsZT5xZHJhbnQ8L3RpdGxlPgogICAgPGRlZnM+CiAgICAgICAgPGxpbmVhckdyYWRpZW50IHgxPSI4MS41NjE5MDQ4JSIgeTE9IjQ0Ljg0MjEwNTMlIiB4Mj0iLTE4LjA4NTcxNDMlIiB5Mj0iNDQuODQyMTA1MyUiIGlkPSJsaW5lYXJHcmFkaWVudC0xIj4KICAgICAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iI0ZGMzM2NCIgb2Zmc2V0PSIwJSI+PC9zdG9wPgogICAgICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjQzkxNTQwIiBzdG9wLW9wYWNpdHk9IjAiIG9mZnNldD0iMTAwJSI+PC9zdG9wPgogICAgICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8L2RlZnM+CiAgICA8Zz4KICAgICAgICA8cG9seWdvbiBmaWxsPSIjMjQzODZDIiBwb2ludHM9IjIwMS4zMTcwNSAyNzEuNzIyNDI3IDE5NS40MjI3MTUgMTA5LjIxMjY3IDE4NC43NDc3ODEgNjYuMzY4MjM2OCAyNTYgNzMuOTExMjU0NSAyNTYgMjcwLjQ5MjUwOSAyMTIuNDc0NzU3IDI5NS42MTI2MjYiPjwvcG9seWdvbj4KICAgICAgICA8cG9seWdvbiBmaWxsPSIjNzU4OUJFIiBwb2ludHM9IjI1NS45OTUxNTEgNzMuODk5ODEwNyAyMTIuNDY5OTA4IDk5LjAzNzM4NCAxMjIuNjQ5NjM0IDc5LjMzNDY0NzEgMTcuNTE2MDAwOCAxMjIuMTQwMjg4IDEuMTM3MDQ4NGUtMTQgNzMuODk5ODEwNyA2My45ODgzMTM3IDM2Ljk0OTkwNTMgMTI3Ljk5NjAyNCAwIDE5MS45ODYyNzcgMzYuOTQ5OTA1MyI+PC9wb2x5Z29uPgogICAgICAgIDxwb2x5bGluZSBmaWxsPSIjQjJCRkU4IiBwb2ludHM9IjAuMDAzMTAzNDA0MTIgNzMuODk5ODEwNyA0My41MjgzNDYyIDk5LjAzNzM4NCA2OC43NTkwMjE3IDE3NC4wNzM4MTYgMTUzLjk0OTQwNSAyNDIuMjM2MjA5IDEyOC4wMDEwNjcgMjk1LjU5OTI0MyA2My45OTMzNTY4IDI1OC42NDczOTggMC4wMDMxMDM0MDQxMiAyMjEuNjk3NDkyIDAuMDAzMTAzNDA0MTIgNzMuODk3ODcxIj48L3BvbHlsaW5lPgogICAgICAgIDxwb2x5bGluZSBmaWxsPSIjMjQzODZDIiBwb2ludHM9IjE1Ni44NTY5MDYgMjAyLjgwNzQ1OSAxMjguMDAxMDY3IDI0NS4zNDczNzEgMTI4LjAwMTA2NyAyOTUuNjAzMTIyIDE2OC45NDY2MDUgMjcxLjk3ODQ1OCAxOTAuMDQzOTM0IDI0MC40NzUwMjciPjwvcG9seWxpbmU+CiAgICAgICAgPHBvbHlnb24gZmlsbD0iIzc1ODlCRSIgcG9pbnRzPSIxMjguMDE4NTIzIDE5NS4xMDcxMzggODcuMDU1NTI4NyAxMjQuMTg0NjU2IDk1Ljg3ODcwMDUgMTAwLjY3ODMwOSAxMjkuNDIwNjggODQuNDE1Njk1NSAxNjguOTQ2NDExIDEyNC4xODU4MTkiPjwvcG9seWdvbj4KICAgICAgICA8cG9seWxpbmUgZmlsbD0iI0IyQkZFOCIgcG9pbnRzPSI4Ny4wNTU1Mjg3IDEyNC4xNzg4MzcgMTI4LjAwMTA2NyAxNDcuODAzNTAxIDEyOC4wMDEwNjcgMTk1LjA5MTYyMSA5MC4xMzE3NzggMTk2LjcyMDkyNyA2Ny4yMjQ3NzYzIDE2Ny40NzEzNDQgODcuMDU1NTI4NyAxMjQuMTc4ODU2Ij48L3BvbHlsaW5lPgogICAgICAgIDxwb2x5Z29uIGZpbGw9IiMyNDM4NkMiIHBvaW50cz0iMTI4LjAwMTA2NyAxNDcuNzk5NjIxIDE2OC45NDY2MDUgMTI0LjE3Njg5NyAxOTYuODEzMjM0IDE3MC41NzY2NjggMTYzLjA5MDg2OSAxOTguNDM5NDE4IDEyOC4wMDEwNjcgMTk1LjA4OTI5MyI+PC9wb2x5Z29uPgogICAgICAgIDxwYXRoIGQ9Ik0xNjguOTQ2NjA1LDI3MS45NzQ1NzkgTDIxMi40NzE4NDgsMjk1LjYwMTE4MiBMMjEyLjQ3MTg0OCw5OS4wMzkzMjM3IEwxNzAuMjI2NzU5LDc0LjY1ODIwNSBMMTI4LjAwMTA2Nyw1MC4yNzcwODY0IEw4NS43NTU5NzgyLDc0LjY1ODIwNSBMNDMuNTMwMjg1OCw5OS4wMzkzMjM3IEw0My41MzAyODU4LDE5Ni41ODEyNTUgTDg1Ljc1NTk3ODIsMjIwLjk2MjM3MyBMMTI4LjAwMTA2NywyNDUuMzQ1NDMyIEwxNjguOTQ2NjA1LDIyMS42OTk0MzIgTDE2OC45NDY2MDUsMjcxLjk3NDU3OSBaIE0xNjguOTQ2NjA1LDE3MS40NDM2ODEgTDEyOC4wMDEwNjcsMTk1LjA4Nzc0MiBMODcuMDU1NTI4NywxNzEuNDQzNjgxIEw4Ny4wNTU1Mjg3LDEyNC4xNzQ5NTcgTDEyOC4wMDEwNjcsMTAwLjUzMDg5NyBMMTY4Ljk0NjYwNSwxMjQuMTc0OTU3IEwxNjguOTQ2NjA1LDE3MS40NDM2ODEiIGZpbGw9IiNEQzI0NEMiPjwvcGF0aD4KICAgICAgICA8cG9seWdvbiBmaWxsPSJ1cmwoI2xpbmVhckdyYWRpZW50LTEpIiBwb2ludHM9IjEyOC4wMTg1MjMgMjQ1LjM2Mjg4OCAxMjguMDE4NTIzIDE5NS4wOTkzNzkgODcuMjg2MzQ0MyAxNzEuNjU3MDQxIDg3LjI4NjM0NDMgMjIxLjgzNzE0NiI+PC9wb2x5Z29uPgogICAgPC9nPgo8L3N2Zz4K"
+      },
+      "displayName": "Qdrant Vector Store",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "id": 1458,
+  "name": "Notify on Slack when new product is added in WooCommerce",
+  "description": "This workflow uses a WooCommerce trigger that will run when a new product has been added, It will then post it to Slack so your team is always kept up to date with new products.\n\nTo use this workflow you will need to set the credentials to use for the WooCommerce and Slack nodes, You will also need to pick a channel to post the message to.",
+  "totalViews": 596,
+  "source": "official",
+  "user": {
+    "id": 25789,
+    "name": "Jonathan",
+    "username": "jon-n8n",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/5240094f838126182ceefb50ca4a3cf75cc7dc0808efd4b9920d792e41bfc45e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2022-02-17T15:01:39.832Z",
+  "path": "official/template_1458/workflow.json"
+}

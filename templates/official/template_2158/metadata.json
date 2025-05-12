@@ -1,0 +1,47 @@
+{
+  "id": 2158,
+  "name": "Send Daily Meetings in Google Calendar to Telegram",
+  "description": "This workflow automatically sends you a list of your daily meetings every morning via a Telegram bot.\n\nUse Cases:\n\nThis workflow is useful for anyone who wants to be automatically informed of their daily meetings, especially for busy professionals, students, and anyone with a hectic schedule.\n\nSetup:\n\n    Google Calendar connected to n8n\n    A Telegram bot created and connected to n8n\n    Your Telegram user ID specified\n\nNotes:\n\n    You need to replace the placeholder in the Telegram node with your actual Telegram user ID.\n    You can customize the formatting of the Telegram message in the JavaScript Code node.\n",
+  "totalViews": 9712,
+  "source": "official",
+  "user": {
+    "id": 91449,
+    "name": "Emad",
+    "username": "mrj2580",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/67594259c9c811d29f87e8d9ac6a3b2268cdb5b9c3176af4b3b75d6cdf3353a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Google Calendar",
+      "type": "n8n-nodes-base.googleCalendar",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-03-01T11:10:21.906Z",
+  "path": "official/template_2158/workflow.json"
+}

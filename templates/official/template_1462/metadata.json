@@ -1,0 +1,47 @@
+{
+  "id": 1462,
+  "name": "Validate email of new contacts in Mautic",
+  "description": "This workflow uses a Mautic Trigger to check for new contacts. It then validates the contacts' email using OneSimpleAPI. If there are any a message will be sent to Slack.\n\nTo configure this workflow you will need to set the credentials for the Hubspot, OneSimpleAPI and Slack Nodes. You will also need to select the Slack channel to use for sending the message.",
+  "totalViews": 3613,
+  "source": "official",
+  "user": {
+    "id": 25789,
+    "name": "Jonathan",
+    "username": "jon-n8n",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/5240094f838126182ceefb50ca4a3cf75cc7dc0808efd4b9920d792e41bfc45e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Utility"
+  ],
+  "nodes": [
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "One Simple API",
+      "type": "n8n-nodes-base.oneSimpleApi",
+      "categories": [
+        "Utility"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2022-02-17T15:04:29.070Z",
+  "path": "official/template_1462/workflow.json"
+}

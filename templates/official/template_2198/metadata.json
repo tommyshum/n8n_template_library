@@ -1,0 +1,84 @@
+{
+  "id": 2198,
+  "name": "Compose reply draft in Gmail with OpenAI Assistant",
+  "description": "This workflow uses OpenAI Assistant to compose draft replies for labeled email messages. It automatically connects the drafts to Gmail threads.\n\n💡 You can add knowledge base to your OpenAI Assistant and make your reply drafts very customized (e.g. compose response with product information in response to inquiry from customer).\n\n🎬 See this workflow in action in my YouTube video about automating Gmail. \n\nHow it works?\n\nThe workflow is triggered at regular intervals (default: every 1 minute – you can change this value) to check for messages with a specific label (e.g., \"AI\").\n\nThe content of the retrieved email message is then forwarded to the OpenAI Assistant node, and a reply draft is generated. Next, the response from the Assistant is converted to HTML, and a raw message in RFC standard is composed.\n\n💡 You can learn more about composing drafts with the Gmail API in the official Google documentation.\n\nThe raw email message (reply draft) is encoded and attached to the original thread ID. Finally, the trigger label (in this case: \"AI\") is removed to prevent the workflow from looping.\n\nSet up steps\n\nSet credentials for Gmail and OpenAI.\nAdd new label in Gmail account for messages that should be handled by the workflow (e.g. name it \"AI\").\nSelect this label in the first and last Gmail nodes in workflow.\nCreate and configure your OpenAI Assistant. Select your assistant in \"OpenAI Assistant\" node. \nOptionally: change trigger interval (by default interval is 1 minute).\n\nIf you like this workflow, please subscribe to my YouTube channel and/or my newsletter.",
+  "totalViews": 15964,
+  "source": "official",
+  "user": {
+    "id": 91260,
+    "name": "Oskar",
+    "username": "workfloows",
+    "bio": "I make videos about workflow automation and other cool things.",
+    "verified": true,
+    "links": "[\"https://www.youtube.com/@workfloows\"]",
+    "avatar": "https://gravatar.com/avatar/0b29d7b98f977cc657c7217bb93dbc0f4a175f329cc44367ba870762c352222d?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2024-03-27T09:56:42.423Z",
+  "path": "official/template_2198/workflow.json"
+}

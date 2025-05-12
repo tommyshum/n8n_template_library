@@ -1,0 +1,127 @@
+{
+  "id": 3839,
+  "name": "Analyze Competitor Facebook Ads with AI (GPT-4 & Gemini) & Email Reports",
+  "description": "Facebook Ads Competitor Creative Analysis & Automated Email Report\n\n📝 What this workflow does\n\nThis workflow automates the process of competitor creative analysis for Facebook Pages. When a user submits their email and a target Facebook Page URL via a web form, the workflow:\n\nScrapes the latest image and video Facebook ads from the submitted Page using Apify.\nDeduplicates and selects the top 5 image and top 5 video ads for further analysis.\nApplies advanced AI analysis:\n  Uses OpenAI Vision (GPT-4) to analyze image ads.\n  Uses Google Gemini to analyze video ads.\nAggregates all ad insights and generates a structured, visually engaging creative analytics report.\nSends the report directly to the user’s email with ad previews and detailed creative evaluation.\n\n👥 Who is this for?\n\nMarketers** and agencies conducting competitor research on Facebook.\nBrand managers** who want quick, actionable insights into rival ad creative.\nGrowth hackers** and performance advertisers analyzing top-performing creative trends.\nAnyone** in need of an automated, AI-based Facebook ad evaluation and reporting tool using n8n.\n\n🎯 What problem does this workflow solve?\n\nManual ad analysis is time-consuming:** Scraping, filtering, and reviewing Facebook competitor ads by hand is labor-intensive.\nCreative insight requires expertise:** Understanding the message, visuals, and targeting of competitor ads needs marketing/creative skill.\nLack of automated reporting:** Easily and visually summarize findings for yourself or stakeholders—without manual collation or formatting.\n\nThis workflow provides a turnkey, end-to-end solution for competitor creative analysis, combining real ad data with unbiased, AI-driven creative insights in a shareable email format.\n\n⚙️ Setup instructions (About 10-15 minutes)\n\nBefore using this AI marketing automation tool, you'll need:\nAdd api key to environment variable\nAdd required credentials\n\n🔧 How to Customize This Workflow\n\nAdapt Image/Video Analysis Goals:** Modify the prompts or parameters sent to OpenAI Vision and Gemini to suit your specific analysis objectives—e.g., evaluate branding consistency, detect call-to-action effectiveness, or extract emotional tone.\nRevise Email Report Design:** Customize the formatting, insights, and visuals in the delivered report to match your organization’s standards or stakeholder preferences.\nExpand Input Fields:** Add more fields to the user-facing form, such as a competitor list, campaign dates, or target audience details, for more granular analysis.\n",
+  "totalViews": 105,
+  "source": "official",
+  "user": {
+    "id": 93857,
+    "name": "SamirLiu",
+    "username": "samir",
+    "bio": "Seasoned Data Engineer with over 8 years of experience in digital marketing analytics and workflow automation. Expert in leveraging tools like n8n, Python, and SQL to streamline data integration and optimize operational efficiency. Passionate about enhancing productivity through innovative automation strategies.",
+    "verified": true,
+    "links": "[\"https://www.smiliu.xyz\"]",
+    "avatar": "https://gravatar.com/avatar/7ac2e42b7a5ccea3716e53d75401b1bbd41ef6dcf21323b6415088e3585d188d?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Auto-fixing Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-05-03T07:56:47.137Z",
+  "path": "official/template_3839/workflow.json"
+}

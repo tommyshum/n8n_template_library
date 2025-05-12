@@ -1,0 +1,59 @@
+{
+  "id": 2148,
+  "name": "Write all Linear tickets to Google Sheets",
+  "description": "Use Case\nTrack all Linear tickets in Google sheets. Useful if you want to do some custom analysis but don't want to pay for Linear's Plus features (Linear Insights) or that it does not cover.\n\nSetup \nAdd Linear API header key\nAdd Google sheets creds\nUpdate which teams to get tickets from in Graphql Nodes\nUpdate which Google Sheets page to write all the tickets to\n You only need to add one column, id, in the sheet. Google Sheets node in automatic mapping mode will handle adding the rest of the columns.\nSet any custom data on each ticket\nActivate workflow 🚀\n\nHow to adjust this template\nSet any custom fields you want to get out of this, that you can quickly do in n8n.\n",
+  "totalViews": 987,
+  "source": "official",
+  "user": {
+    "id": 91243,
+    "name": "Mutasem",
+    "username": "mutasem",
+    "bio": "Team lead @ n8n",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/mutasemdmour/\"]",
+    "avatar": "https://gravatar.com/avatar/16d9c92db78317b6af7d0935bee34a47c522cb81d35c234ff76ea580ff1f6c29?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "GraphQL",
+      "type": "n8n-nodes-base.graphql",
+      "categories": [
+        "Data & Storage",
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-02-28T19:01:35.534Z",
+  "path": "official/template_2148/workflow.json"
+}

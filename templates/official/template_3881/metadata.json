@@ -1,0 +1,111 @@
+{
+  "id": 3881,
+  "name": "Travel Planning Agent with Couchbase Vector Search, Gemini 2.0 Flash and OpenAI",
+  "description": "&gt; Disclaimer: this workflow template uses the n8n-nodes-couchbase community package. Community nodes are unverified and usage of them comes with some risks. See here for instructions on installing n8n community nodes.\n\nThis template is intended for use by those interested in learning more about Agentic AI workflow development, as well as those interested in learning how to use the Couchbase Search Vector Store node for practical applications.\n\nThis workflow helps users decide on travel destinations based on descriptions of several points of interest loaded into Couchbase and retrieved using Vector Search.\n\nHow it Works\n\nThis template contains two workflows:\n\nThe Data Ingestion workflow uses the following nodes\n    Webhook node (to listen for HTTP requests)\n    OpenAI Embeddings node (to generate embeddings on document insertion)\n        Note: You’ll need to configure OpenAI credentials for this node\n    Couchbase Vector node (configured for document insertion)\n    Default Data Loader and Recursive Character Text Splitter\nThe Chat Application workflow uses the following nodes\n    Chat Trigger node\n    AI Tools Agent node connect to:\n        Gemini (as the Chat Model, for generating responses)\n            Note: You will have to configure Gemini credentials for this node\n        Simple Memory (as the Memory, to maintain conversation context)\n        Couchbase Search Vector node (as the Tool, for search)\n        OpenAI Embeddings node (as the Embedding model for the Couchbase Search Vector node, to convert queries to vectors)\n            Note: You’ll need to configure OpenAI credentials for this node\n\nSet up\n\nSetting up this workflow is easy and only takes around 10 minutes.\n\nPrerequisites\n\nA Couchbase Cluster running the Search Service, and corresponding database access credentials\n    Be sure the Couchbase cluster allows the incoming IP address for n8n\n    Create a Vector Search Index using this index definition\n    Create a bucket (called travel-agent), scope (called vectors), and collection (called points-of-interest) in your Cluster\nOpenAI API Key\nGemini API Key\n\nSteps\n\nConfigure all necessary credentials (Couchbase, OpenAI, and Gemini)\nSelect your bucket, scope, and collection for each of the Couchbase vector nodes\nIngest data, either using the cURL statements found on the sticky note within the workflow, or using this shell script to ingest 6 points of interest\nOpen the chat and test out your travel agent!\n\nCustomization and Next Steps\nThis workflow template can be made more robust by enhancing the data model to include more information about each point of interest. For example, the addition of price ranges, ideal seasons to visit, activity types, and accomodation options can help inform the LLM further about each destination, and in turn allow it to provide a more tailored response and be more helpful for travel planning.\nAlternatively, the data model could be entirely re-configured to suit a wide variety of other use cases. This template can serve as a building block for all sorts of AI Agent applications using RAG and is not limited to only travel recommendations.\n",
+  "totalViews": 176,
+  "source": "official",
+  "user": {
+    "id": 94149,
+    "name": "Elliot Scribner",
+    "username": "ejscribner",
+    "bio": "",
+    "verified": false,
+    "links": "[\"https://github.com/ejscribner\"]",
+    "avatar": "https://gravatar.com/avatar/cb1915a7ee8b38219d2577a41c5ad0a92e6c46c81d401fd5e097a1eb1bc91d4c?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Recursive Character Text Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-05-05T18:21:37.826Z",
+  "path": "official/template_3881/workflow.json"
+}

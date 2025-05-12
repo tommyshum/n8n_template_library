@@ -1,0 +1,34 @@
+{
+  "id": 2279,
+  "name": "Forward Netflix emails to multiple email addresses with GMail and Mailjet",
+  "description": "Who is this template for?\nThis workflow template is designed for everyone with a Gmail address, who wants to forward all Netflix emails, including temporary login codes, to friends and family effortlessly.\n\nHow it works\nScans your Gmail inbox every minute for new e-mails from Netflix\nForwards all Netflix e-mails to all desired e-mail addresses via the e-mail provider Mailjet \n\nSetup Steps\nConnect your Google Mail Account to n8n following the official n8n instructions\nAdd all recipients you want to the recipients array at the \"Set all recipients\" node.\nCreate and connect your Mailjet Account to n8n following the official n8n instructions. Note: You cannot use an Gmail e-mail address as the sender address, as mailjet does not support this. I recommend using your own email address from a custom domain. This works perfectly.\n\n",
+  "totalViews": 1109,
+  "source": "official",
+  "user": {
+    "id": 91454,
+    "name": "Manuel",
+    "username": "automate-everything",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://www.malt.de/profile/manuelvoppmann\"]",
+    "avatar": "https://gravatar.com/avatar/a7d9f6e327b76615463e40984ce452c61b426d599f75373aade121b309f0924d?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "Mailjet",
+      "type": "n8n-nodes-base.mailjet",
+      "categories": [
+        "Communication",
+        "Development"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-06-05T16:46:25.743Z",
+  "path": "official/template_2279/workflow.json"
+}

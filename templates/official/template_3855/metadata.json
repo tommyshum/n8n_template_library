@@ -1,0 +1,82 @@
+{
+  "id": 3855,
+  "name": "🚀 YouTube Comment Sentiment Analyzer with Google Sheets & OpenAI",
+  "description": "🚀 YouTube Comment Sentiment Analyzer with Google Sheets & OpenAI\n\nWho Should Use This?\nInfluencers, marketers, and data teams who need instant insights into audience sentiment—without manual exports or scattered tools.\n\nThe Challenge\nManual exports** from YouTube Studio  \nTime-consuming** sentiment tagging  \nData scattered** across multiple platforms  \n\nOur workflow automates everything: from fetching comments to logging analysis—so you can focus on insights, not spreadsheets.\n\nWhat You’ll Get\nDynamic Input  \n   Read a list of YouTube URLs from your Google Sheet.  \nFull Comment Harvest  \n   Pull all top-level comments (handles pagination 100/page).  \nDeep Sentiment Scan  \n   Classify each comment as Positive, Neutral, or Negative using OpenAI.  \nSmart Formatting  \n   Capture metadata (author, likes, timestamp) alongside sentiment.  \nSeamless Storage  \n   Append or update rows in your Google Sheet—ready for reporting.\n\nEasy Setup\nPrepare Google Sheet  \n   Create a sheet with a video_urls column (full YouTube links).  \n   Add and authorize a Google Sheets Oauth or service-account credential in n8n.  \nEnable YouTube API  \n   Activate Data API v3 in Google Cloud, grab an API key, and save as an HTTP credential in n8n.  \nConfigure OpenAI  \n   Enter your API key under the “OpenAI Chat” credential in n8n.  \nImport the Workflow  \n   Paste the provided JSON into n8n.  \nRun Manually  \n   Use the Manual Trigger node to start fetching and analyzing comments on demand.\n\nCustomize to Your Needs\nFilter Comments**: Add an IF node to process only comments with specific keywords or minimum likes.  \nAutomate Schedule**: Swap the Manual Trigger for a Cron node if you later want periodic runs.  \nExtended Analysis**: Swap sentiment classification for topic extraction, summarization, or translation by tweaking the LLM prompt.  \nAlternate Destinations**: Replace Google Sheets with Airtable, Notion, or any database node.\n\nTags\n`YouTube Google Sheets OpenAI Sentiment Analysis n8n Manual Trigger`  \n",
+  "totalViews": 152,
+  "source": "official",
+  "user": {
+    "id": 93633,
+    "name": "Aayushman Sharma",
+    "username": "ajstyle0411",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/0e0256718cceba1e7d5067e428cc2c6e737fbba135f113f7f4b9258858a25691?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Sentiment Analysis",
+      "type": "@n8n/n8n-nodes-langchain.sentimentAnalysis",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-05-04T04:00:16.873Z",
+  "path": "official/template_3855/workflow.json"
+}

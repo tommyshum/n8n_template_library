@@ -1,0 +1,64 @@
+{
+  "id": 2461,
+  "name": "Telegram Payment, Invoicing and Refund Workflow for Stars",
+  "description": "This workflow provides a complete solution for handling Telegram Stars payments, invoicing and refunds using n8n. It automates the process of sending invoices, managing pre-checkout approvals, recording transactions, and processing refunds for stars, making it ideal for businesses using Telegram Stars for digital payments.\n\nWhat are Telegram Stars? Learn more here.\n\nKey Features\n\nPayment Handling**: Automate invoice creation and sending via Telegram, with pre-checkout approval for smooth payment processing.\nRefund Management: Simplify the refund process using user IDs and payment charge IDs from successful **Telegram Stars transactions.\nTransaction Recording**: Record all payment details, such as user information and payment charge IDs, in Google Sheets for transparent financial tracking.\n\nWho Can Use This Workflow?\n\nDevelopers and Businesses: Looking to implement **Telegram Stars as a payment system within Telegram.\nService Providers**: Managing subscriptions, donations, or digital sales through Telegram automation.\nUse Cases\n\nSubscription Sales Automation**: Use the workflow to issue invoices and automatically process payments for recurring subscriptions.\nInfopreneurs and Marketers: Use the workflow for delivering lead magnets, tripwires, and further automating sales via **Telegram Stars.\nCourse Sales Automation**: Automate invoicing and refunds for educational platforms selling online courses.\nDevelopers and Businesses: Looking to implement **Telegram Stars as a payment system within Telegram.\nService Providers**: Managing subscriptions, donations, or digital sales through Telegram automation.\nOnline Educational Platforms**: Automate billing for courses and handle refunds easily.\n\nSetup Instructions\n\nReplace the Telegram API credentials with your bot API token from BotFather.\nCustomize invoice details, including product name, description, and payment amount.\nConnect your Google Sheets for storing transaction logs.\nConfigure refund steps for easy processing of star refunds when needed.\n\nNote: The setup is very simple—just follow the instructions provided on the yellow sticky notes within the workflow and insert your data. All other nodes are pre-configured and require no additional customization. The entire setup process takes just 1 minute. I provided a short Loom record with an explanation.\n\nExtensibility\n\nThis workflow can be further customized to include user profile management, payment analytics, or integration with external services like CRMs or accounting tools. Additional modules can be easily connected to manage advanced features like Telegram User Registration.\n\nAvailable Templates\n\nTelegram Bot Starter Template: A foundational setup for creating custom Telegram bots.\nTelegram User Registration Workflow: Automate user registration and data collection via Telegram.\nTelegram Payment and Refund Workflow for Stars**: Streamline your Telegram payment processing with stars, invoices, and refunds.\n\nSupport and Updates\n\nThis workflow is supported and regularly updated to stay compatible with the latest Telegram features and n8n improvements. If you encounter any issues, technical support is available to ensure smooth integration and setup.\n\n\n\nKey terms: Telegram Stars payment workflow, Telegram refund automation, n8n payment template, Google Sheets transaction logging, Telegram bot for payments, automated refunds on Telegram, Telegram Stars invoice workflow.\n\nPlease reach out to Victor if you need further assistance with your n8n workflows and automation!",
+  "totalViews": 1544,
+  "source": "official",
+  "user": {
+    "id": 91921,
+    "name": "Victor Gold",
+    "username": "victorlucky",
+    "bio": "Automation & AI expert with over 7 years of experience in the digital & tech industry. Founder digital design, web & mobile development studio INSAIM.DESIGN.\nFocusing on startups & tech companies and helping to streamline their processes with AI and automation. ",
+    "verified": true,
+    "links": "[\"https://insaim.design\"]",
+    "avatar": "https://gravatar.com/avatar/7c720e593df475d503c491d8a0a4275ccbda08832e9d4c48c98c4f373052014e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-10-12T20:46:43.895Z",
+  "path": "official/template_2461/workflow.json"
+}

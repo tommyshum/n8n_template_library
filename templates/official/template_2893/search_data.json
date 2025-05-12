@@ -1,0 +1,245 @@
+{
+  "id": 2893,
+  "name": "Fetch Dynamic Prompts from GitHub and Auto-Populate n8n Expressions in Prompt",
+  "totalViews": 2528,
+  "purchaseUrl": null,
+  "user": {
+    "id": 92159,
+    "name": "RealSimple Solutions",
+    "username": "joeperes",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://joeperes.com\"]",
+    "avatar": "https://gravatar.com/avatar/4ad55fbdcc7808056aa180c02d52e3e373d4b894df7fa986e2dfd6c7eb127bfc?r=pg&d=retro&size=200"
+  },
+  "description": "Who Is This For?\n\nThis workflow is designed for AI engineers, automation specialists, and content creators who need a scalable system to dynamically manage prompts stored in GitHub. It eliminates manual updates, enforces required variable checks, and ensures that AI interactions always receive fully processed prompts.\n\n🚀 What Problem Does This Solve?\n\nManually managing AI prompts can be inefficient and error-prone. This workflow:  \n✅ Fetches dynamic prompts from GitHub  \n✅ Auto-populates placeholders with values from the setVars node  \n✅ Ensures all required variables are present before execution  \n✅ Processes the formatted prompt through an AI agent\n\n🛠 How This Workflow Works\n\nThis workflow consists of three key branches, ensuring smooth prompt retrieval, variable validation, and AI processing.\n\n1️⃣ Retrieve the Prompt from GitHub (HTTP Request → Extract from File → SetPrompt)\n\nThe workflow starts manually or via an external trigger.\nIt fetches a text-based prompt stored in a GitHub repository.\nThe Extract from File Node retrieves the content from the GitHub file.\nThe SetPrompt Node stores the prompt, making it accessible for processing.\n\n📌 Note:  \nThe prompt must contain n8n expression format variables (e.g., {{ $json.company }}) so they can be dynamically replaced.\n\n2️⃣ Extract & Auto-Populate Variables (Check All Prompt Vars → Replace Variables)\n\nA Code Node scans the prompt for placeholders in the n8n expression format ({{ $json.variableName }}).\nThe workflow compares required variables against the setVars node:\n    ✅ If all variables are present, it proceeds to variable replacement.\n    ❌ If any variables are missing, the workflow stops and returns an error listing them.\nThe Replace Variables Node replaces all placeholders with values from setVars.\n\n📌 Example of a properly formatted GitHub prompt:\n\nHello {{ $json.company }}, your product {{ $json.features }} launches on {{ $json.launch_date }}.\n\nThis ensures seamless replacement when processed in n8n.\n\n3️⃣ AI Processing & Output (AI Agent → Prompt Output)\n\nThe Set Completed Prompt Node stores the final, processed prompt.\nThe AI Agent Node (Ollama Chat Model) processes the prompt.\nThe Prompt Output Node returns the fully formatted response.\n\n📌 Optional: Modify this to use OpenAI, Claude, or other AI models.\n\n⚠️ Error Handling: Missing Variables\n\nIf a required variable is missing, the workflow stops execution and provides an error message:\n\n⚠️ Missing Required Variables: [\"launch_date\"]\n\nThis ensures no incomplete prompts are sent to AI agents.\n\n✅ Example Use Case\n\n📜 GitHub Prompt File (Using n8n Expressions)\n\nHello {{ $json.company }}, your product {{ $json.features }} launches on {{ $json.launch_date }}.\n\n🔹 Variables in setVars Node\n\n{\n  \"company\": \"PropTechPro\",\n  \"features\": \"AI-powered Property Management\",\n  \"launch_date\": \"March 15, 2025\"\n}\n\n✅ Successful Output\n\nHello PropTechPro, your product AI-powered Property Management launches on March 15, 2025.\n\n🚨 Error Output (If Missing launch_date)\n\n⚠️ Missing Required Variables: [\"launch_date\"]\n\n🔧 Setup Instructions\n\n1️⃣ Connect Your GitHub Repository\n\nStore your prompt in a public or private GitHub repo.\nThe workflow will fetch the raw file using the GitHub API.\n\n2️⃣ Configure the SetVars Node\n\nDefine the required variables in the SetVars Node.\nMake sure the variable names match those used in the prompt.\n\n3️⃣ Test & Run\n\nClick Test Workflow to execute.\nIf variables are missing, it will show an error.\nIf everything is correct, it will output the fully formatted prompt.\n\n⚡ How to Customize This Workflow\n\n💡 Need CRM or Database Integration?\n\nConnect the setVars node to an Airtable, Google Sheets, or HubSpot API to pull variables dynamically.\n\n💡 Want to Modify the AI Model?\n\nReplace the Ollama Chat Model with OpenAI, Claude, or a custom LLM endpoint.\n\n📌 Why Use This Workflow?\n\n✅ No Manual Updates Required – Fetches prompts dynamically from GitHub.  \n✅ Prevents Broken Prompts – Ensures required variables exist before execution.  \n✅ Works for Any Use Case – Handles AI chat prompts, marketing messages, and chatbot scripts.  \n✅ Compatible with All n8n Deployments – Works on Cloud, Self-Hosted, and Desktop versions.",
+  "createdAt": "2025-02-12T20:03:29.866Z",
+  "nodes": [
+    {
+      "id": 16,
+      "icon": "file:github.svg",
+      "name": "n8n-nodes-base.github",
+      "codex": {
+        "data": {
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/automatically-pulling-and-visualizing-data-with-n8n/",
+                "icon": "📈",
+                "label": "Automatically pulling and visualizing data with n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/automation-for-maintainers-of-open-source-projects/",
+                "icon": "🏷️",
+                "label": "How to automatically manage contributions to open-source projects"
+              },
+              {
+                "url": "https://n8n.io/blog/5-workflow-automations-for-mattermost-that-we-love-at-n8n/",
+                "icon": "🤖",
+                "label": "5 workflow automations for Mattermost that we love at n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/how-to-set-up-a-ci-cd-pipeline-with-no-code/",
+                "icon": "🎡",
+                "label": "How to set up a no-code CI/CD pipeline with GitHub and TravisCI"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.github/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/github/"
+              }
+            ]
+          },
+          "categories": [
+            "Development"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "GitHub"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yMC4wMTY1IDBDOC45NDc5MSAwIDAgOS4wMTM4OCAwIDIwLjE2NTNDMCAyOS4wNzkyIDUuNzMzMjQgMzYuNjI0NiAxMy42ODY4IDM5LjI5NTJDMTQuNjgxMiAzOS40OTYgMTUuMDQ1NCAzOC44NjEzIDE1LjA0NTQgMzguMzI3NEMxNS4wNDU0IDM3Ljg1OTkgMTUuMDEyNiAzNi4yNTc1IDE1LjAxMjYgMzQuNTg3OUM5LjQ0NDUgMzUuNzkgOC4yODQ5OCAzMi4xODQxIDguMjg0OTggMzIuMTg0MUM3LjM5MDE1IDI5Ljg0NyA2LjA2NDI5IDI5LjI0NjMgNi4wNjQyOSAyOS4yNDYzQzQuMjQxODUgMjguMDExIDYuMTk3MDQgMjguMDExIDYuMTk3MDQgMjguMDExQzguMjE4NjEgMjguMTQ0NiA5LjI3OTM4IDMwLjA4MSA5LjI3OTM4IDMwLjA4MUMxMS4wNjg2IDMzLjE1MjIgMTMuOTUxOCAzMi4yODQ0IDE1LjExMTggMzEuNzUwMkMxNS4yNzczIDMwLjQ0ODEgMTUuODA3OSAyOS41NDY3IDE2LjM3MTMgMjkuMDQ2QzExLjkzMDMgMjguNTc4NSA3LjI1NzgxIDI2Ljg0MjUgNy4yNTc4MSAxOS4wOTY3QzcuMjU3ODEgMTYuODkzMiA4LjA1MjY3IDE1LjA5MDUgOS4zMTIxNiAxMy42ODg0QzkuMTEzNDQgMTMuMTg3NyA4LjQxNzMyIDExLjExNzQgOS41MTEyOCA4LjM0NjQ0QzkuNTExMjggOC4zNDY0NCAxMS4yMDE0IDcuODEyMTcgMTUuMDEyMiAxMC40MTY0QzE2LjY0MzggOS45NzQ5NSAxOC4zMjYzIDkuNzUwNCAyMC4wMTY1IDkuNzQ4NTFDMjEuNzA2NyA5Ljc0ODUxIDIzLjQyOTUgOS45ODI0NiAyNS4wMjA1IDEwLjQxNjRDMjguODMxNyA3LjgxMjE3IDMwLjUyMTggOC4zNDY0NCAzMC41MjE4IDguMzQ2NDRDMzEuNjE1OCAxMS4xMTc0IDMwLjkxOTIgMTMuMTg3NyAzMC43MjA1IDEzLjY4ODRDMzIuMDEzMiAxNS4wOTA1IDMyLjc3NTMgMTYuODkzMiAzMi43NzUzIDE5LjA5NjdDMzIuNzc1MyAyNi44NDI1IDI4LjEwMjggMjguNTQ0OSAyMy42Mjg3IDI5LjA0NkMyNC4zNTggMjkuNjgwMiAyNC45ODczIDMwLjg4MiAyNC45ODczIDMyLjc4NTFDMjQuOTg3MyAzNS40ODkzIDI0Ljk1NDUgMzcuNjU5NiAyNC45NTQ1IDM4LjMyN0MyNC45NTQ1IDM4Ljg2MTMgMjUuMzE5MiAzOS40OTYgMjYuMzEzMiAzOS4yOTU2QzM0LjI2NjcgMzYuNjI0MiAzOS45OTk5IDI5LjA3OTIgMzkuOTk5OSAyMC4xNjUzQzQwLjAzMjcgOS4wMTM4OCAzMS4wNTIgMCAyMC4wMTY1IDBaIiBmaWxsPSIjMjQyOTJGIi8+Cjwvc3ZnPgo="
+      },
+      "displayName": "GitHub",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 5,
+          "name": "Development"
+        }
+      ]
+    },
+    {
+      "id": 834,
+      "icon": "file:code.svg",
+      "name": "n8n-nodes-base.code",
+      "codex": {
+        "data": {
+          "alias": [
+            "cpde",
+            "Javascript",
+            "JS",
+            "Python",
+            "Script",
+            "Custom Code",
+            "Function"
+          ],
+          "details": "The Code node allows you to execute JavaScript in your workflow.",
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.code/"
+              }
+            ]
+          },
+          "categories": [
+            "Development",
+            "Core Nodes"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0",
+          "subcategories": {
+            "Core Nodes": [
+              "Helpers",
+              "Data Transformation"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Code"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwMF8xMTcxXzQ0MSkiPgo8cGF0aCBkPSJNMTcwLjI4MyA0OEgxOTYuNUMyMDMuMTI3IDQ4IDIwOC41IDQyLjYyNzQgMjA4LjUgMzZWMTJDMjA4LjUgNS4zNzI1OCAyMDMuMTI3IDAgMTk2LjUgMEgxNzAuMjgzQzEyNi4xIDAgOTAuMjgzIDM1LjgxNzIgOTAuMjgzIDgwVjE3NkM5MC4yODMgMjA2LjkyOCA2NS4yMTA5IDIzMiAzNC4yODMgMjMySDIzQzE2LjM3MjYgMjMyIDExIDIzNy4zNzIgMTEgMjQ0VjI2OEMxMSAyNzQuNjI3IDE2LjM3MjQgMjgwIDIyLjk5OTYgMjgwTDM0LjI4MyAyODBDNjUuMjEwOSAyODAgOTAuMjgzIDMwNS4wNzIgOTAuMjgzIDMzNlY0NDBDOTAuMjgzIDQ3OS43NjQgMTIyLjUxOCA1MTIgMTYyLjI4MyA1MTJIMTk2LjVDMjAzLjEyNyA1MTIgMjA4LjUgNTA2LjYyNyAyMDguNSA1MDBWNDc2QzIwOC41IDQ2OS4zNzMgMjAzLjEyNyA0NjQgMTk2LjUgNDY0SDE2Mi4yODNDMTQ5LjAyOCA0NjQgMTM4LjI4MyA0NTMuMjU1IDEzOC4yODMgNDQwVjMzNkMxMzguMjgzIDMwOS4wMjIgMTI4LjAxMSAyODQuNDQzIDExMS4xNjQgMjY1Ljk2MUMxMDYuMTA5IDI2MC40MTYgMTA2LjEwOSAyNTEuNTg0IDExMS4xNjQgMjQ2LjAzOUMxMjguMDExIDIyNy41NTcgMTM4LjI4MyAyMDIuOTc4IDEzOC4yODMgMTc2VjgwQzEzOC4yODMgNjIuMzI2OSAxNTIuNjEgNDggMTcwLjI4MyA0OFoiIGZpbGw9IiNGRjk5MjIiLz4KPHBhdGggZD0iTTMwNSAzNkMzMDUgNDIuNjI3NCAzMTAuMzczIDQ4IDMxNyA0OEgzNDIuOTc5QzM2MC42NTIgNDggMzc0Ljk3OCA2Mi4zMjY5IDM3NC45NzggODBWMTc2QzM3NC45NzggMjAyLjk3OCAzODUuMjUxIDIyNy41NTcgNDAyLjA5OCAyNDYuMDM5QzQwNy4xNTMgMjUxLjU4NCA0MDcuMTUzIDI2MC40MTYgNDAyLjA5OCAyNjUuOTYxQzM4NS4yNTEgMjg0LjQ0MyAzNzQuOTc4IDMwOS4wMjIgMzc0Ljk3OCAzMzZWNDMyQzM3NC45NzggNDQ5LjY3MyAzNjAuNjUyIDQ2NCAzNDIuOTc5IDQ2NEgzMTdDMzEwLjM3MyA0NjQgMzA1IDQ2OS4zNzMgMzA1IDQ3NlY1MDBDMzA1IDUwNi42MjcgMzEwLjM3MyA1MTIgMzE3IDUxMkgzNDIuOTc5QzM4Ny4xNjEgNTEyIDQyMi45NzggNDc2LjE4MyA0MjIuOTc4IDQzMlYzMzZDNDIyLjk3OCAzMDUuMDcyIDQ0OC4wNTEgMjgwIDQ3OC45NzkgMjgwSDQ5MEM0OTYuNjI3IDI4MCA1MDIgMjc0LjYyOCA1MDIgMjY4VjI0NEM1MDIgMjM3LjM3MyA0OTYuNjI4IDIzMiA0OTAgMjMyTDQ3OC45NzkgMjMyQzQ0OC4wNTEgMjMyIDQyMi45NzggMjA2LjkyOCA0MjIuOTc4IDE3NlY4MEM0MjIuOTc4IDM1LjgxNzIgMzg3LjE2MSAwIDM0Mi45NzkgMEgzMTdDMzEwLjM3MyAwIDMwNSA1LjM3MjU4IDMwNSAxMlYzNloiIGZpbGw9IiNGRjk5MjIiLz4KPC9nPgo8ZGVmcz4KPGNsaXBQYXRoIGlkPSJjbGlwMF8xMTcxXzQ0MSI+CjxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiBmaWxsPSJ3aGl0ZSIvPgo8L2NsaXBQYXRoPgo8L2RlZnM+Cjwvc3ZnPgo="
+      },
+      "displayName": "Code",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 5,
+          "name": "Development"
+        },
+        {
+          "id": 9,
+          "name": "Core Nodes"
+        }
+      ]
+    },
+    {
+      "id": 1119,
+      "icon": "fa:robot",
+      "name": "@n8n/n8n-nodes-langchain.agent",
+      "codex": {
+        "data": {
+          "alias": [
+            "LangChain",
+            "Chat",
+            "Conversational",
+            "Plan and Execute",
+            "ReAct",
+            "Tools"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Agents",
+              "Root Nodes"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "AI Agent",
+        "color": "#404040"
+      },
+      "iconData": {
+        "icon": "robot",
+        "type": "icon"
+      },
+      "displayName": "AI Agent",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1151,
+      "icon": "file:ollama.svg",
+      "name": "@n8n/n8n-nodes-langchain.lmChatOllama",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatollama/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Language Models",
+              "Root Nodes"
+            ],
+            "Language Models": [
+              "Chat Models (Recommended)"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Ollama Chat Model"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNDEuMzMzIiBoZWlnaHQ9IjM0MS4zMzMiIHZlcnNpb249IjEuMCIgdmlld0JveD0iMCAwIDE4MSAyNTYiPjxnIGZpbGw9IiM3RDdEODciPjxwYXRoIGQ9Ik0zNy43IDE5LjVjLTUuMiAxLjgtOC4zIDQuOS0xMS43IDExLjYtNC41IDguOS02LjIgMTkuMi01LjggMzUuNWwuMyAxNC4yLTUuOCA2LjFjLTE0LjggMTUuNS0xOC41IDM4LjctOS4yIDU3LjRsMy40IDYuOS0yIDQuNGMtMy40IDguMi01IDE2LjQtNSAyNi4zIDAgMTAuOCAxLjggMTkgNS44IDI2LjJsMi42IDQuOC0yLjEgNC45Yy0xLjIgMi43LTIuNiA3LjEtMy4yIDkuOC0xLjQgNi4yLTEuNSAyMi4xLS4xIDI1LjcgMSAyLjYgMS40IDIuNyA3LjYgMi43IDcuMyAwIDcgLjQgNS4zLTguNi0xLjUtOC4yLjItMTguOCA0LjItMjYuNiAzLjctNyAzLjgtMTAuNC41LTE0LjgtNC43LTYuNC02LjgtMTMuNi02LjktMjQtLjEtMTAuMyAxLjQtMTYgNi42LTI2LjEgMy4xLTYuMSAyLjktOC43LTEtMTIuMi0xLjEtMS0zLjEtNC4yLTQuMy03LTEuOS00LjItMi40LTYuOS0yLjMtMTQuMiAwLTExLjQgMi41LTE4LjMgOS41LTI2IDctNy42IDE0LjItMTEgMjMuOS0xMS4yIDQuMSAwIDcuOC0uMiA4LjItLjIuNC0uMSAxLjctMi4yIDIuOS00LjcgMy01LjkgOS42LTExLjkgMTYuNy0xNS4yIDQuOS0yLjMgNy0yLjcgMTQuNy0yLjcgNy45IDAgOS43LjQgMTQuOSAyLjkgNi44IDMuMyAxMy4zIDkuNCAxNS45IDE0LjggMSAyIDIuMyA0LjEgMyA0LjUuNi40IDQuNi44IDguNy44IDYuNy4xIDguMy41IDE0IDMuNiAxMi4zIDYuOCAxOS4zIDE4LjcgMTkuMyAzMy40LjEgNi43LS40IDktMi43IDE0LjItMS42IDMuNS0zLjUgNi44LTQuMyA3LjUtMy40IDIuOC0zLjUgNS44LS41IDExLjcgNS4yIDEwLjEgNi43IDE1LjggNi42IDI2LjEtLjEgMTAuNC0yLjIgMTcuNi02LjkgMjQtMy4zIDQuNC0zLjIgNy44LjUgMTQuOCA0IDcuOCA1LjcgMTguNCA0LjIgMjYuNi0xLjcgOS0yIDguNiA1LjMgOC42IDYuMiAwIDYuNi0uMSA3LjYtMi43IDEuNC0zLjYgMS4zLTE5LjUtLjEtMjUuNy0uNi0yLjctMi03LjEtMy4yLTkuOGwtMi4xLTQuOSAyLjYtNC44YzcuNi0xMy45IDcuOS0zNS45LjYtNTIuOGwtMi00LjcgMi41LTQuNmM5LjktMTguMyA2LjQtNDMuOS04LjEtNTkuMWwtNS44LTYuMS4zLTE0LjJjLjQtMTYuNC0xLjMtMjYuNi01LjgtMzUuNy02LjQtMTIuNi0xNy4yLTE1LjktMjYuMy03LjktNS40IDQuNy05LjIgMTMuOC0xMi4zIDI5LjgtLjMgMS40LTEgMi4yLTEuNyAxLjgtMTguMi04LTI5LjctOC41LTQ0LjMtMi4xTDY1IDU0LjlsLS40LTIuMkM2MSAzNC4yIDU2LjEgMjQuMiA0OSAyMC41Yy00LjMtMi4xLTcuNC0yLjQtMTEuMy0xbTcuNyAxNi44YzQuMiA3LjEgOC4xIDMwLjEgNS43IDMzLjYtLjUuOC0zLjEgMS42LTUuOCAxLjgtMi42LjItNi4yLjgtOCAxLjNsLTMuMS44LS43LTQuOWMtLjgtNS45LjItMTcuMiAyLjItMjQuOEMzNy4xIDM4LjQgNDAuNSAzMiA0MiAzMmMuNSAwIDIgMS45IDMuNCA0LjNtOTYuNS0xYzQgNi41IDYuOSAyMy45IDUuNiAzMy42bC0uNyA0LjktMy4xLS44Yy0xLjgtLjUtNS40LTEuMS04LTEuMy0yLjctLjItNS4zLTEtNS44LTEuOC0xLjItMS43LS4zLTE0LjEgMS43LTIyLjkgMS41LTYuNCA1LjctMTUgNy40LTE1IC40IDAgMS44IDEuNSAyLjkgMy4zIi8+PHBhdGggZD0iTTc3LjggMTE5LjljLTcuMyAyLjQtMTEuNiA1LjEtMTYuNSAxMC40LTUuNSA2LTcuNiAxMi03LjEgMjAuMS41IDcuNiAzLjUgMTIuOSAxMC42IDE4LjMgNi4yIDQuNyAxMi43IDYuMyAyNS43IDYuMyAxNy4yIDAgMjUuOC0zLjYgMzIuOS0xMy44IDQuMi01LjkgNC44LTE1LjUgMS42LTIzLTIuOS02LjgtMTEuMS0xNC4zLTE4LjgtMTcuMy04LTMuMS0yMC43LTMuNi0yOC40LTFtMjUuNyAxMGMxNi4xIDcuMSAxOS40IDIzLjIgNi42IDMxLjgtNC45IDMuMy05LjQgNC4zLTE5LjYgNC4zcy0xNC43LTEtMTkuNi00LjNjLTE3LjgtMTItMy4yLTM1LjYgMjEuMS0zNC4zIDMuOS4yIDguNiAxLjIgMTEuNSAyLjUiLz48cGF0aCBkPSJNODMuOCAxNDAuMWMtMi41IDEuNC0yLjIgNC40LjcgNi43IDIgMS42IDIuNCAyLjYgMS45IDQuOS0uNyAzLjYgMS41IDUuOCA1LjEgNC45IDIuMS0uNSAyLjUtMS4yIDIuNS00LjYgMC0yLjkuNS00LjIgMi01IDIuNy0xLjUgMi43LTYuNiAwLTcuNS0xLS4zLTIuOC0uMS00IC41LTEuNC43LTIuNi44LTMuOSAwLTIuMy0xLjItMi4yLTEuMi00LjMuMW0tNDQuMS0xOC45Yy0uOS43LTIuMyAzLTMuMiA1LTIuMSA1LjMtLjEgMTAuMyA0LjcgMTEuNiA0LjMgMS4xIDYgLjYgOS4yLTIuNyA0LTQuMSA0LjMtOC4xIDEuMS0xMS45LTIuMS0yLjUtMy40LTMuMi02LjQtMy4yLTIgMC00LjUuNi01LjQgMS4ybTg5LjggMmMtMy4yIDMuOC0yLjkgNy44IDEuMSAxMS45IDMuMiAzLjMgNC45IDMuOCA5LjIgMi43IDQuOS0xLjMgNi44LTYuMiA0LjYtMTEuOC0xLjktNC43LTMuOC02LTguNy02LTIuNyAwLTQuMS43LTYuMiAzLjIiLz48L2c+PC9zdmc+"
+      },
+      "displayName": "Ollama Chat Model",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    }
+  ]
+}

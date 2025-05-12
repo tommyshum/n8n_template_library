@@ -1,0 +1,103 @@
+{
+  "id": 3121,
+  "name": "AI-Powered Short-Form Video Generator with OpenAI, Flux, Kling, and ElevenLabs",
+  "description": "Who is this for?\nContent creators, digital marketers, and social media managers who want to automate the creation of short-form videos for platforms like TikTok, YouTube Shorts, and Instagram Reels without extensive video editing skills.\nWhat problem does this workflow solve?\nCreating engaging short-form videos consistently is time-consuming and requires multiple tools and skills. This workflow automates the entire process from ideation to publishing, significantly reducing the manual effort needed while maintaining content quality.\nWhat this workflow does\nThis all-in-one solution transforms ideas into fully produced short-form videos through a 5-step process:\n\nGenerate video captions from ideas stored in a Google Sheet\nCreate AI-generated images using Flux and the OpenAI API\nConvert images to videos using Kling's API\nAdd voice-overs to your content with Eleven Labs\nComplete the video production with Creatomate by adding templates, transitions, and combining all elements\n\nThe workflow handles everything from sourcing content ideas to rendering the final video, and even notifies you on Discord when videos are ready.\nSetup (Est. time: 20-30 minutes)\nBefore getting started, you'll need:\n\nn8n installation (tested on version 1.81.4)\nOpenAI API Key (free trial credits available)\nPiAPI (free trial credits available)\nEleven Labs (free account)\nCreatomate API Key (free trial credits available)\nGoogle Sheets API enabled in Google Cloud Console\nGoogle Drive API enabled in Google Cloud Console\nOAuth 2.0 Client ID and Client Secret from your Google Cloud Console Credentials\n\nHow to customize this workflow to your needs\n\nAdjust the Google Sheet structure to include additional data like video length, duration, style, etc.\nModify the prompt templates for each AI service to match your brand voice and content style\nUpdate the Creatomate template to reflect your visual branding\nConfigure notification preferences in Discord to manage your workflow\n\nThis workflow combines multiple AI technologies to create a seamless content production pipeline, saving you hours of work per video and allowing you to focus on strategy rather than production.",
+  "totalViews": 64368,
+  "source": "official",
+  "user": {
+    "id": 93059,
+    "name": "Cameron Wills",
+    "username": "camerondwills",
+    "bio": "Vibe code and chill",
+    "verified": false,
+    "links": "[\"https://x.com/CameronDWills\"]",
+    "avatar": "https://gravatar.com/avatar/0e30a06479dd5ec16de3c5fd1304920cc946fda1370eccf2b06106ed2fc6a899?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Discord",
+      "type": "n8n-nodes-base.discord",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-03-10T10:25:20.937Z",
+  "path": "official/template_3121/workflow.json"
+}

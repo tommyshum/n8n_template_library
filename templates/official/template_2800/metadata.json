@@ -1,0 +1,151 @@
+{
+  "id": 2800,
+  "name": "Zoom AI Meeting Assistant creates mail summary, ClickUp tasks and follow-up call",
+  "description": "Update 19-04-2025\nChange from OpenAI to Claude 3.7 Sonnet module\nAdding the Think Tool\n\nThe update enables significantly better results to be achieved. This is particularly noticeable during longer meetings!\n\nWhat this workflow does\nThis workflow retrieves the Zoom meeting data from the last 24 hours. The transcript of the last meeting is then retrieved, processed, a summary is created using AI and sent to all participants by email.\nAI is then used to create tasks and follow-up appointments based on the content of the meeting.\n\nImportant: You need a Zoom Workspace Pro account and must have activated Cloud Recording/Transcripts!\n\nThis workflow has the following sequence:\n\nmanual trigger (Can be replaced by a scheduled trigger or a webhook)\nretrieval of of Zoom meeting data\nfilter the events of the last 24 hours\nretrieval of transcripts and extract of the text\ncreating a meeting summary, format to html and send per mail\ncreate tasks and follow-up call (if discussed in the meeting) in ClickUp/Outlook (can be replaced by Gmail, Airtable, and so forth) via sub workflow\n\nRequirements:\nZoom Workspace (via API and HTTP Request): Documentation\nMicrosoft Outlook: Documentation\nClickUp: Documentation\nAI API access (e.g. via OpenAI, Anthropic, Google or Ollama)\nSMTP access data (for sending the mail)\n\nYou must set up the individual sub-workflows as separate workflows. Then set the “Execute workflow trigger” here. Then select the corresponding sub-workflow in the AI Agent Tools.\nYou can select the number of domains yourself. If the data queries are not required, simply delete the corresponding tool (e.g. “Analytics_Domain_5).\n\nFeel free to contact me via LinkedIn, if you have any questions!",
+  "totalViews": 8752,
+  "source": "official",
+  "user": {
+    "id": 92319,
+    "name": "Friedemann Schuetz",
+    "username": "freddy-schuetz",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/friedemann-schuetz\"]",
+    "avatar": "https://gravatar.com/avatar/eb8eb92141f57c72c5f5a9fb5e8c85dca42047f764de54ab5466999cbb691079?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Core Nodes",
+    "Development",
+    "Productivity",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "categories": [
+        "Communication",
+        "HITL",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "ClickUp",
+      "type": "n8n-nodes-base.clickUp",
+      "categories": [
+        "Productivity",
+        "Communication"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Zoom",
+      "type": "n8n-nodes-base.zoom",
+      "categories": [
+        "Communication"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Anthropic Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    },
+    {
+      "name": "Think Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolThink",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 9,
+  "createdAt": "2025-01-25T17:30:31.754Z",
+  "path": "official/template_2800/workflow.json"
+}

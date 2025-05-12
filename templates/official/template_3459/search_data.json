@@ -1,0 +1,266 @@
+{
+  "id": 3459,
+  "name": "Adaptive RAG Strategy with Query Classification & Retrieval (Gemini & Qdrant)",
+  "totalViews": 312,
+  "purchaseUrl": null,
+  "user": {
+    "id": 93528,
+    "name": "dmr",
+    "username": "dmr",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/8f3c6f9bc1a0f7f73d3421323e7fbd024f8dd48e8f97bb4a16ae77865d33394a?r=pg&d=retro&size=200"
+  },
+  "description": "This n8n workflow implements a version of the Adaptive Retrieval-Augmented Generation (RAG) framework. It recognizes that the best way to retrieve information often depends on the type of question asked. Instead of a one-size-fits-all approach, this workflow adapts its strategy based on the user's query intent.\n\n🌟 How it Works\n\nReceive Query: Takes a user query as input (along with context like a chat session ID and Vector Store collection ID if used as sub-workflow).\nClassify Query: First, the workflow classifies the query into a predefined category. This template uses four examples:\n    Factual: For specific facts.\n    Analytical: For deeper explanations or comparisons.\n    Opinion: For subjective viewpoints.\n    Contextual: For questions relying on specific background.\nSelect & Adapt Strategy: Based on the classification, it selects a corresponding strategy to prepare for information retrieval. The example strategies aim to:\n    Factual: Refine the query for precision.\n    Analytical: Break the query into sub-questions for broad coverage.\n    Opinion: Identify different viewpoints to look for.\n    Contextual: Incorporate implied or user-specific context.\nRetrieve Info: Uses the output of the selected strategy to search the specified knowledge base (Qdrant vector store - change as needed) for relevant documents.\nGenerate Response: Constructs a response using the retrieved documents, guided by a prompt tailored to the original query type.\n\nBy adapting the retrieval strategy, this workflow aims to provide more relevant results tailored to the user's intent.\n\n⚙️ Usage & Flexibility\n\nSub-Workflow:** Designed to be called from other n8n workflows, passing user_query, chat_memory_key, and vector_store_id as inputs.\nChat Testing:** Can also be triggered directly via the n8n Chat interface for easy testing and interaction.\nCustomizable Framework:** The query categories (Factual, Analytical, etc.) and the associated retrieval strategies are examples. You can modify or replace them entirely to fit your specific domain or requirements.\n\n🛠️ Requirements\n\nCredentials:** You will need API credentials configured in your n8n instance for:\n    Google Gemini (AI Models)\n    Qdrant (Vector Store)",
+  "createdAt": "2025-04-07T15:43:47.541Z",
+  "nodes": [
+    {
+      "id": 1119,
+      "icon": "fa:robot",
+      "name": "@n8n/n8n-nodes-langchain.agent",
+      "codex": {
+        "data": {
+          "alias": [
+            "LangChain",
+            "Chat",
+            "Conversational",
+            "Plan and Execute",
+            "ReAct",
+            "Tools"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Agents",
+              "Root Nodes"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "AI Agent",
+        "color": "#404040"
+      },
+      "iconData": {
+        "icon": "robot",
+        "type": "icon"
+      },
+      "displayName": "AI Agent",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1163,
+      "icon": "fa:database",
+      "name": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.memorybufferwindow/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Memory"
+            ],
+            "Memory": [
+              "For beginners"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Simple Memory"
+      },
+      "iconData": {
+        "icon": "database",
+        "type": "icon"
+      },
+      "displayName": "Simple Memory",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1248,
+      "icon": "file:qdrant.svg",
+      "name": "@n8n/n8n-nodes-langchain.vectorStoreQdrant",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoreqdrant/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Vector Stores",
+              "Tools",
+              "Root Nodes"
+            ],
+            "Tools": [
+              "Other Tools"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Qdrant Vector Store"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjU2cHgiIGhlaWdodD0iMjk2cHgiIHZpZXdCb3g9IjAgMCAyNTYgMjk2IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIj4KICAgIDx0aXRsZT5xZHJhbnQ8L3RpdGxlPgogICAgPGRlZnM+CiAgICAgICAgPGxpbmVhckdyYWRpZW50IHgxPSI4MS41NjE5MDQ4JSIgeTE9IjQ0Ljg0MjEwNTMlIiB4Mj0iLTE4LjA4NTcxNDMlIiB5Mj0iNDQuODQyMTA1MyUiIGlkPSJsaW5lYXJHcmFkaWVudC0xIj4KICAgICAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iI0ZGMzM2NCIgb2Zmc2V0PSIwJSI+PC9zdG9wPgogICAgICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjQzkxNTQwIiBzdG9wLW9wYWNpdHk9IjAiIG9mZnNldD0iMTAwJSI+PC9zdG9wPgogICAgICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8L2RlZnM+CiAgICA8Zz4KICAgICAgICA8cG9seWdvbiBmaWxsPSIjMjQzODZDIiBwb2ludHM9IjIwMS4zMTcwNSAyNzEuNzIyNDI3IDE5NS40MjI3MTUgMTA5LjIxMjY3IDE4NC43NDc3ODEgNjYuMzY4MjM2OCAyNTYgNzMuOTExMjU0NSAyNTYgMjcwLjQ5MjUwOSAyMTIuNDc0NzU3IDI5NS42MTI2MjYiPjwvcG9seWdvbj4KICAgICAgICA8cG9seWdvbiBmaWxsPSIjNzU4OUJFIiBwb2ludHM9IjI1NS45OTUxNTEgNzMuODk5ODEwNyAyMTIuNDY5OTA4IDk5LjAzNzM4NCAxMjIuNjQ5NjM0IDc5LjMzNDY0NzEgMTcuNTE2MDAwOCAxMjIuMTQwMjg4IDEuMTM3MDQ4NGUtMTQgNzMuODk5ODEwNyA2My45ODgzMTM3IDM2Ljk0OTkwNTMgMTI3Ljk5NjAyNCAwIDE5MS45ODYyNzcgMzYuOTQ5OTA1MyI+PC9wb2x5Z29uPgogICAgICAgIDxwb2x5bGluZSBmaWxsPSIjQjJCRkU4IiBwb2ludHM9IjAuMDAzMTAzNDA0MTIgNzMuODk5ODEwNyA0My41MjgzNDYyIDk5LjAzNzM4NCA2OC43NTkwMjE3IDE3NC4wNzM4MTYgMTUzLjk0OTQwNSAyNDIuMjM2MjA5IDEyOC4wMDEwNjcgMjk1LjU5OTI0MyA2My45OTMzNTY4IDI1OC42NDczOTggMC4wMDMxMDM0MDQxMiAyMjEuNjk3NDkyIDAuMDAzMTAzNDA0MTIgNzMuODk3ODcxIj48L3BvbHlsaW5lPgogICAgICAgIDxwb2x5bGluZSBmaWxsPSIjMjQzODZDIiBwb2ludHM9IjE1Ni44NTY5MDYgMjAyLjgwNzQ1OSAxMjguMDAxMDY3IDI0NS4zNDczNzEgMTI4LjAwMTA2NyAyOTUuNjAzMTIyIDE2OC45NDY2MDUgMjcxLjk3ODQ1OCAxOTAuMDQzOTM0IDI0MC40NzUwMjciPjwvcG9seWxpbmU+CiAgICAgICAgPHBvbHlnb24gZmlsbD0iIzc1ODlCRSIgcG9pbnRzPSIxMjguMDE4NTIzIDE5NS4xMDcxMzggODcuMDU1NTI4NyAxMjQuMTg0NjU2IDk1Ljg3ODcwMDUgMTAwLjY3ODMwOSAxMjkuNDIwNjggODQuNDE1Njk1NSAxNjguOTQ2NDExIDEyNC4xODU4MTkiPjwvcG9seWdvbj4KICAgICAgICA8cG9seWxpbmUgZmlsbD0iI0IyQkZFOCIgcG9pbnRzPSI4Ny4wNTU1Mjg3IDEyNC4xNzg4MzcgMTI4LjAwMTA2NyAxNDcuODAzNTAxIDEyOC4wMDEwNjcgMTk1LjA5MTYyMSA5MC4xMzE3NzggMTk2LjcyMDkyNyA2Ny4yMjQ3NzYzIDE2Ny40NzEzNDQgODcuMDU1NTI4NyAxMjQuMTc4ODU2Ij48L3BvbHlsaW5lPgogICAgICAgIDxwb2x5Z29uIGZpbGw9IiMyNDM4NkMiIHBvaW50cz0iMTI4LjAwMTA2NyAxNDcuNzk5NjIxIDE2OC45NDY2MDUgMTI0LjE3Njg5NyAxOTYuODEzMjM0IDE3MC41NzY2NjggMTYzLjA5MDg2OSAxOTguNDM5NDE4IDEyOC4wMDEwNjcgMTk1LjA4OTI5MyI+PC9wb2x5Z29uPgogICAgICAgIDxwYXRoIGQ9Ik0xNjguOTQ2NjA1LDI3MS45NzQ1NzkgTDIxMi40NzE4NDgsMjk1LjYwMTE4MiBMMjEyLjQ3MTg0OCw5OS4wMzkzMjM3IEwxNzAuMjI2NzU5LDc0LjY1ODIwNSBMMTI4LjAwMTA2Nyw1MC4yNzcwODY0IEw4NS43NTU5NzgyLDc0LjY1ODIwNSBMNDMuNTMwMjg1OCw5OS4wMzkzMjM3IEw0My41MzAyODU4LDE5Ni41ODEyNTUgTDg1Ljc1NTk3ODIsMjIwLjk2MjM3MyBMMTI4LjAwMTA2NywyNDUuMzQ1NDMyIEwxNjguOTQ2NjA1LDIyMS42OTk0MzIgTDE2OC45NDY2MDUsMjcxLjk3NDU3OSBaIE0xNjguOTQ2NjA1LDE3MS40NDM2ODEgTDEyOC4wMDEwNjcsMTk1LjA4Nzc0MiBMODcuMDU1NTI4NywxNzEuNDQzNjgxIEw4Ny4wNTU1Mjg3LDEyNC4xNzQ5NTcgTDEyOC4wMDEwNjcsMTAwLjUzMDg5NyBMMTY4Ljk0NjYwNSwxMjQuMTc0OTU3IEwxNjguOTQ2NjA1LDE3MS40NDM2ODEiIGZpbGw9IiNEQzI0NEMiPjwvcGF0aD4KICAgICAgICA8cG9seWdvbiBmaWxsPSJ1cmwoI2xpbmVhckdyYWRpZW50LTEpIiBwb2ludHM9IjEyOC4wMTg1MjMgMjQ1LjM2Mjg4OCAxMjguMDE4NTIzIDE5NS4wOTkzNzkgODcuMjg2MzQ0MyAxNzEuNjU3MDQxIDg3LjI4NjM0NDMgMjIxLjgzNzE0NiI+PC9wb2x5Z29uPgogICAgPC9nPgo8L3N2Zz4K"
+      },
+      "displayName": "Qdrant Vector Store",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1261,
+      "icon": "file:google.svg",
+      "name": "@n8n/n8n-nodes-langchain.embeddingsGoogleGemini",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsgooglegemini/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Embeddings"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Embeddings Google Gemini"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgNDggNDgiPjxkZWZzPjxwYXRoIGlkPSJhIiBkPSJNNDQuNSAyMEgyNHY4LjVoMTEuOEMzNC43IDMzLjkgMzAuMSAzNyAyNCAzN2MtNy4yIDAtMTMtNS44LTEzLTEzczUuOC0xMyAxMy0xM2MzLjEgMCA1LjkgMS4xIDguMSAyLjlsNi40LTYuNEMzNC42IDQuMSAyOS42IDIgMjQgMiAxMS44IDIgMiAxMS44IDIgMjRzOS44IDIyIDIyIDIyYzExIDAgMjEtOCAyMS0yMiAwLTEuMy0uMi0yLjctLjUtNCIvPjwvZGVmcz48Y2xpcFBhdGggaWQ9ImIiPjx1c2UgeGxpbms6aHJlZj0iI2EiIG92ZXJmbG93PSJ2aXNpYmxlIi8+PC9jbGlwUGF0aD48cGF0aCBmaWxsPSIjRkJCQzA1IiBkPSJNMCAzN1YxMWwxNyAxM3oiIGNsaXAtcGF0aD0idXJsKCNiKSIvPjxwYXRoIGZpbGw9IiNFQTQzMzUiIGQ9Im0wIDExIDE3IDEzIDctNi4xTDQ4IDE0VjBIMHoiIGNsaXAtcGF0aD0idXJsKCNiKSIvPjxwYXRoIGZpbGw9IiMzNEE4NTMiIGQ9Im0wIDM3IDMwLTIzIDcuOSAxTDQ4IDB2NDhIMHoiIGNsaXAtcGF0aD0idXJsKCNiKSIvPjxwYXRoIGZpbGw9IiM0Mjg1RjQiIGQ9Ik00OCA0OCAxNyAyNGwtNC0zIDM1LTEweiIgY2xpcC1wYXRoPSJ1cmwoI2IpIi8+PC9zdmc+"
+      },
+      "displayName": "Embeddings Google Gemini",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1262,
+      "icon": "file:google.svg",
+      "name": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatgooglegemini/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Language Models",
+              "Root Nodes"
+            ],
+            "Language Models": [
+              "Chat Models (Recommended)"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Google Gemini Chat Model"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgNDggNDgiPjxkZWZzPjxwYXRoIGlkPSJhIiBkPSJNNDQuNSAyMEgyNHY4LjVoMTEuOEMzNC43IDMzLjkgMzAuMSAzNyAyNCAzN2MtNy4yIDAtMTMtNS44LTEzLTEzczUuOC0xMyAxMy0xM2MzLjEgMCA1LjkgMS4xIDguMSAyLjlsNi40LTYuNEMzNC42IDQuMSAyOS42IDIgMjQgMiAxMS44IDIgMiAxMS44IDIgMjRzOS44IDIyIDIyIDIyYzExIDAgMjEtOCAyMS0yMiAwLTEuMy0uMi0yLjctLjUtNCIvPjwvZGVmcz48Y2xpcFBhdGggaWQ9ImIiPjx1c2UgeGxpbms6aHJlZj0iI2EiIG92ZXJmbG93PSJ2aXNpYmxlIi8+PC9jbGlwUGF0aD48cGF0aCBmaWxsPSIjRkJCQzA1IiBkPSJNMCAzN1YxMWwxNyAxM3oiIGNsaXAtcGF0aD0idXJsKCNiKSIvPjxwYXRoIGZpbGw9IiNFQTQzMzUiIGQ9Im0wIDExIDE3IDEzIDctNi4xTDQ4IDE0VjBIMHoiIGNsaXAtcGF0aD0idXJsKCNiKSIvPjxwYXRoIGZpbGw9IiMzNEE4NTMiIGQ9Im0wIDM3IDMwLTIzIDcuOSAxTDQ4IDB2NDhIMHoiIGNsaXAtcGF0aD0idXJsKCNiKSIvPjxwYXRoIGZpbGw9IiM0Mjg1RjQiIGQ9Ik00OCA0OCAxNyAyNGwtNC0zIDM1LTEweiIgY2xpcC1wYXRoPSJ1cmwoI2IpIi8+PC9zdmc+"
+      },
+      "displayName": "Google Gemini Chat Model",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    }
+  ]
+}

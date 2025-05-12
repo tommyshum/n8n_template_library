@@ -1,0 +1,56 @@
+{
+  "id": 1807,
+  "name": "Sync Zendesk tickets to Pipedrive contact owners",
+  "description": "This workflow syncs Zendesk tickets to Pipedrive contact owners. \n\nThis workflow is triggered every day at 09:00 with Zendesk collecting all the tickets updated after the last execution timestamp and updating them according to Pipedrive contacts. It also adds Zendesk comments to the tickets as notes in Pipedrive. \n\nPrerequisites\nPipedrive account and Pipedrive credentials\nZendesk account and Zendesk credentials\n\nNote: The Pipedrive and the Zendesk accounts need to be created by the same person / with the same email.\n\nHow it works\nCron node triggers the workflow every day at 09:00.\nZendesk node collects all the tickets updated after the last execution timestamp.\nIf node checks if the channel in the ticket is an email, and if so, it continues the workflow.\nThe Item Lists node removes duplicates to make search efficient.\nPipedrive node searches persons by email.\nSet node renames and keeps only needed fields (email & person id)\nMerge by key node adds the Pipedrive contact id to Zendesk tickets.\nThe HTTP Request node gets Zendesk comments for tickets and the Merge node adds them to tickets.\nSplit node adds nodes in batches with each iteration. \nItem list node splits comments into separate items.\nPipedrive node adds comment as notes.\nIf node checks if the data processing is done and if not, goes back to the Split node.\nThe Function Item node sets the new last execution timestamp.\n",
+  "totalViews": 477,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Sales",
+    "Communication"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Pipedrive",
+      "type": "n8n-nodes-base.pipedrive",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Zendesk",
+      "type": "n8n-nodes-base.zendesk",
+      "categories": [
+        "Communication"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2022-10-07T09:58:55.193Z",
+  "path": "official/template_1807/workflow.json"
+}

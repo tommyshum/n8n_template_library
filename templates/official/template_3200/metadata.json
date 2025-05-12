@@ -1,0 +1,61 @@
+{
+  "id": 3200,
+  "name": "Automate Video Creation with Luma AI Dream Machine and Airtable (Part 1)",
+  "description": "Automate Video Creation with Luma AI Dream Machine and Airtable (Part 1)\n\nDescription  \nThis workflow automates video creation using Luma AI Dream Machine and n8n. It generates dynamic videos based on custom prompts, random camera motion, and predefined settings, then stores the video and thumbnail URLs in Airtable for easy access and tracking. This automation makes it easy to create high-quality videos at scale with minimal effort.\n\n👉 Airtable Base Template  \n🎥 Tutorial Video  \n\nSetup  \n1. Luma AI Setup  \nCreate an account with Luma AI.  \nGenerate an API key from Luma AI for authentication.  \nEnsure the API key has permission to create and manage video requests.  \n\n2. Airtable Setup  \nCreate an Airtable base with the following fields:  \nGeneration ID** – To match incoming webhook data.  \nStatus** – Workflow status (e.g., \"Done\").  \nVideo URL** – Stores the generated video URL.  \nThumbnail URL** – Stores the thumbnail URL.  \nPrompt** – The video prompt used in the request.  \nAspect Ratio** – Defines the video format (e.g., 9:16).  \nDuration** – Length of the video.  \n\n👉 Use the Airtable template linked above to simplify setup.  \n\n3. n8n Setup  \nInstall n8n (local or cloud).  \nSet up Luma AI and Airtable credentials in n8n.  \nImport the workflow and customize the settings based on your needs.  \n\nHow It Works  \n1. Global Settings Configuration  \nThe Set node defines key settings such as:  \nPrompt** – Example: \"A crocheted parrot in a crocheted pirate outfit swinging on a crocheted perch.\"  \nAspect Ratio** – Example: \"9:16\"  \nLoop** – Example: \"true\"  \nDuration** – Example: \"5 seconds\"  \nCluster ID** – Used to group related videos for easy tracking.  \nCallback URL** - Used for the Webhook workflow in Part 2\n\n2. Random Camera Motion  \nThe Code node randomly selects a camera motion (e.g., Zoom In, Pan Left, Crane Up) to create dynamic and visually engaging videos.  \n\n3. API Request to Luma AI  \nThe HTTP Request node sends a POST request to Luma AI’s API with the following parameters:  \n   Prompt – Uses the defined global settings.  \n   Aspect Ratio – Matches the target platform (e.g., TikTok or YouTube).  \n   Duration – Length of the video.  \n   Loop – Determines if the video should loop.  \n   Callback URL – Sends a POST response when the video is complete.  \n\n4. Capture API Response  \nLuma AI sends a POST response to the callback URL once video generation is complete.  \nThe response includes:  \n   Video URL – Direct link to the video.  \n   Thumbnail URL – Link to the video thumbnail.  \n   Generation ID – Used to match the record in Airtable.  \n\n5. Store in Airtable  \nThe Airtable node updates the record with the video and thumbnail URLs.  \nGeneration ID** is crucial for matching future webhook responses to the correct video record.  \n\nWhy This Workflow is Useful  \n✅ Automates high-quality video creation  \n✅ Reduces manual effort by handling prompt generation and API calls  \n✅ Random camera motion makes videos more dynamic  \n✅ Ensures organized tracking with Airtable  \n✅ Scalable – Ideal for automating large-scale content creation  \n\nNext Steps  \nPart 2** – Handling webhook responses and updating Airtable automatically.  \nFuture Enhancements** – Adding more camera motions, multi-platform support, and automated video editing.  \n",
+  "totalViews": 2165,
+  "source": "official",
+  "user": {
+    "id": 91693,
+    "name": "Alex Kim",
+    "username": "alexk1919",
+    "bio": "n8n Ambassador & Verified Partner",
+    "verified": true,
+    "links": "[\"https://wot-ai.com\"]",
+    "avatar": "https://gravatar.com/avatar/2b74c7f530e250439f5d752f2623ead4921fbb8aef56343c922b2873ef8a619f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-03-17T14:24:09.459Z",
+  "path": "official/template_3200/workflow.json"
+}

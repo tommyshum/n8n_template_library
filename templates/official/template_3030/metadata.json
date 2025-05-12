@@ -1,0 +1,78 @@
+{
+  "id": 3030,
+  "name": "Real Estate Daily Deals Automation with Zillow API, Google Sheets and Gmail",
+  "description": "Daily Real Estate Deal Finder Automation\n\n\nThis automation is aimed to send you daily deals via email every morning at 9AM in real estate markets you are interested in with strict search criteria you provide. It uses ZillowAPI to get up to date listings and RentZestimates. From there it calculates a host of investing metrics such as your Down PMT, Cash on Cash ROI, Monthly Cash Flow, Monthly Maintenance and Vacancy Loss.\n\nPrerequisites\nN8N account\nGoogle account with OAuth setup here's a video for help: https://youtu.be/LTuy83t_Rt4?si=0XdpxM7G48gtFDe6\nGoogle Sheets API enabled\nRapidAPI account with Zillow API credentials \nBlank Google Sheet created with specific columns\n\nStep 1: Create a New Workflow\nCreate a new workflow in N8N\nName it something meaningful like \"Daily Real Estate Deal Finder\"\nCredentials you will need: Google OAuth credentials (here's a video for help: https://www.youtube.com/watch?v=LTuy83t_Rt4&t=22s) Google sheets API enabled, RapidAPI Zillow credentials\n\nStep 2: Configure Search Parameters in Set Parameters Node\nDefine your real estate search criteria as key-value pairs: Example location: \"Austin, TX\" min_bed: 2 min_bath: 2, min_price: 250000, max_price: 400000, propertyType: \"Single Family= True\"\n\nStep 3: Update Google Sheet\nCreate a new Google Sheets\nCreate the following columns Address, Price, Rent Zestimate, Cash onCash RoI, Monthly CashFlow and Down Pmt\nMake sure your google sheets node in N8N is mapping to the correct columns and the correct sheet\n\nTroubleshooting Tips\nIf Zillow API fails, check your API credentials and request limits\nFor calculation errors, verify your formulas in the Code node\nIf Google Sheets node fails, ensure proper column mapping\nAlways test with a small data set before running in production\nHappy Investing please let me know if you have any questions or trouble\n\nThis workflow will now automatically search for real estate deals matching your criteria, calculate investment metrics, update your tracking spreadsheet, and email you a summary each morning. Here is the entire step by step tutorial to set this up: https://www.youtube.com/watch?v=OSeLeKc375Y&t=6s",
+  "totalViews": 1593,
+  "source": "official",
+  "user": {
+    "id": 92865,
+    "name": "T Zero",
+    "username": "tzero",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/0c8c396b0353e98ccdf7b529031e5294b62626efe39b38449801c02455e3265e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-02-27T19:18:09.189Z",
+  "path": "official/template_3030/workflow.json"
+}

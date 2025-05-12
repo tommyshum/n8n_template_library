@@ -1,0 +1,57 @@
+{
+  "id": 3421,
+  "name": "Load and Aggregate Files from a Google Drive Folder into a Key-Value Dictionary",
+  "description": "What does this template do?\n\nThis workflow automates the process of retrieving all Google Docs from a specified Google Drive folder, extracting their content, and structuring the data into a unified key-value dictionary, where:\nKey = The file name\nValue = The content of the document (with normalized newlines)\n\nThis is ideal for use cases such as knowledge ingestion, prompt context preparation, or populating a RAG (Retrieval-Augmented Generation) system with reference documents.\n\nUse Case\n\nPerfect for teams or individuals who maintain prompts, content, or reference material in Google Docs and want to integrate that data dynamically into automation or AI workflows.\n\nWhat the Workflow Does\n\n⚡ Triggered via Execute Workflow Trigger from another workflow\n📁 Retrieves all files from a specified Google Drive folder\n📄 Downloads the full content of each Google Docs file\n🧩 Maps each file name to its content using a Set node\n🧠 Aggregates all entries into a single dictionary with Code node\n🧾 Outputs a JSON object like:\n{\n  \"Doc1\": \"content of doc 1\",\n  \"Doc2\": \"content of doc 2\"\n}\n\nApps & Services Used\nGoogle Drive\nGoogle Docs\nn8n Code node\n\nPre-requisites\nA connected Google account with access to the target Drive folder\nOAuth2 credentials for both:\nGoogle Drive\nGoogle Docs\n\nCustomization Tips\nChange Folder: Update the Google Drive node to select a specific folder rather than root\nSupport Other File Types: Replace or complement the Google Docs node to handle other formats (e.g., PDFs or text files)\nData Cleaning: Modify the Code node to adjust text normalization to your needs\n\nAdditional Use Cases\n\n🧠 Prompt Management for AI Workflows\nCentralize your GPT prompt templates in Google Docs instead of hardcoding them in n8n\nEasily manage prompt versions and edits directly from Google Drive\nDynamically load prompts into downstream nodes (like OpenAI or Hugging Face) without redeploying workflows\n\n📚 Knowledge Base Loader for RAG Systems\nAggregate internal knowledge, FAQs, SOPs, or policy docs from Google Docs into a structured dictionary\nUse the resulting object as the context source for Retrieval-Augmented Generation models\n\n🎛️ Dynamic Form Inputs or Question Sets\nMaintain forms, surveys, or interview questions in Google Docs\nLoad the content into n8n for form generation, chatbot interaction, or customer intake flows\n\n📄 Client-Specific Config or Script Templates\nFor client onboarding workflows, load client-specific scripts or prompts from individual docs named after each client\nHelps automate client-facing document generation or AI interactions\n\n📋 Content Ingestion for Translation, Summarization, or Sentiment Analysis\nBatch process internal documentation or user-submitted Google Docs\nTrigger summarization, translation, or classification pipelines using the document contents\n\n🔄 Document-to-Database Import\nAutomatically fetch and normalize Google Docs contents, ready to push into a database (e.g., Notion, Airtable, PostgreSQL)\n\n",
+  "totalViews": 412,
+  "source": "official",
+  "user": {
+    "id": 93487,
+    "name": "Hugues Stock",
+    "username": "hpstock",
+    "bio": "Hobbyist n8n automation maker, I build custom automations for people. ",
+    "verified": false,
+    "links": "[\"https://maia-ia.com\"]",
+    "avatar": "https://gravatar.com/avatar/1a7cd7b5f7f5229ddf80377864288d8f046aa0e5e72e2d7dbb14f91fc87ba076?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Miscellaneous",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Google Docs",
+      "type": "n8n-nodes-base.googleDocs",
+      "categories": [
+        "Miscellaneous"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-04-03T13:25:13.731Z",
+  "path": "official/template_3421/workflow.json"
+}

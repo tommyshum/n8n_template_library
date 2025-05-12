@@ -1,0 +1,122 @@
+{
+  "id": 3788,
+  "name": "AI-Powered YouTube Meta Generator with GPT-4o, Gemini & Content Enrichment",
+  "description": "🎯 AI-Powered Advanced YouTube Meta Generator in n8n\n\nAutomatically generate SEO-optimized YouTube Titles, Descriptions, Tags & Hashtags – enriched with blog articles, affiliate links, and product recommendations!\n\nWho is this for?\n\nThis workflow is built for content creators, affiliate marketers, educators, and agencies who want to instantly enhance their YouTube videos with smart metadata and contextual linking — without wasting hours on research or copywriting.\n\n🧠 What problem does it solve?\n\nWriting compelling, keyword-rich video metadata is essential for discoverability, engagement, and monetization. But doing this manually for every video is time-consuming. This workflow automates:\n\nTitle & description writing\nTag & hashtag generation\nTranscript analysis\nAffiliate link embedding\nInternal link recommendations (related blogs & videos)\n\nAll in one flow — saving hours per video.\n\n⚙️ What this workflow does\n\n🔗 Accepts a YouTube video link + optional keywords\n🧠 Uses Gemini or GPT-4o to analyze the transcript\n📝 Auto-generates:\n  SEO-friendly Title (under 70 chars)\n  Catchy, benefit-focused Description with timestamps\n  Tags (450+ chars)\n  Hashtags (5–10 optimized)\n🔁 Fetches your blog sitemap and matches relevant articles\n📹 Finds similar past videos using AI\n🛍 Embeds recommended affiliate links via Airtable\n🔧 Updates YouTube video with new metadata via API\n\n🛠 Setup\n\n🔌 Connect APIs:\n   YouTube Data API (OAuth 2.0)\n   Gemini or OpenAI GPT-4o\n   Airtable (for affiliate links)\n   Kome AI for transcripts\n   WordPress sitemap (for internal links)\n\n📋 Deploy this workflow and open the form URL to input:\n   YouTube Video Link\n   (Optional) Focus Keywords\n\n💬 Connect your accounts and authorize required scopes\n\n🧠 AI will handle the rest: from fetching data to publishing metadata.\n\n✏️ How to customize this workflow\n\nReplace Gemini with OpenAI / Claude / DeepSeek in the AI nodes\nPoint the sitemap node to your own blog\nModify the Airtable structure for affiliate links:\n  Name, Type, Platform, URL, Keywords\nChange tag/hashtag formatting\nModify prompt instructions in AI nodes for brand tone\n\n📌 Sticky Notes Included\n\n⚡ Form: “Enter Video Link + Optional Keywords”\n🔍 Sitemap Extraction: “Get blog URLs for related links”\n🧠 AI Logic: “Generate Metadata”\n✅ Update Metadata: “Publish updated title/description/tags”\n🧾 Completion Confirmation + Attribution to Amjid Ali\n\n🌐 Useful Links\n\n🧠 Learn n8n Automation  \n🎓 n8n Learning Guidebook  \n🚀 n8n Cloud Signup  \n🔧 SyncBricks Tools & Blog  \n🛍 Affiliate Product Hub\n🔗 Why this workflow?\nThis workflow is ideal for users exploring n8n AI, working with the n8n API, building AI agents in n8n, deploying via Docker or MCP, integrating with GitHub, automating processes using n8n automation, leveraging tools like n8n chat extension, enhancing YouTube metadata with AI, and incorporating cutting-edge platforms such as Context7, Blotato, and OpenAI, whether using n8n Cloud or setting up self-hosted n8n installations.",
+  "totalViews": 179,
+  "source": "official",
+  "user": {
+    "id": 92318,
+    "name": "Amjid Ali",
+    "username": "amjid",
+    "bio": "**Amjid Ali** is an automation expert and AI enthusiast specializing in creating intelligent workflows using low-code platforms like **n8n**. With a passion for simplifying complex processes, he designs solutions that enhance productivity and streamline operations. As an active contributor to the **n8n Creator Hub**, Amjid shares innovative use cases, practical templates, and best practices, empowering the community to unlock the full potential of workflow automation.",
+    "verified": true,
+    "links": "[\"https://amjidali.com\"]",
+    "avatar": "https://gravatar.com/avatar/8760ed64a38ed65da42983737659c7e295e4a7f14b59ed5ce1b0b1077435f573?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Marketing",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "YouTube",
+      "type": "n8n-nodes-base.youTube",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-04-29T14:52:14.446Z",
+  "path": "official/template_3788/workflow.json"
+}

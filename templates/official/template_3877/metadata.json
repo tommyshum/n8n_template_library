@@ -1,0 +1,91 @@
+{
+  "id": 3877,
+  "name": "Discover Business Ideas from HackerNews Posts with GPT-4.1 Analysis and Google Sheets",
+  "description": "What it is\n\nThis n8n workflow monitors top Hacker News posts (in the Front Page) and identifies business-related pain points using AI.\n\nHow It Works\n\nIt filters posts by engagement (comments &gt; 80, points &gt; 200, and recent date), extracts key metadata, fetches the article content, and uses a GPT-4.1-based agent to detect and summarize pain points. \n\nResults are appended to a Google Sheet for further analysis.\n\nSetup\n\nTo run this workflow, you need to set up credentials for:\n\n\nOpenRouter: Uses an API Key. Generate this key directly from your OpenRouter account settings. (YT Tutorial : https://youtu.be/Cq5Y3zpEhlc)\nGoogle Sheets: Uses OAuth 2.0. Requires setup in Google Cloud Console (enable Sheets API, create OAuth Client ID with n8n redirect URI) to get a Client ID & Secret.\n\nEnsure these credentials are created and selected in the respective n8n nodes (Get Posts, OpenRouter Chat Model nodes, Output The Results).\n\n\n",
+  "totalViews": 655,
+  "source": "official",
+  "user": {
+    "id": 94243,
+    "name": "Ari Nakos",
+    "username": "just-aristides",
+    "bio": "Love SEO & AI",
+    "verified": true,
+    "links": "[\"https://cal.com/ari-nakos/intro\"]",
+    "avatar": "https://gravatar.com/avatar/aef5686f32cd60bff51808670debce4b1dd8d1ae83ca489cf1ec554a5979b9c4?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Communication",
+    "Marketing",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Hacker News",
+      "type": "n8n-nodes-base.hackerNews",
+      "categories": [
+        "Communication",
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "OpenRouter Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-05-05T12:59:27.968Z",
+  "path": "official/template_3877/workflow.json"
+}

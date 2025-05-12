@@ -1,0 +1,32 @@
+{
+  "id": 2701,
+  "name": "Reschedule overdue Asana tasks and clean up completed tasks",
+  "description": "Description\n\nBoost your productivity and keep your Asana workspace clutter-free with this n8n workflow. \n\nIt automatically scans for tasks whose due dates have passed and reschedules them to the current date, ensuring no important to-dos slip through the cracks. \n\nAdditionally, any completed tasks in Asana with an overdue date are removed, maintaining a clear, organized task list.\n\nKey Benefits\n\nStreamline Task Management**: No more manual updates—let the workflow reschedule overdue tasks for you.\nOptimize Workspace Organization**: Eliminate finished tasks to focus on active priorities and reduce clutter.\nSave Time and Effort**: Automate repetitive maintenance, freeing you to concentrate on what truly matters.\n\nConfiguration Steps\n\nAdd your Asana credentials\nSchedule the workflow to run at desired intervals (e.g., daily or weekly).\nSelect your Workspace Name and your Assignee Name (user) in the Get user tasks node\n(Optional) Tailor filtering conditions to match your preferred due-date rules and removal criteria.\nActivate the workflow and watch your Asana workspace stay up to date and clutter-free. ",
+  "totalViews": 1455,
+  "source": "official",
+  "user": {
+    "id": 92378,
+    "name": "Bastien Laval",
+    "username": "bastien-laval",
+    "bio": "",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/d7c42e46c2daf4cf90ac38772f9eee0be4bb2883bd5cf161158fff01be2b1d5e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "Asana",
+      "type": "n8n-nodes-base.asana",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-01-06T20:52:57.831Z",
+  "path": "official/template_2701/workflow.json"
+}

@@ -1,0 +1,49 @@
+{
+  "id": 1364,
+  "name": "Cron routines with Telegram",
+  "description": "Executes schedule routines, and triggers alerts via telegram",
+  "totalViews": 3520,
+  "source": "official",
+  "user": {
+    "id": 20571,
+    "name": "Hermilio",
+    "username": "alves",
+    "bio": null,
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/c503a106a646807cf279b3ffe632002c0aa8a09479d5456bedcbce3cfdb929f7?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Development",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "MySQL",
+      "type": "n8n-nodes-base.mySql",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2021-12-15T11:56:35.412Z",
+  "path": "official/template_1364/workflow.json"
+}

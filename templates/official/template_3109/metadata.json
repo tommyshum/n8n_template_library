@@ -1,0 +1,80 @@
+{
+  "id": 3109,
+  "name": "Summarize Google Drive Documents with Mistral AI and Send via Gmail",
+  "description": "This workflow automates document summarization directly from Google Drive, processes the content using Mistral AI, and delivers a clean, styled summary via Gmail. It's ideal for professionals who need quick insights from lengthy documents without manually reading through them.\n\n✅ Key Features:\nGoogle Drive Integration: Fetches a file (PDF/DOCX) from your Drive.\nAI Summarization: Uses Mistral AI to extract key points efficiently.\nStyled Email Output: Delivers a formatted, easy-to-read summary to your inbox with a timestamp.\nError Handling: Built to skip corrupted files or missing credentials.\n\n\n🔧 Nodes Breakdown:\n1️⃣ Manual Trigger — Starts the workflow manually for easy testing.\n2️⃣ Google Drive Node — Downloads a specified file from Google Drive (supports PDF/DOCX).\n3️⃣ Mistral Cloud Chat Model Node — Connects to Mistral AI for summarization.\n4️⃣ Summarization Chain Node — Breaks the file into chunks, processes content, and generates a concise summary.\n5️⃣ Gmail Node — Sends the styled summary directly to the user’s inbox, with custom formatting and current time in the Lagos timezone.\n\nExtra Features:\nDynamic Time Formatting: Supports Lagos timezone (easily adjustable).\nHTML Styling: Beautiful email formatting with headers, icons, and line breaks for clarity.\nCustom Email Sender Name: Branded output (e.g., \"Swot.AI\").\nFuture Expansion: Can extend to WhatsApp or Slack with minor tweaks.\n\nUse Cases:\nLegal teams summarizing contracts.\nContent creators extracting highlights from research papers.\nBusiness analysts getting insights from reports on-the-go.\n\nCustomization Tips:\nChange the timezone (Africa/Lagos) to match your preferred location.\nAdd error-handling nodes for missing files or API failures.\nSwap Mistral AI with OpenAI for different summarization behavior.\nChange the \"Send To\" address(email to receive the Summarized texts) with your personal preffered address.**\nChange the \"Sender Name\" from Swot.AI to your preferred Sender Name.**\n\nWhy To Use This Workflow?\nThis automation saves hours of manual reading. It’s perfect for personal productivity, legal analysis, content creation, or business reporting.\nWith clean formatting and a professional email summary — your team will get instant insights in seconds!\n\nI can make this much better and build others, If Interested: *Swot.ai25@gmail.com*",
+  "totalViews": 2014,
+  "source": "official",
+  "user": {
+    "id": 93131,
+    "name": "Swot.AI",
+    "username": "swotai",
+    "bio": "Automation consultant with over 5 years experience helping Individuals and teams to streamline their processes. Use my link to book an initial consultation for custom n8n work.",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/066198928caadf185a78808e32cec4250cb69fdd6be19048beb5d1fbe27e8c4c?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Summarization Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainSummarization",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Mistral Cloud Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatMistralCloud",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-03-09T00:06:38.240Z",
+  "path": "official/template_3109/workflow.json"
+}

@@ -1,0 +1,93 @@
+{
+  "id": 2323,
+  "name": "Customer Support Channel and Ticketing System with Slack and Linear",
+  "description": "This n8n workflow demonstrates how to create a really simple yet effective customer support channel and pipeline by combining Slack, Linear and AI tools.\n\nBuilt on n8n's ability to integrate anything, this workflow is intended for small support teams who want to maximise re-use of the tools they already have with an interface which is doesn't require any onboarding.\n\nRead the blog post here: https://blog.n8n.io/automated-customer-support-tickets-with-n8n-slack-linear-and-ai/\n\nHow it works\nThe workflow is connected to a slack channel setup with the customer to capture support issues.\nOnly messages which are tagged with a \"✅\" reaction are captured by the workflow. Messages are tagged by the support team in the channel.\nEach captured support issue is sent to the AI model to classify, prioritise and rewrite into a support ticket.\nThe generated support ticket is uploaded to Linear for the support team to investigate and track.\nSupport team is able to report back to the user via the channel when issue is fixed.\n\nRequirements\nSlack channel to be monitored\nLinear account and project\n\nCustomising this workflow\n\nDon't have Linear? This workflow can work just as well with traditional ticketing systems like JIRA.",
+  "totalViews": 5341,
+  "source": "official",
+  "user": {
+    "id": 91804,
+    "name": "Jimleuk",
+    "username": "jimleuk",
+    "bio": "Freelance consultant based in the UK specialising in AI-powered automations. I work with select clients tackling their most challenging projects. For business enquiries, send me an email at hello@jimle.uk\n\nLinkedIn: https://www.linkedin.com/in/jimleuk/\nX/Twitter: https://x.com/jimle_uk",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4ab99e51473df76838beeaac908747f7928c625f869794815cabe34016967d51?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Productivity",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Linear",
+      "type": "n8n-nodes-base.linear",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2024-07-09T13:29:02.369Z",
+  "path": "official/template_2323/workflow.json"
+}

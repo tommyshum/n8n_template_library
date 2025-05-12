@@ -1,0 +1,94 @@
+{
+  "id": 2420,
+  "name": "Automate Image Validation Tasks using AI Vision",
+  "description": "This n8n workflow shows how using multimodal LLMs with AI vision can tackle tricky image validation tasks which are near impossible to achieve with code and often impractical to be done by humans at scale.\n\nYou may need image validation when users submitted photos or images are required to meet certain criteria before being accepted. A wine review website may require users only submit photos of wine with labels, a bank may require account holders to submit scanned documents for verification etc.\n\nIn this demonstration, our scenario will be to analyse a set of portraits to verify if they meet the criteria for valid passport photos according to the UK government website (https://www.gov.uk/photos-for-passports).\n\nHow it works\n\nOur set of portaits are jpg files downloaded from our Google Drive using the Google Drive node.\nEach image is resized using the Edit Image node to ensure a balance between resolution and processing speed.\nUsing the Basic LLM node, we'll define a \"user message\" option with the type of binary (data). This will allow us to pass our portrait to the LLM as an input.\nWith our prompt containing the criteria pulled off the passport photo requirements webpage, the LLM is able to validate the photo does or doesn't meet its criteria.\nA structured output parser is used to structure the LLM's response to a JSON object which has the \"is_valid\" boolean property. This can be useful to further extend the workflow.\n\nRequirements\nGoogle Gemini API key\nGoogle Drive account\n\nCustomising this workflow\n\nNot using Gemini? n8n's LLM node works with any compatible multimodal LLM so feel free to swap Gemini out for OpenAI's GPT4o or Antrophic's Claude Sonnet.\n\nDon't need to validate portraits? Try other use cases such as document classification, security footage analysis, people tagging in photos and more.",
+  "totalViews": 18211,
+  "source": "official",
+  "user": {
+    "id": 91804,
+    "name": "Jimleuk",
+    "username": "jimleuk",
+    "bio": "Freelance consultant based in the UK specialising in AI-powered automations. I work with select clients tackling their most challenging projects. For business enquiries, send me an email at hello@jimle.uk\n\nLinkedIn: https://www.linkedin.com/in/jimleuk/\nX/Twitter: https://x.com/jimle_uk",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4ab99e51473df76838beeaac908747f7928c625f869794815cabe34016967d51?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Marketing",
+    "Core Nodes",
+    "Data & Storage",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Edit Image",
+      "type": "n8n-nodes-base.editImage",
+      "categories": [
+        "Marketing",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Files",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2024-09-18T13:30:15.847Z",
+  "path": "official/template_2420/workflow.json"
+}

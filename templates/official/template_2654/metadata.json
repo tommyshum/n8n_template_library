@@ -1,0 +1,62 @@
+{
+  "id": 2654,
+  "name": "Vector Database as a Big Data Analysis Tool for AI Agents [1/3 anomaly][1/2 KNN]",
+  "description": "Vector Database as a Big Data Analysis Tool for AI Agents\n\nWorkflows from the webinar \"Build production-ready AI Agents with Qdrant and n8n\".\n\nThis series of workflows shows how to build big data analysis tools for production-ready AI agents with the help of vector databases. These pipelines are adaptable to any dataset of images, hence, many production use cases.\n\nUploading (image) datasets to Qdrant\nSet up meta-variables for anomaly detection in Qdrant\nAnomaly detection tool\nKNN classifier tool\n\nFor anomaly detection\n1. This is the first pipeline to upload an image dataset to Qdrant.\nThe second pipeline is to set up cluster (class) centres & cluster (class) threshold scores needed for anomaly detection.\nThe third is the anomaly detection tool, which takes any image as input and uses all preparatory work done with Qdrant to detect if it's an anomaly to the uploaded dataset.\n\nFor KNN (k nearest neighbours) classification\n1. This is the first pipeline to upload an image dataset to Qdrant.\nThe second is the KNN classifier tool, which takes any image as input and classifies it on the uploaded to Qdrant dataset.\n\nTo recreate both\nYou'll have to upload crops and lands datasets from Kaggle to your own Google Storage bucket, and re-create APIs/connections to Qdrant Cloud (you can use Free Tier cluster), Voyage AI API & Google Cloud Storage. \n\n[This workflow] Batch Uploading Images Dataset to Qdrant \nThis template imports dataset images from Google Could Storage, creates Voyage AI embeddings for them in batches, and uploads them to Qdrant, also in batches. In this particular template, we work with crops dataset. However, it's analogous to uploading lands dataset, and in general, it's adaptable to any dataset consisting of image URLs (as the following pipelines are).\n\nFirst, check for an existing Qdrant collection to use; otherwise, create it here. Additionally, when creating the collection, we'll create a payload index, which is required for a particular type of Qdrant requests we will use later.\nNext, import all (dataset) images from Google Cloud Storage but keep only non-tomato-related ones (for anomaly detection testing).\nCreate (per batch) embeddings for all imported images using the Voyage AI multimodal embeddings API.\nFinally, upload the resulting embeddings and image descriptors to Qdrant via batch upload.",
+  "totalViews": 2582,
+  "source": "official",
+  "user": {
+    "id": 92002,
+    "name": "Jenny ",
+    "username": "mrscoopers",
+    "bio": "Qdrant DevRel, ML/NLP/math nerd with yapping skills",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/evgeniya-sukhodolskaya/\"]",
+    "avatar": "https://gravatar.com/avatar/8b585d8184c5f6b4e7d30a2249984244045e769bcc4a06c645e68f96fa125c3e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Cloud Storage",
+      "type": "n8n-nodes-base.googleCloudStorage",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-12-19T09:36:22.024Z",
+  "path": "official/template_2654/workflow.json"
+}

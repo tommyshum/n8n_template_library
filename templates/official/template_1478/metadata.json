@@ -1,0 +1,32 @@
+{
+  "id": 1478,
+  "name": "Archive empty pages in Notion database",
+  "description": "This workflow will archive empty pages in your Notion databases, Add your n8n integration to the Notion databases that you want to process.\n\nTo configure this workflow set the Notion credentials in the 4 Notion nodes and if needed change the time in the Cron node, The default is to run at 2am every day.",
+  "totalViews": 1637,
+  "source": "official",
+  "user": {
+    "id": 25789,
+    "name": "Jonathan",
+    "username": "jon-n8n",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/5240094f838126182ceefb50ca4a3cf75cc7dc0808efd4b9920d792e41bfc45e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2022-02-21T10:04:09.014Z",
+  "path": "official/template_1478/workflow.json"
+}

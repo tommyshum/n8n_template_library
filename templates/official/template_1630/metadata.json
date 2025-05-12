@@ -1,0 +1,42 @@
+{
+  "id": 1630,
+  "name": "Send TheHive Alerts Using SIGNL4",
+  "description": "This sample workflow allows you to forward alerts from TheHive 5 to SIGNL4 in order to send reliable alerts to your team.\n\nThere are two nodes for testing the TheHive connection (\"TheHive Read Alerts\" and \"TheHive Create Alert\").\n\nThe node \"TheHive Webhook Request\" will receive requests for new alerts from TheHive. You need to configure the webhook and the notifications in TheHive accordingly.\n\nThe node \"SIGNL4 Send Alert\" sends the alert to SIGNL4 and the node \"SIGNL4 Resolve Alert\" will close the alert in SIGNL4 in case it has been closed in TheHive.\n",
+  "totalViews": 754,
+  "source": "official",
+  "user": {
+    "id": 5220,
+    "name": "Ron",
+    "username": "rons4",
+    "bio": "Co-founder at Derdack, Exploration at SIGNL4. Passionate about technology, SaaS, IoT, mobile, alerting, learning and more.",
+    "verified": true,
+    "links": "[\"https://www.signl4.com\"]",
+    "avatar": "https://gravatar.com/avatar/1af910dd96a18543fb15bf2097e28a14a72401781ec1ac4ffce7a07ad11dac7f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "SIGNL4",
+      "type": "n8n-nodes-base.signl4",
+      "categories": [
+        "Communication",
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "TheHive",
+      "type": "n8n-nodes-base.theHive",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2022-05-11T15:33:21.004Z",
+  "path": "official/template_1630/workflow.json"
+}

@@ -1,0 +1,125 @@
+{
+  "id": 2799,
+  "name": "AI-Powered Information Monitoring with OpenAI, Google Sheets, Jina AI and Slack",
+  "description": "Check Legal Regulations:\nThis workflow involves scraping, so ensure you comply with the legal regulations in your country before getting started. Better safe than sorry!\n\n📌 Purpose  \nThis workflow enables automated and AI-driven topic monitoring, delivering concise article summaries directly to a Slack channel in a structured and easy-to-read format.  \nIt allows users to stay informed on specific topics of interest effortlessly, without manually checking multiple sources, ensuring a time-efficient and focused monitoring experience.  \n\nTo get started, copy the Google Sheets template required for this workflow from here.  \n\n🎯 Target Audience  \nThis workflow is designed for:  \nIndustry professionals** looking to track key developments in their field.  \nResearch teams** who need up-to-date insights on specific topics.  \nCompanies** aiming to keep their teams informed with relevant content.  \n\n⚙️ How It Works  \nTrigger: A Scheduler initiates the workflow at regular intervals (default: every hour).  \nData Retrieval:  \n   RSS feeds are fetched using the RSS Read node.  \n   Previously monitored articles are checked in Google Sheets to avoid duplicates.  \nContent Processing:  \n   The article relevance is assessed using OpenAI (GPT-4o-mini).  \n   Relevant articles are scraped using Jina AI to extract content.  \n   Summaries are generated and formatted for Slack.  \nOutput:  \n   Summaries are posted to the specified Slack channel.  \n   Article metadata is stored in Google Sheets for tracking.  \n\n🛠️ Key APIs and Nodes Used  \nScheduler Node:** Triggers the workflow periodically.  \nRSS Read:** Fetches the latest articles from defined RSS feeds.  \nGoogle Sheets:** Stores monitored articles and manages feed URLs.  \nOpenAI API (GPT-4o-mini):** Classifies article relevance and generates summaries.  \nJina AI API:** Extracts the full content of relevant articles.  \nSlack API:** Posts formatted messages to Slack channels.  \n\nThis workflow provides an efficient and intelligent way to stay informed about your topics of interest, directly within Slack.\n",
+  "totalViews": 16319,
+  "source": "official",
+  "user": {
+    "id": 91734,
+    "name": "Dataki",
+    "username": "dataki",
+    "bio": "I am passionate about transforming complex processes into seamless automations with n8n. My expertise spans across creating ETL pipelines, sales automations, and data & AI-driven workflows. As an avid problem solver, I thrive on optimizing workflows to drive efficiency and innovation.",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/nicolas-aknin/\"]",
+    "avatar": "https://gravatar.com/avatar/0437c659b1ec6916896ebb30cc237391f0e1de89df5465c103e12d2cb12ce42d?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Text Classifier",
+      "type": "@n8n/n8n-nodes-langchain.textClassifier",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-01-25T11:55:56.526Z",
+  "path": "official/template_2799/workflow.json"
+}

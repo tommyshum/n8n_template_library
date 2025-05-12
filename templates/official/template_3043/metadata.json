@@ -1,0 +1,310 @@
+{
+  "id": 3043,
+  "name": "🤖 AI-Powered WhatsApp Assistant for Restaurants & Delivery Automation",
+  "description": "AI-Powered WhatsApp Assistant for Restaurant & Delivery – Automate Orders, Calculate Delivery Fees & Enhance Customer Service with n8n\n\n📌 Optimize your restaurant's delivery process with AI-powered automation!  \nThis n8n workflow enables an intelligent WhatsApp assistant for restaurants, burger joints, and delivery businesses. The AI chatbot efficiently handles orders, calculates delivery fees based on distance, manages customer interactions, and seamlessly integrates with your CRM and database for streamlined operations.  \n\n⚠️ Important Notice: This template is only compatible with self-hosted n8n instances as it uses community nodes. Ensure secure credential management when configuring APIs.  \n\n🔹 Key Features  \n✅ AI-Powered Order Processing – Automatically receive and confirm orders via WhatsApp.  \n✅ Real-Time Distance Calculation – Determines the delivery distance and calculates the fee dynamically.  \n✅ Automated Customer Interaction – Engages customers with intelligent conversation and order updates.  \n✅ WhatsApp Integration – Processes messages, saves customer details, and retrieves past interactions.  \n✅ Secure Customer Data Storage – Saves order history, customer preferences, and location details in a database.  \n✅ Seamless CRM & POS System Integration – Sync orders and customer data with your existing platforms.  \n\n📌 How It Works  \n1️⃣ A customer sends a message via WhatsApp to start an order.  \n2️⃣ The AI assistant guides them through the menu, recommends items, and confirms their choices.  \n3️⃣ The system retrieves and saves customer details (name, phone number, and address).  \n4️⃣ The AI calculates the delivery distance and applies the appropriate delivery fee.  \n5️⃣ The order details are saved and forwarded to the restaurant’s system for preparation.  \n6️⃣ The assistant keeps the customer updated about the order status.  \n\n⚙️ Setup & Customization  \n🔧 Webhook for WhatsApp – Capture and process customer messages automatically.  \n🔧 OpenAI-Powered AI Assistant – Configure conversation flows for natural and engaging interactions.  \n🔧 Delivery Fee Calculation – Set your delivery price per kilometer and adjust base rates.  \n🔧 Database & CRM Integration – Store customer details, order history, and location data.  \n🔧 Customizable Order Flow – Adapt the workflow for different restaurant models.  \n🔧 Secure Credential Management – Store API keys safely to prevent unauthorized access.  \n\n💡 Requirements: This template is recommended for users with basic knowledge of n8n. If you need custom development or setup assistance, contact us via WhatsApp: +55 17 99155-7874.  \n\n🚀 Automate order processing, reduce manual tasks, and improve customer satisfaction with AI-powered WhatsApp automation!  \n\nAssistente de WhatsApp com IA para Restaurantes & Delivery – Automatize Pedidos, Calcule Taxas de Entrega e Melhore o Atendimento ao Cliente com n8n  \n\n📌 Otimize o processo de entrega do seu restaurante com automação baseada em IA!  \nEste fluxo para n8n permite criar um atendente virtual inteligente no WhatsApp, ideal para hamburguerias, restaurantes e serviços de delivery. O chatbot baseado em IA recebe pedidos, calcula a taxa de entrega com base na distância, interage com os clientes e integra-se ao seu CRM para operações mais eficientes.  \n\n⚠️ Aviso Importante: Este template é compatível apenas com instâncias auto-hospedadas do n8n, pois utiliza nós da comunidade. Certifique-se de gerenciar credenciais de forma segura ao configurar APIs.  \n\n🔹 Principais Funcionalidades  \n✅ Processamento Inteligente de Pedidos – Recebe e confirma pedidos automaticamente via WhatsApp.  \n✅ Cálculo Dinâmico da Taxa de Entrega – Mede a distância e aplica a taxa correta automaticamente.  \n✅ Atendimento Automatizado ao Cliente – Interage com clientes de forma natural e profissional.  \n✅ Integração com WhatsApp – Captura mensagens, armazena dados e recupera histórico de pedidos.  \n✅ Armazenamento Seguro de Dados do Cliente – Salva pedidos, preferências e endereços de entrega.  \n✅ Sincronização com CRM e Sistema de PDV – Conecta-se ao seu sistema de gestão para um fluxo contínuo.  \n\n📌 Como Funciona  \n1️⃣ O cliente envia uma mensagem via WhatsApp para iniciar um pedido.  \n2️⃣ O assistente de IA apresenta o menu, sugere itens e confirma a escolha do cliente.  \n3️⃣ O sistema captura e salva os dados do cliente (nome, telefone e endereço).  \n4️⃣ A IA calcula a distância de entrega e aplica a taxa de acordo com a localização.  \n5️⃣ Os detalhes do pedido são registrados e enviados para a cozinha.  \n6️⃣ O assistente atualiza o cliente sobre o status do pedido.  \n\n⚙️ Configuração e Personalização  \n🔧 Webhook para WhatsApp – Configuração para capturar e processar pedidos automaticamente.  \n🔧 Assistente de IA com OpenAI – Configuração de fluxos conversacionais naturais e envolventes.  \n🔧 Cálculo de Taxa de Entrega – Definição de valores por quilômetro e ajustes de tarifas base.  \n🔧 Banco de Dados & CRM – Armazena dados de clientes, histórico de pedidos e localização.  \n🔧 Fluxo de Pedidos Personalizável – Adapte para diferentes tipos de restaurantes e serviços de delivery.  \n🔧 Gerenciamento Seguro de Credenciais – Proteja suas chaves de API contra acessos não autorizados.  \n\n💡 Requisitos: Este template é recomendado para usuários que já possuem conhecimentos básicos em n8n. Se precisar de personalização ou suporte para instalação, entre em contato pelo WhatsApp: +55 17 99155-7874.  \n\n🚀 Automatize o processamento de pedidos, reduza tarefas manuais e melhore a satisfação dos clientes com um WhatsApp automatizado e inteligente!  ",
+  "totalViews": 2720,
+  "source": "official",
+  "user": {
+    "id": 92905,
+    "name": "Bruno Dias",
+    "username": "brunodias",
+    "bio": "Especialista em automações, IA e marketing digital. #n8n #IA #automacao #make",
+    "verified": true,
+    "links": "[\"https://instagram.com/obrunopdias\"]",
+    "avatar": "https://gravatar.com/avatar/fc33cf1042c48f04b5ea2d6e16e641a427b1117e5b6b465e0d7c4cae32fda8c8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Postgres",
+      "type": "n8n-nodes-base.postgres",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Redis",
+      "type": "n8n-nodes-base.redis",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Crypto",
+      "type": "n8n-nodes-base.crypto",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Supabase",
+      "type": "n8n-nodes-base.supabase",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Character Text Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterCharacterTextSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Calculator",
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    },
+    {
+      "name": "Supabase Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Text Classifier",
+      "type": "@n8n/n8n-nodes-langchain.textClassifier",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Postgres Chat Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "Other memories"
+        ]
+      }
+    },
+    {
+      "name": "Vector Store Question Answer Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolVectorStore",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 21,
+  "createdAt": "2025-02-28T18:27:41.731Z",
+  "path": "official/template_3043/workflow.json"
+}

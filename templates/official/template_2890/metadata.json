@@ -1,0 +1,49 @@
+{
+  "id": 2890,
+  "name": "Drive-To-Store Lead Generation (with coupon) with Google Sheets & SuiteCRM",
+  "description": "Drive-to-Store is a multi-channel marketing strategy that includes both the web and the physical context, with the aim of increasing the number of customers and sales in physical stores. This strategy guides potential customers from the online world to the physical point of sale through the provision of a coupon that can be spent in the store or on an e-commerce site.\n\nThe basic idea is to have a landing page with a form and a series of unique coupons to assign to leads as a \"reward\" for filling out the form.\n\nThis workflow is ideal for businesses looking to automate lead generation and management, especially when integrating with CRM systems like SuiteCRM and using Google Sheets for data tracking.\n\nHow It Works\nForm Submission:\n   The workflow starts with the On form submission node, which triggers when a user submits a form on a landing page. The form collects the user's name, surname, email, and phone number.\n\nForm Data Processing:\n   The Form Fields node extracts and sets the form data (name, surname, email, and phone) for use in subsequent steps.\n\nDuplicate Lead Check:\n   The Duplicate Lead? node checks if the submitted email already exists in a Google Sheets document. If the email is found, the workflow responds with a \"duplicate lead\" message (Respond KO node) and stops further processing.\n\nCoupon Retrieval:\n   If the email is not a duplicate, the Get Coupon node retrieves a coupon code from the Google Sheets document based on the lead's email.\n\nLead Creation in SuiteCRM:\n   The Create Lead SuiteCRM node creates a new lead in SuiteCRM using the form data and the retrieved coupon code. The lead includes:\n     First name, last name, email, phone number, and coupon code.\n\nGoogle Sheets Update:\n   The Update Sheet node updates the Google Sheets document with the newly created lead's details, including:\n     Name, surname, email, phone, coupon code, lead ID, and the current date and time.\n\nResponse to Webhook:\n   The Respond OK node sends a success response back to the webhook, indicating that the lead was created successfully.\n\nSet Up Steps\nConfigure Form Trigger:\n   Set up the On form submission node to collect user data (name, surname, email, and phone) via a web form.\n\nSet Up Google Sheets Integration:\n   Configure the Duplicate Lead?, Get Coupon, and Update Sheet nodes to interact with the Google Sheets document. Ensure the document contains columns for email, coupon, lead ID, and other relevant fields.\n\nSet Up SuiteCRM Authentication:\n   Configure the Token SuiteCRM node with the appropriate client credentials (client ID and client secret) to obtain an access token from SuiteCRM.\n\nSet Up Lead Creation in SuiteCRM:\n   Configure the Create Lead SuiteCRM node to send a POST request to SuiteCRM's API to create a new lead. Include the form data and coupon code in the request body.\n\nSet Up Webhook Responses:\n   Configure the Respond OK and Respond KO nodes to send appropriate JSON responses back to the webhook based on whether the lead was created or if it was a duplicate.\n\nTest the Workflow:\n   Submit a test form to ensure the workflow correctly checks for duplicates, retrieves a coupon, creates a lead in SuiteCRM, and updates the Google Sheets document.\n\nActivate the Workflow:\n   Once tested, activate the workflow to automate the process of handling form submissions and lead creation.\n\nKey Features\nDuplicate Lead Check**: Prevents duplicate leads by checking if the email already exists in the Google Sheets document.\nCoupon Assignment**: Retrieves a coupon code from Google Sheets and assigns it to the new lead.\nSuiteCRM Integration**: Automatically creates a new lead in SuiteCRM with the form data and coupon code.\nData Logging**: Logs all lead details in a Google Sheets document for tracking and analysis.\nWebhook Responses**: Provides immediate feedback on whether the lead was created successfully or if it was a duplicate.\n",
+  "totalViews": 2772,
+  "source": "official",
+  "user": {
+    "id": 92207,
+    "name": "Davide",
+    "username": "n3witalia",
+    "bio": "Full-stack Web Developer based in Italy specialising in Marketing & AI-powered automations. For business enquiries, send me an email at info@n3w.it or add me on Linkedin.com/in/davideboizza",
+    "verified": true,
+    "links": "[\"https://n3w.it\"]",
+    "avatar": "https://gravatar.com/avatar/d41b8a0aa81139243509c58870f5b4be292824a507ab57d10ed066d8628ed8da?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-02-12T16:18:39.735Z",
+  "path": "official/template_2890/workflow.json"
+}

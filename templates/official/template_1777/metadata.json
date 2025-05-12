@@ -1,0 +1,38 @@
+{
+  "id": 1777,
+  "name": "Add new products to Stripe when product added to Pipedrive",
+  "description": "This workflow adds a new product in Stripe whenever a new product has been added to Pipedrive.\n\nPrerequisites\n\nStripe account and Stripe credentials\nPipedrive account and Pipedrive credentials \n\nHow it works\nPipedrive trigger node starts the workflow when a new product is added.\nHTTP Request node creates a new product in Stripe using previuos input.\nMerge node combines data of both Pipedrive and Stripe inputs. The output will contain the data of Pipedrive input merged with the data of Stripe input. The merge occurs based on the index of the items.\nThe Item Lists node splits prices to separate items.\nHTTP Request node creates price records in Stripe.",
+  "totalViews": 584,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2022-08-23T12:28:07.525Z",
+  "path": "official/template_1777/workflow.json"
+}

@@ -1,0 +1,69 @@
+{
+  "id": 2911,
+  "name": "Extract license plate number from image uploaded via an n8n form",
+  "totalViews": 1753,
+  "purchaseUrl": null,
+  "user": {
+    "id": 92666,
+    "name": "Daniel Nolde",
+    "username": "dnolde",
+    "bio": "",
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/d086ae47fe6c069e1dd7c9c76cd4ecb7a86eb59a00c19b3dd5a4abb3e8932b24?r=pg&d=retro&size=200"
+  },
+  "description": "What it does\n\nThis is a simplistic demo workflow showing how to extract a license plate number from an image of a car submitted via a form – or in more general terms showcasing how you can:\n\nuse a form trigger to upload files and feed it into an LLM\nuse a changeable LLM model for image-to-text analysis\n\nSet up steps\n\nImport the workflow\nEnsure you have registered and account, purchased some credits and created and API key for OpenRouter.ai\nCreate/adapt the OpenRouter credential with your indivial API key for OpenRouter\n\"Test workflow\" and submit an image of a car with license plate to extract its number\n\nHow to adapt\n\nBy changing the \"prompt\" in th \"Settings\" node you can quickly adapt this exemplatory workflow to other image-to-text use cases, such as:\n\nsummarization: \"summarize what's seen in the image\"\nlocation finding: \"identify the location where the image was taken\"\ntext extraction: \"extract all text from the image and return it as markdown\"\n\nThanks to using OpenRouter, you also can quickly experiment with finding good model choices by simply changing the \"model\" in the \"Settings\" node. The following models gave good results for this demo use-case:\n\ngoogle/gemini-2.0-flash-001\nmeta-llama/llama-3.2-90b-vision-instruct\nopenai/gpt-4o\n\nThe llama-3.2-11b and even claude-3.5-sonnet didn't recognize all characters in all test images.\n\nUsing a generic LLM-model offers a quick way of prototyping an image-to-text application. For specific use cases in serious and scalable production deployments, consider using an API based service specifically made to that purpose, such as:\n\nGoogle Cloud Vision API\nMicrosoft Azure Computer Vision\nAzure AI Document Intelligence\nAmazon Textract\n\n",
+  "createdAt": "2025-02-15T06:43:10.899Z",
+  "nodes": [
+    {
+      "id": 1123,
+      "icon": "fa:link",
+      "name": "@n8n/n8n-nodes-langchain.chainLlm",
+      "codex": {
+        "data": {
+          "alias": [
+            "LangChain"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.chainllm/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Chains",
+              "Root Nodes"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Basic LLM Chain",
+        "color": "#909298"
+      },
+      "iconData": {
+        "icon": "link",
+        "type": "icon"
+      },
+      "displayName": "Basic LLM Chain",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    }
+  ]
+}

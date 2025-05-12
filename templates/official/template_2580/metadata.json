@@ -1,0 +1,94 @@
+{
+  "id": 2580,
+  "name": "Qualifying Appointment Requests with AI & n8n Forms",
+  "description": "This n8n template builds upon a simple appointment request form design which uses AI to qualify if the incoming enquiry is suitable and/or time-worthy of an appointment.\n\nThis demonstrates a lighter approach to using AI in your templates but handles a technically difficult problem - contextual understanding! This example can be used in a variety of contexts where figuring out what is and isn't relevant can save a lot of time for your organisation.\n\nHow it works\nWe start with a form trigger which asks for the purpose of the appointment.\nInstantly, we can qualify this by using a text classifier node which uses AI's contextual understanding to ensure the appointment is worthwhile. If not, an alternative is suggested instead.\nMulti-page forms are then used to set the terms of the appointment and ask the user for a desired date and time.\nAn acknowledgement is sent to the user while an approval by email process is triggered in the background.\nIn a subworkflow, we use Gmail with the wait for approval operation to send an approval form to the admin user who can either confirm or decline the appointment request.\nWhen approved, a Google Calendar event is created. When declined, the user is notified  via email that the appointment request was declined.\n\nHow to use\nModify the enquiry classifier to determine which contexts are relevant to you.\nConfigure the wait for approval node to send to an email address which is accessible to all appropriate team members.\n\nRequirements\nOpenAI for LLM\nGmail for Email\nGoogle Calendar for Appointments\n\nCustomising this workflow\nNot using Google Mail or Calendar? Feel free to swap this with other services.\nThe wait for approval step is optional. Remove if you wish to handle appointment request resolution in another way.",
+  "totalViews": 12065,
+  "source": "official",
+  "user": {
+    "id": 91804,
+    "name": "Jimleuk",
+    "username": "jimleuk",
+    "bio": "Freelance consultant based in the UK specialising in AI-powered automations. I work with select clients tackling their most challenging projects. For business enquiries, send me an email at hello@jimle.uk\n\nLinkedIn: https://www.linkedin.com/in/jimleuk/\nX/Twitter: https://x.com/jimle_uk",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4ab99e51473df76838beeaac908747f7928c625f869794815cabe34016967d51?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Productivity",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Calendar",
+      "type": "n8n-nodes-base.googleCalendar",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Text Classifier",
+      "type": "@n8n/n8n-nodes-langchain.textClassifier",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2024-11-26T17:49:51.712Z",
+  "path": "official/template_2580/workflow.json"
+}

@@ -1,0 +1,32 @@
+{
+  "id": 928,
+  "name": "Create a post with comments in Reddit automatically",
+  "description": "This workflow allows you to create a post a Reddit and add a comment on the post.\n\n\n\nReddit node: This node creates a post in the subreddit n8n. If you want to create a post in a different subreddit, enter the name of that subreddit instead.\n\nReddit1 node: This node gets the post that we created previously. It returns the data like the post ID, title of the post, content of the post, etc.\n\nReddit2 node: This node adds a comment on the post that we created earlier.",
+  "totalViews": 2595,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication"
+  ],
+  "nodes": [
+    {
+      "name": "Reddit",
+      "type": "n8n-nodes-base.reddit",
+      "categories": [
+        "Communication"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2021-02-08T07:09:22.003Z",
+  "path": "official/template_928/workflow.json"
+}

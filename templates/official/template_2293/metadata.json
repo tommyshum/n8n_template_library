@@ -1,0 +1,72 @@
+{
+  "id": 2293,
+  "name": "Sync blog posts from Notion to Webflow",
+  "description": "Who is this for?\nThis template is for everyone who manages their blog entries in Notion and want to have an easy way to transform them to Webflow.\n\nWhat this workflow does\nThis workflow syncs your blog posts saved in a Notion Database once a day to Webflow.\nSync Notion properties, rich text and cover image with your collection.\nWorks with most elements: H1, H2, H3, normal text, bold text, italic text, links, quotes, bulleted lists, numbered lists, and images (under 4MB).\n\nSet up steps\nConnect your accounts.\nAdd a \"slug\" field in Notion.\nAdd a \"Sync to Webflow?\" checkbox in Notion.\nRun a test and map your collection data.\n\nWhenever the workflow runs, all the checked posts will be updated in the Webflow collection, whether it's a new post or an existing one.\n\n\n",
+  "totalViews": 2262,
+  "source": "official",
+  "user": {
+    "id": 91728,
+    "name": "Giovanni Ruggieri",
+    "username": "gioru",
+    "bio": "Figma. Nextjs. Convex. N8N automations. AI engineering.\n",
+    "verified": false,
+    "links": "[\"https://x.com/desengineers\"]",
+    "avatar": "https://gravatar.com/avatar/a9b17599ed37ef27fe4c67d02b0720de97c13b41674593cb0d959e1894839bdf?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Marketing",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Webflow",
+      "type": "n8n-nodes-base.webflow",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2024-06-15T14:19:34.317Z",
+  "path": "official/template_2293/workflow.json"
+}

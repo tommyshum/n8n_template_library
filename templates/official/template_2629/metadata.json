@@ -1,0 +1,61 @@
+{
+  "id": 2629,
+  "name": "Generate Amazon FBA keywords using Amazon Completion API",
+  "description": "\nUse Case\nGenerate keywords for your Amazon product.\n\nYou want to find more keywords for advertising your product on Amazon.\n\nWhat this Workflow Does \n\nThe workflow connects to Amazon's completion API to retrieve keywords for your advertising campaigns\n\n\n\nUse Airtable to send the workflow your keywords. Download airtable here.\nIt sends the keyword to Amazon and returns keywords related to your keyword.\nIt stores the results back into Airtable.\n\nHow to Adjust it to Your Needs\n\nYou can modify the Amazon Completion API URL to get more data back from Amazon.\n\nMade by Rumjahn",
+  "totalViews": 2391,
+  "source": "official",
+  "user": {
+    "id": 92000,
+    "name": "Keith Rumjahn",
+    "username": "rumjahn",
+    "bio": "I create automations with A.I. for SEO content and other smart automations.",
+    "verified": true,
+    "links": "[\"https://rumjahn.com/\"]",
+    "avatar": "https://gravatar.com/avatar/e037c9d6e16284c4cf5149094a1725ed92f76e61813b8f8c32c1b83dcf4f9f4b?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-12-11T02:15:20.745Z",
+  "path": "official/template_2629/workflow.json"
+}

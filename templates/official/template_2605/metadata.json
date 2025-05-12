@@ -1,0 +1,63 @@
+{
+  "id": 2605,
+  "name": "Generate Leads with Google Maps",
+  "description": "This workflow leverages n8n to perform automated Google Maps API queries and manage data efficiently in Google Sheets. It's designed to extract specific location data based on a given list of ZIP codes and categories.\n\nFeatures\nQueries the Google Maps API for location data using predefined ZIP codes and subcategories.\nFilters, de-duplicates, and organizes data into structured rows in Google Sheets.\nImplements exponential backoff retries to handle API rate limits.\nLogs and updates statuses directly in Google Sheets for easy tracking.\n\nPrerequisites\nGoogle OAuth Credentials: A configured Google Cloud project for Google Maps API and Sheets API access.\nGoogle Sheets: A sheet with ZIP codes and categories defined (e.g., \"AZ Zips\").\nn8n Setup: A running instance of n8n with credentials configured for Google OAuth.\n\nSetup Instructions\n\n1. Prepare Google Sheets\nAdd the ZIP codes to the \"AZ Zips\" sheet.\nDefine subcategories in another sheet (e.g., \"Google Maps Categories\").\nProvide the sheet's URL in the Settings node of the workflow.\n\n2. Configure API Access\nSet up Google OAuth credentials for Maps and Sheets APIs in n8n.\nEnsure your API key has access to the places.searchText endpoint.\n\n3. Workflow Customization\nModify textQuery parameters in the GMaps API node to match your query needs.\nAdjust trigger intervals as required (e.g., manual or scheduled execution).\n\n4. Run the Workflow\nExecute the workflow manually or schedule periodic runs to keep your data updated.\n\nNotes\nThis workflow includes robust error handling to retry failed API calls with exponential backoff.\nAll data is organized and logged directly in Google Sheets for easy reference and updates.\n\nFor more information or issues, feel free to reach out!\n",
+  "totalViews": 26628,
+  "source": "official",
+  "user": {
+    "id": 91693,
+    "name": "Alex Kim",
+    "username": "alexk1919",
+    "bio": "n8n Ambassador & Verified Partner",
+    "verified": true,
+    "links": "[\"https://wot-ai.com\"]",
+    "avatar": "https://gravatar.com/avatar/2b74c7f530e250439f5d752f2623ead4921fbb8aef56343c922b2873ef8a619f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-12-04T22:16:13.814Z",
+  "path": "official/template_2605/workflow.json"
+}

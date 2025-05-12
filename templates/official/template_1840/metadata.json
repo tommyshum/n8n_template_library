@@ -1,0 +1,41 @@
+{
+  "id": 1840,
+  "name": "Sync Zendesk tickets to your HubSpot contacts",
+  "description": "This workflow automatically syncs your Zendesk tickets to your HubSpot contacts. Every 5 minutes, your HubSpot account collects all the newly modified data and updates it into your Zendesk account, updating the current tickets or creating new ones. \n\nPrerequisites\nZendesk account and Zendesk credentials \nHubSpot account and HubSpot credentials \n\nHow it works\nCron node triggers the workflow every 5 minutes.\nFunction Item node collects all the tickets received after the last execution timestamp.\nHubSpot node collects all the recently modified companies.\nZendesk node checks all the Zendesk tickets associated with those companies.\nMerge by key node merges the Zendesk and Hubspot data related to those companies.\nIf node splits the workflow conditionally, based on data received.\nIf the company already exists in, Zendesk node updates organization’sdata.\nIf the company does not exist yet, Zendesk node will create an organization.\nThe Function Item node sets the new last execution timestamp.",
+  "totalViews": 654,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Sales",
+    "Communication"
+  ],
+  "nodes": [
+    {
+      "name": "HubSpot",
+      "type": "n8n-nodes-base.hubspot",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Zendesk",
+      "type": "n8n-nodes-base.zendesk",
+      "categories": [
+        "Communication"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2022-12-23T10:44:33.089Z",
+  "path": "official/template_1840/workflow.json"
+}

@@ -1,0 +1,50 @@
+{
+  "id": 2832,
+  "name": "Scrape Latest 20 TechCrunch Articles",
+  "description": "Retrieve 20 Latest TechCrunch Articles\n\nWho is this for?\nThis workflow is designed for developers, content creators, and data analysts who need to scrape recent articles from TechCrunch. It’s perfect for anyone looking to aggregate news articles or create custom feeds for analysis, reporting, or integration into other systems.\n\nWhat problem is this workflow solving?\nThis workflow automates the process of scraping recent articles from TechCrunch. Manually collecting article data can be time-consuming and inefficient, but with this workflow, you can quickly gather up-to-date news articles with relevant metadata, saving time and effort.\n\nWhat this workflow does\nThis workflow retrieves the latest 20 news articles from TechCrunch’s “Recent” page. It extracts the article URLs, metadata (such as titles and publication dates), and main content for each article, allowing you to access the information you need without any manual effort.\n\nSetup\nClone or download the workflow template.\nEnsure you have a working n8n environment.\nConfigure the HTTP Request nodes with your desired parameters to connect to the TechCrunch API.\n(Optional) Customize the workflow to target specific sections or topics of interest.\nRun the workflow to retrieve the latest 20 articles.\n\nHow to customize this workflow to your needs\nModify the HTTP request to pull articles from different pages or sections of TechCrunch.\nAdjust the number of articles to retrieve by changing the selection criteria.\nAdd additional processing steps to further filter or analyze the article data.\n\nWorkflow Steps\nSend an HTTP request to the TechCrunch \"Recent\" page.\nParse a posts box that holds the list of articles.\nParse all posts to extract all articles.\nspilt out posts for each article.\nExtract the URL and metadata from each article.\nSend an HTTP request for each article using its URL.\nLocate and parse the main content of each article.\n\nNote: Be sure to update the HTTP Request nodes with any necessary headers or authentication to work with TechCrunch’s website.",
+  "totalViews": 5661,
+  "source": "official",
+  "user": {
+    "id": 92584,
+    "name": "Teddy",
+    "username": "teddysbeach",
+    "bio": "12 years in development, South Korea, Seoul",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b771a9567b1ac39d9b55f8ad7983bbcf2ebdc28919060dda15c13cf4dac9827a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-02-01T07:06:30.056Z",
+  "path": "official/template_2832/workflow.json"
+}

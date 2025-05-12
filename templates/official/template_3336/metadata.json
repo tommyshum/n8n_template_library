@@ -1,0 +1,71 @@
+{
+  "id": 3336,
+  "name": "Automate Blog Content Creation with GPT-4, Perplexity & WordPress",
+  "description": "Who Is This For\n\nThis workflow is ideal for content creators, solo founders, marketers, and AI enthusiasts who want to automate the full process of blog content creation.  \nIt is especially useful for professionals in tech, AI, and automation who publish frequently and need SEO-ready content fast.\n\nWhat Problem Does This Workflow Solve\n\nCreating SEO-optimized blog content is time-consuming and requires consistency.  \nManually researching trending topics slows down the content pipeline.  \nFormatting, publishing, and promoting across multiple platforms takes effort.  \nThis workflow automates the entire process from research to publication.\n\nWhat This Workflow Does\n\nResearch: Uses Perplexity AI to gather up-to-date content ideas via form input.  \nContent Generation: GPT-4 creates a short, SEO-optimized article (max 20 lines) with H1, H2 structure and meta-description.  \nPublishing: Automatically posts the content to WordPress.  \nEmail Notification: Sends the article title and URL via Gmail.  \nSlack Notification: Notifies a specified Slack channel when the article is live.  \nDatabase Logging: Saves the article details to a Notion database.\n\nSetup Guide\n\nPrerequisites\n\nWordPress account with API access  \nOpenAI API Key  \nPerplexity API Key  \nSlack Bot Token  \nNotion integration (Database ID)  \nGmail API credentials (optional)  \nCommunity Node Required: This workflow uses n8n-nodes-mcp, which only works on self-hosted instances of n8n.  \n  &gt; To install: Go to Settings &gt; Community Nodes &gt; Install n8n-nodes-mcp\n\nSteps\n\nImport the workflow into your n8n instance  \nInstall the required community node (n8n-nodes-mcp)  \nSet up API credentials for OpenAI, Perplexity, WordPress, Slack, Gmail, and Notion  \nCustomize the form trigger with your preferred prompt  \nRun a test using a sample topic\n\nHow to Customize This Workflow\n\nModify the research prompt to match your niche or industry  \nAdjust GPT-4 settings for tone, structure, or content length  \nCustomize Notion fields (e.g., add tags, categories, or labels)  \nAdd logic for generating or assigning featured images automatically",
+  "totalViews": 19037,
+  "source": "official",
+  "user": {
+    "id": 93440,
+    "name": "Dr. Firas",
+    "username": "drfiras",
+    "bio": "Automation expert and certified trainer. I create hands-on courses to master automation with n8n. Contact me to access my exclusive training and start building powerful workflows today. 🚀",
+    "verified": true,
+    "links": "[\"https://www.youtube.com/@DRFIRASS\"]",
+    "avatar": "https://gravatar.com/avatar/988a46579257f9e8c522aeb7b906f1ee96e47c4298faa548e41b04957f455ae3?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-03-26T21:04:55.087Z",
+  "path": "official/template_3336/workflow.json"
+}

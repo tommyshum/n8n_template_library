@@ -1,0 +1,50 @@
+{
+  "id": 2448,
+  "name": "Masked Email Management for Fastmail",
+  "description": "Template Description\n\nThis n8n workflow is designed to manage Fastmail masked email addresses using the Fastmail API. The workflow provides the following functionalities:\n\nRetrieve all masked emails: Fetches all masked email addresses associated with the Fastmail account.\nCreate masked email: Allows creating a new masked email with a specified state (pending, enabled, etc.).\nUpdate masked email state: Updates the state of a masked email such as enabling, disabling, or deleting it.\nGenerate HTML template: Constructs an HTML table to display the masked emails in a user-friendly format.\n\nSteps to Make it Work\n\nWebhook Node: \n   This node listens for incoming requests to manage masked emails.\n   Needs Basic Authentication credentials to secure the endpoint.\n\nSession Node: \n   Sends a request to obtain session information from Fastmail's API.\n   Requires an HTTP Header Auth credential with your Fastmail API token.\n\nSwitch Node: \n   Routes the workflow based on the state of the incoming masked email request (pending, enabled, disabled, deleted).\n   \nHTTP Request Nodes:\n   These nodes handle various Fastmail API calls for masked emails (get, set, update, delete).\n   All HTTP Request nodes require an HTTP Header Auth credential attached, using the Fastmail API token.\n\nSet Node: \n   Gathers the retrieved masked email list into an array for further processing.\n\nHTML Node: \n   Generates an HTML template to render the masked email addresses in a table format.\n\nRespond to Webhook Node: \n   Sends back the HTML table to the client in response to the webhook request.\n\nNeeded Credentials\n\nFastmail Masked E-Mail Addresses:\n   An API token from Fastmail's API.\n   Each HTTP call to Fastmail requires this credential for authentication.\n\nNote\n\nEnsure that you correctly configure authentication for the API calls and webhook security.\nUse your actual Fastmail API credentials with the correct scope.\nThe workflow assumes that the Fastmail API is correctly configured and accessible from your n8n instance.\nUpdate URLs and credentials IDs according to your n8n configuration.",
+  "totalViews": 360,
+  "source": "official",
+  "user": {
+    "id": 92004,
+    "name": "Vitali",
+    "username": "vquie",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/9547a27c5842ef984e096548285dc3d902bdecaad51c800b6f100a068a2fc9f0?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-10-02T18:03:32.846Z",
+  "path": "official/template_2448/workflow.json"
+}

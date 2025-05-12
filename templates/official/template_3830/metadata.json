@@ -1,0 +1,95 @@
+{
+  "id": 3830,
+  "name": "Discover & Enrich Decision-Makers with Apollo and Human Verification",
+  "description": "🧩 What This Workflow Does\nThis workflow automates the process of identifying and enriching decision-maker contacts from a list of companies. By integrating with Apollo's APIs and Google Sheets, it streamlines lead generation, ensures data accuracy through human verification, and maintains an organized leads database.\n\n📚 Use Case\nIdeal for sales and marketing teams aiming to:\nAutomate the discovery of key decision-makers (e.g., CEOs, CTOs).\nEnrich contact information with LinkedIn profiles, emails, and phone numbers.\nMaintain an up-to-date leads database with minimal manual intervention.\nReceive weekly summaries of newly verified leads.\n\n🧪 Setup\n1. Google Sheets Preparation:\n\nUse the following pre-configured Google Sheet: Company Decision Maker Discovery Sheet.\nThis spreadsheet includes the necessary tabs and columns: Companies, Contacts, and Contacts (Verified).\nIt also contains a custom onEdit Apps Script function that automatically updates the Status column to Pending whenever the Domain field is modified.\nTo review or modify the script, navigate to Extensions &gt; Apps Script within the Google Sheet.\n\n2. Credentials Setup:\n\nConfigure the following credentials in your n8n instance:\n\tGoogle Sheets: To read from and write to the spreadsheet.\n\tSlack: To send verification prompts and weekly reports.\n\tApollo: To access the Organization Search, Organization Enrichment, People Search, and Bulk People Enrichment APIs.\n\tLLM Service (e.g., OpenAI): To generate company summaries and determine departments based on job titles.\n\n3. Workflow Configuration:\n\nImport the workflow into your n8n instance.\nUpdate the nodes to reference the correct Google Sheet and Slack channel.\nEnsure that the Apollo and LLM nodes have the appropriate API keys and configurations.\n\n4. Testing the Workflow:\n\nAdd a new company entry in the Companies tab of the Google Sheet.\nVerify that the workflow triggers automatically, processes the data, and updates the Contacts and Contacts (Verified) tabs accordingly.\nCheck Slack for any verification prompts and confirm that weekly reports are sent as scheduled.",
+  "totalViews": 48,
+  "source": "official",
+  "user": {
+    "id": 94140,
+    "name": "Uche Madu",
+    "username": "uchemadu",
+    "bio": "Data Engineer & AI Workflow Automation Specialist — I design and scale data-driven systems for AI and analytics, and build streamlined automations that power growth and revenue.",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/34a2ea0f01e3380246b17c0b3924398fa25d79d10f4d8e98341c44b59ea6d4ad?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-05-02T10:16:09.559Z",
+  "path": "official/template_3830/workflow.json"
+}

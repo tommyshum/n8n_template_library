@@ -1,0 +1,68 @@
+{
+  "id": 3478,
+  "name": "Automate Instagram Posts with Google Drive, AI Captions & Facebook API",
+  "description": "This template streamlines your Instagram content posting workflow by connecting Google Drive for image storage, using OpenAI for AI-generated captions, and leveraging Facebook Graph API for automated publishing.\n\nPre-requisites\nBefore setting up this workflow, ensure you have:\n\nA Google account with access to Google Drive\n\nAn OpenAI API key for AI caption generation\n\nA Facebook Developer account with Instagram Graph API access\n\nAn Instagram Business or Creator account connected to a Facebook Page\n\nn8n.io account with workflow access\n\nSetup Instructions\nConfigure Data Source\nCreate a Google Sheet with the following columns:\n\n Name: Filename of your image in Google Drive\n\nCaption: Optional custom caption (leave empty for AI-generated captions)\n\nURL: your Video Reel or Image in Google Drive\n\nConnect Google Drive\nAdd your Google Drive credentials in the \"Google Drive\" node\n\nSpecify the folder path where your Instagram image/Video are stored\n\nConfigure the node to retrieve image files based on filenames from your Google Sheet\n\nSet Up OpenAI Integration\nAdd your OpenAI API key to the credentials\n\nConfigure the OpenAI node to generate engaging captions based on image content\n\nAdjust temperature and model parameters for desired creativity level\n\nConfigure Facebook Graph API\nConnect your Facebook account with Instagram access\n\nSet up the Facebook Graph API node to post to your Instagram Business/Creator account\n\nEnsure proper image formatting (1:1, 4:5, or 16:9 aspect ratios supported by Instagram)\n\nWorkflow Automation Setup\nConfigure the scheduler node to run at your preferred frequency\n\nSet up error handling to notify you of any posting failures\n\nAdd conditional nodes to use either custom or AI-generated captions\n\nExecution Instructions\nAfter completing all connections, test the workflow with a single image\n\nMonitor the execution in the n8n dashboard to ensure proper functioning\n\nView the \"Executions\" tab to track successful posts and troubleshoot any errors\n\nAdjust posting frequency and scheduling as needed\n\nThis template saves hours of manual Instagram posting work while maintaining an authentic presence. Perfect for social media managers, content creators, and businesses looking to maintain consistent Instagram activity without the daily manual effort.\n\nThe workflow handles image retrieval, caption generation or customization, proper Instagram API formatting, scheduled posting, and execution tracking - all in one automated solution.",
+  "totalViews": 403,
+  "source": "official",
+  "user": {
+    "id": 93683,
+    "name": "Sagar",
+    "username": "sagarmasand9",
+    "bio": "AI Automations Expert | Gen AI Filmmaker | AI Product Builder\n\n🔹 Built 25+ AI Automation Systems\nDesigned and deployed AI workflows using OpenAI, Make.com, Zapier, and AdminitM to automate business processes, save time, and boost productivity.",
+    "verified": false,
+    "links": "[\"https://www.linkedin.com/in/sagar-masand-24466a167/\"]",
+    "avatar": "https://gravatar.com/avatar/f4b00fcd3d58bbd6c3a3b456ea64e2477ca047e4b199a58bb770b91a5c69a9a4?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Facebook Graph API",
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-04-08T17:43:28.144Z",
+  "path": "official/template_3478/workflow.json"
+}

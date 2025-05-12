@@ -1,0 +1,118 @@
+{
+  "id": 2671,
+  "name": "LINE Assistant with Google Calendar and Gmail Integration",
+  "description": "Who is this for?\nThis workflow is for small business owners, personal assistants, or project managers who rely on multiple platforms for communication and scheduling.\nIdeal for users managing customer support, personal scheduling, or group event coordination via LINE, Google Calendar, and Gmail.\n\nWhat problem is this workflow solving?\nReduces the manual effort needed to manage conversations, schedule events, and handle email communications.\nProvides an intelligent system for replying to user messages and fetching relevant calendar or email information in real time.\nBridges the gap between messaging platforms and productivity tools, improving efficiency.\n\nWhat this workflow does\nLINE Chatbot Automation**: Automatically processes and responds to messages received via LINE.\nGoogle Calendar Management**: Retrieves upcoming events or schedules new events dynamically based on user queries.\nEmail Retrieval**: Fetches recent emails using Gmail and filters them based on user instructions.\nAI-Powered Replies**: Uses OpenAI GPT to interpret user queries and provide tailored responses.\n\nSetup\nPrerequisites:\n   LINE Developer account and API access.\n   Google Calendar and Gmail accounts with OAuth credentials.\n   An n8n instance with access to environment variables.\n\nSteps:\n   Set up environment variables (LINE_API_TOKEN and DYNAMIC_EMAIL).\n   Configure API credentials for Google Calendar and Gmail in n8n.\n   Test the workflow by sending a sample message via LINE.\n\nEnhancements:\n   Use sticky notes to provide inline instructions for each node.\n   Include a video walkthrough or a step-by-step document for first-time users.\n\nHow to customize this workflow to your needs\nLocalization**: Modify responses in the AI Agent node to match the language and tone of your audience.\nIntegration**: Add more integrations like Slack or Microsoft Teams for additional notifications.\nAdvanced Filters**: Add specific conditions to Gmail or Google Calendar nodes to fetch only relevant data, such as events with specific keywords or emails from certain senders.\n\nAdvanced Use Cases\nCustomer Support**: Automatically schedule meetings with clients based on their messages in LINE.\nEvent Management**: Handle RSVP confirmations, event reminders, and email follow-ups for planned events.\nPersonalized Assistant**: Use the workflow to act as a personal virtual assistant that syncs your schedule, replies to messages, and summarizes emails.\n\nTips for Optimization\nEdit Fields Node**: Add a centralized node to configure dynamic inputs (e.g., tokens, emails, or thresholds) for easy updates.\nFallback Responses**: Use a switch node to handle unrecognized input gracefully and provide clear feedback to users.\nLogs and Monitoring**: Add nodes to log interactions and track message flows for debugging or analytics.\n\nLet me know if you'd like me to expand on any specific section or add more customization ideas!",
+  "totalViews": 1994,
+  "source": "official",
+  "user": {
+    "id": 92308,
+    "name": "Boriwat Chanruang",
+    "username": "boriwatopal",
+    "bio": "Automation consultant specializing in Data, AI, and Automation, founder of hundredtimesfaster.com and No Code AI community. Currently AI & Data Solutions Lead at Assetwise PCL, with a proven track record of driving innovation and efficiency in leading firms. Author of Practical Data Visualization & Analytics with Looker Studio. Book a consultation to explore custom solutions!",
+    "verified": true,
+    "links": "[\"https://hundredtimesfaster.com/\"]",
+    "avatar": "https://gravatar.com/avatar/ae61960d666686cc5f29cd88b208cf65fbe9b9232e268fe438dae2473474a116?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Wikipedia",
+      "type": "@n8n/n8n-nodes-langchain.toolWikipedia",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2024-12-23T06:49:51.118Z",
+  "path": "official/template_2671/workflow.json"
+}

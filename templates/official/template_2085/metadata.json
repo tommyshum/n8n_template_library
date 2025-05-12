@@ -1,0 +1,99 @@
+{
+  "id": 2085,
+  "name": "Chat with a Google Sheet using AI",
+  "description": "This workflow allows you to ask questions about the data in a Google Sheet over a chat interface. It uses n8n's built-in chat, but could be modified to work with Slack, Teams, WhatsApp, etc.\n\nBehind the scenes, the workflow uses GPT4, so you'll need to have an OpenAI API key that supports it.\n\nHow it works\nThe workflow uses an AI agent with custom tools that call a sub-workflow. That sub-workflow reads the Google Sheet and returns information from it.\n\nBecause models have a context window (and therefore a maximum number of characters they can accept), we can't pass the whole Google Sheet to GPT - at least not for big sheets. So we provide three ways of querying less data, that can be used in combination to answer questions. Those three functions are:\nList all the columns in the sheet\nGet all values of a single column\nGet all values of a single row\n\nNote that to use this template, you need to be on n8n version 1.19.4 or later.\n",
+  "totalViews": 44885,
+  "source": "official",
+  "user": {
+    "id": 14122,
+    "name": "David Roberts",
+    "username": "davidn8n",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/4cda9c7c1c24fdb61896cac588296d1dad03655a439ab71ef34f4c62c0ba8524?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2024-02-07T08:11:01.079Z",
+  "path": "official/template_2085/workflow.json"
+}

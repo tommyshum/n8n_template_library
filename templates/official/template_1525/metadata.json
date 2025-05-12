@@ -1,0 +1,34 @@
+{
+  "id": 1525,
+  "name": "Send a Whatsapp message via Twilio when a certain Onfleet event happens",
+  "description": "Summary\n\nOnfleet is a last-mile delivery software that provides end-to-end route planning, dispatch, communication, and analytics to handle the heavy lifting while you can focus on your customers.\n\nThis workflow template listens to an Onfleet event and communicates via a Whatsapp message. You can easily streamline this with the recipient of the delivery or your customer support numbers.\n\nConfigurations\n\nUpdate the Onfleet trigger node with your own Onfleet credentials, to register for an Onfleet API key, please visit https://onfleet.com/signup to get started\nYou can easily change which Onfleet event to listen to. Learn more about Onfleet webhooks with Onfleet Support\nUpdate the Twilio node with your own Twilio credentials, add your own expressions to the to number or simply source the recipient's phone number from the Onfleet event\nToggle To Whatsapp to OFF if you want to simply use Twilio's SMS API",
+  "totalViews": 1897,
+  "source": "official",
+  "user": {
+    "id": 11223,
+    "name": "James Li",
+    "username": "ilsemaj",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/f2676b8a1c6bf7a2b2c9c4df054571d29662ea0dab6f11e7a423c01af7259574?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "Twilio",
+      "type": "n8n-nodes-base.twilio",
+      "categories": [
+        "Communication",
+        "Development"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2022-03-16T00:47:45.588Z",
+  "path": "official/template_1525/workflow.json"
+}

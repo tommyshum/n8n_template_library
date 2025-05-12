@@ -1,0 +1,141 @@
+{
+  "id": 3094,
+  "name": "Bitrix24 AI-Powered RAG Chatbot for Open Line Channels",
+  "description": "Overview\nTransform your Bitrix24 Open Line channels with an intelligent chatbot that leverages Retrieval-Augmented Generation (RAG) technology to provide accurate, document-based responses to customer inquiries in real-time.\n\nUse Case\nThis workflow is designed for organizations that want to enhance their customer support capabilities in Bitrix24 by providing automated, knowledge-based responses to customer inquiries. It's particularly useful for:\n\nCustomer service teams handling repetitive questions\nSupport departments with extensive documentation\nSales teams needing quick access to product information\nOrganizations looking to provide 24/7 customer support\n\nWhat This Workflow Does\n\nSmart Document Processing\nAutomatically processes uploaded PDF documents\nSplits documents into manageable chunks\nGenerates vector embeddings for semantic understanding\nIndexes content for efficient retrieval\n\nAI-Powered Responses\nUtilizes Google Gemini AI to generate natural language responses\nConstructs answers based on relevant document content\nMaintains conversation context for coherent interactions\nProvides fallback responses when information is not available\n\nVector Database Integration\nStores document embeddings in Qdrant vector database\nEnables semantic search beyond simple keyword matching\nRetrieves the most relevant information for each query\nMaintains a persistent knowledge base that grows over time\n\nWebhook Handler\nProcesses incoming messages from Bitrix24 Open Line channels\nHandles authentication and security validation\nRoutes different types of events to appropriate handlers\nManages session and conversation state\n\nEvent Routing\nIntelligently routes different event types:\n  ONIMBOTMESSAGEADD: Processes new user messages\n  ONIMBOTJOINCHAT: Handles bot joining a conversation\n  ONAPPINSTALL: Manages application installation\n  ONIMBOTDELETE: Handles bot deletion\n\nDocument Management\nOrganizes processed documents in designated folders\nTracks document processing status\nMoves indexed documents to appropriate locations\nMaintains document metadata for reference\n\nInteractive Menu\nProvides menu-based options for common user requests\nCustomizable menu items and responses\nEasy navigation for users seeking specific information\nFallback to operator option when needed\n\nTechnical Architecture\n\nComponents\nWebhook Handler: Receives and validates incoming requests from Bitrix24\nCredential Manager: Securely manages authentication tokens and API keys\nEvent Router: Directs events to appropriate processing functions\nDocument Processor: Handles document loading, chunking, and embedding\nVector Store: Qdrant database for storing and retrieving document embeddings\nRetrieval System: Searches for relevant document chunks based on user queries\nLLM Integration: Google Gemini model for generating natural language responses\nResponse Manager: Formats and sends responses back to Bitrix24\n\nIntegration Points\nBitrix24 API**: For bot registration, message handling, and user interaction\nOllama API**: For generating document embeddings\nQdrant API**: For vector storage and retrieval\nGoogle Gemini API**: For AI-powered response generation\n\nSetup Instructions\n\nPrerequisites\nActive Bitrix24 account with Open Line channels enabled\nAccess to n8n workflow system\nOllama API credentials\nQdrant vector database access\nGoogle Gemini API key\n\nConfiguration Steps\n\nInitial Setup\n   Import the workflow into your n8n instance\n   Configure credentials for all services\n   Set up webhook endpoints\n\nBitrix24 Configuration\n   Create a new Bitrix24 application\n   Configure webhook URLs\n   Set appropriate permissions\n   Install the application to your Bitrix24 account\n\nDocument Storage\n   Create a designated folder in Bitrix24 for knowledge base documents\n   Configure folder paths in the workflow settings\n   Upload initial documents to be processed\n\nBot Configuration\n   Customize bot name, avatar, and description\n   Configure welcome messages and menu options\n   Set up fallback responses\n\nTesting\n   Verify successful installation\n   Test document processing pipeline\n   Send test queries to evaluate response qu",
+  "totalViews": 3484,
+  "source": "official",
+  "user": {
+    "id": 92759,
+    "name": "Ferenc Erb",
+    "username": "fefehun",
+    "bio": "With 30+ years in IT and 20+ years in leadership, I specialize in no-code automation with n8n, optimizing workflows and integrating systems efficiently. As an Agile Coach and Project Manager, I’ve led teams, managed R&D, and driven IT transformations. Skilled in n8n, Java, Node.js, and cloud solutions, I help businesses streamline operations. Let’s connect if you need an n8n expert for automation!",
+    "verified": true,
+    "links": "[\"www.it-coach.hu\"]",
+    "avatar": "https://gravatar.com/avatar/89eb1e65e00f5f62ee56498ca48f434eb1abddc9a863699ac96d7a3089eb5ab8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Question and Answer Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainRetrievalQa",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Vector Store Retriever",
+      "type": "@n8n/n8n-nodes-langchain.retrieverVectorStore",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Retrievers"
+        ]
+      }
+    },
+    {
+      "name": "Recursive Character Text Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    },
+    {
+      "name": "Qdrant Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreQdrant",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Embeddings Ollama",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOllama",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 8,
+  "createdAt": "2025-03-06T07:00:49.460Z",
+  "path": "official/template_3094/workflow.json"
+}

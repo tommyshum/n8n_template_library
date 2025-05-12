@@ -1,0 +1,114 @@
+{
+  "id": 3305,
+  "name": "🗼 AI Powered Supply Chain Control Tower with BigQuery and GPT-4o",
+  "description": "Tags: Supply Chain, Logistics, Control Tower\n\nContext\n\nHey! I’m Samir, a Supply Chain Engineer and Data Scientist from Paris, and the founder of LogiGreen Consulting.\n\nWe design tools to help companies improve their logistics processes using data analytics, AI, and automation—to reduce costs and minimize environmental impact.\n\n&gt; Let’s use N8N to build smarter and more sustainable supply chains!\n\n📬 For business inquiries, you can add me on LinkedIn\n\nWho is this template for?\n\nThis workflow template is designed for logistics operations that need a monitoring solution for their distribution chains.\n\n \n\nConnected to your Transportation Management Systems, this AI agent can answer any question about the shipments handled by your distribution teams.\n\nHow does it work?\n\nThe workflow is connected to a Google BigQuery table that stores outbound order data (customer deliveries).\n\n\n\nHere’s what the AI agent does:\n🤔 Receives a user question via chat.  \n🧠 Understands the request and generates the correct SQL query.  \n✅ Executes the SQL query using a BigQuery node.  \n💬 Responds to the user in plain English.\n\n\n\nThanks to the chat memory, users can ask follow-up questions to dive deeper into the data.\n\nWhat do I need to get started?\n\nThis workflow requires no advanced programming skills.\n\nYou’ll need:\nA Google BigQuery account with an SQL table storing transactional records.\nAn OpenAI API key (GPT-4o) for the chat model.\n\nNext Steps\n\nFollow the sticky notes in the workflow to configure each node and start using AI to support your supply chain operations.\n\n  \n🎥 Watch My Tutorial\n\n🚀 Curious how N8N can transform your logistics operations?  \n\nNotes\n\nThe chat trigger can easily be replaced with Teams, Telegram, or Slack for a better user experience.\nYou can also connect this to a customer chat window using a webhook.\n\nThis workflow was built using N8N version 1.82.1  \nSubmitted: March 24, 2025\n",
+  "totalViews": 3583,
+  "source": "official",
+  "user": {
+    "id": 93233,
+    "name": "Samir Saci",
+    "username": "samirsaci",
+    "bio": "Automation, AI and Analytics for Supply Chain & Business Optimization\nHelping businesses streamline operations using n8n, AI agents, and data science to enhance efficiency and sustainability. \nLinkedin: www.linkedin.com/in/samir-saci",
+    "verified": true,
+    "links": "[\"https://linktr.ee/samirsaci\"]",
+    "avatar": "https://gravatar.com/avatar/d3644476a59e5813c5f00a7933977e2be8805cbdc574958b9cc6a53b45bedd6a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google BigQuery",
+      "type": "n8n-nodes-base.googleBigQuery",
+      "categories": [
+        "Data & Storage",
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-03-24T10:55:56.536Z",
+  "path": "official/template_3305/workflow.json"
+}

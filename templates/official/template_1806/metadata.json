@@ -1,0 +1,56 @@
+{
+  "id": 1806,
+  "name": "Send Zendesk tickets to Pipedrive contacts and assign tasks",
+  "description": "This workflow automatically sends Zendesk tickets to Pipedrive contacts and makes them task assignees. The automation is triggered every 5 minutes, with Zendesk checking and collecting new tickets which are then individually assigned to a Pipedrive contact.\n\nPrerequisites\nPipedrive account and Pipedrive credentials\nZendesk account and Zendesk credentials\n\nNote: The Pipedrive and the Zendesk accounts need to be created by the same person / with the same email.\n\nHow it works\nCron node triggers the workflow every 5 minutes.\nZendesk node collects all the tickets received after the last execution timestamp.\nSet node passes only the requester`s email and ID further to the Merge node.\nMerge by key node merges both inputs together, the tickets and their contact emails.\nPipedrive node then searches for the requester.\nHTTP Request node gets owner information of Pipedrive contact.\nSet nodes keep only the requester owner's email and the agent`s email and id.\nMerge by key node merges the information and adds the contact owner to ticket data.\nZendesk node changes the assignee to the Pipedrive contact owner or adds a note if the requester is not found.\nThe Function Item node sets the new last execution timestamp.\n",
+  "totalViews": 444,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Sales",
+    "Communication"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Pipedrive",
+      "type": "n8n-nodes-base.pipedrive",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Zendesk",
+      "type": "n8n-nodes-base.zendesk",
+      "categories": [
+        "Communication"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2022-10-07T09:42:16.772Z",
+  "path": "official/template_1806/workflow.json"
+}

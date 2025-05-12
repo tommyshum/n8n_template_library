@@ -1,0 +1,114 @@
+{
+  "id": 2790,
+  "name": "AI Fitness Coach Strava Data Analysis and Personalized Training Insights",
+  "description": "Detailed Title\n\"Triathlon Coach AI Workflow: Strava Data Analysis and Personalized Training Insights using n8n\"\n\nDescription\nThis n8n workflow enables you to build an AI-driven virtual triathlon coach that seamlessly integrates with Strava to analyze activity data and provide athletes with actionable training insights. The workflow processes data from activities like swimming, cycling, and running, delivers personalized feedback, and sends motivational and performance improvement advice via email or WhatsApp.\n\nWorkflow Details\n\nTrigger: Strava Activity Updates\nNode:** Strava Trigger\nPurpose:** Captures updates from Strava whenever an activity is recorded or modified. The data includes metrics like distance, pace, elevation, heart rate, and more.\nIntegration:** Uses Strava API for real-time synchronization.\n\nStep 1: Data Preprocessing\nNode:** Code\nPurpose:** Combines and flattens the raw Strava activity data into a structured format for easier processing in subsequent nodes.\nLogic:** A recursive function flattens JSON input to create a clean and readable structure.\n\nStep 2: AI Analysis with Google Gemini\nNode:** Google Gemini Chat Model\nPurpose:** Leverages Google Gemini's advanced language model to analyze the activity data. \nFunctionality:**\n  Identifies key performance metrics.\n  Provides feedback and insights specific to the type of activity (e.g., running, swimming, or cycling).\n  Offers tailored recommendations and motivational advice.\n\nStep 3: Generate Structured Output\nNode:** Structure Output\nPurpose:** Processes the AI-generated response to create a structured format, such as headings, paragraphs, and bullet lists.\nOutput:** Formats the response for clear communication.\n\nStep 4: Convert to HTML\nNode:** Convert to HTML\nPurpose:** Converts the structured output into an HTML format suitable for email or other presentation methods.\nOutput:** Ensures the response is visually appealing and easy to understand.\n\nStep 5: Send Email with Training Insights\nNode:** Send Email\nPurpose:** Sends a detailed email to the athlete with performance insights, training recommendations, and motivational messages.\nIntegration:** Utilizes Gmail or SMTP for secure and efficient email delivery.\n\nOptional Step: WhatsApp Notifications\nNode:** WhatsApp Business Cloud\nPurpose:** Sends a summary of the activity analysis and key recommendations via WhatsApp for instant access.\nIntegration:** Connects to WhatsApp Business Cloud for automated messaging.\n\nAdditional Notes\nCustomization:  \n   You can modify the AI prompt to adapt the recommendations to the athlete's specific goals or fitness levels.\n   The workflow is flexible and can accommodate additional nodes for more advanced analysis or output formats.\n\nScalability:  \n   Ideal for individual athletes or coaches managing multiple athletes.  \n   Can be expanded to include additional metrics or insights based on user preferences.\n\nPerformance Metrics Handled:  \n   Swimming: SWOLF, stroke count, pace.  \n   Cycling: Cadence, power zones, elevation.  \n   Running: Pacing, stride length, heart rate zones.\n\nImplementation Steps\nSet Up Strava API Key:\n   Log in to Strava Developers to generate your API key.\n   Integrate the API key into the Strava Trigger node.\n\nConfigure Google Gemini Integration:\n   Use your Google Gemini (PaLM) API credentials in the Google Gemini Chat Model node.\n\nCustomize Email and WhatsApp Messaging:\n   Update the Send Email and WhatsApp Business Cloud nodes with the recipient’s details.\n\nAutomate Execution:\n   Deploy the workflow and use n8n's scheduling features or cron jobs for periodic execution.\n\nGET n8n Now  \n\nN8N COURSE  \nn8n Book  \n\nDeveloper Notes\nAuthor:** Amjid Ali  \nimprovements.\nResources:**\nSee in Action: Syncbricks Youtube  \n  PayPal: Support the Developer  \n  Courses : SyncBricks LMS\n\nBy using this workflow, triathletes and coaches can elevate training to the next level with AI-powered insights and actionable recommendations.",
+  "totalViews": 6133,
+  "source": "official",
+  "user": {
+    "id": 92318,
+    "name": "Amjid Ali",
+    "username": "amjid",
+    "bio": "**Amjid Ali** is an automation expert and AI enthusiast specializing in creating intelligent workflows using low-code platforms like **n8n**. With a passion for simplifying complex processes, he designs solutions that enhance productivity and streamline operations. As an active contributor to the **n8n Creator Hub**, Amjid shares innovative use cases, practical templates, and best practices, empowering the community to unlock the full potential of workflow automation.",
+    "verified": true,
+    "links": "[\"https://amjidali.com\"]",
+    "avatar": "https://gravatar.com/avatar/8760ed64a38ed65da42983737659c7e295e4a7f14b59ed5ce1b0b1077435f573?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Core Nodes",
+    "Development",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "categories": [
+        "Communication",
+        "HITL",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "WhatsApp Business Cloud",
+      "type": "n8n-nodes-base.whatsApp",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-01-24T09:02:16.267Z",
+  "path": "official/template_2790/workflow.json"
+}

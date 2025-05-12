@@ -1,0 +1,38 @@
+{
+  "id": 3669,
+  "name": "Publish image & video to multiple social media (X, Instagram, Facebook and more)",
+  "description": "This Workflow streamlines the process of publishing posts (image or video) to multiple social media platforms using a unified form and a third-party API service called Upload-Post.\n\nThe automation starts with a form trigger, allowing users to submit content (text and media) through a simple frontend interface. Users select the platform (Instagram, LinkedIn, Facebook, X, TikTok, Threads), choose the profile name, write a caption, and upload a photo or video.\n\nHow It Works  \nAutomates cross-platform social media posting via Upload-Post, handling both images (JPEG) and videos (MP4). Here’s the process:  \n\nTrigger**:  \n  A form submission captures user inputs:  \n    Platform (Instagram, LinkedIn, Facebook, X, TikTok, Threads).  \n    Account (pre-configured profile name).  \n    Caption and file (image/video).  \n    Optional Facebook Page ID for targeted posting.  \n\nRouting**:  \n  The \"Video or Photo?\" Switch node checks the file’s MIME type:  \n    Image: Routes to the \"Post photo\" HTTP node (uploads via upload_photos API).  \n    Video: Routes to the \"Post video\" HTTP node (uploads via upload API).  \n\nAPI Integration**:  \n  Both nodes send data to Upload-Post.com’s API, including:  \n    Caption, account name, platform, and file binary.  \n    Facebook ID (if provided).  \n\nSuccess/Failure Handling**:  \n  The \"Result Photo/Video\" nodes parse the API response.  \n\nSetup Steps  \n\nPrerequisites:  \nUpload-Post.com API Key**:  \n  Get it from the API Keys dashboard.  \n  Free tier allows 10 uploads/month.  \n\nConfiguration:  \nAPI Authentication:  \n   In the HTTP Request nodes (Post photo/Post video), set the Authorization header:  \n     Name: Authorization  \n     Value: Apikey YOUR_API_KEY_HERE.  \n\nForm Customization:  \n   Adjust the \"On form submission\" node to:  \n     Add/remove platforms (e.g., YouTube when approved).  \n     Modify file type restrictions (default: .jpg, .mp4).  \n\nAccount Mapping:  \n   Ensure the \"Account\" field matches profiles configured in Upload-Post.com (e.g., test1, test2).  \n\nFacebook Page Integration:  \n   Optional: Add a Facebook Page ID field for page-specific posts.  \n\nTesting:  \n   Submit test forms with images/videos.  \n   Verify API responses and success/failure messages.  \n\nOptional Enhancements:  \nAdd error logging (e.g., save failed attempts to a database).  \nExtend to YouTube once API support is confirmed.  \n\nKey Features:  \nMulti-Platform**: Post to 6+ social networks simultaneously.  \nUser-Friendly**: Simple form interface for non-technical users.  \nError Handling**: Clear feedback for success/failure cases.  \n\nNeed help customizing?  \nContact me for consulting and support or add me on Linkedin. ",
+  "totalViews": 15664,
+  "source": "official",
+  "user": {
+    "id": 92207,
+    "name": "Davide",
+    "username": "n3witalia",
+    "bio": "Full-stack Web Developer based in Italy specialising in Marketing & AI-powered automations. For business enquiries, send me an email at info@n3w.it or add me on Linkedin.com/in/davideboizza",
+    "verified": true,
+    "links": "[\"https://n3w.it\"]",
+    "avatar": "https://gravatar.com/avatar/d41b8a0aa81139243509c58870f5b4be292824a507ab57d10ed066d8628ed8da?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-04-23T10:11:00.160Z",
+  "path": "official/template_3669/workflow.json"
+}

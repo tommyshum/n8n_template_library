@@ -1,0 +1,122 @@
+{
+  "id": 3010,
+  "name": "📄✨ Easy WordPress Content Creation from PDF Docs + Human in the Loop Gmail",
+  "description": "📄✨ Easy WordPress Content Creation from PDF Docs + Human in the Loop Gmail\n\nThis n8n workflow automates the process of transforming PDF documents into engaging, SEO-friendly WordPress blog posts. It incorporates AI-powered text analysis, automatic image generation, and a human review step to ensure quality before publishing.\n\n🚀 How It Works\n\n🗂️ PDF Upload & Text Extraction  \nUsers upload a PDF document through a form trigger.  \nThe workflow extracts text from the uploaded file, ensuring compatibility with supported formats.\n\n🤖 AI-Powered Blog Post Generation  \nThe extracted text is analyzed by an AI model (GPT-based) to create a structured blog post.  \nThe AI generates:  \n  A captivating SEO-friendly title.  \n  Well-formatted HTML content, including an introduction, chapters with subheadings, and a conclusion.\n\n🎨 Image Creation & Integration  \nAn image is generated using Pollinations.ai based on the blog post title.  \nThe vibrant image is uploaded to WordPress and set as the featured image for the post.\n\n📝 WordPress Draft Creation  \nA draft blog post is created on WordPress with the AI-generated title, content, and featured image.  \n\n✅ Human-in-the-Loop Approval  \nThe draft content is sent via Gmail to a reviewer for manual approval.  \nIf approved, the post is published on WordPress. If not, an error message is sent for troubleshooting.\n\n📢 Multi-Channel Notifications  \nOnce published, notifications are sent via Gmail and Telegram to relevant stakeholders.  \n\n🔧 Setup Steps\n\n🔑 Configure API Credentials  \nSet up API connections for:  \n   OpenAI (for AI content generation).  \n   WordPress (for post creation and media uploads).  \n   Gmail (for sending approval emails).  \n   Telegram (for notifications).\n   imgbb (for saving blog image).\n\n⚙️ Customize Workflow Parameters  \nAdjust the AI prompt to match your desired blog structure and tone.  \nModify the image generation parameters to align with your branding needs.\n\n🧪 Test & Deploy  \nTest the workflow with sample PDFs to ensure:  \n   Accurate text extraction.  \n   Proper formatting of generated content.  \n   Seamless approval and publishing processes.  \n\n\nThis workflow streamlines content creation while maintaining quality control through human oversight, making it an ideal solution for efficient blog management! 🎉\n",
+  "totalViews": 3807,
+  "source": "official",
+  "user": {
+    "id": 92125,
+    "name": "Joseph LePage",
+    "username": "joe",
+    "bio": "As an AI Automation consultant based in Canada, I partner with forward-thinking organizations to implement AI solutions that streamline operations and drive growth.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/e7ca218dfc87b68344bbd66f40da01546d2f6fc1cf884267821e8a77e3e8410a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "Marketing",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Wordpress",
+      "type": "n8n-nodes-base.wordpress",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-02-25T15:45:40.461Z",
+  "path": "official/template_3010/workflow.json"
+}

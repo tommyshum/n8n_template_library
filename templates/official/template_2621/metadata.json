@@ -1,0 +1,153 @@
+{
+  "id": 2621,
+  "name": "AI Agent To Chat With Files In Supabase Storage",
+  "description": "Video Guide\n\nI prepared a detailed guide explaining how to set up and implement this scenario, enabling you to chat with your documents stored in Supabase using n8n.\n\n\n\nYoutube Link\n\nWho is this for?\nThis workflow is ideal for researchers, analysts, business owners, or anyone managing a large collection of documents. It's particularly beneficial for those who need quick contextual information retrieval from text-heavy files stored in Supabase, without needing additional services like Google Drive.\n\nWhat problem does this workflow solve?\nManually retrieving and analyzing specific information from large document repositories is time-consuming and inefficient. This workflow automates the process by vectorizing documents and enabling AI-powered interactions, making it easy to query and retrieve context-based information from uploaded files.\n\nWhat this workflow does\nThe workflow integrates Supabase with an AI-powered chatbot to process, store, and query text and PDF files. The steps include:\nFetching and comparing files to avoid duplicate processing.\nHandling file downloads and extracting content based on the file type.\nConverting documents into vectorized data for contextual information retrieval.\nStoring and querying vectorized data from a Supabase vector store.\n\nFile Extraction and Processing: Automates handling of multiple file formats (e.g., PDFs, text files), and extracts document content.\nVectorized Embeddings Creation: Generates embeddings for processed data to enable AI-driven interactions.\nDynamic Data Querying: Allows users to query their document repository conversationally using a chatbot.\n\nSetup\n\nN8N Workflow\nFetch File List from Supabase:\n   Use Supabase to retrieve the stored file list from a specified bucket.\n   Add logic to manage empty folder placeholders returned by Supabase, avoiding incorrect processing.\n\nCompare and Filter Files:\n   Aggregate the files retrieved from storage and compare them to the existing list in the Supabase files table.\n   Exclude duplicates and skip placeholder files to ensure only unprocessed files are handled.\n\nHandle File Downloads:\n   Download new files using detailed storage configurations for public/private access.\n   Adjust the storage settings and GET requests to match your Supabase setup.\n\nFile Type Processing:\n   Use a Switch node to target specific file types (e.g., PDFs or text files).\n   Employ relevant tools to process the content:\n     For PDFs, extract embedded content.\n     For text files, directly process the text data.\n\nContent Chunking:\n   Break large text data into smaller chunks using the Text Splitter node.\n   Define chunk size (default: 500 tokens) and overlap to retain necessary context across chunks.\n\nVector Embedding Creation:\n   Generate vectorized embeddings for the processed content using OpenAI's embedding tools.\n   Ensure metadata, such as file ID, is included for easy data retrieval.\n\nStore Vectorized Data:\n   Save the vectorized information into a dedicated Supabase vector store.\n   Use the default schema and table provided by Supabase for seamless setup.\n\nAI Chatbot Integration:\n   Add a chatbot node to handle user input and retrieve relevant document chunks.\n   Use metadata like file ID for targeted queries, especially when multiple documents are involved.\n\nTesting\nUpload sample files to your Supabase bucket.\nVerify if files are processed and stored successfully in the vector store.\nAsk simple conversational questions about your documents using the chatbot (e.g., \"What does Chapter 1 say about the Roman Empire?\").\nTest for accuracy and contextual relevance of retrieved results.",
+  "totalViews": 53739,
+  "source": "official",
+  "user": {
+    "id": 92018,
+    "name": "Mark Shcherbakov",
+    "username": "lowcodingdev",
+    "bio": "I am a business analyst with a development background, dedicated to helping small businesses and entrepreneurs leverage cloud services for increased efficiency. My expertise lies in automating manual workflows, integrating data from multiple cloud service providers, creating insightful dashboards, and building custom CRM systems.\n\nhttps://www.linkedin.com/in/marklowcoding/",
+    "verified": true,
+    "links": "[\"https://www.skool.com/5minai-pro\"]",
+    "avatar": "https://gravatar.com/avatar/3055cd5035cfb1030d9d1923b60646d1a156927eead957956bea71f88c5186cd?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Supabase",
+      "type": "n8n-nodes-base.supabase",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Recursive Character Text Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Supabase Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    },
+    {
+      "name": "Vector Store Question Answer Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolVectorStore",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 9,
+  "createdAt": "2024-12-10T19:04:24.160Z",
+  "path": "official/template_2621/workflow.json"
+}

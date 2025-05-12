@@ -1,0 +1,96 @@
+{
+  "id": 2872,
+  "name": "🤖🧠 AI Agent Chatbot + LONG TERM Memory + Note Storage + Telegram",
+  "description": "This workflow template creates an AI agent chatbot with long-term memory and note storage using Google Docs and Telegram integration.\n\nGoogle Docs Integration 📄\nn8n Google Docs Node Setup\nGoogle Credentials\n\nTelegram Integration 💬\nTelegram Setup\n\nCore Features 🌟\n\nAI Agent Integration 🤖\nImplements a sophisticated AI agent with memory management capabilities\nUses GPT-4o-mini and DeepSeek models for intelligent conversation handling\nMaintains context awareness through session management\n\nMemory System 🧠\nLong-term memory storage using Google Docs\nSeparate note storage system for specific information\nWindow buffer memory for maintaining conversation context\nIntelligent memory retrieval and storage mechanisms\n\nCommunication Interface 💬\nTelegram integration for message handling\nReal-time message processing and response generation\n\nTechnical Components 🔧\n\nMemory Architecture 📚\nDual storage system separating memories from notes\nAutomated memory retrieval before each interaction\nStructured memory saving with timestamps\n\nAI Models 🤖\nPrimary GPT-4o-mini mini model for general interactions\nDeepSeek-V3 Chat for specialized processing\nCustom agent system with tool integration\n\nStorage Integration 💾\nGoogle Docs integration for persistent storage\nSeparate document management for memories and notes\nAutomated document updates and retrievals",
+  "totalViews": 44613,
+  "source": "official",
+  "user": {
+    "id": 92125,
+    "name": "Joseph LePage",
+    "username": "joe",
+    "bio": "As an AI Automation consultant based in Canada, I partner with forward-thinking organizations to implement AI solutions that streamline operations and drive growth.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/e7ca218dfc87b68344bbd66f40da01546d2f6fc1cf884267821e8a77e3e8410a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Miscellaneous",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Google Docs",
+      "type": "n8n-nodes-base.googleDocs",
+      "categories": [
+        "Miscellaneous"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-02-09T19:29:31.836Z",
+  "path": "official/template_2872/workflow.json"
+}

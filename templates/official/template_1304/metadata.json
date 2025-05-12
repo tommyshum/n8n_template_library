@@ -1,0 +1,54 @@
+{
+  "id": 1304,
+  "name": "Enrich Google Sheet contacts with Dropcontact",
+  "description": "This workflow allows you to find and verify emails and enrich your contact from a Google Sheet with Dropacontact and add them to Lemlist. \n\n\n\nStart node: The start node exists by default when you create a new workflow.\n\nGoogle Sheet node: This node will list all the records from Google Sheet.\n\nDropcontact node: This node will find the verified email of the contact and enrich it to be able to contact him\n\nlemlist node: This node will add a contact to an existing campaign ",
+  "totalViews": 1150,
+  "source": "official",
+  "user": {
+    "id": 11407,
+    "name": "Pauline",
+    "username": "pauline",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/26b6f126594978870012d6649d3dc58b45104fa9632566cb9919c311ee57b674?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Communication",
+    "Marketing",
+    "Sales"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Lemlist",
+      "type": "n8n-nodes-base.lemlist",
+      "categories": [
+        "Communication",
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Dropcontact",
+      "type": "n8n-nodes-base.dropcontact",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2021-11-08T14:55:33.455Z",
+  "path": "official/template_1304/workflow.json"
+}

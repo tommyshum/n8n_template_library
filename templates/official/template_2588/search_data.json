@@ -1,0 +1,61 @@
+{
+  "id": 2588,
+  "name": "Assign Zammad Users to Organizations Based on Email Domain",
+  "totalViews": 324,
+  "purchaseUrl": null,
+  "user": {
+    "id": 92074,
+    "name": "Sirhexalot",
+    "username": "sirhexalot",
+    "bio": "Open source enthusiast and Zammad user with a passion for sharing knowledge and building simple, effective automation solutions with n8n.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/c83a308119f1aadd64ec0d79a2c26eac616d6ffa916ab89db0e1aa324466be43?r=pg&d=retro&size=200"
+  },
+  "description": "This n8n workflow automates the assignment of existing users to organizations in Zammad based on their email domains, utilizing Zammad’s \"domain-based assignment\" feature.\n\nUse Case\nAutomate the post-hoc assignment of existing users to organizations in Zammad by leveraging their email domains. This ensures efficient management of user-organization relationships using Zammad’s \"domain-based assignment\" feature.\n\nRequirements\nAn active Zammad account with API access.\nExisting users and organizations in Zammad with proper email and domain configurations.\nZammad organizations must have domain-based assignment enabled.\n\nCredentials\nSet up your Zammad API credentials in n8n to allow the workflow to interact with your Zammad instance securely.\n\nIf you have found an error or have any suggestions, please report them here on Github.\n",
+  "createdAt": "2024-11-29T10:07:15.757Z",
+  "nodes": [
+    {
+      "id": 552,
+      "icon": "file:zammad.svg",
+      "name": "n8n-nodes-base.zammad",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.zammad/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/zammad/"
+              }
+            ]
+          },
+          "categories": [
+            "Communication"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "Zammad"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbDpzcGFjZT0icHJlc2VydmUiIHZpZXdCb3g9IjE0MCAyMTAgMTQwIDE0MCI+PHBhdGggZmlsbD0iI0NBMjMxNyIgZD0ibTIzMC41IDI1MCA0MS43LTEyLjgtMjQuNyAxNS43eiIvPjxwYXRoIGZpbGw9IiNFODRGODMiIGQ9Im0yNTUuOSAyODEuMi04LjQtMjguMyAyNC43LTE1LjctNy40IDI1LjR6Ii8+PHBhdGggZmlsbD0iI0NBMjMxNyIgZD0ibTI4NC40IDIyOS41LTQuNiA3LjctMTUgMjUuNCA3LjQtMjUuNHoiLz48cGF0aCBmaWxsPSIjRTU0MDExIiBkPSJtMjg1LjkgMjM0LjUtMTEuNiAxMS45IDUuNS05LjJ6bS01Mi45IDcuNiAzNC4xLTMuNC0yMy43IDcuM3oiLz48cGF0aCBmaWxsPSIjQ0EyMzE3IiBkPSJtMjM0LjMgMjYxLjQgMTMuMi04LjUgOC40IDI4LjMtNC40IDl6Ii8+PHBhdGggZmlsbD0iI0I3REZGMiIgZD0ibTIxNC42IDI5NS02LjMtNzcgNDMuMiA3Mi4yeiIvPjxwYXRoIGZpbGw9IiNFNTQwMTEiIGQ9Im0xOTYuNyAzMTQuNyAxNy45LTE5LjcgMzYuOS00Ljh6Ii8+PHBhdGggZmlsbD0iI0ZGQ0UzMyIgZD0ibTEwOS43IDM1My40IDg3LTM4LjcgMTcuOS0xOS43LTI4LjQtMi45eiIvPjxwYXRoIGZpbGw9IiNENkIxMkQiIGQ9Im0xMTMgMzIxLjggNDQuNy02LjggMTMuOS0xMS4yLTYuOC0zeiIvPjxwYXRoIGZpbGw9IiNGRkRFODUiIGQ9Im0xMjkuMSAyODUuMyA0Mi41IDE4LjUgMTQuNi0xMS43eiIvPjxwYXRoIGZpbGw9IiMwMDlFQzYiIGQ9Im0yMDUuMSAyNDUuOS01LjQuOS0xMy41IDQ1LjMgMTQuNi05LjJ6Ii8+PHBhdGggZmlsbD0iIzVFQUZDRSIgZD0ibTIxMyAyNzUuMS0xMi4yIDcuOCA3LjUtNjQuOXoiLz48cGF0aCBmaWxsPSIjMDQ1OTcyIiBkPSJtMTY2LjkgMjUyIDM4LjItNi4xIDEuNy0xNS4xeiIvPjxwYXRoIGZpbGw9IiM1QTg1OTEiIGQ9Im0xNjIuOCAyMTYuNiAzMy4yIDIwIDEwLjgtNS44LjMtMi4xeiIvPjxwYXRoIGZpbGw9IiMwMDlFQzYiIGQ9Im0xNjkuMyAxOTQuOCAzMC4yIDMxLjggNy42IDIuMSAxLjItMTAuN3oiLz48cGF0aCBmaWxsPSIjRjM5ODA0IiBkPSJtMTg2LjIgMjkyLjEgMjYuOC0xNyAxLjYgMTkuOXoiLz48L3N2Zz4="
+      },
+      "displayName": "Zammad",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 6,
+          "name": "Communication"
+        }
+      ]
+    }
+  ]
+}

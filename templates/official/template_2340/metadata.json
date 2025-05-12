@@ -1,0 +1,49 @@
+{
+  "id": 2340,
+  "name": "🚀 Boost your customer service with this WhatsApp Business bot!",
+  "description": "This n8n workflow demonstrates how to automate customer interactions and appointment management via WhatsApp Business bot.\n\nAfter submitting a Google Form, the user receives a notification via WhatsApp. These notifications are sent via a template message.\nIn case user sends a message to the bot, the text and user data is stored in Google Sheets.\nTo reply back to the user, fill in the ReplyText column and change the Status to 'Ready'. In a few seconds n8n will fetch the unsent replies and deliver them one by one via WhatsApp Business node.\n\nCustomize this workflow to fit your specific needs, connect different online services and enhance your customer communication! 🎉\n\nSetup Instructions\n\nTo get this workflow up and running, you'll need to:\n\n👇 Create a WhatsApp template message on the Meta Business portal. \n\nObtain an Access Token and WhatsApp Business Account ID from the Meta Developers Portal. This is needed for the WhatsApp Business Node to send messages.\n\n\nSet up a WhatsApp Trigger node with App ID and App Secret from the Meta Developers Portal.\n\n\nRight after that copy the WhatsApp Trigger URL and add it as a Callback URL in the Meta Developers Portal. This trigger is needed to receive incoming messages and their status updates.\n\n\nConnect your Google Sheets account for data storage and management. Check out the documentation page.\n\n⚠️ Important Notes\n\nWhatsApp allows automatic custom text messages only within 24 hours of the last user message. Outside with time frame only approved template messages can be sent.\nThe workflow uses a Google Sheet to manage form submissions, incoming messages and prepare responses. You can replace these nodes and connect the WhatsApp bot with other systems.",
+  "totalViews": 38634,
+  "source": "official",
+  "user": {
+    "id": 21242,
+    "name": "Eduard",
+    "username": "eduard",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/parsadanyan/\"]",
+    "avatar": "https://gravatar.com/avatar/a551e67c6fe7affd5f882a527dee154bb6c3ac90cf878326accb3fb3ec77c8a6?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "WhatsApp Business Cloud",
+      "type": "n8n-nodes-base.whatsApp",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-07-11T09:49:32.428Z",
+  "path": "official/template_2340/workflow.json"
+}

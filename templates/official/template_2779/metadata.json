@@ -1,0 +1,65 @@
+{
+  "id": 2779,
+  "name": "Remove Personally Identifiable Information (PII) from CSV Files with OpenAI",
+  "description": "What this workflow does\nMonitors Google Drive: The workflow triggers whenever a new CSV file is uploaded.\nUses AI to Identify PII Columns: The OpenAI node analyzes the data and identifies PII-containing columns (e.g., name, email, phone).\nRemoves PII: The workflow filters out these columns from the dataset.\nUploads Cleaned File: The sanitized file is renamed and re-uploaded to Google Drive, ensuring the original data remains intact.\n\nHow to customize this workflow to your needs\nAdjust PII Identification: Modify the prompt in the OpenAI node to align with your specific data compliance requirements.\nInclude/Exclude File Types: Adjust the Google Drive Trigger settings to monitor specific file types (e.g., CSV only).\nOutput Destination: Change the folder in Google Drive where the sanitized file is uploaded.\n\nSetup\nPrerequisites:\nA Google Drive account.\nAn OpenAI API key.\nWorkflow Configuration:\nConfigure the Google Drive Trigger to monitor a folder for new files.\nConfigure the OpenAI Node to connect with your API\nSet the Google Drive Upload folder to a different location than the Trigger folder to prevent workflow loops.",
+  "totalViews": 1109,
+  "source": "official",
+  "user": {
+    "id": 92500,
+    "name": "Artur",
+    "username": "arlusm1",
+    "bio": "Software Engineer & Automations Specialist",
+    "verified": true,
+    "links": "[\"https://www.upwork.com/freelancers/~01651acf09c927fb26\"]",
+    "avatar": "https://gravatar.com/avatar/d8f6cbf5ad5847e53a4b6f809a8738fc33bf20246f2207bcdad4e5d6a10e0a2c?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-01-23T12:56:20.092Z",
+  "path": "official/template_2779/workflow.json"
+}

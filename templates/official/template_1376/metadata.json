@@ -1,0 +1,47 @@
+{
+  "id": 1376,
+  "name": "Share jokes on Twitter automatically",
+  "description": "This Workflows share a Jokes on Twitter with DadJokes API or BlaBlagues API for ImageJokes",
+  "totalViews": 1974,
+  "source": "official",
+  "user": {
+    "id": 22076,
+    "name": "Teeflo",
+    "username": "teeflo",
+    "bio": "",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/053e749ca675f9cc613319accf1c1762f6d5aae5dd5a5d9d5549efb67232e449?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Marketing"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "X (Formerly Twitter)",
+      "type": "n8n-nodes-base.twitter",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2021-12-23T14:41:33.239Z",
+  "path": "official/template_1376/workflow.json"
+}

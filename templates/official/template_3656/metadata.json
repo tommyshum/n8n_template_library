@@ -1,0 +1,116 @@
+{
+  "id": 3656,
+  "name": "AI-Powered Telegram Task Manager with MCP Server",
+  "description": "Detailed Description\nThe ToDo App workflow is designed to streamline task management through Telegram and Google Tasks integration. This workflow allows users to create, update, and manage tasks via Telegram messages, leveraging AI capabilities to enhance user interaction. The expected outcome is a seamless experience where users can manage their tasks efficiently without needing to switch between applications.\n\nWho is this for?\nThis workflow is intended for:\nIndividuals** looking for an efficient way to manage their tasks directly from Telegram.\nTeams** that require a collaborative task management solution integrated with Google Tasks.\nDevelopers** interested in automating task management processes using n8n and Telegram.\n\nWhat problem does this workflow solve?\nManaging tasks can often be cumbersome, especially when switching between different applications. This workflow addresses the following problems:\nFragmented Task Management**: Users can manage tasks directly from Telegram, reducing the need to switch to Google Tasks.\nInefficient Communication**: By integrating AI, users can interact with the task management system in a conversational manner, making it more intuitive.\nTask Updates**: Users can easily update task statuses and details through simple messages, enhancing productivity.\n\nWhat this workflow does\nThe ToDo App workflow performs the following functions:\nIncoming Message Handling: Listens for messages sent to a Telegram bot.\nTask Creation: Allows users to create new tasks based on their messages.\nTask Updates: Users can update existing tasks by sending specific commands.\nTask Retrieval: Retrieves today's and upcoming tasks from Google Tasks.\nVoice Note Transcription: Supports voice messages, converting them into text for task management.\nAI Assistance: Utilizes an AI agent to assist users in managing their tasks effectively.\n\nSetup\nPrerequisites\nBefore setting up the workflow, ensure you have the following:\nn8n Account**: Sign up for an n8n account if you don't have one.\nTelegram Bot**: Create a Telegram bot and obtain the API token.\nGoogle Tasks API**: Set up Google Tasks API and obtain OAuth2 credentials.\nOpenAI API Key**: Sign up for OpenAI and obtain an API key for AI functionalities.\n\nSetup Process\nUpload the JSON for this workflow and setup the authentication for the different tools.\n\nHow to customize this workflow\nTo adapt the ToDo App workflow to different needs, consider the following customizations:\nChange Task Management Platform**: If you prefer a different task management tool, replace the Google Tasks nodes with your preferred service's API.\nModify AI Responses**: Adjust the AI agent's system message to change how it interacts with users.\nAdd Additional Commands**: Expand the workflow by adding more commands for different task management functionalities (e.g., deleting tasks).\nIntegrate Other Messaging Platforms**: If you want to use a different messaging service, replace the Telegram nodes with the appropriate nodes for that service.\n\nConclusion\nThe ToDo App workflow provides a powerful solution for managing tasks through Telegram, enhancing productivity and user experience. By following the setup instructions and customization options, users can tailor the workflow to meet their specific needs, making task management more efficient and accessible.",
+  "totalViews": 10281,
+  "source": "official",
+  "user": {
+    "id": 91538,
+    "name": "Francis Njenga",
+    "username": "gatura",
+    "bio": "E | gaturanjenga@gmail.com\n",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/francisgaturanjenga\"]",
+    "avatar": "https://gravatar.com/avatar/84d3b247c7c1f6195b932c2d17bd7f91bada5ab204629cd1e6d13c3f348b1ca3?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "MCP Client Tool",
+      "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Model Context Protocol",
+          "Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-04-22T04:27:33.277Z",
+  "path": "official/template_3656/workflow.json"
+}

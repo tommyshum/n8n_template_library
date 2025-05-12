@@ -1,0 +1,57 @@
+{
+  "id": 1074,
+  "name": "Add liked songs to a Spotify monthly playlist",
+  "description": "🎶 Add liked songs to a monthly playlist\n&gt; This Workflow is a port of Add saved songs to a monthly playlist from IFTTT.\n\n\n\nWhen you like a song, the workflow will save this song in a monthly playlist.\n\nE.g.: It's June 2024, I liked a song. The workflow will save this song in a playlist called June '24. If this playlist does not exist, the workflow will create it for me.\n\n⚙ How it works\nEach 5 minutes, the workflow will start automatically. He will do 3 things :\nGet the last 10 songs you saved in the \"Liked song\" playlist (by clicking on the heart in the app) and save them in a NocoDB table (of course, the workflow avoid to create duplicates).\nCheck if the monthly playlist is already created. Otherwise, the playlist is created. The created playlist is also saved in NocoDB to avoid any problems.\nCheck if the monthly playlist contains all the song liked this month by getting them from NocoDB. If they are not present, add them one by one in the playlist.\n\nYou may have a question regarding the need of NocoDB. Over the last few weeks/months, I've had duplication problems in my playlists and some playlists have been created twice because Spotify wasn't returning all the information but only partial information.\nHaving the database means I don't have to rely on Spotify's data but on my own, which is accurate and represents reality.\n\n📝 Prerequisites\nYou need to have :\nSpotify API keys, which you can obtain by creating a Spotify application here: https://developer.spotify.com/dashboard.\nCreate a NocoDB API token\n\n📚 Instructions\nFollow the instructions below\nCreate your Spotify API credential\nCreate your NocoDB credential\nPopulate all Spotify nodes with your credentials\nPopulate all Spotify nodes with your credentials\nEnjoy !\n\nIf you need help, feel free to ping me on the N8N Discord server or send me a DM at \"LucasAlt\"\n\nShow your support\n\nShare your workflow on X and mention @LucasCtrlAlt\nConsider buying me a coffee 😉\n\n\n\n",
+  "totalViews": 3315,
+  "source": "official",
+  "user": {
+    "id": 15343,
+    "name": "Lucas",
+    "username": "lucasalt",
+    "bio": "CAD Designer / Maker / Web developer / Love to play games\nOptimization and minimalism are my creed",
+    "verified": false,
+    "links": "[\"https://lucasalt.fr\"]",
+    "avatar": "https://gravatar.com/avatar/4860f7403a4cbfbddd0e42dc73939b314e3acb2771ff136cf9b416406eab9de4?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Miscellaneous",
+    "Data & Storage",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Spotify",
+      "type": "n8n-nodes-base.spotify",
+      "categories": [
+        "Miscellaneous"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "NocoDB",
+      "type": "n8n-nodes-base.nocoDb",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2021-05-07T19:17:36.430Z",
+  "path": "official/template_1074/workflow.json"
+}

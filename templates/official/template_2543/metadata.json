@@ -1,0 +1,55 @@
+{
+  "id": 2543,
+  "name": "Use a Custom URL for Recurring Zoom Meetings",
+  "description": "Use case\n\nInstead of this:\nhttps://us06web.zoom.us/j/83456429326?pwd=1hVesbyHCsOfstyVU3z4CR6D46A8K.1\n\nshare this:\nmydomain.com/meet-me\n\nDo you ever wish you had one, simple URL that you can share with people to hop on a Zoom meeting? 😃\n\nYou could waste time: 👎👎\n\ncreating a recurring Zoom meeting 😫\nsaving the link somewhere 😵‍💫\nfinding it, copying it each time you need it 😭\nsharing an ugly long link with everyone 🤢\n\nOr...\n\nYou could create a 🌹 beautiful link using your own domain/website that redirects to your Zoom meeting, and share that beautified URL with everyone. 😌 And it will be easy for you to remember 💡\n\n&gt; NOTE\nZoom now forces a one-year max lifetime on recurring videos. 😐 So I created this simple workflow to solve a few headaches. ☺️\n\nWhat this workflow does\n\nTriggers once, annually (360 days)\nCreates a new, recurring meeting in Zoom\nUpdates a redirect script with the new Zoom URL on a Wordpress Page\nNotifies you in a Slack channel\n\nWhat this workflow lacks in breakthrough innovation, it makes up for with usefulness and peace of mind.\n\nHave fun and make it your own!\n\nSetup\nAdd your credentials in each node\n\tthis pre-requires you have a Zoom, Wordpress and Slack account, and have gotten API access on those accounts\nCreate a Page in Wordpress, and get its ID.\n(Or create a new Page in WP.)\nConfigure node parameters according to your needs.\nTEST!!!! Don't ever skip this step. Ever.\nSet it and forget it.\n\n&gt; NOTE\nYou can replace the Wordpress node with another website CMS node, or generic HTTP request for a non-wordpress site.\nYou can also remove or replace the Slack node with other notification functionality (eg. sms, whatsapp, email...)\n\nTemplate was created in n8n v1.58.2\n",
+  "totalViews": 1168,
+  "source": "official",
+  "user": {
+    "id": 92158,
+    "name": "Eric",
+    "username": "automation-wizard",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/6e9f79daeb017e29fc6e6f9356f3eac49397ec87b7f9666d68ba2ba131e7f68d?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Marketing"
+  ],
+  "nodes": [
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Wordpress",
+      "type": "n8n-nodes-base.wordpress",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Zoom",
+      "type": "n8n-nodes-base.zoom",
+      "categories": [
+        "Communication"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-11-13T19:55:21.795Z",
+  "path": "official/template_2543/workflow.json"
+}

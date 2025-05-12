@@ -1,0 +1,52 @@
+{
+  "id": 3716,
+  "name": "Convert 3-View Drawings to 360° Videos with GPT-4o-Image and Kling API",
+  "description": "What this workflow does?\nThis workflow converts orthographic three-view drawings into 360° rotation videos through PiAPI's GPT-4o-Image and Kling APIs (unofficial). The workflow could be set with our 3D Figurine Orthographic Views workflow for generation. \n\nWho is the workflow for?\nDesigners**: Generate inspiration into 3D designs and make them spin to gain concrete details in a efficient way.\nOnline shoppers**: Show protential products from all angles in videos and preview overall texture of models.\nContent Creators** (including toy bloggers): Make fun videos of collectible models.\n\nStep-by-step Instructions\n1.Fill in basic params with your X-API-Key of your PiAPI account and 3-View image url. \n2.Click test workflow.\n3.Get the final video in the last node.\n\nUse Case\nInput Image\n\n\nOutput Video\n",
+  "totalViews": 171,
+  "source": "official",
+  "user": {
+    "id": 93303,
+    "name": "PiAPI",
+    "username": "piapi",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4e47cc9f6664191e5fd06db7f9bafc58d224c50104b09e70e20e18a5e94721b7?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-04-26T13:46:26.070Z",
+  "path": "official/template_3716/workflow.json"
+}

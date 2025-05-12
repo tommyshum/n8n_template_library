@@ -1,0 +1,47 @@
+{
+  "id": 1110,
+  "name": "Add articles to a Notion list by accessing a Discord slash command",
+  "description": "This workflow allows you to add articles to a Notion reading list by accessing a Discord slash command.\n\nPrerequisites\n\nA Notion account and credentials, and a reading list similar to this template.\nA Discord account and credentials, and Discord Slash Command\n connected to n8n.\n\nNodes\n\nWebhook node triggers the workflow whenever the Discord Slash command is issued.\nIF node checks the type returned by Discord. If the type is not equal to 1, it will return true, otherwise false.\nHTTP Request node makes an HTTP call to the link and gets the HTML of the webpage.\nHTML Extract node extracts the title from the HTML which we will use in the next node.\nNotion node adds the link to your Notion reading list.\nSet nodes set the reply values for Discord and register the Interaction Endpoint URL.",
+  "totalViews": 1825,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2021-06-03T11:30:32.472Z",
+  "path": "official/template_1110/workflow.json"
+}

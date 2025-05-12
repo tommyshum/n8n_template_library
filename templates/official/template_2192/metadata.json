@@ -1,0 +1,72 @@
+{
+  "id": 2192,
+  "name": "Streamline Your Zoom Meetings with Secure, Automated Stripe Payments",
+  "description": "🎉 Do you want to master AI automation, so you can save time and build cool stuff? \n\nI’ve created a welcoming Skool community for non-technical yet resourceful learners.\n\n👉🏻 Join the AI Atelier 👈🏻\n\nUnlock streamlined Zoom Meeting organization and exclusive access management with this n8n workflow. Designed for educators, event organizers, and businesses, this tool automates your event logistics, so you can focus on delivering valuable content.\n\nFeatures\nZoom Meetings Creation:** Instantly generate new Zoom meetings with the n8n built-in form.\nCollect Payments Using Stripe:** Effortlessly monetize your events with secure, automatically created Stripe payment pages for each meeting.\nExclusive Gated Access:** Ensure your content remains exclusive by sending Zoom meeting passwords only to verified subscribers who have completed their payment through Stripe.\nParticipants Email Notifications:** Automate the distribution of Zoom meeting details post-payment, eliminating the need for manual email management and ensuring participants are promptly informed.\nInstant and Easy Participants Overview:** Manage and track your event registrations with ease. All related data is stored in a Google Sheets document that you own. You're notified via email with each new subscription, simplifying participant management.\n\nSet Up Steps\nConnect your Zoom, Stripe, Gmail and Google Sheet credentials. \nCreate an empty Google Sheet in your Google Drive.\nFill the config node (Sheet URL, email and currency).\nEdit email text.\n\nThis n8n workflow template is designed to minimize setup time and maximize efficiency, allowing you to focus on delivering value to your subscribers. With just a few clicks, you can automate the entire process of organizing and monetizing your Zoom meetings.\n\nCreated by the n8ninja.",
+  "totalViews": 1960,
+  "source": "official",
+  "user": {
+    "id": 91529,
+    "name": "Emmanuel Bernard",
+    "username": "n8ninja",
+    "bio": "🎉 Do you want to master AI automation, so you can save time and build cool stuff?\n\nI’ve created a welcoming Skool community for non-technical yet resourceful learners.",
+    "verified": true,
+    "links": "[\"https://www.skool.com/the-ai-atelier\"]",
+    "avatar": "https://gravatar.com/avatar/6c38a38d8002fa989515b5c11340ca14512f929dfd15a5a57422950f58441b12?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Zoom",
+      "type": "n8n-nodes-base.zoom",
+      "categories": [
+        "Communication"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2024-03-25T10:09:05.315Z",
+  "path": "official/template_2192/workflow.json"
+}

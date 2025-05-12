@@ -1,0 +1,47 @@
+{
+  "id": 1221,
+  "name": "Create a Pipedrive activity on Calendly event scheduled",
+  "description": "This workflow is triggered when a meeting is scheduled via Calendly. Then, an activity is automatically created in Pipedrive and 15 minutes after the end of the meeting, a message is sent to the interviewer in Slack, reminding them to write down their notes and insights from the meeting. \n\n",
+  "totalViews": 1354,
+  "source": "official",
+  "user": {
+    "id": 12733,
+    "name": "Lorena",
+    "username": "lorenanda",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/df6358bcce2351cf878beab8f89b9f000f50588aaa728f7ea57127c1b85e7b06?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Sales",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Pipedrive",
+      "type": "n8n-nodes-base.pipedrive",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2021-09-08T08:45:12.497Z",
+  "path": "official/template_1221/workflow.json"
+}

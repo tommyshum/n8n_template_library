@@ -1,0 +1,47 @@
+{
+  "id": 2445,
+  "name": "Send events to Facebook Events Manager using the Meta Conversions API",
+  "description": "This workflows sends events to your Facebook Events Manager using the Meta Conversions API.\n\nWhy should I use this?\n\nEnhance your Meta Ads tracking by taking control of the events you send. This n8n template allows you to:\n\nImprove Tracking Quality**: Even if your Facebook Pixel fails, events are still captured through the Meta Conversions API.\nSend Offline Events**: Record events that happen offline, like personal sales or in-store purchases.\nIntegrate with Your CRM**: Automatically send events to Facebook when a lead converts after a sales call, updating customer details so Meta knows about the conversion.\nUse Advanced Tracking**: Tracking has become harder in recent years, making campaigns more expensive. By using Advanced Tracking, you help Facebook track events more easily, reducing campaign costs and improving the results.\n\nWhat events can I send?\n\nAll of them!\n\nPurchase\nInitiateCheckout\nLead\nSubscribe\nViewContent\n…\n\nAnd many others. You can even send your own custom events.\n\nWho is this template for?\n\nMarketing professionals looking to improve the quality of the Meta Ads tracking.\n\nHow it works\n\nYou can send any event you want, as long as you have the necessary data (customer email, name, value of the purchase etc.)\n\nHow to set up\n\nAll information you need to set up this workflow is already inside the template.\n\nCheck out my other templates\n\n👉 https://n8n.io/creators/solomon/",
+  "totalViews": 2116,
+  "source": "official",
+  "user": {
+    "id": 91663,
+    "name": "Solomon",
+    "username": "solomon",
+    "bio": "Freelance consultant from Brazil, specializing in automations and data analysis. I work with select clients, addressing their toughest projects.\n\nFor business inquiries, email me at automations.solomon@gmail.com or message me on Telegram for a faster response.",
+    "verified": true,
+    "links": "[\"https://t.me/salomaoguilherme\"]",
+    "avatar": "https://gravatar.com/avatar/79aa147f090807fe0f618fb47a1de932669e385bb0c84bf3a7f891ae7d174256?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Facebook Graph API",
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-09-30T18:50:26.429Z",
+  "path": "official/template_2445/workflow.json"
+}

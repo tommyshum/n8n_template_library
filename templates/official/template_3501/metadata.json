@@ -1,0 +1,126 @@
+{
+  "id": 3501,
+  "name": "Generate & Auto-Post Social Videos to Multiple Platforms with GPT-4 and Kling AI",
+  "description": "\nAI-Powered Social Video Generator with Auto-Posting to Instagram, TikTok, YouTube, Facebook, LinkedIn, Threads, Pinterest, Twitter (X), and Bluesky\n\nWho is this workflow for?\n\nThis workflow is ideal for content creators, marketers, social media managers, and automation enthusiasts who want to generate, customize, and publish short-form videos across multiple platforms without manual editing or posting. If you use tools like ChatGPT, Kling, or Blotato and want to streamline your content creation process, this workflow is made for you.\n\nWhat problem does this workflow solve?\n\nPublishing regular video content on multiple platforms is time-consuming—especially when adding voice-overs, captions, and managing distribution. This workflow solves that by:\n\nAutomating video generation using AI (Kling + GPT-4)\nAdding realistic voice narration\nStyling subtitles for social media\nCreating titles and social captions\nAuto-posting to Instagram, TikTok, YouTube, Facebook, Threads, Twitter (X), LinkedIn, Pinterest, and Bluesky\n\nAll of this is triggered by a simple message sent via Telegram.\n\nHow the workflow works\n\nThis end-to-end automation transforms a short Telegram message into a fully produced and published social video:\n\nReceives a text prompt from Telegram  \nTransforms it into a detailed video scene using GPT-4  \nGenerates a cinematic video with Kling  \nCreates a voice-over script and converts it to audio  \nMerges the video and the audio  \nAdds styled captions  \nWrites a social caption and an SEO-optimized title  \nSaves metadata to Google Sheets  \nSends a preview via Telegram  \nPublishes the video to 9 social platforms using Blotato\n\nSetup\n\nConnect your Telegram bot to the \"Telegram Trigger\" node  \nAdd your OpenAI API key to all GPT-related nodes  \nConfigure Kling API access in the \"Generate Video\" node  \nLink your Cloudinary account for audio upload  \nConnect JSON2Video to handle video merging and captioning  \nSet up Google Sheets with your preferred spreadsheet ID  \nConnect your Blotato API key and fill in the platform IDs (Instagram, TikTok, etc.)  \nTest by sending a Telegram message like:  \n   generate video A robot exploring Mars, Why AI will reshape humanity\n&gt; Disclaimer: This workflow uses Community Nodes, which are only available on self-hosted instances of n8n.\n\nHow to customize this workflow to your needs\n\nChange the visual style**: Adjust the GPT-4 prompt formatting to reflect your brand tone  \nEdit voice style**: Replace the TTS provider or tweak OpenAI's voice settings  \nRevise captions or titles**: Fine-tune the system prompts in the \"Create Description\" or \"Create Title\" nodes  \nTarget fewer platforms**: Disable or remove nodes for platforms you don’t use  \nAdd approval steps**: Insert a Telegram confirmation step before auto-publishing\n\n📄 Documentation: Notion Guide\n\nDemo Video\n\n🎥 Watch the full tutorial here: YouTube Demo\n",
+  "totalViews": 4014,
+  "source": "official",
+  "user": {
+    "id": 93440,
+    "name": "Dr. Firas",
+    "username": "drfiras",
+    "bio": "Automation expert and certified trainer. I create hands-on courses to master automation with n8n. Contact me to access my exclusive training and start building powerful workflows today. 🚀",
+    "verified": true,
+    "links": "[\"https://www.youtube.com/@DRFIRASS\"]",
+    "avatar": "https://gravatar.com/avatar/988a46579257f9e8c522aeb7b906f1ee96e47c4298faa548e41b04957f455ae3?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-04-09T17:44:59.665Z",
+  "path": "official/template_3501/workflow.json"
+}

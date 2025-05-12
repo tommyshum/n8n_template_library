@@ -1,0 +1,32 @@
+{
+  "id": 989,
+  "name": "Create an invoice based on the Typeform submission",
+  "description": "This workflow allows you to create an invoice with the information received via Typeform submission.\n\n\n\nTypeform node: This node triggers the workflow. Whenever the form is submitted, the node triggers the workflow. We will use the information received in this node to generate the invoice.\n\nAPITemplate.io node: This node generates the invoice using the information from the previous node.\n\n",
+  "totalViews": 2930,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Marketing"
+  ],
+  "nodes": [
+    {
+      "name": "APITemplate.io",
+      "type": "n8n-nodes-base.apiTemplateIo",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2021-03-18T11:13:17.734Z",
+  "path": "official/template_989/workflow.json"
+}

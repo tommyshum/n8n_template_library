@@ -1,0 +1,90 @@
+{
+  "id": 3849,
+  "name": "Extract Business Leads from Reddit using GPT-4.1-mini Analysis and Google Sheets",
+  "description": "This n8n workflow automates lead generation by searching Reddit for relevant posts based on keywords, filtering them, using OpenRouter AI to analyze and summarize content, and logging the findings (link, summary, etc.) to Google Sheets.\n\nWatch the full setup tutorial on how I setup this ETL pipeline using n8n: \nhttps://youtu.be/F3-fbU3UmYQ\n\nRequired Authentication:\n\nTo run this workflow, you need to set up credentials in n8n for:\n\nReddit: Uses OAuth 2.0. Requires creating an app on Reddit to get a Client ID & Secret. (YT Tutorial for Reddit App Creation: https://youtu.be/zlGXtW4LAK8) \nOpenRouter: Uses an API Key. Generate this key directly from your OpenRouter account settings. (YT Tutorial : https://youtu.be/Cq5Y3zpEhlc)\nGoogle Sheets: Uses OAuth 2.0. Requires setup in Google Cloud Console (enable Sheets API, create OAuth Client ID with n8n redirect URI) to get a Client ID & Secret.\n\nEnsure these credentials are created and selected in the respective n8n nodes (Get Posts, OpenRouter Chat Model nodes, Output The Results).",
+  "totalViews": 433,
+  "source": "official",
+  "user": {
+    "id": 94243,
+    "name": "Ari Nakos",
+    "username": "just-aristides",
+    "bio": "Love SEO & AI",
+    "verified": true,
+    "links": "[\"https://cal.com/ari-nakos/intro\"]",
+    "avatar": "https://gravatar.com/avatar/aef5686f32cd60bff51808670debce4b1dd8d1ae83ca489cf1ec554a5979b9c4?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Communication",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Reddit",
+      "type": "n8n-nodes-base.reddit",
+      "categories": [
+        "Communication"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Summarization Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainSummarization",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenRouter Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-05-03T18:09:18.082Z",
+  "path": "official/template_3849/workflow.json"
+}

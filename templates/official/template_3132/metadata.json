@@ -1,0 +1,63 @@
+{
+  "id": 3132,
+  "name": "Extract Google Trends Keywords & Summarize Articles in Google Sheets",
+  "description": "Stay ahead of trends by automating your content research. This workflow fetches trending keywords from Google Trends RSS, extracts key insights from top articles, and saves structured summaries in Google Sheets—helping you build a data-driven editorial plan effortlessly.  \n\nHow it works  \n\nFetch Google Trends RSS – The workflow retrieves trending keywords along with three related article links.  \nExtract & Process Content – It fetches the content of these articles, cleans the HTML, and generates a concise summary using Jina AI.  \nStore in Google Sheets – The processed insights, including the trending keyword and summary, are saved in a pre-configured Google Sheet.  \n\nSetup Steps  \n\nPrepare a Google Sheet – Ensure you have a Google Sheet ready to store the extracted data.  \nConfigure API Access – Set up Google Sheets API and any required authentication.\nGet Jina.ai API key\nAdjust Workflow Settings – A dedicated configuration node allows you to fine-tune how data is processed and stored.  \n\nCustomization  \n\nModify the RSS source to focus on specific Google Trends regions or categories.  \nAdjust the content processing logic to refine how article summaries are created.  \nExpand the workflow to integrate with CMS (e.g., WordPress) for automated content planning.  \n\nThis workflow is ideal for content strategists, SEO professionals, and news publishers who want to quickly identify and act on trending topics without manual research. 🚀  \n\nGoogle Sheets Fields  \n\nCopy and paste these column headers into your Google Sheet:  \n\n| Column Name            | Description |\n|------------------------|-------------|\n| status              | Initial status of the keyword (e.g., \"idea\") |\n| trending_keyword    | Trending keyword extracted from Google Trends |\n| approx_traffic      | Estimated traffic for the trending keyword |\n| pubDate            | Date when the keyword was fetched |\n| news_item_url1      | URL of the first related news article |\n| news_item_title1    | Title of the first news article |\n| news_item_url2      | URL of the second related news article |\n| news_item_title2    | Title of the second news article |\n| news_item_url3      | URL of the third related news article |\n| news_item_title3    | Title of the third news article |\n| news_item_picture1  | Image URL from the first news article |\n| news_item_source1   | Source of the first news article |\n| news_item_picture2  | Image URL from the second news article |\n| news_item_source2   | Source of the second news article |\n| news_item_picture3  | Image URL from the third news article |\n| news_item_source3   | Source of the third news article |\n| abstract            | AI-generated summary of the articles (limited to 49,999 characters) |\n\nInstructions\nOpen Google Sheets and create a new spreadsheet.\nCopy the column names from the table above.\nPaste them into the first row of your Google Sheet.",
+  "totalViews": 9913,
+  "source": "official",
+  "user": {
+    "id": 93170,
+    "name": "Miko",
+    "username": "mdmiko",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/e22864caa73e0ad8310af5711339ef1459ec4ef8bb305c915e6c143ebbeb27b6?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-03-11T08:17:16.863Z",
+  "path": "official/template_3132/workflow.json"
+}

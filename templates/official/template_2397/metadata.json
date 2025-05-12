@@ -1,0 +1,103 @@
+{
+  "id": 2397,
+  "name": "IT Ops AI SlackBot Workflow - Chat with your knowledge base",
+  "description": "\nVideo Demo:\n\nClick here to see a video of this workflow in action.\n\nSummary Description:\n\nThe \"IT Department Q&A Workflow\" is designed to streamline and automate the process of handling IT-related inquiries from employees through Slack. When an employee sends a direct message (DM) to the IT department's Slack channel, the workflow is triggered. The initial step involves the \"Receive DMs\" node, which listens for new messages. Upon receiving a message, the workflow verifies the webhook by responding to Slack's challenge request, ensuring that the communication channel is active and secure.\n\nOnce the webhook is verified, the workflow checks if the message sender is a bot using the \"Check if Bot\" node. If the sender is identified as a bot, the workflow terminates the process to avoid unnecessary actions. If the sender is a human, the workflow sends an acknowledgment message back to the user, confirming that their query is being processed. This is achieved through the \"Send Initial Message\" node, which posts a simple message like \"On it!\" to the user's Slack channel.\n\nThe core functionality of the workflow is powered by the \"AI Agent\" node, which utilizes the OpenAI GPT-4 model to interpret and respond to the user's query. This AI-driven node processes the text of the received message, generating an appropriate response based on the context and information available. To maintain conversation context, the \"Window Buffer Memory\" node stores the last five messages from each user, ensuring that the AI agent can provide coherent and contextually relevant answers.\n\nAdditionally, the workflow includes a custom Knowledge Base (KB) tool (see that tool template here) that integrates with the AI agent, allowing it to search the company's internal KB for relevant information. After generating the response, the workflow cleans up the initial acknowledgment message using the \"Delete Initial Message\" node to keep the conversation thread clean. Finally, the generated response is sent back to the user via the \"Send Message\" node, providing them with the information or assistance they requested. This workflow effectively automates the IT support process, reducing response times and improving efficiency.\n\nTo quickly deploy the Knowledge Ninja app in Slack, use the app manifest below and don't forget to replace the two sample urls:\n\n{\n    \"display_information\": {\n        \"name\": \"Knowledge Ninja\",\n        \"description\": \"IT Department Q&A Workflow\",\n        \"background_color\": \"#005e5e\"\n    },\n    \"features\": {\n        \"bot_user\": {\n            \"display_name\": \"IT Ops AI SlackBot Workflow\",\n            \"always_online\": true\n        }\n    },\n    \"oauth_config\": {\n        \"redirect_urls\": [\n            \"Replace everything inside the double quotes with your slack redirect oauth url, for example: https://n8n.domain.com/rest/oauth2-credential/callback\"\n        ],\n        \"scopes\": {\n            \"user\": [\n                \"search:read\"\n            ],\n            \"bot\": [\n                \"chat:write\",\n                \"chat:write.customize\",\n                \"groups:history\",\n                \"groups:read\",\n                \"groups:write\",\n                \"groups:write.invites\",\n                \"groups:write.topic\",\n                \"im:history\",\n                \"im:read\",\n                \"im:write\",\n                \"mpim:history\",\n                \"mpim:read\",\n                \"mpim:write\",\n                \"mpim:write.topic\",\n                \"usergroups:read\",\n                \"usergroups:write\",\n                \"users:write\",\n                \"channels:history\"\n            ]\n        }\n    },\n    \"settings\": {\n        \"event_subscriptions\": {\n            \"request_url\": \"Replace everything inside the double quotes with your workflow webhook url, for example: https://n8n.domain.com/webhook/99db3e73-57d8-4107-ab02-5b7e713894ad\",\n            \"bot_events\": [\n                \"message.im\"\n            ]\n        },\n        \"org_deploy_enabled\": false,\n        \"socket_mode_enabled\": false,\n        \"token_rotation_enabled\": false\n    }\n}\n\n",
+  "totalViews": 12474,
+  "source": "official",
+  "user": {
+    "id": 16588,
+    "name": "Angel Menendez",
+    "username": "djangelic",
+    "bio": "Angel Menendez is a Staff Developer Advocate at n8n.io, specializing in low-code tools for cybersecurity workflows. From Puerto Rico, Angel's tech journey began by helping his father translate technical books. He later started a web development business and transitioned from a career as a flight attendant to cybersecurity engineering. His workflows have saved companies significant time. Outside work, Angel enjoys time with his two sons, riding electric bikes, reading, and exploring new places.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/fdbe38425d21378d8c9ba8916e1eb0b320add299f12cc23fcd4961d4e6e00bec?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2024-09-03T16:53:42.652Z",
+  "path": "official/template_2397/workflow.json"
+}

@@ -1,0 +1,100 @@
+{
+  "id": 3306,
+  "name": "Analyze Telegram Messages with OpenAI and Send Notifications via Gmail & Telegram",
+  "description": "AI-powered Telegram message analysis with multi-tool notifications (Gmail, Telegram)\n\n \nThis workflow triggers on Telegram updates, analyzes messages with an AI Agent using MCP tools, and sends notifications via Gmail and Telegram.\n\nDetailed Description\n\nWho is this for?\nThis template is for teams, businesses, or individuals using Telegram for communication who need automated, AI-driven insights and notifications. It’s ideal for customer support teams, project managers, or tech enthusiasts wanting to process Telegram messages intelligently and receive alerts via Gmail and Telegram.\n\nWhat problem is this workflow solving?  Use case\nThis workflow solves the challenge of manually monitoring Telegram messages by automating message analysis and notifications. For example, a support team can use it to analyze customer queries on Telegram with AI tools (OpenAI, Airbnb, Brave, FireCrawl) and get notified via Gmail and Telegram for quick responses.\n\nWhat this workflow does\nThe workflow:  \nTriggers on a Telegram update (e.g., a new message) using the Listen for Telegram Updates node.  \nProcesses the message with the Analyze Message with AI node, an AI Agent using MCP tools like OpenAI Chat, Airbnb search, Brave search, and FireCrawl.  \nSends notifications via the Send Gmail Notification and Send Telegram Alert nodes, including AI-generated insights.\n\nSetup\nPrerequisites:  \nTelegram bot token for the trigger and notification nodes.  \nGmail API credentials for sending emails.  \nAPI keys for OpenAI, Airbnb, Brave, and FireCrawl (used in the AI Agent).  \n\nSteps:  \nConfigure the Listen for Telegram Updates node with your Telegram bot token.  \nSet up the Analyze Message with AI node with your OpenAI API key and other tool credentials.  \nConfigure the Send Gmail Notification node with your Gmail credentials.  \nSet up the Send Telegram Alert node with your Telegram bot token.  \nTest by sending a Telegram message to trigger the workflow.  \n\nSetup takes ~15-30 minutes. Detailed instructions are in sticky notes within the workflow.\n\nHow to customize this workflow to your needs\nAdd more AI tools (e.g., sentiment analysis) in the Analyze Message with AI node.  \nModify the notification message in the Send Gmail Notification and Send Telegram Alert nodes to include specific AI outputs.  \nAdd nodes for other channels like Slack or SMS after the AI Agent.\n\nDisclaimer\nThis workflow uses Community nodes (e.g., Airbnb, Brave, FireCrawl), which are available only in self-hosted n8n instances. Ensure your n8n setup supports Community nodes before using this template.",
+  "totalViews": 154,
+  "source": "official",
+  "user": {
+    "id": 93189,
+    "name": "Immanuel",
+    "username": "spectrabit",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/d56a3b4ce7573e035c16e2b0fa5c2f2d658085ba319b166f406b5cd07ac40ad0?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-03-24T11:31:45.336Z",
+  "path": "official/template_3306/workflow.json"
+}

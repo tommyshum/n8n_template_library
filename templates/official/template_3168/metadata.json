@@ -1,0 +1,63 @@
+{
+  "id": 3168,
+  "name": "Scrape Trustpilot Reviews to Google Sheets + HelpfulCrowd compatible csv",
+  "description": "This workflow scrapes Trustpilot reviews for a given profile and saves them into Google Sheets.  \n\nHow It Works  \nClone this Google Sheets template, which includes two sheets:  \n\ntrustpilot  \nA raw collection of Trustpilot reviews. You can customize it as needed.  \n\nhelpfulcrowd  \nThis sheet follows the format from this HelpfulCrowd guide, with a slight modification: an added review_id column to support the upsert process.  \n\nOnce the workflow is complete, export the sheet as a CSV and upload it to HelpfulCrowd. For detailed steps, see this post.  \n\nRunning the Workflow  \nYou can trigger the workflow on-demand or schedule it to run at a set interval.  \n\nRequirements  \nTrustpilot business name** (e.g., n8n.io in https://www.trustpilot.com/review/n8n.io). Update this name and pagination settings in the Global node.  \nGoogle Sheets API credentials**  \n\nCheck out my other templates:  \n👉 My n8n Templates\n",
+  "totalViews": 1757,
+  "source": "official",
+  "user": {
+    "id": 92981,
+    "name": "bangank36",
+    "username": "bangank36",
+    "bio": "Automation specialist with 10+ years of experience helping SME website owners streamline their workflows—specializing in Squarespace, Shopify, and WordPress. Book an initial consultation for custom n8n automation using my link.",
+    "verified": true,
+    "links": "[\"https://beyondspace.studio\"]",
+    "avatar": "https://gravatar.com/avatar/499b5f6868bff3f56c51a6650bf87b946b25b2e17d353e3c9bbf5b34d2bd5bf4?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-03-14T14:53:41.008Z",
+  "path": "official/template_3168/workflow.json"
+}

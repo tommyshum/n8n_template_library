@@ -1,0 +1,149 @@
+{
+  "id": 3694,
+  "name": "Multi-Agent AI Clinic Management with WhatsApp, Telegram, and Google Calendar",
+  "description": "\nHealthcare Clinic Assistant with WhatsApp and Telegram Integration\nVersion: 1.1.0  \nn8n Version: 1.88.0+  \nLicense: MIT  \n\n📋 Description\nA comprehensive and modular automation workflow designed for healthcare clinics.  \nIt manages patient communication, appointment scheduling, confirmations, rescheduling, internal tasks, and media processing by integrating WhatsApp, Telegram, Google Calendar, and Google Tasks, combined with AI-powered agents for maximum efficiency.\n\nThis system guarantees proactive communication with patients, streamlined internal clinic management, and consistent data synchronization across platforms.\n\n🌟 Key Features\n🤖 AI-Powered Specialized Agents:  \n  Distinct agents handle WhatsApp patient support, appointment confirmations, and internal rescheduling tasks.\n\n📱 Omnichannel Communication:  \n  Handles patient interactions via WhatsApp and staff commands via Telegram.\n\n📅 Google Calendar Appointment Management:  \n  Full synchronization for creating, updating, canceling, and confirming appointments.\n\n📋 Task Management with Google Tasks:  \n  Manages shopping lists and administrative tasks efficiently through staff Telegram requests.\n\n🔔 Automated Appointment Reminders:  \n  Daily-triggered system proactively sends WhatsApp confirmations to patients for next-day appointments.\n\n🖼️ Intelligent Media Processing:  \n  Transcribes audios, extracts text from images, and processes documents using OpenAI and OpenRouter AI models.\n\n🛡️ Escalation to Human Support:  \n  Automatically detects sensitive or urgent cases and escalates them to a human agent when needed.\n\n🏥 Use Cases\nPatient Communication:**  \n  Respond to inquiries, schedule, reschedule, and confirm appointments seamlessly via WhatsApp.\n\nInternal Clinic Operations:**  \n  Allow staff to modify appointments or add shopping list reminders directly from Telegram.\n\nAppointment Confirmation System:**  \n  Automatically contacts patients one day prior to appointments for confirmation or rescheduling.\n\nTask and Reminder Management:**  \n  Keeps clinic operations organized through automatic task management with Google Tasks.\n\n🛠️ Technical Implementation\n\nWhatsApp Patient Interaction Flow\nWebhook Reception:** Incoming WhatsApp messages captured via Evolution API webhook.\nMessage Classification:** Intelligent routing of messages based on content type (text, image, audio, document).\nMedia Content Processing:**  \n  Audios: Download, convert, and transcribe via OpenAI Whisper.  \n  Images: Analyze and extract text/descriptions with OpenAI Vision model.\nPatient Request Handling:** Specialized WhatsApp assistant responds appropriately using AI prompts.\nOutbound Message Formatting:** Ensures messages comply with WhatsApp format standards.\nMessage Delivery:** Sends responses back via Evolution API.\n\nTelegram Staff Management Flow\nTelegram Webhook Reception:** Captures messages from authorized staff accounts.\nInternal Assistant Processing:**  \n  Appointment Rescheduling: Identifies and updates appointments through MCP Google Calendar.  \n  Task Creation: Adds new entries to the clinic's shopping list using Google Tasks.\nNotifications and Confirmations:** Sends confirmations back to staff through Telegram.\n\nAppointment Reminder System\nDaily Trigger Activation:** Fires every weekday at 08:00 AM.\nCalendar Scraping:** Lists next day's appointments from Google Calendar.\nPatient Contact:** Sends WhatsApp confirmation messages for each appointment.\nResponse Management:** Redirects confirmation or rescheduling replies to appropriate agents.\n\n⚙️ Setup Instructions\n\nImport the Workflow  \n   n8n → Workflows → Import from File → Upload this JSON file.\n\nConfigure Credentials  \n   Evolution API (WhatsApp Communication)  \n   Telegram Bot API (Staff Communication)  \n   Google Calendar OAuth2 (Appointment Management)  \n   Google Tasks OAuth2 (Task Management)  \n   OpenAI and OpenRouter APIs (AI Agents)  \n   PostgreSQL Database (Chat Memory)\n\nSet Sensitive Variables\n   Replace placeholder values:\n     {sua instância aqui} → Evolution API instance name\n     {número_whatsapp} → WhatsApp numbers\n     {url_do_servidor} → Server URLs\n     {a sua apikey aqui} → API keys\n     {seu_calendario} → Google Calendar ID\n\nCustomize AI Prompts\n   Adjust system prompts to fit your clinic’s tone, service style, and patient communication guidelines.\n   Set clinic operating hours, escalation rules, and cancellation procedures in AI prompts.\n\nActivate and Test\n   Simulate patient messages via WhatsApp.\n   Test Telegram commands from staff members.\n   Validate daily appointment reminders using the scheduled trigger.\n\n🏷️ Tags\nHealthcare Clinic Management WhatsApp Integration Telegram Bot Appointment Scheduling Google Calendar Google Tasks AI Agents n8n Automation  \n\n📚 Technical Notes\nPostgreSQL is used for persistent chat memory across sessions.\nMultiple AI Models Used:\n  OpenAI GPT-4.1-nano\n  OpenAI GPT-4.1-mini\n  Google Gemini 2.0 and 2.5\nFull media content processing supported (audio, image, text).\nCompliant escalation workflows ensure patient safety and proper handoff to human staff when necessary.\nAll sensitive patient data are securely stored inside calendar event descriptions for easy retrieval by agents.\n\n📜 License\nThis workflow is provided under the MIT License.  \nFeel free to adapt and customize it for your clinic’s specific needs.\n",
+  "totalViews": 4723,
+  "source": "official",
+  "user": {
+    "id": 93930,
+    "name": "Luciano Gutierrez",
+    "username": "koresoluciones",
+    "bio": "🇧🇷 Argentino de 30 anos e fundador da KORE Soluções em Belo Horizonte (MG). Há 1 ano, fornecemos automações, cursos, configurações e manutenção de workflows, ajudando empresas a aumentar eficiência e escalar processos com tecnologia.\n\n🇺🇸 I’m a 30‑year‑old Argentine founder of KORE Soluções in Belo Horizonte (MG). For 1 year, we’ve delivered automations, courses, configuration, and workflow maintenance, helping businesses boost efficiency and scale processes with technology.",
+    "verified": true,
+    "links": "[\"https://koresolucoes.github.io/expertise/\"]",
+    "avatar": "https://gravatar.com/avatar/7caef85e3231ac83b8634980bd314fc40ba26df805b86e5f839bf75a1582a1a7?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Postgres Chat Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "Other memories"
+        ]
+      }
+    },
+    {
+      "name": "OpenRouter Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "MCP Client Tool",
+      "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Model Context Protocol",
+          "Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 8,
+  "createdAt": "2025-04-24T15:30:54.772Z",
+  "path": "official/template_3694/workflow.json"
+}

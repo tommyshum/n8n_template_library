@@ -1,0 +1,103 @@
+{
+  "id": 1575,
+  "name": "Update people through Zulip about open tickets in Zammad",
+  "totalViews": 1220,
+  "purchaseUrl": null,
+  "user": {
+    "id": 32953,
+    "name": "Ghazi Triki",
+    "username": "riadvice",
+    "bio": null,
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/71d74d73bf90a7fb76abed7708eed6662d33401f34731fdb3419f47361daf304?r=pg&d=retro&size=200"
+  },
+  "description": "Fetches Zammad tickets at daily basis at 08:30 then sends them to #customer support&gt;ticket on zulip for daily standups.",
+  "createdAt": "2022-04-05T20:46:58.132Z",
+  "nodes": [
+    {
+      "id": 299,
+      "icon": "file:zulip.svg",
+      "name": "n8n-nodes-base.zulip",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.zulip/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/zulip/"
+              }
+            ]
+          },
+          "categories": [
+            "Communication"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"output\"]",
+      "defaults": {
+        "name": "Zulip"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2IiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJhIiB4MT0iNTAlIiB4Mj0iNTAlIiB5MT0iMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMjRBREZGIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjN0I3MUZGIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHBhdGggZmlsbD0idXJsKCNhKSIgZD0iTTEyOCAwYzcwLjY5MiAwIDEyOCA1Ny4zMDggMTI4IDEyOHMtNTcuMzA4IDEyOC0xMjggMTI4UzAgMTk4LjY5MiAwIDEyOCA1Ny4zMDggMCAxMjggMG0tNi4zMiAxMTguMjIyLTQ1Ljg5MiA0MC45NzljLTQuNzI4IDMuNzItNy44MyA5Ljg2LTcuODMgMTYuNzY2IDAgMTEuMjc5IDguMjc0IDIwLjUwOCAxOC4zODYgMjAuNTA4aDg2LjI0N2MxMC4xMTIgMCAxOC4zODYtOS4yMyAxOC4zODYtMjAuNTA4IDAtMTEuMjgtOC4yNzQtMjAuNTA3LTE4LjM4Ni0yMC41MDdIMTA3LjNjLS45NjggMC0xLjU4LTEuMTYtMS4xMDgtMi4xMDRsMTYuODMzLTMzLjcwM2MuNjE1LS45ODMtLjQ5My0yLjE2MS0xLjM0NS0xLjQzem01MC45MS01OC44Nkg4Ni4zNDVjLTEwLjExMiAwLTE4LjM4NiA5LjIyNy0xOC4zODYgMjAuNTA4IDAgMTEuMjc5IDguMjc0IDIwLjUwOCAxOC4zODYgMjAuNTA4aDY1LjI5MmMuOTY4IDAgMS41OCAxLjE2IDEuMTA4IDIuMTAzbC0xNi44MzQgMzMuNzA0Yy0uNjE1Ljk4My40OTQgMi4xNjEgMS4zNDYgMS40M2w0NS44OTItNDAuOTg0YzQuNzI3LTMuNzIzIDcuODI5LTkuODYgNy44MjktMTYuNzY3IDAtMTEuMjc4LTguMjc0LTIwLjUwNy0xOC4zODYtMjAuNTAxeiIvPjwvc3ZnPg=="
+      },
+      "displayName": "Zulip",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 6,
+          "name": "Communication"
+        }
+      ]
+    },
+    {
+      "id": 552,
+      "icon": "file:zammad.svg",
+      "name": "n8n-nodes-base.zammad",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.zammad/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/zammad/"
+              }
+            ]
+          },
+          "categories": [
+            "Communication"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "Zammad"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbDpzcGFjZT0icHJlc2VydmUiIHZpZXdCb3g9IjE0MCAyMTAgMTQwIDE0MCI+PHBhdGggZmlsbD0iI0NBMjMxNyIgZD0ibTIzMC41IDI1MCA0MS43LTEyLjgtMjQuNyAxNS43eiIvPjxwYXRoIGZpbGw9IiNFODRGODMiIGQ9Im0yNTUuOSAyODEuMi04LjQtMjguMyAyNC43LTE1LjctNy40IDI1LjR6Ii8+PHBhdGggZmlsbD0iI0NBMjMxNyIgZD0ibTI4NC40IDIyOS41LTQuNiA3LjctMTUgMjUuNCA3LjQtMjUuNHoiLz48cGF0aCBmaWxsPSIjRTU0MDExIiBkPSJtMjg1LjkgMjM0LjUtMTEuNiAxMS45IDUuNS05LjJ6bS01Mi45IDcuNiAzNC4xLTMuNC0yMy43IDcuM3oiLz48cGF0aCBmaWxsPSIjQ0EyMzE3IiBkPSJtMjM0LjMgMjYxLjQgMTMuMi04LjUgOC40IDI4LjMtNC40IDl6Ii8+PHBhdGggZmlsbD0iI0I3REZGMiIgZD0ibTIxNC42IDI5NS02LjMtNzcgNDMuMiA3Mi4yeiIvPjxwYXRoIGZpbGw9IiNFNTQwMTEiIGQ9Im0xOTYuNyAzMTQuNyAxNy45LTE5LjcgMzYuOS00Ljh6Ii8+PHBhdGggZmlsbD0iI0ZGQ0UzMyIgZD0ibTEwOS43IDM1My40IDg3LTM4LjcgMTcuOS0xOS43LTI4LjQtMi45eiIvPjxwYXRoIGZpbGw9IiNENkIxMkQiIGQ9Im0xMTMgMzIxLjggNDQuNy02LjggMTMuOS0xMS4yLTYuOC0zeiIvPjxwYXRoIGZpbGw9IiNGRkRFODUiIGQ9Im0xMjkuMSAyODUuMyA0Mi41IDE4LjUgMTQuNi0xMS43eiIvPjxwYXRoIGZpbGw9IiMwMDlFQzYiIGQ9Im0yMDUuMSAyNDUuOS01LjQuOS0xMy41IDQ1LjMgMTQuNi05LjJ6Ii8+PHBhdGggZmlsbD0iIzVFQUZDRSIgZD0ibTIxMyAyNzUuMS0xMi4yIDcuOCA3LjUtNjQuOXoiLz48cGF0aCBmaWxsPSIjMDQ1OTcyIiBkPSJtMTY2LjkgMjUyIDM4LjItNi4xIDEuNy0xNS4xeiIvPjxwYXRoIGZpbGw9IiM1QTg1OTEiIGQ9Im0xNjIuOCAyMTYuNiAzMy4yIDIwIDEwLjgtNS44LjMtMi4xeiIvPjxwYXRoIGZpbGw9IiMwMDlFQzYiIGQ9Im0xNjkuMyAxOTQuOCAzMC4yIDMxLjggNy42IDIuMSAxLjItMTAuN3oiLz48cGF0aCBmaWxsPSIjRjM5ODA0IiBkPSJtMTg2LjIgMjkyLjEgMjYuOC0xNyAxLjYgMTkuOXoiLz48L3N2Zz4="
+      },
+      "displayName": "Zammad",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 6,
+          "name": "Communication"
+        }
+      ]
+    }
+  ]
+}

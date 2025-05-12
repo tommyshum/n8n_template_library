@@ -1,0 +1,51 @@
+{
+  "id": 1892,
+  "name": "Get workflows affected by 0.214.3 migration",
+  "description": "If you previously upgraded to n8n version 0.214.3, some of your workflows might have been accidentally rewired in the wrong way. This issue affected nodes with more than one output, such as If, Switch, and Compare Datasets.\n\nThis workflow helps you identify potentially affected workflows and nodes that you should check.\n\n❗️Please ensure that you run this workflow as the instance owner.❗️",
+  "totalViews": 1277,
+  "source": "official",
+  "user": {
+    "id": 40598,
+    "name": "Oleg Ivaniv",
+    "username": "oleg",
+    "bio": null,
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/714be74518bf4d72ae2a93c6511f116bbe36fbf6f756d2cbeda7640dba63af1d?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2023-02-23T15:28:20.838Z",
+  "path": "official/template_1892/workflow.json"
+}

@@ -1,0 +1,97 @@
+{
+  "id": 3452,
+  "name": "Monitor GitHub Releases with Gemini AI Chinese Translation & Slack Notifications",
+  "description": "\nOverview\n\nThis n8n template monitors specified GitHub repositories. When a new release is published, it automatically fetches the information, uses AI (Google Gemini by default) to summarize and translate it into Chinese, and sends a formatted notification to a designated Slack channel.\n\nCore Features:\n\nAutomated Monitoring**: Checks for updates on a predefined schedule.\nIntelligent Processing**: Uses AI to extract key information and translate.\nError Handling**: Sends an error notification if fetching RSS for a single repository fails, without affecting others.\nDuplicate Prevention**: Remembers the last processed release ID using Redis to ensure only new content is pushed.\n\nPrerequisites\n\nSlack**: Configure your Slack app credentials in n8n.\nRedis**: Have an available Redis service and configure its credentials in n8n.\nAI Provider (Gemini)**: Configure credentials for Google Gemini (or your chosen AI model) in n8n.\n\nConfiguration Instructions\n\nAfter importing the template, you need to modify the following key nodes:\n\nCron Trigger:\n    Adjust the Rule setting to change the update check frequency (default is 0 */10 9-23 * * *, checking every 10 minutes between 9 AM and 11 PM daily).\nGitHub Config (Repository List - Code Node):\n    Edit the JavaScript array within this node's code area.\n    Modify or add the repositories you want to follow. Each repository object needs a name (custom display name) and github (format: owner/repo).\n    Example:\n                {\n          \"name\": \"n8n\", // Custom display name\n          \"github\": \"n8n-io/n8n\" // GitHub path\n        },\n        {\n          \"name\": \"LobeChat\",\n          \"github\": \"lobehub/lobe-chat\"\n        }\n        // ... add more repositories\n        Redis and Redis2 (Redis Connection):\n    Select your configured Redis credentials in both nodes.\nGemini (AI Model):\n    Select your configured Google Gemini credentials.\n    (Optional) Replace with a different supported AI model node and select its credentials.\nInformation Extractor (AI Processing & Translation):\n    Main Configuration: Review the System Prompt. By default, it asks the AI to extract information and translate it into Chinese. Modify this prompt if you need a different language or summary style.\nSend Message and Send Error (Slack Notifications):\n    Select your configured Slack credentials in both Slack nodes.\n    Set the target Channel ID for notifications.\n\nWorkflow Overview\n\nStart: Cron Trigger initiates the workflow on schedule.\nLoad Config: GitHub Config provides the list of repositories to monitor.\nLoop: The Loop node iterates through each repository.\nFetch & Check:\n    The RSS node attempts to fetch the repository's releases feed.\n    If No Error checks for success:\n        Failure: Send Error posts an error to Slack, skips this repository.\n        Success: Continues.\nCheck for New Release:\n    The Redis node retrieves the last recorded Release ID for this repository.\n    The If New node compares the latest Release ID with the recorded ID:\n        Different IDs (New Release): Proceeds to processing.\n        Same ID (Already Processed): Skips this repository.\nProcess & Notify (Only for New Releases):\n    Information Extractor (with Gemini) extracts, summarizes, and translates the content.\n    The Code node formats the information into Slack Block Kit.\n    Send Message sends the formatted message to Slack.\n    The Redis2 node stores the current Release ID in Redis.\nEnd: The workflow finishes after processing all repositories.\n\nConclusion\n\nOnce configured, this template automates GitHub release monitoring, uses AI to distill key information, and delivers it efficiently to your Slack workspace.",
+  "totalViews": 58,
+  "source": "official",
+  "user": {
+    "id": 93646,
+    "name": "tbphp",
+    "username": "tbphp",
+    "bio": "DevOps Engineer with 10 years of experience specializing in automation engineering. Open to discussions about n8n technology. Feel free to connect!",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/ae5f4737ef0f0724c48b79da82dde6e27647c36ed12372c91c8d08bf112ebb44?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Data & Storage",
+    "Communication",
+    "HITL",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Redis",
+      "type": "n8n-nodes-base.redis",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Information Extractor",
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-04-07T03:07:49.414Z",
+  "path": "official/template_3452/workflow.json"
+}

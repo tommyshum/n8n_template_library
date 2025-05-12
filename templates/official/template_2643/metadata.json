@@ -1,0 +1,145 @@
+{
+  "id": 2643,
+  "name": "Intelligent Web Query and Semantic Re-Ranking Flow using Brave and Google Gemini",
+  "description": "Workflow Description\n\n\nThis workflow is a powerful, fully automated web query and semantic reranking system that allows users to perform precise, detailed searches, intelligently rank search results and provide high-quality, structured output. Built with AI-powered components, the workflow leverages semantic query generation, result re-ranking, and real-time reporting to deliver actionable insights.\n\nIt is particularly well-suited for real-time data retrieval, market research, and any domain requiring automated yet customizable search result processing.\n\nHow It Works\n\nWebhook Integration for Input:  \n   The workflow begins with a Webhook Node that captures the user's search query as input, enabling seamless integration with other systems.  \n\nStep 1: Semantic Query Generation (Powered by \"Semantic Search - Query Maker\"):  \n   Using AI (Google Gemini), the initial query is refined and transformed into a context-aware, expert-level search query.  \n   The process ensures that the search engine retrieves the most relevant and precise results.\n\nStep 2: Web Search Execution:  \n   A free Brave Search API processes the refined query to fetch search results, ensuring speed and cost efficiency.\n\nStep 3: Semantic Re-Ranking of Results (Powered by \"Semantic Search - Result Re-Ranker\"):  \n   The workflow reranks the search results based on relevance to the original question, prioritizing the most relevant URLs dynamically.  \n   Results are passed through AI-powered intelligent reranking to ensure the final output reflects optimal relevance and quality.\n\nStep 4: Structured Output Generation:  \n   Results are converted into a well-structured, organized JSON format, ranking the top 10 search results with their titles, links, and descriptions.  \n   Missing ranks (if fewer than 10 results) are handled gracefully with placeholders, ensuring consistency.\n\nStep 5: Real-Time Reporting:  \n   The reranked search results are sent back to the user or integrated system via the Webhook Node in a JSON-formatted response.  \n   Reports are highly structured and ready for downstream processing or consumption.\n\nKey Features\n\nAI-Powered Query Refinement:  \n   Transforms basic queries into detailed, expert-level search terms for optimal results.\n\nDual-Stage Semantic Search:  \n   Combines query generation and result reranking for precise, high-relevance outputs.\n\nTop 10 Result Reranking:  \n   Dynamically ranks and organizes the top 10 results based on semantic relevance to the query.\n\nCustomizable Integration:  \n   Fully modifiable for alternative APIs or integrations, such as other search engines or custom ranking logic.\n\nJSON-Formatted Structured Results:  \n   Outputs reranked results in a standardized format, ideal for integration into systems requiring machine-readable data.\n\nWebhook-Based Flexibility:  \n   Works seamlessly with Webhook inputs for easy deployment in diverse workflows.\n\nCost-Effective API Usage:  \n   Pre-integrated with the free Brave Search API, minimizing operational costs while delivering accurate search results.\n\nInstructions for API Setup\n\nBrave Search API:  \n   Visit api.search.brave.com to obtain a free-tier API key for web search.  \nAI Integration (Google Gemini):  \n   Visit Google AI Studio and generate an API key for semantic query generation and reranking.  \nWebhook Configuration:  \n   Set up the input Webhook to capture search queries and the output Webhook to deliver reranked results.\n\nWhy Choose This Workflow?\n\nPrecision and Relevance**: Combines AI-based query generation with advanced reranking for accurate results.  \nFully Customizable**: Easily adapt the workflow to alternative APIs, search engines, or ranking logic.  \nReal-Time Insights**: Provides structured, real-time output ready for immediate use.  \nScalable and Modular**: Ideal for businesses, researchers, and data analysts needing a robust, repeatable solution.\n\nTags  \nAI Workflow, Semantic Search, Query Refinement, Search Result Reranking, Real-Time Search, Web Search Automation, Google Search, Brave Search, News Search, API Integration, Market Research, Competitive Intelligence, Business Intelligence,Google Gemini, Anthropic Claude, OpenAI, GPT, LLM\n",
+  "totalViews": 4181,
+  "source": "official",
+  "user": {
+    "id": 92085,
+    "name": "Mind-Front",
+    "username": "mind-front",
+    "bio": "**Mind-Front** is a pilot project hosted at (https://www.mindfront.solutions), delivering intelligent, data-driven market reports to support strategic decision-making. \n\nTo help the n8n community, we’re sharing workflow solutions that address common automation challenges. Each template reflects our commitment to efficiency and adaptability, empowering users to streamline data processing and reporting, and focus on what matters most—insightful, strategic actions.\n",
+    "verified": false,
+    "links": "[\"https://www.linkedin.com/in/bozorgk/\"]",
+    "avatar": "https://gravatar.com/avatar/3c3e018c09520b56636ae3cd2e71a4b36a3556a028c720c6a75fbf90c5bf79d0?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Anthropic Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Auto-fixing Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 8,
+  "createdAt": "2024-12-16T13:55:44.230Z",
+  "path": "official/template_2643/workflow.json"
+}

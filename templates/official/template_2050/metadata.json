@@ -1,0 +1,67 @@
+{
+  "id": 2050,
+  "name": "Monthly live music events newsletter",
+  "description": "How it works?\n\nThis workflows sends you a monthly lists of live music events for a specific location. \nEvents are fetched from songkick.com and delivered to you by email to a provided email address(es). \nEach event in the list has a link to a full SongKick page where you can see more details about the event and buy tickets for it.\n\nExample email:\n\nHow to set it up?\nFirst thing that this workflow needs is a location link for your desired city from the SongKick website. You can get it by following these steps:\nVisit songkick.com and enter the city name in the search box:\n\t\n    \nFrom the results page, click the result that contains the location info. These will have the Location tag on top of the location name:\n    \nOnce on the location page, copy the url\n    \nBack in the n8n workflow page, paste the url in the location parameter of the node called Setup location and email:\n    \n\nSecond thing it needs is the email address which will receive the monthly list. For this, simply enter it in the email field of the Setup location and email node. If you want to set multiple receivers, simply separate email addresses by ,:\n\nRequired accounts\nThis workflow requires you to have a properly set up Gmail account that will be used by Gmail Node to send emails. You can read more about how to create credentials for a Gmail node in n8n documentation here.",
+  "totalViews": 1963,
+  "source": "official",
+  "user": {
+    "id": 91329,
+    "name": "Milorad Filipovic",
+    "username": "mfilipovic",
+    "bio": null,
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/0ce824fd581edd427a9dbc009a53c70f4cb46d1a56dcce0000e4cc81454b32e6?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-01-12T18:41:43.657Z",
+  "path": "official/template_2050/workflow.json"
+}

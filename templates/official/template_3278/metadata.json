@@ -1,0 +1,71 @@
+{
+  "id": 3278,
+  "name": "Automated Image Optimizer: convert JPG/PNG to WebP with APYHub and Google Drive",
+  "description": "This workflow automates the process of converting images from JPG/PNG format to WEBP using the APYHub API. It retrieves image URLs from a Google Sheet, converts the images, and uploads the converted files to Google Drive. \n\nThis workflow is a powerful tool for automating image conversion tasks, saving time and ensuring that images are efficiently converted and stored in the desired format.\n\nUsing WebP images on a website provides several SEO benefits:  \n\nFaster Loading Speed – WebP files are smaller than JPG and PNG, reducing page load times and improving user experience.  \nBetter Core Web Vitals – Google prioritizes websites with good performance metrics like LCP (Largest Contentful Paint).  \nImproved Mobile Performance – Smaller images consume less bandwidth, enhancing mobile usability.  \nHigher Search Rankings – Faster sites tend to rank better on Google due to improved user experience.  \nReduced Server Load – Lighter images lower hosting and CDN costs while improving site efficiency.\n\nBelow is a breakdown of the workflow:\n\n1. How It Works\nThe workflow is designed to convert images from JPG/PNG to WEBP format and manage the converted files. Here's how it works:\n\nManual Trigger:\n   The workflow starts with a Manual Trigger node, which initiates the process when the user clicks \"Test workflow.\"\n\nSet API Key:\n   The Set API KEY node defines the API key required to access the APYHub API.\n\nGet Images:\n   The Get Images node retrieves a list of image URLs from a Google Sheet. The sheet contains columns for the original image URL (FROM), the converted image URL (TO), and a status flag (DONE).\n\nGet Extension:\n   The Get Extension node extracts the file extension (JPG, JPEG, or PNG) from the image URL and adds it to the JSON data.\n\nDetermine Image Type:\n   The JPG or PNG? node checks the file extension and routes the workflow to the appropriate conversion node:\n     JPG/JPEG: Routes to the From JPG to WEBP node.\n     PNG: Routes to the PNG to WEBP node.\n\nConvert Image:\n   The From JPG to WEBP and PNG to WEBP nodes send POST requests to the APYHub API to convert the images to WEBP format.\n   The API returns the URL of the converted image.\n\nUpdate Google Sheet:\n   The Update Sheet node updates the Google Sheet with the URL of the converted image and marks the row as done (DONE).\n\nGet Converted Image:\n   The Get File Image node downloads the converted WEBP image from the URL provided by the APYHub API.\n\nUpload to Google Drive:\n   The Upload Image node uploads the converted WEBP image to a specified folder in Google Drive.\n\n2. Set Up Steps\nTo set up and use this workflow in n8n, follow these steps:\n\nAPYHub API Key:\n   Obtain an API Key from APYHub.\n   In the Set API KEY node, define the API key.\n\nGoogle Sheets Integration:\n   Set up Google Sheets credentials in n8n for the Get Images and Update Sheet nodes.\n   Create a Google Sheet with columns for FROM (original image URL), TO (converted image URL), and DONE (status flag).\n   Provide the Document ID and Sheet Name in the Get Images node.\n\nGoogle Drive Integration:\n   Set up Google Drive credentials in n8n for the Upload Image node.\n   Specify the folder ID in Google Drive where the converted images will be uploaded.\n\nTest the Workflow:\n   Click the \"Test workflow\" button in n8n to trigger the workflow.\n   The workflow will:\n     Retrieve image URLs from the Google Sheet.\n     Convert the images to WEBP format using the APYHub API.\n     Update the Google Sheet with the converted image URLs.\n     Upload the converted images to Google Drive.\n\nOptional Customization:\n   Modify the workflow to include additional features, such as:\n     Adding more image formats for conversion.\n     Sending notifications when the conversion is complete.\n     Integrating with other storage services (e.g., Dropbox, AWS S3).\n",
+  "totalViews": 1031,
+  "source": "official",
+  "user": {
+    "id": 92207,
+    "name": "Davide",
+    "username": "n3witalia",
+    "bio": "Full-stack Web Developer based in Italy specialising in Marketing & AI-powered automations. For business enquiries, send me an email at info@n3w.it or add me on Linkedin.com/in/davideboizza",
+    "verified": true,
+    "links": "[\"https://n3w.it\"]",
+    "avatar": "https://gravatar.com/avatar/d41b8a0aa81139243509c58870f5b4be292824a507ab57d10ed066d8628ed8da?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-03-21T14:41:27.832Z",
+  "path": "official/template_3278/workflow.json"
+}

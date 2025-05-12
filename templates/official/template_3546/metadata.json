@@ -1,0 +1,80 @@
+{
+  "id": 3546,
+  "name": "Screen and Score Resumes from Gmail to Sheets with AI",
+  "description": "Description\n\nThis intelligent n8n automation streamlines the process of collecting, extracting, and scoring resumes sent to a Gmail inbox—making it an ideal solution for recruiters who regularly receive hundreds of applications. The workflow scans incoming emails with attachments, extracts relevant candidate information from resumes using AI, evaluates each candidate based on customizable criteria, and logs their scores alongside contact details in a connected Google Sheet.\n\nWho Is This For?\n\nRecruiters & Hiring Managers**: Automate the resume screening process and save hours of manual work.\nHR Teams at Startups & SMBs**: Quickly evaluate talent without needing large HR ops infrastructure.\nAgencies & Talent Acquisition Firms**: Screen large volumes of resumes efficiently and with consistent criteria.\nSolo Founders Hiring for Roles**: Use AI to help score and shortlist top candidates from email applications.\n\nWhat Problem Does This Workflow Solve?\n\nManually reviewing resumes is time-consuming, error-prone, and inconsistent. This workflow solves these challenges by:\n\nAutomatically detecting and extracting resumes from Gmail attachments.\nUsing OpenAI to intelligently extract candidate info from unstructured PDFs.\nScoring resumes using customizable evaluation criteria (e.g., relevant experience, skills, education).\nLogging all candidate data (Name, Email, LinkedIn, Score) in a centralized, filterable Google Sheet.\nEnabling faster, fairer, and more efficient candidate screening.\n\nHow It Works\n\n1. Gmail Trigger\nRuns on a scheduled interval (e.g., every 6 or 24 hours).\nScans a connected Gmail inbox (using OAuth credentials) for unread emails that contain PDF attachments.\n\n2. Extract Attachments\nDownloads the attached resumes from matching emails.\n\n3. Parse Resume Text\nSends the PDF file to OpenAI's API (via GPT-4 or GPT-3.5 with file support or via base64 + PDF-to-text tool).\nPrompts GPT with a structured format to extract fields like Name, Email, LinkedIn, Skills, and Education.\n\n4. Score Resume\nEvaluates the resume on predefined scoring logic using AI or logic inside the workflow (e.g., \"Has X skill = +10 points\").\n\n5. Log to Google Sheets\nAppends a new row in a connected Google Sheet, including:\n  Candidate Name\n  Email Address\n  LinkedIn URL\n  Resume Score\n\nSetup\n\nAccounts & API Keys\nYou’ll need accounts and credentials for:\n\nn8n** (hosted or self-hosted)\nGoogle Cloud Platform** (for Gmail, Drive, and Sheets APIs)\nOpenAI** (for GPT model access)\n\nGoogle Sheet\nMake a Google Sheet and connect it via Google Sheets node in n8n. Columns should include:\n  Name\n  Email\n  LinkedIn\n  Score\n\nConfiguration\n\nGoogle Cloud:\nEnable Gmail API and Google Sheets API.\nSet up OAuth 2.0 Credentials in Google Console.\nConnect n8n Gmail, Drive, and Sheets nodes to these credentials.\n\nOpenAI:\nGenerate an API Key.\nUse the HTTP Request node or official OpenAI node to send prompt requests.\n\nn8n Workflow:\nAdd Gmail Trigger.\nAdd extraction logic (e.g., filter PDFs).\nAdd OpenAI prompt for resume parsing and scoring.\nConnect structured output to a Google Sheets node.\n\nRequirements\n\nAccounts:\nn8n**\nGoogle** (Gmail, Sheets, Drive, Cloud Console)\nOpenAI**\n\nAPI Keys & Credentials:\nOpenAI API Key\nGoogle Cloud OAuth Credentials\nGmail Access Scopes (for reading attachments)\nConfigured Google Sheet\nOpenAI usage (after free tier)\nGoogle Cloud API usage (if exceeding free quota)\n",
+  "totalViews": 2030,
+  "source": "official",
+  "user": {
+    "id": 93787,
+    "name": "Aditya Sharma",
+    "username": "hicounselor",
+    "bio": "I'm Aditya, a tech enthusiast passionate about automating workflows and building scalable solutions. With a strong background in backend development, APIs, and data integration, I love simplifying complex tasks using tools like n8n. Currently contributing to innovative projects at HiCounselor, I focus on streamlining job application processes using smart automation. Let's connect and create smarter systems together!",
+    "verified": false,
+    "links": "[\"https://www.linkedin.com/in/aditya-hicounselor\"]",
+    "avatar": "https://gravatar.com/avatar/810fd3c5666351b93bd2276ba0ce8743c5c761d688c88f4060019f42efa64226?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-04-14T11:05:17.689Z",
+  "path": "official/template_3546/workflow.json"
+}

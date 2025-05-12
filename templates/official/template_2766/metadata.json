@@ -1,0 +1,82 @@
+{
+  "id": 2766,
+  "name": "Extract personal data with self-hosted LLM Mistral NeMo",
+  "description": "This workflow shows how to use a self-hosted Large Language Model (LLM) with n8n's LangChain integration to extract personal information from user input. This is particularly useful for enterprise environments where data privacy is crucial, as it allows sensitive information to be processed locally.\n\n📖 For a detailed explanation and more insights on using open-source LLMs with n8n, take a look at our comprehensive guide on open-source LLMs.\n\n🔑 Key Features\n\nLocal LLM\n   Connect Ollama to run Mistral NeMo LLM locally\n   Provide a foundation for compliant data processing, keeping sensitive information on-premises\n\nData extraction\n   Convert unstructured text to a consistent JSON format\n   Adjust the JSON schema to meet your specific data extraction needs.\n\nError handling\n   Implement auto-fixing for LLM outputs\n   Include error output for further processing\n\n⚙️ Setup and сonfiguration\n\nPrerequisites\n\nn8n AI Starter Kit installed\n\nConfiguration steps\n\nAdd the Basic LLM Chain node with system prompts.\nSet up the Ollama Chat Model with optimized parameters.\nDefine the JSON schema in the Structured Output Parser node.\n\n🔍 Further resources\nRun LLMs locally with n8n\nVideo tutorial on using local AI with n8n\n\nApply the power of self-hosted LLMs in your n8n workflows while maintaining control over your data processing pipeline!\n",
+  "totalViews": 4681,
+  "source": "official",
+  "user": {
+    "id": 91386,
+    "name": "Yulia",
+    "username": "yulia",
+    "bio": "Let's connect! ",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/yulia-dmitrievna-1112361b5/\"]",
+    "avatar": "https://gravatar.com/avatar/d29a8262aa8835d430919f8002957a77169f8da987dee0740aa494ae67a061b7?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Ollama Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOllama",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Auto-fixing Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-01-21T10:08:30.509Z",
+  "path": "official/template_2766/workflow.json"
+}

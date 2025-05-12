@@ -1,0 +1,189 @@
+{
+  "id": 3657,
+  "name": "Build a Chatbot, Voice and Phone Agent with Voiceflow, Google Calendar and RAG",
+  "description": "Voiceflow is a no-code platform that allows you to design, prototype, and deploy conversational assistants across multiple channels—such as chat, voice, and phone—with advanced logic and natural language understanding. It supports integration with APIs, webhooks, and even tools like Twilio for phone agents. It's perfect for building customer support agents, voice bots, or intelligent assistants.\n\nThis workflow connects n8n and Voiceflow with tools like Google Calendar, Qdrant (vector database), OpenAI, and an order tracking API to power a smart, multi-channel conversational agent.\n\n\n\nThere are 3 main webhook endpoints in n8n that Voiceflow interacts with:\n\nn8n_order – receives user input related to order tracking, queries an API, and responds with tracking status.\nn8n_appointment – processes appointment booking, reformats date input using OpenAI, and creates a Google Calendar event.\nn8n_rag – handles general product/service questions using a RAG (Retrieval-Augmented Generation) system backed by:\n   Google Drive document ingestion,\n   Qdrant vector store for search,\n   and OpenAI models for context-based answers.\n\nEach webhook is connected to a corresponding \"Capture\" block inside Voiceflow, which sends data to n8n and waits for the response.\n\nHow It Works  \nThis n8n workflow integrates Voiceflow for chatbot/voice interactions, Google Calendar for appointment scheduling, and RAG (Retrieval-Augmented Generation) for knowledge-based responses. Here’s the flow:  \n\nTrigger**:  \n  Three webhooks (n8n_order, n8n_appointment, n8n_rag) receive inputs from Voiceflow (chat, voice, or phone calls).  \n  Each webhook routes requests to specific functions:  \n    Order Tracking: Fetches order status via an external API.  \n    Appointment Scheduling: Uses OpenAI to parse dates, creates Google Calendar events, and confirms via WhatsApp.  \n    RAG System: Queries a Qdrant vector store (populated with Google Drive documents) to answer customer questions using GPT-4.  \n\nAI Processing**:  \n  OpenAI Chains: Convert natural language dates to Google Calendar formats and generate responses.  \n  RAG Pipeline: Embeds documents (via OpenAI), stores them in Qdrant, and retrieves context-aware answers.  \n  Voiceflow Integration: Routes responses back to Voiceflow for multi-channel delivery (chat, voice, or phone).  \n\nOutputs**:  \n  Confirmation messages (e.g., \"Event created successfully\").  \n  Dynamic responses for orders, appointments, or product support. \n\nSetup Steps  \n\nPrerequisites:  \nAPIs**:  \n  Google Calendar & Drive OAuth credentials.  \n  Qdrant vector database (hosted or cloud).  \n  OpenAI API key (for GPT-4 and embeddings).  \n\nConfiguration:  \nQdrant Setup:  \n   Run the \"Create collection\" and \"Refresh collection\" nodes to initialize the vector store.  \n   Populate it with documents using the Google Drive → Qdrant pipeline (embeddings generated via OpenAI).  \n\nVoiceflow Webhooks:  \n   Link Voiceflow’s \"Captures\" to n8n’s webhook URLs (n8n_order, n8n_appointment, n8n_rag).  \n\nGoogle Calendar:  \n   Authenticate the Google Calendar node and set event templates (e.g., summary, description).  \n\nRAG System:  \n   Configure the Qdrant vector store and OpenAI embeddings nodes.  \n   Adjust the Retrieve Agent’s system prompt for domain-specific queries (e.g., electronics store support).   \n\nOptional:  \nAdd Twilio for phone-agent capabilities.  \nCustomize OpenAI prompts for tone/accuracy.  \n\n\n\n\nPS. You can import a Twilio number to assign it to your agent for becoming a Phone Agent\n\nNeed help customizing?  \nContact me for consulting and support or add me on Linkedin",
+  "totalViews": 11787,
+  "source": "official",
+  "user": {
+    "id": 92207,
+    "name": "Davide",
+    "username": "n3witalia",
+    "bio": "Full-stack Web Developer based in Italy specialising in Marketing & AI-powered automations. For business enquiries, send me an email at info@n3w.it or add me on Linkedin.com/in/davideboizza",
+    "verified": true,
+    "links": "[\"https://n3w.it\"]",
+    "avatar": "https://gravatar.com/avatar/d41b8a0aa81139243509c58870f5b4be292824a507ab57d10ed066d8628ed8da?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage",
+    "Productivity",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Google Calendar",
+      "type": "n8n-nodes-base.googleCalendar",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Token Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterTokenSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    },
+    {
+      "name": "Qdrant Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreQdrant",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Vector Store Question Answer Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolVectorStore",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 12,
+  "createdAt": "2025-04-22T06:42:30.604Z",
+  "path": "official/template_3657/workflow.json"
+}

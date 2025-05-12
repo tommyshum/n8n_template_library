@@ -1,0 +1,150 @@
+{
+  "id": 3763,
+  "name": "Chat with Your Email History using Telegram, Mistral and Pgvector for RAG",
+  "description": "Who is this for?\n\nEveryone! Did you dream of asking an AI \"what hotel did I stay in for holidays last summer?\" or \"what were my marks last semester like?\".\n\nDream no more, as vector similarity searches and this workflow are the foundations to make it possible (as long as the information appears in your e-mails 😅).\n\n100% Local and Open Source!\n\nThis workflow is designed to use locally-hosted open source. Ollama as LLM provider, nomic-embed-text as the embeddings model, and pgvector as the vector database engine, on top of Postgres.\n\nStructured AND Vectorized\n\nThis workflow combines structured and semantic search on your e-mail.\n\nNo need for enterprise setups!\nLeverage the convenience of n8n and open source to get a bleeding edge solution.\n\nSetup\n\nYou will need a PGVector database with embeddings for all your email. Use my other template Gmail to Vector Embeddings with PGVector and Ollama to set it up in a breeze!\nMake a copy of my Email Assistant: Convert Natural Language to SQL Queries with Phi4-mini and PostgreSQL, you will need it for structured searches.\nInstall this template and modify the Call the SQL composer Workflow step, to point at your copy of the SQL workflow.\nAdjust the rest of necessary steps: Telegram Trigger, AI Chat model, AI Embeddings...\n\nActivate the workflow and chat around!\n\n",
+  "totalViews": 1095,
+  "source": "official",
+  "user": {
+    "id": 94107,
+    "name": "Alfonso Corretti",
+    "username": "acorretti",
+    "bio": "Software Engineering | Die-hard maker",
+    "verified": true,
+    "links": "[\"https://github.com/acorretti\"]",
+    "avatar": "https://gravatar.com/avatar/efd90112fec439a3e5603975bcc0842956e6fef36c19e25517b5b39508910a66?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    },
+    {
+      "name": "Embeddings Ollama",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOllama",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    },
+    {
+      "name": "Postgres PGVector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePGVector",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 8,
+  "createdAt": "2025-04-27T15:45:32.302Z",
+  "path": "official/template_3763/workflow.json"
+}

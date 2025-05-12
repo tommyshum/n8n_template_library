@@ -1,0 +1,32 @@
+{
+  "id": 2447,
+  "name": "Time Tracking with Notion and iOS shortcut",
+  "description": "Who might benfit from this workflow?\nDo you have to record your working hours yourself? Then this n8n workflow in combination with an iOS shortcut will definitely help you. Once set up, you can use a shortcut, which can be stored as an app icon on your home screen, to record the start, end and duration of your break.\n\nHow it works\nOnce setup you can tap the iOS shortcut on your iPhone. You will see a menu containing three options: \"Track Start\", \"Track Break\" and \"Track End\". After time is tracked iOS will display you a notification about the successful operation.\n\nHow to set it up\nCopy the notion database to your notion workspace (Top right corner).\nCopy the n8n workflow to your n8n workspace\nIn the notion nodes in the n8n workflow, add your notion credentials and select the copied notion database.\nDownload the iOS Shortcut from our documentation page\nEdit the shortcut and paste the url of your n8n Webhook trigger node to the first \"Text\" node of the iOS shortcut flow.\nIt is a best practice to use authentication. You can do so by adding \"Header\" auth to the webhook node and to the shrotcut.\n\nYou need help implementing this or any other n8n workflow?\nFeel free to contact me via LinkedIn or my business website.\n\nYou want to start using n8n?\nUse this link to register for n8n\n(This is an affiliate link)\n\n",
+  "totalViews": 1137,
+  "source": "official",
+  "user": {
+    "id": 91963,
+    "name": "David",
+    "username": "unitize",
+    "bio": "You need help implementing a custom n8n workflow?\nFeel free to contact me via LinkedIn or my business website: unitize.de\n\nYou want to start using n8n?\nUse this affiliate link: https://n8n.partnerlinks.io/edr9c63lw12z",
+    "verified": false,
+    "links": "[\"https://www.linkedin.com/in/david-moors-95b9061b5/\"]",
+    "avatar": "https://gravatar.com/avatar/a9e5671c86ac556ed95d8c8f614afea1e67c3b09b507da53c15df3137b3910f8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-10-02T12:50:25.041Z",
+  "path": "official/template_2447/workflow.json"
+}

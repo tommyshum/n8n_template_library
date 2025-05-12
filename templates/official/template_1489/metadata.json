@@ -1,0 +1,49 @@
+{
+  "id": 1489,
+  "name": "Update specific post-call information on Syncro",
+  "description": "This workflow takes Dialpad call information after a call is disconnected and pushes it into Syncro as a ticket timer update, matching the start time and end time provided by Dialpad and a note that containing the contact or customer name and number.\n\n&gt; This workflow is part of an MSP collection, The original can be found here: https://github.com/bionemesis/n8nsyncro",
+  "totalViews": 790,
+  "source": "official",
+  "user": {
+    "id": 25789,
+    "name": "Jonathan",
+    "username": "jon-n8n",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/5240094f838126182ceefb50ca4a3cf75cc7dc0808efd4b9920d792e41bfc45e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2022-02-22T14:27:48.497Z",
+  "path": "official/template_1489/workflow.json"
+}

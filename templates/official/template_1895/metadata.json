@@ -1,0 +1,41 @@
+{
+  "id": 1895,
+  "name": "Reddit AI digest",
+  "description": "This workflow digests mentions of n8n on Reddit that can be sent as an single email or Slack summary each week. We use OpenAI to classify if a specific Reddit post is really about n8n or not, and then the summarise it into a bullet point sentence.\n\nHow it works\n\nGet posts from Reddit that might be about n8n;\nFilter for the most relevant posts (posted in last 7 days and more than 5 upvotes and is original content);\nCheck if the post is actually about n8n;\nIf it is, categorise with OpenAI.\n   \nBear in mind: Workflow only considers first 500 characters of each reddit post. So if n8n is mentioned after this amount, it won't register as being a post about n8n.io.\n\nNext steps\nImprove OpenAI Summary node prompt to return cleaner summaries;\nExtend to more platforms/sources - e.g. it would be really cool to monitor larger Slack communities in this way;\nDo some classification on type of user to highlight users likely to be in our ICP;\nSeparate a list of data sources (reddit, twitter, slack, discord etc.), extract messages from there and have them go to a sub workflow for classification and summarisation.\n     ",
+  "totalViews": 8216,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "Utility"
+  ],
+  "nodes": [
+    {
+      "name": "Reddit",
+      "type": "n8n-nodes-base.reddit",
+      "categories": [
+        "Communication"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "OpenAI",
+      "type": "n8n-nodes-base.openAi",
+      "categories": [
+        "Utility"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2023-02-27T12:08:27.186Z",
+  "path": "official/template_1895/workflow.json"
+}

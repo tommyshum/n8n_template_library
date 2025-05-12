@@ -1,0 +1,58 @@
+{
+  "id": 1977,
+  "name": "Weekly Shodan Query - Report Accidents",
+  "description": "This n8n workflow, which runs every Monday at 5:00 AM, initiates a comprehensive process to monitor and analyze network security by scrutinizing IP addresses and their associated ports. It begins by fetching a list of watched IP addresses and expected ports through an HTTP request. Each IP address is then processed in a sequential loop.\n\nFor every IP, the workflow sends a GET request to Shodan, a renowned search engine for internet-connected devices, to gather detailed information about the IP. It then extracts the data field from Shodan's response, converting it into an array. This array contains information on all ports Shodan has data for regarding the IP.\n\nA filter node compares the ports returned from Shodan with the expected list obtained initially. If a port doesn't match the expected list, it is retained for further processing; otherwise, it's filtered out. For each such unexpected port, the workflow assembles data including the IP, hostnames from Shodan, the unexpected port number, service description, and detailed data from Shodan like HTTP status code, date, time, and headers.\n\nThis collected data is then formatted into an HTML table, which is subsequently converted into Markdown format. Finally, the workflow generates an alert in TheHive, a popular security incident response platform. This alert contains details like the title indicating unexpected ports for the specific IP, a description comprising the Markdown table with Shodan data, medium severity, current date and time, tags, Traffic Light Protocol (TLP) set to Amber, a new status, type as 'Unexpected open port', the source as n8n, a unique source reference combining the IP with the current Unix time, and enabling follow and JSON parameters options. This comprehensive workflow thus aids in the proactive monitoring and management of network security.",
+  "totalViews": 4277,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "TheHive",
+      "type": "n8n-nodes-base.theHive",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2023-11-13T08:55:22.335Z",
+  "path": "official/template_1977/workflow.json"
+}

@@ -1,0 +1,66 @@
+{
+  "id": 2239,
+  "name": "Extract Domain and verify email syntax on the go",
+  "totalViews": 1049,
+  "purchaseUrl": null,
+  "user": {
+    "id": 91335,
+    "name": "Imperol",
+    "username": "imperolq",
+    "bio": "Automation expert with years of experience helping businesses improve their efficiency and productivity with smart automations that are affordable, scalable, and flexible. ",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/zacharia-kimotho/\"]",
+    "avatar": "https://gravatar.com/avatar/13b050fd63dc0c9242774c4b8769c4788df8b47268c1fb183d6f1da085b9e6e2?r=pg&d=retro&size=200"
+  },
+  "description": "What problem is this workflow solving?\n\nThis workflow is aimed for email marketing enthusiasts looking for an easy way to either extract the domain from an email ad also check if the syntax is correct without having to use the code node.\n\nHow this works\n\n\nFor this to work, replace the debugger node with your actual data source. \nMap your data at match the above layout\nRun your workflow and check for all the emails that are either valid or not\n\nOnce done, you will have a list of all your emails, domains, and whether they are valid or not.\n\n \n  ",
+  "createdAt": "2024-04-22T06:31:37.656Z",
+  "nodes": [
+    {
+      "id": 855,
+      "icon": "file:DebugHelper.svg",
+      "name": "n8n-nodes-base.debugHelper",
+      "codex": {
+        "data": {
+          "alias": [
+            "Mock",
+            "Sample",
+            "Demo",
+            "Test",
+            "Throw error",
+            "OOM",
+            "Out of Memory",
+            "placeholder"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.debughelper/"
+              }
+            ]
+          },
+          "categories": [
+            "Development"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"output\"]",
+      "defaults": {
+        "name": "DebugHelper"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTI2Ljk1MzEgMTMuMTk3OEMyOS41Mjc2IDEzLjE5NzggMzAuNTcyOSAxNi4zMjY0IDMwLjU3MjkgMTguOTAwOVYyNi43Mzk0QzMwLjU3MjkgMzIuNTQ5OSAyNS44NjI2IDM3LjI2MDMgMjAuMDUyIDM3LjI2MDNDMTQuMjQxNiAzNy4yNjAzIDkuNTMxMjUgMzIuNTQ5OSA5LjUzMTI1IDI2LjczOTRWMTguOTAwOUM5LjUzMTI1IDE2LjMyNjQgMTAuNTc2NiAxMy4xOTc4IDEzLjE1MSAxMy4xOTc4SDI2Ljk1MzFaIiBmaWxsPSIjRjRBMDI2Ii8+CjxwYXRoIGQ9Ik0yNC4xNDA2IDE1LjgwMkgxNS45NjM1QzE0LjQ4MjIgMTUuODAyIDEzLjI4MTIgMTQuNjAxMSAxMy4yODEyIDEzLjExOThDMTMuMjgxMiA5Ljk5ODgzIDE1LjgxMTMgNy40Njg3NSAxOC45MzIzIDcuNDY4NzVIMjEuMTcxOUMyNC4yOTI4IDcuNDY4NzUgMjYuODIyOSA5Ljk5ODgzIDI2LjgyMjkgMTMuMTE5OEMyNi44MjI5IDE0LjYwMTEgMjUuNjIyIDE1LjgwMiAyNC4xNDA2IDE1LjgwMloiIGZpbGw9IiNDQTQ2M0QiLz4KPHBhdGggZD0iTTM4Ljk1ODQgMjIuODU5NEgzMS41NjI1VjE4LjkwMUMzMS41NjI1IDE4LjgyMTYgMzEuNTg3IDE4Ljc0MiAzMS41ODUyIDE4LjY2MjNDMzUuMzQzNyAxOC4yNzAzIDM3LjUgMTUuNzk3MyAzNy41IDExLjczOTVWMTAuODAyQzM3LjUgMTAuMjI2NyAzNy4wMzM1IDkuNzYwMzkgMzYuNDU4NCA5Ljc2MDM5QzM1Ljg4MzIgOS43NjAzOSAzNS40MTY3IDEwLjIyNjcgMzUuNDE2NyAxMC44MDJWMTEuNzM5NUMzNS40MTY3IDE0LjczOTUgMzQuMDg4MiAxNi4zMzQ5IDMxLjM2MzIgMTYuNTk2M0MzMC44ODkxIDE0LjQ4NSAyOS43MzIzIDEyLjY2MDMgMjcuODA1NiAxMi4yNDQ4QzI3LjUxMyAxMC4wMTUxIDI2LjEzMjcgOC4xMjg0NCAyNC4yMDI5IDcuMTQ4OTFDMjUuMDA5MiA2LjMyODUyIDI1LjUyMDkgNS4yMDQ2MSAyNS41MjA5IDMuOTY2MDlWMy4wNDE2NEMyNS41MjA5IDIuNDY2MzMgMjUuMDU0NSAyIDI0LjQ3OTMgMkMyMy45MDQxIDIgMjMuNDM3NSAyLjQ2NjMzIDIzLjQzNzUgMy4wNDE2NFYzLjk2NjA5QzIzLjQzNzUgNS4zMjMxMyAyMi4zMDc1IDYuNDAxMDIgMjAuOTUwNSA2LjQwMTAySDE5LjE1MzdDMTcuNzk2NyA2LjQwMTAyIDE2LjY2NjcgNS4zMjMxMyAxNi42NjY3IDMuOTY2MDlWMy4wNDE2NEMxNi42NjY3IDIuNDY2MzMgMTYuMjAwMiAyIDE1LjYyNTEgMkMxNS4wNDk5IDIgMTQuNTgzNCAyLjQ2NjMzIDE0LjU4MzQgMy4wNDE2NFYzLjk2NjA5QzE0LjU4MzQgNS4yMDQ2MSAxNS4wOTUgNi4zMjg1MiAxNS45MDE0IDcuMTQ4OThDMTMuOTcxNiA4LjEyODQ0IDEyLjU4NDggMTAuMDE1MiAxMi4yOTIxIDEyLjI0NDhDMTAuMzYyOCAxMi42NjA4IDkuMjA4OTEgMTQuNDg5OCA4LjczNTk0IDE2LjYwNDhDNS45NDIyNyAxNi4zNzM2IDQuNTgzMzYgMTQuNzc2NSA0LjU4MzM2IDExLjczOTVWMTAuODAyQzQuNTgzMzYgMTAuMjI2NyA0LjExNjg3IDkuNzYwMzkgMy41NDE3MiA5Ljc2MDM5QzIuOTY2NTYgOS43NjAzOSAyLjUgMTAuMjI2NyAyLjUgMTAuODAyVjExLjczOTVDMi41IDE1LjgzNDUgNC42NDM2NyAxOC4zMTUyIDguNDY2OCAxOC42NzIzQzguNDY1MDggMTguNzQ4NSA4LjQzNzUgMTguODI0OCA4LjQzNzUgMTguOTAxVjIyLjg1OTRIMS4wNDE2NEMwLjQ2NjQ4NCAyMi44NTk0IDAgMjMuMzI1NyAwIDIzLjkwMUMwIDI0LjQ3NjMgMC40NjY0ODQgMjQuOTQyNyAxLjA0MTY0IDI0Ljk0MjdIOC40Mzc1VjI2LjczOTVDOC40Mzc1IDI3LjU2OTggOC41NTIyNyAyOC4zNzk2IDguNzE5MzcgMjkuMTYwOEM0LjczODk4IDI5LjQzMDUgMi41IDMxLjkzMDIgMi41IDM2LjExNDVWMzcuMDUyQzIuNSAzNy42MjczIDIuOTY2NDggMzguMDkzNyAzLjU0MTY0IDM4LjA5MzdDNC4xMTY4IDM4LjA5MzcgNC41ODMyOCAzNy42MjczIDQuNTgzMjggMzcuMDUyVjM2LjExNDVDNC41ODMyOCAzMi44NDkzIDYuMTU3NTggMzEuMjQ4IDkuMzkzMDUgMzEuMjIwMUMxMS4xNDcgMzUuMzc3IDE1LjI2NDIgMzguMzAyIDIwLjA1MiAzOC4zMDJDMjQuODM5MiAzOC4zMDIgMjguOTU2IDM1LjM3NzcgMzAuNzEwMiAzMS4yMjE2QzMzLjg3NTggMzEuMjgyOSAzNS40MTY2IDMyLjg4NDQgMzUuNDE2NiAzNi4xMTQ1VjM3LjA1MkMzNS40MTY2IDM3LjYyNzMgMzUuODgzIDM4LjA5MzcgMzYuNDU4MiAzOC4wOTM3QzM3LjAzMzQgMzguMDkzNyAzNy41IDM3LjYyNzMgMzcuNSAzNy4wNTJWMzYuMTE0NUMzNy41IDMxLjk2NjEgMzUuMjQ4MiAyOS40NzI5IDMxLjMzMTMgMjkuMTY3NkMzMS40OTkzIDI4LjM4NDQgMzEuNTYyNSAyNy41NzIyIDMxLjU2MjUgMjYuNzM5NVYyNC45NDI3SDM4Ljk1ODRDMzkuNTMzNiAyNC45NDI3IDQwIDI0LjQ3NjMgNDAgMjMuOTAxQzQwIDIzLjMyNTcgMzkuNTMzNSAyMi44NTk0IDM4Ljk1ODQgMjIuODU5NFpNMTguOTMyMyA4LjQ4NDM4SDIxLjE3MTlDMjMuNzEzNCA4LjQ4NDM4IDI1Ljc4MTMgMTAuNTUyMiAyNS43ODEzIDEzLjA5MzhDMjUuNzgxMyAxMy45OTg0IDI1LjA0NTMgMTQuNzM0NCAyNC4xNDA2IDE0LjczNDRIMTUuOTYzNUMxNS4wNTg4IDE0LjczNDQgMTQuMzIyOSAxMy45OTg0IDE0LjMyMjkgMTMuMDkzOEMxNC4zMjI5IDEwLjU1MjIgMTYuMzkwNyA4LjQ4NDM4IDE4LjkzMjMgOC40ODQzOFpNMTAuNTIwOSAyNi43Mzk1VjE4LjkwMUMxMC41MjA5IDE3LjI3NjYgMTEuMDYzNyAxNC45NTMzIDEyLjQzMzYgMTQuMzY3QzEyLjk1MTMgMTUuODAyIDE0LjM1MjMgMTYuODE3NyAxNS45NjM2IDE2LjgxNzdIMTguOTU4NFYzNi4xNTUyQzE0LjI0NDggMzUuNjExMyAxMC41MjA5IDMxLjU5NjQgMTAuNTIwOSAyNi43Mzk1Wk0yMS4wNDE2IDM2LjE2NzJWMTYuODE3N0gyNC4xNDA2QzI1Ljc1MTkgMTYuODE3NyAyNy4xMDA5IDE1LjgwMiAyNy42MTg1IDE0LjM2N0MyOC45ODg0IDE0Ljk1MzMgMjkuNDc5MSAxNy4yNzY1IDI5LjQ3OTEgMTguOTAxVjI2LjczOTVDMjkuNDc5MSAzMS42MzIzIDI1LjgwNTIgMzUuNjcwOCAyMS4wNDE2IDM2LjE2NzJaIiBmaWxsPSJibGFjayIvPgo8L3N2Zz4K"
+      },
+      "displayName": "DebugHelper",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 5,
+          "name": "Development"
+        }
+      ]
+    }
+  ]
+}

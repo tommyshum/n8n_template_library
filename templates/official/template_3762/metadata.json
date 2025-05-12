@@ -1,0 +1,123 @@
+{
+  "id": 3762,
+  "name": "Gmail to Vector Embeddings with PGVector and Ollama",
+  "description": "Gmail to Vector Embeddings with PGVector and Ollama\n\nWho is this for?\n\nEveryone! Did you dream of asking an AI \"what hotel did I stay in for holidays last summer?\" or \"what were my marks last semester like?\".\n\nDream no more, as vector similarity searches and this workflow are the foundations to make it possible (as long as the information appears in your e-mails 😅).\n\n100% local\n\nThis workflow is designed to use locally-hosted open source. Ollama as LLM provider, nomic-embed-text as the embeddings model, and pgvector as the vector database engine, on top of Postgres.\n\nBut.. how?!\n\nFirstly, specify the date you created your Gmail account on, then manually run the workflow in order to bulk read all your e-mail in monthly batches. Your database is now populated!\n\nNow it's the task for other workflows to query the vector database.\n\nActivate the workflow so that new e-mail is continuously added by the Gmail Trigger upon receiving it.\n\nStructured AND Vectorized\n\nThis workflow stores your e-mail activity in two ways:\nIn a structured table\nIn a vector embeddings table\n\nAnd the information in both of them can be correlated by Gmail's messages id, which is stored in the vectors table as metadata property emails_metadata.id.\n\nThat way consumers can benefit from both worlds! ✨ Vector similarity searches enable semantic searches, while structured queries can retrieve more factual data like the message id, its date or who it came from.\n\nOther useful templates\n\nMy template Chat with Your Email History using Telegram, Mistral and Pgvector for RAG is a ready-made solution to consume this workflow.\n\nYou may also pair this workflow with my other template to Email Assistant: Convert Natural Language to SQL Queries with Phi4-mini and PostgreSQL and you'll enable RAG workflows that use both structured and vectorized databases.\n\nCustomizations\n\nI suppose the e-mail provider could be changed, but then you'd have to identify an alternative id field. Message-ID would be a more standard option.\n\nThere are a few opinionated choices as to what metadata to store, but those shouldn't need adjustments.",
+  "totalViews": 528,
+  "source": "official",
+  "user": {
+    "id": 94107,
+    "name": "Alfonso Corretti",
+    "username": "acorretti",
+    "bio": "Software Engineering | Die-hard maker",
+    "verified": true,
+    "links": "[\"https://github.com/acorretti\"]",
+    "avatar": "https://gravatar.com/avatar/efd90112fec439a3e5603975bcc0842956e6fef36c19e25517b5b39508910a66?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Data & Storage",
+    "Communication",
+    "HITL",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Postgres",
+      "type": "n8n-nodes-base.postgres",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Recursive Character Text Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    },
+    {
+      "name": "Embeddings Ollama",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOllama",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    },
+    {
+      "name": "Postgres PGVector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePGVector",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-04-27T15:23:36.325Z",
+  "path": "official/template_3762/workflow.json"
+}

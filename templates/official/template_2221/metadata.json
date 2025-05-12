@@ -1,0 +1,52 @@
+{
+  "id": 2221,
+  "name": "YouTube Advanced RSS Generator with Telegram Formation",
+  "description": "\nOverview\n\nThe [n8n] YouTube Channel Advanced RSS Feeds Generator workflow facilitates the generation of various RSS feed formats for YouTube channels without requiring API access or administrative permissions. It utilizes third-party services to extract data, making it extremely user-friendly and accessible.\n\nKey Use Cases and Benefits\n\nContent Aggregation**: Easily gather and syndicate content from any public YouTube channel.\nNo API Key Required**: Avoid the complexities and limitations of Google's API.\nMultiple Formats**: Supports ATOM, JSON, MRSS, Plaintext, Sfeed, and direct YouTube XML feeds.\nFlexibility**: Input can be a YouTube channel or video URL, ID, or username.\n\nServices/APIs Utilized\n\nThis workflow integrates with:\n\ncommentpicker.com**: For retrieving YouTube channel IDs.\nrss-bridge.org**: To generate various RSS formats.\n\nConfiguration Instructions\n\nStart the Workflow: Activate the workflow in your n8n instance.\nInput Details: Enter the YouTube channel or video URL, ID, or username via the provided form trigger.\nRun the Workflow: Execute the workflow to receive links to 13 different RSS feeds, including community and video content feeds.\n\nScreenshots\n\nAdditional Notes\n\nCustomization**: You can modify the RSS feed formats or integrate additional services as needed.\n\nSupport and Contributions\n\nFor support, questions, or contributions, please visit the n8n community forum or the GitHub repository. We welcome contributions from the community! ",
+  "totalViews": 2206,
+  "source": "official",
+  "user": {
+    "id": 91304,
+    "name": "Nskha",
+    "username": "nskha",
+    "bio": "Welcome to Nskha! We're all about making real changes in the no-code tech field, just like with N8N 😉. Check out our amazing collection of free public templates and join us in building a collaborative database of no-code idea projects. Let's revolutionize the way we create without code!",
+    "verified": true,
+    "links": "[\"https://nskha.com\"]",
+    "avatar": "https://gravatar.com/avatar/6f99957ae9e5a66cf0bb95f4584cf321b0644a0ceea6a633bc968b6ec55e8410?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-04-08T23:17:15.590Z",
+  "path": "official/template_2221/workflow.json"
+}

@@ -1,0 +1,96 @@
+{
+  "id": 3793,
+  "name": "Optimize Amazon Ads with GPT-4o for Bid, Budget & Keyword Recommendations",
+  "description": "Overview\nThis template is designed for Amazon sellers and advertisers who want to automate their campaign performance analysis and bidding strategy. It solves the common challenge of manually reviewing Sponsored Products reports and guessing how to adjust keywords, placements, and budgets. By combining Amazon Advertising reports with OpenAI's GPT-4o, this workflow delivers real-time, personalized optimization instructions — automatically.\n\nFeatures\n📥 Automatically downloads Sponsored Products reports from Google Drive\n\n🧠 Uses AI to analyze campaign, keyword, placement, targeting, and budget performance\n\n📊 Supports both .csv and .xlsx report formats\n\n🔁 Handles multiple ASINs and scales easily across ad accounts\n\n📧 Sends structured optimization recommendations to your inbox via Gmail\n\n🗂 Built-in logic to normalize filenames and correctly map reports\n\n🧹 Includes error handling and formatting cleanup for AI-ready input\n\nRequirements\nTo use this workflow, you’ll need:\n\nAn Amazon Ads account with access to Sponsored Products reports\n\nA Google Drive folder where Amazon Ads reports are delivered (manually or via Gmail automation)\n\nA Gmail account (for sending summaries)\n\nAn OpenAI API key with access to GPT-4o\n\nOptional: a developer account for the Amazon Ads API to fully automate report generation in the future\n\nSetup Instructions\n📂 Connect your Amazon Ads reports folder in the Google Drive node\n\n🔐 Add your credentials to the OpenAI and Gmail nodes\n\n📝 Schedule five reports in the Amazon Ads Console:\n\nSearch Term Report → Detailed\n\nTargeting Report → Detailed\n\nCampaign Report → Summary\n\nPlacement Report → Summary\n\nBudget Report → Summary\nUse “Last 30 Days”, “Daily”, and .xlsx or .csv format\n\n🔁 (Optional) Automate report ingestion using Gmail + Drive workflows\n\n🧪 Test with one account, then replicate across additional ad accounts as needed\n\n⏱️ Setup time: 15–30 minutes\n📌 All field-specific guidance is included in workflow notes`\n",
+  "totalViews": 183,
+  "source": "official",
+  "user": {
+    "id": 93485,
+    "name": "Brian Money",
+    "username": "aspereo",
+    "bio": "Experienced Linux administrator, entrepreneur, and automation enthusiast, I specialize in crafting robust, scalable workflows with n8n. I have a passion for business automation, integrating complex systems seamlessly, and sharing practical templates that empower others to automate effectively.",
+    "verified": false,
+    "links": "[\"https://bsky.app/profile/brianmoney.bsky.social\"]",
+    "avatar": "https://gravatar.com/avatar/244f54f034e13ab6631747c8e6104f06a7fb6abc5d144ee35bb84be896f6e1c7?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Communication",
+    "HITL",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-04-29T20:00:22.269Z",
+  "path": "official/template_3793/workflow.json"
+}

@@ -1,0 +1,38 @@
+{
+  "id": 3320,
+  "name": "Post New Google Calendar Events to Telegram",
+  "description": "This n8n workflow automatically sends a Telegram message whenever a new event is added to Google Calendar. It extracts key event details such as event name, description, event creator, start date, end date, and location and forwards them to a specified Telegram chat. This ensures you stay updated on all newly scheduled events directly from Telegram.\n\nPrerequisites\nBefore setting up the workflow, ensure the following:\nGoogle Account with Google Calendar Access: The Google Calendar API must be enabled.\nTelegram Bot: Create a bot using BotFather on Telegram.\nTelegram Chat ID: Retrieve the Chat ID (personal chat or group).\nUse OAuth2 for Google Calendar and a Bot Token for Telegram.\n\nSteps\n\nStep 1: Google Calendar Trigger Node (Event Created Event)\n\nClick \"Add Node\" and search for Google Calendar.\nSelect \"Google Calendar Trigger\" and add it to the workflow.\nAuthenticate with your Google Account.\nSelect \"Event Created\" as the trigger type.\nChoose the specific calendar to monitor.\nClick \"Execute Node\" to test the connection.\nClick \"Save\".\n\nStep 2: Telegram Node (Send Message Action)\n\nClick \"Add Node\" and search for Telegram.\nSelect \"Send Message\" as the action.\nAuthenticate using your Telegram Bot Token.\nSet the Chat ID (personal or group chat).\nFormat the message using details from Google Calendar Trigger and  set the message in text.\nClick \"Execute Node\" to test.\nClick \"Save\".\n\nStep 3: Connect & Test the Workflow\n\nLink Google Calendar Trigger → Telegram Send Message.\nExecute the workflow manually.\nCreate a test event in Google Calendar.\nCheck Telegram to see if the event details appear.\n\nn8n Workflow Created by WeblineIndia\n\nThis workflow is built by the AI development team at WeblineIndia. We help businesses automate processes, reduce repetitive work, and scale faster. \n\nNeed something custom? You can hire AI developers to build workflows tailored to your needs.",
+  "totalViews": 2185,
+  "source": "official",
+  "user": {
+    "id": 92407,
+    "name": "WeblineIndia",
+    "username": "weblineindia",
+    "bio": "A Leading Software Engineering, Consulting & Outsourcing Services Company in USA & India serving Clients Globally since 1999.",
+    "verified": true,
+    "links": "[\"https://www.weblineindia.com/\"]",
+    "avatar": "https://gravatar.com/avatar/a229d43aefca4588581583c58bb37b4773aebbdf4c1fef86a08bb1d38eae91fa?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-03-25T11:13:46.722Z",
+  "path": "official/template_3320/workflow.json"
+}

@@ -1,0 +1,39 @@
+{
+  "id": 3869,
+  "name": "Convert HTML to PDF and Compress Files with CustomJS API",
+  "description": "\nThis n8n template demonstrates how to convert HTML into a PDF, compress the generated PDF, and return it as a binary response using the PDF Toolkit from www.customjs.space.\n\nNotice\n\nCommunity nodes can only be installed on self-hosted instances of n8n.\n\n@custom-js/n8n-nodes-pdf-toolkit\n\nWhat this workflow does\n\nConvert** the requested HTML to PDF.\nCompress** the PDF file.\nUse** a Code node to handle URLs pointing to PDF files if they exceed 6MB.\nCompress** the PDF pages.\n\nRequirements\n\nSelf-hosted** n8n instance\nCustomJS API key** for compressing PDF files.\nHTML** Data to convert PDF files\nCode node** for handling URL that indicates PDF file.\n\nWorkflow Steps:\n\nManual Trigger:\n\n   Runs with user interaction.\n\nHTML to PDF:\n\n   Request HTML Data\n   Convert HTML to PDF\n   Request PDF from URL.\n\nCompress Pages from PDF:\n   Compress PDF as a binary file.\n\nUsage\n\nGet API key from customJS\n\nSign up to customJS platform.\nNavigate to your profile page\nPress \"Show\" button to get API key\n\nSet Credentials for CustomJS API on n8n\n\nCopy and paste your API key generated from CustomJS here.\n\nDesign workflow\n\nA Manual Trigger for starting workflow.\nHTTP Request Nodes for downloading PDF files.\nCode node for handling URL that indicates PDF file.\nCompress PDF files.\n\nYou can replace logic for triggering and returning results.\nFor example, you can trigger this workflow by calling a webhook and get a result as a response from webhook. Simply replace Manual Trigger and Write to Disk nodes.\n",
+  "totalViews": 44,
+  "source": "official",
+  "user": {
+    "id": 93320,
+    "name": "CustomJS",
+    "username": "customjs",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://www.customjs.space\"]",
+    "avatar": "https://gravatar.com/avatar/942ecdadf17761bc7f516b67fb0f3617809720caf8912cfd1815ed2a9f8b9ad3?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-05-05T10:43:39.715Z",
+  "path": "official/template_3869/workflow.json"
+}

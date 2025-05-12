@@ -1,0 +1,320 @@
+{
+  "id": 2999,
+  "name": "🐶 AI Agent for PetShop Appointments (Agente de IA para agendamentos de PetShop)",
+  "description": "🐶🤖 AI Agent for Pet Shops – Automate Customer Service & Bookings! 🐾💡\nTransform Your Pet Shop with AI-Powered Automation! 🚀\nEnhance customer experience and optimize operations with this n8n AI Agent designed for pet shops. 📲🐾 Automate client interactions, appointment scheduling, and service recommendations—saving time and increasing revenue!\n\n🔹 Key Features:\n✅ Instant WhatsApp responses – AI-powered chatbot handles customer inquiries. 💬\n✅ Automated appointment scheduling – Clients can book services hassle-free. 📅✂️\n✅ Personalized reminders – Reduce no-shows with automated notifications. 📢🐾\n✅ Customer data & service history management – Track interactions effortlessly. 📊📁\n✅ Product & service recommendations – Improve sales with smart suggestions. 🎁🐶\n\n📌 How It Works\n1️⃣ The workflow captures customer inquiries via WhatsApp.\n2️⃣ AI processes requests, provides information, and offers booking options.\n3️⃣ Clients can schedule grooming, vet visits, or other services in seconds.\n4️⃣ Automated reminders ensure appointments are remembered.\n5️⃣ Customer data is stored for better service personalization.\n\n⚙️ Setup & Customization\n🔧 Connect your WhatsApp API (evolution) for instant messaging.\n🔧 Integrate with Google Calendar for appointment booking.\n🔧 Customize reminders, services, and pricing rules to fit your business.\n\n💡 Reduce manual work, improve customer satisfaction, and scale your pet shop with AI automation!\n\n🐶🤖 [PT-BR] Agente de IA para Pet Shops – Atendimento e Agendamentos Automatizados! 🐾💡\nTransforme Seu Pet Shop com Automação Inteligente! 🚀\nOtimize o atendimento ao cliente e agilize processos com este Agente de IA para n8n. 📲🐾 Automatize interações, agendamentos e recomendações de serviços—economizando tempo e aumentando as vendas!\n\n🔹 Principais Funcionalidades:\n✅ Atendimento automático no WhatsApp – IA responde clientes instantaneamente. 💬\n✅ Agendamento de serviços automatizado – Clientes marcam banho, tosa ou consultas facilmente. 📅✂️\n✅ Lembretes personalizados – Reduza faltas com notificações automáticas. 📢🐾\n✅ Gestão de clientes e histórico de serviços – Controle dados de forma eficiente. 📊📁\n✅ Sugestão de produtos e serviços – Venda mais com recomendações inteligentes. 🎁🐶\n\n📌 Como Funciona\n1️⃣ O fluxo recebe perguntas dos clientes via WhatsApp.\n2️⃣ A IA processa os pedidos e fornece opções de agendamento.\n3️⃣ O cliente escolhe o serviço desejado e agenda em segundos.\n4️⃣ Lembretes automáticos garantem que os clientes não esqueçam os horários.\n5️⃣ O histórico do cliente é salvo para oferecer um atendimento mais personalizado.\n\n⚙️ Configuração e Personalização\n🔧 Conecte sua API do WhatsApp (evolution) para interação automática.\n🔧 Integre ao Google Calendar para gerenciar agendamentos.\n🔧 Personalize valores, serviços e regras de envio de lembretes conforme sua necessidade.\n\n💡 Automatize processos, melhore a experiência do cliente e escale seu pet shop com IA! 🚀",
+  "totalViews": 2915,
+  "source": "official",
+  "user": {
+    "id": 92905,
+    "name": "Bruno Dias",
+    "username": "brunodias",
+    "bio": "Especialista em automações, IA e marketing digital. #n8n #IA #automacao #make",
+    "verified": true,
+    "links": "[\"https://instagram.com/obrunopdias\"]",
+    "avatar": "https://gravatar.com/avatar/fc33cf1042c48f04b5ea2d6e16e641a427b1117e5b6b465e0d7c4cae32fda8c8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Postgres",
+      "type": "n8n-nodes-base.postgres",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Redis",
+      "type": "n8n-nodes-base.redis",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Crypto",
+      "type": "n8n-nodes-base.crypto",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Supabase",
+      "type": "n8n-nodes-base.supabase",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Character Text Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterCharacterTextSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Calculator",
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    },
+    {
+      "name": "Supabase Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Text Classifier",
+      "type": "@n8n/n8n-nodes-langchain.textClassifier",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Postgres Chat Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "Other memories"
+        ]
+      }
+    },
+    {
+      "name": "Vector Store Question Answer Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolVectorStore",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 22,
+  "createdAt": "2025-02-24T14:39:43.912Z",
+  "path": "official/template_2999/workflow.json"
+}

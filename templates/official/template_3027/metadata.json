@@ -1,0 +1,91 @@
+{
+  "id": 3027,
+  "name": "Generate AI Prompts with Google Gemini and store them in Airtable",
+  "description": "This workflow is designed to generate prompts for AI agents and store them in Airtable. \n\n\nIt starts by receiving a chat message, processes it to create a structured prompt, categorizes the prompt, and finally stores it in Airtable.\n\n2. Setup Instructions\n\nPrerequisites\nAI model eg Gemini, openAI etc**\nAirtable base and table or other storage tool**\n\nStep-by-Step Guide\n\nClone the Workflow\nCopy the provided workflow JSON and import it into your n8n instance.\n\nConfigure Credentials\nSet up the Google Gemini(PaLM) API account credentials.\nSet up the Airtable Personal Access Token account credentials.\n\nMap Airtable Base and Table\nCreate a copy of the Prompt Library in Airtable.\nMap the Airtable base and table in the Airtable node.\n\nCustomize Prompt Template\nEdit the 'Create prompt' node to customize the prompt template as needed.\n\nConfiguration Options\nPrompt Template:** Customize the prompt template in the 'Create prompt' node to fit your specific use case.\nAirtable Mapping:** Ensure the Airtable base and table are correctly mapped in the Airtable node.\n\n4. Running and Troubleshooting\n\nRunning the Workflow\nTrigger the Workflow: Send a chat message to trigger the workflow.\nMonitor Execution: Use the n8n interface to monitor the workflow execution.\nCheck Completion: Verify that the prompt is stored in Airtable and check the chat interface for the result.\n\nTroubleshooting Tips\nAPI Issues:** Ensure that the APIs and Airtable credentials are correctly configured.\nData Mapping:** Verify that the Airtable base and table are correctly mapped.\nPrompt Template:** Check the prompt template for any errors or inconsistencies.\n\nUse Case Examples\n\nThis workflow is particularly useful in scenarios where you want to automate the generation and management of AI agent prompts. \n\nHere are some examples:\n\nRapid Prototyping of AI Agents: \n\nQuickly generate and test different prompts for AI agents in various applications.\n\nContent Creation:** Generate prompts for AI models that create blog posts, articles, or social media content.\nCustomer Service Automation:** Develop prompts for AI-powered chatbots to handle customer inquiries and support requests.\nEducational Tools:** Create prompts for AI tutors or learning assistants.\n\nIndustries/Professionals:\n\nSoftware Development:** Developers building AI-powered applications.\nMarketing:** Marketers automating content creation and social media management.\nCustomer Service:** Customer service managers implementing AI-driven chatbots.\n\nEducation:** Educators creating AI-based learning tools.\n\nPractical Value:\n\nTime Savings:** Automates the prompt generation process, saving significant time and effort.\n\nImproved Prompt Quality:** Leverages Google Gemini and structured prompt engineering principles to generate more effective prompts.\n\nCentralized Prompt Management:** Stores prompts in Airtable for easy access, organization, and reuse.\n\n4. Running and Troubleshooting\n\nRunning the Workflow:**\nActivate the workflow in n8n.\nSend a chat message to the webhook URL configured in the \"When chat message received\" node.\nMonitor the workflow execution in the n8n editor.\nMonitoring Execution:**\nCheck the execution log in n8n to see the data flowing through each node and identify any errors.\n\nChecking for Successful Completion:**\nVerify that a new record is created in your Airtable base with the generated prompt, name, and category.\n\nConfirm that the \"Return results\" node sends back confirmation of the prompt in the chat interface.\n\nTroubleshooting Tips:**\nError:** 400: Bad Request in the Google Gemini nodes:\n\nCause:** Invalid API key or insufficient permissions.\nSolution:** Double-check your Google Gemini API key and ensure that the API is enabled for your project.\nError:** Airtable node fails to create a record:\nCause:** Invalid Airtable credentials, incorrect Base ID or Table ID, or mismatched column names.\nSolution:** Verify your Airtable API key, Base ID, Table ID, and column names. Ensure that the data types in n8n match the data types in your Airtable columns.\n\nFollow me on Linkedin for more ",
+  "totalViews": 1792,
+  "source": "official",
+  "user": {
+    "id": 91335,
+    "name": "Imperol",
+    "username": "imperolq",
+    "bio": "Automation expert with years of experience helping businesses improve their efficiency and productivity with smart automations that are affordable, scalable, and flexible. ",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/zacharia-kimotho/\"]",
+    "avatar": "https://gravatar.com/avatar/13b050fd63dc0c9242774c4b8769c4788df8b47268c1fb183d6f1da085b9e6e2?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Auto-fixing Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-02-27T09:18:24.480Z",
+  "path": "official/template_3027/workflow.json"
+}

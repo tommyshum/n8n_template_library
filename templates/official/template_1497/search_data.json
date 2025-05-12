@@ -1,0 +1,18 @@
+{
+  "id": 1497,
+  "name": "Sum or aggregate a column of spreadsheet or table data",
+  "totalViews": 917,
+  "purchaseUrl": null,
+  "user": {
+    "id": 3420,
+    "name": "Max Tkacz",
+    "username": "maxt",
+    "bio": "Design @ n8n",
+    "verified": true,
+    "links": "[\"https://n8n.io\"]",
+    "avatar": "https://gravatar.com/avatar/4eca9c29591ed5132a4c192e7447d9a42f5ae70f6ca2dbf89c15113e195a810b?r=pg&d=retro&size=200"
+  },
+  "description": "This workflow shows how to sum multiple items of data, like you would in Excel or Airtable when summing up the total of a column. It uses a Function node with some javascript to perform the aggregation of numeric data. \n\nThe first node is simply mock data to avoid needing a credential to run the workflow. The second node actually performs the summation - the javascript has various comments in case you need to edit the JS. For example, to sum multiple items of data.\n\nBelow is an example of the type of data this workflow can sum - so anything that is in a tabular form (Airtable, GSHeets, Postgres etc).\n",
+  "createdAt": "2022-02-28T17:39:26.763Z",
+  "nodes": []
+}

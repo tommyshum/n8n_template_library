@@ -1,0 +1,63 @@
+{
+  "id": 3033,
+  "name": "CallForge - 03 - Gong Transcript Processor and Salesforce Enricher",
+  "description": "\nCallForge - AI Gong Transcript PreProcessor  \nTransform your Gong.io call transcripts into structured, enriched, and AI-ready data for better sales insights and analytics.\n\nWho is This For?  \nThis workflow is designed for:  \n✅ Sales teams looking to automate call transcript formatting.  \n✅ Revenue operations (RevOps) professionals optimizing AI-driven insights.  \n✅ Businesses using Gong.io that need structured, enriched call transcripts for better decision-making.  \n\nWhat Problem Does This Workflow Solve?  \nManually processing raw Gong call transcripts is inefficient and often lacks essential context for AI-driven insights.  \n\nWith CallForge, you can:  \n✔ Extract and format Gong call transcripts for structured AI processing.  \n✔ Enhance metadata using sales data from Salesforce.  \n✔ Classify speakers as internal (sales team) or external (customers).  \n✔ Identify external companies by filtering out free email domains (e.g., Gmail, Yahoo).  \n✔ Enrich customer profiles using PeopleDataLabs to identify company details and locations.  \n✔ Prepare transcripts for AI models by structuring conversations and removing unnecessary noise.  \n\nWhat This Workflow Does  \n\n1. Retrieves Gong Call Data  \nCalls the Gong API to extract call metadata, speaker interactions, and collaboration details.  \nFetches call transcripts for AI processing.  \n\n2. Processes and Cleans Transcripts  \nConverts call transcripts into structured, speaker-based dialogues.  \nAssigns each speaker as either Internal (Sales Team) or External (Customer).  \n\n3. Extracts Company Information  \nRetrieves Salesforce data** to match customers with existing sales opportunities.  \nFilters out free email domains* to determine the *customer’s actual company domain**.  \nCalls the PeopleDataLabs API to retrieve additional company data and location details.  \n\n4. Merges and Enriches Data  \nCombines Gong metadata, Salesforce customer details and insights**.  \nEnsures all necessary data is available for AI-driven sales insights.  \n\n5. Final Formatting for AI Processing  \nMerges all call transcript data into a single structured format for AI analysis.  \nExtracts the final cleaned, enriched dataset for further AI-powered insights.  \n\nHow to Set Up This Workflow  \n\n1. Connect Your APIs  \n🔹 Gong API Access – Set up your Gong API credentials in n8n.  \n🔹 Salesforce Setup – Ensure API access if you want customer enrichment.  \n🔹 PeopleDataLabs API – Required to retrieve company and location details based on email domains.  \n🔹 Webhook Integration – Modify the webhook call to push enriched call data to an internal system.  \n\nCallForge - 01 - Filter Gong Calls Synced to Salesforce by Opportunity Stage\nCallForge - 02 - Prep Gong Calls with Sheets & Notion for AI Summarization\nCallForge - 03 - Gong Transcript Processor and Salesforce Enricher\nCallForge - 04 - AI Workflow for Gong.io Sales Calls\nCallForge - 05 - Gong.io Call Analysis with Azure AI & CRM Sync\nCallForge - 06 - Automate Sales Insights with Gong.io, Notion & AI\nCallForge - 07 - AI Marketing Data Processing with Gong & Notion\nCallForge - 08 - AI Product Insights from Sales Calls with Notion\n\nHow to Customize This Workflow  \n💡 Modify Data Sources – Connect different CRMs (e.g., HubSpot, Zoho) instead of Salesforce.  \n💡 Expand AI Analysis – Add another AI model (e.g., OpenAI GPT, Claude) for advanced conversation insights.  \n💡 Change Speaker Classification Rules – Adjust internal vs. external speaker logic to match your team’s structure.  \n💡 Filter Specific Customers – Modify the free email filtering logic to better fit your company’s needs.  \n\nWhy Use CallForge?  \n🚀 Automate Gong call transcript processing to save time.  \n📊 Improve AI accuracy with enriched, structured data.  \n🛠 Enhance sales strategy by extracting actionable insights from calls.  \n\nStart optimizing your Gong transcript analysis today!  \n\n",
+  "totalViews": 823,
+  "source": "official",
+  "user": {
+    "id": 16588,
+    "name": "Angel Menendez",
+    "username": "djangelic",
+    "bio": "Angel Menendez is a Staff Developer Advocate at n8n.io, specializing in low-code tools for cybersecurity workflows. From Puerto Rico, Angel's tech journey began by helping his father translate technical books. He later started a web development business and transitioned from a career as a flight attendant to cybersecurity engineering. His workflows have saved companies significant time. Outside work, Angel enjoys time with his two sons, riding electric bikes, reading, and exploring new places.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/fdbe38425d21378d8c9ba8916e1eb0b320add299f12cc23fcd4961d4e6e00bec?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Sales",
+    "Communication"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Salesforce",
+      "type": "n8n-nodes-base.salesforce",
+      "categories": [
+        "Sales",
+        "Communication"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-02-28T06:35:05.851Z",
+  "path": "official/template_3033/workflow.json"
+}

@@ -1,0 +1,131 @@
+{
+  "id": 3444,
+  "name": "Redis Locking for Concurrent Task Handling",
+  "totalViews": 55,
+  "purchaseUrl": null,
+  "user": {
+    "id": 93610,
+    "name": "Geoffrey Saxena",
+    "username": "geffy",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/5da49291fb5a959649aedbf24e45c39ed0a882b3801966ab5bc347d90b3d1f7e?r=pg&d=retro&size=200"
+  },
+  "description": "👤 Who is this for?\n\nThis workflow is great for n8n users who want to prevent duplicate or overlapping workflow runs. If you're a developer, DevOps engineer, or automation enthusiast managing tasks like database updates, syncing tools, or hitting rate-limited APIs, this one’s for you.\n\n🧩 What problem does this solve?\n\nIn the real world, automations can get triggered at the same time—whether that’s because of multiple webhook calls, overlapping schedules, or retries. And when two workflows try to do the same thing at once (like updating a record or syncing data), it can cause conflicts, data corruption, or wasted API calls.\n\nThis workflow helps avoid that problem by using Redis as a lock system, so only one instance runs at a time. Think of it like putting up a “🚧 Workflow in Progress” sign while your logic is running.\n\n⚙️ What this workflow does\n\nWhen the workflow starts, it tries to set a Redis key as a lock with a short expiry.\nIf the lock is free:\n   Your main business logic runs.\n   Once it's done, the lock is cleared.\nIf the lock is already taken (i.e., another run is in progress):\n   The workflow will wait and retry a few times.\nIf a duplicate request shows up while one is already being processed:\n   It skips that duplicate to avoid unnecessary work.\n\nYou can customize both the timeout and retry logic to match your needs.\n\n🛠️ Setup guide\n\nTo use this template:\n\nYou’ll need access to a Redis instance (either self-hosted or managed like Upstash, Redis Cloud, etc).\nSet up your Redis credentials in the n8n Redis node.\nSwap out the webhook node with your actual trigger or logic.\nAdjust the lock timeout to match how long your task typically takes.\n\n&gt; 💡 Bonus Tip: Use this pattern wherever you need idempotency or want to avoid duplicate processing.\n\n🧪 Example use case\n\nLet’s say you have a workflow that syncs ClickUp tickets to Google Sheets. It runs daily at 9 AM and updates tickets, adds notes, and makes sure nothing is missed.\n\nBut what if two runs start at the same time? Or someone triggers a manual sync while the scheduled one is still working?\n\nBy wrapping that whole sync inside this Redis locking template, you can make sure it only runs one at a time, saving your APIs (and your sanity).",
+  "createdAt": "2025-04-06T08:12:44.136Z",
+  "nodes": [
+    {
+      "id": 33,
+      "icon": "file:redis.svg",
+      "name": "n8n-nodes-base.redis",
+      "codex": {
+        "data": {
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/why-this-product-manager-loves-workflow-automation-with-n8n/",
+                "icon": "🧠",
+                "label": "Why this Product Manager loves workflow automation with n8n"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.redis/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/redis/"
+              }
+            ]
+          },
+          "categories": [
+            "Development",
+            "Data & Storage"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "Redis"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGZpbGw9IiNBNDFFMTEiIGQ9Ik01Ny42NTYgNDMuOTljLTMuMjAxIDEuNjgzLTE5Ljc4NyA4LjU2MS0yMy4zMTggMTAuNDE3cy01LjQ5NCAxLjgzOC04LjI4My40OTRjLTIuNzktMS4zNDMtMjAuNDQ5LTguNTM1LTIzLjYyOS0xMC4wNjdDLjgzNCA0NC4wNjYuMDAyIDQzLjQyMi4wMDIgNDIuODExdi02LjExN3MyMi45OC01LjA0NSAyNi42OS02LjM4OCA0Ljk5NS0xLjM5IDguMTU0LS4yMjVjMy4xNiAxLjE2NSAyMi4wMzUgNC42MDMgMjUuMTU0IDUuNzU2djYuMDMyYzAgLjYwNS0uNzIgMS4yODMtMi4zNSAyLjEyNHoiLz48cGF0aCBmaWxsPSIjRDgyQzIwIiBkPSJNNTcuNjU2IDM3Ljg3MmMtMy4yMDEgMS42ODUtMTkuNzg3IDguNTYtMjMuMzE4IDEwLjQxN3MtNS40OTQgMS44MzgtOC4yODMuNDk0Yy0yLjc5LTEuMzQzLTIwLjQ0OS04LjUzNC0yMy42My0xMC4wNjhzLTMuMjQzLTIuNTg4LS4xMjItMy44MmwyNC4zODgtOS41MmMzLjcxLTEuMzQgNC45OTQtMS4zOSA4LjE1My0uMjI1czE5LjY0MyA3Ljc4IDIyLjc0NyA4Ljk1MWMzLjEwMyAxLjE3IDMuMjQgMi4wODYuMDM3IDMuNzg2eiIvPjxwYXRoIGZpbGw9IiNBNDFFMTEiIGQ9Ik01Ny42NTYgMzQuMDE1Yy0zLjIwMSAxLjY4My0xOS43ODcgOC41NjEtMjMuMzE4IDEwLjQxN3MtNS40OTQgMS44MzgtOC4yODMuNDk1Yy0yLjc5LTEuMzQ0LTIwLjQ0OS04LjUzNi0yMy42MjktMTAuMDY3Qy44MzQgMzQuMDkyLjAwMiAzMy40NDcuMDAyIDMyLjgzNlYyNi43MnMyMi45OC01LjA0NSAyNi42OS02LjM4N2MzLjcxMS0xLjM0MyA0Ljk5NS0xLjM5IDguMTU0LS4yMjUgMy4xNiAxLjE2NSAyMi4wMzUgNC42MDIgMjUuMTU0IDUuNzU2djYuMDMyYzAgLjYwNS0uNzIgMS4yODMtMi4zNSAyLjEyM3oiLz48cGF0aCBmaWxsPSIjRDgyQzIwIiBkPSJNNTcuNjU2IDI3Ljg5OGMtMy4yMDEgMS42ODUtMTkuNzg3IDguNTYxLTIzLjMxOCAxMC40MTdzLTUuNDk0IDEuODM4LTguMjgzLjQ5NWMtMi43OS0xLjM0NC0yMC40NDktOC41MzQtMjMuNjMtMTAuMDY3LTMuMTgtMS41MzQtMy4yNDMtMi41ODgtLjEyMi0zLjgybDI0LjM4OC05LjUyYzMuNzEtMS4zNDMgNC45OTQtMS4zOSA4LjE1My0uMjI1IDMuMTYgMS4xNjYgMTkuNjQ0IDcuNzg1IDIyLjc2NSA4LjkzNXMzLjI0IDIuMDg1LjAzOCAzLjc4NXoiLz48cGF0aCBmaWxsPSIjQTQxRTExIiBkPSJNNTcuNjU2IDIzLjY3MWMtMy4yMDEgMS42ODMtMTkuNzg3IDguNTYxLTIzLjMxOCAxMC40MTlzLTUuNDk0IDEuODM4LTguMjgzLjQ5NWMtMi43OS0xLjM0NC0yMC40NDktOC41MzUtMjMuNjI5LTEwLjA2OS0xLjU5Mi0uNzY1LTIuNDI0LTEuNDExLTIuNDI0LTIuMDJ2LTYuMTFzMjIuOTgtNS4wNDUgMjYuNjktNi4zODggNC45OTUtMS4zOSA4LjE1NC0uMjI1YzMuMTYgMS4xNjUgMjIuMDM1IDQuNTkxIDI1LjE1NCA1Ljc0NXY2LjAzMmMwIC42MDUtLjcyIDEuMjgzLTIuMzUgMi4xMjN6Ii8+PHBhdGggZmlsbD0iI0Q4MkMyMCIgZD0iTTU3LjY1NiAxNy41NTNjLTMuMjAxIDEuNjg1LTE5Ljc4NyA4LjU2MS0yMy4zMTggMTAuNDE3cy01LjQ5NCAxLjgzOC04LjI4My40OTVjLTIuNzktMS4zNDQtMjAuNDQ5LTguNTM0LTIzLjYzLTEwLjA2OHMtMy4yNDMtMi41ODctLjEyMi0zLjgybDI0LjM4OC05LjUyYzMuNzEtMS4zNDMgNC45OTQtMS4zOSA4LjE1My0uMjI2IDMuMTYgMS4xNjUgMTkuNjQzIDcuNzg1IDIyLjc2NSA4LjkzNnMzLjI0IDIuMDg1LjAzOCAzLjc4NXoiLz48cGF0aCBmaWxsPSIjRkZGIiBkPSJtMzEuNDk3IDE1LjAzMi0xLjg4LTMuMTUzLTYuMDAyLS41NDUgNC40OC0xLjYzTDI2Ljc1IDcuMmw0LjE5MiAxLjY1MyAzLjk1NS0xLjMwNS0xLjA3IDIuNTg2IDQuMDMyIDEuNTI0LTUuMTk4LjU0NnptLTEwLjAxNCA2LjI3NSAxMy45MDMtMi4xNTMtNC4yIDYuMjExem0tMTEuMTctNS4xNjdjMC0xLjYxIDMuMzE0LTIuOTA2IDcuNDMxLTIuOTA2IDQuMTE4IDAgNy40MzIgMS4yOTYgNy40MzIgMi45MDZzLTMuMzE0IDIuOTA1LTcuNDMyIDIuOTA1Yy00LjExNyAwLTcuNDMxLTEuMjk1LTcuNDMxLTIuOTA1Ii8+PHBhdGggZmlsbD0iIzdBMEMwMCIgZD0ibTUyLjIzMyAxNS43MTQtOC4yMjQgMy4yNzYtLjAwNy02LjU1NnoiLz48cGF0aCBmaWxsPSIjQUQyMTE1IiBkPSJtNDQuMDEgMTguOTkxLS44OS4zNTMtOC4yMTctMy4yNzYgOS4wOTQtMy42M3oiLz48L2c+PC9zdmc+"
+      },
+      "displayName": "Redis",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 3,
+          "name": "Data & Storage"
+        },
+        {
+          "id": 5,
+          "name": "Development"
+        }
+      ]
+    },
+    {
+      "id": 834,
+      "icon": "file:code.svg",
+      "name": "n8n-nodes-base.code",
+      "codex": {
+        "data": {
+          "alias": [
+            "cpde",
+            "Javascript",
+            "JS",
+            "Python",
+            "Script",
+            "Custom Code",
+            "Function"
+          ],
+          "details": "The Code node allows you to execute JavaScript in your workflow.",
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.code/"
+              }
+            ]
+          },
+          "categories": [
+            "Development",
+            "Core Nodes"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0",
+          "subcategories": {
+            "Core Nodes": [
+              "Helpers",
+              "Data Transformation"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Code"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwMF8xMTcxXzQ0MSkiPgo8cGF0aCBkPSJNMTcwLjI4MyA0OEgxOTYuNUMyMDMuMTI3IDQ4IDIwOC41IDQyLjYyNzQgMjA4LjUgMzZWMTJDMjA4LjUgNS4zNzI1OCAyMDMuMTI3IDAgMTk2LjUgMEgxNzAuMjgzQzEyNi4xIDAgOTAuMjgzIDM1LjgxNzIgOTAuMjgzIDgwVjE3NkM5MC4yODMgMjA2LjkyOCA2NS4yMTA5IDIzMiAzNC4yODMgMjMySDIzQzE2LjM3MjYgMjMyIDExIDIzNy4zNzIgMTEgMjQ0VjI2OEMxMSAyNzQuNjI3IDE2LjM3MjQgMjgwIDIyLjk5OTYgMjgwTDM0LjI4MyAyODBDNjUuMjEwOSAyODAgOTAuMjgzIDMwNS4wNzIgOTAuMjgzIDMzNlY0NDBDOTAuMjgzIDQ3OS43NjQgMTIyLjUxOCA1MTIgMTYyLjI4MyA1MTJIMTk2LjVDMjAzLjEyNyA1MTIgMjA4LjUgNTA2LjYyNyAyMDguNSA1MDBWNDc2QzIwOC41IDQ2OS4zNzMgMjAzLjEyNyA0NjQgMTk2LjUgNDY0SDE2Mi4yODNDMTQ5LjAyOCA0NjQgMTM4LjI4MyA0NTMuMjU1IDEzOC4yODMgNDQwVjMzNkMxMzguMjgzIDMwOS4wMjIgMTI4LjAxMSAyODQuNDQzIDExMS4xNjQgMjY1Ljk2MUMxMDYuMTA5IDI2MC40MTYgMTA2LjEwOSAyNTEuNTg0IDExMS4xNjQgMjQ2LjAzOUMxMjguMDExIDIyNy41NTcgMTM4LjI4MyAyMDIuOTc4IDEzOC4yODMgMTc2VjgwQzEzOC4yODMgNjIuMzI2OSAxNTIuNjEgNDggMTcwLjI4MyA0OFoiIGZpbGw9IiNGRjk5MjIiLz4KPHBhdGggZD0iTTMwNSAzNkMzMDUgNDIuNjI3NCAzMTAuMzczIDQ4IDMxNyA0OEgzNDIuOTc5QzM2MC42NTIgNDggMzc0Ljk3OCA2Mi4zMjY5IDM3NC45NzggODBWMTc2QzM3NC45NzggMjAyLjk3OCAzODUuMjUxIDIyNy41NTcgNDAyLjA5OCAyNDYuMDM5QzQwNy4xNTMgMjUxLjU4NCA0MDcuMTUzIDI2MC40MTYgNDAyLjA5OCAyNjUuOTYxQzM4NS4yNTEgMjg0LjQ0MyAzNzQuOTc4IDMwOS4wMjIgMzc0Ljk3OCAzMzZWNDMyQzM3NC45NzggNDQ5LjY3MyAzNjAuNjUyIDQ2NCAzNDIuOTc5IDQ2NEgzMTdDMzEwLjM3MyA0NjQgMzA1IDQ2OS4zNzMgMzA1IDQ3NlY1MDBDMzA1IDUwNi42MjcgMzEwLjM3MyA1MTIgMzE3IDUxMkgzNDIuOTc5QzM4Ny4xNjEgNTEyIDQyMi45NzggNDc2LjE4MyA0MjIuOTc4IDQzMlYzMzZDNDIyLjk3OCAzMDUuMDcyIDQ0OC4wNTEgMjgwIDQ3OC45NzkgMjgwSDQ5MEM0OTYuNjI3IDI4MCA1MDIgMjc0LjYyOCA1MDIgMjY4VjI0NEM1MDIgMjM3LjM3MyA0OTYuNjI4IDIzMiA0OTAgMjMyTDQ3OC45NzkgMjMyQzQ0OC4wNTEgMjMyIDQyMi45NzggMjA2LjkyOCA0MjIuOTc4IDE3NlY4MEM0MjIuOTc4IDM1LjgxNzIgMzg3LjE2MSAwIDM0Mi45NzkgMEgzMTdDMzEwLjM3MyAwIDMwNSA1LjM3MjU4IDMwNSAxMlYzNloiIGZpbGw9IiNGRjk5MjIiLz4KPC9nPgo8ZGVmcz4KPGNsaXBQYXRoIGlkPSJjbGlwMF8xMTcxXzQ0MSI+CjxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiBmaWxsPSJ3aGl0ZSIvPgo8L2NsaXBQYXRoPgo8L2RlZnM+Cjwvc3ZnPgo="
+      },
+      "displayName": "Code",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 5,
+          "name": "Development"
+        },
+        {
+          "id": 9,
+          "name": "Core Nodes"
+        }
+      ]
+    }
+  ]
+}

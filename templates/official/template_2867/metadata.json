@@ -1,0 +1,42 @@
+{
+  "id": 2867,
+  "name": "Credit Card Payment Reminder & Tracking-For Taiwan Banks",
+  "description": "Workflow Description\nThis workflow automates the processing of credit card statement emails from multiple banks. It extracts important payment details, stores them in Google Sheets, and creates calendar reminders in Google Calendar. Additionally, it allows users to update the payment status once the bill has been paid.\n\nKey Features\nEmail Processing: Retrieves credit card statement emails from eight Taiwanese banks.\nPDF Parsing: Extracts payment due date and amount from email content or attached PDF files.\nGoogle Sheets Integration: Logs extracted data into a Google Sheets document for record-keeping.\nGoogle Calendar Integration: Creates Google Calendar events as reminders for due payments.\nWebhook for Payment Updates: Allows users to update the payment status via a webhook.\n\nNode Configurations\n\n1. Email Retrieval\nPurpose**: Fetches credit card statement emails from Gmail.\nConfiguration**:\n  Email Filters:\n    SinoPac Bank: from:(newebill.banksinopac.com.tw) SinoPac Bank Credit Card E-Statement Notification\n    Cathay United Bank: from:(service@pxbillrc01.cathaybk.com.tw) Cathay United Bank Monthly E-Statement\n    CTBC Bank: from:(ebill@estats.ctbcbank.com) CTBC Bank Credit Card E-Statement\n    Taipei Fubon Bank: from:(rs@cf.taipeifubon.com.tw) Taipei Fubon Bank Credit Card Statement\n    E.SUN Commercial Bank: from:(estatement@esunbank.com) E.SUN Commercial Bank Credit Card E-Statement\n    DBS Bank: from:(eservicetw@dbs.com) DBS Bank Credit Card E-Statement\n    Union Bank of Taiwan: from:(聯邦銀行信用卡) Union Bank of Taiwan Credit Card E-Statement (Year Month)\n    Taishin International Bank: from:(webmaster@bhurecv.taishinbank.com.tw) Taishin International Bank Credit Card E-Statement\n\n2. Extract Payment Information\nPurpose**: Extracts payment due date, total amount, and minimum payment amount.\nMethods**:\n  Text-based Extraction: Uses regex to parse email body.\n  PDF Parsing: Extracts text from PDF attachments.\n\n3. Data Processing and Storage\n3.1. Consolidate Extracted Data\nPurpose**: Standardizes extracted payment details.\nData Fields**:\n  payment_due_date\n  payment_amount\n  minimum_payment\n  email_id\n  bank\n  email_subject\n\n3.2. Google Sheets Integration\nPurpose**: Stores the extracted data in a structured format.\nConfiguration**:\n  Sheet Name: n8n-Credit Card Payment Reminder\n  Columns:\n    calendar_id\n    Paid\n    Billing Period\n    Amount\n    Minimum Payment\n    Bank\n    email_id\n\n4. Google Calendar Integration\n4.1. Create Calendar Reminders\nPurpose**: Generates reminders for upcoming payments.\nConfiguration**:\n  Event Title: Credit Card Payment - {{ bank }}\n  Due Date: payment_due_date\n  Reminders:\n    30 minutes before\n    60 minutes before\n    1 day before\n\n4.2. Update Payment Status\nPurpose**: Updates the calendar event once payment is made.\nConfiguration**:\n  Webhook URL: Automatically updates the Google Calendar event title and description.\n\n5. Webhook for Payment Updates\nPurpose: Users can mark a payment as **paid via a webhook.\nConfiguration**:\n  Webhook Path: darrell_demo_creditcard_pay_update_path\n  Updates:\n    Marks the payment as Paid\n    Updates Google Calendar and Google Sheets\n",
+  "totalViews": 806,
+  "source": "official",
+  "user": {
+    "id": 92348,
+    "name": "darrell_tw",
+    "username": "darrelltw",
+    "bio": "Martech Engineer with automation.\nhere is my website: https://www.darrelltw.com/",
+    "verified": true,
+    "links": "[\"https://x.com/DarrellMarTech\"]",
+    "avatar": "https://gravatar.com/avatar/4bf99603c608dc2e9a91e3d17bf47743b41153512a14098c8070213d7dccc199?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Google Calendar",
+      "type": "n8n-nodes-base.googleCalendar",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-02-08T08:38:52.038Z",
+  "path": "official/template_2867/workflow.json"
+}

@@ -1,0 +1,41 @@
+{
+  "id": 2518,
+  "name": "🎵 Sync YouTube and Spotify Music Playlists",
+  "description": "Workflow Overview\n\nThis workflow automates the process of updating a Spotify playlist with tracks from a YouTube playlist, ensuring no duplicates are added.\n\nKey Components\n\nManual Trigger: Starts the workflow when you click ‘Test workflow’.\n   \nSpotify Integration: Retrieves tracks from a specified Spotify playlist.\n\nYouTube Integration: Fetches tracks from a designated YouTube playlist.\n\nBatch Processing: Processes tracks in batches to handle multiple items efficiently.\n\nTrack Search: Searches for YouTube tracks on Spotify to find corresponding IDs.\n\nComparison: Compares existing Spotify tracks with YouTube tracks to identify which ones to add.\n\nTrack Addition: Adds new Spotify tracks to the playlist that are not already included.\n\nIf you have any questions or need clarification, feel free to ask!\n",
+  "totalViews": 1519,
+  "source": "official",
+  "user": {
+    "id": 92110,
+    "name": "Louis",
+    "username": "louisdl",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://youtube.com/@LouisTKRoom\"]",
+    "avatar": "https://gravatar.com/avatar/4d7e7878004eb467bfa9c40f197ff70d7155caa84ef0fb3ab8d3221fdd28303b?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Miscellaneous",
+    "Marketing"
+  ],
+  "nodes": [
+    {
+      "name": "Spotify",
+      "type": "n8n-nodes-base.spotify",
+      "categories": [
+        "Miscellaneous"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "YouTube",
+      "type": "n8n-nodes-base.youTube",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-11-01T16:50:08.247Z",
+  "path": "official/template_2518/workflow.json"
+}

@@ -1,0 +1,81 @@
+{
+  "id": 3415,
+  "name": "Abandoned cart recovery for Shopify via Gmail, Google Sheets & Twilio (no-code)",
+  "description": "Who is this for?\n\nThis template is ideal for solo store owners, eCommerce marketers, automation beginners, or anyone using Shopify and Gmail who wants to recover lost revenue without coding.\n\nWhat problem does this solve?\n\nCustomers often leave items in their cart without completing the purchase. Manually chasing those sales is inefficient and inconsistent. This workflow automates the recovery process by sending emails (and optionally SMS) based on Shopify checkout activity.\n\nWhat this workflow does:\n\n✅ Detects when a Shopify checkout is created but not completed,\n⏳ Waits 1 hour, then checks if the cart was abandoned,\n🧾 Pulls cart contents and applies a fallback discount,\n📧 Sends a recovery email via Gmail,\n🕓 After 24 hours, you can optionally send an SMS or WhatsApp reminder via Twilio,\n📊 Logs each interaction to Google Sheets for tracking.\n\nSetup:\n\nCreate Shopify, Gmail, Google Sheets, and Twilio credentials in your n8n instance,\nImport the JSON workflow file\nReplace the Shopify trigger with your store's webhook (set to “Checkout Create”),\nSet your wait time (default: 1 hour),\nLink your Gmail account and customize the email message,\n(Optional) Link Twilio to add a multi-channel reminder,\nUpdate the Google Sheets node with your own Sheet ID and headers.\n\n🗒 Color-coded workflow notes:\n\nTo make customization easier, this template includes a visual sticky note system inside the n8n canvas.\n\nYou’ll find:\n\n🟩 Green Notes → Main Steps  \n  Clear, essential stages of the automation (e.g. wait, check cart status, send email),\n\n🟦 Blue Notes → Personalization Tips  \n  Small tweaks you can make to match your tone, store brand, or logic (e.g. email copy, discount logic),\n\n🟨 Yellow Notes → Optional / Advanced  \n  Features that you can explore setting up:  \n  Twilio SMS, Airtable logging, human approval steps, etc.\n\n👉 Look around each key node for quick tips, setup instructions, and TO-DO items.\n\nThis system helps you understand and modify the workflow at a glance — whether you're a beginner or scaling a pro setup.\n\nHow to customize this workflow?\n\n🎯 Swap Shopify for WooCommerce or Stripe by replacing the trigger and cart-check logic,\n💬 Localize and personalize each email message or add multilingual support via AI,\n📈 Upgrade logging from Google Sheets to Airtable for CRM-style features,\n🤝 Add manual approval steps for high-value discounts,\n💡 Want a one-time unique code per user? Let us build that logic for you → velebit@innovatio.design\n\nFinal notes\n\nThis template was designed by Velebit from Innovatio. External links in the workflow (e.g. support or upgrade options) are optional and purely informative, while only leading to the official company webiste with no affiliate or similar links included in the template itself.\n\nA separate license applies to the paid version on Gumroad, which includes additional modules and commercial use rights.",
+  "totalViews": 488,
+  "source": "official",
+  "user": {
+    "id": 93571,
+    "name": "Velebit from Innovatio",
+    "username": "innovatio",
+    "bio": "I design modular (no-code, low-code, AI) automation workflows for creators, marketers, and lean SaaS teams.  \nFounder of [Innovatio](https://innovatio.design) — empowering humans with AI-powered systems that save time, boost revenue, and scale with heart.\n\n🚀 Want custom automation? Let's talk → velebit@innovatio.design",
+    "verified": true,
+    "links": "[\"https://innovatio.design/\"]",
+    "avatar": "https://gravatar.com/avatar/6278fbac6a13365966261d4fa900b7b75ade5437ec61e3022d4549b8466d4685?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Twilio",
+      "type": "n8n-nodes-base.twilio",
+      "categories": [
+        "Communication",
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-04-03T10:30:12.179Z",
+  "path": "official/template_3415/workflow.json"
+}

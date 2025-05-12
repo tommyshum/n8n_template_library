@@ -1,0 +1,134 @@
+{
+  "id": 2582,
+  "name": "Automate Sales Meeting Prep with AI &  APIFY Sent To WhatsApp",
+  "description": "This n8n template builds a meeting assistant that compiles timely reminders of upcoming meetings filled with email history and recent LinkedIn activity of other people on the invite. This is then discreetly sent via WhatsApp ensuring the user is always prepared, informed and ready to impress!\n\nHow it works\nA scheduled trigger fires hourly to check for upcoming personal meetings.\nWhen found, the invite is analysed by an AI agent to pull email and LinkedIn details of the other invitees.\n2 subworkflows are then triggered for each invitee to (1) search for last email correspondence with them and (2) scrape their LinkedIn profile + recent activity for social updates.\nUsing both available sources, another AI agent is used to summarise this information and generate a short meeting prep message for the user.\nThe notification is finally sent to the user's WhatsApp, allowing them ample time to review.\n\nHow to use\nThere are a lot of moving parts in this template so in it's current form, it's best to use this for personal rather than team calendars.\nThe LinkedIn scraping method used in this workflow requires you to paste in your LinkedIn cookies from your browser which essentially let's n8n impersonate you. You can retrieve this from dev console or ask someone technical for help!\n\nNote: It may be wise to switch to other LinkedIn scraping approaches which do not impersonate your own account for production.\n\nRequirements\nOpenAI for LLM\nGmail for Email\nGoogle Calendar for upcoming events\nWhatsApp Business account for notifications\n\nCustomising this workflow\nTry adding information sources which are relevant to you and your invitees. Such as company search, other social media sites etc.\nCreate an on-demand version which doesn't rely on the scheduled trigger. Sometimes you want to know prepare for meetings hours or days in advance where this could help immensely.",
+  "totalViews": 7517,
+  "source": "official",
+  "user": {
+    "id": 91804,
+    "name": "Jimleuk",
+    "username": "jimleuk",
+    "bio": "Freelance consultant based in the UK specialising in AI-powered automations. I work with select clients tackling their most challenging projects. For business enquiries, send me an email at hello@jimle.uk\n\nLinkedIn: https://www.linkedin.com/in/jimleuk/\nX/Twitter: https://x.com/jimle_uk",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4ab99e51473df76838beeaac908747f7928c625f869794815cabe34016967d51?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Productivity",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Calendar",
+      "type": "n8n-nodes-base.googleCalendar",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "WhatsApp Business Cloud",
+      "type": "n8n-nodes-base.whatsApp",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Information Extractor",
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 8,
+  "createdAt": "2024-11-26T23:00:48.040Z",
+  "path": "official/template_2582/workflow.json"
+}

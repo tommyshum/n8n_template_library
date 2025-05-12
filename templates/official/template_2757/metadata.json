@@ -1,0 +1,124 @@
+{
+  "id": 2757,
+  "name": "AI-Powered Candidate Shortlisting Automation for ERPNext",
+  "description": "Template Guide for Employee Shortlisting AI Agent Automation\n\nOverview\nThis template automates the process of shortlisting job applicants using ERPNext, n8n, and AI-powered decision-making tools like Google Gemini and OpenAI. It reduces manual effort, ensures fast evaluations, and provides justifiable decisions about applicants. This is ideal for businesses aiming to streamline their recruitment process while maintaining accuracy and professionalism.\n\nYouTube Tutorial:** For a full walkthrough of this template, visit:  \n\n  Integrate AI in ERPNext: Automate Recruitment Job Applicant Shortlisting in Seconds!\n\nWhat Does This Template Do?\nWebhook Integration with ERPNext: Automatically triggers the workflow when a job application is created in ERPNext.\nResume Validation: Ensures resumes are attached and correctly processes various file formats like PDF and DOC.\nAI-Powered Evaluation: Uses AI to compare resumes against job descriptions and provides a:\n   Fit Level (Strong, Moderate, or Weak)\n   Score (0–100)\n   Justification for the decision.\nAutomated Decision Making: Based on AI-generated scores:\n   Candidates with a score of 80 or higher are Accepted.\n   Candidates below 80 are Rejected.\n   Applications missing required fields or attachments are put On Hold.\nERPNext Integration: Updates applicant records in ERPNext, including custom fields such as justification, fit level, and scores.\nNotifications: Notifies candidates via email, WhatsApp, or SMS about their application status.\n\nStep-by-Step Guide\n\nStep 1: Set Up ERPNext Webhook\nGo to Webhooks in ERPNext.\nCreate a webhook for the Job Applicant DocType.\nSet the trigger to Insert.\nPin and test the webhook to ensure proper data flow.\n\nStep 2: Import the Template into n8n\nOpen your n8n instance.\nImport the provided workflow template.\nCheck all nodes for proper configuration.\n\nStep 3: Configure Credentials\nAdd your ERPNext API credentials to the ERPNext nodes.\nAdd credentials for AI services like OpenAI or Google Gemini.\nConfigure additional services like WhatsApp or email if you plan to use them for notifications.\n\nStep 4: Test Resume Validation\nTest how the workflow handles different file types (e.g., PDF, DOC, JPG).\nEnsure resumes without the proper format or attachment are flagged and rejected.\n\nStep 5: AI Evaluation\nThe AI model (Google Gemini or OpenAI) will evaluate resumes against job descriptions.\nCustomize the AI prompt to suit your job evaluation needs.\nThe output will include a Fit Level, Score, Rating, and Justification.\n\nStep 6: Decision Automation\nThe workflow automatically categorizes applicants:\n  Accepted for scores ≥ 80.\n  Rejected for scores &lt; 80.\n  On Hold if essential fields or attachments are missing.\n\nStep 7: Update ERPNext Records\nThe workflow updates the Job Applicant record in ERPNext with:\n  Status (Accepted, Rejected, On Hold)\n  AI-generated Fit Level, Score, Rating, and Justification.\n\nStep 8: Notify Candidates\nConfigure notification nodes (email, WhatsApp, or SMS).\nInform candidates about their application status and include feedback if required.\n\nHow It Works\nTrigger: The workflow starts when a job application is submitted in ERPNext.\nValidation: Checks if the resume is attached and in the correct format.\nAI Evaluation: Compares the resume with the job description and generates a decision.\nERPNext Update: Updates the applicant's record with the decision and justification.\nNotification: Sends a personalized notification to the candidate.\n\nDos and Don’ts\n\nDos:\nCustomize Prompts:** Tailor the AI prompt to match your specific job evaluation requirements.\nTest the Workflow:** Run sample data to ensure the process works as intended.\nSecure Your Credentials:** Keep your API credentials safe and do not share them publicly.\nOptimize for Different Formats:** Ensure the workflow can handle all types of resumes you expect.\n\nDon’ts:\nAvoid Manual Intervention:** Let the workflow handle most of the tasks to ensure efficiency.\nDo Not Skip Testing:** Always test the workflow with various scenarios to avoid errors.\nDo Not Overlook Notifications:** Ensure candidates are notified promptly to maintain professionalism.\n\nCustomization Options\nAdd logic for more file types (e.g., scanned images using OCR).\nEnhance the AI prompts to analyze more complex resume data.\nIntegrate additional tools like Slack or Trello for recruitment tracking.\n\nResources\nGET n8n Now  \n\nN8N COURSE  \nn8n Book  \n\nYouTube Tutorial:** For a full walkthrough of this template, visit:  \n  SyncBricks YouTube Channel\nDetailed Guides and Courses:** Learn more about ERPNext and AI-driven automation at:  \n  SyncBricks LMS\n\nSupport\nIf you encounter issues or want to explore more possibilities with AI-driven automation, feel free to reach out:  \nEmail:** amjid@amjidali.com  \nWebsite:** ERPNext and Other Courses  \nLinkedIn:** Amjid Ali\n\nLet me know if you'd like further details or modifications to the guide!",
+  "totalViews": 3296,
+  "source": "official",
+  "user": {
+    "id": 92318,
+    "name": "Amjid Ali",
+    "username": "amjid",
+    "bio": "**Amjid Ali** is an automation expert and AI enthusiast specializing in creating intelligent workflows using low-code platforms like **n8n**. With a passion for simplifying complex processes, he designs solutions that enhance productivity and streamline operations. As an active contributor to the **n8n Creator Hub**, Amjid shares innovative use cases, practical templates, and best practices, empowering the community to unlock the full potential of workflow automation.",
+    "verified": true,
+    "links": "[\"https://amjidali.com\"]",
+    "avatar": "https://gravatar.com/avatar/8760ed64a38ed65da42983737659c7e295e4a7f14b59ed5ce1b0b1077435f573?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "Finance & Accounting",
+    "Data & Storage",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Microsoft Outlook",
+      "type": "n8n-nodes-base.microsoftOutlook",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "ERPNext",
+      "type": "n8n-nodes-base.erpNext",
+      "categories": [
+        "Finance & Accounting",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "WhatsApp Business Cloud",
+      "type": "n8n-nodes-base.whatsApp",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-01-20T19:58:00.264Z",
+  "path": "official/template_2757/workflow.json"
+}

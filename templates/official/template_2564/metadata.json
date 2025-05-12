@@ -1,0 +1,141 @@
+{
+  "id": 2564,
+  "name": "Automatically promote your YouTube video on X",
+  "description": "YouTube to X Post\n\nOverview\n\nThis n8n workflow automates the process of promoting your latest YouTube videos on X (formerly Twitter). It ensures that posts are engaging, concise, and follow platform-specific requirements. Additionally, the workflow logs social posts into a Google Sheet for record-keeping.\n\nFeatures\n\nFetch Latest YouTube Videos:** Pulls recently uploaded videos from a specified channel.\nGenerate Engaging X Posts:** Uses OpenAI's GPT-4 to create tailored, witty posts about your videos.\nCharacter Limit Validation:** Ensures posts comply with X's character limit by rewriting if necessary.\nPost Scheduling:** Automates post publishing to X.\nGoogle Sheets Integration:** Logs posts and their status for tracking and management.\nOptional Notifications:** Sends updates via Discord, Slack, or Gmail (disabled by default).\n\nHow It Works\n\nTrigger:\n   Manually trigger the workflow or set a scheduled check for new videos (disabled by default).\n   \nFetch YouTube Videos:\n   Retrieves the latest videos from your YouTube channel, filtering duplicates.\n\nContent Creation:\n   OpenAI generates a witty and humanized post under 220 characters, using video title and description.\n   If the post exceeds the character limit, it is rewritten automatically.\n\nGoogle Sheets Logging:\n   Logs the generated post to a Google Sheet with details like time, date, and post status.\n\nPost to X:\n   Publishes the generated post on X. Updates the Google Sheet with the post URL.\n\nOptional Notifications:\n   Sends notifications about the published post via Discord, Slack, or Gmail.\n\nSetup Instructions\n\nCredentials:\n   Add credentials for:\n     YouTube API\n     OpenAI API\n     Google Sheets API\n     X (formerly Twitter) API\n   Use the accounts associated with \"AlexK1919.\"\n\nYouTube Node:\n   Specify your YouTube Channel ID in the Fetch Latest Videos node.\n   Find your Channel ID here.\n\nGoogle Sheets Node:\n   Configure the node with your Google Sheet for logging posts. Use the linked sheet: AlexK1919 Social Posts.\n\nOpenAI Node:\n   Set up your OpenAI API key for generating posts.\n\nX Post Node:\n   Connect your X account to the Post to X node.\n\nOptional Notifications:\n   Configure Discord, Slack, or Gmail nodes for custom notifications.\n\nCustomization\n\nSchedule:**\n  Enable and modify the Check Every 2 Hours node to automatically check for new videos.\n\nPost Format:**\n  Edit the OpenAI prompt in the Generate X Post node to tweak the tone or style of the generated posts.\n\nAdditional Platforms:**\n  Expand this workflow to post on other social platforms by adding respective nodes (e.g., Facebook, LinkedIn).\n\nNotes\n\nPosts are validated for character limits but are restricted to 220 characters to ensure compliance with X's guidelines and leave space for links.\nPosts are logged in the Google Sheet with details, including post status and timestamps.\nCurrent integrations are focused on promoting YouTube content; additional types can be supported with minor adjustments.\n\nContact\n\nFor support or inquiries:\nAlex Kim**\nAbout Me\n",
+  "totalViews": 4842,
+  "source": "official",
+  "user": {
+    "id": 91693,
+    "name": "Alex Kim",
+    "username": "alexk1919",
+    "bio": "n8n Ambassador & Verified Partner",
+    "verified": true,
+    "links": "[\"https://wot-ai.com\"]",
+    "avatar": "https://gravatar.com/avatar/2b74c7f530e250439f5d752f2623ead4921fbb8aef56343c922b2873ef8a619f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Communication",
+    "HITL",
+    "Marketing",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Discord",
+      "type": "n8n-nodes-base.discord",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "X (Formerly Twitter)",
+      "type": "n8n-nodes-base.twitter",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "YouTube",
+      "type": "n8n-nodes-base.youTube",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Calculator",
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Wikipedia",
+      "type": "@n8n/n8n-nodes-langchain.toolWikipedia",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 9,
+  "createdAt": "2024-11-21T21:26:34.300Z",
+  "path": "official/template_2564/workflow.json"
+}

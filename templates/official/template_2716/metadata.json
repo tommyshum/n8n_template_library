@@ -1,0 +1,32 @@
+{
+  "id": 2716,
+  "name": "Store Form Submission in Airtable",
+  "description": "This workflow, developed by our AI developers at WeblineIndia, is designed to automate the process of capturing form submissions and storing them in Airtable. By leveraging automation, it eliminates manual data entry, ensuring a smooth and efficient way to handle form data. The purpose of creating this workflow is to streamline data management, helping businesses save time, reduce errors, and maintain an organized, structured database for easy access and future use.\n\nSteps:\n\nTrigger on Form Submission (Form Node)**\n\tWhat It Does: Activates the workflow whenever a form is submitted.\n\tHow to Set It Up: Use the Form Submission Trigger node to detect new form submissions. This ensures the workflow starts automatically when a user fills out the form.\n\nStore Data in Airtable (Airtable Node)**\n\tWhat It Does: Transfers the form data into an Airtable base.\n\tHow to Set It Up: Use the Airtable Node to map form fields to corresponding columns in your Airtable table, storing the data accurately.\n\nFinalize and Activate**\n\tWhat It Does: Completes the setup to automate data storage upon form submission.\n\tHow to Set It Up: Save and activate the workflow. Once active, it will automatically record all new form submissions in Airtable.\n\n",
+  "totalViews": 1455,
+  "source": "official",
+  "user": {
+    "id": 92407,
+    "name": "WeblineIndia",
+    "username": "weblineindia",
+    "bio": "A Leading Software Engineering, Consulting & Outsourcing Services Company in USA & India serving Clients Globally since 1999.",
+    "verified": true,
+    "links": "[\"https://www.weblineindia.com/\"]",
+    "avatar": "https://gravatar.com/avatar/a229d43aefca4588581583c58bb37b4773aebbdf4c1fef86a08bb1d38eae91fa?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-01-10T15:22:18.979Z",
+  "path": "official/template_2716/workflow.json"
+}

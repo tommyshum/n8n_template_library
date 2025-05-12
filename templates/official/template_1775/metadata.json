@@ -1,0 +1,57 @@
+{
+  "id": 1775,
+  "name": "Automatically add customers from Pipedrive to Stripe",
+  "description": "This workflow automatically adds closed deals from Pipedrive as new customers into Stripe.\n\nPrerequisites\nPipedrive account and Pipedrive credentials \nStripe account and Stripe credentials\n\nHow it works\nPipedrive trigger node starts the workflow when a deal gets updated in Pipedrive.\nIF node checks that the current won time is not equal to the previuos one in the deal and continues the workflow if it's true.\nPipedrive node extracts the organization's details to pass it further.\nHTTP Request node searches for the same organization's details within Stripe.\nIf a customer doesn't exist within Stripe, Merge node passes a new customer details to Stripe.\nStripe node creates a new customer.\n\n",
+  "totalViews": 686,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Sales",
+    "Finance & Accounting"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Pipedrive",
+      "type": "n8n-nodes-base.pipedrive",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Stripe",
+      "type": "n8n-nodes-base.stripe",
+      "categories": [
+        "Finance & Accounting",
+        "Sales"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2022-08-23T08:54:25.090Z",
+  "path": "official/template_1775/workflow.json"
+}

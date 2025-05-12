@@ -1,0 +1,57 @@
+{
+  "id": 3464,
+  "name": "Organize Email Attachments into Google Drive Folders by Company with Gmail & Sheets",
+  "description": "Automated Email Attachment Organizer\nAutomatically process labeled emails with attachments into organized Google Drive folders\n\nWho Is This For?\nTeams or Individuals** needing to:\n  Automatically sort invoices, receipts, and files.\n  Organize client documents by date.\n  Verify sender emails against a whitelist.\n  Timestamp files to avoid duplicate names.\n\nWhat Does This Workflow Solve?\n🕒 Manual Email Sorting: Saves time by automating the organization of email attachments.\n📂 Disorganized Cloud Storage: Ensures attachments are neatly stored in Google Drive folders.\n📧 Unverified Sender Issues: Filters and validates emails using a whitelist.\n🔄 Duplicate Filenames: Uses timestamps to ensure every file name is unique.\n\nSetup Guide\n\n1. Pre-Requisites\nWhitelist Sheet**: Make a copy of the Example Whitelist Sheet\nGmail Filter**: Create a filter in Gmail to label emails with attachments.\n  \nTo Create a Gmail Filter:\nOpen your Gmail Inbox.\nClick the search bar and select \"Show search options\".\nEnter your criteria (e.g., type has:attachment).\nClick \"Create filter\".\nChoose \"Apply the label: Custom_Label\" and save.\n\n2. Credentials Setup\nMake sure your n8n instance is connected with:\nGmail Account**: (via OAuth2)\nGoogle Drive Account**: (via OAuth2)\nGoogle Sheets** (via OAuth2)\n\n3. Configure Your n8n Workflow Nodes\n\n1. Trigger and Email Retrieval\nGmail Trigger**: Setup check interval and filters for emails (i.e. emails labeled with Custom_Label)\n\n2. Whitelist settings\nLookup in Sheets**: Searches for a row with the sender email. Configure this node to point to your whitelist spreadsheet containing two columnds:\n|email|company|\n\n3. File storage location\nConfirue parent folder to create sub-folders and store files into in the Create Company Folder node Parent Folder dropdown\n\nFinal Steps\nTest Your Workflow: Run the workflow to verify emails are processed and files are uploaded correctly.\n\nHappy Automating!\n\n\n",
+  "totalViews": 2046,
+  "source": "official",
+  "user": {
+    "id": 92972,
+    "name": "Ventsislav Minev",
+    "username": "vminev",
+    "bio": "IT professional and n8n enthusiast",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/81bf71deeabd5b328211a1a4cc81a3ffe15e95a5490733e0942b73bfb428ec08?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-04-07T21:57:04.743Z",
+  "path": "official/template_3464/workflow.json"
+}

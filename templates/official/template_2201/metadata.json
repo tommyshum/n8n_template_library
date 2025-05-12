@@ -1,0 +1,49 @@
+{
+  "id": 2201,
+  "name": "OpenAI Assistant workflow: upload file, create an Assistant, chat with it!",
+  "description": "This is an end-to-end workflow for creating a simple OpenAI Assistant. The whole process is done with n8n nodes and do not require any programming experience.\n\nThe workflow is divided into three main steps:\n\nStep 1: Get a Google Drive File and Upload to OpenAI\n\nThe workflow starts by retrieving a file from Google Drive using the \"Get File\" node.\nThe example file used is a  Music Festival document.\nThe retrieved file is then uploaded to OpenAI using the \"Upload File to OpenAI\" node.\nRun this section only once. The file is stored persistently on the OpenAI side.\n\nStep 2: Set Up a New Assistant\n\nIn this step, a new assistant is created using the \"Create new Assistant\" node.\nThe assistant is given a name, description, and system prompt.\nThe uploaded file from Step 1 is attached as a knowledge source for the assistant.\nSame as for Step 1, run this section only once.\n\nStep 3: Chat with the Assistant\n\nThe \"Chat Trigger\" node initiates the conversation with the assistant.\nThe \"OpenAI Assistant\" node handles the conversation, using the assistant created in Step 2.\n\nStep 4: Expand the Assistant\n\nThis step provides resources for ideas on how to expand the Assistant's capabilities:\n    Create a WhatsApp bot\n    Create a simple Telegram bot\n    Create a Telegram AI bot (YouTube video)\n\nBy following this workflow, users can create their own AI-powered assistants using OpenAI's API and integrate them with various platforms like WhatsApp and Telegram.",
+  "totalViews": 17781,
+  "source": "official",
+  "user": {
+    "id": 91386,
+    "name": "Yulia",
+    "username": "yulia",
+    "bio": "Let's connect! ",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/yulia-dmitrievna-1112361b5/\"]",
+    "avatar": "https://gravatar.com/avatar/d29a8262aa8835d430919f8002957a77169f8da987dee0740aa494ae67a061b7?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-03-28T00:45:58.447Z",
+  "path": "official/template_2201/workflow.json"
+}

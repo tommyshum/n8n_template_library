@@ -1,0 +1,49 @@
+{
+  "id": 3116,
+  "name": "Get all orders in Squarespace to Google Sheets",
+  "description": "This workflow retrieves all Squarespace Orders and saves them into a Google Sheets spreadsheet using the Squarespace Commerce API. It uses pagination to ensure all orders are collected efficiently.\n\nHow It Works\nThe workflow queries your Squarespace Orders API.\nIt fetches data in paginated batches and inserts them into Google Sheets.\nThe Global node is used to configure API parameters dynamically, allowing users to set date filters, pagination, and fulfillment status.\nThe workflow runs on demand or on a schedule, ensuring your data stays up to date.\n\nParameters\nThis workflow allows you to customize the API request using the Global node settings:\napi-version** (string, required) – The current API version (see Squarespace Orders API documentation).\nmodifiedAfter**={a-datetime} (string, conditional) – Fetch orders modified after a specific date (ISO 8601 format).\nmodifiedBefore**={b-datetime} (string, conditional) – Fetch orders modified before a specific date (ISO 8601 format).\ncursor**={c} (string, conditional) – Used for pagination, cannot be combined with other filters.\nfulfillmentStatus**={status} (optional, enum) – Filter by fulfillment status: PENDING, FULFILLED, or CANCELED.\nmaxPage** – Set -1 to enables infinite pagination to fetch all available orders.\n\nRequirements\nCredentials\nTo use this workflow, you need:\n\nSquarespace API Key – Retrieve from your Squarespace settings.\nGoogle Sheets API credentials – Required to insert data into a spreadsheet.\n\nGoogle Sheets Setup\nUse the Squarespace order export feature to create a reference sheet.\nGoogle Sheets template is available\n\nWho Is This For?\nThis workflow is designed for:\n\nSquarespace store owners exporting orders for tax reports, analytics, or sales tracking.\nBusinesses automating order data retrieval for external reporting.\nAnyone needing an efficient way to extract Squarespace order data without manual effort.\n\nExplore More Templates\nGet all orders in Shopify to Google Sheets\nSync Shopify customers to Google Sheets + Squarespace compatible csv\n\n👉 Check out my other n8n templates",
+  "totalViews": 734,
+  "source": "official",
+  "user": {
+    "id": 92981,
+    "name": "bangank36",
+    "username": "bangank36",
+    "bio": "Automation specialist with 10+ years of experience helping SME website owners streamline their workflows—specializing in Squarespace, Shopify, and WordPress. Book an initial consultation for custom n8n automation using my link.",
+    "verified": true,
+    "links": "[\"https://beyondspace.studio\"]",
+    "avatar": "https://gravatar.com/avatar/499b5f6868bff3f56c51a6650bf87b946b25b2e17d353e3c9bbf5b34d2bd5bf4?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-03-10T03:35:57.568Z",
+  "path": "official/template_3116/workflow.json"
+}

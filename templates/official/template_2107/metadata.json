@@ -1,0 +1,49 @@
+{
+  "id": 2107,
+  "name": "Enrich Linkedin profile URLs stored in a Google Sheet",
+  "description": "Template Information\n\nWho is this template for?\n  This template is for users looking to retrieve email information from LinkedIn profiles and update Google Sheets with the collected data.\n\n 🎥 quick set up video\n\n\nHow it works**\n  The template utilizes a series of nodes to fetch email information from LinkedIn profiles. It starts with a Schedule Trigger node that sets the interval for the workflow. The Conditional Check node verifies if certain fields like Name, Gender, Job Title, Summary, and LinkedIn URL are not empty. The HTTP Request node sends a POST request to the specified URL with API key and profile information. The Data Merge node merges the data collected. The Field Editing node modifies the fields as needed. Finally, the Google Sheets Update node updates the Google Sheets with the gathered information.\n\nSet Up Instructions\n\nMake sure to have the necessary credentials and permissions for accessing LinkedIn and Google Sheets.\nSet up the API key required for the HTTP Request node.\nConfigure the Google Sheets Update node with the appropriate document ID and sheet name.\nCheck and adjust field mappings in the Field Editing node according to your needs.\nRun the workflow and monitor the updates in your Google Sheets document.\n\nOverview:\n\n\nThe workflow is designed to find contact information for LinkedIn profile URLs stored in a Google Sheet. It involves various nodes for different operations such as making HTTP requests, scheduling triggers, reading from and updating Google Sheets, field editing, data merging, and conditional checks. A video demonstrating the workflow process can be accessed here.\n\nCopy this template to get started :\nGoogle Sheets\n\nUsing Prospeo.io LinkedIn Email Finder API with cURL\n\nTo use the API endpoint \"https://api.prospeo.io/linkedin-email-finder\" with cURL, follow these steps:\n\nUse the cURL command with the following parameters:\n   \ncurl -X POST \\\n-H \"Content-Type: application/json\" \\\n-H \"X-KEY: your_api_key\" \\\n-d '{\n  \"url\": \"https://www.linkedin.com/in/john-doe/\"\n}' \\\n\"https://api.prospeo.io/linkedin-email-finder\"\n\nReplace \"your_api_key\" with your actual API key.\nUpdate the \"url\" field in the JSON data with the LinkedIn profile URL for which you want to find the email address.\n\nTo get access to this API and obtain your API key, you need to sign up on the Prospeo platform and subscribe to their LinkedIn email finder service. Once you have subscribed, you will receive an API key that you can use to authenticate your requests to the API endpoint.\nDescription:\n\nSchedule Trigger:**\n  Triggers the workflow based on a defined schedule interval, in this case, based on minutes.\n  Schedule Trigger Node Documentation\n\nGoogle Sheets Read:**\n  Reads data from a Google Sheets document and sheet based on the provided document ID and sheet name.\n  Google Sheets Node Documentation \n  \nConditional Check:**\n  Checks multiple conditions based on the input data and performs actions accordingly.\n  Conditional Node Documentation\n\nHTTP Request:**\n  Sends an HTTP POST request to a specified URL with headers and body parameters.\n  HTTP Request Node Documentation\n\n\nNo Operation, do nothing:**\n  Placeholder node that does not perform any operation.\n\nData Merge:**\n  Merges data based on specified mode and combination settings.\n  Merge Node Documentation\n\nField Editing:**\n  Edits fields by setting specific values for each field based on input data.\n  Set Node Documentation\n\nGoogle Sheets Update:**\n  Updates data in a Google Sheets document and sheet based on specified columns and values.\n  Google Sheets Node Documentation\n",
+  "totalViews": 5455,
+  "source": "official",
+  "user": {
+    "id": 91423,
+    "name": "AlQaisi",
+    "username": "omar",
+    "bio": "I'm specialize in automation and AI, developing innovative solutions to enhance efficiency and drive innovation. With expertise in advanced technologies, I create predictive models for optimal resource allocation. Collaborating with teams, I implement customized automation solutions. Passionate about shaping the future of intelligent automation through digital transformation.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/d8ed2f53474f44e189350538560e2dbcc2299c9f38c80d30b6a2f56e8bbc7b1f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-02-21T12:05:07.966Z",
+  "path": "official/template_2107/workflow.json"
+}

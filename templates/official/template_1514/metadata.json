@@ -1,0 +1,40 @@
+{
+  "id": 1514,
+  "name": "Bulk Emails with personalized attachment",
+  "description": "A workflow to send personalized emails with respective attachment.\n\n\nThe workflow needs a pre-formatted CSV with file names and email IDs. ",
+  "totalViews": 3478,
+  "source": "official",
+  "user": {
+    "id": 20999,
+    "name": "Bhavabhuthi",
+    "username": "bhavabhuthi",
+    "bio": null,
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/f35a415ac2c382143ef08cade5ac7887afc7727f4c47d98a0d6fcdd8a2be5a2d?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "categories": [
+        "Communication",
+        "HITL",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2022-03-12T18:44:28.818Z",
+  "path": "official/template_1514/workflow.json"
+}

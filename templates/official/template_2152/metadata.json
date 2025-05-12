@@ -1,0 +1,38 @@
+{
+  "id": 2152,
+  "name": "API that extracts engaging moments from YouTube videos ",
+  "description": "How it works\nThis template takes a YouTube video ID and identifies potentially engaging moments based on the intensity of specific timestamps 👇\n\n\n\n\nIdeal for vloggers and YouTube content creators, it serves as a foundation for various automations to streamline content calendars or highlight popular moments in your videos. You can leverage it for:\n\nAutomatic processes to analyze YouTube videos and create sizzle reels or clips for social media, particularly effective for microcontent strategies like those endorsed by Gary Vee.\nInstant alerts via Slack, Telegram, Email, or WhatsApp when significant moments occur in your videos.\nUtilizing transcripts of these moments with AI to refine content ideas or brainstorm chatbots in your editorial workflow.\n\nExample response from the Workflow-as-an-API \n\nA GET request to {your instance URL}/webhook/youtube-engaging-moments-extractor?ytID=IZsQqarWXtYy returns 👇\n\n\n\n\nThe workflow generates multiple moments; the screenshot above shows a truncated version.\n\nNot all videos contain timestamp intensity data, the workflow handles this case as well 👇\n\nHow to use\nImport the template into your n8n workspace or self-hosted instance, then activate the workflow.\nOpen the Webhook trigger node and copy the Production URL.\nIn a web browser or any tool capable of consuming HTTP Requests (e.g., native code, Bubble app, n8n workflow, another automation tool, Postman, etc.), pass along the URL parameter ?ytID={youtube video ID} when invoking the API endpoint.\n\nYour URL should resemble something like https://acme.app.n8n.cloud/webhook/youtube-engaging-moments-extractor?ytID=IZsQqarWXtYy.\n\n\nKeep in mind\nThis workflow relies on an unofficial YouTube API graciously hosted for free by the folks at lemnoslife.com. It's not recommended for high-volume production usecases. ",
+  "totalViews": 5716,
+  "source": "official",
+  "user": {
+    "id": 91336,
+    "name": "Max T",
+    "username": "maxtkacz",
+    "bio": null,
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/dfce88d176a97015c1f503999cda089a3b48345dbf5db3defe2dbd93b673fcbc?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-02-29T08:36:52.732Z",
+  "path": "official/template_2152/workflow.json"
+}

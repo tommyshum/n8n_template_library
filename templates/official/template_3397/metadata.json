@@ -1,0 +1,80 @@
+{
+  "id": 3397,
+  "name": "Personalise Outreach Emails using Customer data and AI",
+  "description": "This n8n template uses existing emails from customers as context to customise and \"finetune\" outreach emails to them using AI.\n\nBy now, it should be common knowledge that we can leverage AI to generate unique emails but in a way, they can remain generic as the AI lacks the customer context to be truly personalised. One way to solve this is by pulling in a source of customer data - and what better way then by using existing email correspondence.\n\nHow it works\nCustomers to target are pulled from Hubspot and each customer is then run in a loop. We're using a loop as the retrieved emails for each customer become separate items and a loop helps with item reference.\nWe connect to our Gmail account to pull all emails recieved from the customer.\nThe contents of the email will be suitable to build a short persona of the customer. We use the Information Extractor to get our AI model to pull out the key attributes of this persona such as decision making style and communication preferences.\nWith this persona, we can now pass this to our AI model to generate a personalised outreach email specifically for our customer.\nFinally, a draft email is created for human review before sending. If you would rather send the email straight away, this is also possible.\n\nHow to use\nDefine the topic of the outreach email in the \"variables\" node. This directs the AI on what outreach email to generate.\nEnsure the emails are pulled from the right account. If emails may contain sensitive data, adjust the filters and text parsing to ensure these are not leaked to the AI (which might then leak into the generated email).\n\nRequirements\nHubspot for Contacts List\nOpenAI for LLM\nGmail for Existing Emails and Sending Emails\n\nCustomising this workflow\nNot using Hubspot? Any CRM would work just as well or even a simple text csv!\nIf you have customer past deals or engagements in your CRM, consider using this as additional context for the AI to use.",
+  "totalViews": 165,
+  "source": "official",
+  "user": {
+    "id": 91804,
+    "name": "Jimleuk",
+    "username": "jimleuk",
+    "bio": "Freelance consultant based in the UK specialising in AI-powered automations. I work with select clients tackling their most challenging projects. For business enquiries, send me an email at hello@jimle.uk\n\nLinkedIn: https://www.linkedin.com/in/jimleuk/\nX/Twitter: https://x.com/jimle_uk",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4ab99e51473df76838beeaac908747f7928c625f869794815cabe34016967d51?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Sales",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HubSpot",
+      "type": "n8n-nodes-base.hubspot",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Information Extractor",
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-04-01T10:47:11.390Z",
+  "path": "official/template_3397/workflow.json"
+}

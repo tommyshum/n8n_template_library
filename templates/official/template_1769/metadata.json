@@ -1,0 +1,40 @@
+{
+  "id": 1769,
+  "name": "Sync tasks data between Notion and Asana",
+  "description": "This workflow syncs data between Notion and Asana whenever a new task or an update is done in one of the apps.\n\nPrerequisites\nAsana account and Asana credentials\nNotion account and Notion credentials\n\nHow it works\n\nGo to Asana account.\nCreate a new task in Asana.\nNotice a new task created in Notion account.\nUpdate the task in Asana.\nNotice the task is updated in Notion.\n",
+  "totalViews": 5176,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "Asana",
+      "type": "n8n-nodes-base.asana",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2022-08-17T10:15:20.725Z",
+  "path": "official/template_1769/workflow.json"
+}

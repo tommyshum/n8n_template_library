@@ -1,0 +1,54 @@
+{
+  "id": 738,
+  "name": "Store and send information about the weather for any city via SMS",
+  "description": "Companion workflow for blogpost",
+  "totalViews": 792,
+  "source": "official",
+  "user": {
+    "id": 5269,
+    "name": "amudhan",
+    "username": "sm-amudhan",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/7ee0febc0cbec2f1f6b24ddec3c4322e27c82c91dc729cfecf6ce12bfddd058d?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Miscellaneous",
+    "Utility",
+    "Communication",
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "OpenWeatherMap",
+      "type": "n8n-nodes-base.openWeatherMap",
+      "categories": [
+        "Miscellaneous",
+        "Utility"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Twilio",
+      "type": "n8n-nodes-base.twilio",
+      "categories": [
+        "Communication",
+        "Development"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2020-10-26T08:45:13.193Z",
+  "path": "official/template_738/workflow.json"
+}

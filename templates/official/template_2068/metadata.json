@@ -1,0 +1,38 @@
+{
+  "id": 2068,
+  "name": "dub.co URL Shortener",
+  "description": "A n8n workflow designed to shorten URLs using Dub.co API.\n\nHow it works:\nIt shortens a url using Dub.co API, with the ability to use custom domains and projects. It updates the current shortened url if the slug has been already used.\n\nEstimated Time: Around 15 minutes.\nRequirements: A Dub.co account.\nConfiguration: \nConfigure the \"API Auth\" node to add your Dub.co API key, project slug, and the long URL. There some extras that you're able to configure too. You will be able to do that by clicking the \"API Auth\" node and filling the fields.\nDetailed Instructions: Sticky notes within the workflow provide extensive setup information and guidance.\n\nKeywords: n8n workflow, dub.co, dub.sh, url shortener, short urls, short links",
+  "totalViews": 664,
+  "source": "official",
+  "user": {
+    "id": 91421,
+    "name": "Murtaja Ziad",
+    "username": "murtajaziad",
+    "bio": "full-stack web developer & freelancer",
+    "verified": false,
+    "links": "[\"https://murtajaziad.com/\"]",
+    "avatar": "https://gravatar.com/avatar/9cfc90668d3803390c014361b72749389f8c886b6840dfa99034a55ccf2c8cb0?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-01-27T21:45:20.267Z",
+  "path": "official/template_2068/workflow.json"
+}

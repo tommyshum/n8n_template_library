@@ -1,0 +1,32 @@
+{
+  "id": 1374,
+  "name": "Create a new team for a project in Notion",
+  "description": "Creates a new team for a project from webhook form data. When the project is created the current semester is added to it's relation attribute.\n\n\nMore info can be found on using this workflow as part of a larger system here.\n",
+  "totalViews": 763,
+  "source": "official",
+  "user": {
+    "id": 17385,
+    "name": "Will Stenzel",
+    "username": "automations",
+    "bio": null,
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/af51134f7bde343175cbcbc16e8ca9dac4a0990288f512300af75ca8063eaba7?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2021-12-22T21:52:06.307Z",
+  "path": "official/template_1374/workflow.json"
+}

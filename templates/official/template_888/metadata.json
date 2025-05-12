@@ -1,0 +1,60 @@
+{
+  "id": 888,
+  "name": "Get data from Hacker News and send to Airtable or via SMS",
+  "description": "This n8n workflow automates sending out SMS notifications via Vonage which includes new tech-related vocabulary everyday.\n\n\nTo build this handy vocabulary improver, you’ll need the following:\n\nn8n – You can find details on how to install n8n on the Quickstart page.\nLingvaNex account – You can create a free account here. Up to 200,000 characters are included in the free plan when you generate your API key.\nAirtable account – You can register for free.\nVonage account – You can sign up free of charge if you aren’t already.\n\n\n\n\n",
+  "totalViews": 1618,
+  "source": "official",
+  "user": {
+    "id": 5322,
+    "name": "isa024787bel",
+    "username": "isabel",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/9d0df2522c586005e3ff32ab05c914920f65dcf85c36bbf865d37d870dd19138?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Communication",
+    "Marketing",
+    "Miscellaneous"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Hacker News",
+      "type": "n8n-nodes-base.hackerNews",
+      "categories": [
+        "Communication",
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Vonage",
+      "type": "n8n-nodes-base.vonage",
+      "categories": [
+        "Communication"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "LingvaNex",
+      "type": "n8n-nodes-base.lingvaNex",
+      "categories": [
+        "Miscellaneous"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2021-01-11T17:48:20.314Z",
+  "path": "official/template_888/workflow.json"
+}

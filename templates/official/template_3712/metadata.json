@@ -1,0 +1,53 @@
+{
+  "id": 3712,
+  "name": "Automate Weekly SEO Reports from Google Search Console to Email",
+  "description": "What this workflow does\nThis n8n workflow connects to Google Search Console to fetch SEO performance data (clicks, impressions, CTR, and average position) for the last 7 days.  \nIt formats the results into a clean weekly summary and automatically sends it to your email inbox every Monday morning.\n\nIdeal for:\nWebsite owners\nBloggers\nSEO consultants\nwho want to track site performance over time without manual reporting.\n\nSetup steps\n\nReplace YOUR_SITE_URL in the HTTP Request node with your verified domain from Google Search Console.\nConnect your Google OAuth2 credentials to the HTTP Request node.\nSet up your SMTP credentials in the \"Send Email\" node.\nAdjust the recipient email address and subject line if necessary.\n(Optional) Customize the Function node to include more queries or format the report as a PDF.\n\nEstimated setup time: ~10 minutes\n\nSticky notes are included in the workflow canvas to guide you step-by-step.\n\nTechnologies used\nGoogle Search Console API\nSMTP Email Node\nn8n Function Node\nn8n HTTP Request Node\nn8n Sticky Notes\n",
+  "totalViews": 281,
+  "source": "official",
+  "user": {
+    "id": 94060,
+    "name": "Rodrigue",
+    "username": "gbadou",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/9f92fe6183a88cb11f504f434539ef3a3d3917e851417add60b7c82876bbb936?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-04-25T14:39:02.729Z",
+  "path": "official/template_3712/workflow.json"
+}

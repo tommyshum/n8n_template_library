@@ -1,0 +1,82 @@
+{
+  "id": 3561,
+  "name": "Automate Hyper-Personalized Outreach at Scale With Bright Data and LLMs",
+  "description": "LinkedIn Enrichment & Ice Breaker Generator\n\nFor SDRs, growth marketers, and founders looking to scale personalized outreach.  \nThis workflow enriches LinkedIn profile data using Bright Data and generates AI-powered ice breakers using Claude (Anthropic).  \nIt automates research and messaging to help you connect smarter and faster — without manual effort.\n\n🧩 How It Works\n\nThis workflow combines Google Sheets, Brigt Data, and Claude (Anthropic) to fully automate your outreach research:\n\nTrigger  \n   Manually trigger the workflow or run it on a schedule (via Manual Trigger or Schedule Trigger).\n\nRead Input Sheet  \n   Fetches rows from a Google Sheet. Each row must contain at least a Linkedin_URL_Person and row_number.\n\nPrepare Input  \n   Formats each row for Bright Data’s API using Set and SplitInBatches nodes.\n\nEnrich Profile (Bright Data API)  \n   Sends LinkedIn URLs to Bright Data’s Dataset API via HTTP Request.\n   Waits for snapshot to be ready using polling logic with Wait, If, and Snapshot Progress nodes.\n   Once ready, retrieves the enriched profile data including:\n     Name\n     City\n     Current company\n     About section\n     Recent posts\n\nUpdate Sheet with Profile Data  \n   Writes the retrieved enrichment data into the corresponding row in Google Sheets (via row_number).\n\nGenerate Ice Breaker (Claude AI)  \n   Sends enriched profile content to Claude (Anthropic) using a custom prompt.\n   Focuses on recent posts for crafting relevant, respectful, 1–4-line ice breakers.\n\nUpdate Sheet with Ice Breaker  \n   Writes the generated ice breaker to the Ice Breaker 1 column in the original row.\n\n✅ Requirements\n\nTo use this workflow, you must have the following:\n\nGoogle Sheets\nA Google account\nA Google Sheet with at least one sheet/tab containing:\n  Column: Linkedin_URL_Person\n  Column: row_number (used for mapping input and output rows)\n\nBright Data\nA Bright Data account with access to the Dataset API\nAn active dataset that accepts LinkedIn URLs\nAPI key with Dataset API access\n\nAnthropic Claude\nAn Anthropic API key (for Claude 3.5 Haiku or other Claude models)\n\nn8n Environment\nAccess to HTTP Request, Set, Wait, SplitInBatches, If, and Google Sheets nodes\nAccess to Claude integration (via LangChain nodes: @n8n/n8n-nodes-langchain)\nCredential manager properly configured with:\n  Google Sheets OAuth2 credentials\n  Bright Data API key\n  Anthropic API key\n\n⚙️ Setup Instructions\n\nStep 1: Copy the Google Sheets Template\n\n&gt; 📄 Click here to make a copy\n\nFill the Linkedin_URL_Person column with LinkedIn profile URLs you want to enrich\nDo not modify headers or add filters to the sheet\nLeave other columns (name, city, about, posts, ice breaker) blank — the workflow fills them\n\nStep 2: Connect Your Accounts in n8n\n\nGoogle Sheets: Create a credential under Google Sheets OAuth2 API\nBright Data: Add your API key as a credential under HTTP Request (Authorization header)\nAnthropic: Create a credential for Anthropic API with your Claude key\n\nStep 3: Import and Configure the Workflow\n\nImport the workflow into your n8n instance.\nIn each Google Sheets node:\n   Select the copied Google Sheet\n   Select the correct tab (usually input or Sheet1)\nIn the HTTP Request node to Bright Data:\n   Paste your Bright Data dataset ID\nIn the Claude prompt node:\n   Optionally adjust the tone and length of the ice breaker prompt\n\nStep 4: Run the Workflow\n\nTest it using the Manual Trigger node\nFor daily automation, enable the Schedule Trigger and configure interval settings\nWatch your Google Sheet populate with enriched data and tailored ice breakers\n\n🧠 Tips & Best Practices\n\nBright Data Delay**: Snapshots may take time. The workflow polls the status until complete.\nRetry Protection**: If and Wait nodes avoid infinite loops by checking snapshot status.\nMapping via row_number**: Critical to ensure data is updated in the right row.\nPrompt Engineering**: You can fine-tune Claude's behavior by editing the text prompt.\n\n🧾 Output Example\n\nOnce complete, each row in your Google Sheet will contain:\n\n| Linkedin_URL_Person | Name | City | Company | Recent Post | Ice Breaker |\n|---------------------|------|------|---------|-------------|--------------|\n| linkedin.com/... | Jane Doe | NYC | ACME Corp | “Why AI should replace meetings” | \"Loved your post about AI and meetings — finally someone said it!\" |\n\n💬 Support & Feedback\n\nQuestions? Want to tweak the prompt or expand the enrichment?\n\n📧 Email: Yaron@nofluff.online  \n📺 YouTube: @YaronBeen  \n🔗 LinkedIn: linkedin.com/in/yaronbeen\n\n",
+  "totalViews": 1068,
+  "source": "official",
+  "user": {
+    "id": 93770,
+    "name": "Yaron Been",
+    "username": "yaron-nofluff",
+    "bio": "Building AI Agents and Automations | Growth Marketer | Entrepreneur | Book Author & Podcast Host",
+    "verified": true,
+    "links": "[\"nofluff.online\"]",
+    "avatar": "https://gravatar.com/avatar/a4e4dcaa1f76ff5266bbf80e8df86d22efda890474c68f7796e72fd82e3f2375?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Anthropic Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-04-15T10:47:56.856Z",
+  "path": "official/template_3561/workflow.json"
+}

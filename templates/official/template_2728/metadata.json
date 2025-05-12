@@ -1,0 +1,63 @@
+{
+  "id": 2728,
+  "name": "List recent ServiceNow Incidents in Slack Using Pop Up Modal",
+  "description": "Who is this for?  \nThis workflow is designed for IT teams, service desk personnel, and incident management professionals who need a streamlined way to monitor and report on recent ServiceNow incidents directly within Slack.  \n\nWhat problem is this workflow solving? / Use Case  \nManually monitoring incidents in ServiceNow can be time-consuming, and keeping teams updated about new or specific incidents often involves additional manual effort. This workflow automates the process of querying recent incidents from ServiceNow based on user-defined parameters and delivering formatted results directly to Slack. It ensures faster response times and improved incident visibility.  \n\nWhat this workflow does  \nThis workflow integrates Slack and ServiceNow to provide an automated system for retrieving and presenting incident details.  \nSlack User Interaction: Users initiate the workflow via a Slack modal form, selecting incident parameters like priority and state.  \nServiceNow Query: The workflow queries ServiceNow for incidents matching the selected criteria.  \nResults Delivery: Incident results are sent back to Slack as a message formatted using Block Kit. If no results are found, the workflow notifies the user with a detailed message, either in a Slack channel or via direct message.  \nError Handling: If no channel is selected or any issues arise, the workflow ensures graceful fallback with appropriate notifications.  \n\nSetup Instructions  \nSlack Setup:  \n   Integrate Slack with n8n using a Slack app.  \n   Configure the modal form to accept parameters like priority and state.  \n   Check out this video for setting up a modal slack app on YouTube. \nServiceNow Integration:  \n   Use ServiceNow credentials to connect with n8n.  \n   Ensure appropriate permissions for querying incidents.  \nn8n Workflow Configuration:  \n   Import this workflow into n8n.  \n   Verify all node configurations, particularly those for ServiceNow API queries and Slack outputs.  \n   Set up webhook URLs for Slack event handling.  \nTesting:  \n   Trigger the workflow from Slack to test modal inputs and incident queries.  \n   Confirm the output is correctly formatted and delivered to the intended Slack channel or user.  \n\nHow to Customize this Workflow to Your Needs  \nModify the ServiceNow query logic to include additional filters or fields.  \nAdjust the Slack Block Kit formatting to match your organization’s preferred notification style.  \nUse conditional logic to add more advanced handling for specific priorities or states.  \nExpand the workflow to include escalation steps, such as notifying a specific team or creating follow-up tasks.  \n\nWorkflow Highlights  \nSlack Modal Form**: Allows users to specify search criteria for incidents interactively.  \nDynamic Results Delivery**: Automatically sends results to a Slack channel or direct message based on user input.  \nError Handling**: Provides fallback notifications when no incidents are found or user inputs are incomplete.  \nCustomizable Integration**: Easily adaptable to fit different organizational needs, including advanced filtering and formatting options.",
+  "totalViews": 818,
+  "source": "official",
+  "user": {
+    "id": 16588,
+    "name": "Angel Menendez",
+    "username": "djangelic",
+    "bio": "Angel Menendez is a Staff Developer Advocate at n8n.io, specializing in low-code tools for cybersecurity workflows. From Puerto Rico, Angel's tech journey began by helping his father translate technical books. He later started a web development business and transitioned from a career as a flight attendant to cybersecurity engineering. His workflows have saved companies significant time. Outside work, Angel enjoys time with his two sons, riding electric bikes, reading, and exploring new places.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/fdbe38425d21378d8c9ba8916e1eb0b320add299f12cc23fcd4961d4e6e00bec?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "ServiceNow",
+      "type": "n8n-nodes-base.serviceNow",
+      "categories": [
+        "Productivity",
+        "Communication"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-01-15T04:47:19.413Z",
+  "path": "official/template_2728/workflow.json"
+}

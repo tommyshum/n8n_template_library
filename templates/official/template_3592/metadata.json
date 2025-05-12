@@ -1,0 +1,111 @@
+{
+  "id": 3592,
+  "name": "Automate Web Interactions with Claude 3.5 Haiku and Airtop Browser Agent",
+  "description": "About this AI Agent\n\nThis workflow is designed to automate web interactions by simulating a human user, using a combination of the Agent node and AI tools powered by Airtop.\n\nHow does this workflow works?\n\nForm Submission Trigger: The workflow starts with a form submission trigger node named \"On form submission\". This node collects user instructions for the web AI agent, including a prompt and an optional Airtop profile name for sites requiring authentication.\n\nAI Agent: The core of the workflow is the \"AI Agent\" node, which uses a smart web agent to manage a remote web browser. It is designed to fulfill user requests by interacting with the browser through various tools.\n\nBrowser Session Management\n\nStart Browser: The \"Start browser\" node initiates a new browser session and window. It is essential for obtaining the sessionId and windowId required for subsequent operations.\nSession and Window Management: The workflow includes nodes for creating and managing browser sessions and windows, such as \"Session\" and \"Window\".\nWeb Interaction Tools:\n\nLoad URL: This node loads a specified URL into the browser window.\nQuery: The \"Query\" node allows the agent to ask questions and extract information from the current web page.\nClick: This node simulates clicking on elements within the web page.\nType: The \"Type\" node types text into specified elements on the page.\nSession Termination: The \"End session\" node is used to terminate the browser session once the tasks are completed.\n\nOutput Handling\n\nStructured Output Parser: This node processes the agent's results into a structured format.\n\nOutput: The final results are set and prepared for output.\nSlack Integration: Although currently disabled, there is a \"Slack\" node intended to send messages to a Slack channel, potentially for notifications or live view URLs.\n\nSeting up your agent\n\nAirtop API Credentials:\nUsers must have valid Airtop API credentials to interact with the web browser tools. This includes nodes like \"Click\", \"Query\", \"Load URL\", \"End session\", \"Type\", \"Session\", and \"Window\".\nSlack API Credentials (Optional):\n\nIf users want to enable Slack notifications, they need to configure Slack OAuth2 credentials. The Slack node is currently disabled but can be used to send messages to a Slack channel.\nAnthropic API Credentials:\n\nThe \"Claude 3.5 Haiku\" node requires Anthropic API credentials. Users need to have access to this API to utilize the language model features.",
+  "totalViews": 3200,
+  "source": "official",
+  "user": {
+    "id": 93583,
+    "name": "Airtop",
+    "username": "cesar-at-airtop",
+    "bio": "Airtop provides an intelligent browser automation API for AI agents, enabling seamless web interaction, including login, navigation, and data extraction from any site, even those with complex authentication - all with  natural language instructions.In simple terms, we allow you to automate anything humans can do online, on any site with just words",
+    "verified": true,
+    "links": "[\"https://www.airtop.ai/\"]",
+    "avatar": "https://gravatar.com/avatar/d5894c2c744b03ab0766a6d1846484ea7cc1a19e57310afad70044183766dbf4?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain",
+    "Productivity",
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Anthropic Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    },
+    {
+      "name": "Airtop",
+      "type": "n8n-nodes-base.airtop",
+      "categories": [
+        "Productivity",
+        "Development"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-04-17T19:32:52.649Z",
+  "path": "official/template_3592/workflow.json"
+}

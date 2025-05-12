@@ -1,0 +1,49 @@
+{
+  "id": 1465,
+  "name": "Collect absences from Google Calendars",
+  "description": "This workflow checks a Google Calendar at 8am on the first of each month to get anything that has been marked as a Holiday or Illness. It then merges the count for each person and sends an email with the list.\n\nTo use this workflow you will need to set the credentials to use for the Google Calendar node and Send Email node. You will also need to select the calendar ID and fill out the information in the send email node.\n\nThis workflow searches for Events that contain \"Holiday\" or \"Illness\" in the summary. If you want to change this you can modify it in the Switch node.",
+  "totalViews": 3414,
+  "source": "official",
+  "user": {
+    "id": 25789,
+    "name": "Jonathan",
+    "username": "jon-n8n",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/5240094f838126182ceefb50ca4a3cf75cc7dc0808efd4b9920d792e41bfc45e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Core Nodes",
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "categories": [
+        "Communication",
+        "HITL",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Google Calendar",
+      "type": "n8n-nodes-base.googleCalendar",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2022-02-17T15:07:27.127Z",
+  "path": "official/template_1465/workflow.json"
+}

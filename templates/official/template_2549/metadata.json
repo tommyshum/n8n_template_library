@@ -1,0 +1,63 @@
+{
+  "id": 2549,
+  "name": "Automate Google Analytics Reporting",
+  "description": "Automate Google Analytics Reporting with n8n\n\nThis n8n workflow collects, processes, and formats Google Analytics data into a comprehensive HTML report. The report is segmented into three primary categories: Engagement Stats, Search Results, and Country Views. The formatted report can be emailed or saved as a document, and the workflow includes error handling and logging for better debugging.\n\nOverview\n\nPurpose\n\nTo automate the extraction, processing, and presentation of Google Analytics data in a visually appealing and structured format for easier insights and decision-making.\n\nFeatures\n\nData Parsing**: Individual parsers process raw Google Analytics data for different time periods and categories.\nData Aggregation**: Combines parsed data into a single structured JSON object.\nHTML Report Generation**: Formats the aggregated data into an HTML table with color-coded segments for better readability.\nEmail or Document Output**: The formatted report can be emailed or saved as a Google Doc (will need additional setup).\nError Handling**: Includes checks for missing data and detailed error messages for debugging.\n\nWorkflow Steps\n\nData Fetching:\n\n   Six separate Google Analytics data pulls:\n     Page Engagement Stats (This Week and Prior Week)\n     Google Search Results (This Week and Prior Week)\n     Country Views (This Week and Prior Week)\n\nData Parsing:\n\n   Each data pull is processed using a dedicated parser node to generate a URL-safe string.\n   Example nodes:\n     Parse - Get Page Engagement This Week\n     Parse - Country Views Prior Week\n\nData Aggregation:\n\n   Aggregates parsed data into a structured JSON object using the Aggregate Data node.\n   Ensures consistency and handles missing or malformed data.\n\nHTML Report Generation:\n\n   Creates a formatted HTML report with color-coded tables for each segment:\n     Engagement Stats: Green\n     Search Results: Blue\n     Country Views: Orange\n   Includes headers and neatly formatted tables for each data set.\n\nOutput:\n\n   The report can be sent via email using the Gmail API or saved to Google Docs.\n   Example nodes:\n     Gmail node for email delivery.\n     Google Docs node for saving the report as a document.\n\nRequirements\n\nPrerequisites\n\nGoogle Cloud Setup**:\n  Enable Google Analytics API.\n  Enable Gmail API (if using email output).\n  Generate OAuth credentials for API access.\nn8n Installation**:\n  Self-hosted n8n instance with required nodes (Gmail, Google Docs, etc.).\n  Free Cloud-based n8n account.\n\nEnvironment Variables\n\nEnsure API credentials and tokens are set up in the n8n environment.\nUpdate the respective nodes with client ID, client secret, and access tokens.\n\nConfiguration\n\nGoogle Analytics\n\nConfigure the Get Report nodes with the appropriate property ID and metrics.\nEnsure correct date ranges are selected for each node.\n\nFormatting Node\n\nThe Format Data node processes aggregated data and generates the HTML content.\nCustomize the HTML styling and segment colors as needed.\n\nEmail Node\n\nConfigure the Gmail node with OAuth credentials.\nSet the recipient email address and subject line dynamically.\n\nError Handling\n\nCommon Issues\n\nAuthentication Errors:\n\n   Ensure OAuth credentials are correct.\n   Verify that the APIs are enabled in the Google Cloud Console.\n\nEmpty Data:\n\n   Check the raw data from Google Analytics.\n   Validate the property ID and query parameters in the Get Report nodes.\n\nParsing Errors:\n\n   Ensure the parser nodes are correctly configured and match the expected input format.\n\nDebugging\n\nUse debug logs in each node to identify data flow issues.\nAdd error-handling nodes to capture and log issues during execution.\n\nExample Usage\n\nRun the Workflow\n   Trigger the workflow to fetch, process, and format Google Analytics data.\nVerify Output\n   Check the formatted HTML output in the debug logs.\n   Ensure the email or Google Doc contains the correctly formatted report.\n\nFuture Enhancements\n\nAdd support for additional metrics or dimensions.\nIntegrate with Slack for notifications.\nEnable scheduling for automated reports.\nAdd a visual dashboard for real-time analytics.\n\n",
+  "totalViews": 10374,
+  "source": "official",
+  "user": {
+    "id": 91693,
+    "name": "Alex Kim",
+    "username": "alexk1919",
+    "bio": "n8n Ambassador & Verified Partner",
+    "verified": true,
+    "links": "[\"https://wot-ai.com\"]",
+    "avatar": "https://gravatar.com/avatar/2b74c7f530e250439f5d752f2623ead4921fbb8aef56343c922b2873ef8a619f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Analytics",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Google Analytics",
+      "type": "n8n-nodes-base.googleAnalytics",
+      "categories": [
+        "Analytics"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-11-15T03:56:10.002Z",
+  "path": "official/template_2549/workflow.json"
+}

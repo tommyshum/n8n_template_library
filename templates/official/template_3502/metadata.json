@@ -1,0 +1,97 @@
+{
+  "id": 3502,
+  "name": "Smart Gmail Cleaner with AI Validator & Telegram Alerts",
+  "description": "Automatically clean up your Gmail inbox by deleting unwanted emails, validated by Gemini AI.  \nIdeal for anyone tired of manual inbox cleanup, this workflow helps you save time while staying in control, with full transparency via Telegram alerts.\n\nHow it works\n\nScans Gmail inbox in adjustable 2-week batches  \nUses Gemini AI to decide if an email should be deleted or skipped  \nApplies a label to skipped emails to avoid rechecking in future runs  \nDeletes unwanted emails and sends a Telegram message with the AI's reasoning  \nAlso notifies on skipped emails, with explanation included  \n\nSet up steps\n\nConnect your Gmail, Gemini AI, and Telegram accounts  \nAdjust the AI baseline to control sensitivity (e.g. how strict the filtering should be)  \nSet your batch range (default: last 2 weeks, adjustable)  \nDefine your Telegram chat/channel for notifications\n\nNote: Thanks to n8n's modular design, you can easily switch Gemini for another AI model (like OpenAI, Claude, etc.) or replace Telegram with Discord, Slack, or even email, no code changes needed, just swap the nodes.\n",
+  "totalViews": 1003,
+  "source": "official",
+  "user": {
+    "id": 93700,
+    "name": "Reyhan",
+    "username": "abizareyhan",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/c09d7c63719a5fbdd204fab2381adffaa92393708b7948ae9cd1505888aefa2d?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-04-09T18:14:39.951Z",
+  "path": "official/template_3502/workflow.json"
+}

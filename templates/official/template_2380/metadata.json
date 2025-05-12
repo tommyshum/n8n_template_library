@@ -1,0 +1,52 @@
+{
+  "id": 2380,
+  "name": "Create Atlassian Confluence page from template",
+  "description": "How it works\ncreates a new page in Confluence based on a page template also defined in Confluence\nreplaces any number of placeholders with data from your workflow\ngeneric implementation for maximum flexibility\n\nSet up steps\nAll parameters you need to change are defined in the Set node\n\tSet your Atlassian-domain\n\tSet the template id you want to use as the basis for new pages\n\tSet the target space and parent page for new pages added based on that template.\n🎥 Explainer video has all the details. =)\n\nFeedback\nAny feedback is welcome.\nIf you have ideas for improvements, let me know.\n",
+  "totalViews": 2460,
+  "source": "official",
+  "user": {
+    "id": 91902,
+    "name": "Jon Bungartz",
+    "username": "automaze-me",
+    "bio": "I help agencies grow by automating onboarding and operations using no-code/ low-code tools and AI",
+    "verified": false,
+    "links": "[\"https://automaze.me\"]",
+    "avatar": "https://gravatar.com/avatar/72c5afae12c76acd7bb0390d9293801a282d6695a1b498ca848d627d6445b84d?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-08-14T19:28:15.626Z",
+  "path": "official/template_2380/workflow.json"
+}

@@ -1,0 +1,125 @@
+{
+  "id": 2950,
+  "name": "AI-Powered Social Media Content Generator & Publisher",
+  "description": "AI-Powered Social Media Content Generator & Publisher 🚀  \n\nThis AI-driven n8n workflow automates social media content creation and publishing across LinkedIn, Instagram, Facebook, and Twitter (X). It generates engaging, platform-optimized posts using Google Gemini AI, based on user inputs such as a post title, keywords, and an uploaded image. The workflow ensures seamless content generation and publishing, making it a perfect tool for marketers, business owners, influencers, and content creators.  \n\n🌟 Features & Benefits  \n\n✅ AI-Generated Social Media Posts – Uses Google Gemini AI to create high-quality, optimized content.  \n✅ Multi-Platform Support – Automatically generates posts for LinkedIn, Instagram, Facebook, and Twitter (X).  \n✅ Hashtag & SEO Optimization – Includes trending hashtags to enhance visibility and engagement.  \n✅ Image Upload & Processing – Allows image uploads for Instagram and Facebook using imgbb and Facebook Graph API.  \n✅ Automated Publishing – Posts are automatically published on all selected platforms.  \n✅ Custom Call-to-Action – Each platform's post is optimized with CTAs for better engagement.  \n✅ User-Friendly Form Submission – Easy-to-use form where users can enter post titles, keywords, links, and images.  \n✅ Performance Tracking – Provides confirmation and tracking links for published posts.  \n\n📌 How It Works  \n\n1️⃣ User Submission Form  \n   Fill out the form with Post Title, Keywords, and an Optional Link.  \n   Upload an image for Instagram & Facebook posts.  \n\n2️⃣ AI Content Generation  \n   Google Gemini AI generates optimized content for each platform.  \n   The AI ensures professional, engaging, and audience-specific content.  \n\n3️⃣ Content Review  \n   Users review and approve the AI-generated content before publishing.  \n\n4️⃣ Automated Publishing  \n   Posts are automatically published on LinkedIn, Facebook, Instagram, and Twitter (X).  \n   Uses Facebook Graph API, LinkedIn API, Twitter API, and Instagram API.  \n\n5️⃣ Post Confirmation & Tracking  \n   Get links to track published posts on each platform.  \n\n🛠️ Prerequisites  \n\nBefore using this workflow, ensure you have:  \n\n✅ n8n Instance (Cloud or Self-Hosted)  \n✅ Social Media API Credentials (Facebook, Instagram, LinkedIn, Twitter API)  \n✅ Google Gemini AI API Key  \n✅ imgbb API Key (for image hosting)  \n\nGet N8n\nMy Affiliate Link\nBuy My Book:  \nMastering n8n on Amazon\n\nFull Courses & Tutorials:  \nhttp://lms.syncbricks.com\n\n📺 YouTube Video Tutorial 🎥  \n\nWatch the step-by-step tutorial on how to set up and use this n8n workflow template:  \n\n🔗 YouTube Tutorial - AI-Powered Social Media Posting in n8n  \n\n🎯 Use Cases  \n\n📌 Marketing Agencies – Automate client content scheduling.  \n📌 Businesses & Brands – Maintain a consistent brand presence on social media.  \n📌 Content Creators & Influencers – Generate high-quality posts quickly.  \n📌 E-commerce & Startups – Promote products and services effortlessly.  \n📌 Corporate & Enterprise Teams – Streamline internal and external communications.  \n\nImportant\nStart with n8n  \n\nLearn n8n with Amjid   \nGet n8n Book \n\n👨‍💻 Creator Information  \n\n👤 Developed by: Amjid Ali  \n🌐 Website: SyncBricks  \n📧 Email: info@syncbricks.com  \n💼 LinkedIn: Amjid Ali  \n📺 YouTube: SyncBricks  \n\n💡 Support & Contributions  \n\nIf you find this workflow helpful, consider supporting my work:  \n\n👉 Donate via PayPal  \n\nFor full courses on * AI Automation*, visit:  \n\n📚 SyncBricks LMS  \n\n📚 AI and Auotmation Course \n\n👉  Get Started with N8N  ",
+  "totalViews": 89890,
+  "source": "official",
+  "user": {
+    "id": 92318,
+    "name": "Amjid Ali",
+    "username": "amjid",
+    "bio": "**Amjid Ali** is an automation expert and AI enthusiast specializing in creating intelligent workflows using low-code platforms like **n8n**. With a passion for simplifying complex processes, he designs solutions that enhance productivity and streamline operations. As an active contributor to the **n8n Creator Hub**, Amjid shares innovative use cases, practical templates, and best practices, empowering the community to unlock the full potential of workflow automation.",
+    "verified": true,
+    "links": "[\"https://amjidali.com\"]",
+    "avatar": "https://gravatar.com/avatar/8760ed64a38ed65da42983737659c7e295e4a7f14b59ed5ce1b0b1077435f573?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Marketing",
+    "Communication",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Facebook Graph API",
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "X (Formerly Twitter)",
+      "type": "n8n-nodes-base.twitter",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "LinkedIn",
+      "type": "n8n-nodes-base.linkedIn",
+      "categories": [
+        "Marketing",
+        "Communication"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 8,
+  "createdAt": "2025-02-20T12:47:09.520Z",
+  "path": "official/template_2950/workflow.json"
+}

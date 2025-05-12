@@ -1,0 +1,181 @@
+{
+  "id": 3907,
+  "name": "Generate Riddle Shorts & Post on YouTube with Sonnet 3.5, Pinecone & Creatomate",
+  "description": "This workflow allows you to generate riddle-themed vertical videos (9:16), render them using Creatomate, and upload them directly to YouTube — all automatically. It's optimized for low-cost operation while still integrating AI and automation at key stages.\n\nHere is a sample: https://youtube.com/shorts/svhgti9L6Fw?feature=share\n\n🔄 Workflow Overview\n\nThis is a schedule-triggered workflow that:\n\nGenerates riddles with answers using an AI agent.\nChecks Pinecone vector store to avoid repeating riddles.\nInserts new riddles into Pinecone under a namespace structured by month/year for easier indexing.\nFetches an unused music track URL for video background.\nGenerates a video using Creatomate with the riddles and audio.\nUploads the video to YouTube via a custom HTTP request with OAuth.\nUpdates the worksheet and riddle numbering, and notifies via email.\n\n🔗 Integration Guide\n\n🔎 Pinecone Setup\n\nYou need an active Pinecone account with an index created.\nThe vector index should be accessible from n8n.\nFollow \\[n8n's Pinecone Node Documentation] for help setting up credentials and connecting.\n\n📝 Google Sheet Setup\n\nOpen the sheets template provided in the Gumroad documentation pdf.\nMake a copy to your Google Drive.\nSet up the required credentials in n8n and link the Google Sheets node to your new copy.\n\n🎧 Audio Tracks\n\nGet copyright-free tracks from Royalty Free Music Library.\nEnsure files are in .mp3 format for compatibility.\n\n🎞️ Background Videos (Optional)\n\nFor optional background visuals, use free stock videos from Pexels.\n\n💡 Creatomate Setup\n\nCreate a Creatomate account at \\[creatomate.com].\nCreate a 9:16 aspect ratio template.\nPress F12 to open the source editor.\nDownload the Creatomate JSON file from the Gumroad page and paste its contents into the source editor.\nRefresh the page and click \"Use Template\" &gt; API Integration.\nCopy the cURL.\nFrom the cURL, extract your Bearer Token and Template ID.\nPaste them in the respective fields in the Creatomate Render Node inside n8n.\n\n📉 YouTube Upload Configuration\n\nInside n8n, set up a YouTube OAuth credential.\nSearch for \"YouTube\" in the credentials list and select the OAuth type.\nUse the Custom HTTP Request node with multipart/form-data to upload the video using:\n\n   Title (e.g., \"Riddles4U #001\")\n   Description\n   Video file binary\n   Category ID (find ID here: https://gist.github.com/dgp/1b24bf2961521bd75d6c)\n\n🔄 Workflow Logic Detail\n\nRiddle Generation\n\n   Checks Pinecone vector store for existing riddles (to avoid duplicates).\n   Generates 4 new riddles with answers.\n   Stores them in Pinecone under month/year namespace.\n   Extracts a numbered title for current riddle post (e.g., Riddles4U #001).\n   Prepares next riddle title counter (but only updates after YouTube post succeeds).\n\nTrack URL Fetching\n\n   Pulls the first unused track from Google Sheets.\n\nRender & Upload\n\n   Sends the riddles + track to Creatomate for rendering.\n   Fetches binary video and uploads it directly to YouTube via HTTP.\n   Note: For video source url, I downloaded a video, uploaded it to drive and used that video drive link. You can add a new sheet and rotate videos too, although youtube likes consistency in shorts so I think it is best to have one very beautiful and calm background video then change to a new one after some months or when you generate like 50 shorts. \n\n\nPost Actions\n\n   Sends email with YouTube video link.\n   Marks used audio row as \"used\".\n   Updates to next riddle title.\n   If all tracks have been used, resets them to \"unused\".\n\n🚀 Customization Ideas\n\nAdd AI-generated voiceover to the riddles.\nReplace riddles with trivia, quotes, or jokes.\nIntegrate TikTok or Instagram upload APIs for multichannel publishing.\n\n✉️ Support\n\nRefer to the comprehensive setup guide included in the Gumroad download folder to configure your template, credentials, and API keys correctly.\n\nThis is a beginner-friendly, low-cost automation you can build on for more advanced content pipelines. Happy building!\n\nYou can find me on twitter and via email incase you need any custom n8n workflows or wanna chat.\n",
+  "totalViews": 44,
+  "source": "official",
+  "user": {
+    "id": 93572,
+    "name": "Joseph",
+    "username": "mjomba",
+    "bio": "Automation expert specializing in building smart, scalable workflows using tools like n8n, Make, and Airtable. I help businesses save time, reduce manual work, and grow faster with tailored automation solutions. Feel free to reach out at joseph@uppfy.com to discuss your project.",
+    "verified": true,
+    "links": "[\"https://x.com/juppfy\"]",
+    "avatar": "https://gravatar.com/avatar/460cadca403550e24f9e17a9ee3f4670046503b32fb59618a1b390378b803162?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    },
+    {
+      "name": "Anthropic Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Recursive Character Text Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Pinecone Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 11,
+  "createdAt": "2025-05-06T17:37:42.403Z",
+  "path": "official/template_3907/workflow.json"
+}

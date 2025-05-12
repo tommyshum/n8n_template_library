@@ -1,0 +1,75 @@
+{
+  "id": 3517,
+  "name": "Import Google Keep notes to Google Sheets using OpenAI and Google Drive",
+  "description": "This n8n workflow automates the import of your Google Keep notes into a structured Google Sheet, using Google Drive, OpenAI for AI-powered processing, and JSON file extraction. It's perfect for users who want to turn exported Keep notes into a searchable, filterable spreadsheet – optionally enhanced by AI summarization or transformation.\n\nWho is this for?\nResearchers, knowledge workers, and digital minimalists who rely on Google Keep and want to better organize or analyze their notes.\n\nAnyone who regularly exports Google Keep notes and wants a clean, automated workflow to store them in Google Sheets.\n\nUsers looking to apply AI to process, summarize, or extract insights from raw notes.\n\nWhat problem is this workflow solving?\n\nExporting Google Keep notes via Google Takeout gives you unstructured .json files that are hard to read and manage. This workflow solves that by:\nFiltering relevant .json files\nExtracting note content\n(Optionally) applying AI to analyze or summarize each note\nWriting the result into a structured Google Sheet\n\nWhat this workflow does\n\nGoogle Drive Search: Looks for .json files inside a specified \"Keep\" folder.\n\nLoop: Processes files in batches of 10.\n\nFile Filtering: Filters by .json extension.\n\nDownload + Extract: Downloads each file and extracts note content from JSON.\n\nOptional Filtering: Only keeps non-archived notes or those meeting content criteria.\n\nAI Processing (optional): Uses OpenAI to summarize or transform the note content.\n\nPrepare for Export: Maps note fields to be written.\n\nGoogle Sheets: Appends or updates the target sheet with the note data.\n\nSetup\nExport your Google Keep notes using Google Takeout:\n\nDeselect all, then choose only Google Keep.\n\nChoose “Send download link via email”.\n\nUnzip the downloaded archive and upload the .json files to your Google Drive.\n\nConnect Google Drive, OpenAI, and Google Sheets in n8n.\n\nSet the correct folder path for your notes in the “Search in ‘Keep’ folder” node.\n\nPoint the Google Sheet node to your spreadsheet\n\nHow to customize this workflow to your needs\nSkip AI processing: If you don't need summaries or transformations, remove or disable the OpenAI Chat Model node.\n\nFilter criteria: Customize the Filter node to extract only recent notes, or those containing specific keywords.\n\nAI prompts: Edit the Tools Agent or Chat Model node to instruct the AI to summarize, extract tasks, categorize notes, etc.\n\nField mapping: Adjust the “Set fields for export” node to control what gets written to the spreadsheet.\n\nUse this template to build a powerful knowledge extraction tool from your Google Keep archive – ideal for backups, audits, or data-driven insights.",
+  "totalViews": 612,
+  "source": "official",
+  "user": {
+    "id": 92501,
+    "name": "PollupAI",
+    "username": "zeerobug",
+    "bio": "We create bespoke AI solutions, automations and agents that help your business as it scales.",
+    "verified": true,
+    "links": "[\"https://pollup.ai\"]",
+    "avatar": "https://gravatar.com/avatar/6d3d2053279bc63e9be7bf4cd3fb74e13e7cc1309d32eab0b72140332cff577e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-04-11T07:09:28.990Z",
+  "path": "official/template_3517/workflow.json"
+}

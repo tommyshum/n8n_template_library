@@ -1,0 +1,80 @@
+{
+  "id": 1440,
+  "name": "Handle verification for Twitter webhook",
+  "totalViews": 674,
+  "purchaseUrl": null,
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "description": "This workflow handles the incoming call from Twitter and sends the required response for verification.\n\nOn registering the webhook with the Twitter Account Activity API, Twitter expects a signature in response. Twitter also randomly ping the webhook to ensure it is active and secure.\n\n\n\nWebhook node: Use the displayed URL to register with the Account Activity API.\n\nCrypto node: In the Secret field, enter your API Key Secret from Twitter.\n\nSet node: This node generates the response expected by the Twitter API.\n\n\nLearn more about connecting n8n with Twitter in the Getting Started with Twitter Webhook article.",
+  "createdAt": "2022-02-06T21:16:31.845Z",
+  "nodes": [
+    {
+      "id": 264,
+      "icon": "fa:key",
+      "name": "n8n-nodes-base.crypto",
+      "codex": {
+        "data": {
+          "alias": [
+            "Encrypt",
+            "SHA",
+            "Hash"
+          ],
+          "details": "The Crypto node allows you to hash and Hmac string in a specified format and sign a string using a private key. Use this node when you want to encrypt your data.",
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/how-to-build-a-low-code-self-hosted-url-shortener/",
+                "icon": "🔗",
+                "label": "How to build a low-code, self-hosted URL shortener in 3 steps"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.crypto/"
+              }
+            ]
+          },
+          "categories": [
+            "Development",
+            "Core Nodes"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0",
+          "subcategories": {
+            "Core Nodes": [
+              "Data Transformation"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Crypto",
+        "color": "#408000"
+      },
+      "iconData": {
+        "icon": "key",
+        "type": "icon"
+      },
+      "displayName": "Crypto",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 5,
+          "name": "Development"
+        },
+        {
+          "id": 9,
+          "name": "Core Nodes"
+        }
+      ]
+    }
+  ]
+}

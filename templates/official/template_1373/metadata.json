@@ -1,0 +1,32 @@
+{
+  "id": 1373,
+  "name": "Create a new user in Notion based on the signup form submission",
+  "description": "This workflow recieves webhook data from a form submission and creates a new user (with name and email) if necessary. It also add the current semester of the program to the relation for the user.\n\n",
+  "totalViews": 1290,
+  "source": "official",
+  "user": {
+    "id": 17385,
+    "name": "Will Stenzel",
+    "username": "automations",
+    "bio": null,
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/af51134f7bde343175cbcbc16e8ca9dac4a0990288f512300af75ca8063eaba7?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2021-12-22T21:33:25.445Z",
+  "path": "official/template_1373/workflow.json"
+}

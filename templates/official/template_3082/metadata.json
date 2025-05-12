@@ -1,0 +1,88 @@
+{
+  "id": 3082,
+  "name": "Social Media Content Generator And Publisher | X, Linkedin",
+  "description": "Generate and Publish AI Content to LinkedIn and X (Twitter) with n8n\n\nOverview\nThis n8n workflow automates the generation and publishing of AI-powered social media content across LinkedIn and X (formerly Twitter). By leveraging AI, this workflow helps social media managers, marketers, and content creators streamline their posting process.\n\nWho is this for?\nSocial media managers\nContent creators\nDigital marketers\nBusinesses looking to automate content generation\n\nFeatures\nAI-powered content creation** tailored for LinkedIn and X (Twitter)\nAutomated publishing** to both platforms\nStructured output parsing** to ensure consistency\nOAuth2 authentication** for secure posting\nMerge and confirmation steps** to track successful postings\n\nSetup Instructions\nPrerequisites\nBefore using this workflow, ensure you have:\nAn n8n instance set up\nAPI credentials for:\n  Google Gemini AI (for content generation)\n  X Developer Account with OAuth2 authentication\n  LinkedIn Developer Account with OAuth2 authentication\nA form submission service integrated with n8n\n\nWorkflow Breakdown\n\n1. Trigger: Form Submission\nA user submits a form containing the post title.\nThe form is secured with Basic Authentication.\nThe submitted title is passed to the AI Agent.\n\n2. AI Content Generation\nThe Google Gemini Chat Model processes the title and generates:\n  LinkedIn post content\n  Twitter (X) post content\n  Hashtags\n  Call-to-action (LinkedIn)\n  Character limit check (Twitter)\n\n3. Parsing AI Output\nA structured output parser converts the AI-generated content into a JSON format.\nEnsures correct formatting for LinkedIn and Twitter (X).\n\n4. Publishing to Social Media\nX (Twitter) Posting\nExtracts the Twitter post from the AI output.\nPublishes it via an OAuth2-authenticated X (Twitter) account.\n\nLinkedIn Posting\nExtracts the LinkedIn post from the AI output.\nPublishes it via an OAuth2-authenticated LinkedIn account.\n\n5. Merging Post Results\nMerges the response data from both LinkedIn and Twitter after publishing.\n\n6. Confirmation Step\nDisplays a final confirmation form once the posts are successfully published.\n\nBenefits\nSave time** by automating content creation and publishing.\nEnsure consistency** across platforms with structured AI-generated posts.\nSecure authentication** using OAuth2 for LinkedIn and Twitter.\nIncrease engagement** with AI-optimized hashtags and CTAs.\n\nThis workflow enables seamless social media automation, helping professionals post engaging AI-powered content effortlessly. 🚀\n\n",
+  "totalViews": 12570,
+  "source": "official",
+  "user": {
+    "id": 93066,
+    "name": "ömer",
+    "username": "gocmen",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/9909a1558ac5075cb420360b7c26afde5dc7796b013b16bfcba5d59aadef55fa?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Marketing",
+    "Communication",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "X (Formerly Twitter)",
+      "type": "n8n-nodes-base.twitter",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "LinkedIn",
+      "type": "n8n-nodes-base.linkedIn",
+      "categories": [
+        "Marketing",
+        "Communication"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-03-04T20:39:58.733Z",
+  "path": "official/template_3082/workflow.json"
+}

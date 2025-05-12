@@ -1,0 +1,67 @@
+{
+  "id": 2353,
+  "name": "Send Slack notifications when a new release is published for public Github repos",
+  "description": "This workflow checks a configured list of Github repositories daily to see if a new release has been published.\n\nHow it works:\nWorkflow has a daily trigger\nRepoConfig node is a JSON array that defines a list of repositories to check releases for\nFor each of the configured repos it fetches the latest release\nIf the release was published within the last 24 hours it is output\nThe release is sent as a Slack message showing the repo name, release name and link\n\nSetup\nUpdate the JSON in the RepoConfig node to the Github repos you wish to get notifications for\nSetup your Slack connection (or replace with your choice of notification)\n",
+  "totalViews": 1313,
+  "source": "official",
+  "user": {
+    "id": 91841,
+    "name": "Damian Karzon",
+    "username": "dkarzon",
+    "bio": "",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/a5e1a9790861eaa4f54b083abc142c94da0010ca05a167b0e307a3d2d5bbb594?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-07-24T09:20:39.536Z",
+  "path": "official/template_2353/workflow.json"
+}

@@ -1,0 +1,277 @@
+{
+  "id": 3153,
+  "name": "Generate Complete Stories with GPT-4o and Save Them in Google Drive",
+  "totalViews": 538,
+  "price": 250,
+  "purchaseUrl": "https://bundly.gumroad.com/l/storytelling-wizard",
+  "user": {
+    "id": 92817,
+    "name": "Ian Dikhtiar",
+    "username": "ian-dikhtiar",
+    "bio": "",
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/5bf8e571dafcba53bfb9714253d714c87e9facbbd9d5260257d4c397f0896677?r=pg&d=retro&size=200"
+  },
+  "description": "AI Story Generator with GPT-4o and Google Drive Integration\n\nAutomatically generate complete stories with GPT-4o and seamlessly save them to Google Drive.\n\nWho is this for?\n\nCreative writers and authors\nMarketing and sales professionals\nEducators and content creators\nFan fiction enthusiasts\nAnyone interested in automating storytelling with AI\n\nWhat problem is this workflow solving?\n\nManually creating engaging, structured narratives can be time-consuming. Writers and content creators often struggle to maintain consistency, depth, and engaging storytelling structure. This workflow solves these challenges by automating story creation using advanced AI (GPT-4o) and proven storytelling techniques.\n\nWhat this workflow does\n\nThis n8n automation generates comprehensive stories through an iterative AI-driven process:\n\nStep 1: Provide Your Story Idea\nUsers input a clear description and specify their desired story format (short story, fan fiction, sales email, etc.).\n\nStep 2: AI-Driven Analysis\nGPT-4o analyzes the provided idea, categorizes the story, selects relevant storytelling frameworks inspired by PipDeck Storyteller Tactics, and determines narrative tone and direction.\n\nStep 3: Story and Character\nFoundationEstablishes core themes, emotional hooks, and detailed character backgrounds.\n\nStep 4: Initial Story Development\nCreates a structured plot outline including engaging elements such as hooks, twists, and resolutions.\n\nStep 5: Iterative Enhancement\nRefines the story through multiple automated prompts, improving narrative depth, character development, dialogue, and realism.\n\nStep 6: Editorial Feedback\nGenerates automated critiques highlighting clichés, weak dialogues, and areas for improvement.\n\nStep 7: Final Polished Version\nIncorporates editorial feedback to produce a complete, polished, ready-to-use narrative.\n\nStep 8: Instant Google Drive\nOrganizationAutomatically saves the final story directly to your specified Google Drive folder for easy access and management.\n\nSetup Instructions\n\nPrerequisites:\nn8n account (cloud or self-hosted)\nGPT-4o API access via OpenAI\nGoogle Drive account\n\nConfigure OpenAI Node:\nAdd your GPT-4o API key in the OpenAI node settings.\nConfigure Google Drive Node:\nConnect your Google Drive account by authenticating with n8n.\nSpecify the folder where generated stories should be saved.\n\nTest Workflow:\n\nRun the workflow with a simple story prompt to ensure proper setup.\n\nHow to Customize this Workflow\n\nAdjust Prompt Details: Modify AI prompt instructions to suit your specific story style and audience.\n\nExpand or Narrow Iterations: Change the number of iterations to balance between speed and story complexity.\n\nCustomize Feedback Level: Adjust the level of editorial feedback provided.\n\nDependencies and Requirements\n\nGPT-4o API from OpenAI\nGoogle Drive integration enabled in n8n\n\nGet Started\n\nDownload and deploy this template today to streamline your storytelling process and produce consistently engaging, high-quality content effortlessly.",
+  "createdAt": "2025-03-13T15:32:01.628Z",
+  "nodes": [
+    {
+      "id": 58,
+      "icon": "file:googleDrive.svg",
+      "name": "n8n-nodes-base.googleDrive",
+      "codex": {
+        "data": {
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/your-business-doesnt-need-you-to-operate/",
+                "icon": " 🖥️",
+                "label": "Hey founders! Your business doesn't need you to operate"
+              },
+              {
+                "url": "https://n8n.io/blog/why-this-product-manager-loves-workflow-automation-with-n8n/",
+                "icon": "🧠",
+                "label": "Why this Product Manager loves workflow automation with n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/aws-workflow-automation/",
+                "label": "7 no-code workflow automations for Amazon Web Services"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googledrive/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/google/oauth-single-service/"
+              }
+            ]
+          },
+          "categories": [
+            "Data & Storage"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "Google Drive"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiB2aWV3Qm94PSIwIDAgODEgNzMiPjx1c2UgeGxpbms6aHJlZj0iI2EiIHg9Ii41IiB5PSIuNSIvPjxzeW1ib2wgaWQ9ImEiIG92ZXJmbG93PSJ2aXNpYmxlIj48ZyBmaWxsLXJ1bGU9Im5vbnplcm8iIHN0cm9rZT0ibm9uZSI+PHBhdGggZmlsbD0iIzAwNjZkYSIgZD0ibTYuMDQ4IDYxLjI2IDMuNTI4IDYuMDk0Yy43MzMgMS4yODMgMS43ODcgMi4yOTEgMy4wMjQgMy4wMjRsMTIuNi0yMS44MUgwYTguMyA4LjMgMCAwIDAgMS4xIDQuMTI0eiIvPjxwYXRoIGZpbGw9IiMwMGFjNDciIGQ9Ik00MCAyMi45MSAyNy40IDEuMWMtMS4yMzcuNzMzLTIuMjkxIDEuNzQxLTMuMDI0IDMuMDI0TDEuMSA0NC40NDVBOC4zIDguMyAwIDAgMCAwIDQ4LjU2OGgyNS4yeiIvPjxwYXRoIGZpbGw9IiNlYTQzMzUiIGQ9Ik02Ny40IDcwLjM3OGMxLjIzNy0uNzMzIDIuMjkxLTEuNzQxIDMuMDI0LTMuMDI0bDEuNDY2LTIuNTIgNy4wMS0xMi4xNDJhOC4zIDguMyAwIDAgMCAxLjEtNC4xMjRINTQuNzk4bDUuMzYzIDEwLjUzOHoiLz48cGF0aCBmaWxsPSIjMDA4MzJkIiBkPSJNNDAgMjIuOTEgNTIuNiAxLjFDNTEuMzYzLjM2NyA0OS45NDMgMCA0OC40NzcgMEgzMS41MjRjLTEuNDY2IDAtMi44ODcuNDEyLTQuMTI0IDEuMXoiLz48cGF0aCBmaWxsPSIjMjY4NGZjIiBkPSJNNTQuNzk5IDQ4LjU2OEgyNS4ybC0xMi42IDIxLjgxYzEuMjM3LjczMyAyLjY1NyAxLjEgNC4xMjQgMS4xaDQ2LjU1MmMxLjQ2NiAwIDIuODg3LS40MTIgNC4xMjQtMS4xeiIvPjxwYXRoIGZpbGw9IiNmZmJhMDAiIGQ9Ik02Ny4yNjIgMjQuMjg0IDU1LjYyNCA0LjEyNEM1NC44OTEgMi44NDEgNTMuODM3IDEuODMzIDUyLjYgMS4xTDQwIDIyLjkxbDE0LjggMjUuNjU5aDI1LjE1NWE4LjMgOC4zIDAgMCAwLTEuMS00LjEyNHoiLz48L2c+PC9zeW1ib2w+PC9zdmc+"
+      },
+      "displayName": "Google Drive",
+      "typeVersion": 3,
+      "nodeCategories": [
+        {
+          "id": 3,
+          "name": "Data & Storage"
+        }
+      ]
+    },
+    {
+      "id": 1119,
+      "icon": "fa:robot",
+      "name": "@n8n/n8n-nodes-langchain.agent",
+      "codex": {
+        "data": {
+          "alias": [
+            "LangChain",
+            "Chat",
+            "Conversational",
+            "Plan and Execute",
+            "ReAct",
+            "Tools"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Agents",
+              "Root Nodes"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "AI Agent",
+        "color": "#404040"
+      },
+      "iconData": {
+        "icon": "robot",
+        "type": "icon"
+      },
+      "displayName": "AI Agent",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1179,
+      "icon": "fa:code",
+      "name": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "codex": {
+        "data": {
+          "alias": [
+            "json",
+            "zod"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.outputparserstructured/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Output Parsers"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Structured Output Parser"
+      },
+      "iconData": {
+        "icon": "code",
+        "type": "icon"
+      },
+      "displayName": "Structured Output Parser",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1253,
+      "icon": "file:azure.svg",
+      "name": "@n8n/n8n-nodes-langchain.lmChatAzureOpenAi",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatazureopenai/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Language Models",
+              "Root Nodes"
+            ],
+            "Language Models": [
+              "Chat Models (Recommended)"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Azure OpenAI Chat Model"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNTYiIGhlaWdodD0iMjQyIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJhIiB4MT0iNTguOTcyJSIgeDI9IjM3LjE5MSUiIHkxPSI3LjQxMSUiIHkyPSIxMDMuNzYyJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzExNEE4QiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzA2NjlCQyIvPjwvbGluZWFyR3JhZGllbnQ+PGxpbmVhckdyYWRpZW50IGlkPSJiIiB4MT0iNTkuNzE5JSIgeDI9IjUyLjY5MSUiIHkxPSI1Mi4zMTMlIiB5Mj0iNTQuODY0JSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1vcGFjaXR5PSIuMyIvPjxzdG9wIG9mZnNldD0iNy4xJSIgc3RvcC1vcGFjaXR5PSIuMiIvPjxzdG9wIG9mZnNldD0iMzIuMSUiIHN0b3Atb3BhY2l0eT0iLjEiLz48c3RvcCBvZmZzZXQ9IjYyLjMlIiBzdG9wLW9wYWNpdHk9Ii4wNSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1vcGFjaXR5PSIwIi8+PC9saW5lYXJHcmFkaWVudD48bGluZWFyR3JhZGllbnQgaWQ9ImMiIHgxPSIzNy4yNzklIiB4Mj0iNjIuNDczJSIgeTE9IjQuNiUiIHkyPSI5OS45NzklIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjM0NDQkY0Ii8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMjg5MkRGIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHBhdGggZmlsbD0idXJsKCNhKSIgZD0iTTg1LjM0My4wMDNoNzUuNzUzTDgyLjQ1NyAyMzNhMTIuMDggMTIuMDggMCAwIDEtMTEuNDQyIDguMjE2SDEyLjA2QTEyLjA2IDEyLjA2IDAgMCAxIC42MzMgMjI1LjMwM0w3My44OTggOC4yMTlBMTIuMDggMTIuMDggMCAwIDEgODUuMzQzIDB6Ii8+PHBhdGggZmlsbD0iIzAwNzhENCIgZD0iTTE5NS40MjMgMTU2LjI4Mkg3NS4yOTdhNS41NiA1LjU2IDAgMCAwLTMuNzk2IDkuNjI3bDc3LjE5IDcyLjA0N2ExMi4xNCAxMi4xNCAwIDAgMCA4LjI4IDMuMjZoNjguMDJ6Ii8+PHBhdGggZmlsbD0idXJsKCNiKSIgZD0iTTg1LjM0My4wMDNhMTEuOTggMTEuOTggMCAwIDAtMTEuNDcxIDguMzc2TC43MjMgMjI1LjEwNWExMi4wNDUgMTIuMDQ1IDAgMCAwIDExLjM3IDE2LjExMmg2MC40NzVhMTIuOTMgMTIuOTMgMCAwIDAgOS45MjEtOC40MzdsMTQuNTg4LTQyLjk5MSA1Mi4xMDUgNDguNmExMi4zMyAxMi4zMyAwIDAgMCA3Ljc1NyAyLjgyOGg2Ny43NjZsLTI5LjcyMS04NC45MzUtODYuNjQzLjAyTDE2MS4zNy4wMDN6Ii8+PHBhdGggZmlsbD0idXJsKCNjKSIgZD0iTTE4Mi4wOTggOC4yMDdBMTIuMDYgMTIuMDYgMCAwIDAgMTcwLjY3LjAwM0g4Ni4yNDVjNS4xNzUgMCA5Ljc3MyAzLjMwMSAxMS40MjggOC4yMDRMMTcwLjk0IDIyNS4zYTEyLjA2MiAxMi4wNjIgMCAwIDEtMTEuNDI4IDE1LjkyaDg0LjQyOWExMi4wNjIgMTIuMDYyIDAgMCAwIDExLjQyNS0xNS45MnoiLz48L3N2Zz4="
+      },
+      "displayName": "Azure OpenAI Chat Model",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1272,
+      "icon": "fa:balance-scale-left",
+      "name": "@n8n/n8n-nodes-langchain.sentimentAnalysis",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.sentimentanalysis/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Chains",
+              "Root Nodes"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Sentiment Analysis"
+      },
+      "iconData": {
+        "icon": "balance-scale-left",
+        "type": "icon"
+      },
+      "displayName": "Sentiment Analysis",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    }
+  ]
+}

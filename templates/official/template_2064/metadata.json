@@ -1,0 +1,58 @@
+{
+  "id": 2064,
+  "name": "N8N Advanced URL Parsing and Shortening Workflow - Switchy.io Integration",
+  "description": "\nOverview\n\nThis N8N workflow facilitates advanced URL parsing and shortening, incorporating metadata extraction, OpenGraph tag handling, and integration with Switchy API for link management. It employs various nodes for URL processing, metadata extraction, and creation or updating of shortened links with enriched metadata.\n\nFeatures\n\nURL Metadata Extraction:** Parses URLs to extract metadata such as titles, descriptions, images, and favicons.\nOpenGraph API Integration:** Utilizes OpenGraph API for detailed metadata retrieval.\nSwitchy API Integration:** Manages shortened links via the Switchy API.\nGitHub API Integration:** Uses GitHub for hosting images related to the URLs.\nScreenshot Capabilities:** Captures screenshots of web pages as part of metadata.\nAPI Authorization and Configuration:** Manages API keys and configurations for external service integration.\n\nWorkflow Structure\n\nSplit In Batches: Processes URLs in batches.\nAPI Auth: Configures API authorization.\nURL Processing Nodes: Extract metadata using various nodes like Get Headers, OpenGraph API, and Meta tags Scraper.\nConditional Nodes: Include IF OpenGraph Invalid and If - Enable ScreenShots for logic handling.\nData Aggregation: Uses nodes like Method 1 - META for final metadata aggregation.\nSwitchy API: Handles link creation and updating.\nGitHub Integration: Hosts screenshots and images on a personal GitHub repository.\nFinal Output: Provides the shortened URL after processing.\n\nAPI Stack\n\n| API                         | Description                                     |\n|---------------------------------|-------------------------------------------------|\n| switchy                | For creating and updating shortened links.      |\n| opengraph             | To retrieve URL metadata using OpenGraph tags.  |\n| dub.sh                    | Used for scraping meta tags from web pages.     |\n| microlink              | Captures screenshots of web pages.              |\n| pxl.to                    | Alternative service for capturing screenshots.  |\n| favicone                  | Retrieves favicons for given URLs.              |\n| github                    | Hosts images and screenshots on GitHub repo.    |\n| statically             | Used for CDN services and image hosting.        |\n| Other APIs                    | Additional APIs used for various purposes.    |\n\nGitHub Repository Setup\n\nTo use this workflow, ensure your GitHub API is linked for hosting images. Set up a repository where the workflow can upload screenshots and other related images. This repository will be referenced in the workflow nodes where images are handled.\n\nConfiguration\n\nBefore running the workflow, set up the necessary API keys and configurations in the API Auth node. Adjust batch size and other parameters as needed.\n\nError Handling\n\nThe workflow includes nodes like Stop and Error for robust error handling, post an issue and mention the creator using N8N community.\n\nContributions\n\nThis workflow is open for community contributions. Enhancements and improvements are welcome.",
+  "totalViews": 884,
+  "source": "official",
+  "user": {
+    "id": 91304,
+    "name": "Nskha",
+    "username": "nskha",
+    "bio": "Welcome to Nskha! We're all about making real changes in the no-code tech field, just like with N8N 😉. Check out our amazing collection of free public templates and join us in building a collaborative database of no-code idea projects. Let's revolutionize the way we create without code!",
+    "verified": true,
+    "links": "[\"https://nskha.com\"]",
+    "avatar": "https://gravatar.com/avatar/6f99957ae9e5a66cf0bb95f4584cf321b0644a0ceea6a633bc968b6ec55e8410?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "GitHub",
+      "type": "n8n-nodes-base.github",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-01-24T19:24:32.055Z",
+  "path": "official/template_2064/workflow.json"
+}

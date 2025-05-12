@@ -1,0 +1,18 @@
+{
+  "id": 2646,
+  "name": "Automatically prune n8n execution history",
+  "totalViews": 624,
+  "purchaseUrl": null,
+  "user": {
+    "id": 25074,
+    "name": "Danger",
+    "username": "dangerblack",
+    "bio": null,
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/56c18ac3eda0e3a9c1981f99325738e5623c892837c0c5c14e9697209661f386?r=pg&d=retro&size=200"
+  },
+  "description": "Automated Execution Pruning\n\nThis workflow is designed to help you manage and optimize your n8n instance by automatically pruning old workflow executions, ensuring a cleaner environment and improved performance. You can customize the retention period to suit your needs.\n\nKey Features:\nConfigurable Retention Period:  \n   The workflow is preconfigured to delete workflow executions older than 10 days. You can easily adjust this duration by modifying the condition in the If node.\n\nDaily Automation:  \n   Using the Schedule Trigger, the workflow runs daily at the specified time (default: 4:44 AM), retrieving all workflow executions and identifying those that are older than the defined retention period.\n\nOn-Demand Testing:  \n   The Manual Trigger allows you to test the workflow at any time, ensuring everything is working as expected.\n\nDecision Making:  \n   The If node evaluates each execution based on its start date and determines whether it should be deleted or retained.\n\nExecution Pruning:  \n   Delete Action: Executions meeting the criteria are removed via the Delete Execution node.  \n   No-Operation: Executions that don't meet the criteria remain untouched.\n\nWorkflow Nodes:\nManual Trigger: Enables on-demand testing of the workflow.  \nSchedule Trigger: Runs the workflow daily at the configured time.  \nn8n List Execution: Fetches all executions in your n8n instance.  \nIf Node: Compares the execution's start date with the configured retention period.  \nDelete Execution: Deletes executions older than the specified retention period.  \nNo Operation: Serves as a placeholder for executions that don't meet the pruning criteria.  \n\nHow to Customize:\nRetention Period**:  \n   Update the If node's condition to modify the retention period. For instance, change 10 * 24 * 60 * 60 * 1000 to the desired number of days in milliseconds.\n   \nSchedule**:  \n   Adjust the timing of the Schedule Trigger to match your preferred automation schedule.\n\nThis workflow ensures your instance remains efficient by keeping only the relevant execution logs. Use it to maintain a streamlined and clutter-free environment effortlessly.",
+  "createdAt": "2024-12-17T09:10:02.525Z",
+  "nodes": []
+}

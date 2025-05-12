@@ -1,0 +1,38 @@
+{
+  "id": 3696,
+  "name": "Generate and Edit Images with OpenAI's GPT-Image-1 Model",
+  "description": "This template integrates OpenAI's image generation and editing endpoints via the GPT-Image-1 model to visually create and manipulate images based on prompts. It features base64 conversion, binary handling, and prompt chaining.\n\nPerfect for marketing, design, product visuals and creative workflows.\n\n🛠️ Requirements\nOpenAI account with access to gpt-image-1(probably you need organizations verifications for access to that model)\n\nOpenAI API credentials configured in n8n\n\nA self-hosted or cloud n8n instance\n\nBasic familiarity with the n8n UI (no programming required)\n\n🔧 Step-by-step Instructions\n\nStep 1: Manual Trigger\nStarts the workflow on click. Ideal for testing the generation and edit logic.\n\nStep 2: Generate Image\nThe Create image call node sends a prompt to OpenAI and returns a base64 image.\n\nExample prompt:\n\nA cyberpunk city at night with flying cars and neon lights\n\nStep 3: Convert to Binary\nThe base64 image is converted into a usable binary PNG file with the Convert json binary to File node.\n\nStep 4: Edit the Image\nThe binary file is passed to OpenAI’s /images/edits endpoint. A new prompt applies changes to the image.\n\nExample:\n\nAdd a glowing robot in the foreground with a neon sword\n\n✅ Supports model: gpt-image-1\n⚠️ Requires binary file (not base64)\n\nStep 5: Final Conversion\nConverts the final edited image from base64 to file so it can be downloaded or used in other nodes.\n\n🎯 Real-World Use Cases\n🎨 Artists & Creators: concept art and illustration variations\n\n🛍️ E-commerce: auto-generate product mockups\n\n📰 Marketing: create eye-catching blog or social visuals\n\n💡 Bonus Ideas\nAdd a Telegram or Slack node to generate or edit images via chat\n\nUse a Webhook to feed prompts from a form or frontend\n\nAdd a mask to restrict edits to specific areas (e.g., background only)\n\n\n",
+  "totalViews": 1118,
+  "source": "official",
+  "user": {
+    "id": 92107,
+    "name": "Edoardo Guzzi",
+    "username": "mredodos",
+    "bio": "Automation expert with 10+ years in programming, AI, Chrome extensions, and mobile apps. Specializing in PHP, JS, and Python, I design custom n8n workflows to streamline processes and boost productivity. Explore my templates or contact me for tailored solutions.",
+    "verified": false,
+    "links": "[\"https://www.youtube.com/@edoardododoguzzi\"]",
+    "avatar": "https://gravatar.com/avatar/a21b05da374078b706406431d629d2020336978b83edffe55ae4c36a8f77cd0c?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-04-24T16:48:26.102Z",
+  "path": "official/template_3696/workflow.json"
+}

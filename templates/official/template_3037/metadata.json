@@ -1,0 +1,32 @@
+{
+  "id": 3037,
+  "name": "CallForge - 07 - AI Marketing Data Processing with Gong & Notion",
+  "description": "\nCallForge - AI-Powered Marketing Insights Extraction from Sales Calls  \nAutomate marketing intelligence gathering from AI-analyzed sales calls and store insights in Notion.  \n\n🎯 Who is This For?  \nThis workflow is designed for:  \n✅ Marketing teams looking to extract trends and insights from sales conversations.  \n✅ Product managers who need direct customer feedback from sales calls.  \n✅ Revenue operations (RevOps) teams optimizing AI-driven call analysis.  \n\nIt streamlines AI-powered marketing intelligence, identifying customer pain points, competitor mentions, and recurring trends—all automatically stored in Notion.  \n\n🔍 What Problem Does This Workflow Solve?  \nManually reviewing sales call transcripts for marketing insights is time-consuming and inconsistent.  \n\nWith CallForge, you can:  \n✔ Extract key marketing insights from AI-analyzed sales calls.  \n✔ Track recurring discussion topics across multiple conversations.  \n✔ Generate actionable marketing recommendations for strategy and content.  \n✔ Store structured insights in Notion for seamless access.  \n\nThis automation eliminates manual work and ensures marketing teams get data-driven insights from real customer conversations.  \n\n📌 Key Features & Workflow Steps  \n\n🎙️ AI-Driven Marketing Insights Processing  \nThis workflow processes AI-generated sales call insights and organizes them in Notion databases:  \nTriggers when AI sales call data is received.  \nIdentifies marketing-related data (trends, customer pain points, competitor mentions).  \nExtracts key marketing insights, categorizing product discussions and recurring topics.  \nLogs trends across multiple calls, ensuring marketing teams spot recurring themes.  \nProcesses actionable insights, capturing marketing strategy recommendations.  \nStores all findings in Notion, enabling structured, searchable insights.  \n\n📊 Notion Database Integration  \nMarketing Insights** → Logs key trends and product mentions from sales calls.  \nRecurring Topics** → Tracks frequently discussed themes across calls.  \nActionable Recommendations** → Stores AI-generated recommendations for marketing teams.  \n\n🛠 How to Set Up This Workflow  \n\n1. Prepare Your AI Call Analysis Data  \nEnsure AI-generated sales call insights are available.  \nCompatible with Gong, Fireflies.ai, Otter.ai, and other AI transcription tools.  \n\n2. Connect Your Notion Database  \nSet up Notion databases for:  \n  🔹 Marketing Insights (logs trends and product mentions)  \n  🔹 Recurring Topics (tracks frequently discussed customer concerns)  \n  🔹 Actionable Recommendations (stores marketing strategy insights)  \n\n3. Configure n8n API Integrations  \nConnect your Notion API key** in n8n under “Notion API Credentials.”  \nSet up webhook triggers** to receive AI-generated sales insights.  \nTest the workflow** using a sample AI sales call analysis.  \n\n🔧 How to Customize This Workflow  \n💡 Modify Notion Data Structure – Adjust fields to match marketing strategy needs.  \n💡 Refine AI Data Processing Rules – Customize what insights are extracted and logged.  \n💡 Integrate with Slack or Email – Notify teams when key marketing trends emerge.  \n💡 Expand CRM Integration – Sync insights with HubSpot, Salesforce, or Pipedrive.  \n\nCallForge - 01 - Filter Gong Calls Synced to Salesforce by Opportunity Stage\nCallForge - 02 - Prep Gong Calls with Sheets & Notion for AI Summarization\nCallForge - 03 - Gong Transcript Processor and Salesforce Enricher\nCallForge - 04 - AI Workflow for Gong.io Sales Calls\nCallForge - 05 - Gong.io Call Analysis with Azure AI & CRM Sync\nCallForge - 06 - Automate Sales Insights with Gong.io, Notion & AI\nCallForge - 07 - AI Marketing Data Processing with Gong & Notion\nCallForge - 08 - AI Product Insights from Sales Calls with Notion\n\n⚙️ Key Nodes Used in This Workflow  \n\n🔹 If Nodes – Detect if marketing insights, recurring topics, or recommendations exist in AI data.  \n🔹 Notion Nodes – Create and update entries in Notion databases.  \n🔹 Split Out & Aggregate Nodes – Process multiple insights and consolidate AI-generated data.  \n🔹 Wait Nodes – Ensure smooth sequencing of API calls and database updates.  \n\n🚀 Why Use This Workflow?  \n✔ Eliminates manual sales call review for marketing teams.  \n✔ Provides structured, AI-driven insights for marketing and product strategy.  \n✔ Tracks competitor mentions and customer pain points automatically.  \n✔ Improves content marketing and campaign planning with real customer insights.  \n✔ Scalable for teams using n8n Cloud or self-hosted deployments.  \n\nThis workflow empowers marketing teams by transforming sales call data into actionable intelligence, streamlining strategy, content planning, and competitor analysis. 🚀  ",
+  "totalViews": 987,
+  "source": "official",
+  "user": {
+    "id": 16588,
+    "name": "Angel Menendez",
+    "username": "djangelic",
+    "bio": "Angel Menendez is a Staff Developer Advocate at n8n.io, specializing in low-code tools for cybersecurity workflows. From Puerto Rico, Angel's tech journey began by helping his father translate technical books. He later started a web development business and transitioned from a career as a flight attendant to cybersecurity engineering. His workflows have saved companies significant time. Outside work, Angel enjoys time with his two sons, riding electric bikes, reading, and exploring new places.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/fdbe38425d21378d8c9ba8916e1eb0b320add299f12cc23fcd4961d4e6e00bec?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-02-28T06:46:48.547Z",
+  "path": "official/template_3037/workflow.json"
+}

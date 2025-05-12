@@ -1,0 +1,79 @@
+{
+  "id": 2138,
+  "name": "Create Linear tickets from Notion content",
+  "description": "This workflow allows you to define multiple tickets/issues in a Notion page, then easily import them into Linear. \n\nWhy is it useful?\n\nWe use this workflow internally at n8n for collaboration between Product and Engineering teams:\n\nEngineering needs all work to be in our ticketing system (Linear) in order to keep track of it\nProduct prefers to review features in Notion. This is because it and can be used to dump all your thoughts and organise them into themes afterwards, plus it better supports rich content like videos\n\nFeatures\n\nSupports rich formatting (bullets, images, videos, links, etc.)\nKeeps links between the Notion and Linear version, in case you need to refer back\nAllows you to assign each issue to a team member in the Notion definition\nAvoids importing the same issues twice if you run it again on the same page (meaning you can issues incrementally)\n\nYou can see an example of the required format of the Notion page here.",
+  "totalViews": 1382,
+  "source": "official",
+  "user": {
+    "id": 14122,
+    "name": "David Roberts",
+    "username": "davidn8n",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/4cda9c7c1c24fdb61896cac588296d1dad03655a439ab71ef34f4c62c0ba8524?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage",
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "GraphQL",
+      "type": "n8n-nodes-base.graphql",
+      "categories": [
+        "Data & Storage",
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Linear",
+      "type": "n8n-nodes-base.linear",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2024-02-28T12:53:41.298Z",
+  "path": "official/template_2138/workflow.json"
+}

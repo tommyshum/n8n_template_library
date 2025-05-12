@@ -1,0 +1,38 @@
+{
+  "id": 1338,
+  "name": "Update Twitter banner using HTTP request",
+  "description": "This workflow demonstrates the use of the HTTP Request node to upload binary files for form-data-multipart type. This example workflow updates the Twitter banner.\n\n\n\nHTTP Request node: This node fetches an image from Unsplash. Replace this node with any other node to fetch the image file.\n\nHTTP Request1 node: This node uploads the Twitter Profile Banner. The Twitter API requires OAuth 1.0 authentication. Follow the Twitter documentation to learn how to configure the authentication.",
+  "totalViews": 715,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2021-11-23T09:21:45.358Z",
+  "path": "official/template_1338/workflow.json"
+}

@@ -1,0 +1,41 @@
+{
+  "id": 1217,
+  "name": "Fetch a YouTube playlist and send new items Raindrop",
+  "description": "This simple workflow will fetch a YouTube playlist every n minutes and send the new items s to a collection in Raindrop.\n\n\n\nYou can connect any application at the end of the flow.\n\nMake sure to authenticate to YouTube using Google Auth, and to Raindrop using an API.\n\nUpdate the Playlist ID and the Raindrop collection.",
+  "totalViews": 3099,
+  "source": "official",
+  "user": {
+    "id": 19521,
+    "name": "Alejandro AR",
+    "username": "kinduff",
+    "bio": null,
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/20a6a12733e037e04ab871021c83a682aef265cc1257687ddd9c6f619c6e95a6?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Marketing",
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "YouTube",
+      "type": "n8n-nodes-base.youTube",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Raindrop",
+      "type": "n8n-nodes-base.raindrop",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2021-09-03T21:41:18.230Z",
+  "path": "official/template_1217/workflow.json"
+}

@@ -1,0 +1,69 @@
+{
+  "id": 3148,
+  "name": "✨ ideoGener8r –  Complete Ideogram AI Image Generator UI with Google Integration",
+  "description": "\nideoGener8r – Self-Hosted Ideogram AI Interface in n8n\n\n🔥 March Sale – n8n Community Members Get ideoGener8r for Just $27! (Reg. $47)\nUse Coupon Code: ILoven8n \n(Valid until 3/31/2025 for n8n community members)\n\n\nideoGener8r is an n8n template that sets up a self-contained, front-end interface for Ideogram AI image generation. It offers a complete workflow to generate, upscale, remix, and store images—entirely on your self-hosted n8n instance.\n\nKey Benefits & Limited-Time Offer  \nFully Self-Hosted**: Avoid monthly fees and keep your data private.  \nAll-in-One**: Generate, remix, and upscale images without third-party tools.  \nStreamlined Automation**: Integrates directly with Google Sheets & Drive.  \nSale: **Save $20 – Get ideoGener8r for just $27 with coupon code ILoven8n (valid until 3/31/2025).\n\nRequirements & Overview  \nIdeogram AI API Key  \n   Sign up at Ideogram AI and create an API key.  \nGoogle Sheets & Drive  \n   A Google Sheet for storing metadata.  \n   A Google Drive folder for saving generated images.  \nn8n Auth Credentials  \n   Basic Auth for the login webhook.  \n   Header Auth (Bearer token) for the generation/remix webhooks.  \n\nWith ideoGener8r, you can instantly create a private user interface—within n8n—to produce AI images on demand, trigger image generation through webhooks, and automatically log data to Google Sheets.\n\nRequired Google Sheet Columns  \nYour Google Sheet must contain (at minimum) the following columns for proper logging:\n\nCheeck Setup note in workflow for csv template\n\nStep-by-Step Setup Instructions\n\nImport the Template  \n   Download the JSON file you received upon purchase.  \n   In your n8n instance, go to Workflows → Import, then upload the JSON file.\n\nConfigure Ideogram API  \n   In n8n, create an HTTP Header Auth credential.  \n   For the “Authorization” header, use Bearer YOUR_IDEOGRAM_API_KEY.  \n   Attach this credential to the Ideogram-related nodes (e.g., IDEOGRAM Image generator, ideogram Upscale).\n\nGoogle Sheets Setup  \n   Copy or create a Google Sheet with the columns listed above.  \n   In the template, locate the Google Sheets “Append” nodes.  \n   Select the correct Sheet, tab, and map each column accordingly.\n\nGoogle Drive Folder  \n   Create a Drive folder to store images (sharing permissions are up to you).  \n   In the Google Drive nodes, enter the folder ID to save new images there.\n\nBasic Auth for Login  \n   Open the Login Webhook-ideoGener8r node.  \n   Set it to use Basic Auth and create credentials for a username/password.  \n   This will secure the login route (e.g., /ideogener8r-login).\n\nBearer Token for Generation & History  \n   Open the “Generation Webhook” (e.g., /ideogen) and “History Webhook” (e.g., /ideogener8r-history).  \n   Set them to Header Auth and use Authorization: Bearer &lt;YOUR_SECRET_TOKEN&gt;.  \n   Any requests to these endpoints must include that token in the header.\n\nPublish & Test  \n   Activate or publish your workflow.  \n   Go to /ideogener8r-login, enter your Basic Auth credentials, and test by generating images.  \n   Verify that images appear in your Google Drive folder, and the metadata is logged in the Google Sheet.\n\nIdeogram API Details  \nEndpoint**: The template uses Ideogram’s /generate, /upscale, and /remix endpoints.  \nHeaders**: You must provide your API key as a Bearer token in the request header.  \nRate Limits**: Check your Ideogram AI account for any usage or rate-limiting policies.\n\nMore info at ideoGener8r.com",
+  "totalViews": 716,
+  "source": "official",
+  "user": {
+    "id": 92159,
+    "name": "RealSimple Solutions",
+    "username": "joeperes",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://joeperes.com\"]",
+    "avatar": "https://gravatar.com/avatar/4ad55fbdcc7808056aa180c02d52e3e373d4b894df7fa986e2dfd6c7eb127bfc?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-03-13T04:02:58.285Z",
+  "path": "official/template_3148/workflow.json"
+}

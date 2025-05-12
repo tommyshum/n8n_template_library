@@ -1,0 +1,61 @@
+{
+  "id": 1254,
+  "name": "Deploy site when new content gets added",
+  "totalViews": 1181,
+  "purchaseUrl": null,
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "description": "This workflow demonstrates how to create a new deployment when new content gets added to the database. This example workflow can be used when building a JAMstack site.\n\n\n\nWebhook node: This node triggers the workflow when new content gets added. For this example, we have configured the webhook in GraphCMS.\n\nNetlify node: This node will start the build process and deploy the website. You will have to select your site from the Site ID dropdown list. To identify the deployment, we are passing a title.",
+  "createdAt": "2021-10-04T12:27:23.868Z",
+  "nodes": [
+    {
+      "id": 520,
+      "icon": "file:netlify.svg",
+      "name": "n8n-nodes-base.netlify",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.netlify/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/netlify/"
+              }
+            ]
+          },
+          "categories": [
+            "Development"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Netlify"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjgiIGhlaWdodD0iMTEzIiBmaWxsPSJub25lIj48ZyBjbGlwLXBhdGg9InVybCgjYSkiPjxwYXRoIGZpbGw9IiMwNUJEQkEiIGQ9Ik0zNC41OTMgOTQuMDVoLTEuMjA5bC02LjAzMy02LjAzMnYtMS4yMDlsOS4yMjMtOS4yMjJoNi4zOWwuODUyLjg1MnY2LjM5em0tNy4yNDItNjguMjM0di0xLjIwOWw2LjAzMy02LjAzM2gxLjIwOWw5LjIyMyA5LjIyM3Y2LjM5bC0uODUyLjg1MmgtNi4zOXoiLz48cGF0aCBmaWxsPSIjMDE0ODQ3IiBkPSJNODAuNDYgNzQuNjA1aC04Ljc3OGwtLjczMy0uNzMzVjUzLjMyNmMwLTMuNjU2LTEuNDM2LTYuNDg5LTUuODQ0LTYuNTg4LTIuMjY5LS4wNi00Ljg2NSAwLTcuNjM4LjExbC0uNDE2LjQyNXYyNi41ODlsLS43MzMuNzMzSDQ3LjU0bC0uNzMzLS43MzNWMzguNzY0bC43MzMtLjczM2gxOS43NTNjNy42NzcgMCAxMy44OTggNi4yMiAxMy44OTggMTMuODk4djIxLjk0M3oiLz48cGF0aCBmaWxsPSIjMDVCREJBIiBkPSJNMzUuODQxIDYxLjQ1SC43MzNMMCA2MC43MTV2LTguNzk3bC43MzMtLjczM2gzNS4xMDhsLjczMy43MzN2OC43OTd6bTkxLjQzNiAwSDkyLjE2OWwtLjczMy0uNzM0di04Ljc5N2wuNzMzLS43MzNoMzUuMTA4bC43MzMuNzMzdjguNzk3ek01OC45NDMgMjcuMDY0Vi43MzRMNTkuNjc2IDBoOC43OTdsLjczMy43MzN2MjYuMzMxbC0uNzMzLjczM2gtOC43OTd6bTAgODQuODM4di0yNi4zM2wuNzMzLS43MzRoOC43OTdsLjczMy43MzN2MjYuMzMxbC0uNzMzLjczM2gtOC43OTd6Ii8+PC9nPjxkZWZzPjxjbGlwUGF0aCBpZD0iYSI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTAgMGgxMjh2MTEyLjYzNUgweiIvPjwvY2xpcFBhdGg+PC9kZWZzPjwvc3ZnPg=="
+      },
+      "displayName": "Netlify",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 5,
+          "name": "Development"
+        }
+      ]
+    }
+  ]
+}

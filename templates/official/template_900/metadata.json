@@ -1,0 +1,32 @@
+{
+  "id": 900,
+  "name": "Add a datapoint to Beeminder on Strava activity update",
+  "description": "This workflow allows you to add a datapoint to Beeminder when a new activity is added to Strava.\n\nYou can use this workflow to keep a track of your fitness activities and connect Strava with Beeminder.\n\nIf you want to keep a track of different activities like the number of hours worked in a week or the number of tasks completed, you can use the relevant node. For example, you can use the Clockify Trigger node or the Toggl Trigger node.\n\n\n",
+  "totalViews": 296,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "Beeminder",
+      "type": "n8n-nodes-base.beeminder",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2021-01-21T12:21:29.238Z",
+  "path": "official/template_900/workflow.json"
+}

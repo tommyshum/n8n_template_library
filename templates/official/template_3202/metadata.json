@@ -1,0 +1,147 @@
+{
+  "id": 3202,
+  "name": "Stock Market Technical Analysis with GPT-4o and TradingView for Telegram",
+  "description": "\nOverview: Transform Your Trading with AI-Driven Technical Analysis\n\nThe Stock Market Technical Analysis Bot is an advanced n8n workflow that brings professional-grade stock analysis to Telegram users. This powerful AI agent analyzes stock charts in real-time, providing detailed technical insights that would typically require expensive software or expert knowledge.\n\nBy combining artificial intelligence with technical analysis indicators, this bot delivers actionable trading insights directly to your Telegram chat, making sophisticated market analysis accessible to traders of all experience levels.\n\nKey Features and Capabilities\n\nAdvanced Technical Analysis Tools\nJapanese Candlestick Pattern Recognition**: Automatically identifies bullish engulfing, doji, hammer patterns and more\nMACD Indicator Analysis**: Detects bullish/bearish crossovers and divergence signals\nVolume Trend Analysis**: Validates price movements with volume confirmation\nSupport & Resistance Level Identification**: Pinpoints key price levels for potential reversals\nBollinger Bands & RSI Analysis**: Measures volatility and overbought/oversold conditions\nReal-Time TradingView Charts**: Professional-quality charts with multiple indicators\n\nAI-Powered Trading Assistant\nNatural Language Interface**: Interact with the bot using simple conversational commands\nContext-Aware Responses**: The bot remembers your previous interactions for more relevant analysis\nGPT-4o Integration**: Leverages advanced language models for detailed explanations\nActionable Trading Insights**: Receive clear, jargon-free analysis with practical implications\n\nTechnical Implementation\nTelegram Bot Integration**: Seamless messaging experience with instant responses\nn8n Workflow Automation**: No-code solution for complex trading analysis\nMemory System**: Maintains conversation context for personalized interactions\nAPI Connections**: Integrates with TradingView, chart-img.com, and OpenAI\n\nSetup Instructions\n\nPrerequisites\nn8n Instance: A running n8n installation with the following nodes:\n   Telegram nodes\n   LangChain nodes\n   HTTP Request nodes\n   Code node\n\nRequired API Credentials:\n   Telegram Bot API token (obtain from @BotFather)\n   OpenAI API key\n   Chart-img.com API key\n\nInstallation Process\nImport the workflow template into your n8n instance\nConfigure your Telegram bot credentials\nSet up your OpenAI API credentials\nEnter your chart-img.com API key in the HTTP Request node\nActivate the workflow to start receiving analysis requests\n\nHow It Works: The Technical Analysis Process\n\n1. User Interaction Flow\nWhen a user sends a message to the Telegram bot:\nThe Telegram Trigger node captures the incoming message\nThe AI Agent processes the request using natural language understanding\nIf a stock symbol is detected, the GetChart tool is invoked\n\n2. Chart Generation System\nThe workflow creates professional TradingView charts with:\nCandlestick price data\nBollinger Bands for volatility measurement\nVolume indicators for trade validation\nRSI (Relative Strength Index) for momentum analysis\n\n3. AI Analysis Engine\nThe GPT-4o model analyzes the chart and provides:\nDetailed breakdown of candlestick patterns\nMACD trend confirmation signals\nVolume analysis to validate price movements\nSupport and resistance level identification\nOverall market sentiment assessment\n\n4. Response Delivery\nThe analysis is formatted and sent back to the user via Telegram, including:\nThe generated chart image\nComprehensive technical analysis text\nActionable insights based on the indicators\n\nUse Cases and Applications\n\nFor Day Traders\nReceive quick technical analysis before making trading decisions\nValidate your own analysis with AI-generated insights\nTrack multiple stocks efficiently throughout the trading day\n\nFor Swing Traders\nAnalyze medium-term trends and potential entry/exit points\nIdentify key support and resistance levels for stop-loss placement\nGet objective analysis to complement your trading strategy\n\nFor Trading Communities\nShare consistent, AI-generated analysis among group members\nCreate a common analytical framework for discussion\nReduce the learning curve for technical analysis concepts\n\nFor Financial Educators\nDemonstrate technical analysis concepts with real-time examples\nProvide students with accessible tools for practice\nIllustrate the application of various technical indicators\n\nAdvanced Configuration Options\n\nThe workflow can be customized to:\nAdd additional technical indicators (Fibonacci retracements, Moving Averages, etc.)\nModify the analysis parameters for different trading styles\nIntegrate with other financial data sources for fundamental analysis\nConnect to different messaging platforms beyond Telegram\nCreate scheduled analysis for watchlist stocks\n\nTroubleshooting Common Issues\n\nIf you encounter problems:\nAuthentication Errors: Verify all API credentials are correctly configured\nTelegram Connection Issues: Ensure your Telegram bot is properly set up\nChart Generation Failures: Check your chart-img.com API key and quota\nSlow Response Times: Consider upgrading your OpenAI plan for faster processing\nMissing Indicators: Verify the chart configuration in the HTTP Request node\n\nAbout This Template\n\nThis n8n workflow template demonstrates the power of combining conversational AI with technical analysis tools to create a sophisticated financial assistant. It showcases advanced workflow automation features including AI integration, external API connections, and complex data processing.\n\nBy leveraging the latest advancements in AI and technical analysis, this template provides traders with professional-grade insights without requiring expensive software or deep technical expertise.\n\nKeywords: stock market analysis bot, AI trading assistant, technical analysis indicators, n8n workflow, Telegram trading bot, candlestick pattern recognition, MACD analysis, trading signals, automated stock analysis, GPT-4o financial analysis, TradingView charts, RSI indicator, volume analysis, support resistance levels, day trading bot, swing trading analysis, AI financial advisor\n",
+  "totalViews": 4301,
+  "source": "official",
+  "user": {
+    "id": 92022,
+    "name": "Badr",
+    "username": "b4dr",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/035184cdd91cc274d7293ceaed93c97d64e57fc49fc4ba8346956a812dc35b3e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 8,
+  "createdAt": "2025-03-17T15:03:54.033Z",
+  "path": "official/template_3202/workflow.json"
+}

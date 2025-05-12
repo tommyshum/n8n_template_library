@@ -1,0 +1,47 @@
+{
+  "id": 1078,
+  "name": "Get an mp4 attachment from Gmail to Google Drive",
+  "description": "This simple workflow allows you to get an mp4 attachment from gmail email and then upload it to Google Drive to get attachment webview link.\n\n",
+  "totalViews": 4390,
+  "source": "official",
+  "user": {
+    "id": 15253,
+    "name": "Wilbert Muza",
+    "username": "wmuza",
+    "bio": null,
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/1f47588efabd2ef8c73bf080f6c021803ef0cbc3c4597aeb9bbc1b9f7dc6370d?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2021-05-17T07:16:32.394Z",
+  "path": "official/template_1078/workflow.json"
+}

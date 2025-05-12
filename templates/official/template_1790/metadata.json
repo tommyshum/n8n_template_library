@@ -1,0 +1,46 @@
+{
+  "id": 1790,
+  "name": "Generate dynamic contents for EMAILS or HTML pages",
+  "description": "\n\nDisclaimer: This template contains a community node and therefore only works for n8n self-hosted users==\n\nThis is Miquel from Aprende n8n and Automate with n8n.\n\nWe have created a new community node Document Generator that generates dynamic content using templates.\n\nYou can compose complex content with no SETs or FUNCTION ITEMs nodes using this node, like:\nSend one email with a list of items in the body (i.e., one email with the last entries of an RSS feed).\nSend one email per item (i.e., one invoice per email).\n\nEmails are just a sample. You can create complex dynamic content to:\nSend messages to Telegram/Slack.\nCreate WordPress entries.\nCreate HTML pages for your website.\nCreate tickets.\n\nAnd more! The sky is your limit ;)\n\nIf you want to use this workflow, install the community node n8n-nodes-document-generator from Settings &gt; Community nodes. Type \"n8n-nodes-document-generator\", check \"I understand the risks...\" and click on \"Install\":\n\n\nLater, copy and paste this workflow into your n8n.\n\nYou will get this workflow:\n\n\nThis workflow uses the Customer Datastore node to generate sample input items.\n\nYou can render one template with all items (enable \"Render All Items with One Template\"):\n\n\nor one template per input item:\n\n\nVisit the oficial NPM page to see more samples.\n\nLearning n8n by yourself is nice, but a bit tricky :) We offer n8n training video courses at Aprende n8n. If you need custom trainings, let us know.\n\nAdditionally, you can contact us at Automate with n8n if you need the next services:\nCustom installations.\nCustom nodes.\nMonitor and alarms.\nDelegate 12/5 or 24/7 workflow issue resolutions.\nAutomated backups of your workflows.\nHTTP integrations of non-supported APIs.\nComplex workflows.\n\nI hope you will enjoy this new node and this workflow.\n\nAutomate your life! Automate it with n8n!\n\n\n",
+  "totalViews": 6837,
+  "source": "official",
+  "user": {
+    "id": 5774,
+    "name": "Miquel Colomer",
+    "username": "mcolomer",
+    "bio": "As a passionate developer and AI agent creator, I’ve been at the forefront of automation, pioneering workflows and training AI to handle complex tasks seamlessly. I’m an early adopter and expert of n8n, having worked with its powerful capabilities to create automation solutions for diverse industries. I founded n8nhackers, the first AI-powered agency focused on n8n, where we help businesses transform their workflows with cutting-edge automation.",
+    "verified": true,
+    "links": "[\"https://n8nhackers.com\"]",
+    "avatar": "https://gravatar.com/avatar/c4974f5be3985d7f30465d2d963967905bcb2f9b8a8ecaf8ba4396bfbd034db2?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "categories": [
+        "Communication",
+        "HITL",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Customer Datastore (n8n training)",
+      "type": "n8n-nodes-base.n8nTrainingCustomerDatastore",
+      "categories": [],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2022-09-11T11:08:29.695Z",
+  "path": "official/template_1790/workflow.json"
+}

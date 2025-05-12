@@ -1,0 +1,69 @@
+{
+  "id": 3335,
+  "name": "LinkedIn Profile Finder via Form using Bright Data & GPT-4o-mini",
+  "description": "\n\nThis n8n workflow template automates the process of finding LinkedIn profiles for a person based on their name, and company. It scrapes Google search results via Bright Data, parses the results with GPT-4o-mini, and delivers a personalized follow-up email with insights and suggested outreach steps.\n\n🚀 What It Does\nAccepts a user-submitted form with a person’s full name, and company.\nPerforms a Google search using Bright Data to find LinkedIn profiles and company data.\nUses GPT-4o-mini to parse HTML results and identify matching profiles.\nFilters and selects the most relevant LinkedIn entry.\nAnalyzes the data to generate a buyer persona and follow-up strategy.\nSends a styled email with insights and outreach steps.\n\n🛠️ Step-by-Step Setup\nDeploy the form trigger to accept person data (name, position, company).\nBuild a Google search query from user input.\nScrape search results using Bright Data.\nExtract HTML content using the HTML node.\nUse GPT-4o-mini to parse LinkedIn entries and company insights.\nFilter for matches based on user input.\nMerge relevant data and generate personalized outreach content.\nSend email to a predefined address.\nShow a final confirmation message to the user.\n\n🧠 How It Works: Workflow Overview\nTrigger:** When User Completes Form\nSearch:** Edit Url LinkedIn, Get LinkedIn Entry on Google, Extract Body and Title, Parse Google Results\nMatching:** Extract Parsed Results, Filter, Limit, IF LinkedIn Profile is Found?\nFallback:** Form Not Found if no match\nCompany Lookup:** Edit Company Search, Get Company on Google, Parse Results, Split Out\nContent Generation:** Merge, Create a Followup for Company and Person\nEmail Delivery:** Send Email, Form Email Sent\n\n📨 Final Output\nAn HTML-styled email (using Tailwind CSS) with:\nMatched LinkedIn profile\nCompany insights\nPersona-based outreach strategy\n\n🔐 Credentials Used\nBrightData account** for scraping Google search results\nOpenAI account** for GPT-4o-mini-powered parsing and content generation\nSMTP account** for sending follow-up emails\n\n❓Questions?\nTemplate and node created by Miquel Colomer and n8nhackers.  \n\nNeed help customizing or deploying? Contact us for consulting and support.\n\n",
+  "totalViews": 5259,
+  "source": "official",
+  "user": {
+    "id": 5774,
+    "name": "Miquel Colomer",
+    "username": "mcolomer",
+    "bio": "As a passionate developer and AI agent creator, I’ve been at the forefront of automation, pioneering workflows and training AI to handle complex tasks seamlessly. I’m an early adopter and expert of n8n, having worked with its powerful capabilities to create automation solutions for diverse industries. I founded n8nhackers, the first AI-powered agency focused on n8n, where we help businesses transform their workflows with cutting-edge automation.",
+    "verified": true,
+    "links": "[\"https://n8nhackers.com\"]",
+    "avatar": "https://gravatar.com/avatar/c4974f5be3985d7f30465d2d963967905bcb2f9b8a8ecaf8ba4396bfbd034db2?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "categories": [
+        "Communication",
+        "HITL",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-03-26T17:02:16.057Z",
+  "path": "official/template_3335/workflow.json"
+}

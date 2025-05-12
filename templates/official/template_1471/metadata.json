@@ -1,0 +1,53 @@
+{
+  "id": 1471,
+  "name": "Message on website content changed in Telegram",
+  "description": "I wanted a system to monitor website content changes and notify me. So I made it using n8n.\n\nEspecially my competitor blogs. I wanted to know how often they are posting new articles. (I used their sitemap.xml file) (The below workflow may vary)\n\nIn the Below example, I used HackerNews for example.\n\nExplanation:\n\nFirst HTTP Request node crawls the webpage and grabs the website source code\nThen wait for x minutes\nAgain, HTTP Node crawls the webpage\nIf Node compares both results are equal if anything is changed. It’ll go to the false branch and notify me in telegram.\n\nWorkflow:\n\n\n\nSample Response:\n\n\n",
+  "totalViews": 12206,
+  "source": "official",
+  "user": {
+    "id": 6611,
+    "name": "MC Naveen",
+    "username": "mcnaveen",
+    "bio": null,
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/3967c82f167765bcb79429d1e3233a12a0c32da258361462a9774d32c9844828?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2022-02-18T07:27:28.366Z",
+  "path": "official/template_1471/workflow.json"
+}

@@ -1,0 +1,49 @@
+{
+  "id": 1298,
+  "name": "Get top 5  products on Product Hunt every hour",
+  "description": "This workflow gets the top 5 products from Product Hunt and shares them on the Discord server.\n\n\n\nCron node: This node triggers the workflow every hour. Based on your use case, you can update the node to trigger the workflow at a different time.\n\nGraphQL node: This node makes the API call to the Product Hunt GraphQL API. You will need an API token from Product Hunt to make the call.\n\nItem Lists node: This node transforms the single item returned by the previous node into multiple items.\n\nSet node: The Set node is used to return only the name, description, and votes of the product.\n\nDiscord node: This node is used to send the top 5 products to the Discord server.",
+  "totalViews": 3929,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Data & Storage",
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "Discord",
+      "type": "n8n-nodes-base.discord",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "GraphQL",
+      "type": "n8n-nodes-base.graphql",
+      "categories": [
+        "Data & Storage",
+        "Development"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2021-11-04T10:03:08.654Z",
+  "path": "official/template_1298/workflow.json"
+}

@@ -1,0 +1,57 @@
+{
+  "id": 3406,
+  "name": "Automatically Create Facebook Ads from Google Sheets",
+  "description": "\nWho is this for?\n\nThis template is designed for Marketing Managers, Performance Marketers, and Ad Ops professionals who want to automate Facebook ad creation using structured data in Google Sheets. It’s ideal for teams running multiple creatives or testing ad variations without having to manually use Meta Ads Manager.\n\n&gt; ⚠️ Important Note:  \nThis is not a plug-and-play workflow. It requires:\nA configured Facebook Business account\nA valid Facebook App, Page, and Ad Account\nAccess tokens** and the correct Facebook Graph API credentials\nA basic understanding of the Meta API and JSON to tweak ad set parameters like demographics, optimization goals, or sales objectives\n\nAdditionally, launching Facebook ads will incur real advertising costs, so this template is best suited for users willing to make a time investment to set things up properly and test responsibly. Expect to spend time customizing targeting and budget strategies based on your campaign needs.\n\nWhat problem does this solve?\n\nManually uploading creatives, setting up ad sets, and creating ads in Meta’s Ad Manager is time-consuming, repetitive, and error-prone—especially at scale. This workflow eliminates the manual work by pulling data from Google Sheets and using it to automatically:\n\nGenerate Facebook Ad Sets\nUpload creative images\nBuild and launch Ad Creatives and Ads\nUpdate your source spreadsheet with generated Ad IDs\n\nWhat this workflow does\n\nUsing a trigger from a Google Sheets row update, this workflow:\n\nReads ad parameters (like message, render URL, and campaign info) from a Google Sheet  \nGenerates ad set configuration dynamically using variables in an “Edit Fields” node  \nCreates a Facebook Ad Set via the Graph API  \nFetches the ad image from a render URL  \nUploads the image to Facebook Ads Library  \nCreates the Ad Creative using the uploaded image and dynamic text  \nLaunches the Ad using the generated Ad Set and Creative  \nUpdates the same Google Sheet with the generated Ad ID and status\n\nAll configuration fields like campaign_id, act_id, pixel_id, age ranges, interest targeting, and call-to-action links are defined up front in a single Edit Fields node, making the template easy to maintain or extend.\n\nGoogle Sheet Structure\n| Hooks | Render URL | Generate Ad | Ad ID |\n|-------|------------|-------------|-------|\n| Static ad text (e.g., “Visit us at...”) | Link to the creative asset (image) | Status: generate, generated, or error | Populated by the workflow with the created Facebook Ad ID |\n\nHooks**: This is the primary ad copy. It will be used as the main text for the static ad.\nRender URL**: Direct link to the media asset (image or video) for the ad.\nGenerate Ad**: Dropdown or text value that controls workflow execution:\n  generate — workflow will attempt to create the ad\n  generated — already processed\n  error — error occurred during generation\nAd ID**: The Meta Ad ID will be written here once the ad is successfully created.\n\nSetup\n\nCopy this Google Sheet template and populate it with your data\nCreate a Facebook App and retrieve the access credentials for the Facebook Graph API\nIn n8n:\n   Connect your Google Sheets and Facebook Graph API accounts\n   Update the Edit Fields node with your actual ad account ID, page ID, campaign ID, pixel ID, and destination link\n   Deploy the workflow\n\nThis workflow runs every time the generate ad column in your sheet is updated.\n\nHow to customize this workflow to your needs\n\nModify the Edit Fields node to adjust ad set parameters like targeting, budget strategy, CTA type, and more\nExpand interest-based targeting using more interest objects in the array\nAdd extra Google Sheet columns and map them to Facebook ad fields (e.g. different messages, URLs, creative assets)\nAdd logic to pause or duplicate ads based on performance",
+  "totalViews": 1052,
+  "source": "official",
+  "user": {
+    "id": 92500,
+    "name": "Artur",
+    "username": "arlusm1",
+    "bio": "Software Engineer & Automations Specialist",
+    "verified": true,
+    "links": "[\"https://www.upwork.com/freelancers/~01651acf09c927fb26\"]",
+    "avatar": "https://gravatar.com/avatar/d8f6cbf5ad5847e53a4b6f809a8738fc33bf20246f2207bcdad4e5d6a10e0a2c?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Facebook Graph API",
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-04-02T08:50:00.915Z",
+  "path": "official/template_3406/workflow.json"
+}

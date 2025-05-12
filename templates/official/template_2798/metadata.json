@@ -1,0 +1,52 @@
+{
+  "id": 2798,
+  "name": "Create Threads on Bluesky",
+  "description": "Create engaging, structured threads on Bluesky with precise control over post timing and visibility.\n\nThis workflow helps content creators and social media managers schedule and publish threaded posts that maintain proper connections and formatting, ensuring your content appears exactly as intended.\n\nHow it works\nCreates an initial visible post that starts your thread\nAdds a series of hidden reply posts that form the body of your thread\nMaintains proper parent-child relationships between posts to ensure correct threading\nEnforces timing delays between posts to prevent rate limiting\nConcludes with two visible posts at the end of your thread\n\nThe result is a clean, professional-looking thread where only the first and last two posts are immediately visible to your followers, encouraging engagement while maintaining a clean profile view.\n\nSet up steps (10-30 minutes)\nCreate a Bluesky account\nEnter your Bluesky handle and app password in the \"Set Bluesky Credentials\" node\nCustomize the post text in the Code nodes to match your content:\n   Initial visible post\n   Hidden reply posts\n   Final visible posts\nAdjust the scheduling in the \"Run Daily at 9 AM\" node to match your preferred posting time\n\nSuggested enhancements\nAdd error handling with retry logic for API failures\nAdd input validation for post length and credential format\nInclude error notifications via email or Slack\nAdd data persistence to track successful posts and resume failed threads\nMake timing delays configurable with exponential backoff\nAdd monitoring for rate limits and API quotas\n\nFor Social Media Managers who want:\nControl over post visibility and timing\nAutomated posting of long-form content\nProfessional-looking content presentation",
+  "totalViews": 1028,
+  "source": "official",
+  "user": {
+    "id": 92349,
+    "name": "Gareth B. Davies",
+    "username": "garethbdavies",
+    "bio": "API/AI/Automation Coach with 30 years experience helping teams build sustainable, efficient processes and systems. Join my Automate 30 for 30 live cohort and course to reclaim your time.",
+    "verified": true,
+    "links": "[\"https://link.garethbdavies.com/n8n\"]",
+    "avatar": "https://gravatar.com/avatar/850493a244d2e9498a6a350bb9b069113580c8abc4fa73eb52a22747083fded1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-01-25T10:01:11.632Z",
+  "path": "official/template_2798/workflow.json"
+}

@@ -1,0 +1,85 @@
+{
+  "id": 3279,
+  "name": "OAuth2 Settings Finder with OpenRouter Chat Model and Llama 3.3",
+  "description": "Find OAuth URIs with AI Llama\n\nOverview:\nThe AI agent identifies:\nAuthorization URI\nToken URI\nAudience\n\nMethodology:\nConfidence scoring is utilized to assess the trustworthiness of extracted data:\nScore Range: 0 &lt; x ≤ 1\nScore Granularity: 0.01 increments\n\nModel Details:\nLeveraging the Wayfarer Large 70b Llama 3.3 model.\nHow it works:\nThis template is designed to assist users in obtaining OAuth2 settings using AI-powered insights. It is ideal for developers, IT professionals, or anyone working with APIs that require OAuth2 authentication. By leveraging the AI agent, users can simplify the process of extracting and validating key details such as the authorization_url, token_url, and audience.\n\nSet up instructions:\n1. Configuration Nodes\nStructured Output Node**: Parses the AI model's output using a predefined JSON schema. This ensures the data is structured for downstream processing.\nCode Node**:  If the AI model’s output does not match the required format, use the Code node to re-arrange and transform the data. Example code snippets are provided below for common scenarios.\n2. AI Model Prompt\nThe prompt for the AI model includes:\nA detailed structure and objectives of the query.\nFlexibility for the model to improvise when accurate results cannot be determined.\n3. Confidence Scoring\nThe AI model assigns a confidence score (0 &lt; x ≤ 1) to indicate the reliability of the extracted data. Scores are provided in increments of 0.01 for granularity.\nAdaptability\nCustomize this template:\nUpdate the AI model prompt with details specific to your API or OAuth2 setup.\nAdjust the JSON schema in the Structured Output node to match the data format.\nModify the Code logic to suit the application's requirements. ",
+  "totalViews": 252,
+  "source": "official",
+  "user": {
+    "id": 93342,
+    "name": "Hendriekus",
+    "username": "h3rx",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/60ee58dd1d983617381ae78ec024a659cb8ac7360c1688d5f3f16549d2a628ee?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "OpenRouter Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-03-21T15:16:14.485Z",
+  "path": "official/template_3279/workflow.json"
+}

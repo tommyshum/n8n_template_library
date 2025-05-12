@@ -1,0 +1,85 @@
+{
+  "id": 1955,
+  "name": "Custom LangChain agent written in JavaScript",
+  "description": "This workflow has multiple functionalities. It starts with a manual trigger, \"When clicking 'Execute Workflow'\", that activates two separate paths.\n\nThe first path takes a preset string \"Tell me a joke\" and processes it through a custom Language Learning Model (LLM) chain node. This node interacts with an OpenAI node for query processing.\n\nThe second path takes another preset string \"What year was Einstein born?\" and passes it to an \"Agent\" node. This agent further interacts with a Chat OpenAI node and a custom Wikipedia node to produce the required information.\n\nThe workflow uses both built-in and custom nodes, and integrates with OpenAI for both paths. It's built for experimenting with language models, specifically in the context of conversational agents and information retrieval.\n\nNote that to use this template, you need to be on n8n version 1.19.4 or later.",
+  "totalViews": 12231,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "LangChain Code",
+      "type": "@n8n/n8n-nodes-langchain.code",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Miscellaneous"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Code Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolCode",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2023-10-03T14:55:11.980Z",
+  "path": "official/template_1955/workflow.json"
+}

@@ -1,0 +1,32 @@
+{
+  "id": 3039,
+  "name": "CallForge - 08 - AI Product Insights from Sales Calls with Notion",
+  "description": "\nCallForge - AI-Powered Product Insights Processor from Sales Calls  \nAutomate product feedback extraction from AI-analyzed sales calls and store structured insights in Notion for data-driven product decisions.  \n\n🎯 Who is This For?  \nThis workflow is designed for:  \n✅ Product managers tracking customer feedback and feature requests.  \n✅ Engineering teams identifying usability issues and AI/ML-related mentions.  \n✅ Customer success teams monitoring product pain points from real sales conversations.  \n\nIt streamlines product intelligence gathering, ensuring customer insights are structured, categorized, and easily accessible in Notion for better decision-making.  \n\n🔍 What Problem Does This Workflow Solve?  \nProduct teams often struggle to capture, categorize, and act on valuable feedback from sales calls.  \n\nWith CallForge, you can:  \n✔ Automatically extract and categorize product feedback from AI-analyzed sales calls.  \n✔ Track AI/ML-related mentions to gauge customer demand for AI-driven features.  \n✔ Identify feature requests and pain points for product development prioritization.  \n✔ Store structured feedback in Notion, reducing manual tracking and increasing visibility across teams.  \n\nThis workflow eliminates manual feedback tracking, allowing product teams to focus on innovation and customer needs.  \n\n📌 Key Features & Workflow Steps  \n\n🎙️ AI-Powered Product Feedback Processing  \nThis workflow processes AI-generated sales call insights and organizes them in Notion databases:  \nTriggers when AI sales call data is received.  \nDetects product-related feedback (feature requests, bug reports, usability issues).  \nExtracts key product insights, categorizing feedback based on customer needs.  \nIdentifies AI/ML-related mentions, tracking customer interest in AI-driven solutions.  \nAggregates feedback and categorizes it by sentiment (positive, neutral, negative).  \nLogs insights in Notion, making them accessible for product planning discussions.  \n\n📊 Notion Database Integration  \nProduct Feedback** → Logs feature requests, usability issues, and bug reports.  \nAI Use Cases** → Tracks AI-related discussions and customer interest in machine learning solutions.  \n\n🛠 How to Set Up This Workflow  \n\n1. Prepare Your AI Call Analysis Data  \nEnsure AI-generated sales call insights are available.  \nCompatible with Gong, Fireflies.ai, Otter.ai, and other AI transcription tools.  \n\n2. Connect Your Notion Database  \nSet up Notion databases for:  \n  🔹 Product Feedback (logs feature requests and bug reports).  \n  🔹 AI Use Cases (tracks AI/ML mentions and customer demand).  \n\n3. Configure n8n API Integrations  \nConnect your Notion API key** in n8n under “Notion API Credentials.”  \nSet up webhook triggers** to receive AI-generated sales insights.  \nTest the workflow** using a sample AI sales call analysis.  \n\n🔧 How to Customize This Workflow  \n💡 Modify Notion Data Structure – Adjust fields to align with your product team's workflow.  \n💡 Refine AI Data Processing Rules – Customize how feature requests and pain points are categorized.  \n💡 Integrate with Slack or Email – Notify teams when recurring product issues emerge.  \n💡 Expand with Project Management Tools – Sync insights with Jira, Trello, or Asana to create product tickets automatically.  \n\n⚙️ Key Nodes Used in This Workflow  \n\n🔹 If Nodes – Detect if product feedback, AI mentions, or feature requests exist in AI data.  \n🔹 Notion Nodes – Create and update structured feedback entries in Notion.  \n🔹 Split Out & Aggregate Nodes – Process multiple insights and consolidate AI-generated data.  \n🔹 Wait Nodes – Ensure smooth sequencing of API calls and database updates.  \n\n🚀 Why Use This Workflow?  \n✔ Eliminates manual sales call review for product teams.  \n✔ Provides structured, AI-driven insights for feature planning and prioritization.  \n✔ Tracks AI/ML mentions to assess demand for AI-powered solutions.  \n✔ Improves product development strategies by leveraging real customer insights.  \n✔ Scalable for teams using n8n Cloud or self-hosted deployments.  \n\nThis workflow empowers product teams by transforming sales call data into actionable intelligence, optimizing feature planning, bug tracking, and AI/ML strategy. 🚀",
+  "totalViews": 746,
+  "source": "official",
+  "user": {
+    "id": 16588,
+    "name": "Angel Menendez",
+    "username": "djangelic",
+    "bio": "Angel Menendez is a Staff Developer Advocate at n8n.io, specializing in low-code tools for cybersecurity workflows. From Puerto Rico, Angel's tech journey began by helping his father translate technical books. He later started a web development business and transitioned from a career as a flight attendant to cybersecurity engineering. His workflows have saved companies significant time. Outside work, Angel enjoys time with his two sons, riding electric bikes, reading, and exploring new places.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/fdbe38425d21378d8c9ba8916e1eb0b320add299f12cc23fcd4961d4e6e00bec?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-02-28T06:49:16.260Z",
+  "path": "official/template_3039/workflow.json"
+}

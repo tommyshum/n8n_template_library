@@ -1,0 +1,49 @@
+{
+  "id": 3897,
+  "name": "Sync Youtube Video URLs with Google Sheets",
+  "description": "Sync Youtube Videos with Google Sheets\n(Part 1 of Youtube comments sentiment analyze automation along with detailed dashboard)\n\nThis workflow is the first part of a multi-part automation system designed to perform large-scale YouTube comment sentiment analysis alongwith detailed dashboard. It solves the problem of manually tracking new videos across multiple YouTube channels by automatically fetching and organizing video URLs in a Google Sheet, setting the stage for deeper analysis in Part 2.\n\nWhat It Does\nReads Channel IDs from Sheet3 of a connected Google Sheet.\nFetches the latest videos from each Channel ID using the YouTube Data API.\nExtracts video URLs and metadata (like title and publish date).\nAppends the video data to Sheet2 of the same Google Sheet — this sheet is later used by Part 2 for further processing.\n\nPart of a Multi-Step System\nThis is Part 1 of a 2-workflow system:\nPart 1 (this workflow)** populates a sheet with the latest videos from a list of channels.\nPart 2* reads the video URLs from Sheet2, fetches comments for each video, analyzes their sentiment using *OpenAI**, and stores structured results in Sheet1.\n\n👉 Continue to Part 2 – YouTube Comment Sentiment Analyzer with Google Sheets & OpenAI\n\n✅ Use Cases\nMonitor and organize new videos from a list of YouTube channels\nAutomate content pipelines for social media teams and analysts\nBuild scalable datasets for comment and sentiment analysis\nPerfect for creators, agencies, or data analysts managing multiple YouTube accounts\n\n🔧 Apps Used\nGoogle Sheets** – To read and write channel/video data\nYouTube** – To fetch video data from public channels\n\n💡 Why Use This?\nManually checking YouTube channels for new content is time-consuming and error-prone. This automation ensures your data stays current and structured — enabling consistent tracking and deeper analysis (especially when paired with Part 2). It brings speed, scale, and automation to your YouTube content operations.\n\nHow to Customize\n\n1. Modify Trigger Settings\nChange the Google Sheet (Sheet 3) channel ID entry to track other channels.\nUse a time-based trigger to fetch new videos regularly, ensuring your data stays up to date.\n\n2. Adjust Output Fields\nFetch additional details from YouTube, such as view count, description, or thumbnails.\nAdd custom columns in Sheet 2 for organizing videos by different criteria, such as:\n  \"Published Date\"\n  \"Video Type\"\n  \"View Count\"\n  \"Video Description\"\n\n3. Extend with Integrations\nIntegrate with other workflows like YouTube Comment Sentiment Analysis (Part 2) for a deeper dive into content analysis.\nUse filters to fetch videos by certain tags, keywords, or publish dates.\n\n4. Adjust Sheet Structure\nModify the structure of Sheet 2 to categorize videos based on criteria like:\n  Channel\n  Video Status (e.g., \"Published,\" \"Scheduled\")\n  Video Type (e.g., \"Tutorial,\" \"Review\")\n\n5. Schedule Regular Fetching\nSet a schedule trigger to fetch videos at regular intervals (e.g., daily or weekly), ensuring new content is automatically added to your sheet.\n\n6. Customize Google Sheet Layout\nChange the layout of Sheet 2 to better fit your needs. For example, you can add additional columns for\n",
+  "totalViews": 336,
+  "source": "official",
+  "user": {
+    "id": 93633,
+    "name": "Aayushman Sharma",
+    "username": "ajstyle0411",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/0e0256718cceba1e7d5067e428cc2c6e737fbba135f113f7f4b9258858a25691?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-05-06T13:06:20.813Z",
+  "path": "official/template_3897/workflow.json"
+}

@@ -1,0 +1,75 @@
+{
+  "id": 2407,
+  "name": "Store new orders to Airtable and summarize daily orders through email",
+  "description": "What this template does\nThis workflow will collect order data as it is produced, then send a summary email of all orders at the end of every day, formatted in a table. It receives new orders via webhook and stores in Airtable. At 7PM every day, it sends a summary email with the day's orders in a HTML table\n\nSetup:\nInstructions Video\n Create a new table in Airtable and give it a field time with type date, orderID with type number, and orderPrice also with type number. \n Create a new access token if you haven't already at https://airtable.com/create/tokens/new. Make sure to give the token the scopes data.records:read, data.records:write, schema.bases:read and access to whichever table you choose to store the orders. A pop-up window appears with the token. Use this token to make Create New Credential > Access Token for Airtable in the Store Order and Airtable Get Today's Orders nodes.\n Create access credentials for your Gmail as described here: https://developers.google.com/workspace/guides/create-credentials. Use the credentials from your client_secret.json in the Send to Gmail node.\n In the Store Order node, change Base and Table to the database and table in your Airtable account you wish to use to store orders. Make sure to use these same values in the Airtable Get Today's Orders node.\n Every time an order is created in your system, send a POST request to Webhook from your order software. Each request must contain a single order containing fields 'orderID' and 'orderPrice' (or, edit Set Order Fields to select which incoming fields you wish to save)\n Change the schedule time for sending email from Everyday at 7PM to whichever time you choose. \nTest:\nActivate the workflow.\nFrom the node Webhook, copy Production URL\nSend the following CURL request to the URL given to you:\n curl -X POST   -H \"Content-Type: application/json\"   -d '{\"orderID\": 12345, \"orderPrice\": 99.99}' YOUR_URL_HERE\nIt should say Node executed successfully. Now check your Airtable and confirm the order was stored in the right place.",
+  "totalViews": 1413,
+  "source": "official",
+  "user": {
+    "id": 91959,
+    "name": "Jay Hartley",
+    "username": "jay",
+    "bio": "Low-code/no-code developer for automated solutions. Several years experience in automated workflow building for content creation management, distribution and marketing.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/6c7feb8fe0cc33e0668424a616614c0ddd1adecf273274b690c6b41dd8aea245?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Communication",
+    "HITL",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2024-09-11T08:45:30.925Z",
+  "path": "official/template_2407/workflow.json"
+}

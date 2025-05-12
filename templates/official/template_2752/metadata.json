@@ -1,0 +1,190 @@
+{
+  "id": 2752,
+  "name": "HR & IT Helpdesk Chatbot with Audio Transcription",
+  "description": "An intelligent chatbot that assists employees by answering common HR or IT questions, supporting both text and audio messages. This unique feature ensures employees can conveniently ask questions via voice messages, which are transcribed and processed just like text queries.\n\nHow It Works\nMessage Capture: When an employee sends a message to the chatbot in WhatsApp or Telegram (text or audio), the chatbot captures the input.\nAudio Transcription: For audio messages, the chatbot transcribes the content into text using an AI-powered transcription service (e.g., Whisper, Google Cloud Speech-to-Text).\nQuery Processing:\n   The transcribed text (or directly entered text) is sent to an AI service (e.g., OpenAI) to generate embeddings.\n   These embeddings are used to search a vector database (e.g., Supabase or Qdrant) containing the company’s internal HR and IT documentation.\n   The most relevant data is retrieved and sent back to the AI service to compose a concise and helpful response.\nResponse Delivery: The chatbot sends the final response back to the employee, whether the input was text or audio.\n\nSet Up Steps\nEstimated Time**: 20–25 minutes\nPrerequisites**:\n  Create an account with an AI provider (e.g., OpenAI).\n  Connect WhatsApp or Telegram credentials in n8n.\n  Set up a transcription service (e.g., Whisper or Google Cloud Speech-to-Text).\n  Configure a vector database (e.g., Supabase or Qdrant) and add your internal HR and IT documentation.\n  Import the workflow template into n8n and update environment variables for your credentials.",
+  "totalViews": 29361,
+  "source": "official",
+  "user": {
+    "id": 92478,
+    "name": "Felipe Braga",
+    "username": "occult",
+    "bio": "Experienced automation specialist with production-ready templates. If you need any custom work, feel free to reach out. ",
+    "verified": false,
+    "links": "[\"https://x.com/occultgo\"]",
+    "avatar": "https://gravatar.com/avatar/c5822c1834275a89914c802d70807be030661ca07599a8af0ad8367b2273f7cc?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Recursive Character Text Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Postgres Chat Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "Other memories"
+        ]
+      }
+    },
+    {
+      "name": "Vector Store Question Answer Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolVectorStore",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Postgres PGVector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePGVector",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 11,
+  "createdAt": "2025-01-19T21:41:25.066Z",
+  "path": "official/template_2752/workflow.json"
+}

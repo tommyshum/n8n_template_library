@@ -1,0 +1,127 @@
+{
+  "id": 3379,
+  "name": "Automate Product Training & Customer Support via WhatsApp, GPT-4 & Google Sheets",
+  "description": "\nWhatsApp AI Agent: Auto-Train Product Data & Handle Customer Support\n\nWho Is This For\n\nThis workflow is ideal for eCommerce founders, product managers, customer support teams, and automation builders who rely on WhatsApp to manage product information and interact with clients.\n\nIt’s perfect for businesses that want to automate product data entry and support responses directly from WhatsApp messages using GPT-4 and Google Sheets.\n\nWhat Problem Does This Workflow Solve\n\nManual Product Data Entry**: Collecting and organizing product data from links is tedious and error-prone.  \nSlow Customer Response Times**: Responding to client questions manually leads to delays and inconsistent support.  \nNo Logging System for Issues**: Without automation, support issues often go undocumented, making it harder to learn and improve.\n\nWhat This Workflow Does\n\nStep 1 – Incoming Message Detection\nListens for incoming messages via WhatsApp.\nIf the message starts with train:, it routes to the product training process.\nOtherwise, it routes to the customer support assistant.\n\nStep 2 – Product Data Training\nExtracts URL** from the message using a regex script.\nFetches HTML content** from the URL.\nCleans HTML data** to extract readable product description.\nSaves raw data** (URL + description) into Google Sheets.\nUses GPT-4** to enhance product data:  \n  → Name, price (one-time or subscription), topic, and FAQs.  \nUpdates the product row** in Google Sheets with structured information.\n\nStep 3 – Customer Support Flow\nAnalyzes user messages with GPT-4 to understand the request or issue.\nLooks up relevant product info in Google Sheets.\nDetects potential problems (e.g. payment, login, delivery).\nSuggests an appropriate solution.\nLogs the problem, solution, and category to the Customer Issues sheet.\nSends a response back to the client via WhatsApp.\n\nStep 4 – Client Response\nSends the AI-generated response to the client via WhatsApp.\nKeeps the communication fast, clear, and professional.\n\nSetup Guide\n\nPrerequisites\n\nWhatsApp Business API access**\nOpenAI API Key**\nGoogle Account** with Google Sheets access\nA hosted instance of n8n (Cloud or self-hosted)\n\nSetup Steps\n\nImport the Workflow into your n8n instance.\nConnect your credentials for WhatsApp, OpenAI, and Google Sheets.\nCustomize Google Sheet IDs and names as needed.\nTest by sending a train: message or a regular customer message to WhatsApp.\nActivate the workflow to make it live.\n\nHow to Customize This Workflow\n\nEdit AI prompts** to reflect your product type, language style, or tone.\nChange the trigger keyword** (e.g. from train: to add: or anything else).\nAdd integrations** like Notion, Airtable, or CRM tools.\nExpand the Sheets structure** with more product fields (e.g. stock status, image link).\nAdd notifications** to Slack or email after product updates or issue logging.",
+  "totalViews": 23228,
+  "source": "official",
+  "user": {
+    "id": 93440,
+    "name": "Dr. Firas",
+    "username": "drfiras",
+    "bio": "Automation expert and certified trainer. I create hands-on courses to master automation with n8n. Contact me to access my exclusive training and start building powerful workflows today. 🚀",
+    "verified": true,
+    "links": "[\"https://www.youtube.com/@DRFIRASS\"]",
+    "avatar": "https://gravatar.com/avatar/988a46579257f9e8c522aeb7b906f1ee96e47c4298faa548e41b04957f455ae3?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "WhatsApp Business Cloud",
+      "type": "n8n-nodes-base.whatsApp",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-03-30T16:46:52.017Z",
+  "path": "official/template_3379/workflow.json"
+}

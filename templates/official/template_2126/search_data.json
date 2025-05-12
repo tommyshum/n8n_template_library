@@ -1,0 +1,121 @@
+{
+  "id": 2126,
+  "name": "Automate Your UTM Campaign Tracking: Shopify, n8n to Baserow",
+  "totalViews": 1135,
+  "purchaseUrl": null,
+  "user": {
+    "id": 91450,
+    "name": "Sascha",
+    "username": "m3tam3re",
+    "bio": "",
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/d0bb36ca6da107a39b902adcf9b118616c8b27a189be33ac2ad74e7102c9478f?r=pg&d=retro&size=200"
+  },
+  "description": "Campaign tracking is pivotal; it enables marketers to evaluate the efficacy of various strategies and channels. UTM parameters are particularly essential as they provide granular details about the source, medium, and campaign effectiveness. \nHowever, when this data is not automatically integrated into a centralized system, it can become a tedious and error-prone process to manually collate and analyze it.\n\nRetrieving UTM data from Shopify and storing it in Baserow enables oy to do more with this data. For example you could build a campaign database in Baserow and automatically add campaign revenue to it using this workflow template.\n\nThis template will help you:\n\nAutomatically retrieve UTM parameters from Shopify orders using the Shopify Admin API\nProcess marketing data through n8n\nStore this data into Baserow, providing you with a dynamic, responsive base for campaign tracking and decision-making\n\nThis template will demonstrate the follwing concepts in n8n:\n\nuse the Schedule trigger node\nuse the GraphQL node to call the Shopify Admin API\nsplit larger incoming datasets into n8n items with the Split node\ntransform the data structure with the Set node\ncontrol flow with the If node\nstore data in Baserow with the Baserow node\n\nHow to get started?\n\nCreate a custom app in Shopify get the credentials needed to connect n8n to Shopify\nThis is needed for the Shopify Trigger\nCreate Shopify Acces Token API credentials n n8n for the Shopify trigger node\nCreate Header Auth credentials: \nUse X-Shopify-Access-Token as the name and the Acces-Token from the Shopify App you created as the value.\nThe Header Auth is neccessary for the GraphQL nodes.\nYou will need a running Baserow instance for this. You can also sign up for a free account at https://baserow.io/\n\nPlease make sure to read the notes in the template. \n\nFor a detailed explanation please check the corresponding video: https://youtu.be/VBeN-3129RM",
+  "createdAt": "2024-02-23T11:32:59.731Z",
+  "nodes": [
+    {
+      "id": 61,
+      "icon": "file:graphql.png",
+      "name": "n8n-nodes-base.graphql",
+      "codex": {
+        "data": {
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/what-are-apis-how-to-use-them-with-no-code/",
+                "icon": " 🪢",
+                "label": "What are APIs and how to use them with no code"
+              },
+              {
+                "url": "https://n8n.io/blog/how-to-automatically-give-kudos-to-contributors-with-github-slack-and-n8n/",
+                "icon": "👏",
+                "label": "How to automatically give kudos to contributors with GitHub, Slack, and n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/how-goomer-automated-their-operations-with-over-200-n8n-workflows/",
+                "icon": "🛵",
+                "label": "How Goomer automated their operations with over 200 n8n workflows"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.graphql/"
+              }
+            ]
+          },
+          "categories": [
+            "Data & Storage",
+            "Development"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "GraphQL"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAMAAAANIilAAAAA2FBMVEUAAADmNavmNKvlNavlNavlNKvlNavmNKznMqzpMa/lM6zmNKvnMqvrMbDlNavmNKvnL63pK7PpMa/lNavlNavlNKrmNazlNKvmM63nM6znMqzoMK3nM6znM63mNKrmMqvnM6zmM6zoMavoMa/rLrTlNKvlNarlM6vmNKvlNKzmNKznM6znMa3nMq3nMa7nNaroMa7mNKvnNKznM63mNKvrL67nMa/lNKzmM63nNK3mNqroL6voMq7nMaznNa3nOKjmMavmMq7pKbLqKbvuLb70EtLlNavlNaqwTcGTAAAARnRSTlMAvCb9+euyqmgXNjEcCfaNUiIG+/Tg2tKukUgDs6GflVovLBMN8OXMx7eYeG9OOyAa59S/g2RANODMxKaFfXFvENheiW4pQeUjUwAAAmRJREFUSMftlteS4jAQRQWywSxOJINNHnIa8uzktLtX//9HiySoGhiL4Nfhvsju6+NytbpbJldd9XtV/7Qism8agH4qEvuLYiNWigT7ELLNKPBQwrlpBHY2kLDWuBjNjnVonKVAonkZO+lBe4kxSll+9AjqXJDymxJQiqe1j2bzFaWyoaNrlE9B7+Oac0tajoaHCSE9uISUe2xCZj5FPyCWwW2FMkUAtFqA/polZM1iPHgHz9rU2gBIPmCjkQLepdefbW5a81xaRJPshS9uEVJ34XBOunVx42xXkrE7okymtrT9cBhSQ5EzTd9l+JlVBbx9dzUc7krX4NcVjHfh9j3labIK0n4Lh/8yAGzR3lwGKGbJTg30+UatBfvRUvVgAXZpyutrwYIv8UeIEjU8aJUMUekWsgHHrLLfnIW2GA4YKEDpJkVP6HZ8L15lz3xpInGs/yU8ZM5+3Ozk+eemz4DTufn7gTFiyTPhJVsfGpbH7s6CXdb/3kIuHrJnwJYXWr4xZpwBj/AUZjW1bvvmBFxN8cSGqY5V5ih8g5qPVbiX0vMNlNTszEFXW7QVroEu9QIV+0/0zZPyszQA7I/CXTIx5FVjqgIuFhydJPexUC2ptOtHJwlFqHbhWjhckK7XMKfxQ5mZly1thMOfjJt52M/v37OVgC7YnmozGsW8XssYc8yN7P4e+wx+yt3YVfXBUzZb/FGHohd8PfQ6SDS39mmlK0AyTtynwcokQRGLyWXHZBH2UmxcBR1++lwka6QzCA3N6L8VdopEUE3CNB4FXkvYs6LA1iNnmUsiqVUv6H2XXPXT9R/lWHu2SyWatgAAAABJRU5ErkJggg=="
+      },
+      "displayName": "GraphQL",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 3,
+          "name": "Data & Storage"
+        },
+        {
+          "id": 5,
+          "name": "Development"
+        }
+      ]
+    },
+    {
+      "id": 500,
+      "icon": "file:baserow.svg",
+      "name": "n8n-nodes-base.baserow",
+      "codex": {
+        "data": {
+          "resources": {
+            "generic": [],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.baserow/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/baserow/"
+              }
+            ]
+          },
+          "categories": [
+            "Data & Storage"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"output\"]",
+      "defaults": {
+        "name": "Baserow"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyBpZD0iV2Fyc3R3YV8xIiBkYXRhLW5hbWU9IldhcnN0d2EgMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNjAwIDYwMCI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiM0ZDY4YzQ7fS5jbHMtMntmaWxsOiM1MTkwZWY7fS5jbHMtM3tmaWxsOiMyYmMzZjE7fTwvc3R5bGU+PC9kZWZzPjx0aXRsZT5iYXNlcm93X2xvZ29fZ2x5cGg8L3RpdGxlPjxyZWN0IGNsYXNzPSJjbHMtMSIgeT0iNDUxLjY1MjMzIiB3aWR0aD0iMzc0LjE3MzgzIiBoZWlnaHQ9IjE0OC4zNDc2NyIgcng9IjMyLjI1NTYyIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzNzQuMTczODMgMTA1MS42NTIzMykgcm90YXRlKDE4MCkiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0zMi4yNTYsMjI1LjgyNjE3SDU2Ny43NDRBMzIuMjU2LDMyLjI1NiwwLDAsMSw2MDAsMjU4LjA4MjE3djgzLjgzNTY3YTMyLjI1NiwzMi4yNTYsMCwwLDEtMzIuMjU2LDMyLjI1NkgzMi4yNTU2MkEzMi4yNTU2MiwzMi4yNTU2MiwwLDAsMSwwLDM0MS45MTgyMXYtODMuODM2QTMyLjI1NiwzMi4yNTYsMCwwLDEsMzIuMjU2LDIyNS44MjYxN1oiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDYwMCA2MDApIHJvdGF0ZSgxODApIi8+PHJlY3QgY2xhc3M9ImNscy0zIiB4PSIyMjUuODI2MTciIHdpZHRoPSIzNzQuMTczODMiIGhlaWdodD0iMTQ4LjM0NzY3IiByeD0iMzIuMjU2IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4MjUuODI2MTcgMTQ4LjM0NzY3KSByb3RhdGUoMTgwKSIvPjxyZWN0IGNsYXNzPSJjbHMtMSIgeD0iNDUxLjY1MjMzIiB5PSI0NTEuNjUyMzMiIHdpZHRoPSIxNDguMzQ3NjciIGhlaWdodD0iMTQ4LjM0NzY3IiByeD0iMzIuMjU2IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMDUxLjY1MjMzIDEwNTEuNjUyMzQpIHJvdGF0ZSgtMTgwKSIvPjxyZWN0IGNsYXNzPSJjbHMtMyIgd2lkdGg9IjE0OC4zNDc2NyIgaGVpZ2h0PSIxNDguMzQ3NjYiIHJ4PSIzMi4yNTYiLz48L3N2Zz4K"
+      },
+      "displayName": "Baserow",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 3,
+          "name": "Data & Storage"
+        }
+      ]
+    }
+  ]
+}

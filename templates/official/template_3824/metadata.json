@@ -1,0 +1,105 @@
+{
+  "id": 3824,
+  "name": "Auto-Generate MVP Startup Ideas from Reddit with AI & Excel Storage",
+  "description": "🧠 Reddit MVP Generator – Auto-Generate Startup Ideas from Real User Pain Points\nThe Reddit MVP Generator is a fully automated business idea mining system built in n8n. It scans trending posts and user comments on Reddit to identify real-world pain points and uses an AI-powered chain to generate detailed, structured MVP business ideas—including industry, business type, revenue potential, and startup cost estimates.\n\n🚀 Key Features\nLive Reddit Scraper: Select from a curated list of entrepreneur and business subreddits (e.g., r/smallbusiness, r/entrepreneur, r/marketing) to fetch top trending posts.\n\nComment Analysis: Pulls Reddit comments and flattens threads to extract community pain points.\n\nAI Business Generator: Uses OpenRouter-compatible LLMs (like GPT-4o-mini or Gemini Flash) to analyze post content and comments. Outputs are structured JSON objects with MVP ideas.\n\nZero Duplicate Analysis: Automatically deduplicates previously analyzed Reddit posts using a dynamic blocklist.\n\nExcel Integration: Saves each MVP idea directly into your Microsoft Excel 365 sheet, organized by MVP, Industry, Pain Point, Startup Costs, and Revenue potential.\n\nEasy Subreddit Selection: User-friendly form trigger lets you choose your target subreddit without editing the workflow.\n\nOffline-Friendly: All results are stored in Excel for later review or distribution—ideal for content creators, market researchers, or startup founders.\n\n🛠️ Requirements\nFree n8n account (self-hosted or cloud)\n\nReddit developer credentials\n\nOpenRouter API key (supports Qwen, GPT-4o-mini, Gemini)\n\nMicrosoft Excel 365 with Azure OAuth2 app setup\n\n📦 What You Get\nComplete n8n workflow file\n\nSetup notes inside the workflow (via Sticky Notes)\n\nInstructions for Excel table formatting and OAuth2 setup\n\nOutput schema designed for downstream automation or AI agents",
+  "totalViews": 81,
+  "source": "official",
+  "user": {
+    "id": 94192,
+    "name": "Jesse White",
+    "username": "creativeaitools",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/445e601b76597d20511eb3bfd555fba5282a4f1363a58cfd196566f79523b10c?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Communication",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Microsoft Excel 365",
+      "type": "n8n-nodes-base.microsoftExcel",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Reddit",
+      "type": "n8n-nodes-base.reddit",
+      "categories": [
+        "Communication"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "OpenRouter Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-05-01T18:16:15.089Z",
+  "path": "official/template_3824/workflow.json"
+}

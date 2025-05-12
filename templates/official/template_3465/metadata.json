@@ -1,0 +1,38 @@
+{
+  "id": 3465,
+  "name": "Capture Website Screenshots with Bright Data Web Unlocker and Save to Disk",
+  "description": "Who is this for?\nThe Capture Website Screenshots with Bright Data Web Unlocker and Save to Disk workflow is built for automation professionals and developers who need reliable, high-quality screenshots from any website even those protected by anti-bot technologies. \n\nIt is ideal for:\n\nCompliance Teams - Capturing visual records of web content for legal or audit purposes.\n\nProduct Managers - Tracking visual changes across competitor landing pages.\n\nDigital Marketers - Archiving campaign pages and offer variations.\n\nDevelopers and QA Teams - Validating UI deployments or rendering issues.\n\nGrowth Hackers and Scrapers - Who need to bypass bot protection and capture visual snapshots of restricted content.\n\nWhat problem is this workflow solving?\nWebsites today are highly protected with anti-bot tools like Cloudflare, bot detection scripts, and geo-restrictions. These protections often break traditional screenshot tools or prevent headless browsers from accessing content.\n\nThis workflow solves the following problems:\n\nBypasses anti-bot defenses using Bright Data Web Unlocker.\n\nAutomatically captures screenshots without manual browser steps.\n\nStores images locally for easy access or reporting.\n\nOperates headlessly and at scale, perfect for automations or scheduled jobs.\n\nWhat this workflow does\nSets the target URL, file name, and Bright Data zone name using the Set URL, Filename and Bright Data Zone node.\nSends an HTTP POST request to Bright Data Web Unlocker API to capture a screenshot.\nSaves the screenshot image (.png) to a specified disk location using the Write a file to disk node.\n\nPre-conditions\n\nYou need to have a Bright Data account and do the necessary setup as mentioned in the \"Setup\" section below.\n\nSetup\nSign up at Bright Data.\nNavigate to Proxies & Scraping and create a new Web Unlocker zone by selecting Web Unlocker API under Scraping Solutions.\nIn n8n, configure the Header Auth account under Credentials (Generic Auth Type: Header Authentication).\n\nThe Value field should be set with the\nBearer XXXXXXXXXXXXXX. The XXXXXXXXXXXXXX should be replaced by the Web Unlocker Token.\nEnsure the URL, file name, and Bright Data zone name are correctly set in the Set URL, Filename and Bright Data Zone node.\nSet the desired local path in the Write a file to disk node to save the screenshot.\n\nHow to customize this workflow to your needs\nChange the target URL: Modify the value in the **Set URL, Filename and Bright Data Zone node to capture different websites.\nSet dynamic filenames**: Use expressions in n8n to generate filenames based on date/time or URL.\nSpecify custom save paths: Adjust the path in the **Write a file to disk node to store screenshots in your preferred directory.\nEnhance with notifications**: Add additional nodes to send alerts or log activity after each screenshot is taken.\nIntegrate with external systems**: Send screenshots to cloud storage (e.g: AWS S3, Google Drive) or link into monitoring/reporting tools.\n",
+  "totalViews": 74,
+  "source": "official",
+  "user": {
+    "id": 93657,
+    "name": "Ranjan Dailata",
+    "username": "ranjancse",
+    "bio": "",
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/7b74fe44a7ad32db7c783b972deb5848a4b1f043377bce4039737ed66da8305f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-04-08T00:03:05.827Z",
+  "path": "official/template_3465/workflow.json"
+}

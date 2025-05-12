@@ -1,0 +1,57 @@
+{
+  "id": 3710,
+  "name": "Generate Images with GPT-image-1 and Store in Google Drive with Cost Tracking",
+  "description": "How it works\n\nReceive a chat input as an image prompt.\nCall OpenAI's gpt-image-1 API to generate an image.\nSplit the returned images and process them one by one.\nUpload each generated image to Google Drive.\nSave image links and thumbnails to a Google Sheets document.\nRecord token usage and estimated cost into a separate sheet.\n\nSet up steps\n\nConnect your OpenAI API credentials for image generation.\nConnect your Google Drive and Google Sheets accounts.\nSet the destination folder in Google Drive.\nSet the target Google Sheet and specify the correct sheet tabs.\nThe setup usually takes around 5-10 minutes.\nDetailed field mappings are already pre-configured inside the workflow.\nAdditional tips and instructions are included as sticky notes inside the workflow.\n\nGoogle Sheet copy url\nCopy Sheet Link",
+  "totalViews": 1551,
+  "source": "official",
+  "user": {
+    "id": 92348,
+    "name": "darrell_tw",
+    "username": "darrelltw",
+    "bio": "Martech Engineer with automation.\nhere is my website: https://www.darrelltw.com/",
+    "verified": true,
+    "links": "[\"https://x.com/DarrellMarTech\"]",
+    "avatar": "https://gravatar.com/avatar/4bf99603c608dc2e9a91e3d17bf47743b41153512a14098c8070213d7dccc199?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-04-25T13:21:47.199Z",
+  "path": "official/template_3710/workflow.json"
+}

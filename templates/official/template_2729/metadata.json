@@ -1,0 +1,56 @@
+{
+  "id": 2729,
+  "name": "🔐🦙🤖 Private & Local Ollama Self-Hosted AI Assistant",
+  "description": "Transform your local N8N instance into a powerful chat interface using any local & private Ollama model, with zero cloud dependencies ☁️. This workflow creates a structured chat experience that processes messages locally through a language model chain and returns formatted responses 💬.\n\nHow it works 🔄\n💭 Chat messages trigger the workflow\n🧠 Messages are processed through Llama 3.2 via Ollama (or any other Ollama compatible model)\n📊 Responses are formatted as structured JSON\n⚡ Error handling ensures robust operation\n\nSet up steps 🛠️\n📥 Install N8N and Ollama\n⚙️ Download Ollama 3.2 model (or other model)\n🔑 Configure Ollama API credentials\n✨ Import and activate workflow\n\nThis template provides a foundation for building AI-powered chat applications while maintaining full control over your data and infrastructure 🚀.\n",
+  "totalViews": 38460,
+  "source": "official",
+  "user": {
+    "id": 92125,
+    "name": "Joseph LePage",
+    "username": "joe",
+    "bio": "As an AI Automation consultant based in Canada, I partner with forward-thinking organizations to implement AI solutions that streamline operations and drive growth.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/e7ca218dfc87b68344bbd66f40da01546d2f6fc1cf884267821e8a77e3e8410a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Ollama Model",
+      "type": "@n8n/n8n-nodes-langchain.lmOllama",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Text Completion Models"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-01-15T05:39:06.856Z",
+  "path": "official/template_2729/workflow.json"
+}

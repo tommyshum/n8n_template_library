@@ -1,0 +1,69 @@
+{
+  "id": 3304,
+  "name": "Custom Deal Recommendations by Email using Forms, Bright Data & GPT-4o-mini",
+  "description": "\n\nThis n8n workflow template automates the process of collecting and delivering the \"Top Deals of the Day\" from MediaMarkt, tailored to user preferences. By combining user-submitted forms, Bright Data web scraping, GPT-4o-mini deal generation, and email delivery, this workflow sends personalized product recommendations straight to a user’s inbox.\n\n&gt; ⚠️ Note: This workflow uses community nodes (Bright Data and Document Generator) which only work on *self-hosted n8n instances*.\n\n🚀 What It Does\n\nCollects user preferences via a form (categories + email)\nScrapes MediaMarkt’s deals page using Bright Data\nUses GPT-4o-mini (OpenAI) to recommend top deals\nGenerates a structured HTML email using a template\nSends the personalized deals directly via email\n\n��� Community Node Integration\nWe created and used the following community nodes:\n\nBright Data** – To scrape MediaMarkt deals using proxy-based scraping\nDocument Generator** – To generate a templated HTML document from deal data\n\nThese nodes are not available in n8n Cloud and require self-hosted n8n.\n\n🛠️ Step-by-Step Setup\n\nInstall Community Nodes  \n   Make sure you're on a self-hosted n8n instance. Install:\n   n8n-nodes-brightdata\n   n8n-nodes-document-generator\n\nConfigure Credentials  \n   Bright Data API Key (Proxy + Scraping setup)\n   OpenAI API Key (GPT-4o-mini access)\n   SMTP Credentials for sending emails\n\nCustomize the Form  \n   Adapt the form node to collect desired categories and email addresses. Typical categories include appliances, phones, laptops, etc.\n\nDesign Your HTML Template  \n   In the Document Generator node, you can tweak the HTML/CSS to change how deals appear in the final email.\n\nTest the Workflow  \n   Submit the form with test data and check that the entire flow—from scraping to email—executes as expected.\n\n🧠 How It Works: Workflow Overview\n\nUser Interaction via Form  \n   Users select product categories and enter their email. This triggers the workflow.\n\nData Extraction via Bright Data  \n   Bright Data scrapes the MediaMarkt offers page and returns HTML content.\n\nHTML Parsing  \n   Key elements like product names, prices, and links are extracted for processing.\n\nGPT-4o-mini Recommendation Generation  \n   The extracted data is sent to OpenAI (GPT-4o-mini), which filters, ranks, and enhances deals based on the user’s preferences.\n\nData Structuring & Split  \n   The result is split into individual deal items to be formatted.\n\nHTML Document Creation  \n   Document Generator populates a clean HTML template with the top recommended deals.\n\nEmail Delivery  \n   The final document is emailed via SMTP to the user with a friendly message.\n\n📨 Final Output\n\nUsers receive a custom HTML email featuring a curated list of top MediaMarkt deals based on their selected categories.\n\n🔐 Credentials Used\n\nBright Data API** – Web scraping with proxy support  \nOpenAI API** – Generating personalized recommendations  \nSMTP** – Sending personalized deal emails\n\n✨ Customization Tips\n\nChange the Data Source**: You can adapt this to scrape other e-commerce sites.\nUpdate the Email Template**: Make it match your branding or include images.\nExtend the Form**: Add preferences like price range or specific brands.\nAdd Scheduling**: Use Cron to run the workflow daily or weekly.\n\n❓Questions?\n\nTemplate and node created by Miquel Colomer and n8nhackers.com.  \n\nNeed help customizing or deploying? Contact us for consulting and support.\n",
+  "totalViews": 984,
+  "source": "official",
+  "user": {
+    "id": 5774,
+    "name": "Miquel Colomer",
+    "username": "mcolomer",
+    "bio": "As a passionate developer and AI agent creator, I’ve been at the forefront of automation, pioneering workflows and training AI to handle complex tasks seamlessly. I’m an early adopter and expert of n8n, having worked with its powerful capabilities to create automation solutions for diverse industries. I founded n8nhackers, the first AI-powered agency focused on n8n, where we help businesses transform their workflows with cutting-edge automation.",
+    "verified": true,
+    "links": "[\"https://n8nhackers.com\"]",
+    "avatar": "https://gravatar.com/avatar/c4974f5be3985d7f30465d2d963967905bcb2f9b8a8ecaf8ba4396bfbd034db2?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "categories": [
+        "Communication",
+        "HITL",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-03-24T09:46:22.640Z",
+  "path": "official/template_3304/workflow.json"
+}

@@ -1,0 +1,78 @@
+{
+  "id": 3567,
+  "name": "Automate PDF Image Extraction & Analysis with GPT-4o and Google Drive",
+  "description": "Use Case\n\nManually extracting images from PDF files for analysis is often slow and inefficient. Many users resort to taking screenshots of each page, uploading them to an AI tool like OpenAI for image analysis, and then manually copying the insights into a document. This manual process is time-consuming and prone to errors.\n\nThis workflow streamlines the entire process by automatically extracting images from a PDF, analyzing them using the GPT-4o model, and saving the results in seconds—eliminating the need for manual effort.\n\nWhat This Workflow Does\n\nExtracts all images from the uploaded PDF file automatically\nThe workflow scans each page of the PDF and identifies embedded images without manual intervention.\n\nUses the GPT-4o model to analyze each extracted image\n\nEach image is processed through GPT-4o to generate descriptive insights, summaries, or context-specific analysis depending on the use case.\n\nSaves the analysis results to a .txt file, including image URLs\nThe final output is a plain text file containing both the image URLs (e.g., hosted on cloud storage) and the corresponding GPT-4o analysis, ready for further use or sharing.\n\nSetup\n\n1.Set up your credentials when you first open the workflow. You’ll need accounts for OpenAI, Convert API, and Google Drive.\n\n2.Convert API does not rate-limit your API, sometimes you may receive 503 service unavailable error.\n\nNevertheless, it doesn’t mean that you cannot convert your file. It simply means that you should retry the conversion in a few seconds.\n\n3.Upload a PDF with images to Google Drive.\n\n4.Remove unnecessary parts and retrieve image-related information.\n\n5.Integrate image and image analysis information together.\n\n6.Analyze each image using the OPENAI GPT-4o model.\n\n7.Retrieve all image analysis content and image URL\n\n8.Integrate multiple image URLs and analysis content\n\n9.Output content to a .txt file.\n\nTemplate was created in n8n v1.83.2\n\nHow to Customize\n\nReplace the manual trigger with a Google Drive trigger or other automation triggers\n\nChange the image analysis model (e.g., switch or fine-tune GPT-4o)\n\nSend the results to other platforms (e.g., Slack, Telegram, LINE, etc.) instead of saving to a .txt file\n\n",
+  "totalViews": 2131,
+  "source": "official",
+  "user": {
+    "id": 93727,
+    "name": "merfy",
+    "username": "merfylee",
+    "bio": "",
+    "verified": false,
+    "links": "[\"https://www.threads.net/@mengfengl?hl=zh-tw\"]",
+    "avatar": "https://gravatar.com/avatar/8727dc46cc414f2eaafd699157f78b7b6c7fe2036d06b3f8162b829970a36ecc?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-04-16T02:02:34.526Z",
+  "path": "official/template_3567/workflow.json"
+}

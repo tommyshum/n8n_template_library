@@ -1,0 +1,39 @@
+{
+  "id": 2378,
+  "name": "🔍 Visualize Your n8n Workflows with Mermaid.js!",
+  "description": "Are you a visual thinker working with n8n?\n\n🎨 View and understand workflow structures at a glance with this template!\n\nBuilt with mermaid.js, Bootstrap 5 and AXAJ to create an interactive web page displaying n8n workflows as flowcharts.\n\n🌟 Perfect for documentation, presentations, or just getting a clearer picture of your automation processes.\n\nNeed customization help? Reach out to Eduard!\n\nBenefits\n📊 Instant workflow visualization\n📱 Responsive design\n🔗 Direct links to n8n workflows\n🧩 Special shapes for different node types\n🚫 Disabled node indication\n🔒 No external dependencies – just paste the workflow and call the webhook\n🛠️ Easily customizable – enhance the JS script or add custom styling\n\n⚠️ Important note for cloud users ⚠️\nSince the cloud version doesn't support environmental variables, please make the following changes in the CONFIG node:\nUpdate the instance_url variable: Enter your n8n URL instead of {{$env[\"N8N_PROTOCOL\"]}}://{{$env[\"N8N_HOST\"]}}\nChange the webhook_path to simply \"webhook\" instead of {{$env[\"N8N_ENDPOINT_WEBHOOK\"] || \"webhook\"}}\n\n🌟 Examples\nMultiple flowcharts on a single page:\n\n\nSeveral shapes for different nodes:\n\n\nLangchain nodes with special connections styling:\n",
+  "totalViews": 4328,
+  "source": "official",
+  "user": {
+    "id": 21242,
+    "name": "Eduard",
+    "username": "eduard",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/parsadanyan/\"]",
+    "avatar": "https://gravatar.com/avatar/a551e67c6fe7affd5f882a527dee154bb6c3ac90cf878326accb3fb3ec77c8a6?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-08-12T17:58:15.210Z",
+  "path": "official/template_2378/workflow.json"
+}

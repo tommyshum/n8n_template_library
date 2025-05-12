@@ -1,0 +1,114 @@
+{
+  "id": 3854,
+  "name": "Google Trend Data Extract & Summarization with Bright Data & Google Gemini",
+  "description": "Who this is for\nThe Google Trend Data Extract & Summarization workflow is ideal for trend researchers, digital marketers, content strategists, and AI developers who want to automate the extraction, summarization, and distribution of Google Trends data. This end-to-end solution helps transform trend signals into human-readable insights and delivers them across multiple channels.\n\nIt is built for:\n\nMarket Researchers** - Tracking trends by topic or region\n\nContent Strategists** - Identifying content opportunities from trending data\n\nSEO Analysts** - Monitoring search volume and shifts in keyword popularity\n\nGrowth Hackers** - Reacting quickly to real-time search behavior\n\nAI & Automation Engineers** - Creating automated trend monitoring systems\n\nWhat problem is this workflow solving?\nGoogle Trends data can provide rich insights into user interests, but the raw data is not always structured or easily interpretable at scale. Manually extracting, cleaning, and summarizing trends from multiple regions or categories is time-consuming.\n\nThis workflow solves the following problems:\n\nAutomates the conversion of markdown or scraped HTML into clean textual input\n\nTransforms unstructured data into structured format ready for processing\n\nUses AI summarization to generate easy-to-read insights from Google Trends\n\nDistributes summaries via email and webhook notifications\n\nPersists responses to disk for archiving, auditing, or future analytics\n\nWhat this workflow does\n\nReceives input: Sets an URL for the data extraction and analysis.\n\nUses Bright Data’s Web Unlocker to extract content from relevant site.\n\nMarkdown to Textual Data Extractor: Converts markdown content into plaintext using n8n’s Function or Markdown nodes\n\nStructured Data Extract: Parses the plaintext into structured JSON suitable for AI processing\n\nSummarize Google Trends: Sends structured data to Google Gemini with a summarization prompt to extract key takeaways\n\nSend Summary via Gmail: Composes an email with the AI-generated summary and sends it to a designated recipient\n\nPersist to Disk: Writes the AI structured data to disk\n\nWebhook Notification: Sends the summarized response to an external system (e.g., Slack, Notion, Zapier) using a webhook\n\nSetup\n\nSign up at Bright Data.\nNavigate to Proxies & Scraping and create a new Web Unlocker zone by selecting Web Unlocker API under Scraping Solutions.\nIn n8n, configure the Header Auth account under Credentials (Generic Auth Type: Header Authentication).\n\nThe Value field should be set with the \nBearer XXXXXXXXXXXXXX. The XXXXXXXXXXXXXX should be replaced by the Web Unlocker Token.\nA Google Gemini API key (or access through Vertex AI or proxy).\nUpdate the Set URL and Bright Data Zone for setting the brand content URL and the Bright Data Zone name.\nUpdate the Webhook HTTP Request node with the Webhook endpoint of your choice.\n\nHow to customize this workflow to your needs\n\nUpdate Source : Update the workflow input to read from Google Sheet or Airbase etc.\nGemini Prompt Tuning : \nCustomize prompts to extract summaries like:\n\tSummarize the most significant trend shifts\n\tGenerate content ideas from the trending search topics\nEmail Personalization : Configure Gmail node to:\n Use dynamic subject lines like: Weekly Google Trends Summary – {{date}}\nSend to multiple stakeholders or mailing lists\n\nFile Storage Customization : \nSave with timestamps, e.g., trends_summary_2025-04-29.json\nExtend to S3 or cloud drive integrations\nWebhook Use Cases : \nSend summary to:\n\tInternal dashboards\n\tSlack channels\n\tAutomation tools like Make, Zapier etc.\n\n\n",
+  "totalViews": 444,
+  "source": "official",
+  "user": {
+    "id": 93657,
+    "name": "Ranjan Dailata",
+    "username": "ranjancse",
+    "bio": "",
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/7b74fe44a7ad32db7c783b972deb5848a4b1f043377bce4039737ed66da8305f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Summarization Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainSummarization",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Information Extractor",
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-05-04T00:11:41.788Z",
+  "path": "official/template_3854/workflow.json"
+}

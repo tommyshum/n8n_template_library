@@ -1,0 +1,52 @@
+{
+  "id": 2676,
+  "name": "Analyze Email Headers for IP Reputation and Spoofing Detection - Outlook",
+  "description": "Analyze Emails for Security Insights\n\nWho is this for?\n\nThis workflow is ideal for security teams, IT Ops professionals, and managed service providers (MSPs) responsible for monitoring and validating email traffic. It’s especially useful for organizations that need to identify potential phishing attempts, spam, or compromised accounts by analyzing email headers and IP reputation.\n\nWhat problem is this workflow solving?\n\nThis workflow helps identify malicious or suspicious emails by verifying email authentication headers (SPF, DKIM, DMARC) and analyzing the reputation of the originating IP address. By automating these checks, it reduces manual analysis time and flags potential threats efficiently.\n\nWhat this workflow does\n\nEmail Monitoring:** Polls a specified Microsoft Outlook folder for new emails in real-time.\nHeader Analysis:** Retrieves and processes email headers to extract critical information such as authentication results and the sender’s IP address.\nIP Reputation Check:** Leverages external APIs (IP Quality Score and IP-API) to analyze the originating IP for potential spam or malicious activity.\nAuthentication Validation:** Validates SPF, DKIM, and DMARC headers, determining if the email passes industry-standard authentication protocols.\nData Aggregation and Reporting:** Combines all analyzed data into a unified format, ready for reporting or integration into downstream systems.\nWebhook Integration:** Outputs the findings via a webhook, enabling integration with alerting tools or security information and event management (SIEM) platforms.\n\nSetup\n\nConnect to Outlook:\n   Configure the Microsoft Outlook trigger node with valid OAuth2 credentials.\n   Specify the email folder to monitor for new messages.\n\nAPI Keys (Optional):\n   Obtain an API key for IP Quality Score (https://ipqualityscore.com).\n   Ensure the IP-API endpoint is accessible.\n   This step is optional as ipqualityscore.com will provide a limited number of free lookups each month. See more details here.  \n\nWebhook Configuration:\n   Set up a webhook endpoint to receive the output of the workflow.\n\nOptional Adjustments:\n   Customize polling intervals in the trigger node.\n   Modify header filters or extend the validation logic as needed.\n\nHow to customize this workflow to your needs\n\nAdd Alerts:** Use the Respond to Webhook node to trigger notifications in Slack, email, or any other communication channel.\nIntegrate with SIEM:** Forward the workflow output to SIEM tools like Splunk or ELK Stack for further analysis.\nModify Validation Rules:** Update SPF, DKIM, or DMARC logic in the Set nodes to align with your organization’s security policies.\nExpand IP Analysis:** Add more APIs or services to enrich IP reputation data, such as VirusTotal or AbuseIPDB.\n\nThis workflow provides a robust foundation for email security monitoring and can be tailored to fit your organization's unique requirements. With its modular design and integration options, it’s a versatile tool to enhance your cybersecurity operations.",
+  "totalViews": 2385,
+  "source": "official",
+  "user": {
+    "id": 16588,
+    "name": "Angel Menendez",
+    "username": "djangelic",
+    "bio": "Angel Menendez is a Staff Developer Advocate at n8n.io, specializing in low-code tools for cybersecurity workflows. From Puerto Rico, Angel's tech journey began by helping his father translate technical books. He later started a web development business and transitioned from a career as a flight attendant to cybersecurity engineering. His workflows have saved companies significant time. Outside work, Angel enjoys time with his two sons, riding electric bikes, reading, and exploring new places.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/fdbe38425d21378d8c9ba8916e1eb0b320add299f12cc23fcd4961d4e6e00bec?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-12-27T06:09:11.324Z",
+  "path": "official/template_2676/workflow.json"
+}

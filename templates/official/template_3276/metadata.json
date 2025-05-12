@@ -1,0 +1,68 @@
+{
+  "id": 3276,
+  "name": "Daylight Saving Time Notification For Different Timezones",
+  "description": "Who is it for?\nIf you are having a lot of meetings as a project manager, CFO, CTO, CEO or any other role that requires handling many meetings, AND you are working with people in different timezones, you may have noticed that it is not uncommon that daylight savings time change day may differ from timezone to timezone. This may be very troublesome at times.\n\nIf DST change day differs between timezones, then you might need to adjust your meetings time accordingly. And this happens twice a year. So it's good to get notification beforehand (at least a day before).\n\nThis automation will notify you if tomorrow you can expect DST in any zone you provide.\n\nHow It Works?\nScript runs daily and loops through provided timezones\nChecks if there is DST change to or from the tomorrow (if you want to be notified sooner, just adjust number of days)\nIf there is DST change, script provides you with Slack notification (replace with email if needed)\n\nHow to set up?\nAdd and/or edit timezones you want to monitor in \"Timezones List\" node\nAdjust \"Calculate Tomorrow's Date\" if you want to be notified sooner than 1 day before DST change\nAdjust \"Send Notification on Upcoming Change\" to set where on Slack you want to be notified\n\nAnd that's it. Hope that you won't miss any other meeting because of DST!\n",
+  "totalViews": 248,
+  "source": "official",
+  "user": {
+    "id": 91864,
+    "name": "Łukasz",
+    "username": "lukaszpp",
+    "bio": "Developer, automation enthusiast and dedicated CTO/CEO",
+    "verified": true,
+    "links": "[\"https://sailingbyte.com\"]",
+    "avatar": "https://gravatar.com/avatar/aae1a29225cc13556a92db7f75050da4bb664bf68e1d73407da6c9cd5a7a9a8a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Core Nodes",
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "categories": [
+        "Communication",
+        "HITL",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-03-21T11:44:38.698Z",
+  "path": "official/template_3276/workflow.json"
+}

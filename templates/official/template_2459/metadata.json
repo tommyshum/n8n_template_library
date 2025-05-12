@@ -1,0 +1,67 @@
+{
+  "id": 2459,
+  "name": "Overlay or Watermark Images by Merging with Another Image",
+  "description": "Instructions\n\nThis automation overlays a background image with another image, making it easy to add watermarks or logos.\n\nYou can use this automation to watermark your images by overlaying them with a transparent version of your logo. If you'd like to place your logo in a specific corner, feel free to adjust the position of the overlay image in the code node.\n\nHow it Works\n\nBoth images are downloaded, so we can process binary files (you can modify the source, tho.)\nWe extract metadata, focusing on the dimensions of each image.\nThe position of the overlay image is calculated (default: dead center of the background image).\nThe two images are composited together.\n\nLimitations and Optimisation Opportunities\n\nThe overlay image must be the same size or smaller than the background image for proper alignment.\nThe overlay image does not automatically scale to match the proportions of the background image.\n\n  \nEnjoy the workflow! ❤️  \nlet the work flow — Workflow Automation & Development",
+  "totalViews": 2691,
+  "source": "official",
+  "user": {
+    "id": 91823,
+    "name": "Marcel Claus-Ahrens",
+    "username": "geckse",
+    "bio": "Hey 👋 I'm an Automation Expert with a passion for AI workflow automations and AI agents in general. Coming from a software background, I bring the necessary hard skills but love using NoCode to get the job done faster – hence n8n.",
+    "verified": true,
+    "links": "[\"https://let-the-work-flow.com\"]",
+    "avatar": "https://gravatar.com/avatar/4765e05c5f4cdab88efcfd24b9c464910cea34e6121d350b452dd166cbc27abb?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Marketing",
+    "Core Nodes",
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "Edit Image",
+      "type": "n8n-nodes-base.editImage",
+      "categories": [
+        "Marketing",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Files",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-10-10T19:40:59.737Z",
+  "path": "official/template_2459/workflow.json"
+}

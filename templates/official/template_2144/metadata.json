@@ -1,0 +1,38 @@
+{
+  "id": 2144,
+  "name": "Turn any RSS feed into email",
+  "description": "Use case\nThis workflow automatically turns any RSS feed into a newsletter. It send an email every time a new post is published to an RSS feed in the last hour. \nI have been using this personally to follow Derek Sivers and Anil Dash, who don't have newsletters. Check them out 😉\n\nHow to setup\nAdd your email and email creds\nAdd the RSS feed URLs you want to follow\n\nHow to adjust this template\nAdd the feeds you want to follow. It does not have to be just email. Why not get a telegram message? Or Slack message? Ah the power of n8n 🚀",
+  "totalViews": 5532,
+  "source": "official",
+  "user": {
+    "id": 91243,
+    "name": "Mutasem",
+    "username": "mutasem",
+    "bio": "Team lead @ n8n",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/mutasemdmour/\"]",
+    "avatar": "https://gravatar.com/avatar/16d9c92db78317b6af7d0935bee34a47c522cb81d35c234ff76ea580ff1f6c29?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-02-28T17:28:48.484Z",
+  "path": "official/template_2144/workflow.json"
+}

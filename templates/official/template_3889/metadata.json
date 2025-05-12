@@ -1,0 +1,132 @@
+{
+  "id": 3889,
+  "name": "AI Speech Coach & Generator using Telegram, Open AI and Gemini",
+  "description": "Description\nThis n8n workflow acts as your personal AI speechwriting coach, directly accessible through Telegram. It listens to your spoken or typed drafts, provides insightful feedback on clarity, engagement, structure, and content, and iteratively refines your message based on your updates. Once you're ready, it synthesizes a brand-new speech or talk incorporating all the improvements and your accumulated ideas. This tool streamlines the speechwriting process, offering on-demand AI assistance to help you craft impactful and well-structured presentations.\n\nHow it Works\nInput via Telegram: You interact with the workflow by sending your speech drafts or talking points directly to a designated Telegram bot.\nAI Feedback: The workflow processes your input using AI models (OpenAI and/or Google Gemini) to analyze various aspects of your speech and provides constructive feedback via Telegram.\nIterative Refinement: You can then send updated versions of your speech to the bot, receiving further feedback to guide your revisions.\nSpeech Synthesis: When you send the command to \"generate speech,\" the workflow compiles all your previous input and the AI's feedback to synthesize a new, improved speech or talk, which is then sent back to you via Telegram.\nNew Speech Cycle: By sending the command \"new speech,\" the workflow clears its memory, allowing you to start the process anew for a different topic.\nSet Up Steps (Takes Approximatly 5 Minutes)\nStep 1: Create a Telegram Bot and Obtain its ID\nOpen the Telegram application and search for \"BotFather\". Start a chat with BotFather by clicking \"Start\" or sending the /start command. Create a new bot by sending the command /newbot. Follow BotFather's instructions to choose a name and username for your bot. Once your bot is created, BotFather will provide you with an API token. Keep this token secure as it's required to connect your n8n workflow to your bot.\n\nStep 2: Obtain an OpenAI API Key\nGo to the OpenAI website (https://platform.openai.com/) and sign up for an account if you don't already have one.\nNavigate to the API keys section (usually under your profile settings or a \"Developers\" tab). Click on \"Create new secret key\". Copy the generated API key and store it securely. You will need to provide this key to your n8n workflow to access OpenAI's language models.\n\nStep 3: Obtain a Google Gemini LLM API Key \nGo to the Google Cloud AI Platform or Google AI Studio website (the specific platform may vary depending on the current Google AI offerings; search for \"Google AI API\"). Sign up or log in with your Google account. Follow the instructions to enable the Gemini API and create an API key. This might involve creating a project if you haven't already. Copy the generated API key and store it securely. You can then configure your n8n workflow to utilize Google Gemini's language models as well.\n\nCustomization Options\nThis n8n workflow offers significant flexibility, below are a few options:\nModify AI prompts to tailor feedback and generation for presentations, storytelling, interviews, sales pitches, academic talks, and creative writing.\nSwitch the interface from Telegram to Slack, WhatsApp, or even a web interface by replacing the relevant n8n nodes.\nIntegrate analysis for sentiment, keyword density, pacing (with voice input), and filler word detection by adjusting the workflow.\nConnect to external data sources to provide context to the AI for more targeted feedback and generation.\n\nThis adaptability allows you to re use this workflow for a wide range of specific use cases and communication environments.",
+  "totalViews": 109,
+  "source": "official",
+  "user": {
+    "id": 94248,
+    "name": "NanaB",
+    "username": "nanabrown",
+    "bio": "Automation Developer with 3+ years building innovative solutions on UiPath, Power Platform, and n8n, also with a strong background in both API development and integration. Now specializing in the creation and implementation of AI Agents.",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/140c4deaa8523804d003334088f9686009a861bd16947f454d6e878ccd40702e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Chat Memory Manager",
+      "type": "@n8n/n8n-nodes-langchain.memoryManager",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-05-06T08:07:44.488Z",
+  "path": "official/template_3889/workflow.json"
+}

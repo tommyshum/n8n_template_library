@@ -1,0 +1,84 @@
+{
+  "id": 3686,
+  "name": "AI-Powered Gmail Email Organization with Auto-Archiving and Priority Labels",
+  "description": "Who is this for?  \nThis workflow is perfect for busy professionals, students, or anyone who struggles to keep their Gmail inbox organized and clutter-free.\n\nWhat problem is this workflow solving?  \nIt helps you avoid email overload by automating the process of organizing your Gmail inbox. Unnecessary emails are archived, while important emails are categorized into \"MustRead\" or \"NotNeed\" for better prioritization.\n\nWhat this workflow does  \nConnects to your Gmail inbox.  \nAutomatically archives emails that are unnecessary or irrelevant.  \nSorts remaining emails into two categories:  \n  MustRead: Emails that require immediate attention.  \n  NotNeed: Less critical emails for review later.  \n\nSetup  \nConnect your Gmail account to the workflow.  \nDefine the criteria for \"MustRead\" and \"NotNeed\" emails by updating the filter rules in the nodes.  \nActivate the workflow to start organizing your inbox.\n\nHow to customize this workflow to your needs  \nAdjust the filters for archiving emails based on your specific preferences.  \nModify the sorting rules for \"MustRead\" and \"NotNeed\" categories to match your workflow.  \nAdd additional actions, such as sending notifications for \"MustRead\" emails.",
+  "totalViews": 6569,
+  "source": "official",
+  "user": {
+    "id": 94007,
+    "name": "Junichiro Tobe",
+    "username": "junichiro",
+    "bio": "",
+    "verified": false,
+    "links": "[\"https://x.com/jun_ichiro\"]",
+    "avatar": "https://gravatar.com/avatar/f261726df10bd1e9c3224c697aa0f663a38ab17d746e2a8f45d4af7c3d4abfd0?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenRouter Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-04-24T06:03:12.578Z",
+  "path": "official/template_3686/workflow.json"
+}

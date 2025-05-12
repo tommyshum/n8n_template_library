@@ -1,0 +1,63 @@
+{
+  "id": 2983,
+  "name": "✨😃Automated Workflow Backups to Google Drive",
+  "description": "✨😃 Automated Workflow Backups to Google Drive\n\nThis workflow automates the process of backing up your n8n workflows to Google Drive daily. It creates timestamped folders, saves workflows as JSON files, and manages old backups by retaining only the most recent seven days of data. Notifications are sent via Telegram to keep you informed of the backup status.\n\nHow It Works\n\nBackup Creation Process 🗂️\nTriggering Backups**: The workflow starts with either a manual trigger or a scheduled trigger that runs daily.\nFolder Creation**: Creates a new folder in Google Drive with a timestamped name (e.g., n8n-Workflow-Backups-YYYY-MM-DD).\nWorkflow Retrieval**: Fetches all workflows from your n8n instance.\nFile Conversion**: Converts each workflow into a JSON file for storage.\nFile Upload**: Saves the JSON files into the newly created Google Drive folder.\n\nBackup Management 🔄\nFolder Search**: Searches for existing backup folders in Google Drive with names matching n8n-Workflow-Backups.\nRetention Policy**: Identifies folders older than seven days using a custom JavaScript function and deletes them permanently to free up space.\n\nNotifications 📲\nTelegram Alerts**: Sends a message via Telegram once the backup process is complete, including the folder name and a link to access it in Google Drive.\n\nSetup Steps\n\nAPI Configuration 🔑\nGoogle Drive Integration:\n   Set up Google Drive OAuth2 credentials in n8n.\n   Specify the root folder or desired location for backups.\nn8n API Access:\n   Configure n8n API credentials to allow fetching workflows.\nTelegram Notifications:\n   Add your Telegram bot credentials and chat ID for notification delivery.\n\nWorkflow Customization ⚙️\nDefine the schedule for automatic backups (e.g., daily at midnight).\nAdjust the retention period if you need more or fewer days of backups.\nCustomize the Telegram message format as needed.\n\nTesting & Deployment 🚀\nRun the workflow manually to verify folder creation and file uploads.\nCheck that old folders are deleted correctly after seven days.\nConfirm Telegram notifications are sent with accurate details.\n\nUse Case Scenarios\nThis workflow is perfect for teams or individuals who want to ensure their n8n workflows are securely backed up and organized. It is especially useful for:\nProtecting against accidental data loss.\nAutomating routine administrative tasks.\n\n\nBy combining automated backups, retention management, and real-time notifications, this workflow ensures your n8n workflows are always safe and accessible!\n",
+  "totalViews": 2079,
+  "source": "official",
+  "user": {
+    "id": 92125,
+    "name": "Joseph LePage",
+    "username": "joe",
+    "bio": "As an AI Automation consultant based in Canada, I partner with forward-thinking organizations to implement AI solutions that streamline operations and drive growth.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/e7ca218dfc87b68344bbd66f40da01546d2f6fc1cf884267821e8a77e3e8410a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Data & Storage",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-02-23T04:57:19.609Z",
+  "path": "official/template_2983/workflow.json"
+}

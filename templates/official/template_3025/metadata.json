@@ -1,0 +1,139 @@
+{
+  "id": 3025,
+  "name": "🧠 Empower Your AI Chatbot with Long-Term Memory and Dynamic Tool Routing",
+  "description": "Empower Your AI Chatbot with Long-Term Memory and Dynamic Tool Routing\n\nThis n8n workflow equips your AI agent with long-term memory and a dynamic tools router, enabling it to provide intelligent, context-aware responses while managing tasks across multiple tools. By combining persistent memory and modular task routing, this workflow makes your AI smarter, more efficient, and highly adaptable.\n\n👥 Who Is This For?\n\nAI Developers & Automation Enthusiasts: Integrate advanced AI features like long-term memory and task routing without coding expertise.  \nBusinesses & Teams: Automate tasks while maintaining personalized, context-aware interactions.  \nCustomer Support Teams: Improve user experience with chatbots that remember past interactions.  \nMarketers & Content Creators: Streamline communication across platforms like Gmail and Telegram.  \nAI Researchers: Experiment with persistent memory and multi-tool integration.\n\n🚀 What Problem Does This Solve?\n\nThis workflow simplifies the creation of intelligent AI systems that retain memory, manage tasks dynamically, and automate notifications across tools like Gmail and Telegram—saving time and improving efficiency.\n\n🛠️ What This Workflow Does\n\nSave & Retrieve Memories**: Uses Google Docs for long-term storage to recall past interactions or user preferences.  \nDynamic Task Routing**: Routes tasks to the right tools (e.g., saving/retrieving memories or sending notifications).  \nAI-Powered Context Understanding**: Combines OpenAI GPT-based short-term memory with long-term memory for smarter responses.  \nMulti-Channel Notifications**: Sends updates via Gmail or Telegram.\n\n🔧 Setup\n\nAPI Credentials:\n   Connect to OpenAI (AI processing), Google Docs (memory storage), Gmail/Telegram (notifications).  \nCustomize Parameters:\n   Adjust the AI agent's system message for your use case.\n   Define task-routing rules in the tools router node.\nTest & Deploy:\n   Verify memory saving/retrieval, task routing, and notification delivery.\n\n💡 How to Customize\n\nModify the system message in the OpenAI node to tailor your agent’s behavior.\nAdd or adjust routing rules for additional tools.\nUpdate notification settings to match your communication preferences.\n",
+  "totalViews": 26146,
+  "source": "official",
+  "user": {
+    "id": 92125,
+    "name": "Joseph LePage",
+    "username": "joe",
+    "bio": "As an AI Automation consultant based in Canada, I partner with forward-thinking organizations to implement AI solutions that streamline operations and drive growth.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/e7ca218dfc87b68344bbd66f40da01546d2f6fc1cf884267821e8a77e3e8410a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Miscellaneous",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Google Docs",
+      "type": "n8n-nodes-base.googleDocs",
+      "categories": [
+        "Miscellaneous"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 8,
+  "createdAt": "2025-02-27T00:45:40.068Z",
+  "path": "official/template_3025/workflow.json"
+}

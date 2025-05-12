@@ -1,0 +1,80 @@
+{
+  "id": 3439,
+  "name": " Validate Seatable Webhooks with HMAC SHA256 Authentication",
+  "totalViews": 42,
+  "purchaseUrl": null,
+  "user": {
+    "id": 92004,
+    "name": "Vitali",
+    "username": "vquie",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/9547a27c5842ef984e096548285dc3d902bdecaad51c800b6f100a068a2fc9f0?r=pg&d=retro&size=200"
+  },
+  "description": "📌 Validate Seatable Webhooks with HMAC SHA256 Authentication\n\nThis mini workflow is designed to securely validate incoming Seatable webhooks using HMAC SHA256 signature verification.\n\n🔐 What it does:\nListens for incoming Seatable webhook requests.\nCalculates a SHA256 HMAC hash of the raw request body using your shared secret.\nCompares the computed hash with the x-seatable-signature header (after removing the sha256= prefix).\nIf the hashes match: responds with 200 OK and forwards the request to subsequent nodes.\nIf the hashes don’t match: responds with 403 Forbidden.\n\n⚠️ Important Notes:\nThis workflow is provided as a template and is not intended to work standalone. Please duplicate it and integrate it with your custom logic at the \"Add nodes for processing\" node.\n\nConfiguration steps:\nSet your secret key in the “Calculate sha256” crypto node (replace the placeholder).\nAdjust the webhook path to suit your environment (or set it to \"manual\" for testing).\nConnect your actual logic after the verification step.\n",
+  "createdAt": "2025-04-05T09:40:14.968Z",
+  "nodes": [
+    {
+      "id": 264,
+      "icon": "fa:key",
+      "name": "n8n-nodes-base.crypto",
+      "codex": {
+        "data": {
+          "alias": [
+            "Encrypt",
+            "SHA",
+            "Hash"
+          ],
+          "details": "The Crypto node allows you to hash and Hmac string in a specified format and sign a string using a private key. Use this node when you want to encrypt your data.",
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/how-to-build-a-low-code-self-hosted-url-shortener/",
+                "icon": "🔗",
+                "label": "How to build a low-code, self-hosted URL shortener in 3 steps"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.crypto/"
+              }
+            ]
+          },
+          "categories": [
+            "Development",
+            "Core Nodes"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0",
+          "subcategories": {
+            "Core Nodes": [
+              "Data Transformation"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Crypto",
+        "color": "#408000"
+      },
+      "iconData": {
+        "icon": "key",
+        "type": "icon"
+      },
+      "displayName": "Crypto",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 5,
+          "name": "Development"
+        },
+        {
+          "id": 9,
+          "name": "Core Nodes"
+        }
+      ]
+    }
+  ]
+}

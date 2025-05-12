@@ -1,0 +1,71 @@
+{
+  "id": 3937,
+  "name": "Send Personalized WhatsApp Templates Triggered by KlickTipp with Auto-Responses",
+  "totalViews": 128,
+  "purchaseUrl": null,
+  "user": {
+    "id": 92256,
+    "name": "KlickTipp",
+    "username": "KlickTipp",
+    "bio": "Reach more people. 100% GDPR compliant. Quickly create automated email campaigns, SMS and marketing automations. Market your knowledge independently of Google & Co., sell lucrative products and activate your customers.",
+    "verified": true,
+    "links": "[\"https://www.klicktipp.com/\"]",
+    "avatar": "https://gravatar.com/avatar/38677fedcb7c47d414fa2b6ecabb1f51a1f0efaecd06f316971632d6c192e2ff?r=pg&d=retro&size=200"
+  },
+  "description": "\n\nCommunity Node Disclaimer: As this workflow relies on a community node, it is limited to self-hosted environments.\n\nHow It Works\n\nThis workflow automates personalized WhatsApp message template delivery triggered by events in KlickTipp or by messages sent to the Whatsapp Business account. When a contact triggers an Outbound, the workflow uses a pre-approved WhatsApp message template to send dynamic, real-time messages through the WhatsApp Business Cloud API. When receiving messages it checks whether a cancellation should be processed or if a auto-response is sent.\n\nThis setup is ideal for time-sensitive campaigns such as:\nBirthday greetings\nDiscount or promo notifications\nFollow-ups on product or service interest\n\nKey Features\n\nKlickTipp Trigger\nStarts the workflow when a specific outbound is triggered\nTypical use case: subcriber receives activation Tag and triggers an Outbound which sends a webhook call to trigger WhatsApp messaging.\n\nWhatsApp Business Cloud - Message Trigger\nListens to messages from the contact and processes answers with answering auto-responder or by tagging the contact in KlickTipp.\n\nWhatsApp Business Cloud - Sending Template Messages\nSends  WhatsApp message templates using a pre-approved template.\nTemplate placeholders are filled with data from KlickTipp custom fields.\n\nSetup Instructions\n\nSet up the KlickTipp and Whatsapp nodes in your n8n instance.\nAuthenticate your WhatsApp and KlickTipp accounts.\nCreate the necessary custom fields to match the data structure\nVerify and customize field assignments in the workflow to align with your specific form and subscriber list setup.\n\n| Field Label                     | Field Type  |\n|--------------------------------|-------------|\n| Whatsapp_Produkt/Dienstleistung | Single line |       |\n| Whatsapp_Name/Unternehmen       | Single line |\n| Whatsapp_Link_Endung            | Single line |\n\nTesting & Deployment\n\nUse a real test contact with all required fields filled.\nTrigger the Outbound in KlickTipp using the activation tag and answer with a message to the template.\nRun the scenario once in n8n to verify successful delivery of the whatsapp message template to your test contact as well as the reception of the auto-responder and the subscription and tagging in KlickTipp to stop further messages.\n\nCampaign Expansion Ideas\n\nConnect campaign to process keywords like \"STOP\" from WhatsApp messages\nPair WhatsApp with welcome email series for onboarding.\nUse tags like product_interest_X for precise segmentation.\nA/B test templates with different CTA formats or timings.\nMonitor CTRs via dynamic URLs in WhatsApp templates.\n\nBenefits\n\nMulti-channel engagement:** Adds WhatsApp to your marketing toolkit.\nDynamic content:** Personalizes messages using contact data.\nKlickTipp campaign control** Whatsapp contacts can for example signal with messages like \"STOP\" to receive the according Tag in KlickTipp in order to start/end automations.\n\n&gt; 💡 Pro Tip: Customize the domain link ending per campaign or product line. This allows targeted redirects, e.g., meinshop.de/ProduktA or `mein\n\n\n",
+  "createdAt": "2025-05-08T10:59:08.584Z",
+  "nodes": [
+    {
+      "id": 827,
+      "icon": "file:whatsapp.svg",
+      "name": "n8n-nodes-base.whatsApp",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.whatsapp/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/whatsapp/"
+              }
+            ]
+          },
+          "categories": [
+            "Communication",
+            "HITL"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0",
+          "subcategories": {
+            "HITL": [
+              "Human in the Loop"
+            ]
+          }
+        }
+      },
+      "group": "[\"output\"]",
+      "defaults": {
+        "name": "WhatsApp Business Cloud"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIHZpZXdCb3g9IjAgMCA0OCA0OCI+PHBhdGggZmlsbD0iI2ZmZiIgZD0ibTQuODY4IDQzLjMwMyAyLjY5NC05LjgzNWExOC45NCAxOC45NCAwIDAgMS0yLjUzNS05LjQ4OUM1LjAzMiAxMy41MTQgMTMuNTQ4IDUgMjQuMDE0IDVhMTguODcgMTguODcgMCAwIDEgMTMuNDMgNS41NjZBMTguODcgMTguODcgMCAwIDEgNDMgMjMuOTk0Yy0uMDA0IDEwLjQ2NS04LjUyMiAxOC45OC0xOC45ODYgMTguOThoLS4wMDhhMTkgMTkgMCAwIDEtOS4wNzMtMi4zMTF6Ii8+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTQuODY4IDQzLjgwM2EuNS41IDAgMCAxLS40ODItLjYzMWwyLjYzOS05LjYzNmExOS41IDE5LjUgMCAwIDEtMi40OTctOS41NTZDNC41MzIgMTMuMjM4IDEzLjI3MyA0LjUgMjQuMDE0IDQuNWExOS4zNyAxOS4zNyAwIDAgMSAxMy43ODQgNS43MTNBMTkuMzYgMTkuMzYgMCAwIDEgNDMuNSAyMy45OTRjLS4wMDQgMTAuNzQxLTguNzQ2IDE5LjQ4LTE5LjQ4NiAxOS40OGExOS41NCAxOS41NCAwIDAgMS05LjE0NC0yLjI3N2wtOS44NzUgMi41ODlhLjUuNSAwIDAgMS0uMTI3LjAxNyIvPjxwYXRoIGZpbGw9IiNjZmQ4ZGMiIGQ9Ik0yNC4wMTQgNWExOC44NyAxOC44NyAwIDAgMSAxMy40MyA1LjU2NkExOC44NyAxOC44NyAwIDAgMSA0MyAyMy45OTRjLS4wMDQgMTAuNDY1LTguNTIyIDE4Ljk4LTE4Ljk4NiAxOC45OGgtLjAwOGExOSAxOSAwIDAgMS05LjA3My0yLjMxMWwtMTAuMDY1IDIuNjQgMi42OTQtOS44MzVhMTguOTQgMTguOTQgMCAwIDEtMi41MzUtOS40ODlDNS4wMzIgMTMuNTE0IDEzLjU0OCA1IDI0LjAxNCA1bTAtMUMxMi45OTggNCA0LjAzMiAxMi45NjIgNC4wMjcgMjMuOTc5YTIwIDIwIDAgMCAwIDIuNDYxIDkuNjIyTDMuOTAzIDQzLjA0YS45OTguOTk4IDAgMCAwIDEuMjE5IDEuMjMxbDkuNjg3LTIuNTRhMjAgMjAgMCAwIDAgOS4xOTcgMi4yNDRjMTEuMDI0IDAgMTkuOTktOC45NjMgMTkuOTk1LTE5Ljk4QTE5Ljg2IDE5Ljg2IDAgMCAwIDM4LjE1MyA5Ljg2IDE5Ljg3IDE5Ljg3IDAgMCAwIDI0LjAxNCA0Ii8+PHBhdGggZmlsbD0iIzQwYzM1MSIgZD0iTTM1LjE3NiAxMi44MzJhMTUuNjcgMTUuNjcgMCAwIDAtMTEuMTU3LTQuNjI2Yy04LjcwNCAwLTE1Ljc4MyA3LjA3Ni0xNS43ODcgMTUuNzc0YTE1Ljc0IDE1Ljc0IDAgMCAwIDIuNDEzIDguMzk2bC4zNzYuNTk3LTEuNTk1IDUuODIxIDUuOTczLTEuNTY2LjU3Ny4zNDJhMTUuNzUgMTUuNzUgMCAwIDAgOC4wMzIgMi4xOTloLjAwNmM4LjY5OCAwIDE1Ljc3Ny03LjA3NyAxNS43OC0xNS43NzZhMTUuNjggMTUuNjggMCAwIDAtNC42MTgtMTEuMTYxIi8+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTE5LjI2OCAxNi4wNDVjLS4zNTUtLjc5LS43MjktLjgwNi0xLjA2OC0uODItLjI3Ny0uMDEyLS41OTMtLjAxMS0uOTA5LS4wMTFzLS44My4xMTktMS4yNjUuNTk0LTEuNjYxIDEuNjIyLTEuNjYxIDMuOTU2IDEuNyA0LjU5IDEuOTM3IDQuOTA2IDMuMjgyIDUuMjU5IDguMTA0IDcuMTYxYzQuMDA3IDEuNTggNC44MjMgMS4yNjYgNS42OTMgMS4xODdzMi44MDctMS4xNDcgMy4yMDItMi4yNTUuMzk1LTIuMDU3LjI3Ny0yLjI1NWMtLjExOS0uMTk4LS40MzUtLjMxNi0uOTA5LS41NTRzLTIuODA3LTEuMzg1LTMuMjQyLTEuNTQzLS43NTEtLjIzNy0xLjA2OC4yMzhjLS4zMTYuNDc0LTEuMjI1IDEuNTQzLTEuNTAyIDEuODU5cy0uNTU0LjM1Ny0xLjAyOC4xMTktMi4wMDItLjczOC0zLjgxNS0yLjM1NGMtMS40MS0xLjI1Ny0yLjM2Mi0yLjgxLTIuNjM5LTMuMjg1LS4yNzctLjQ3NC0uMDMtLjczMS4yMDgtLjk2OC4yMTMtLjIxMy40NzQtLjU1NC43MTItLjgzMS4yMzctLjI3Ny4zMTYtLjQ3NS40NzQtLjc5MXMuMDc5LS41OTQtLjA0LS44MzFjLS4xMTctLjIzOC0xLjAzOS0yLjU4NC0xLjQ2MS0zLjUyMiIvPjwvc3ZnPg=="
+      },
+      "displayName": "WhatsApp Business Cloud",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 6,
+          "name": "Communication"
+        },
+        {
+          "id": 28,
+          "name": "HITL"
+        }
+      ]
+    }
+  ]
+}

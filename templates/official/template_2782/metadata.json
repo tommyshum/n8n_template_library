@@ -1,0 +1,65 @@
+{
+  "id": 2782,
+  "name": "Build an OpenAI Assistant with Google Drive Integration",
+  "description": "Workflow Overview  \nThis workflow automates the creation and management of a custom OpenAI Assistant for a travel agency (\"Travel with us\"), leveraging Google Drive for document storage.\n\nHow It Works  \n\n1. Create the OpenAI Assistant  \nNode**: OpenAI  \n  Action: Creates a custom assistant named \"Travel with us\" Assistant using the gpt-4o-mini model.  \n  Instructions:  \n    Respond only using the provided document (e.g., agency-specific info).  \n    Stay friendly, brief, and focused on travel-related queries.  \n    Ignore irrelevant questions politely.  \n  Credentials: Requires OpenAI API key.  \n\n2. Upload Agency Document  \nGoogle Drive Node**:  \n  Action: Downloads a Google Doc as a PDF.   \nOpenAI2 Node**:  \n  Action: Uploads the PDF to OpenAI with purpose: \"assistants\".  \n  Output: Generates a file_id.  \n\n3. Update the Assistant with the Document  \nOpenAI Node**:  \n  Action: Updates the assistant to include the uploaded file.\n\n4. Chat Interaction  \nChat Trigger**:  \n  Activates when a message is received (\"When chat message received\").  \nOpenAI Assistant Node**:  \n  Action: Uses the updated assistant to respond to user queries.  \n  Memory: Window Buffer Memory retains chat context for coherent conversations.  \n\nSet Up Steps  \nPrepare the Document:  \n   Store your travel agency guide in Google Drive (e.g., as a Google Doc).  \n   Update the Google Drive node with your document’s ID.  \n\nConfigure Credentials:  \n   Google Drive: Connect via OAuth2 (googleDriveOAuth2Api).  \n   OpenAI: Add your API key to all OpenAI nodes.  \n\nCustomize the Assistant:  \n   Modify the instructions in the OpenAI node to reflect your agency’s needs.  \n   Ensure the document includes FAQs, policies, and travel info.  \n\nTest the Workflow:  \n   Trigger manually (\"Test workflow\") to create the assistant and upload the file.  \n   Send a chat message (e.g., \"What are your travel packages?\") to test responses.  \n\nDependencies  \nGoogle Drive Account**: To store and retrieve the agency document.  \nOpenAI API Access**: For assistant creation and file uploads.  ",
+  "totalViews": 13531,
+  "source": "official",
+  "user": {
+    "id": 92207,
+    "name": "Davide",
+    "username": "n3witalia",
+    "bio": "Full-stack Web Developer based in Italy specialising in Marketing & AI-powered automations. For business enquiries, send me an email at info@n3w.it or add me on Linkedin.com/in/davideboizza",
+    "verified": true,
+    "links": "[\"https://n3w.it\"]",
+    "avatar": "https://gravatar.com/avatar/d41b8a0aa81139243509c58870f5b4be292824a507ab57d10ed066d8628ed8da?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-01-23T14:21:30.480Z",
+  "path": "official/template_2782/workflow.json"
+}

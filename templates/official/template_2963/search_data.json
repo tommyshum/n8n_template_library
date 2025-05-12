@@ -1,0 +1,338 @@
+{
+  "id": 2963,
+  "name": "Automate WooCommerce SEO with Yoast & AI-Powered Meta Tag Generation for FREE",
+  "totalViews": 3756,
+  "purchaseUrl": null,
+  "user": {
+    "id": 92207,
+    "name": "Davide",
+    "username": "n3witalia",
+    "bio": "Full-stack Web Developer based in Italy specialising in Marketing & AI-powered automations. For business enquiries, send me an email at info@n3w.it or add me on Linkedin.com/in/davideboizza",
+    "verified": true,
+    "links": "[\"https://n3w.it\"]",
+    "avatar": "https://gravatar.com/avatar/d41b8a0aa81139243509c58870f5b4be292824a507ab57d10ed066d8628ed8da?r=pg&d=retro&size=200"
+  },
+  "description": "This workflow is designed to automate the generation and updating of SEO meta titles and descriptions for WooCommerce products using n8n. It leverages Google Sheets for data input, a FREE language model (Gemini 2.0 Flash Exp. via OpenRouter) for generating SEO-optimized meta tags, and WooCommerce for updating product details.\n\nHow It Works:\nTrigger: The workflow can be triggered manually or on a schedule. The manual trigger allows for testing, while the schedule trigger can be set to run at regular intervals (e.g., every few minutes) to process new products.\n   \nData Retrieval: \n   The workflow starts by retrieving product IDs from a Google Sheets document. It looks for products that do not yet have meta titles or descriptions.\n   Using the retrieved product ID, the workflow fetches the corresponding product details from WooCommerce, including the product name, description, short description, and categories.\n\nMeta Tag Generation:\n   The product details are passed to a language model (Gemini 2.0 Flash Exp) via OpenRouter. The model generates SEO-optimized meta titles and descriptions based on the provided content.\n   The generated meta tags are structured and validated to ensure they meet SEO best practices, such as character limits and keyword inclusion.\n\nUpdate WooCommerce:\n   The generated meta title and description are then updated in the WooCommerce product metadata using the Yoast SEO fields.\n\nUpdate Google Sheets:\n   Finally, the workflow updates the Google Sheets document with the newly generated meta tags, along with the product URL, title, and the timestamp of the update.\n\nSet Up Steps:\nGoogle Sheets Setup:\n   Create a copy of the provided Google Sheets template and insert WooCommerce product IDs in column \"B\".\n   Ensure the Google Sheets document has columns for METATITLE, METADESCRIPTION, URL, TITLE POST, and DATA (timestamp).\n\nn8n Workflow Configuration:\n   Google Sheets Node: Configure the \"Get product ID\" node to connect to your Google Sheets document. Use OAuth2 for authentication.\n   WooCommerce Node: Set up the WooCommerce nodes to connect to your WooCommerce store using the WooCommerce API credentials.\n   OpenRouter Node: Configure the \"Gemini 2.0 Flash Exp\" node with your OpenRouter API credentials to access the language model.\n   Structured Output Parser: Ensure the output parser is set to handle the structured data format for meta titles and descriptions.\n\nWorkflow Execution:\n   Trigger the workflow manually to test the process or set up a schedule trigger to automate the workflow at regular intervals.\n   Monitor the workflow execution to ensure that meta tags are generated and updated correctly in both WooCommerce and Google Sheets.\n\nValidation:\n   After the workflow runs, verify that the meta titles and descriptions in WooCommerce are correctly updated and that the Google Sheets document reflects the changes.\n\nThis workflow streamlines the process of optimizing WooCommerce product pages for SEO, saving time and ensuring consistency in meta tag generation.\n\nNeed help customizing?  \nContact me for consulting and support or add me on Linkedin. ",
+  "createdAt": "2025-02-21T15:28:26.052Z",
+  "nodes": [
+    {
+      "id": 18,
+      "icon": "file:googleSheets.svg",
+      "name": "n8n-nodes-base.googleSheets",
+      "codex": {
+        "data": {
+          "alias": [
+            "CSV",
+            "Sheet",
+            "Spreadsheet",
+            "GS"
+          ],
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/love-at-first-sight-ricardos-n8n-journey/",
+                "icon": "❤️",
+                "label": "Love at first sight: Ricardo’s n8n journey"
+              },
+              {
+                "url": "https://n8n.io/blog/why-business-process-automation-with-n8n-can-change-your-daily-life/",
+                "icon": "🧬",
+                "label": "Why business process automation with n8n can change your daily life"
+              },
+              {
+                "url": "https://n8n.io/blog/automatically-adding-expense-receipts-to-google-sheets-with-telegram-mindee-twilio-and-n8n/",
+                "icon": "🧾",
+                "label": "Automatically Adding Expense Receipts to Google Sheets with Telegram, Mindee, Twilio, and n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/supercharging-your-conference-registration-process-with-n8n/",
+                "icon": "🎫",
+                "label": "Supercharging your conference registration process with n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/creating-triggers-for-n8n-workflows-using-polling/",
+                "icon": "⏲",
+                "label": "Creating triggers for n8n workflows using polling"
+              },
+              {
+                "url": "https://n8n.io/blog/no-code-ecommerce-workflow-automations/",
+                "icon": "store",
+                "label": "6 e-commerce workflows to power up your Shopify s"
+              },
+              {
+                "url": "https://n8n.io/blog/migrating-community-metrics-to-orbit-using-n8n/",
+                "icon": "📈",
+                "label": "Migrating Community Metrics to Orbit using n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/automate-google-apps-for-productivity/",
+                "icon": "💡",
+                "label": "15 Google apps you can combine and automate to increase productivity"
+              },
+              {
+                "url": "https://n8n.io/blog/your-business-doesnt-need-you-to-operate/",
+                "icon": " 🖥️",
+                "label": "Hey founders! Your business doesn't need you to operate"
+              },
+              {
+                "url": "https://n8n.io/blog/how-honest-burgers-use-automation-to-save-100k-per-year/",
+                "icon": "🍔",
+                "label": "How Honest Burgers Use Automation to Save $100k per year"
+              },
+              {
+                "url": "https://n8n.io/blog/how-a-digital-strategist-uses-n8n-for-online-marketing/",
+                "icon": "💻",
+                "label": "How a digital strategist uses n8n for online marketing"
+              },
+              {
+                "url": "https://n8n.io/blog/why-this-product-manager-loves-workflow-automation-with-n8n/",
+                "icon": "🧠",
+                "label": "Why this Product Manager loves workflow automation with n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/sending-automated-congratulations-with-google-sheets-twilio-and-n8n/",
+                "icon": "🙌",
+                "label": "Sending Automated Congratulations with Google Sheets, Twilio, and n8n "
+              },
+              {
+                "url": "https://n8n.io/blog/how-a-membership-development-manager-automates-his-work-and-investments/",
+                "icon": "📈",
+                "label": "How a Membership Development Manager automates his work and investments"
+              },
+              {
+                "url": "https://n8n.io/blog/aws-workflow-automation/",
+                "label": "7 no-code workflow automations for Amazon Web Services"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googlesheets/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/google/oauth-single-service/"
+              }
+            ]
+          },
+          "categories": [
+            "Data & Storage",
+            "Productivity"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\",\"output\"]",
+      "defaults": {
+        "name": "Google Sheets"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGZpbGw9IiMyOEI0NDYiIGQ9Ik0zNS42OSAxIDUyIDE3LjIyNXYzOS4wODdhMy42NyAzLjY3IDAgMCAxLTEuMDg0IDIuNjFBMy43IDMuNyAwIDAgMSA0OC4yOTMgNjBIMTIuNzA3YTMuNyAzLjcgMCAwIDEtMi42MjMtMS4wNzhBMy42NyAzLjY3IDAgMCAxIDkgNTYuMzEyVjQuNjg4YTMuNjcgMy42NyAwIDAgMSAxLjA4NC0yLjYxQTMuNyAzLjcgMCAwIDEgMTIuNzA3IDF6Ii8+PHBhdGggZmlsbD0iIzZBQ0U3QyIgZD0iTTM1LjY5IDEgNTIgMTcuMjI1SDM5LjM5N2MtMi4wNTQgMC0zLjcwNy0xLjgyOS0zLjcwNy0zLjg3MnoiLz48cGF0aCBmaWxsPSIjMjE5QjM4IiBkPSJNMzkuMjExIDE3LjIyNSA1MiAyMi40OHYtNS4yNTV6Ii8+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTIwLjEyIDMxLjk3NWMwLS44MTcuNjYyLTEuNDc1IDEuNDgzLTEuNDc1aDE3Ljc5NGMuODIxIDAgMS40ODIuNjU4IDEuNDgyIDEuNDc1djE1LjQ4N2MwIC44MTgtLjY2MSAxLjQ3NS0xLjQ4MiAxLjQ3NUgyMS42MDNhMS40NzYgMS40NzYgMCAwIDEtMS40ODItMS40NzRWMzEuOTc0em0yLjIyNSAxLjQ3NWg2LjY3MnYyLjIxMmgtNi42NzJ6bTAgNS4xNjJoNi42NzJ2Mi4yMTNoLTYuNjcyem0wIDUuMTYzaDYuNjcydjIuMjEyaC02LjY3MnptOS42MzgtMTAuMzI1aDYuNjcydjIuMjEyaC02LjY3MnptMCA1LjE2Mmg2LjY3MnYyLjIxM2gtNi42NzJ6bTAgNS4xNjNoNi42NzJ2Mi4yMTJoLTYuNjcyeiIvPjxwYXRoIGZpbGw9IiMyOEI0NDYiIGQ9Ik0zNC42OSAwIDUxIDE2LjIyNXYzOS4wODdhMy42NyAzLjY3IDAgMCAxLTEuMDg0IDIuNjFBMy43IDMuNyAwIDAgMSA0Ny4yOTMgNTlIMTEuNzA3YTMuNyAzLjcgMCAwIDEtMi42MjMtMS4wNzhBMy42NyAzLjY3IDAgMCAxIDggNTUuMzEyVjMuNjg4YTMuNjcgMy42NyAwIDAgMSAxLjA4NC0yLjYxQTMuNyAzLjcgMCAwIDEgMTEuNzA3IDB6Ii8+PHBhdGggZmlsbD0iIzZBQ0U3QyIgZD0iTTM0LjY5IDAgNTEgMTYuMjI1SDM4LjM5N2MtMi4wNTQgMC0zLjcwNy0xLjgyOS0zLjcwNy0zLjg3MnoiLz48cGF0aCBmaWxsPSIjMjE5QjM4IiBkPSJNMzguMjExIDE2LjIyNSA1MSAyMS40OHYtNS4yNTV6Ii8+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTE5LjEyIDMwLjk3NWMwLS44MTcuNjYyLTEuNDc1IDEuNDgzLTEuNDc1aDE3Ljc5NGMuODIxIDAgMS40ODIuNjU4IDEuNDgyIDEuNDc1djE1LjQ4N2MwIC44MTgtLjY2MSAxLjQ3NS0xLjQ4MiAxLjQ3NUgyMC42MDNhMS40NzYgMS40NzYgMCAwIDEtMS40ODItMS40NzRWMzAuOTc0em0yLjIyNSAxLjQ3NWg2LjY3MnYyLjIxMmgtNi42NzJ6bTAgNS4xNjJoNi42NzJ2Mi4yMTNoLTYuNjcyem0wIDUuMTYzaDYuNjcydjIuMjEyaC02LjY3MnptOS42MzgtMTAuMzI1aDYuNjcydjIuMjEyaC02LjY3MnptMCA1LjE2Mmg2LjY3MnYyLjIxM2gtNi42NzJ6bTAgNS4xNjNoNi42NzJ2Mi4yMTJoLTYuNjcyeiIvPjwvZz48L3N2Zz4="
+      },
+      "displayName": "Google Sheets",
+      "typeVersion": 5,
+      "nodeCategories": [
+        {
+          "id": 3,
+          "name": "Data & Storage"
+        },
+        {
+          "id": 4,
+          "name": "Productivity"
+        }
+      ]
+    },
+    {
+      "id": 298,
+      "icon": "file:wooCommerce.svg",
+      "name": "n8n-nodes-base.wooCommerce",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.woocommerce/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/wooCommerce/"
+              }
+            ]
+          },
+          "categories": [
+            "Sales"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"output\"]",
+      "defaults": {
+        "name": "WooCommerce"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIiB2aWV3Qm94PSIwIC01MCAyNTYgMjUzIj48cGF0aCBmaWxsPSIjN2Y1NGIzIiBkPSJNMjMuNzU5IDBoMjA4LjM4YzEzLjE4NyAwIDIzLjg2MyAxMC42NzUgMjMuODYzIDIzLjg2M3Y3OS41NDJjMCAxMy4xODctMTAuNjc1IDIzLjg2My0yMy44NjMgMjMuODYzaC03NC43MjdsMTAuMjU3IDI1LjExOC00NS4xMDktMjUuMTE4SDIzLjg2NWMtMTMuMTg3IDAtMjMuODYzLTEwLjY3NS0yMy44NjMtMjMuODYzVjIzLjg2M0MtLjEwMyAxMC43OCAxMC41NzMgMCAyMy43NiAweiIvPjxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0xNC41NzggMjEuNzVjMS40NTctMS45NzcgMy42NDItMy4wMTggNi41NTYtMy4yMjZxNy45Ni0uNjI1IDkuMDU0IDcuNDkzYzMuMjI2IDIxLjc1IDYuNzY0IDQwLjE2OSAxMC41MSA1NS4yNTlsMjIuNzktNDMuMzk1cTMuMTIzLTUuOTMyIDcuODA2LTYuMjQ0YzQuNTc5LS4zMTIgNy4zODggMi42MDEgOC41MzMgOC43NDEgMi42MDIgMTMuODQxIDUuOTMyIDI1LjYgOS44ODYgMzUuNTkgMi43MDYtMjYuNDMzIDcuMjg1LTQ1LjQ3NiAxMy43MzctNTcuMjM2IDEuNTYxLTIuOTEzIDMuODUtNC4zNyA2Ljg2OC00LjU3OSAyLjM5NC0uMjA4IDQuNTguNTIgNi41NTcgMi4wODIgMS45NzcgMS41NiAzLjAxOCAzLjUzOCAzLjIyNiA1LjkzMS4xMDQgMS44NzQtLjIwOSAzLjQzNC0xLjA0MSA0Ljk5NS00LjA1OSA3LjQ5My03LjM4OSAyMC4wODYtMTAuMDk0IDM3LjU2Ny0yLjYwMiAxNi45NjQtMy41MzggMzAuMTgtMi45MTQgMzkuNjVxLjMxMiAzLjkwMS0xLjI0OSA2Ljg2OGMtMS4yNDggMi4yOS0zLjEyMiAzLjUzOC01LjUxNSAzLjc0Ni0yLjcwNi4yMDgtNS41MTUtMS4wNC04LjIyMS0zLjg1LTkuNjc4LTkuODg2LTE3LjM4LTI0LjY2My0yMi45OTgtNDQuMzMyUTU3LjkyMiA4Ni43OSA1My4wODQgOTYuNzhjLTYuMTQgMTEuNzYtMTEuMzQzIDE3Ljc5Ni0xNS43MTQgMTguMTA4LTIuODEuMjA4LTUuMjAzLTIuMTg2LTcuMjg1LTcuMThxLTcuOTYtMjAuNDUtMTcuMTctNzguOTg2Yy0uNDE3LTIuNzA1LjIwNy01LjA5OSAxLjY2NC02Ljk3MnptMjIzLjY0IDE2LjMzOGMtMy43NDYtNi41NTYtOS4yNjItMTAuNTExLTE2LjY1LTEyLjA3MnEtMi45NjUtLjYyNC01LjYyLS42MjRjLTkuOTkgMC0xOC4xMDcgNS4yMDMtMjQuNDU1IDE1LjYxcS04LjExNiAxMy4yNjgtOC4xMTcgMjkuMzQ2IDAgMTIuMDE4IDQuOTk1IDIwLjYwNWMzLjc0NyA2LjU1NiA5LjI2MiAxMC41MSAxNi42NSAxMi4wNzJxMi45NjYuNjI0IDUuNjIuNjI0YzEwLjA5NCAwIDE4LjIxMS01LjIwMyAyNC40NTUtMTUuNjEgNS40MTEtOC45NSA4LjExNy0xOC43MzIgOC4xMTctMjkuNDUuMTA0LTguMTE3LTEuNjY1LTE0Ljg4MS00Ljk5NS0yMC41MDFtLTEzLjExMiAyOC44MjZjLTEuNDU3IDYuODY4LTQuMDU5IDExLjk2Ny03LjkwOSAxNS40MDItMy4wMTggMi43MDYtNS44MjcgMy44NS04LjQzIDMuMzMtMi40OTctLjUyLTQuNTc4LTIuNzA2LTYuMTM5LTYuNzY0LTEuMjQ5LTMuMjI2LTEuODczLTYuNDUyLTEuODczLTkuNDcgMC0yLjYwMi4yMDgtNS4yMDMuNzI4LTcuNTk3LjkzNy00LjI2NiAyLjcwNi04LjQyOSA1LjUxNi0xMi4zODQgMy40MzQtNS4wOTkgNy4wNzYtNy4xOCAxMC44MjMtNi40NTIgMi40OTcuNTIgNC41NzkgMi43MDYgNi4xNCA2Ljc2NSAxLjI0OCAzLjIyNiAxLjg3MyA2LjQ1MiAxLjg3MyA5LjQ3IDAgMi43MDUtLjIwOCA1LjMwNy0uNzI5IDcuN3ptLTUyLjAzMy0yOC44MjZjLTMuNzQ2LTYuNTU2LTkuMzY2LTEwLjUxMS0xNi42NS0xMi4wNzJxLTIuOTY1LS42MjQtNS42Mi0uNjI0Yy05Ljk5IDAtMTguMTA3IDUuMjAzLTI0LjQ1NSAxNS42MXEtOC4xMTYgMTMuMjY4LTguMTE3IDI5LjM0NiAwIDEyLjAxOCA0Ljk5NSAyMC42MDVjMy43NDcgNi41NTYgOS4yNjIgMTAuNTEgMTYuNjUgMTIuMDcycTIuOTY2LjYyNCA1LjYyLjYyNGMxMC4wOTQgMCAxOC4yMTEtNS4yMDMgMjQuNDU1LTE1LjYxIDUuNDExLTguOTUgOC4xMTctMTguNzMyIDguMTE3LTI5LjQ1IDAtOC4xMTctMS42NjUtMTQuODgxLTQuOTk1LTIwLjUwMW0tMTMuMjE2IDI4LjgyNmMtMS40NTcgNi44NjgtNC4wNTkgMTEuOTY3LTcuOTA5IDE1LjQwMi0zLjAxOCAyLjcwNi01LjgyOCAzLjg1LTguNDMgMy4zMy0yLjQ5Ny0uNTItNC41NzgtMi43MDYtNi4xMzktNi43NjQtMS4yNDktMy4yMjYtMS44NzMtNi40NTItMS44NzMtOS40NyAwLTIuNjAyLjIwOC01LjIwMy43MjgtNy41OTcuOTM3LTQuMjY2IDIuNzA2LTguNDI5IDUuNTE2LTEyLjM4NCAzLjQzNC01LjA5OSA3LjA3Ni03LjE4IDEwLjgyMy02LjQ1MiAyLjQ5Ny41MiA0LjU3OSAyLjcwNiA2LjE0IDYuNzY1IDEuMjQ4IDMuMjI2IDEuODczIDYuNDUyIDEuODczIDkuNDcuMTA0IDIuNzA1LS4yMDggNS4zMDctLjcyOSA3Ljd6Ii8+PC9zdmc+"
+      },
+      "displayName": "WooCommerce",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 2,
+          "name": "Sales"
+        }
+      ]
+    },
+    {
+      "id": 1123,
+      "icon": "fa:link",
+      "name": "@n8n/n8n-nodes-langchain.chainLlm",
+      "codex": {
+        "data": {
+          "alias": [
+            "LangChain"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.chainllm/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Chains",
+              "Root Nodes"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Basic LLM Chain",
+        "color": "#909298"
+      },
+      "iconData": {
+        "icon": "link",
+        "type": "icon"
+      },
+      "displayName": "Basic LLM Chain",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1179,
+      "icon": "fa:code",
+      "name": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "codex": {
+        "data": {
+          "alias": [
+            "json",
+            "zod"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.outputparserstructured/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Output Parsers"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Structured Output Parser"
+      },
+      "iconData": {
+        "icon": "code",
+        "type": "icon"
+      },
+      "displayName": "Structured Output Parser",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1281,
+      "icon": "file:openrouter.svg",
+      "name": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatopenrouter/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Language Models",
+              "Root Nodes"
+            ],
+            "Language Models": [
+              "Chat Models (Recommended)"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "OpenRouter Chat Model"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjOTRBM0I4IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDI0IDI0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjx0aXRsZT5PcGVuUm91dGVyPC90aXRsZT48cGF0aCBkPSJNMTYuODA0IDEuOTU3bDcuMjIgNC4xMDV2LjA4N0wxNi43MyAxMC4yMWwuMDE3LTIuMTE3LS44MjEtLjAzYy0xLjA1OS0uMDI4LTEuNjExLjAwMi0yLjI2OC4xMS0xLjA2NC4xNzUtMi4wMzguNTc3LTMuMTQ3IDEuMzUyTDguMzQ1IDExLjAzYy0uMjg0LjE5NS0uNDk1LjMzNi0uNjguNDU1bC0uNTE1LjMyMi0uMzk3LjIzNC4zODUuMjMuNTMuMzM4Yy40NzYuMzE0IDEuMTcuNzk2IDIuNzAxIDEuODY2IDEuMTEuNzc1IDIuMDgzIDEuMTc3IDMuMTQ3IDEuMzUybC4zLjA0NWMuNjk0LjA5MSAxLjM3NS4wOTQgMi44MjUuMDMzbC4wMjItMi4xNTkgNy4yMiA0LjEwNXYuMDg3TDE2LjU4OSAyMmwuMDE0LTEuODYyLS42MzUuMDIyYy0xLjM4Ni4wNDItMi4xMzcuMDAyLTMuMTM4LS4xNjItMS42OTQtLjI4LTMuMjYtLjkyNi00Ljg4MS0yLjA1OWwtMi4xNTgtMS41YTIxLjk5NyAyMS45OTcgMCAwMC0uNzU1LS40OThsLS40NjctLjI4YTU1LjkyNyA1NS45MjcgMCAwMC0uNzYtLjQzQzIuOTA4IDE0LjczLjU2MyAxNC4xMTYgMCAxNC4xMTZWOS44ODhsLjE0LjAwNGMuNTY0LS4wMDcgMi45MS0uNjIyIDMuODA5LTEuMTI0bDEuMDE2LS41OC40MzgtLjI3NGMuNDI4LS4yOCAxLjA3Mi0uNzI2IDIuNjg2LTEuODUzIDEuNjIxLTEuMTMzIDMuMTg2LTEuNzggNC44ODEtMi4wNTkgMS4xNTItLjE5IDEuOTc0LS4yMTMgMy44MTQtLjEzOGwuMDItMS45MDd6Ij48L3BhdGg+PC9zdmc+Cg=="
+      },
+      "displayName": "OpenRouter Chat Model",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    }
+  ]
+}

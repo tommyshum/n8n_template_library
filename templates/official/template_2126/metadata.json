@@ -1,0 +1,42 @@
+{
+  "id": 2126,
+  "name": "Automate Your UTM Campaign Tracking: Shopify, n8n to Baserow",
+  "description": "Campaign tracking is pivotal; it enables marketers to evaluate the efficacy of various strategies and channels. UTM parameters are particularly essential as they provide granular details about the source, medium, and campaign effectiveness. \nHowever, when this data is not automatically integrated into a centralized system, it can become a tedious and error-prone process to manually collate and analyze it.\n\nRetrieving UTM data from Shopify and storing it in Baserow enables oy to do more with this data. For example you could build a campaign database in Baserow and automatically add campaign revenue to it using this workflow template.\n\nThis template will help you:\n\nAutomatically retrieve UTM parameters from Shopify orders using the Shopify Admin API\nProcess marketing data through n8n\nStore this data into Baserow, providing you with a dynamic, responsive base for campaign tracking and decision-making\n\nThis template will demonstrate the follwing concepts in n8n:\n\nuse the Schedule trigger node\nuse the GraphQL node to call the Shopify Admin API\nsplit larger incoming datasets into n8n items with the Split node\ntransform the data structure with the Set node\ncontrol flow with the If node\nstore data in Baserow with the Baserow node\n\nHow to get started?\n\nCreate a custom app in Shopify get the credentials needed to connect n8n to Shopify\nThis is needed for the Shopify Trigger\nCreate Shopify Acces Token API credentials n n8n for the Shopify trigger node\nCreate Header Auth credentials: \nUse X-Shopify-Access-Token as the name and the Acces-Token from the Shopify App you created as the value.\nThe Header Auth is neccessary for the GraphQL nodes.\nYou will need a running Baserow instance for this. You can also sign up for a free account at https://baserow.io/\n\nPlease make sure to read the notes in the template. \n\nFor a detailed explanation please check the corresponding video: https://youtu.be/VBeN-3129RM",
+  "totalViews": 1135,
+  "source": "official",
+  "user": {
+    "id": 91450,
+    "name": "Sascha",
+    "username": "m3tam3re",
+    "bio": "",
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/d0bb36ca6da107a39b902adcf9b118616c8b27a189be33ac2ad74e7102c9478f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "GraphQL",
+      "type": "n8n-nodes-base.graphql",
+      "categories": [
+        "Data & Storage",
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Baserow",
+      "type": "n8n-nodes-base.baserow",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-02-23T11:32:59.731Z",
+  "path": "official/template_2126/workflow.json"
+}

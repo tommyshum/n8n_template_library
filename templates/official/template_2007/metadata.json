@@ -1,0 +1,38 @@
+{
+  "id": 2007,
+  "name": "Telegram echo-bot",
+  "description": "This is a workflow for a Telegram-echo bot.\nThis bot is useful for debugging and learning purposes of the Telegram platform.\nAdd your Telegram bot credentials for both nodes.\nActivate the workflow.\nSend data to the bot (i.e. a message, a forwarded message, sticker, emoji, voice, file, an image...).\nSecond node will fetch the incoming JSON object, format it and send back.",
+  "totalViews": 6100,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2023-12-07T13:10:09.389Z",
+  "path": "official/template_2007/workflow.json"
+}

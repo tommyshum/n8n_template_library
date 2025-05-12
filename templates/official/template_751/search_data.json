@@ -1,0 +1,66 @@
+{
+  "id": 751,
+  "name": "Create, update and get a subscriber using the MailerLite node",
+  "totalViews": 487,
+  "purchaseUrl": null,
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "description": "",
+  "createdAt": "2020-10-30T12:16:17.016Z",
+  "nodes": [
+    {
+      "id": 393,
+      "icon": "file:MailerLite.svg",
+      "name": "n8n-nodes-base.mailerLite",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.mailerlite/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/mailerLite/"
+              }
+            ]
+          },
+          "categories": [
+            "Communication",
+            "Marketing"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "MailerLite"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxuczp4PSJuc19leHRlbmQ7IiB4bWxuczppPSJuc19haTsiIHhtbG5zOmdyYXBoPSJuc19ncmFwaHM7IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDYyLjggNTAuMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNjIuOCA1MC4yOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CiA8c3R5bGUgdHlwZT0idGV4dC9jc3MiPgogIC5zdDB7ZmlsbDojMDlDMjY5O30KCS5zdDF7ZmlsbDojRkZGRkZGO30KIDwvc3R5bGU+CiA8bWV0YWRhdGE+CiAgPHNmdyB4bWxucz0ibnNfc2Z3OyI+CiAgIDxzbGljZXM+CiAgIDwvc2xpY2VzPgogICA8c2xpY2VTb3VyY2VCb3VuZHMgYm90dG9tTGVmdE9yaWdpbj0idHJ1ZSIgaGVpZ2h0PSI1MC4yIiB3aWR0aD0iNjIuOCIgeD0iMjM2LjkiIHk9Ii0yMjUuMyI+CiAgIDwvc2xpY2VTb3VyY2VCb3VuZHM+CiAgPC9zZnc+CiA8L21ldGFkYXRhPgogPGcgaWQ9Im1haWxlcmxpdGUtbGlnaHQiPgogIDxnPgogICA8ZyBpZD0ibGl0ZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTM3LjAwMDAwMCwgMC4wMDAwMDApIj4KICAgIDxwYXRoIGlkPSJTaGFwZS1wYXRoIiBjbGFzcz0ic3QwIiBkPSJNLTgxLjIsMGgtNDguOWMtMy44LDAtNi45LDMuMS02LjksNi44djIyLjh2NC41djE2LjJsOS41LTkuM2g0Ni40YzMuOCwwLDYuOS0zLjEsNi45LTYuOAoJCQkJVjYuOEMtNzQuMywzLjEtNzcuNCwwLTgxLjIsMHoiPgogICAgPC9wYXRoPgogICAgPHBhdGggaWQ9IlNoYXBlLXBhdGgtMyIgY2xhc3M9InN0MSIgZD0iTS05MC4yLDE1LjhjNS4yLDAsNy42LDQuMSw3LjYsOGMwLDEtMC44LDEuOC0xLjgsMS44SC05NGMwLjUsMi4zLDIuMSwzLjYsNC43LDMuNgoJCQkJYzEuOSwwLDIuOS0wLjQsMy45LTAuOWMwLjItMC4xLDAuNS0wLjIsMC43LTAuMmMwLjksMCwxLjcsMC43LDEuNywxLjZjMCwwLjYtMC40LDEuMS0xLDEuNWMtMS4zLDAuNy0yLjcsMS40LTUuNSwxLjQKCQkJCWMtNS4yLDAtOC4zLTMuMS04LjMtOC40Qy05Ny45LDE4LjEtOTMuNywxNS44LTkwLjIsMTUuOHogTS0xMDUuNSwxMy4yYzAuNiwwLDEsMC41LDEsMXYxLjloMi45YzAuOSwwLDEuNywwLjcsMS43LDEuNgoJCQkJYzAsMC45LTAuNywxLjYtMS43LDEuNmgtMi45VjI4YzAsMS4yLDAuNiwxLjMsMS41LDEuM2MwLjUsMCwwLjgtMC4xLDEuMS0wLjFjMC4yLDAsMC41LTAuMSwwLjctMC4xYzAuNywwLDEuNiwwLjYsMS42LDEuNQoJCQkJYzAsMC42LTAuNCwxLjEtMSwxLjRjLTAuOSwwLjQtMS43LDAuNi0yLjcsMC42Yy0zLjIsMC00LjktMS41LTQuOS00LjR2LTguOGgtMS43Yy0wLjYsMC0xLTAuNS0xLTFjMC0wLjMsMC4xLTAuNiwwLjQtMC45bDQtNAoJCQkJQy0xMDYuMywxMy41LTEwNiwxMy4yLTEwNS41LDEzLjJ6IE0tMTI0LjIsOS40YzEsMCwxLjgsMC44LDEuOCwxLjh2MTkuNGMwLDEtMC44LDEuOC0xLjgsMS44cy0xLjgtMC44LTEuOC0xLjhWMTEuMgoJCQkJQy0xMjYsMTAuMi0xMjUuMiw5LjQtMTI0LjIsOS40eiBNLTExNS42LDE2YzEsMCwxLjgsMC44LDEuOCwxLjh2MTIuOGMwLDEtMC44LDEuOC0xLjgsMS44Yy0xLDAtMS44LTAuOC0xLjgtMS44VjE3LjgKCQkJCUMtMTE3LjQsMTYuOC0xMTYuNiwxNi0xMTUuNiwxNnogTS05MC4xLDE5LjFjLTEuNywwLTMuNiwxLTMuOSwzLjVoNy45Qy04Ni42LDIwLjEtODguNCwxOS4xLTkwLjEsMTkuMXogTS0xMTUuNSw5LjkKCQkJCWMxLjEsMCwyLDAuOSwyLDJWMTJjMCwxLjEtMC45LDItMiwyaC0wLjJjLTEuMSwwLTItMC45LTItMnYtMC4xYzAtMS4xLDAuOS0yLDItMkgtMTE1LjV6Ij4KICAgIDwvcGF0aD4KICAgPC9nPgogIDwvZz4KIDwvZz4KPC9zdmc+"
+      },
+      "displayName": "MailerLite",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 6,
+          "name": "Communication"
+        },
+        {
+          "id": 27,
+          "name": "Marketing"
+        }
+      ]
+    }
+  ]
+}

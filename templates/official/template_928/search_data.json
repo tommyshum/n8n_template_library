@@ -1,0 +1,61 @@
+{
+  "id": 928,
+  "name": "Create a post with comments in Reddit automatically",
+  "totalViews": 2595,
+  "purchaseUrl": null,
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "description": "This workflow allows you to create a post a Reddit and add a comment on the post.\n\n\n\nReddit node: This node creates a post in the subreddit n8n. If you want to create a post in a different subreddit, enter the name of that subreddit instead.\n\nReddit1 node: This node gets the post that we created previously. It returns the data like the post ID, title of the post, content of the post, etc.\n\nReddit2 node: This node adds a comment on the post that we created earlier.",
+  "createdAt": "2021-02-08T07:09:22.003Z",
+  "nodes": [
+    {
+      "id": 445,
+      "icon": "file:reddit.svg",
+      "name": "n8n-nodes-base.reddit",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.reddit/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/reddit/"
+              }
+            ]
+          },
+          "categories": [
+            "Communication"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Reddit"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiB2aWV3Qm94PSIwIDAgNTEzIDUxNCI+PHVzZSB4bGluazpocmVmPSIjYSIgeD0iLjUiIHk9Ii41Ii8+PHN5bWJvbCBpZD0iYSIgb3ZlcmZsb3c9InZpc2libGUiPjxnIGZpbGwtcnVsZT0ibm9uemVybyIgc3Ryb2tlPSJub25lIj48cGF0aCBmaWxsPSIjZmY0NTAwIiBkPSJNMCA3Ni44QzAgMzQuMjUzIDM0LjI1MyAwIDc2LjggMGgzNTguNEM0NzcuNzQ3IDAgNTEyIDM0LjI1MyA1MTIgNzYuOHYzNTguNGMwIDQyLjU0Ny0zNC4yNTMgNzYuOC03Ni44IDc2LjhINzYuOEMzNC4yNTMgNTEyIDAgNDc3Ljc0NyAwIDQzNS4yeiIvPjxwYXRoIGQ9Ik03OSAzMDVjMC02OC4xNDIgNzguOTQyLTEyMyAxNzctMTIzczE3NyA1NC44NTggMTc3IDEyMy03OC45NDIgMTIzLTE3NyAxMjNTNzkgMzczLjE0MiA3OSAzMDUiLz48ZyBmaWxsPSIjZmY0NTAwIj48cGF0aCBkPSJNMTk5IDM0N2MzNSAyOSA3OSAyOSAxMTQgMGwxMiAxMWMtNDIgMzUtOTYgMzUtMTM4IDB6Ii8+PHVzZSB4bGluazpocmVmPSIjYiIvPjx1c2UgeGxpbms6aHJlZj0iI2IiIHg9Ii0xMTgiLz48L2c+PC9nPjxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiI+PHVzZSB4bGluazpocmVmPSIjYiIgeD0iNzUiIHk9Ii0xNjAiIHN0cm9rZS13aWR0aD0iMjUiLz48cGF0aCBzdHJva2Utd2lkdGg9IjIyIiBkPSJNODcgMjgyYy00NS0yMi01LTkyIDQwLTUwbTI5OCA1MGM0NS0yMiA1LTkyLTQwLTUwbS0xMjctNDUgMjQtODMgODAgMTYiLz48L2c+PC9zeW1ib2w+PGRlZnM+PHBhdGggaWQ9ImIiIGQ9Ik0yODcgMjg1YTI3Ljk0IDI3Ljk0IDAgMSAxIDU2IDAgMjcuOTQgMjcuOTQgMCAxIDEtNTYgMCIvPjwvZGVmcz48L3N2Zz4="
+      },
+      "displayName": "Reddit",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 6,
+          "name": "Communication"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "id": 2614,
+  "name": "Extract text from PDF and image using Vertex AI (Gemini) into CSV",
+  "description": "\nCase Study\n\nI'm too lazy to record every transaction for my expense tracking. Since all my expenses are digital, I just extract the transactions from bank PDF statements and screenshots into CSV to import into my budgeting software.\n\nRead more -&gt; How I used A.I. to track all my expenses\n\nWhat this workflow does\n\nUpload your PDF or screenshots into Google Drive \nIt then passes the PDF/image to Vertex Gemini to do some A.I. image recognition\nIt then sends the transactions as CSV and stores it into another Google Drive folder\n\nSetup\nSet up 2 google drive folders. 1 for uploading and 1 for the output.\nInput your Google Drive crendtials\nInput your Vertex Gemini credentials\n\nHow to adjust it to your needs\nYou can upload other types of documents for information extraction. \nYou can extract any text data from any image or PDF\nYou can adjust the A.I. prompt to do different things",
+  "totalViews": 20229,
+  "source": "official",
+  "user": {
+    "id": 92000,
+    "name": "Keith Rumjahn",
+    "username": "rumjahn",
+    "bio": "I create automations with A.I. for SEO content and other smart automations.",
+    "verified": true,
+    "links": "[\"https://rumjahn.com/\"]",
+    "avatar": "https://gravatar.com/avatar/e037c9d6e16284c4cf5149094a1725ed92f76e61813b8f8c32c1b83dcf4f9f4b?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2024-12-08T13:07:12.471Z",
+  "path": "official/template_2614/workflow.json"
+}

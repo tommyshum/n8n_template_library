@@ -1,0 +1,86 @@
+{
+  "id": 3224,
+  "name": "Analyze Any Website with OpenAI And Get On-Page SEO Audit",
+  "description": "Instantly Find & Fix What’s Holding Your Page Back\n\nYou’ve put in the work. Your content is strong. Your design is polished.\n\nBut…\n\n❌ Your page isn’t ranking where it should.\n❌ Your competitors are outranking you—even with weaker content.\n❌ You have no idea what’s wrong—or how to fix it.\n\nThe truth? SEO isn’t just about keywords.\n\nYour technical setup, content structure, and on-page elements must work together seamlessly.\nAnd if anything is off? Google won’t rank your page.\n\nWho Is This For?\nSaaS Founders & Startups – Get higher rankings & organic traffic that converts.\nMarketing Teams & Agencies – Audit & optimize pages in seconds.\nE-commerce & Content Sites – Improve rankings for product pages, blogs, and landing pages.\n\nHow It Works\nPaste your URL\nGet an instant audit + recommendations list\nImplement changes & watch your rankings jump\n\nThe workflow scrapes the url you input, gets the htlm source code of the landing page, and sends it to OpenAI AI Agent.\n\nThe Agent makes a deep analysis, audit the Technical + Content SEO of the page, and provides 10 Recommendations to improve your SEO.\n\nSetup Guide\nYou will need OpenAI Credentials with an API Key to run the workflow.\n\nThe workflow is using the OpenAI-o1 model to deliver the best results. It costs between $0.20/0.30 per run.\n\nYou can adjust the prompt to your wish in the AI Agent parameters.\n\nOnce the audit has been completed, it will send an email (don't forget to add your email address here)\n\nBelow is an example of what you can expect\n\n\n",
+  "totalViews": 27796,
+  "source": "official",
+  "user": {
+    "id": 92843,
+    "name": "Not Another Marketer",
+    "username": "notanothermarketer",
+    "bio": "Building Badass AI Agents for Marketing. Pre-made, ready-to-use, fully customizable.\n\n",
+    "verified": true,
+    "links": "[\"https://www.notanothermarketer.com\"]",
+    "avatar": "https://gravatar.com/avatar/d6c9cb4d0092909e227e9de518409cdf679228a7df550714ce808d77976221af?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-03-19T21:20:11.472Z",
+  "path": "official/template_3224/workflow.json"
+}

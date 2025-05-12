@@ -1,0 +1,38 @@
+{
+  "id": 2053,
+  "name": "USDT And TRC20 Wallet Tracker API Workflow for n8n",
+  "description": "\nOverview\n\nThis n8n workflow is specifically designed to monitor USDT TRC20 transactions within a specified wallet. It utilizes the public blockchain database of TronScan, requiring no API authentication, to periodically check and process transaction data. This workflow is ideal for users who need an automated solution to track their TRC20 wallet transactions.\n\nFeatures\n\nAutomated Tracking**: Executes every 15 minutes to capture new transactions.\nCustomizable Filters**: Tailors the tracking based on specific parameters like transaction time and wallet addresses.\nData Aggregation**: Compiles transaction data into a single, structured list.\nFormatted Outputs**: Presents transaction data in an organized and comprehensible format.\n\nRequirements\n\nN8N (self-hosted or cloud version) setup and operational.\nBasic understanding of N8N workflows and nodes.\n\nSetup and Configuration\n\nImport Workflow: Load the provided JSON workflow into your N8N instance.\nConfigure Edit Fields Node:\n  Enter your TRC20 wallet address in the 'Your Wallet Address' field.\n  Adjust 'Number of transactions to retrieve per request' if necessary. (Default one set to 20 which is recommanded)\nTronScan Data Access: The workflow accesses TronScan's public blockchain data, so no additional configuration is required for API access.\nSchedule Trigger Node: Defaulted to trigger every 15 minutes. Modify as per your requirements.\nTest the Workflow: Execute the workflow manually to ensure everything is operating correctly.\n\nHow it Works\n\nSchedule Trigger: Initiates the workflow at predetermined intervals.\nEdit Fields: Sets up the wallet address and transaction retrieval count.\nTronScan Data Retrieval: Gathers transaction data from the TRC20 wallet using TronScan's public database.\nSplit Out & Filter: Processes and filters the transaction data.\nFinal Results: Organizes and formats the required transaction data for review.\nAggregate: Consolidates all records (items) into a one comprehensive list (item).\n\nCustomization\n\nModify the filter conditions and fields to suit your tracking needs. (for example you can higher or lower the number of time to filter or IN / OUT transactions - Default is 15m/IN)\nAdjust the schedule trigger frequency according to your preference (default is 15m).\n\nBest Practices\n\nRegularly test the workflow to ensure consistent performance.\nStay updated with any changes to the structure of TronScan's public data that might affect the workflow.\n\nContributing\n\nYour feedback and contributions are greatly appreciated. Feel free to adapt, modify, and share enhancements with the n8n community.",
+  "totalViews": 1959,
+  "source": "official",
+  "user": {
+    "id": 91304,
+    "name": "Nskha",
+    "username": "nskha",
+    "bio": "Welcome to Nskha! We're all about making real changes in the no-code tech field, just like with N8N 😉. Check out our amazing collection of free public templates and join us in building a collaborative database of no-code idea projects. Let's revolutionize the way we create without code!",
+    "verified": true,
+    "links": "[\"https://nskha.com\"]",
+    "avatar": "https://gravatar.com/avatar/6f99957ae9e5a66cf0bb95f4584cf321b0644a0ceea6a633bc968b6ec55e8410?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-01-16T20:12:43.310Z",
+  "path": "official/template_2053/workflow.json"
+}

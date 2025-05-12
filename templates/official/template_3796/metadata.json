@@ -1,0 +1,53 @@
+{
+  "id": 3796,
+  "name": "Auto-Generate Meeting Attendee Research with GPT-4o, Google Calendar, and Gmail",
+  "description": "How it works:\n\nWhenever a new event is scheduled on your Google Calendar, this workflow generates a Meeting Briefing email, giving an overview of each person on the call and the company they work for.\n\nIt makes use of the web search tool on the OpenAI Responses API to make lookups.\n\nThe workflow triggers when a new event is added to the calendar, loops over each attendee, generating reports on each person and their company, collates the results, and sends the briefing as an email.\n\nSet up steps:\n\nAdd your credentials for Google Calendar (for viewing events) and Gmail (to send the email)\nAdd your OpenAI credentials as a Header Auth on the Company Search and Person Search nodes.\n\tName: Authorization\n\tValue: Bearer {{ YOUR_API_KEY }}\nEdit the \"Edit Fields\" node with the email that you want to send the briefing to, and a short bit of context about yourself.",
+  "totalViews": 3986,
+  "source": "official",
+  "user": {
+    "id": 94155,
+    "name": "Adam Janes",
+    "username": "adamjanes",
+    "bio": "I am a product-minded technologist with hacker DNA building things in AI automation. \n\nI have a broad and varied background - having worked in Product, Design, and Sales - combined with deep technical experience as a Senior Developer and Fractional CTO.\n\nI am also a best-selling Udemy instructor (with 25K+ students), and founder of WOOFCODE - a free coding camp for fullstack developers.\n\nI practice non-violent communication, motivational interviewing, and Tibetan Buddhist meditation.",
+    "verified": false,
+    "links": "[\"https://www.linkedin.com/in/adamjanes/\"]",
+    "avatar": "https://gravatar.com/avatar/1ffac81a3c36347b065a27a6a4d489c7d2c6fe52ac17d3fe9e6ff89db9d9ce6a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-04-30T03:54:36.015Z",
+  "path": "official/template_3796/workflow.json"
+}

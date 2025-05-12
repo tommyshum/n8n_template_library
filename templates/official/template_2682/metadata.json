@@ -1,0 +1,129 @@
+{
+  "id": 2682,
+  "name": "🔍 Perplexity Research to HTML: AI-Powered Content Creation",
+  "description": "Transform simple queries into comprehensive, well-structured content with this n8n workflow that leverages Perplexity AI for research and GPT-4 for content transformation. Create professional blog posts and HTML content automatically while maintaining accuracy and depth.\n\nIntelligent Research & Analysis\n\n🚀 Automated Research Pipeline\nHarnesses Perplexity AI's advanced research capabilities\nProcesses complex topics into structured insights\nDelivers comprehensive analysis in minutes instead of hours\n\n🧠 Smart Content Organization\nAutomatically structures content with clear hierarchies\nIdentifies and highlights key concepts\nMaintains technical accuracy while improving readability\nCreates SEO-friendly content structure\n\nContent Transformation Features\n\n📝 Dynamic Content Generation\nConverts research into professional blog articles\nGenerates clean, responsive HTML output\nImplements proper semantic structure\nIncludes metadata and categorization\n\n🎨 Professional Formatting\nResponsive Tailwind CSS styling\nClean, modern HTML structure\nProper heading hierarchy\nMobile-friendly layouts\nBlockquote highlighting for key insights \n\nPerfect For\n\n📚 Content Researchers\nSave hours of manual research by automating the information gathering and structuring process.\n\n✍️ Content Writers\nFocus on creativity while the workflow handles research and technical formatting.\n\n🌐 Web Publishers\nGenerate publication-ready HTML content with modern styling and proper structure.\n\nTechnical Implementation\n\n⚡ Workflow Components\nWebhook endpoint for query submission\nPerplexity AI integration for research\nGPT-4 powered content structuring\nHTML transformation engine\nTelegram notification system (optional)\n\nTransform your content creation process with an intelligent system that handles research, writing, and formatting while you focus on strategy and creativity.",
+  "totalViews": 32436,
+  "source": "official",
+  "user": {
+    "id": 92125,
+    "name": "Joseph LePage",
+    "username": "joe",
+    "bio": "As an AI Automation consultant based in Canada, I partner with forward-thinking organizations to implement AI solutions that streamline operations and drive growth.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/e7ca218dfc87b68344bbd66f40da01546d2f6fc1cf884267821e8a77e3e8410a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2024-12-29T22:20:41.173Z",
+  "path": "official/template_2682/workflow.json"
+}

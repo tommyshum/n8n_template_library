@@ -1,0 +1,96 @@
+{
+  "id": 2679,
+  "name": "⚡AI-Powered YouTube Video Summarization & Analysis",
+  "description": "-- Disclaimer: This workflow uses a community node and therefore only works for self-hosted n8n users --\n\n\n\nTransform YouTube videos into comprehensive summaries and structured analysis instantly. This n8n workflow automatically extracts, processes, and analyzes video transcripts to deliver clear, organized insights without watching the entire video.\n\nTime-Saving Features\n🚀 Instant Processing\nSimply provide a YouTube URL and receive a structured summary within seconds, eliminating the need to watch lengthy videos. Perfect for research, learning, or content analysis.\n\n🤖 AI-Powered Analysis\nLeverages GPT-4o-mini to analyze video transcripts, organizing key concepts and insights into a clear, hierarchical structure with main topics and essential points.\n\nSmart Processing Pipeline\n📝 Automated Transcript Extraction\nSupports public YouTube video\nHandles multiple URL formats\nExtracts complete video transcripts automatically\n\n🧠 Intelligent Content Organization\nBreaks down content into main topics\nHighlights key concepts and terminology\nMaintains technical accuracy while improving clarity\nStructures information logically with markdown formatting\n\nPerfect For\n📚 Researchers & Students\nQuick comprehension of educational content and lectures without watching entire videos.\n\n💼 Business Professionals\nEfficient analysis of industry talks, presentations, and training materials.\n\n🎯 Content Creators\nRapid research and competitive analysis of video content in your niche.\n\nTechnical Implementation\n🔄 Workflow Components\nWebhook endpoint for URL submission\nYouTube API integration for video details\nTranscript extraction system\nGPT-4 powered analysis engine\nTelegram notification system (optional)\n\nTransform your video content consumption with an intelligent system that delivers structured, comprehensive summaries while saving hours of viewing time.",
+  "totalViews": 68620,
+  "source": "official",
+  "user": {
+    "id": 92125,
+    "name": "Joseph LePage",
+    "username": "joe",
+    "bio": "As an AI Automation consultant based in Canada, I partner with forward-thinking organizations to implement AI solutions that streamline operations and drive growth.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/e7ca218dfc87b68344bbd66f40da01546d2f6fc1cf884267821e8a77e3e8410a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Marketing",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "YouTube",
+      "type": "n8n-nodes-base.youTube",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2024-12-29T03:01:45.635Z",
+  "path": "official/template_2679/workflow.json"
+}

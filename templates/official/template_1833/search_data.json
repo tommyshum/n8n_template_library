@@ -1,0 +1,126 @@
+{
+  "id": 1833,
+  "name": "Sync Zendesk tickets with subsequent comments to Jira issues",
+  "totalViews": 1142,
+  "purchaseUrl": null,
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "description": "This workflow creates a Jira issue when a new ticket is created in Zendesk. Subsequent comments on the ticket in Zendesk are added as comments to the issue in Jira.\n\nPrerequisites\n\nZendesk account and Zendesk credentials.\nJira account and Jira credentials.\nJira project to create issues in.\n\nHow it works\n\nThe workflow listens for new tickets in Zendesk.\nWhen a new ticket is created, the workflow creates a new issue in Jira.\nThe Jira issue key is then saved in one of the ticket's fields (in setup we call this \"Jira Issue Key\").\nThe next time a comment is added to the ticket, the workflow retrieves the Jira issue key from the ticket's field and adds the comment to the issue in Jira.\n\nSetup\n\nThis workflow requires that you set up a webhook in Zendesk. To do so, follow the steps below:\n\nIn the workflow, open the On new Zendesk ticket node and copy the webhook URL.\nIn Zendesk, navigate to Admin Center &gt; Apps and integrations &gt; Webhooks &gt; Actions &gt; Create Webhook.\nAdd all the required details which can be retrieved from the On new Zendesk ticket node. The webhook URL gets added to the “Endpoint URL” field, and the “Request method” should match what is shown in n8n.\nSave the webhook.\nIn Zendesk, navigate to Admin Center &gt; Objects and rules &gt; Business rules &gt; Triggers &gt; Add trigger.\nGive the trigger a name such as “New tickets”.\nUnder “Conditions” in “Meet ALL of the following conditions”, add “Status is New”.\nUnder “Actions”, select “Notify active webhook” and select the webhook you created previously.\nIn the JSON body, add the following:\n    \n        {\n    \t\"id\": \"{{ticket.id}}\",\n    \t\"comment\": \"{{ticket.latest_comment_html}}\"\n    }\n        \nSave the Zendesk trigger.\n\nYou will also need to set up a field in Zendesk to store the Jira issue key. To do so, follow the steps below:\n\nIn Zendesk, navigate to Admin Center &gt; Objects and rules &gt; Tickets &gt; Fields &gt; Add field.\nUse the text field option and give the field a name such as “Jira Issue Key\".\nSave the field.\nIn n8n, open the Update ticket node and select the field you created in Zendesk.",
+  "createdAt": "2022-12-02T10:59:40.648Z",
+  "nodes": [
+    {
+      "id": 77,
+      "icon": "file:jira.svg",
+      "name": "n8n-nodes-base.jira",
+      "codex": {
+        "data": {
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/5-workflow-automations-for-mattermost-that-we-love-at-n8n/",
+                "icon": "🤖",
+                "label": "5 workflow automations for Mattermost that we love at n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/creating-custom-incident-response-workflows-with-n8n/",
+                "label": "How to automate every step of an incident response workflow"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.jira/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/jira/"
+              }
+            ]
+          },
+          "categories": [
+            "Development",
+            "Productivity"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"output\"]",
+      "defaults": {
+        "name": "Jira Software"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiB2aWV3Qm94PSIwIDAgNjguMjUgNzEuMjUiPjx1c2UgeGxpbms6aHJlZj0iI2EiIHg9IjMuMTI1IiB5PSIzLjEyNSIvPjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iYiIgeDE9IjkxLjklIiB4Mj0iMjguNDklIiB5MT0iNDAuMjIlIiB5Mj0iODEuNjMlIj48c3RvcCBvZmZzZXQ9IjE4JSIgc3RvcC1jb2xvcj0iIzAwNTJjYyIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzI2ODRmZiIvPjwvbGluZWFyR3JhZGllbnQ+PGxpbmVhckdyYWRpZW50IGlkPSJjIiB4MT0iOC43JSIgeDI9IjcyLjI2JSIgeTE9IjU5LjE3JSIgeTI9IjE3Ljk5JSI+PHN0b3Agb2Zmc2V0PSIxOCUiIHN0b3AtY29sb3I9IiMwMDUyY2MiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMyNjg0ZmYiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48c3ltYm9sIGlkPSJhIiBvdmVyZmxvdz0idmlzaWJsZSI+PGcgZmlsbC1ydWxlPSJub256ZXJvIiBzdHJva2U9Im5vbmUiPjxwYXRoIGZpbGw9IiMyNjg0ZmYiIGQ9Ik02MS4xNjEgMzAuMjExIDMwLjk1IDAgLjc0IDMwLjIxMWEyLjU0IDIuNTQgMCAwIDAgMCAzLjU4MWwzMC4yMTEgMzAuMjEgMzAuMjExLTMwLjIxYTIuNTQgMi41NCAwIDAgMCAwLTMuNTgxek0zMC45NSA0MS40NmwtOS40NjItOS40NjIgOS40NjItOS40NjIgOS40NjIgOS40NjJ6Ii8+PHBhdGggZmlsbD0idXJsKCNiKSIgZD0iTTMwLjk1IDIyLjU5OUMyNC43NTUgMTYuNDA1IDI0LjcyNCA2LjM3IDMwLjg4MS4xMzhMMTAuMTE0IDIwLjc3NGwxMS4yNjggMTEuMjY4eiIvPjxwYXRoIGZpbGw9InVybCgjYykiIGQ9Ik00MC40MzcgMzEuOTczIDMwLjk1IDQxLjQ2YTE1LjkzIDE1LjkzIDAgMCAxIDAgMjIuNTM2bDIwLjc0OS0yMC43NDl6Ii8+PC9nPjwvc3ltYm9sPjwvc3ZnPg=="
+      },
+      "displayName": "Jira Software",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 4,
+          "name": "Productivity"
+        },
+        {
+          "id": 5,
+          "name": "Development"
+        }
+      ]
+    },
+    {
+      "id": 123,
+      "icon": "file:zendesk.svg",
+      "name": "n8n-nodes-base.zendesk",
+      "codex": {
+        "data": {
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/your-business-doesnt-need-you-to-operate/",
+                "icon": " 🖥️",
+                "label": "Hey founders! Your business doesn't need you to operate"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.zendesk/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/zendesk/"
+              }
+            ]
+          },
+          "categories": [
+            "Communication"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"output\"]",
+      "defaults": {
+        "name": "Zendesk"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgZmlsbD0ibm9uZSI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTAgMjRDMCAxMC43NDUgMTAuNzQ1IDAgMjQgMHMyNCAxMC43NDUgMjQgMjQtMTAuNzQ1IDI0LTI0IDI0UzAgMzcuMjU1IDAgMjQiLz48cGF0aCBmaWxsPSIjMDMzNjNEIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xNS40NDggMTguNjUzYzQuMDUgMCA3LjMzMi0zLjM3NSA3LjMzMi03LjUzOEg4LjExNmMwIDQuMTYzIDMuMjgzIDcuNTM4IDcuMzMyIDcuNTM4bTcuMzMyIDE3LjE5OVYxNy42NDhMOC4xMTYgMzUuODUyem0yLjQxNSAwYzAtNC4xNjQgMy4yODMtNy41NCA3LjMzMi03LjU0IDQuMDUgMCA3LjMzMiAzLjM3NiA3LjMzMiA3LjU0em0wLTI0LjczN3YxOC4yMDNMMzkuODYgMTEuMTE1eiIgY2xpcC1ydWxlPSJldmVub2RkIi8+PC9zdmc+"
+      },
+      "displayName": "Zendesk",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 6,
+          "name": "Communication"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "id": 2036,
+  "name": "Domain Extractor ",
+  "description": "This node is designed to cleanse URLs and extract their domain names efficiently. \n\nIt effectively handles a wide range of URL formats, including those with unconventional or complex top-level domains (TLDs), such as 'co.uk'.\n\nYou can also use it to extract the domain from an email. The node will also check if the domain is from a free email provider (gmail.com / outlook.com...etc) or not.\n\nHow It Works\nThe node analyzes the provided URL, removing any unnecessary elements.\n\nIt then identifies and extracts the domain name, ensuring compatibility with a diverse array of TLDs.\n\nThe node utilizes an extensive list of TLDs to guarantee accurate domain extraction for virtually any URL. \n\nTo view the complete list of supported top-level domains, please visit: TLD List on GitHub\n\nHow to use it\nCall this workflow using the \"execute workflow\" node\n\nYou can pass either an email variable or a url variable. \n\nFor email, the node also detect free mail provider such as Yahoo / Google...etc",
+  "totalViews": 2235,
+  "source": "official",
+  "user": {
+    "id": 91319,
+    "name": "Lucas Perret",
+    "username": "lucasperret",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/0b3273e259147247b9921e13c536e06521ebd68ba5198aaff9b141db51eb3d94?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2023-12-29T12:00:41.087Z",
+  "path": "official/template_2036/workflow.json"
+}

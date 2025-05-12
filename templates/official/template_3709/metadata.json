@@ -1,0 +1,48 @@
+{
+  "id": 3709,
+  "name": "Create Google Drive Folders by Path",
+  "description": "This workflow creates nested Google Drive folders from a path string (like Projects/Clients/Reports). It automatically handles the necessary folder lookups and creation steps required by Google Drive, then outputs the final folder's ID for immediate use.\n\nHow it works\nThis workflow streamlines the creation of nested folders in Google Drive:\n\nInput: Provide a root_folder_id and a path (e.g., Projects/Clients/Reports) as input.\nPath Parsing: The workflow splits the path into individual folder names (based on the / separator)\nIterative Check & Create: Loops through each part of your path:\n    Searches within the current parent folder (starting with the root_folder_id) for a subfolder matching the name.\n    If found: Retrieves the existing folder's ID to use as the parent for the next iteration.\n    If not found: Creates a new folder with that name inside the current parent folder and uses the new folder's ID as the parent for the next iteration.\nOutput: Returns the Google Drive Folder ID of the very last folder in the specified path (e.g., the ID for Reports in the example above). This ID can then be directly used in subsequent n8n nodes to upload files, create documents, or perform other actions within that specific folder.\n\nSet up steps\nSetting up this workflow requires configuring the connection to Google Drive and knowing where to start creating folders:\n\nConnect Google Drive Account: Ensure you have a Google Drive credential configured in your n8n instance. Then link your credentials in the workflow: there are 2 Google Drive nodes that will need to be updated.\nIdentify Starting Folder ID: Determine the Google Drive Folder ID where your nested structure should begin. You can either use the root of your Google Drive or a specific folder:\n\tTo use the root of Google Drive, simply set root_folder_id to root (also called \"My Drive\" in the UI)\n\tTo use a specific folder, open the folder in a webbrowser and look at the URL. The folder ID will be in the last part of the URL: https://drive.google.com/drive/folders/THIS_IS_THE_FOLDER_ID.\nPrepare Inputs for Execution: When running the workflow (or triggering it), you will need to provide:\n    google_drive_folder_id -&gt; this is the root folder ID you identified in step 2.\n    desired_path -&gt; This is the path you want to create (e.g., Projects/Clients/Reports).\n\nHere's an example of how you can call this workflow in your other workflows:\n\n\n\n\n",
+  "totalViews": 175,
+  "source": "official",
+  "user": {
+    "id": 94054,
+    "name": "Xavier",
+    "username": "xavier",
+    "bio": "",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/de6e14f5013714ac8b0a3cda1157eca41a2467f1f6c33ba595de2c6caef2252b?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-04-25T11:23:18.322Z",
+  "path": "official/template_3709/workflow.json"
+}

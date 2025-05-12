@@ -1,0 +1,56 @@
+{
+  "id": 3885,
+  "name": "Automate URL Shortening with Bitly Using Llama3 Chat Interface",
+  "description": "Who is this for?\nThis workflow is intended for online users who want and need workflow automation that minimizes link creation time and shortens links. This has an impact on the speed of work time and energy. In reality, links created one by one and are very long are very time consuming and impractical, especially if we have to compile them first and send them. This is also a form of service to the community at n8n and the n8n company, and so that reality is no longer tiring and is able to answer existing reality problems. It can also be used to learn how automatic link building works.\n\nHow it works?\nEasy explanation:\n\n1) Firstly, open chat is intended to trigger commands that are sent to the AI ​​model and Bitly Tools, you can do any command and just include the link. Later here we will also create a link.\n2) The two, AI Agents will send AI models to work according to input commands and produce output via open chat.\n3) Third, the Bitly tool that is set up to create links will do its job. Because it is tied to the AI ​​Agent and AI model.\n4) Finally, you can immediately see and open the link that has been created.\n\nThis is very simple and very simple. Makes it easy for everyone.\n\nSet up instructions\nComplete what is in the nodes as stated in the notes column.\n\n1) First, you download Ollama, using the guide that has been provided. Then after you run the model, you can create and connect a \"Credential Account\".\n2) Second, you need an open chat trigger node or you can use other triggers too.\n\n3) Third, the AI ​​Agent selects the Ollama model, and the Bitly tools that have been prepared are set up here.\n\n4) Fourth, just run it and it works.\n\nThis is very simple and very practical.\n\nRequirements\nAs a reminder:\n\nIt should be set in each node, like what your goal is, also according to the conditions of your goal.\nThere must be (if not, make sure it is registered) in each \"Account Credential\" by following the guide on how to do it n8n the guide is very complete\nDon't forget to save, and make sure the workflow is active.\n\nHow to customize this workflow to your needs\nYou can immediately add other nodes or other triggers to be able to send this link, such as email and so on, which will provide knowledge for your needs in additional nodes, so that accuracy is also high when carrying out tasks, task goals and responsibilities.\n\nCongratulations on this automation and Thank you to n8n and the n8n community",
+  "totalViews": 24,
+  "source": "official",
+  "user": {
+    "id": 94055,
+    "name": "Ghufran Ridhawi",
+    "username": "ghufran-ridhawi",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://gravatar.com/sensationallyspeedy958873e61f\"]",
+    "avatar": "https://gravatar.com/avatar/4f7ed8a9d39b56838c4446c3dce354853d12e0e8e19f63d27d7f7f50d89a2413?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Ollama Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOllama",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-05-06T06:21:57.919Z",
+  "path": "official/template_3885/workflow.json"
+}

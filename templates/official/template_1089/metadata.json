@@ -1,0 +1,32 @@
+{
+  "id": 1089,
+  "name": "Receive a Mattermost message when new record gets added to Notion",
+  "description": "This workflow allows you to receive a Mattermost message when meeting notes get added to the Notion.\n\nPrerequisites\nCreate a table in Notion similar to this: Meeting Notes\nFollow the steps mentioned in the documentation, to create credentials for the Notion Trigger node.\nCreate create credentials for Mattermost.\n\n\n\nNotion Trigger: The Notion Trigger node will trigger the workflow when new data gets added to Notion.\n\nIF node: This node will check if the notes belong to the team Marketing. If the team is Marketing the node will true, otherwise false.\n\nMattermost node: This node will send a message about the new data in the channel 'Marketing' in Mattermost. If you have a different channel, use that instead. You can even replace the Mattermost node with nodes of other messaging platforms, like Slack, Telegram, Discord, etc.\n\nNoOp node: Adding this node here is optional, as the absence of this node won't make a difference to the functioning of the workflow.",
+  "totalViews": 813,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication"
+  ],
+  "nodes": [
+    {
+      "name": "Mattermost",
+      "type": "n8n-nodes-base.mattermost",
+      "categories": [
+        "Communication"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2021-05-21T08:22:00.437Z",
+  "path": "official/template_1089/workflow.json"
+}

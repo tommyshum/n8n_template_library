@@ -1,0 +1,143 @@
+{
+  "id": 3451,
+  "name": "🔊  Browser Recording Audio Transcribing and AI Analysis with Deepgram and GPT-4o",
+  "description": "\nOverview\n\nTranscript Evalu8r V2 is a robust browser-based transcript analysis tool powered by Deepgram’s speech-to-text API and built into an n8n workflow template. This release introduces full in-browser audio recording, device selection, and playback functionality, allowing users to capture and analyze conversations without leaving their browser.\n\nDesigned for researchers, support teams, podcasters, legal professionals, and analysts, Transcript Evalu8r simplifies how you extract value from voice data using intuitive tools, AI-powered insights, and seamless automation.\n\n✅ What’s New in V2\n\n|  |  |\n|:--|:--|\n|### 🔴 Record in Browser Users can now record audio directly in the browser with one click. Record meetings, calls, or voice notes instantly—no external software required. | ### 🎧 Select Audio Input Devices Users can choose from connected input devices (e.g., internal mic, USB mic, headset) before recording, ensuring maximum control and audio quality.|\n\n▶️ Listen to Recording in Browser  \nOnce a recording is complete, users can immediately play back the audio in-browser to review before submitting for transcription—ensuring content is clear and relevant.\n\nHow It Works\n\nRecord or upload an audio file\n**Audio recording is uploaded to Google Drive\nAudio file is sent to Deepgram for transcribing and AI analysis\nAudio File is moved to completed folder\nJSON transcript is saved to Google Drive\nGoogle Doc of AI analysis, summary, key points, action items, and full transctip is created\nUse the Web UI to Explore:\n   Speaker Names\n   Transcript\n   Key points & tasks\n   Sentiment chart\n   Topic and intent lists with time stamps\nDownload or export transcript and insights\nAdd Additional automations or continue workflow (e.g., send to Notion, Slack, Google Sheets, todoist)\n\nKey Features\n\n🔹 Transcript Processing & Uploads\nUpload or record audio directly in your browser\nTrack progress of file uploads in real-time\nView, select, or download transcripts in Google Docs, JSON, and other formats\n\n🔹 Interactive Transcript Viewer\nFull transcript display with timestamps, speaker IDs, and auto-scroll\nClickable word-level navigation for pinpointing dialogue\nReal speaker labeling (not just \"Speaker 1\")\n\n🔹 AI-Powered Analysis\nSentiment visualization** over time, per speaker\nTopic and intent extraction** with confidence scores\nSpeaker contribution insights**, interruptions, and common word frequency\n\n🔹 Insight Summaries Google Doc\nAI-generated summary, key points, and action items\nSpeaker-specific task suggestions and idea highlights\n\n🔹 UI Enhancements\nCollapsible sections for focused analysis\nLight and dark mode support\nResponsive design across desktop, tablet, and mobile\n\nUse Cases\n\n✅ Interview & podcast summarization  \n✅ Customer support QA monitoring  \n✅ Legal or compliance transcription logging  \n✅ Market research and trend analysis  \n✅ Internal meeting follow-up automation  \n\nRequirements\n\nn8n instance** (self-hosted or cloud)\nDeepgram API Key** (for audio transcription)\nSupported browser with mic permissions enabled\n\nWhy Choose Transcript Evalu8r V2?\n\n🚀 Instantly record and transcribe within your browser  \n🧠 Extract sentiment, insights, and intent automatically  \n📈 Visualize speaker tone and engagement  \n🎧 Choose audio input for cleaner recordings  \n🔗 Connect with your favorite tools using n8n’s integrations  \n",
+  "totalViews": 343,
+  "source": "official",
+  "user": {
+    "id": 92159,
+    "name": "RealSimple Solutions",
+    "username": "joeperes",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://joeperes.com\"]",
+    "avatar": "https://gravatar.com/avatar/4ad55fbdcc7808056aa180c02d52e3e373d4b894df7fa986e2dfd6c7eb127bfc?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage",
+    "Communication",
+    "HITL",
+    "Miscellaneous",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Google Docs",
+      "type": "n8n-nodes-base.googleDocs",
+      "categories": [
+        "Miscellaneous"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 9,
+  "createdAt": "2025-04-07T00:41:41.162Z",
+  "path": "official/template_3451/workflow.json"
+}

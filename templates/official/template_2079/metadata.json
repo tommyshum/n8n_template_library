@@ -1,0 +1,61 @@
+{
+  "id": 2079,
+  "name": "Shopify Orders to D365 Business Central Sales Orders / Sales Invoices",
+  "description": "Workflow Information 📌\n\nPurpose 🎯\nThe intention of this workflow is to integrate New Shopify Orders into MS Dynamics Business Central:\n\nPoint-of-Sale (POS):** POS orders will be created in Business Central as Sales Invoices given no fulfillment is expected.\nWeb Orders:** This type of orders will be created as Business Central Sales Orders.\n\nHow to use it 🚀\nEdit the \"D365 BC Environment Settings\" node with your own account values (Company Id, Tenanant Id, Tax & Discount Items).\nGo to the \"Shopify\" node and edit the connection with your environment. More help here.\nGo to the \"Lookup Customers\" node to edit the Business Central connection details with your environment settings.\nSet the required filters on the \"Shopify Order Filter\" node.\nEdit the \"Schedule Trigger\" node with the required frequency.\n\nUseful Workflow Links 📚\nStep-by-step Guide/ Integro Cloud Solutions\nBusiness Central REST API Documentation\nVideo Demo\n\nNeed Help?\nContact me at:\n✉️greg.lopez@integrocloudsolutions.com\n📥 https://www.linkedin.com/in/greg-lopez-08b5071b/\n\n\n\n",
+  "totalViews": 2609,
+  "source": "official",
+  "user": {
+    "id": 91263,
+    "name": "Greg Lopez",
+    "username": "greglopez",
+    "bio": "I help CFOs and Founders automate their ERP business processes, improving efficiency and reducing costs | Automation Expert | NetSuite | Business Central | Acumatica",
+    "verified": false,
+    "links": "[\"https://www.linkedin.com/in/greg-lopez-08b5071b/\"]",
+    "avatar": "https://gravatar.com/avatar/4cf582e3df4b7e1eabb14cb1e183da6caee41328f6893fd4ba3e550c6a2797d2?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Sales"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Shopify",
+      "type": "n8n-nodes-base.shopify",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-02-03T01:32:29.117Z",
+  "path": "official/template_2079/workflow.json"
+}

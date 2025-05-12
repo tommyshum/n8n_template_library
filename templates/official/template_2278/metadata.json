@@ -1,0 +1,53 @@
+{
+  "id": 2278,
+  "name": "Subscribe to new releases of a Github repository via Gmail",
+  "description": "\nThis is a very simple workflow that lets you subscribe to any github repository for the latest release (using n8n as example).\n\nHow it works: \ndaily poll to Github repository for release for latest (stable) version of n8n\nparses the content to HTML\nsends a gmail\n\nSetup steps:\nadd your gmail credentials (or use other email node of choice)\nchange the url to the right Github repository you want to check regularly \nchange the To email address to the email that you want to receive the updates for\n\nFeedback & Questions\n\nIf you have any questions or feedback about this workflow - Feel free to get in touch at ria@n8n.io",
+  "totalViews": 770,
+  "source": "official",
+  "user": {
+    "id": 91710,
+    "name": "Ria",
+    "username": "riascho",
+    "bio": "Support Engineer @n8n",
+    "verified": true,
+    "links": "[\"https://github.com/riascho/\"]",
+    "avatar": "https://gravatar.com/avatar/27eb8c70c93f78c08bfdf6b701be48eeaaa770fa1e3be427e1712f8ce2f4b761?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-06-03T18:16:46.501Z",
+  "path": "official/template_2278/workflow.json"
+}

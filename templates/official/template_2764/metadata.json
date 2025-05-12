@@ -1,0 +1,47 @@
+{
+  "id": 2764,
+  "name": "Extract and process information directly from PDF using Claude and Gemini",
+  "description": "Overview\nThis workflow helps you compare Claude 3.5 Sonnet and Gemini 2.0 Flash when extracting data from a PDF\nThis workflow extracts and processes the data within a PDF in one single step, instead of calling an OCR and then an LLM”\n\nHow it works\nThe initial 2 steps download the PDF and convert it to base64.\nThis base64 string is then sent to both Claude 3.5 Sonnet and Gemini 2.0 Flash to extract information.\nThis workflow is made to let you compare results, latency, and cost (in their dedicated dashboard).\n\nHow to use it\nSet up your Google Drive if not already done\nSelect a document on your Google Drive\nModify the prompt in \"Define Prompt\" to extract the information you need and transform it as wanted.\nGet a Claude API key and/or Gemini API key\nNote that you can deactivate one of the 2 API calls if you don't want to try both\nTest the Workflow\n",
+  "totalViews": 10923,
+  "source": "official",
+  "user": {
+    "id": 91624,
+    "name": "Agent Studio",
+    "username": "agentstudio",
+    "bio": "We are a product studio that helps organizations leverage no-code and generative AI to automate internal processes and launch new digital products.\nLinkedIn: https://www.linkedin.com/in/baptistej/",
+    "verified": true,
+    "links": "[\"https://agentstudio.io/\"]",
+    "avatar": "https://gravatar.com/avatar/e9cf0d0fccead46655b11b2ce215cf14d33ecdaa2ce52828f003574c1800e77a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-01-21T07:44:36.708Z",
+  "path": "official/template_2764/workflow.json"
+}

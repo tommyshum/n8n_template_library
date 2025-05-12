@@ -1,0 +1,88 @@
+{
+  "id": 3239,
+  "name": "Get Real-time NFT Marketplace Insights with OpenSea Marketplace Agent Tool",
+  "description": "Track NFT listings, offers, orders, and trait-based pricing in real time! This workflow integrates OpenSea API, AI-powered analytics (GPT-4o-mini), and n8n automation to provide instant insights into NFT trading activity. Ideal for NFT traders, collectors, and investors looking to monitor the market and identify profitable opportunities.  \n\nHow It Works  \nA user submits a query about NFT listings, offers, or order history.  \nThe OpenSea Marketplace Agent determines the correct API tool:  \n   Retrieve active NFT listings for a collection.  \n   Fetch valid offers for individual NFTs or entire collections.  \n   Identify the cheapest NFT listings by collection or token ID.  \n   Track the highest offer made for a single NFT.  \n   Access detailed order history for a transaction.  \nThe OpenSea API (requires API key) is queried to fetch real-time data.  \nThe AI engine processes and structures the response, making it easy to interpret.  \nThe NFT marketplace insights are delivered via Telegram, Slack, or stored in a database.  \n\nWhat You Can Do with This Agent  \n🔹 Find the Best NFT Listings → Retrieve the cheapest available listings in any collection.  \n🔹 Track Offers on NFTs → See all active offers, including highest bids.  \n🔹 Analyze Collection-Wide Market Data → Compare listings, offers, and sales activity.  \n🔹 Retrieve Order Details → Search by order hash to check buyer, seller, and transaction status.  \n🔹 Fetch NFT Trait-Based Offers → Identify rare traits that receive premium bids.  \n🔹 Monitor Multi-Chain Listings → Works across Ethereum, Polygon (Matic), Arbitrum, Optimism, and more.  \n\nExample Queries You Can Use  \n✅ \"Show me the 10 cheapest listings for Bored Ape Yacht Club.\"  \n✅ \"Find the highest bid for CryptoPunk #1234.\"  \n✅ \"Track all open offers for Azuki NFTs.\"  \n✅ \"Retrieve details for this OpenSea order: 0x123abc... on Ethereum.\"  \n✅ \"List all NFTs for sale in the 'CloneX' collection.\"  \n\nAvailable API Tools & Endpoints  \n1️⃣ Get All Listings by Collection → /api/v2/listings/collection/{collection_slug}/all (Fetches active listings for a collection)  \n2️⃣ Get All Offers by Collection → /api/v2/offers/collection/{collection_slug}/all (Retrieves all offers for a collection)  \n3️⃣ Get Best Listing by NFT → /api/v2/listings/collection/{collection_slug}/nfts/{identifier}/best (Finds the lowest-priced NFT listing)  \n4️⃣ Get Best Listings by Collection → /api/v2/listings/collection/{collection_slug}/best (Fetches the cheapest listings per collection)  \n5️⃣ Get Best Offer by NFT → /api/v2/offers/collection/{collection_slug}/nfts/{identifier}/best (Retrieves the highest offer for an NFT)  \n6️⃣ Get Collection Offers → /api/v2/offers/collection/{collection_slug} (Shows collection-wide offers)  \n7️⃣ Get Item Offers → /api/v2/orders/{chain}/{protocol}/offers (Fetches active item-specific offers)  \n8️⃣ Get Listings by Chain & Protocol → /api/v2/orders/{chain}/{protocol}/listings (Retrieves active listings across blockchains)  \n9️⃣ Get Order Details by Hash → /api/v2/orders/chain/{chain}/protocol/{protocol_address}/{order_hash} (Checks order status using an order hash)  \n🔟 Get Trait-Based Offers → /api/v2/offers/collection/{collection_slug}/traits (Fetches offers for specific NFT traits)  \n\nSet Up Steps  \nGet an OpenSea API Key  \n   Sign up at OpenSea API and request an API key.  \nConfigure API Credentials in n8n  \n   Add your OpenSea API key under HTTP Header Authentication.  \nConnect the Workflow to Telegram, Slack, or Database (Optional)  \n   Use n8n integrations to send alerts to Telegram, Slack, or save results to Google Sheets, Notion, etc.  \nDeploy and Test  \n   Send a query (e.g., \"Get the best listing for BAYC #5678\") and receive instant insights!  \n\nStay ahead of the NFT market—gain powerful insights with AI-powered OpenSea analytics! ",
+  "totalViews": 511,
+  "source": "official",
+  "user": {
+    "id": 93152,
+    "name": "Don Jayamaha Jr",
+    "username": "don-the-gem-dealer",
+    "bio": "With 12 years of experience as a Blockchain Strategist and Web3 Architect, I specialize in bridging the gap between traditional industries and decentralized technologies. My expertise spans tokenized assets, crypto payment integrations, and blockchain-driven market solutions.",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/donjayamahajr/\"]",
+    "avatar": "https://gravatar.com/avatar/95f70084b3fec5ed68a61eef6dc6128dfb085d865a02ed631d0853d2730696bf?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-03-20T15:09:34.975Z",
+  "path": "official/template_3239/workflow.json"
+}

@@ -1,0 +1,41 @@
+{
+  "id": 892,
+  "name": "Transfer Google Analytics data to Airtable database",
+  "description": "This workflow allows you to get analytics of a website and store it Airtable. In this workflow, we get the analytics for the sessions grouped by the country. Based on your use-case, you can select different Dimensions and set different Metrics.\n\n\n\nYou can use the Cron node or the Interval node to trigger the workflow on a particular interval and fetch the analytics data regularly.\n\nBased on your use-case, you might want to store the data returned by Google Analytics to a database or a Google Sheet. Replace the Airtable node with the appropriate node.",
+  "totalViews": 2443,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Analytics"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Google Analytics",
+      "type": "n8n-nodes-base.googleAnalytics",
+      "categories": [
+        "Analytics"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2021-01-13T09:52:41.905Z",
+  "path": "official/template_892/workflow.json"
+}

@@ -1,0 +1,493 @@
+{
+  "id": 3413,
+  "name": "LINE Messages with GPT: Save Notes, Namecard Data and Tasks",
+  "totalViews": 127,
+  "purchaseUrl": null,
+  "user": {
+    "id": 92858,
+    "name": "lin@davoy.tech",
+    "username": "linlinmhee",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4e38af5bc6715cea4e86e60c03e21e287cea3cdb5ceba78b3003e6404743fd32?r=pg&d=retro&size=200"
+  },
+  "description": "This workflow template, \"Personal Assistant to Note Messages and Extract Namecard Information\" is designed to streamline the processing of incoming messages on the LINE messaging platform. It integrates with powerful tools like Microsoft Teams , Microsoft To Do , OneDrive , and OpenRouter.ai to handle tasks such as saving notes, extracting namecard information, and organizing images. Whether you’re managing personal productivity or automating workflows for teams, this template offers a versatile and customizable solution.\n\nBy leveraging this workflow, you can automate repetitive tasks, improve collaboration, and enhance efficiency in handling LINE messages.\n\nWho Is This Template For?\nThis template is ideal for:\n\nProfessionals: Who want to save important messages, extract data from namecards, or organize images automatically.\nTeams: Looking to integrate LINE messages into tools like Microsoft Teams and Microsoft To Do for better collaboration.\nDevelopers: Seeking to build intelligent workflows that process text, images, and other inputs from LINE.\nBusiness Owners: Who need to manage customer interactions, follow-ups, and task tracking efficiently.\n\nWhat Problem Does This Workflow Solve?\nManaging incoming messages on LINE can be time-consuming, especially when dealing with diverse input types like text, images, and namecards. This workflow solves that problem by:\nAutomatically identifying and routing different message types (text, images, namecards) to appropriate actions.\nExtracting structured data from namecards and saving it for follow-up tasks.\nUploading images to OneDrive and saving text messages to Microsoft Teams or Microsoft To Do for easy access.\nSending real-time feedback to users via LINE to confirm that their messages have been processed.\n\nWhat This Workflow Does\nReceive Messages via LINE Webhook:\nThe workflow is triggered whenever a user sends a message (text, image, or other types) to the LINE bot.\nDisplay Loading Animation:\nA loading animation is displayed to reassure the user that their request is being processed.\nRoute Input Types:\n\nThe workflow uses a Switch node to determine the type of input:\nText Starting with \"T\": Adds the message as a task in Microsoft To Do.\nPlain Text: Saves the message in Microsoft Teams under a designated channel (e.g., \"Notes\").\nImages: Identifies whether the image is a namecard, handwritten note, or other content, then processes accordingly.\nUnsupported formats trigger a polite response indicating the limitation.\nProcess Namecards:\n\n*Images *\nIf the image is identified as a namecard, the workflow extracts structured data (e.g., name, email, phone number) using OpenRouter.ai and saves it to Microsoft To Do for follow-up tasks.\nSave Images to OneDrive:\n\nImages are uploaded to OneDrive, renamed based on their unique message ID, and linked in Microsoft Teams for reference.\n\nSend Feedback via LINE:\nThe workflow replies to the user with confirmation messages, such as \"[ Task Created ]\" or \"[ Message Saved ].\"\n\nSetup Guide\nPre-Requisites\nAccess to the LINE Developers Console to configure your webhook and bot.\nAccounts for Microsoft Teams , Microsoft To Do, and OneDrive with API access.\nAn OpenRouter.ai account with credentials to access models like GPT-4o.\nBasic knowledge of APIs, webhooks, and JSON formatting.\n\nStep-by-Step Setup\n1) Configure the LINE Webhook:\nGo to the LINE Developers Console and set up a webhook to receive incoming messages.\nCopy the Webhook URL from the Line Webhook node and paste it into the LINE Console.\nRemove any \"test\" configurations when moving to production.\n2) Set Up Microsoft Integrations:\nConnect your Microsoft Teams, Microsoft To Do, and OneDrive accounts to the respective nodes in the workflow.\n3) Set Up OpenRouter.ai:\nCreate an account on OpenRouter.ai and obtain your API credentials.\nConnect your credentials to the OpenRouter nodes in the workflow.\n\nTest the Workflow:\nSimulate sending text, images, and namecards to the LINE bot to verify that all actions are processed correctly.\n\nHow to Customize This Workflow to Your Needs\nAdd More Actions: Extend the workflow to handle additional input types or integrate with other tools.\nEnhance Image Processing: Use advanced OCR tools to improve text extraction from complex images.\nCustomize Feedback Messages: Modify the reply format to include emojis, links, or other formatting options.\nExpand Use Cases: Adapt the workflow for specific industries, such as sales or customer support, by tailoring the actions to relevant tasks.\n\nWhy Use This Template?\nVersatile Automation: Handles multiple input types (text, images, namecards) with ease.\nSeamless Integration: Connects LINE messages to popular productivity tools like Microsoft Teams and To Do.\nStructured Data Extraction: Extracts and organizes data from namecards, saving time and effort.\nReal-Time Feedback: Keeps users informed about the status of their requests with instant notifications.\n",
+  "createdAt": "2025-04-03T07:20:26.138Z",
+  "nodes": [
+    {
+      "id": 19,
+      "icon": "file:httprequest.svg",
+      "name": "n8n-nodes-base.httpRequest",
+      "codex": {
+        "data": {
+          "alias": [
+            "API",
+            "Request",
+            "URL",
+            "Build",
+            "cURL"
+          ],
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/2021-the-year-to-automate-the-new-you-with-n8n/",
+                "icon": "☀️",
+                "label": "2021: The Year to Automate the New You with n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/why-business-process-automation-with-n8n-can-change-your-daily-life/",
+                "icon": "🧬",
+                "label": "Why business process automation with n8n can change your daily life"
+              },
+              {
+                "url": "https://n8n.io/blog/automatically-pulling-and-visualizing-data-with-n8n/",
+                "icon": "📈",
+                "label": "Automatically pulling and visualizing data with n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/learn-how-to-automatically-cross-post-your-content-with-n8n/",
+                "icon": "✍️",
+                "label": "Learn how to automatically cross-post your content with n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/automatically-adding-expense-receipts-to-google-sheets-with-telegram-mindee-twilio-and-n8n/",
+                "icon": "🧾",
+                "label": "Automatically Adding Expense Receipts to Google Sheets with Telegram, Mindee, Twilio, and n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/running-n8n-on-ships-an-interview-with-maranics/",
+                "icon": "🛳",
+                "label": "Running n8n on ships: An interview with Maranics"
+              },
+              {
+                "url": "https://n8n.io/blog/what-are-apis-how-to-use-them-with-no-code/",
+                "icon": " 🪢",
+                "label": "What are APIs and how to use them with no code"
+              },
+              {
+                "url": "https://n8n.io/blog/5-tasks-you-can-automate-with-notion-api/",
+                "icon": "⚡️",
+                "label": "5 tasks you can automate with the new Notion API "
+              },
+              {
+                "url": "https://n8n.io/blog/world-poetry-day-workflow/",
+                "icon": "📜",
+                "label": "Celebrating World Poetry Day with a daily poem in Telegram"
+              },
+              {
+                "url": "https://n8n.io/blog/automate-google-apps-for-productivity/",
+                "icon": "💡",
+                "label": "15 Google apps you can combine and automate to increase productivity"
+              },
+              {
+                "url": "https://n8n.io/blog/automate-designs-with-bannerbear-and-n8n/",
+                "icon": "🎨",
+                "label": "Automate Designs with Bannerbear and n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/how-uproc-scraped-a-multi-page-website-with-a-low-code-workflow/",
+                "icon": " 🕸️",
+                "label": "How uProc scraped a multi-page website with a low-code workflow"
+              },
+              {
+                "url": "https://n8n.io/blog/building-an-expense-tracking-app-in-10-minutes/",
+                "icon": "📱",
+                "label": "Building an expense tracking app in 10 minutes"
+              },
+              {
+                "url": "https://n8n.io/blog/5-workflow-automations-for-mattermost-that-we-love-at-n8n/",
+                "icon": "🤖",
+                "label": "5 workflow automations for Mattermost that we love at n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/how-to-use-the-http-request-node-the-swiss-army-knife-for-workflow-automation/",
+                "icon": "🧰",
+                "label": "How to use the HTTP Request Node - The Swiss Army Knife for Workflow Automation"
+              },
+              {
+                "url": "https://n8n.io/blog/learn-how-to-use-webhooks-with-mattermost-slash-commands/",
+                "icon": "🦄",
+                "label": "Learn how to use webhooks with Mattermost slash commands"
+              },
+              {
+                "url": "https://n8n.io/blog/how-a-membership-development-manager-automates-his-work-and-investments/",
+                "icon": "📈",
+                "label": "How a Membership Development Manager automates his work and investments"
+              },
+              {
+                "url": "https://n8n.io/blog/a-low-code-bitcoin-ticker-built-with-questdb-and-n8n-io/",
+                "icon": "📈",
+                "label": "A low-code bitcoin ticker built with QuestDB and n8n.io"
+              },
+              {
+                "url": "https://n8n.io/blog/how-to-set-up-a-ci-cd-pipeline-with-no-code/",
+                "icon": "🎡",
+                "label": "How to set up a no-code CI/CD pipeline with GitHub and TravisCI"
+              },
+              {
+                "url": "https://n8n.io/blog/automations-for-activists/",
+                "icon": "✨",
+                "label": "How Common Knowledge use workflow automation for activism"
+              },
+              {
+                "url": "https://n8n.io/blog/creating-scheduled-text-affirmations-with-n8n/",
+                "icon": "🤟",
+                "label": "Creating scheduled text affirmations with n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/how-goomer-automated-their-operations-with-over-200-n8n-workflows/",
+                "icon": "🛵",
+                "label": "How Goomer automated their operations with over 200 n8n workflows"
+              },
+              {
+                "url": "https://n8n.io/blog/aws-workflow-automation/",
+                "label": "7 no-code workflow automations for Amazon Web Services"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.httprequest/"
+              }
+            ]
+          },
+          "categories": [
+            "Development",
+            "Core Nodes"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0",
+          "subcategories": {
+            "Core Nodes": [
+              "Helpers"
+            ]
+          }
+        }
+      },
+      "group": "[\"output\"]",
+      "defaults": {
+        "name": "HTTP Request",
+        "color": "#0004F5"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik00MCAyMEM0MCA4Ljk1MzE0IDMxLjA0NjkgMCAyMCAwQzguOTUzMTQgMCAwIDguOTUzMTQgMCAyMEMwIDMxLjA0NjkgOC45NTMxNCA0MCAyMCA0MEMzMS4wNDY5IDQwIDQwIDMxLjA0NjkgNDAgMjBaTTIwIDM2Ljk0NThDMTguODg1MiAzNi45NDU4IDE3LjEzNzggMzUuOTY3IDE1LjQ5OTggMzIuNjk4NUMxNC43OTY0IDMxLjI5MTggMTQuMTk2MSAyOS41NDMxIDEzLjc1MjYgMjcuNjg0N0gyNi4xODk4QzI1LjgwNDUgMjkuNTQwMyAyNS4yMDQ0IDMxLjI5MDEgMjQuNTAwMiAzMi42OTg1QzIyLjg2MjIgMzUuOTY3IDIxLjExNDggMzYuOTQ1OCAyMCAzNi45NDU4Wk0xMi45MDY0IDIwQzEyLjkwNjQgMjEuNjA5NyAxMy4wMDg3IDIzLjE2NCAxMy4yMDAzIDI0LjYzMDVIMjYuNzk5N0MyNi45OTEzIDIzLjE2NCAyNy4wOTM2IDIxLjYwOTcgMjcuMDkzNiAyMEMyNy4wOTM2IDE4LjM5MDMgMjYuOTkxMyAxNi44MzYgMjYuNzk5NyAxNS4zNjk1SDEzLjIwMDNDMTMuMDA4NyAxNi44MzYgMTIuOTA2NCAxOC4zOTAzIDEyLjkwNjQgMjBaTTIwIDMuMDU0MTlDMjEuMTE0OSAzLjA1NDE5IDIyLjg2MjIgNC4wMzA3OCAyNC41MDAxIDcuMzAwMzlDMjUuMjA2NiA4LjcxNDA4IDI1LjgwNzIgMTAuNDA2NyAyNi4xOTIgMTIuMzE1M0gxMy43NTAxQzE0LjE5MzMgMTAuNDA0NyAxNC43OTQyIDguNzEyNTQgMTUuNDk5OCA3LjMwMDY0QzE3LjEzNzcgNC4wMzA4MyAxOC44ODUxIDMuMDU0MTkgMjAgMy4wNTQxOVpNMzAuMTQ3OCAyMEMzMC4xNDc4IDE4LjQwOTkgMzAuMDU0MyAxNi44NjE3IDI5LjgyMjcgMTUuMzY5NUgzNi4zMDQyQzM2LjcyNTIgMTYuODQyIDM2Ljk0NTggMTguMzk2NCAzNi45NDU4IDIwQzM2Ljk0NTggMjEuNjAzNiAzNi43MjUyIDIzLjE1OCAzNi4zMDQyIDI0LjYzMDVIMjkuODIyN0MzMC4wNTQzIDIzLjEzODMgMzAuMTQ3OCAyMS41OTAxIDMwLjE0NzggMjBaTTI2LjI3NjcgNC4yNTUxMkMyNy42MzY1IDYuMzYwMTkgMjguNzExIDkuMTMyIDI5LjM3NzQgMTIuMzE1M0gzNS4xMDQ2QzMzLjI1MTEgOC42NjggMzAuMTA3IDUuNzgzNDYgMjYuMjc2NyA0LjI1NTEyWk0xMC42MjI2IDEyLjMxNTNINC44OTI5M0M2Ljc1MTQ3IDguNjY3ODQgOS44OTM1MSA1Ljc4MzQxIDEzLjcyMzIgNC4yNTUxM0MxMi4zNjM1IDYuMzYwMjEgMTEuMjg5IDkuMTMyMDEgMTAuNjIyNiAxMi4zMTUzWk0zLjA1NDE5IDIwQzMuMDU0MTkgMjEuNjAzIDMuMjc3NDMgMjMuMTU3NSAzLjY5NDg0IDI0LjYzMDVIMTAuMTIxN0M5Ljk0NjE5IDIzLjE0MiA5Ljg1MjIyIDIxLjU5NDMgOS44NTIyMiAyMEM5Ljg1MjIyIDE4LjQwNTcgOS45NDYxOSAxNi44NTggMTAuMTIxNyAxNS4zNjk1SDMuNjk0ODRDMy4yNzc0MyAxNi44NDI1IDMuMDU0MTkgMTguMzk3IDMuMDU0MTkgMjBaTTI2LjI3NjYgMzUuNzQyN0MyNy42MzY1IDMzLjYzOTMgMjguNzExIDMwLjg2OCAyOS4zNzc0IDI3LjY4NDdIMzUuMTA0NkMzMy4yNTEgMzEuMzMyMiAzMC4xMDY4IDM0LjIxNzkgMjYuMjc2NiAzNS43NDI3Wk0xMy43MjM0IDM1Ljc0MjdDOS44OTM2OSAzNC4yMTc5IDYuNzUxNTUgMzEuMzMyNCA0Ljg5MjkzIDI3LjY4NDdIMTAuNjIyNkMxMS4yODkgMzAuODY4IDEyLjM2MzUgMzMuNjM5MyAxMy43MjM0IDM1Ljc0MjdaIiBmaWxsPSIjM0E0MkU5Ii8+Cjwvc3ZnPgo="
+      },
+      "displayName": "HTTP Request",
+      "typeVersion": 4,
+      "nodeCategories": [
+        {
+          "id": 5,
+          "name": "Development"
+        },
+        {
+          "id": 9,
+          "name": "Core Nodes"
+        }
+      ]
+    },
+    {
+      "id": 323,
+      "icon": "file:oneDrive.svg",
+      "name": "n8n-nodes-base.microsoftOneDrive",
+      "codex": {
+        "data": {
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/your-business-doesnt-need-you-to-operate/",
+                "icon": " 🖥️",
+                "label": "Hey founders! Your business doesn't need you to operate"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.microsoftonedrive/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/microsoft/"
+              }
+            ]
+          },
+          "categories": [
+            "Data & Storage"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "Microsoft OneDrive"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiB2aWV3Qm94PSIwIDAgODEgODEiPjx1c2UgeGxpbms6aHJlZj0iI2EiIHg9Ii41IiB5PSIuNSIvPjxzeW1ib2wgaWQ9ImEiIG92ZXJmbG93PSJ2aXNpYmxlIj48ZyBzdHJva2U9Im5vbmUiPjxwYXRoIGZpbGw9IiMwOTRhYjIiIGQ9Ik02LjY2NyAwUTAgMCAwIDYuNjY3djY2LjY2N1EwIDgwIDYuNjY3IDgwaDY2LjY2N1E4MCA4MCA4MCA3My4zMzNWNi42NjdRODAgMCA3My4zMzMgMHoiLz48cGF0aCBkPSJNNjAuMjU2IDQyLjAyM2MyLjg3LjQwNSA0Ljk2NSAyLjk3NSA0LjgzMiA1LjkyOSAwIDIuNTk0LTEuNDIxIDUuNjU1LTQuODMyIDUuNjU1SDMyLjU3NGMtNS4zMDYgMC03LjIzMi0zLjcwNi03LjIzMi03LjUyNCAwLTYuNDQ0IDYuOTc5LTYuNjIxIDYuOTc5LTYuNjIxcy41NjktNi45OTIgNi42NjQtOC40MWMzLjgwNi0xLjExMyA3Ljg3NS40NzcgOS45OCAzLjg5OWE4LjIgOC4yIDAgMCAxIDcuMDU4LS4yNThjMi44MTIgMS4yNTcgNC41MTggNC4yMTIgNC4yMzIgNy4zM3oiLz48cGF0aCBmaWxsPSIjZjlmOWY5IiBkPSJNMjMuNTgzIDQ1LjYwNWMwLTcuMDgyIDcuNDEyLTguMTM5IDcuNDEyLTguMTM5LjcwNy00LjEwOCAzLjY5OS03LjQzNSA3LjY4Mi04LjU0IDQuMDIxLTEuMjg2IDguNDA0LjE4OSAxMC44NTYgMy42NTNhNi4zIDYuMyAwIDAgMSAzLjYzNS0uNzM3Yy0uNTEzLTQuMTc3LTMuMjQ3LTcuNzM2LTcuMTI2LTkuMjc3LTUuMTQxLTIuMTUzLTExLjA1OC4wMjYtMTMuNjE4IDUuMDE1YTguNCA4LjQgMCAwIDAtOC4xMjYtLjE2Yy0zLjE4MSAxLjc2My01LjAwMiA1LjI4Mi00LjYxOSA4LjkyNC0zLjY3NS4zMjMtNi40MzggMy41MjMtNi4yNTQgNy4yNDIuMTE0IDMuODE3IDMuMTM5IDYuODkyIDYuOTIgNy4wMzRoNC42NWE5LjEgOS4xIDAgMCAxLTEuNDEzLTUuMDE1eiIvPjxwYXRoIGZpbGwtb3BhY2l0eT0iLjE5IiBkPSJtLjg0IDIuNjkgNzcuNzUzIDc1LjgxNkE0LjQgNC40IDAgMCAwIDgwIDc1LjI3OVY0LjM5OEE0LjM5IDQuMzkgMCAwIDAgNzUuNjEyIDBINC44ODVBNC4zOSA0LjM5IDAgMCAwIC44NCAyLjY5Ii8+PC9nPjwvc3ltYm9sPjwvc3ZnPg=="
+      },
+      "displayName": "Microsoft OneDrive",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 3,
+          "name": "Data & Storage"
+        }
+      ]
+    },
+    {
+      "id": 368,
+      "icon": "file:teams.svg",
+      "name": "n8n-nodes-base.microsoftTeams",
+      "codex": {
+        "data": {
+          "alias": [
+            "human",
+            "form",
+            "wait",
+            "hitl",
+            "approval"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.microsoftteams/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/microsoft/"
+              }
+            ]
+          },
+          "categories": [
+            "Communication",
+            "HITL"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0",
+          "subcategories": {
+            "HITL": [
+              "Human in the Loop"
+            ]
+          }
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "Microsoft Teams"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMzgxLjQgMjM1NC41Ij48cGF0aCBmaWxsPSIjNTU1OGFmIiBkPSJNMjAxNS42IDg5OS4yYzE5LjUgMTkuNSA0Mi41IDM1IDY3LjkgNDUuOCA1MyAyMi4yIDExMi43IDIyLjIgMTY1LjggMCA1MS4yLTIxLjggOTItNjIuNSAxMTMuNy0xMTMuNyAyMi4yLTUzIDIyLjItMTEyLjcgMC0xNjUuOC0yMS44LTUxLjItNjIuNS05Mi0xMTMuNy0xMTMuNy01My0yMi4yLTExMi43LTIyLjItMTY1LjggMC01MS4yIDIxLjgtOTIgNjIuNS0xMTMuNyAxMTMuNy0yMi4yIDUzLTIyLjIgMTEyLjcgMCAxNjUuOCAxMC44IDI1LjMgMjYuNCA0OC40IDQ1LjggNjcuOW0tNjIuNCAxOTcuOHY2NDIuMWgxMDdjMzYuOC0uMiA3My40LTMuNiAxMDkuNS0xMC40IDM2LjMtNi40IDcxLjMtMTguNiAxMDMuNy0zNi4yIDMwLjYtMTYuNiA1Ny00MCA3Ny4zLTY4LjIgMjEuMy0zMS4zIDMyLTY4LjYgMzAuNS0xMDYuNVYxMDk3em0tMzQ2LjgtMjY5LjJjMjguNC4yIDU2LjYtNS41IDgyLjgtMTYuNyA1MS4yLTIxLjggOTEuOS02Mi41IDExMy42LTExMy43IDIyLjItNTMgMjIuMi0xMTIuNy0uMS0xNjUuOC0yMS44LTUxLjItNjIuNS05Mi0xMTMuNy0xMTMuNy0yNi4yLTExLjItNTQuNC0xNi45LTgyLjktMTYuNy0yOC4zLS4yLTU2LjMgNS41LTgyLjMgMTYuNy0xOS40IDguMy0yNS41IDE5LjEtNTIuMiAzMi4xdjMyOWMyNi44IDEzLjEgMzIuOCAyMy44IDUyLjIgMzIuMSAyNi4xIDExLjMgNTQuMiAxNi45IDgyLjYgMTYuN20tMTM0LjggMTA4MS4xYzI2LjggNS44IDM2LjQgMTAuMyA1NS40IDEyLjkgMjAuOCAzIDQxLjggNC41IDYyLjggNC42IDMyLjQtLjIgNjQuOC0zLjYgOTYuNS0xMC40IDMyLjMtNi41IDYzLjMtMTguNiA5MS41LTM1LjcgMjcuNy0xNyA1MS00MC4yIDY4LjItNjcuNyAxOS0zMi4xIDI4LjMtNjkuMSAyNi45LTEwNi40di03NDNoLTQwMS4zek0wIDIxMTMuN2wxMzkxLjMgMjQwLjhWMEwwIDI0MC44eiIvPjxwYXRoIGZpbGw9IiNmZmYiIGQ9Im0xMDE2LjcgNzIyLjQtNjQyLjEgMzkuMXYxNDguMWwyNDAuOC05Ljd2Njg2LjdsMTYwLjUgOS40Vjg5My42bDI0MC44LTEwLjd6Ii8+PC9zdmc+"
+      },
+      "displayName": "Microsoft Teams",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 6,
+          "name": "Communication"
+        },
+        {
+          "id": 28,
+          "name": "HITL"
+        }
+      ]
+    },
+    {
+      "id": 493,
+      "icon": "file:todo.svg",
+      "name": "n8n-nodes-base.microsoftToDo",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.microsofttodo/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/microsoft/"
+              }
+            ]
+          },
+          "categories": [
+            "Productivity"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "Microsoft To Do"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iIzE4NWFiZCIgZD0iTTMuNzEzIDcuODU0LjM5NCAxMS4xNzJhMS4xNyAxLjE3IDAgMCAwIDAgMS42NTVMNS4zNjcgMTcuOGw0Ljk3NC00Ljk3NC00Ljk3NC00Ljk3MmExLjE3IDEuMTcgMCAwIDAtMS42NTQgMCIvPjxwYXRoIGZpbGw9IiM0MWE1ZWUiIGQ9Im0yMy42MDYgNi4yLTMuMzE4LTMuMzJhMS4xNyAxLjE3IDAgMCAwLTEuNjU1IDBsLTQuMTQ2IDQuMTQ2TDkuNTEzIDEybC00LjE0NiA0LjE0NmExLjE3IDEuMTcgMCAwIDAgMCAxLjY1NWwzLjMxOSAzLjMxOGExLjE3IDEuMTcgMCAwIDAgMS42NTUgMGw0LjE0Ni00LjE0NkwxOS40NiAxMmw0LjE0Ni00LjE0NmExLjE3IDEuMTcgMCAwIDAgMC0xLjY1NCIvPjxwYXRoIGZpbGw9Im5vbmUiIGQ9Ik0wIDBoMjR2MjRIMHoiLz48L3N2Zz4="
+      },
+      "displayName": "Microsoft To Do",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 4,
+          "name": "Productivity"
+        }
+      ]
+    },
+    {
+      "id": 1119,
+      "icon": "fa:robot",
+      "name": "@n8n/n8n-nodes-langchain.agent",
+      "codex": {
+        "data": {
+          "alias": [
+            "LangChain",
+            "Chat",
+            "Conversational",
+            "Plan and Execute",
+            "ReAct",
+            "Tools"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Agents",
+              "Root Nodes"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "AI Agent",
+        "color": "#404040"
+      },
+      "iconData": {
+        "icon": "robot",
+        "type": "icon"
+      },
+      "displayName": "AI Agent",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1179,
+      "icon": "fa:code",
+      "name": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "codex": {
+        "data": {
+          "alias": [
+            "json",
+            "zod"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.outputparserstructured/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Output Parsers"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Structured Output Parser"
+      },
+      "iconData": {
+        "icon": "code",
+        "type": "icon"
+      },
+      "displayName": "Structured Output Parser",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1281,
+      "icon": "file:openrouter.svg",
+      "name": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatopenrouter/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Language Models",
+              "Root Nodes"
+            ],
+            "Language Models": [
+              "Chat Models (Recommended)"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "OpenRouter Chat Model"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjOTRBM0I4IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDI0IDI0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjx0aXRsZT5PcGVuUm91dGVyPC90aXRsZT48cGF0aCBkPSJNMTYuODA0IDEuOTU3bDcuMjIgNC4xMDV2LjA4N0wxNi43MyAxMC4yMWwuMDE3LTIuMTE3LS44MjEtLjAzYy0xLjA1OS0uMDI4LTEuNjExLjAwMi0yLjI2OC4xMS0xLjA2NC4xNzUtMi4wMzguNTc3LTMuMTQ3IDEuMzUyTDguMzQ1IDExLjAzYy0uMjg0LjE5NS0uNDk1LjMzNi0uNjguNDU1bC0uNTE1LjMyMi0uMzk3LjIzNC4zODUuMjMuNTMuMzM4Yy40NzYuMzE0IDEuMTcuNzk2IDIuNzAxIDEuODY2IDEuMTEuNzc1IDIuMDgzIDEuMTc3IDMuMTQ3IDEuMzUybC4zLjA0NWMuNjk0LjA5MSAxLjM3NS4wOTQgMi44MjUuMDMzbC4wMjItMi4xNTkgNy4yMiA0LjEwNXYuMDg3TDE2LjU4OSAyMmwuMDE0LTEuODYyLS42MzUuMDIyYy0xLjM4Ni4wNDItMi4xMzcuMDAyLTMuMTM4LS4xNjItMS42OTQtLjI4LTMuMjYtLjkyNi00Ljg4MS0yLjA1OWwtMi4xNTgtMS41YTIxLjk5NyAyMS45OTcgMCAwMC0uNzU1LS40OThsLS40NjctLjI4YTU1LjkyNyA1NS45MjcgMCAwMC0uNzYtLjQzQzIuOTA4IDE0LjczLjU2MyAxNC4xMTYgMCAxNC4xMTZWOS44ODhsLjE0LjAwNGMuNTY0LS4wMDcgMi45MS0uNjIyIDMuODA5LTEuMTI0bDEuMDE2LS41OC40MzgtLjI3NGMuNDI4LS4yOCAxLjA3Mi0uNzI2IDIuNjg2LTEuODUzIDEuNjIxLTEuMTMzIDMuMTg2LTEuNzggNC44ODEtMi4wNTkgMS4xNTItLjE5IDEuOTc0LS4yMTMgMy44MTQtLjEzOGwuMDItMS45MDd6Ij48L3BhdGg+PC9zdmc+Cg=="
+      },
+      "displayName": "OpenRouter Chat Model",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    }
+  ]
+}

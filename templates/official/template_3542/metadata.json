@@ -1,0 +1,169 @@
+{
+  "id": 3542,
+  "name": "Create AI-Ready Vector Datasets for LLMs with Bright Data, Gemini & Pinecone",
+  "description": "Who this is for?\nThis workflow enables automated, scalable collection of high-quality, AI-ready data from websites using Bright Data’s Web Unlocker, with a focus on preparing that data for LLM training. Leveraging LLM Chains and AI agents, the system formats and extracts key information, then stores the structured embeddings in a Pinecone vector database.\n\nThis workflow is tailored for:​\n\nML Engineers & Researchers building or fine-tuning domain-specific LLMs.\n\nAI Startups needing clean, structured content for product training.\n\nData Teams preparing knowledge bases for enterprise-grade AI apps.\n\nLLM-as-a-Service Providers sourcing dynamic web content across niches.\n\nWhat problem is this workflow solving?\n\nTraining a large language model (LLM) requires vast amounts of clean, relevant, and structured data. Manual collection is slow, error-prone, and lacks scalability. \n\nThis workflow:\n\nAutomatically extracts web data from specified URLs.\n\nBypasses anti-bot measures using Bright Data’s Web Unlocker.\n\nFormats, cleans, and transforms raw content using LLM agents.\n\nStores semantically searchable vectors in Pinecone.\n\nMakes datasets AI-ready for fine-tuning, RAG, or domain-specific training.\n\nWhat this workflow does\n\nThis workflow automates the process of collecting, cleaning, and vectorizing web content to create structured, high-quality datasets that are ready to be used for LLM (Large Language Model) training or retrieval-augmented generation (RAG).\n\nWeb Crawling with Bright Data Web Unlocker.\nAI Information Extraction and Data Formatting.\nAI Data Formatting to produce a JSON structured data.\nPersistence in Pinecone Vector DB.\nHandle Webhook notification of structured data.\n\nSetup\n\nSign up at Bright Data.\nNavigate to Proxies & Scraping and create a new Web Unlocker zone by selecting Web Unlocker API under Scraping Solutions.\nIn n8n, configure the Header Auth account under Credentials (Generic Auth Type: Header Authentication).\n\nThe Value field should be set with the\nBearer XXXXXXXXXXXXXX. The XXXXXXXXXXXXXX should be replaced by the Web Unlocker Token.\nA Google Gemini API key (or access through Vertex AI or proxy).\nUpdate the LinkedIn URL by navigating to the Set LinkedIn URL node.\nUpdate the Set Fields - URL and Webhook URL node with the URL for web data extraction and the Webhook notification URL.\n\nHow to customize this workflow to your needs\n\nSet Your Target URLs. Target sites that are high-quality, domain-specific, and relevant to your LLM's purpose.\nAdjust Bright Data Web Unlocker Settings. Geo-location, Headers / User-Agent strings, Retry rules and proxies.\nModify the Information Extraction Logic. Change prompts to extract specific attributes. Use structured templates or few-shot examples in prompts.\nSwap the Embedding Model. Use OpenAI, Hugging Face or other your own hosted embedding model API.\nCustomize Pinecone Metadata Fields. Store extra fields in Pinecone for better filtering & semantic querying.\nAdd Data Validation or Deduplication. Skip duplicates or low-quality content.",
+  "totalViews": 1181,
+  "source": "official",
+  "user": {
+    "id": 93657,
+    "name": "Ranjan Dailata",
+    "username": "ranjancse",
+    "bio": "",
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/7b74fe44a7ad32db7c783b972deb5848a4b1f043377bce4039737ed66da8305f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Recursive Character Text Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Pinecone Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    },
+    {
+      "name": "Embeddings Google Gemini",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Information Extractor",
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 10,
+  "createdAt": "2025-04-13T14:26:13.036Z",
+  "path": "official/template_3542/workflow.json"
+}

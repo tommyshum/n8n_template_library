@@ -1,0 +1,28 @@
+{
+  "id": 2274,
+  "name": "Low-code API for Flutterflow apps",
+  "description": "Flow Start: The flow starts upon receiving an HTTP GET call.\nWebhook: Receives the HTTP GET call and triggers the flow.\nDatabase: Connects to the database (Customer Datastore) to retrieve all necessary information (getAllPeople).\nData Processing:\nVariable Insertion: The retrieved data is inserted into a variable.\nVariable Aggregation: The variables are aggregated and prepared for use in FlutterFlow.\nWebhook Response: Sends the response back through the Webhook with the processed data ready for use in FlutterFlow.",
+  "totalViews": 3149,
+  "source": "official",
+  "user": {
+    "id": 91713,
+    "name": "Matheus Weckwerth",
+    "username": "matheusweck",
+    "bio": "",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/6c33fde69a065ccba416c71aab3a2a13ab865633894ec3a8782b9538bcd2935a?r=pg&d=retro&size=200"
+  },
+  "categories": [],
+  "nodes": [
+    {
+      "name": "Customer Datastore (n8n training)",
+      "type": "n8n-nodes-base.n8nTrainingCustomerDatastore",
+      "categories": [],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-05-28T20:09:31.792Z",
+  "path": "official/template_2274/workflow.json"
+}

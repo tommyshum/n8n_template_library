@@ -1,0 +1,115 @@
+{
+  "id": 3527,
+  "name": "Compare Sequential, Agent-Based, and Parallel LLM Processing with Claude 3.7",
+  "description": "This workflow demonstrates three distinct approaches to chaining LLM operations using Claude 3.7 Sonnet. Connect to any section to experience the differences in implementation, performance, and capabilities.\n\nWhat you'll find:\n\n1️⃣ Naive Sequential Chaining\nThe simplest but least efficient approach - connecting LLM nodes in a direct sequence. Easy to set up for beginners but becomes unwieldy and slow as your chain grows.\n\n2️⃣ Agent-Based Processing with Memory\nProcess a list of instructions through a single AI Agent that maintains conversation history. This structured approach provides better context management while keeping your workflow organized.\n\n3️⃣ Parallel Processing for Maximum Speed\nSplit your prompts and process them simultaneously for much faster results. Ideal when you need to run multiple independent tasks without shared context.\n\nSetup Instructions:\n\nAPI Credentials: Configure your Anthropic API key in the credentials manager. This workflow uses Claude 3.7 Sonnet, but you can modify the model in each Anthropic Chat Model node, or pick an entirely different LLM.\n\nFor Cloud Users: If using the parallel processing method (section 3), replace {{ $env.WEBHOOK_URL }} in the \"LLM steps - parallel\" HTTP Request node with your n8n instance URL.\n\nTest Data: The workflow fetches content from the n8n blog by default. You can modify this part to use a different content or a data source.\n\nCustomization: Each section contains a set of example prompts. Modify the \"Initial prompts\" nodes to change the questions asked to the LLM.\n\nCompare these methods to understand the trade-offs between simplicity, speed, and context management in your AI workflows!\n\nFollow me on LinkedIn for more tips on AI automation and n8n workflows!",
+  "totalViews": 527,
+  "source": "official",
+  "user": {
+    "id": 21242,
+    "name": "Eduard",
+    "username": "eduard",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/parsadanyan/\"]",
+    "avatar": "https://gravatar.com/avatar/a551e67c6fe7affd5f882a527dee154bb6c3ac90cf878326accb3fb3ec77c8a6?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Anthropic Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Chat Memory Manager",
+      "type": "@n8n/n8n-nodes-langchain.memoryManager",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-04-12T15:33:29.105Z",
+  "path": "official/template_3527/workflow.json"
+}

@@ -1,0 +1,34 @@
+{
+  "id": 1757,
+  "name": "Google Spreadsheet to HTML - Variant with JS Function",
+  "description": "This workflow shows a low code approach to creating a HTML table based on Google Sheets data. It's similar to this workflow, but allows fully customizing the HTML output.\n\n\n\nTo run the workflow:\nMake sure you have a Google Sheet with a header row and some data in it.\nGrab your sheet ID:\n\nAdd it to the Google Sheets node:\n\nActivate the workflow or execute it manually\nVisit the URL provided by the webhook node in your browser (production URL if the workflow is active, test URL if the workflow is executed manually)\n",
+  "totalViews": 1926,
+  "source": "official",
+  "user": {
+    "id": 21240,
+    "name": "Tom",
+    "username": "mutedjam",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://github.com/that-one-tom/\"]",
+    "avatar": "https://gravatar.com/avatar/7a3710173e907baffaf7ed7ebffc37955c9cdeadb8612200225a34a2e056aa17?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2022-07-25T13:56:36.828Z",
+  "path": "official/template_1757/workflow.json"
+}

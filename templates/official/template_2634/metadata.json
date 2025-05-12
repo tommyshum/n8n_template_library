@@ -1,0 +1,41 @@
+{
+  "id": 2634,
+  "name": "Spotify Sync Liked Songs to Playlist",
+  "description": "Short an simple:\nThis Workflow will sync (add and delete) your Liked Songs to an custom playlist that can be shared.\n\nSetup:\nCreate an app on the Spotify Developer Dashboard.\nCreate Spotify Credentials - Just click on one of the Spotify Nodes in the Workflow an click on \"create new credentials\" and follow the guide.\nCreate the Spotify Playlist that you want to sync to.\nCopy the exact name of you playlist, go into Node \"Edit set Vars\" and replace the value \"CHANGE MEEEE\" with your playlist name.\nSet your Spotify Credentiels on every Spotify Node. (Should be marekd with Yellow and Red Notes)\n\nDo you use Gotify?\n- No: Delete the Gotify Nodes (all the way to the right end of the Workflow)\n- Yes: Customize the Gotify Nodes to your needs.",
+  "totalViews": 443,
+  "source": "official",
+  "user": {
+    "id": 92260,
+    "name": "Dustin",
+    "username": "dh2io",
+    "bio": "",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/c9c34b45689935ea0b9c1f6516deb7bd4249ce786d107bb5d2b06ae8c06e98b5?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Miscellaneous",
+    "Communication"
+  ],
+  "nodes": [
+    {
+      "name": "Spotify",
+      "type": "n8n-nodes-base.spotify",
+      "categories": [
+        "Miscellaneous"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gotify",
+      "type": "n8n-nodes-base.gotify",
+      "categories": [
+        "Communication"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-12-11T21:47:10.634Z",
+  "path": "official/template_2634/workflow.json"
+}

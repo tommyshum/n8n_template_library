@@ -1,0 +1,49 @@
+{
+  "id": 3652,
+  "name": "WhatsApp Product Catalog Bot with PostgreSQL Database",
+  "description": "Who is this for?\nThis workflow is designed for businesses or developers who want to integrate product information into a WhatsApp bot and allow users to retrieve details about products from a database.\n\nWhat problem is this workflow solving?\nThis workflow automates the process of managing and retrieving product information via WhatsApp, allowing businesses to easily share product details with customers without manual interaction.\n\nWhat this workflow does\nIt adds product data to a Postgres database.\nIt enables a WhatsApp bot to retrieve a list of products.\nUsers can select a product to receive detailed information about it.\n\nSetup\nCreate Tables in Postgres DB\n   Modify the SQL script to replace \"n8n\" with your schema name.\n   Run the provided SQL script in your database (available in the workflow).\n\nAdd Credentials\n   Add WhatsApp credentials (OAuth, Account).\n   Add Postgres credentials to connect the bot to your database.\n\nHow to customize this workflow to your needs\nUpdate the database schema or table structure if you need additional product information.\nModify the bot interaction to suit your specific product listing and display preferences.",
+  "totalViews": 691,
+  "source": "official",
+  "user": {
+    "id": 93883,
+    "name": "Andrew",
+    "username": "boanse",
+    "bio": "Analyst-Developer",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/61d84d897d0411ddab1209f44480478b3e19bc319b0a3b69dd0419d51b2fbdd3?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Data & Storage",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Postgres",
+      "type": "n8n-nodes-base.postgres",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "WhatsApp Business Cloud",
+      "type": "n8n-nodes-base.whatsApp",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-04-21T20:04:07.361Z",
+  "path": "official/template_3652/workflow.json"
+}

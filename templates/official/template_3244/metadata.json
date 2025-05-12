@@ -1,0 +1,87 @@
+{
+  "id": 3244,
+  "name": "Analyze Brand Mentions on Reddit with GPT-4o Mini and Notion Integration",
+  "description": "The Reddit Comment Analyzer is an n8n automation that helps businesses monitor brand mentions, analyze sentiment, and store insights in Notion.  \n\n🚀 Features  \n\n💬 Automated Comment Sourcing  \nTracks brand mentions** (including misspellings) across Reddit.  \nFilters relevant comments** to avoid noise.  \n\n📊 AI-Powered Sentiment & Emotion Analysis  \nCategorizes sentiment** as Positive, Neutral, Negative, or Unrelated.  \nIdentifies emotions** like frustration, excitement, or trust.  \n\n✅ Actionable Insights & Recommendations  \nSuggests responses** based on comment sentiment.  \nProvides AI-driven insights** for brand strategy.  \n\n📂 Seamless Notion Integration  \nAutomatically logs comments & analysis** in a Notion database.  \nPrevents duplicates** by checking against existing records.  \n\n💡 Who is it for?  \nMarketing Teams**: Monitor brand perception & adjust messaging.  \nCustomer Support**: Address concerns & engage with users.  \nSocial Media Managers**: Track discussions and optimize engagement.  \n\n🔥 How to Get Started  \n1️⃣ Enter your brand name & business details  \n2️⃣ Connect Reddit & Notion accounts  \n3️⃣ Run the automation & gain instant insights  \n\nOptimize your brand strategy with real-time Reddit insights! 🚀  ",
+  "totalViews": 194,
+  "source": "official",
+  "user": {
+    "id": 92817,
+    "name": "Ian Dikhtiar",
+    "username": "ian-dikhtiar",
+    "bio": "",
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/5bf8e571dafcba53bfb9714253d714c87e9facbbd9d5260257d4c397f0896677?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "Productivity",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Reddit",
+      "type": "n8n-nodes-base.reddit",
+      "categories": [
+        "Communication"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-03-20T18:10:59.601Z",
+  "path": "official/template_3244/workflow.json"
+}

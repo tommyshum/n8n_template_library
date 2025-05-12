@@ -1,0 +1,52 @@
+{
+  "id": 3081,
+  "name": "Sync Dartagnan Email Templates to Braze",
+  "description": "Sync Dartagnan Email Templates to Braze\n\nWhy Use This Workflow\n\nEmail marketing demands consistency across platforms. This workflow automatically synchronizes your email templates from Dartagnan to Braze, eliminating manual transfers and ensuring brand consistency. Perfect for marketing teams who need to maintain a unified email experience while leveraging the strengths of both platforms.\n\nBusiness Benefits\n\nSave Time**: Eliminate hours of manual template copying and formatting between platforms\nMaintain Consistency**: Ensure your email templates look identical across Dartagnan and Braze\nReduce Errors**: Automated synchronization prevents human error in template transfers\nStreamline Workflows**: Create once in Dartagnan, use everywhere through Braze's distribution power\nPreserve Image Assets**: Keep images hosted on Dartagnan while properly formatting them for Braze\n\nHow It Works\n\nThis workflow performs a bi-directional sync between your Dartagnan email templates and Braze platform. It intelligently handles:\n\nTemplate Updates: Automatically updates existing templates in Braze when modified in Dartagnan\nNew Template Creation: Creates new templates in Braze when added to Dartagnan\nImage URL Transformation: Properly embeds and formats image URLs to meet Braze requirements while keeping assets on Dartagnan infrastructure\n\nTechnical Implementation\n\nThe workflow uses a scheduled trigger to check for template changes and then processes them in batches:\n\nAuthentication: Securely connects to both Dartagnan and Braze APIs\nTemplate Retrieval: Fetches current templates from Dartagnan\nComparison Logic: Determines which templates need updating or creation in Braze\nContent Transformation: Processes HTML content and image URLs to ensure compatibility\nAPI Integration: Pushes changes to Braze through their Content Blocks API\n\nCustomization Options\n\nThis workflow can be customized to meet your specific needs:\n\nSync Frequency**: Adjust the schedule to run hourly, daily, or on any custom schedule\nTemplate Filtering**: Add conditions to sync only specific templates based on tags or categories\nError Handling**: Configure notification emails when synchronization issues occur\nLogging**: Enable detailed logs for troubleshooting and auditing\n\nSetup Requirements\n\nSetting up this workflow takes approximately 20-30 minutes and requires:\n\nDartagnan Requirements\nAPI Client ID\nAPI Client Secret\nTemplate access permissions\n\nBraze Requirements\nBraze Instance URL\nAPI Key with content block permissions\nAppropriate rate limits configured\n\nCommon Use Cases\n\nEmail Campaign Coordination**: Maintain consistent templates across platforms for multi-channel campaigns\nAgency Work**: Design in Dartagnan, deploy through client's Braze instance\nRebranding Projects**: Update templates once and propagate changes automatically\nInternational Marketing**: Maintain language variants across platforms with automatic synchronization\n\nGet Started\n\nOnce installed, configure your API credentials, set your desired synchronization schedule, and let the workflow handle the rest. The initial sync will create all your templates in Braze, with subsequent runs only updating what's changed.",
+  "totalViews": 170,
+  "source": "official",
+  "user": {
+    "id": 92545,
+    "name": "Vincent LE ROUX",
+    "username": "vincent-ux-tech",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/bc3e8cd24df6dda4e9673f164191cb7b229a65e749fc39a6039b8b0fda295dea?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-03-04T20:29:56.887Z",
+  "path": "official/template_3081/workflow.json"
+}

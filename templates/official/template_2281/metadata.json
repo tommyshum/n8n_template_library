@@ -1,0 +1,56 @@
+{
+  "id": 2281,
+  "name": "Create new wordpress posts with a featured Image with Airtable",
+  "description": "This workflow is aimed to create new posts in wordpress automatically from an airtable dashboard.\nWhen creating content in bulk, we can save time by automating how we can post and publish this content.\n\nUsage\nGet the content from Airtable. Since we have this as a markdown, we will have to convert it to a html format to make it easier to publish and manage on WordPress\nUpload the blog post with the content, title and all other relevant information needed for an optimized blog\nOnce the post is posted, we need to upload the image and set it as a features image for the blogs\n\nHappy productivity",
+  "totalViews": 10575,
+  "source": "official",
+  "user": {
+    "id": 91335,
+    "name": "Imperol",
+    "username": "imperolq",
+    "bio": "Automation expert with years of experience helping businesses improve their efficiency and productivity with smart automations that are affordable, scalable, and flexible. ",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/zacharia-kimotho/\"]",
+    "avatar": "https://gravatar.com/avatar/13b050fd63dc0c9242774c4b8769c4788df8b47268c1fb183d6f1da085b9e6e2?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes",
+    "Marketing"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Wordpress",
+      "type": "n8n-nodes-base.wordpress",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-06-06T20:29:28.370Z",
+  "path": "official/template_2281/workflow.json"
+}

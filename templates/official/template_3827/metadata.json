@@ -1,0 +1,63 @@
+{
+  "id": 3827,
+  "name": "Generate Business Leads with OpenStreetMap Data and Save to Google Sheets",
+  "description": "Who is this template for?\n\nThis n8n lead generation workflow template is designed for business owners, marketers, sales professionals, and entrepreneurs who need to generate targeted business leads without paying for expensive APIs or third-party services. The template leverages the free Overpass API (powered by OpenStreetMap data) to gather comprehensive business information for any industry in almost any region worldwide.\n\nPerfect for:\nSmall businesses looking to expand their customer base\nReal estate agents seeking potential clients\nMarketing agencies needing targeted lead lists\nEntrepreneurs researching potential markets\nSales teams building prospect databases\n\nYou can watch the video tutorial here: https://youtu.be/6WVfAIXdwsE\n\nHow it works\n\nThis n8n lead generation template provides a powerful solution using n8n core nodes and the free OpenStreetMap Overpass API, allowing you to generate thousands of business leads with comprehensive contact information:\n\nData Collection Process\n\n1. Define Your Queries\nCreate a list of search queries combining keywords (like \"real estate\", \"dentist\", etc.) with target locations\nUse both inner areas (specific cities) and outer areas (broader regions) to precisely target your search\n\n2. Iterative Query Execution\nThe workflow processes each query in sequence, preventing API timeout issues\nEach query triggers a sub-workflow that handles the data extraction process\n\n3. Data Extraction via OpenStreetMap's Overpass API\nSearches for businesses matching your keywords in name, description, and relevant OpenStreetMap tags\nCollects comprehensive business data including names, addresses, and contact details from the OpenStreetMap database\nSearches using both regular expressions and exact tag matching for optimal n8n lead generation results\n\n4. Website Scraping for Additional Information\nFor businesses with websites but missing email addresses, the workflow visits their homepage\nExtracts email addresses using regular expressions for more complete contact information\nFilters out irrelevant emails using configurable patterns\n\n5. Data Cleaning and Organization\nRemoves duplicate contact information and standardizes data format\nFilters results based on your specific requirements for contact details\nSaves all extracted data to Google Sheets for easy access and management\n\nSetup\n\n1. Configure Your Queries:\nOpen the \"Run Workflow\" node and input your list of queries\nFormat queries with outer area, inner area, and keyword (e.g., \"California,Los Angeles,real estate\")\n\n2. Optimize Tag Targeting:\nAfter initial runs, identify the specific tags used by your target industry\nUpdate the HTTP Request node with these specific tags to improve result quality\nCommon tags include \"office\", \"shop\", and \"amenity\" with industry-specific values\n\n3. Configure Data Filters:\nCustomize the filter node to keep only results meeting your specific requirements\nAdjust the email filtering regex to remove irrelevant email addresses\n\n4. Set up Google Sheets Integration:\nConfigure the Google Sheets node to save results to your preferred spreadsheet\nAuthorize the connection to your Google account\n\n5. Run the Workflow:\nStart the workflow and watch as your Google Sheet fills with comprehensive business leads\nThe template automatically handles pagination and rate limiting to prevent API timeouts\n\nThe resulting leads include comprehensive contact information such as:\nBusiness names\nComplete addresses (street, city, postal code)\nPhone numbers\nEmail addresses (both from API and website scraping)\nWebsite URLs\nSocial media accounts\nOpening hours\nAnd more!",
+  "totalViews": 127,
+  "source": "official",
+  "user": {
+    "id": 92128,
+    "name": "Akram Kadri",
+    "username": "akramkadri",
+    "bio": "n8n Automation Freelancer\n------------------------\nContact me at: akram@digispruce.com",
+    "verified": true,
+    "links": "[\"https://youtube.com/@kadri_akram\"]",
+    "avatar": "https://gravatar.com/avatar/e57785a112fbcca1ac70d537a9ed5c5a68be59f808ed8b36475bde0e2c8f384b?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-05-01T23:25:05.944Z",
+  "path": "official/template_3827/workflow.json"
+}

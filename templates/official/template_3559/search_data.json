@@ -1,0 +1,78 @@
+{
+  "id": 3559,
+  "name": "Automated Workflow Backup System with Google Drive and Archiving",
+  "totalViews": 225,
+  "price": 20,
+  "purchaseUrl": "https://www.bonzai.pro/niten-musa/shop/Y65q_3798/automated-n8n-workflows-backup-basic?p=pri_83Dn_4758",
+  "user": {
+    "id": 93650,
+    "name": "Niten Musa",
+    "username": "nitenmusa",
+    "bio": "Just like every business has its own processes, every business will have its own AI agents — I sell and teach that transition\n\nFrom France 🇫🇷 — Discipline, Humility, Benevolence",
+    "verified": true,
+    "links": "[\"https://www.bonzai.pro/niten-musa\"]",
+    "avatar": "https://gravatar.com/avatar/7c12ff05ad25ca88cd977720280c51c995d53c91fe572a7a90a6b5a4b8660118?r=pg&d=retro&size=200"
+  },
+  "description": "\nIf you have any question, or difficulty, feel free to come discuss about it on my Telegram (you might find something there 🎁)\n\n\n\nThis workflow provides a fully automated system for backing up your n8n workflows to Google Drive. It runs on a schedule (which you can customize) and saves each workflow as a .json file, named after the workflow itself. All active workflows are backed up by default and stored in a specified Google Drive folder of your choice.\n\nA special feature of this workflow is its ability to archive and clean up old workflows. If you tag a workflow with ARCHIVE (case-sensitive), the workflow will be backed up into a designated Archive subfolder inside your main Google Drive folder — and then automatically deleted from your n8n instance. This keeps your workspace clean and reduces clutter while ensuring everything is safely stored.\n\nRequirements\n\nA Google Drive account connected to n8n (via OAuth2 or preferred method)\nAn n8n instance with access to your workflows\nA folder in Google Drive for storing backups\n  Inside this folder, create a subfolder named Archive\nFolder IDs for both the main and archive folders* (Find it in folder's URL e.g. https://drive.google.com/drive/u/0/folders/1F7Exr2xkZQFvmHmjdFD43K0jfd*)\n\nSetup\n\nIn your Google Drive, create a main folder for storing backups.\nInside it, create a subfolder called Archive.\nRetrieve the folder IDs for both folders\nIn n8n, connect your Google Drive credentials.\nOpen the workflow and insert the folder IDs in the appropriate nodes.\nOptionally, edit the schedule trigger to set your preferred backup frequency.\n\nUsage\n\nOnce configured, the workflow will:\nRun automatically on the defined schedule\nBack up all existing workflows into your Drive\nFor workflows tagged with ARCHIVE:\n  Save them into the Archive subfolder\n  Delete them from your n8n instance\n\nThe workflow ensures your automation logic is safely versioned, with optional cleanup for outdated or unused flows.\n\nCustomization\n\nYou can modify the schedule to run daily, weekly, or at any custom interval using the built-in Cron node.\n\nYou can also change the folder structure or naming conventions in the Google Drive nodes to match your personal or team preferences.\n\nWorkflows are archived only if they are explicitly tagged with ARCHIVE — this tag is case-sensitive.",
+  "createdAt": "2025-04-15T09:32:46.476Z",
+  "nodes": [
+    {
+      "id": 58,
+      "icon": "file:googleDrive.svg",
+      "name": "n8n-nodes-base.googleDrive",
+      "codex": {
+        "data": {
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/your-business-doesnt-need-you-to-operate/",
+                "icon": " 🖥️",
+                "label": "Hey founders! Your business doesn't need you to operate"
+              },
+              {
+                "url": "https://n8n.io/blog/why-this-product-manager-loves-workflow-automation-with-n8n/",
+                "icon": "🧠",
+                "label": "Why this Product Manager loves workflow automation with n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/aws-workflow-automation/",
+                "label": "7 no-code workflow automations for Amazon Web Services"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googledrive/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/google/oauth-single-service/"
+              }
+            ]
+          },
+          "categories": [
+            "Data & Storage"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "Google Drive"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiB2aWV3Qm94PSIwIDAgODEgNzMiPjx1c2UgeGxpbms6aHJlZj0iI2EiIHg9Ii41IiB5PSIuNSIvPjxzeW1ib2wgaWQ9ImEiIG92ZXJmbG93PSJ2aXNpYmxlIj48ZyBmaWxsLXJ1bGU9Im5vbnplcm8iIHN0cm9rZT0ibm9uZSI+PHBhdGggZmlsbD0iIzAwNjZkYSIgZD0ibTYuMDQ4IDYxLjI2IDMuNTI4IDYuMDk0Yy43MzMgMS4yODMgMS43ODcgMi4yOTEgMy4wMjQgMy4wMjRsMTIuNi0yMS44MUgwYTguMyA4LjMgMCAwIDAgMS4xIDQuMTI0eiIvPjxwYXRoIGZpbGw9IiMwMGFjNDciIGQ9Ik00MCAyMi45MSAyNy40IDEuMWMtMS4yMzcuNzMzLTIuMjkxIDEuNzQxLTMuMDI0IDMuMDI0TDEuMSA0NC40NDVBOC4zIDguMyAwIDAgMCAwIDQ4LjU2OGgyNS4yeiIvPjxwYXRoIGZpbGw9IiNlYTQzMzUiIGQ9Ik02Ny40IDcwLjM3OGMxLjIzNy0uNzMzIDIuMjkxLTEuNzQxIDMuMDI0LTMuMDI0bDEuNDY2LTIuNTIgNy4wMS0xMi4xNDJhOC4zIDguMyAwIDAgMCAxLjEtNC4xMjRINTQuNzk4bDUuMzYzIDEwLjUzOHoiLz48cGF0aCBmaWxsPSIjMDA4MzJkIiBkPSJNNDAgMjIuOTEgNTIuNiAxLjFDNTEuMzYzLjM2NyA0OS45NDMgMCA0OC40NzcgMEgzMS41MjRjLTEuNDY2IDAtMi44ODcuNDEyLTQuMTI0IDEuMXoiLz48cGF0aCBmaWxsPSIjMjY4NGZjIiBkPSJNNTQuNzk5IDQ4LjU2OEgyNS4ybC0xMi42IDIxLjgxYzEuMjM3LjczMyAyLjY1NyAxLjEgNC4xMjQgMS4xaDQ2LjU1MmMxLjQ2NiAwIDIuODg3LS40MTIgNC4xMjQtMS4xeiIvPjxwYXRoIGZpbGw9IiNmZmJhMDAiIGQ9Ik02Ny4yNjIgMjQuMjg0IDU1LjYyNCA0LjEyNEM1NC44OTEgMi44NDEgNTMuODM3IDEuODMzIDUyLjYgMS4xTDQwIDIyLjkxbDE0LjggMjUuNjU5aDI1LjE1NWE4LjMgOC4zIDAgMCAwLTEuMS00LjEyNHoiLz48L2c+PC9zeW1ib2w+PC9zdmc+"
+      },
+      "displayName": "Google Drive",
+      "typeVersion": 3,
+      "nodeCategories": [
+        {
+          "id": 3,
+          "name": "Data & Storage"
+        }
+      ]
+    }
+  ]
+}

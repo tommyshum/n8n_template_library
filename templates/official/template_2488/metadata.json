@@ -1,0 +1,47 @@
+{
+  "id": 2488,
+  "name": "Automated Notion Task Reminders via Slack",
+  "description": "This workflow is designed to automate task reminders by retrieving tasks from a Notion database and sending reminders to Slack users. It checks for incomplete tasks from a Notion database and sends a Slack message to the relevant users with the task details and due dates. The automation is scheduled to run every weekday at 9:00 AM, ensuring that users are always reminded of pending tasks.\n\nWho is this for?\nThis workflow is ideal for teams or individuals who manage their tasks using Notion but rely on Slack for communication. It provides an automated solution for ensuring that tasks in Notion are followed up on, reducing the risk of missing deadlines.\n\nWhat problem is this workflow solving?\nOften, team members need to be reminded of tasks from various platforms. This workflow bridges the gap between task management in Notion and communication in Slack by automatically sending task reminders. It ensures that team members are informed of their pending tasks each morning, helping them stay organized and on top of their work.\n\nWhat this workflow does\nTriggers every weekday at 9:00 AM: The workflow runs at 9:00 AM, Monday through Friday.\nFetches tasks from Notion: It retrieves tasks from a Notion database.\nFilters incomplete tasks: The workflow filters tasks that are not marked as \"Done.\"\nFetches Slack users: It retrieves all Slack users to ensure that the reminders are sent to the correct user.\nMatches tasks to the correct user: It checks the Notion task assignee and matches it with the appropriate Slack user.\nSends Slack reminders: Sends a Slack direct message to each user with their incomplete tasks and due dates.\n\nSetup\nConnect Notion: You will need to connect your Notion account and specify the database containing tasks.\nConnect Slack: Authenticate with Slack using OAuth to allow the workflow to send messages on your behalf.\nNotion user email mapping: Ensure that the Notion users’ email addresses are correctly mapped to their corresponding Notion user profiles.\nSlack user full name mapping: Ensure that the Slack users’ full names are correctly mapped to their corresponding Slack user profiles.\nAdjust schedule: If needed, modify the schedule node to run at a different time or frequency.\n\nHow to customize this workflow\nChange the database**: You can adjust the workflow to pull tasks from a different Notion database by modifying the \"Get To Dos from Tasks Database\" node.\nAdd more users**: The workflow currently supports two users, but you can expand it to support more by adding additional logic in the \"Switch for Notion Users Emails\" node.\nModify the message format**: The Slack message content can be customized further to include more task details or change the message format.\n\nWorkflow Summary\nThis workflow automates sending task reminders from a Notion database to Slack users. By running every weekday morning, it ensures that users receive timely reminders of their incomplete tasks, helping them stay organized and efficient.\n",
+  "totalViews": 2034,
+  "source": "official",
+  "user": {
+    "id": 92011,
+    "name": "Darryn",
+    "username": "optimus01",
+    "bio": "",
+    "verified": true,
+    "links": "[\"http://onlinethinking.io/community/\"]",
+    "avatar": "https://gravatar.com/avatar/7c20cc4f6cea0480e0e7d58353274476e195d6ec8926a3a6709bb217e7f03713?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-10-23T15:12:58.135Z",
+  "path": "official/template_2488/workflow.json"
+}

@@ -1,0 +1,52 @@
+{
+  "id": 3445,
+  "name": "Convert n8n tags into folders and move workflows",
+  "description": "N8n recently introduced folders and it has been a big improvement on workflow management on top of the tags.\n\nThis means the current workflows need to be moved manually to the folders. \n\nThe simplest idea to try is to convert the current tags into folders and move all the current workflows within the respective tags into the folders\n\nThis assumes the tag name will be used as the folder name.\n\nTo Note\n\nFor workflows that use more than 1 tag, the workflow will be assigned the last tag that runs as the folder. \n\nHow does it work\nI took the liberty of simplifying the setup of this workflow that will be needed on your part and also be beginner-friendly \n\nCopy and paste this workflow into your n8n canvas. You must have existing workflows and tags before you can run this\nSet your n8n login details on the node set Credentials with the n8n URL, username, and password.\nSetup your n8n API credentials on the n8n node get workflows\nRun the workflow. This opens up a form where you can select the number of tags to move and click on submit\nThe workflow responds with the successful number of workflows that were imported \n\n\nRead more about the template\n\nBuilt by Zacharia Kimotho - Imperol",
+  "totalViews": 338,
+  "source": "official",
+  "user": {
+    "id": 91335,
+    "name": "Imperol",
+    "username": "imperolq",
+    "bio": "Automation expert with years of experience helping businesses improve their efficiency and productivity with smart automations that are affordable, scalable, and flexible. ",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/zacharia-kimotho/\"]",
+    "avatar": "https://gravatar.com/avatar/13b050fd63dc0c9242774c4b8769c4788df8b47268c1fb183d6f1da085b9e6e2?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-04-06T08:40:16.391Z",
+  "path": "official/template_3445/workflow.json"
+}

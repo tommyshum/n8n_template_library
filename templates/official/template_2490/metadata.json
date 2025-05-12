@@ -1,0 +1,32 @@
+{
+  "id": 2490,
+  "name": "Build an endpoint to perform CRUD operations with multiple HTTP methods",
+  "description": "This n8n workflow template allows you to create a CRUD endpoint that performs the following actions:\n\nCreate a new record\nGet a record\nGet many records\nUpdate a record\nDelete a record\n\nThis template is connected with Airtable but you can replace the Airtable nodes with anything you need to interact with (e.g. Postgres, MySQL, Notion, Coda...).\n\nThe template uses the n8n Webhook node setting 'Allow Multiple HTTP Methods' to enable multiple HTTP methods on the same node.\n\nFeatures\n\nJust two nodes to create 5 endpoints\nUse it with Airtable or replace the Airtable nodes for your own customization\nAdd your custom logic exploiting all n8n's possibilities\n\nWorkflow Steps\n\nWebhook node**: exposes the endpoints to get many records and create a new record\nWebhook (with ID) node**: exposes the endpoints to get, update, and delete a record. Due to a n8n limitation, this endpoint will have an additional code in the path (e.g. https://my.app.n8n.cloud/webhook/580ccc56-f308-4b64-961d-38323501a170/customers/:id). Keep this in mind when using these endpoints in your application\nVarious Airtable nodes**: execute various specific operations to interact with Airtable records\n\nGetting Started\n\nTo deploy and use this template:\n\nImport the workflow into your n8n workspace\nCustomize the endpoint paths by tweaking the 'Path' parameters in the 'Webhook' and 'Webhook (with ID)' nodes (currently customers)\nSet up your Airtable credentials by following this guide and customize the Airtable nodes by selecting your base, table, and the correct fields to update. ...or... replace the Airtable nodes and connect the endpoint to any other service (e.g. Postgres, MySQL, Notion, Coda)\n\nHow to use the workflow\n\nActivate the workflow\nConnect your app to the endpoints (production URLs) to perform the various operations allowed by the workflow\n\nNote that the Webhook nodes have two URLs, one for testing and one for production. The testing URL is activated when you click on 'Test workflow' button and can't be used for production. The production URL is available after you activate the workflow. More info here.\n\nFeel free to get in touch with me if you have questions about this workflow.\n",
+  "totalViews": 2683,
+  "source": "official",
+  "user": {
+    "id": 91279,
+    "name": "Giulio",
+    "username": "gandreini",
+    "bio": "Product designer at n8n, founder of Mondo surf atlas and forecast",
+    "verified": false,
+    "links": "[\"https://www.linkedin.com/in/giulioandreini/\"]",
+    "avatar": "https://gravatar.com/avatar/8881c112afdb9ed815d053eef68dd3d35629caec4ec9ab505eb57e7279791230?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-10-23T16:32:21.930Z",
+  "path": "official/template_2490/workflow.json"
+}

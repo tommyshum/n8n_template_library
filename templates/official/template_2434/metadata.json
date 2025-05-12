@@ -1,0 +1,116 @@
+{
+  "id": 2434,
+  "name": "Enrich FAQ sections on your website pages at scale with AI",
+  "description": "This n8n workflow template lets you easily generate comprehensive FAQ (Frequently Asked Questions) content for multiple services (or any items or pages you need to add the FAQs to). Simply provide the Google Sheets document containing the items to scrape, and the workflow automatically creates detailed, AI-enhanced FAQ documents.\n\nHow it works\nThe workflow reads data from a Google Sheets document containing information about different services and categories (again, in your case - whatever objects you need).\nFor each service and category, it generates a set of standard questions and answers covering setup, permissions, integrations, use cases, and pricing benefits.\nAn AI model (OpenAI's GPT) is used to enhance or complete some of the answers, making the content more comprehensive and natural-sounding.\nThe workflow formats the Q&A pairs, combining AI-generated content with predefined answers where applicable.\nIt creates a text file (JSON) for each service or category, containing the formatted Q&A pairs.\nThe generated files are saved to specific folders in Google Drive, organized by the type of integration (native, credential-only, non-native) or category.\nAfter processing each service or category, it updates the status in the original Google Sheets document to mark it as completed.\n\nIdeal for:\nMarketing teams: Rapidly create comprehensive FAQ documents for multiple products or services.\nCustomer support: Generate consistent and detailed answers for common customer queries.\nProduct managers: Easily maintain up-to-date documentation as products evolve.\nContent creators: Streamline the process of creating informative content about various offerings.\n\nAccounts required\nGoogle account (for Google Sheets and Google Drive)\nOpenAI API account (for AI-enhanced content generation)\nn8n.io account (for workflow execution)\n\nSet up instructions\nSet up the required credentials for Google Sheets, Google Drive, and OpenAI when you first open the workflow.\nPrepare your Google Sheets document with the service/category information. Here's an example of Google Sheet.\nFill the \"Define Sheets\" node with your sheets\nAdjust the folder IDs in the \"Prepare Job\" node to match your Google Drive structure.\nConfigure the OpenAI model settings in the \"OpenAI Chat Model\" node if needed.\nTest the workflow with a small subset of data before running it on your entire dataset.\nAdjust the questions asked in the \"Create your Q&A templates\" section\nAfter testing, activate your workflow for automated FAQ generation.\n\n🙏 Big, big kudos to Jim Le for his ideas, input and support when building this workflow. Your approach to AI workflows is always super helpful!\n",
+  "totalViews": 7862,
+  "source": "official",
+  "user": {
+    "id": 91994,
+    "name": "Polina Medvedieva",
+    "username": "polina-n8n",
+    "bio": "I do SEO & marketing for n8n and here I share workflows that help with creating content, optimizing on-page SEO and automate SEO processes. ",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/polina-medvedieva-69b947149/\"]",
+    "avatar": "https://gravatar.com/avatar/e8c28438af55553831bad4960d059e4363d390b1d9fd226f4283aad2e335c68c?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Marketing",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Wordpress",
+      "type": "n8n-nodes-base.wordpress",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Strapi",
+      "type": "n8n-nodes-base.strapi",
+      "categories": [
+        "Data & Storage",
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Webflow",
+      "type": "n8n-nodes-base.webflow",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 8,
+  "createdAt": "2024-09-26T16:23:57.370Z",
+  "path": "official/template_2434/workflow.json"
+}

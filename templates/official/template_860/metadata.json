@@ -1,0 +1,32 @@
+{
+  "id": 860,
+  "name": "Discover company data by name with uProc",
+  "description": "Do you want to discover company-related information to enrich a signup process?\n\nThis workflow enriches any company by name using the uProc Get Company by Name tool.\nThis tool combines Google Maps and emails research on the internet to return results. You get no results if the company has no presence on Google Maps. \n\n\n\nYou need to add your credentials (Email and API Key - real -) located at Integration section to n8n.\n\nYou can replace node \"Create Company Item\" with any other supported service returning Company names and countries, like Hubspot, Google Sheets, MySQL, or Typeform.\n\nYou can set up the uProc node with several parameters:\ncountry: the country name you want to use.\nname: the name of the company you need to locate.\n\nEvery \"uProc\" node returns the next fields per every located company:\nname: Contains the company's given name.\nemail: Contains the company's given email.\ncif: Contains company's cif number.\naddress: Contains company's formatted address.\ncity: Contains the city location of the company.\nstate: Contains province location of the company.\ncounty: Contains state location of the company\ncountry: Contains country location of the company\nzipcode: Contains zipcode code of the company\nphone: Contains phone number of the company\nwebsite: Contains website of the company\nlatitude: Contains latitude of the company\nlongitude: Contains longitude of the company\n \nNext, you can save results to a CRM or Google Sheets, and prepare returned email or phone to launch an email or telemarketing campaign.",
+  "totalViews": 493,
+  "source": "official",
+  "user": {
+    "id": 5774,
+    "name": "Miquel Colomer",
+    "username": "mcolomer",
+    "bio": "As a passionate developer and AI agent creator, I’ve been at the forefront of automation, pioneering workflows and training AI to handle complex tasks seamlessly. I’m an early adopter and expert of n8n, having worked with its powerful capabilities to create automation solutions for diverse industries. I founded n8nhackers, the first AI-powered agency focused on n8n, where we help businesses transform their workflows with cutting-edge automation.",
+    "verified": true,
+    "links": "[\"https://n8nhackers.com\"]",
+    "avatar": "https://gravatar.com/avatar/c4974f5be3985d7f30465d2d963967905bcb2f9b8a8ecaf8ba4396bfbd034db2?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "uProc",
+      "type": "n8n-nodes-base.uproc",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2020-12-30T09:35:05.651Z",
+  "path": "official/template_860/workflow.json"
+}

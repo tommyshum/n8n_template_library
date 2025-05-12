@@ -1,0 +1,73 @@
+{
+  "id": 3632,
+  "name": "Build your own SQLite MCP server",
+  "description": "This template is for Self-Hosted N8N Instances only.\n\nThis n8n demonstrates how to build a simple SQLite MCP server to perform local database operations as well as use it for Business Intelligence.\n\nThis MCP example is based off an official MCP reference implementation which can be found here -https://github.com/modelcontextprotocol/servers/tree/main/src/sqlite\n\nHow it works\nA MCP server trigger is used and connected to 5 tools: 2 Code Node and 3 Custom Workflow.\nThe 2 Code Node tools use the SQLLite3 library and are simple read-only queries and as such, the Code Node tool can be simply used.\nThe 3 custom workflow tools are used for select, insert and update queries as these are operations which require a bit more discretion.\nWhilst it may be easier to allow the agent to use raw SQL queries, we may find it a little safer to just allow for the parameters instead. The custom workflow tool allows us to define this restricted schema for tool input which we'll use to construct the SQL statement ourselves.\nAll 3 custom workflow tools trigger the same \"Execute workflow\" trigger in this very template which has a switch to route the operation to the correct handler.\nFinally, we use our Code nodes to handle select, insert and update operations. The responses are then sent back to the the MCP client.\n\nHow to use\nThis SQLite MCP server allows any compatible MCP client to manage a SQLite database by supporting select, create and update operations. You will need to have a SQLite database available before you can use this server.\nConnect your MCP client by following the n8n guidelines here - https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-langchain.mcptrigger/#integrating-with-claude-desktop\nTry the following queries in your MCP client:\n  \"Please create a table to store business insights and add the following...\"\n  \"what business insights do we have on current retail trends?\"\n  \"Who has contributed the most business insights in the past week?\"\n\nRequirements\nSQLite for database.\nMCP Client or Agent for usage such as Claude Desktop - https://claude.ai/download\n\nCustomising this workflow\nIf the scope of schemas or tables is too open, try restrict it so the MCP serves a specific purpose for business operations. eg. Confine the querying and editing to HR only tables before providing access to people in that department.\nRemember to set the MCP server to require credentials before going to production and sharing this MCP server with others!",
+  "totalViews": 537,
+  "source": "official",
+  "user": {
+    "id": 91804,
+    "name": "Jimleuk",
+    "username": "jimleuk",
+    "bio": "Freelance consultant based in the UK specialising in AI-powered automations. I work with select clients tackling their most challenging projects. For business enquiries, send me an email at hello@jimle.uk\n\nLinkedIn: https://www.linkedin.com/in/jimleuk/\nX/Twitter: https://x.com/jimle_uk",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4ab99e51473df76838beeaac908747f7928c625f869794815cabe34016967d51?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Code Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolCode",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-04-21T10:10:32.218Z",
+  "path": "official/template_3632/workflow.json"
+}

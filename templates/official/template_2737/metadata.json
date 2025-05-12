@@ -1,0 +1,134 @@
+{
+  "id": 2737,
+  "name": "Ultimate Content Generator for WordPress",
+  "description": "Overview  \nThis workflow automates the end-to-end process of creating, optimizing, and publishing content on WordPress. \n\nIt integrates AI-powered tools, Airtable, and WordPress plugins to generate high-quality, on-brand posts effortlessly. \n\nPerfect for content creators, marketers, and business owners looking to save time and scale their content strategy.  \n\nFeatures  \n\nContent Creation:  \nAI-Powered Content:** Generates SEO-friendly blog posts with structured headings, relevant keywords, and meta descriptions.  \nCustom Prompts:** Tailor the AI-generated content to match your brand’s tone and voice.  \n\nSEO Optimization:  \nRankMath Plugin Integration:** Updates RankMath SEO with focus keywords and meta descriptions, ensuring your content is search-engine optimized.  \n\nContent Management:  \nAirtable Integration:** Organizes content ideas, drafts, and publishing schedules in one place. Easily scalable for teams or solo creators.  \n\nVisuals:  \nBranded Featured Images:** Automatically generates on-brand images for every post.  \n\nPublishing:  \nEffortless Formatting:** Adapts content to fit your WordPress theme and schedules it for publication.  \n\nWorkflow Steps  \nTrigger:  \n   Initiated manually or on a schedule.  \nContent Management:  \n   Retrieves and organizes ideas from Airtable.  \nContent Generation:  \n   Generates AI-driven blog content tailored to your audience.  \nSEO Optimization:  \n   Automatically updates RankMath with SEO details.  \nFeatured Image Creation:  \n   Produces on-brand images for the post.  \nPublishing:  \n   Formats and schedules the post on WordPress.  \n\nPrerequisites  \n\nAPI Keys:  \nOpenAI  \nAirtable  \nWordPress REST API  \nRankMath SEO Plugin  \n\nCustom Code:  \nAdd a small update to your WordPress theme’s functions.php file to enable seamless automation.  \n\nCustomization  \nReplace Airtable with another content management system if preferred.  \nAdjust AI prompts to reflect different tones, styles, or industries.  \nAdd integrations for additional plugins, analytics, or storage services.  \n\nUsage  \nImport the workflow into your n8n instance.  \nConfigure API credentials for WordPress, Airtable, OpenAI, and RankMath.  \nUpdate your functions.php file with the provided code snippet.  \nCustomize prompts and Airtable structure for your content needs.  \nTrigger the workflow manually or set it on a schedule.  \n\nNotes  \nExperiment with Airtable views or add filters for more granular control over your content pipeline.  \nExtend the workflow to include social media posting or analytics tracking.  \nFor questions, refer to n8n documentation or reach out to the creator.  \n\nTools Used  \nAirtable  \nOpenAI GPT  \nWordPress REST API  \nRankMath SEO Plugin  \n\nFeel free to adapt and extend this workflow to meet your specific needs! 🎉  \n",
+  "totalViews": 4142,
+  "source": "official",
+  "user": {
+    "id": 91693,
+    "name": "Alex Kim",
+    "username": "alexk1919",
+    "bio": "n8n Ambassador & Verified Partner",
+    "verified": true,
+    "links": "[\"https://wot-ai.com\"]",
+    "avatar": "https://gravatar.com/avatar/2b74c7f530e250439f5d752f2623ead4921fbb8aef56343c922b2873ef8a619f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "Marketing",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Wordpress",
+      "type": "n8n-nodes-base.wordpress",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Wikipedia",
+      "type": "@n8n/n8n-nodes-langchain.toolWikipedia",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 8,
+  "createdAt": "2025-01-17T03:25:32.265Z",
+  "path": "official/template_2737/workflow.json"
+}

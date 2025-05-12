@@ -1,0 +1,139 @@
+{
+  "id": 3941,
+  "name": " Build & Sell AI Automations and Agents",
+  "description": "Full Course: Build & Sell AI Automations and Agents\n\n🚀 Unlock the Power of AI Automation and Autonomous Agents!\n\nIn this comprehensive course, you’ll master the art of building powerful AI-driven automations and autonomous agents that not only streamline complex tasks but also open up new revenue streams. Whether you're a developer, entrepreneur, or tech enthusiast, this step-by-step guide will equip you with the skills to create, deploy, and monetize cutting-edge AI solutions.\n\n🔥 What You’ll Learn:\n\nAI Automation Essentials – Understand the core principles of AI automation and how to apply them effectively.\n\nBuild Autonomous Agents – Learn to develop smart agents capable of executing tasks independently.\n\nIntegration with Real-World Applications – Connect your agents with APIs, cloud services, and IoT devices for seamless automation.\n\nMonetization Strategies – Discover how to package and sell your AI solutions to businesses and consumers.\n\nEnd-to-End Deployment – Master cloud deployment, containerization, and scaling for maximum reliability.\n\n🌟 Why This Course?\n\nPractical, Hands-On Projects – Build real-world automations and agents you can deploy immediately.\n\nSales & Marketing Guidance – Learn how to market your AI solutions for maximum profit.\n\nExpert Support & Community Access – Join a thriving community of AI builders and gain direct support.\n\nLifetime Access & Updates – Stay ahead with lifetime access to course materials and future updates.\n\n🎓 Who Should Enroll?\n\nDevelopers looking to enhance their AI and automation skills\n\nEntrepreneurs aiming to build scalable AI products\n\nTech enthusiasts excited to explore automation and agent-based systems\n\nAnyone interested in turning AI projects into profitable products\n\n📦 What’s Included:\n\n6+ Hours of HD Video Tutorials\n\nSource Code and Project Files\n\nMarketing and Sales Blueprint for AI Products\n\nAccess to Exclusive Community\n\nBonus: Deployment Scripts and API Integration Guides\n\n🔗 Join Now and Start Building the Future with AI Automations and Agents!\n\nSpaces are limited—secure your spot and transform your skills into a revenue-generating powerhouse.\n\n",
+  "totalViews": 782,
+  "source": "official",
+  "user": {
+    "id": 94371,
+    "name": "NICKYAI",
+    "username": "nickyai",
+    "bio": "Automation consultant with 5 years experience .",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/28f6a4ace46c9fc230985b3a2cc5d15da301ad74f8f306a3ddda4535014000ae?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "Marketing",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "YouTube",
+      "type": "n8n-nodes-base.youTube",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 8,
+  "createdAt": "2025-05-08T15:13:15.844Z",
+  "path": "official/template_3941/workflow.json"
+}

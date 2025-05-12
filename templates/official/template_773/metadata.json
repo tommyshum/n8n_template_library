@@ -1,0 +1,43 @@
+{
+  "id": 773,
+  "name": "Send daily weather updates via a notification in Line",
+  "description": "",
+  "totalViews": 4615,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Miscellaneous",
+    "Utility",
+    "Communication"
+  ],
+  "nodes": [
+    {
+      "name": "OpenWeatherMap",
+      "type": "n8n-nodes-base.openWeatherMap",
+      "categories": [
+        "Miscellaneous",
+        "Utility"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Line",
+      "type": "n8n-nodes-base.line",
+      "categories": [
+        "Communication"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2020-11-11T13:30:25.386Z",
+  "path": "official/template_773/workflow.json"
+}

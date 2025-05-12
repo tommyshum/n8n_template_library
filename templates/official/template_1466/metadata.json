@@ -1,0 +1,43 @@
+{
+  "id": 1466,
+  "name": "Extract expenses from emails and add to Google Sheets",
+  "description": "This workflow will check a mailbox for new emails and if the Subject contains Expenses or Reciept it will send the attachment to Mindee for processing then it will update a Google sheet with the values.\n\nTo use this node you will need to set the Email Read node to use your mailboxes credentials and configure the Mindee and Google Sheets nodes to use your credentials.",
+  "totalViews": 9963,
+  "source": "official",
+  "user": {
+    "id": 25789,
+    "name": "Jonathan",
+    "username": "jon-n8n",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/5240094f838126182ceefb50ca4a3cf75cc7dc0808efd4b9920d792e41bfc45e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Utility"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Mindee",
+      "type": "n8n-nodes-base.mindee",
+      "categories": [
+        "Utility"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2022-02-17T15:08:01.861Z",
+  "path": "official/template_1466/workflow.json"
+}

@@ -1,0 +1,165 @@
+{
+  "id": 3629,
+  "name": "Ultimate AI Assistant: Automate Email, Calendar, WebSearch, Notion,  RAG & X",
+  "description": "This is an ultimate AI assistant: Handle emails, schedule meetings, search the web, take notes, post to social media, and retrieve information from your knowledge base, all through simple Telegram commands (text, voice, or image). \n\nWhat is included:\n\n1 Ready-to-use n8n workflow file (.json)\n4 Instructional videos demonstrating how to connect n8n with:\n    Google Products (Gmail, Calendar, Sheets)\n    Telegram\n    Pinecone Vector Store\n    Notion\n\nWho is this for?\n\nThis workflow is ideal for:\n\nIndividuals seeking to automate personal and professional tasks.\nProfessionals needing efficient management of emails, calendars, and contacts.\nContent creators or researchers requiring quick information retrieval and drafting capabilities.\nAnyone wanting a centralized AI assistant.\n\nWhat problem is this workflow solving?\n\nManaging numerous digital tasks across different platforms can be time-consuming and fragmented. This workflow consolidates control into Telegram, leveraging AI to understand your needs and automate actions across email, calendar, contacts, web search, note-taking (Notion), social media (X), and your personal knowledge base (Pinecone RAG), saving you time and effort. It ensures tasks are handled correctly using a built-in verification step.\n\nWhat this workflow does:\n\nThis workflow acts as a central AI Agent that:\n\nReceives Input via Telegram: Accepts text messages, voice notes (transcribes them using OpenAI), or images (analyzes them using OpenAI).\nUnderstands Requests: Uses an AI Agent (powered by models like GPT) to interpret the user's instructions.\nOrchestrates Tools: Selects and uses the appropriate tools based on the request:\n    Email (Gmail): Send, read, reply, draft, and label emails.\n    Calendar (Google Calendar): Create, get, update, and delete events, managing attendees if needed.\n    Contacts (Google Sheets): Look up and add contact information.\n    Web Search (Tavily): Search the internet for up-to-date information.\n    Knowledge Retrieval (Pinecone): Query your personal vector database (RAG).\n    Note Taking (Notion): Create notes in a specified Notion database.\n    Social Media (X/Twitter): Post tweets directly to X.\nMaintains Context: Uses Window Buffer Memory to remember recent interactions.\nEnsures Accuracy: Employs a \"Think\" tool to double-check tool usage and task completion.\nResponds via Telegram: Sends the results or confirmation back to the user in the Telegram chat.\n\nSetup:\n\nTelegram: Connect your Telegram bot credentials.\nAI Model: Connect your OpenAI API key.\nEmail: Connect your Gmail account.\nCalendar: Connect your Google Calendar account.\nContacts: Connect your Google Sheets account.\nKnowledge Base (RAG): Connect Pinecone.\nNote Taking: Connect Notion and configure Notion Database.\nWeb Search: Add Tavily API key.\nSocial Media: Connect your X (Twitter) account.\n\n(Refer to the included videos for detailed setup guidance)\n\nHow to customize this workflow:\n\nAI Prompts:** Modify the system messages and prompts within the \"AI Agent\" node.\nAI Models:** Swap out the language model.\nTools:** Add, remove, or replace tool nodes.\n\nCategory:\n\nAutomation, AI Agent, Personal Assistant, Productivity, Task Management, Telegram",
+  "totalViews": 1398,
+  "source": "official",
+  "user": {
+    "id": 92701,
+    "name": "Tianyi",
+    "username": "muzi",
+    "bio": "Ph.D. in Machine Learning from the University of Toulouse.\nExperienced automation consultant specializing in optimizing workflows for Content creation and Marketing teams. ",
+    "verified": true,
+    "links": "[\"www.linkedin.com/in/tianyi-li-v\"]",
+    "avatar": "https://gravatar.com/avatar/43163225998120af2d88664551ec779ceb7518ef30b5a6c27f81649a0fb641d0?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Pinecone Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    },
+    {
+      "name": "Think Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolThink",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 9,
+  "createdAt": "2025-04-21T10:06:33.761Z",
+  "path": "official/template_3629/workflow.json"
+}

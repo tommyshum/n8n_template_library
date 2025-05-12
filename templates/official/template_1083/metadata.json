@@ -1,0 +1,54 @@
+{
+  "id": 1083,
+  "name": "Create an event file and send it as an email attachment",
+  "description": "This workflow allows you to create an event file and send it as an attachment via email.\n\n\n\niCalendar node: This node will create an event file.\n\nSend Email: This node will send the event file as an attachment.",
+  "totalViews": 3599,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Core Nodes",
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "categories": [
+        "Communication",
+        "HITL",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "iCalendar",
+      "type": "n8n-nodes-base.iCal",
+      "categories": [
+        "Core Nodes",
+        "Productivity"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Files"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2021-05-19T15:19:50.905Z",
+  "path": "official/template_1083/workflow.json"
+}

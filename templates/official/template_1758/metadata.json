@@ -1,0 +1,32 @@
+{
+  "id": 1758,
+  "name": "Upload leads with custom fields from Typeform to Pipedrive",
+  "description": "This automated workflow takes a Typeform form, and once it is filled out, it is automatically uploaded as a Lead in Pipedrive.  There is an option for custom fields (this workflow works with company size), and leaves notes in the note section based on questions answered. \n\nPrerequisites\nTypeform account and Typeform credentials and a form for people to fill out\nPipedrive account and Pipedrive credentials\n\nNodes\nTypeform node gets the data after the survey is completed\nSet node extracts data from the Typeform node and keeps only relevant data\nFunction node maps the company size \nPipedrive node populates a pipeline with a deal and adds custom fields\n\n",
+  "totalViews": 864,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Sales"
+  ],
+  "nodes": [
+    {
+      "name": "Pipedrive",
+      "type": "n8n-nodes-base.pipedrive",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2022-08-01T12:10:00.657Z",
+  "path": "official/template_1758/workflow.json"
+}

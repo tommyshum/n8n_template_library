@@ -1,0 +1,98 @@
+{
+  "id": 3682,
+  "name": "Extract & Summarize Yelp Business Review with Bright Data and Google Gemini",
+  "description": "Who this is for?\nExtract & Summarize Yelp Business Review is an automated workflow that extracts the Yelp business reviews using Bright Data Web Unlocker, process and formats the raw data, summarizes using the Google Gemini's LLM, and forward the concise summary with the review respose to a specified webhook endpoint.\n\nThis workflow is tailored for:\n\nLocal SEO Specialists who need structured insights from Yelp reviews to optimize listings.\n\nBusiness Owners wanting quick summaries of what customers love or complain about.\n\nReputation Managers who monitor brand sentiment and identify customer pain points.\n\nData Analysts & Researchers extracting Yelp review patterns at scale.\n\nAI Product Builders needing clean Yelp review data as input for their LLMs or recommender systems.\n\nWhat problem is this workflow solving?\n\nYelp reviews are rich in customer sentiment but messy to work with manually. This workflow solves:\n\nThe pain of scraping Yelp review content manually.\n\nThe challenge of building the structured data with the summary.\n\nThe need for structured outputs suitable for analysis, reports, or AI input.\n\nWhat this workflow does\nThis automated pipeline does the following:\n\nBright Data Integration**: Queries Yelp and scrapes business listing data using Bright Data's Web Unlocker.\n\nStructured Data Formatting**: Formats the Yelp review data to a structured response in JSON format.\n\nGoogle Gemini Summarization**: Sends the cleaned reviews to Google Gemini to:\n\nOutput Delivery**: Returns the structured response with the concise summary over the webhook endpoint.\n\nSetup\nSign up at Bright Data.\nNavigate to Proxies & Scraping and create a new Web Unlocker zone by selecting Web Unlocker API under Scraping Solutions.\nIn n8n, configure the Header Auth account under Credentials (Generic Auth Type: Header Authentication).\n\nThe Value field should be set with the\nBearer XXXXXXXXXXXXXX. The XXXXXXXXXXXXXX should be replaced by the Web Unlocker Token.\nIn n8n, configure the Google Gemini(PaLM) Api account with the Google Gemini API key (or access through Vertex AI or proxy).\nUpdate the Yelp Business Review URL with the Bright Data zone by navigating to the Set Yelp URL with the Bright Data Zone node.\nUpdate the Webhook Notifier for the merged response node with the Webhook endpoint of your choice.\n\nHow to customize this workflow to your needs\n\nThis workflow is built to be flexible - whether you’re a market researcher, entrepreneur, or data analyst. Here's how you can adapt it to fit your specific use case:\n\nTarget Specific Business Categories**\nUpdate the Yelp Business Review input to scrape different businesses like gyms, salons etc.\n\nLimit Reviews**\nAdd filters by description, location, page range to get the top reviews.\n\nTweak the Data Extraction Node**\nUpdate the Structured Data Extractor node Output Parser for building the JSON response with the appropriate fields or attributes.\n\nTweak the Summarization Prompt**\nModify the Gemini prompt to generate a comprehensive summary.\n\nSend Output to Other Destinations**\nReplace the Webhook URL to forward output to:\n\nGoogle Sheets\nAirtable\nSlack or Discord\nCustom API endpoints\n\n\n",
+  "totalViews": 198,
+  "source": "official",
+  "user": {
+    "id": 93657,
+    "name": "Ranjan Dailata",
+    "username": "ranjancse",
+    "bio": "",
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/7b74fe44a7ad32db7c783b972deb5848a4b1f043377bce4039737ed66da8305f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Summarization Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainSummarization",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-04-24T00:20:49.982Z",
+  "path": "official/template_3682/workflow.json"
+}

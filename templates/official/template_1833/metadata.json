@@ -1,0 +1,43 @@
+{
+  "id": 1833,
+  "name": "Sync Zendesk tickets with subsequent comments to Jira issues",
+  "description": "This workflow creates a Jira issue when a new ticket is created in Zendesk. Subsequent comments on the ticket in Zendesk are added as comments to the issue in Jira.\n\nPrerequisites\n\nZendesk account and Zendesk credentials.\nJira account and Jira credentials.\nJira project to create issues in.\n\nHow it works\n\nThe workflow listens for new tickets in Zendesk.\nWhen a new ticket is created, the workflow creates a new issue in Jira.\nThe Jira issue key is then saved in one of the ticket's fields (in setup we call this \"Jira Issue Key\").\nThe next time a comment is added to the ticket, the workflow retrieves the Jira issue key from the ticket's field and adds the comment to the issue in Jira.\n\nSetup\n\nThis workflow requires that you set up a webhook in Zendesk. To do so, follow the steps below:\n\nIn the workflow, open the On new Zendesk ticket node and copy the webhook URL.\nIn Zendesk, navigate to Admin Center &gt; Apps and integrations &gt; Webhooks &gt; Actions &gt; Create Webhook.\nAdd all the required details which can be retrieved from the On new Zendesk ticket node. The webhook URL gets added to the “Endpoint URL” field, and the “Request method” should match what is shown in n8n.\nSave the webhook.\nIn Zendesk, navigate to Admin Center &gt; Objects and rules &gt; Business rules &gt; Triggers &gt; Add trigger.\nGive the trigger a name such as “New tickets”.\nUnder “Conditions” in “Meet ALL of the following conditions”, add “Status is New”.\nUnder “Actions”, select “Notify active webhook” and select the webhook you created previously.\nIn the JSON body, add the following:\n    \n        {\n    \t\"id\": \"{{ticket.id}}\",\n    \t\"comment\": \"{{ticket.latest_comment_html}}\"\n    }\n        \nSave the Zendesk trigger.\n\nYou will also need to set up a field in Zendesk to store the Jira issue key. To do so, follow the steps below:\n\nIn Zendesk, navigate to Admin Center &gt; Objects and rules &gt; Tickets &gt; Fields &gt; Add field.\nUse the text field option and give the field a name such as “Jira Issue Key\".\nSave the field.\nIn n8n, open the Update ticket node and select the field you created in Zendesk.",
+  "totalViews": 1142,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Productivity",
+    "Communication"
+  ],
+  "nodes": [
+    {
+      "name": "Jira Software",
+      "type": "n8n-nodes-base.jira",
+      "categories": [
+        "Development",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Zendesk",
+      "type": "n8n-nodes-base.zendesk",
+      "categories": [
+        "Communication"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2022-12-02T10:59:40.648Z",
+  "path": "official/template_1833/workflow.json"
+}

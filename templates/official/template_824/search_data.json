@@ -1,0 +1,61 @@
+{
+  "id": 824,
+  "name": "Create a table, and insert and update data in the table in Snowflake",
+  "totalViews": 871,
+  "purchaseUrl": null,
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "description": "",
+  "createdAt": "2020-12-14T07:08:20.253Z",
+  "nodes": [
+    {
+      "id": 422,
+      "icon": "file:snowflake.svg",
+      "name": "n8n-nodes-base.snowflake",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.snowflake/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/snowflake/"
+              }
+            ]
+          },
+          "categories": [
+            "Data & Storage"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "Snowflake"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiB2aWV3Qm94PSIwIDAgNjMgNjYiPjx1c2UgeGxpbms6aHJlZj0iI2EiIHg9Ii41IiB5PSIuNSIvPjxzeW1ib2wgaWQ9ImEiIG92ZXJmbG93PSJ2aXNpYmxlIj48cGF0aCBmaWxsPSIjMjliNWU4IiBmaWxsLXJ1bGU9Im5vbnplcm8iIHN0cm9rZT0ibm9uZSIgZD0ibTguNjQ1IDE1LjMwNCAxMy4wMDggNy44YTMuNzIgMy43MiAwIDAgMCA0LjU4OS0uNjAxIDQgNCAwIDAgMCAxLjIyNy0yLjkwOFYzLjk2MmEzLjgxIDMuODEgMCAwIDAtMS44NjEtMy40MiAzLjgxIDMuODEgMCAwIDAtMy44OTMgMCAzLjgxIDMuODEgMCAwIDAtMS44NjEgMy40MnY4Ljg5NmwtNy4zODctNC40M2EzLjggMy44IDAgMCAwLTIuOTIyLS40IDMuNyAzLjcgMCAwIDAtMi4zIDEuODQ0IDQuMDUgNC4wNSAwIDAgMCAxLjQgNS40MjJtMzEuMjcgNy44IDEzLjAwOC03LjhhNC4wNTYgNC4wNTYgMCAwIDAgMS40LTUuNDI0IDMuNzUgMy43NSAwIDAgMC01LjIyLTEuNDUybC03LjMgNC4zN3YtOC44NEEzLjgxIDMuODEgMCAwIDAgMzkuOTQuNTM0YTMuODEgMy44MSAwIDAgMC0zLjg4OSAwIDMuODEgMy44MSAwIDAgMC0xLjg2MyAzLjQxNHYxNS4zMjNhNC4xIDQuMSAwIDAgMCAuNDk0IDIuMzY3IDMuNzUgMy43NSAwIDAgMCAyLjMgMS44NDQgMy43IDMuNyAwIDAgMCAyLjkyMi0uNG0tMTEuNTY3IDguODk0Yy4wMTMtLjI1LjEwOC0uNS4yNzItLjY4bDEuNTItMS41OGExLjA2IDEuMDYgMCAwIDEgLjY1OC0uMjgyaC4wNTdhMS4wNSAxLjA1IDAgMCAxIC42NTYuMjgybDEuNTIgMS41OGExLjEyIDEuMTIgMCAwIDEgLjI3Mi42ODF2LjA2YTEuMTMgMS4xMyAwIDAgMS0uMjcyLjY4M0wzMS41IDM0LjNhMS4wNCAxLjA0IDAgMCAxLS42NTYuMjg0aC0uMDU3YTEuMDQgMS4wNCAwIDAgMS0uNjU4LS4yODRsLTEuNTItMS41OGExLjEzIDEuMTMgMCAwIDEtLjI3Mi0uNjgzem0tNC42MDQtLjY1djEuMzY0YTEuNTQgMS41NCAwIDAgMCAuMzcyLjkzbDUuMTYgNS4zNTdhMS40MiAxLjQyIDAgMCAwIC44OTUuMzg2aDEuMzEyYTEuNDIgMS40MiAwIDAgMCAuODk1LS4zODZsNS4xNi01LjM1N2ExLjU0IDEuNTQgMCAwIDAgLjM3Mi0uOTN2LTEuMzY0YTEuNTQgMS41NCAwIDAgMC0uMzcyLS45M2wtNS4xNi01LjM1N2ExLjQyIDEuNDIgMCAwIDAtLjg5NS0uMzg2SDMwLjE2YTEuNDIgMS40MiAwIDAgMC0uODk1LjM4NmwtNS4xNiA1LjM2N2ExLjU1IDEuNTUgMCAwIDAtLjM3Mi45M20tMjEuODE4LTMuNzEgNy4zNjUgNC40MTctNy4zNjUgNC40MTNBNC4wNiA0LjA2IDAgMCAwIC41MTYgNDEuODhhMy43NSAzLjc1IDAgMCAwIDIuMyAxLjg0NCAzLjc1IDMuNzUgMCAwIDAgMi45MjItLjM5MmwxMy4wMDgtNy44YTQuMTEgNC4xMSAwIDAgMCAxLjktMy40OTIgNC4xNiA0LjE2IDAgMCAwLTEuOS0zLjQ5MmwtMTMuMDA4LTcuOGEzLjggMy44IDAgMCAwLTIuOTIyLS40IDMuNyAzLjcgMCAwIDAtMi4zIDEuODQ0IDQuMDUzIDQuMDUzIDAgMCAwIDEuNCA1LjQyMm0zOC45OTUgNC40NDJhNCA0IDAgMCAwIDEuOTEgMy40NzdsMTMgNy44YTMuNzQ1IDMuNzQ1IDAgMCAwIDUuMjItMS40NTEgNC4wNSA0LjA1IDAgMCAwLTEuNC01LjQyNGwtNy4zNTYtNC40MTQgNy4zNjUtNC40MTdhNC4wNTQgNC4wNTQgMCAwIDAgMS40LTUuNDIyIDMuNzQgMy43NCAwIDAgMC0yLjMtMS44NDQgMy43IDMuNyAwIDAgMC0yLjkyLjRsLTEzIDcuOGE0IDQgMCAwIDAtMS45MSAzLjUwN20tMTYuNjU1IDguNDQ2YTMuNyAzLjcgMCAwIDAtMi42MTEuNDY0bC0xMy4wMDggNy44YTQuMDU1IDQuMDU1IDAgMCAwLTEuNCA1LjQyMiAzLjc0IDMuNzQgMCAwIDAgMi4zIDEuODQzIDMuNzUgMy43NSAwIDAgMCAyLjkyMi0uMzkybDcuMzg3LTQuNDN2OC44M2EzLjgxIDMuODEgMCAwIDAgNS43NTUgMy40MjUgMy44MSAzLjgxIDAgMCAwIDEuODU4LTMuNDI1VjQ0LjQwNmEzLjkxIDMuOTEgMCAwIDAtMy4yMDUtMy45MDNtMjguNjYgOC4yNzYtMTMuMDA4LTcuOGEzLjc1IDMuNzUgMCAwIDAtMi45MjItLjM5MiAzLjc0IDMuNzQgMCAwIDAtMi4zIDEuODQzIDQuMSA0LjEgMCAwIDAtLjQ5NCAyLjM3djE1LjI1YTMuODEgMy44MSAwIDAgMCA1Ljc1NSAzLjQyNSAzLjgxIDMuODEgMCAwIDAgMS44NTktMy40MjV2LTguNzY0bDcuMjg3IDQuMzdhMy44IDMuOCAwIDAgMCAyLjkyMi40IDMuNyAzLjcgMCAwIDAgMi4zLTEuODQ0YzEuMDU3LTEuOS40NC00LjI4LTEuNC01LjQyMiIvPjwvc3ltYm9sPjwvc3ZnPg=="
+      },
+      "displayName": "Snowflake",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 3,
+          "name": "Data & Storage"
+        }
+      ]
+    }
+  ]
+}

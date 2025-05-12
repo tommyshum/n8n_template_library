@@ -1,0 +1,128 @@
+{
+  "id": 3633,
+  "name": "Automated AI Product Photography and Instagram Post Generator (Deepseek/Segmind)",
+  "description": "Automatically generate professional-grade product photography and ready-to-use Instagram posts using the power of AI, delivered straight to your Telegram for approval.\n\nSetup is incredibly simple: All you need is your product image URL and a API key from Segmind.\n\nWho is this for?\n\nThis template is ideal for:\n\nE-commerce store owners** looking to create high-quality product visuals affordably (The estimated cost is approximately $0.10 per product photography and accompanying Instagram post).\nDropshippers** needing unique product images to stand out.\nSocial Media Managers & Marketers** seeking to automate content creation for platforms like Instagram.\nSmall Businesses** wanting professional marketing assets without the high cost or effort.\nAnyone needing consistent, eye-catching product photos and social media captions on a regular schedule.\n\nWhat problem is this workflow solving?\n\nCreating professional product images is often expensive and time-consuming, requiring photographers, studios, and editing time. Consistently generating fresh and engaging social media content, especially for visual platforms like Instagram, adds another layer of complexity and effort. This workflow eliminates these bottlenecks by automating both high-quality image generation and relevant caption creation, freeing up your time and budget.\n\nWhat this workflow does:\n\nThis n8n workflow automates the entire process on a schedule you define (e.g., every hour, every day):\n\nScheduled Start: Triggers automatically based on your chosen time interval (e.g., every hour).\nProduct Analysis: Takes your input product image URL and uses AI (GPT) to understand the product details.\nAI Prompt Generation: Based on the product analysis and your preference (whether to include a human model or not), it uses AI (Deepseek) to craft a sophisticated prompt specifically for generating professional product photography via Segmind.\nInstagram Post Creation: Simultaneously, the AI (Deepseek) generates an engaging Instagram post caption, complete with relevant hashtags, tailored to your product.\nAI Image Generation: Sends the product image, the generated prompt, and product details to the Segmind API to create a brand new, studio-quality product photograph.\nTelegram Validation: Downloads the newly generated product photo and sends both the photo and the generated Instagram post text directly to your specified Telegram chat. This allows you to quickly review and approve the content before using it.\n\nSetup: Get Running in Minutes!\n\nThis workflow is designed for maximum ease of setup:\n\nGet Segmind API Key: Sign up or log in to Segmind and grab your API key here: https://cloud.segmind.com/console/api-keys\nEnter API Key: In the n8n workflow, click on the SegmindAPIKey node and paste your copied API key into the Value field.\nEnter Product Image URL: Click the InputYourImageURL node and paste the web address (URL) of your product image into the Value field.\n(Optional) Human Model Preference: Click the ImageInstruction node. Set the HumanModel value to true if you want a human model potentially included in the photo, or false if you want the product showcased alone or in a setting.\nSet Your Schedule: Click the Schedule Trigger node. Define how often you want the workflow to run (e.g., under Interval, set 1 and select Hours from the dropdown for hourly runs).\nConfigure Telegram: Make sure you have a Telegram Bot credential configured in n8n. Then, in the SendProductPhotography and SendInstagramPost nodes, enter the correct Chat ID for where you want to receive the validation messages. [A video guidance is made to help you with telegram setup]\nActivate Workflow: Toggle the workflow to \"Active\" in the top right corner of n8n.\n\nThat's it! The workflow will now automatically generate and send product photos and Instagram posts to your Telegram at your defined interval.\n\nHow to customize this workflow:\n\nWhile the default setup works great, you can easily tweak it:\n\nPhotography Style:** Modify the main prompt within the AI Agent1 node to guide the AI towards a specific aesthetic (e.g., \"minimalist background,\" \"bright natural lighting,\" \"dark moody atmosphere\").\nInstagram Post Tone:** Adjust the instructions within the AI Agent1 node to change the style or focus of the generated Instagram captions.\nSchedule:** Change the trigger interval in the Schedule Trigger node anytime.\nAI Models:** Experiment by changing the selected models in the OpenAI, OpenAI Chat Model1 (Deepseek).\n\nCategory:\n\nMarketing, Social Media, E-commerce, Automation, AI, Content Creation, Product Photography",
+  "totalViews": 453,
+  "source": "official",
+  "user": {
+    "id": 92701,
+    "name": "Tianyi",
+    "username": "muzi",
+    "bio": "Ph.D. in Machine Learning from the University of Toulouse.\nExperienced automation consultant specializing in optimizing workflows for Content creation and Marketing teams. ",
+    "verified": true,
+    "links": "[\"www.linkedin.com/in/tianyi-li-v\"]",
+    "avatar": "https://gravatar.com/avatar/43163225998120af2d88664551ec779ceb7518ef30b5a6c27f81649a0fb641d0?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-04-21T10:10:43.292Z",
+  "path": "official/template_3633/workflow.json"
+}

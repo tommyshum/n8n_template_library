@@ -1,0 +1,40 @@
+{
+  "id": 2642,
+  "name": "Analyze tradingview.com charts with Chrome extension, N8N and OpenAI",
+  "description": "This flow is supported by a Chrome plugin created with Cursor AI.\n\nThe idea was to create a Chrome plugin and a backend service in N8N to do chart analytics with OpenAI. It's a good sample on how to submit a screenshot from the browser to N8N.\n\nWho is it for?\nN8N developers who want to learn about using a Chrome plugin, an N8N webhook and OpenAI.\n\nWhat opportunity does it present?\nThis sample opens up a whole range of N8N connected Chrome extensions that can analyze screenshots by using OpenAI.\n\nWhat this workflow does?\nThe workflow contains:\n\na webhook trigger\nan OpenAI node with GPT-4O-MINI and Analyze Image selected\na response node to send back the Text that was created after analysing the screenshot.\n\n\n\n\nAll this is needed to talk to the Chrome extension which is created with Cursor AI.\n\nThe idea is to visit the tradingview.com crypto charts, click the Chrome plugin and get back analytics about the shown chart in understandable language. This is driven by the N8N flow.\n\nWith the new image analytics capabilities of OpenAI this opens up a world of opportunities.\n\nRequirements/setup\n\nOpenAI API key\nCursor AI installed\nThe Chrome extension. Download\nThe N8N JSON code. Download\n\nHow to customize it to your needs?\nBoth the Chrome extension and N8N flow can be adapted to use on other websites. You can consider:\n\nanalyzing a financial screen and ask questions about the data shown\nanalyzing other charts\nextending the N8N workflow with other AI nodes\n\nWith AI and image analytics the sky is the limit and in some cases it saves you from creating complex API integrations.\n\nDownload Chrome extension\n\n\n\n",
+  "totalViews": 26244,
+  "source": "official",
+  "user": {
+    "id": 91488,
+    "name": "Hans Blaauw",
+    "username": "thingsio",
+    "bio": "Intelligent Automation export in the Netherlands. Over 25 years experience in IT and 5+ years experience in workflow automation with N8N, Zapier and Make.com",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/75f9b1e2ecae02776012dc68bee99c4e2e23d6f4ffab185151ffa6f233dfce02?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-12-16T10:08:04.476Z",
+  "path": "official/template_2642/workflow.json"
+}

@@ -1,0 +1,38 @@
+{
+  "id": 2046,
+  "name": "KV - Cloudflare Key-Value Database Full API Integration Workflow",
+  "description": "\n\nThis n8n template provides a comprehensive solution for managing Key-Value (KV) pairs using Cloudflare's KV storage. It's designed to simplify the interaction with Cloudflare's KV storage APIs, enabling users to perform a range of actions like creating, reading, updating, and deleting namespaces and KV pairs.\n\nFeatures\n\nEfficient Management**: Handle multiple KV operations seamlessly.\nUser-Friendly**: Easy to use with pre-configured Cloudflare API credentials within n8n.\nCustomizable**: Flexible for integration into larger workflows (Copy / paste your prefered part).\n\nPrerequisites\n\nn8n workflow automation tool (version 1.19.0 or later).\nA Cloudflare account with access to KV storage.\nPre-configured Cloudflare API credentials in n8n.\n\nWorkflow Overview\n\nThis workflow is divided into three main sections for ease of use:\n\nSingle Actions: Perform individual operations on KV pairs.\nBulk Actions: Handle multiple KV pairs simultaneously.\nSpecific Actions: Execute specific tasks like renaming namespaces.\n\nKey Components\n\nManual Trigger**: Initiates the workflow.\nAccount Path Node**: Sets the path for account details, a prerequisite for all actions.\nHTTP Request Nodes**: Facilitate interaction with Cloudflare's API for various operations.\nSticky Notes**: Provide quick documentation links and brief descriptions of each node's function.\n\nUsage\n\nSetup Account Path: Input your Cloudflare account details in the 'Account Path' node. you can get your account path by your cloudflare URL\n\nChoose an Action: Select the desired operation from the workflow.\nConfigure Nodes: Adjust parameters in the HTTP request nodes as needed. (each node contain sticky note with direct link to it own document page)\nExecute Workflow: Trigger the workflow manually to perform the selected operations.\nDetailed Node Descriptions\nI covered in this Workflow the full api calls of Cloudflare KV product. \n\nAPI NODE: Delete KV\n\nType**: HTTP Request\nFunction**: Deletes a specified KV pair within a namespace.\nConfiguration**: This node requires the namespace ID and KV pair name. It automatically fetches these details from preceding nodes, specifically from the \"List KV-NMs\" and \"Set KV-NM Name\" nodes.\nDocumentation**: Delete KV Pair API\n\nAPI NODE: Create KV-NM\n\nType**: HTTP Request\nFunction**: Creates a new Key-Value Namespace.\nConfiguration**: Users need to input the title for the new namespace. This node uses the account information provided by the \"Account Path\" node.\nDocumentation**: Create Namespace API\n\nAPI NODE: Delete KV1\n\nType**: HTTP Request\nFunction**: Renames an existing Key-Value Namespace.\nConfiguration**: Requires the old namespace name and the new desired name. It retrieves these details from the \"KV to Rename\" and \"List KV-NMs\" nodes.\nDocumentation**: Rename Namespace API\n\nAPI NODE: Write KVs inside NM\n\nType**: HTTP Request\nFunction**: Writes multiple Key-Value pairs inside a specified namespace.\nConfiguration**: This node needs a JSON array of key-value pairs along with their namespace identifier. It fetches the namespace ID from the \"List KV-NMs\" node.\nDocumentation**: Write Multiple KV Pairs API\n\nAPI NODE: Read Value Of KV In NM\n\nType**: HTTP Request\nFunction**: Reads the value of a specific Key-Value pair in a namespace.\nConfiguration**: Requires the Key's name and Namespace ID, which are obtained from the \"Set KV-NM Name\" and \"List KV-NMs\" nodes.\nDocumentation**: Read KV Pair API\n\nAPI NODE: Read MD from Key\n\nType**: HTTP Request\nFunction**: Reads the metadata of a specific Key in a namespace.\nConfiguration**: Similar to the \"Read Value Of KV In NM\" node, it needs the Key's name and Namespace ID, which are obtained from the \"Set KV-NM Name\" and \"List KV-NMs\" nodes.\nDocumentation**: Read Metadata API\n\n&gt; The rest can be found inside the workflow with sticky/onflow note explain what to do.\n\nBest Practices\n\nModular Use**: Extract specific parts of the workflow for isolated tasks.\nValidation**: Ensure correct namespace and KV pair names before execution.\nSecurity**: Regularly update your Cloudflare API credentials for secure access, and make sure to give your API only access to the KV.\n\nKeywords: Cloudflare KV, n8n workflow automation, API integration, key-value storage management.",
+  "totalViews": 1061,
+  "source": "official",
+  "user": {
+    "id": 91304,
+    "name": "Nskha",
+    "username": "nskha",
+    "bio": "Welcome to Nskha! We're all about making real changes in the no-code tech field, just like with N8N 😉. Check out our amazing collection of free public templates and join us in building a collaborative database of no-code idea projects. Let's revolutionize the way we create without code!",
+    "verified": true,
+    "links": "[\"https://nskha.com\"]",
+    "avatar": "https://gravatar.com/avatar/6f99957ae9e5a66cf0bb95f4584cf321b0644a0ceea6a633bc968b6ec55e8410?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-01-12T15:35:50.020Z",
+  "path": "official/template_2046/workflow.json"
+}

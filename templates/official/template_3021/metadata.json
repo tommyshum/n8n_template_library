@@ -1,0 +1,47 @@
+{
+  "id": 3021,
+  "name": "Get GitHub Issue Updates and Send Notifications to Telegram",
+  "description": "Who is this for?  \nThis workflow is ideal for:  \nDevelopers** who want to stay updated on issues without constantly checking GitHub.\nManagers** tracking issue progress in a Telegram group.   \n DevOps teams that need automated notification alerts for new or updated issues.\n\nWhat problem does this workflow solve?  \nKeeping track of GitHub issues manually can be tedious. Teams often miss critical updates because notifications are buried in emails or dashboards. This workflow automates the process by fetching new or open GitHub issues and instantly sending notifications to a specified Telegram chat.  \n\nWhat this workflow does  \nThis workflow connects GitHub and Telegram to provide real-time issue notifications:  \nFetch GitHub Issues – Retrieves new or open issues from a selected GitHub repository.  \nFormat the Issue Details – Extracts key information like issue title, number, status, and URL.  \nSend to Telegram – Posts the formatted issue details to a Telegram group or private chat.  \n\nSetup Guide  \n\nPrerequisites  \nBefore setting up the workflow, ensure you have:  \nGitHub Personal Access Token**: Required to fetch issue details. Generate it under Developer Settings with repo or public_repo permissions.  \nTelegram Bot Token**: Create a bot via BotFather on Telegram and obtain the token.  \nTelegram Chat ID**: Find the chat ID where the bot should send messages using this method.  \n\nStep-by-Step Setup  \n\nSet Up GitHub Node  \n   Authenticate using your GitHub token.  \n   Choose the repository you want to track.  \n   Configure filters (e.g., fetch only open issues).  \n\nFormat Issue Details  \n   Extract key details like title, issue number, assignee, and status.  \n   Customize the message structure for better readability.  \n\nSend Message to Telegram  \n   Add the Telegram node and enter your bot token.  \n   Use the Chat ID to define the recipient.  \n   Format the message to include issue details and links.  \n\nSchedule the Workflow (Optional)  \n   Use the Cron node to run this workflow periodically (e.g., every hour).  \n\nHow to Customize This Workflow  \nFilter Issues by Labels**: Modify the GitHub node to fetch only issues with specific labels.  \nInclude Additional Fields**: Add issue comments, priority, or assignee details in the message.  \nSend Alerts Based on Priority**: Use conditional logic to send high-priority issues to a different chat.  \nTrigger on Issue Events**: Instead of fetching periodically, use GitHub webhooks (if permitted in the repo) to trigger the workflow on issue creation or updates.  \n\nWhy Use This Workflow?  \nAutomates GitHub issue tracking** without manually checking repositories.  \nInstant notifications in Telegram** ensure quick response times.  \nFully customizable** to fit different team workflows.  \n",
+  "totalViews": 1314,
+  "source": "official",
+  "user": {
+    "id": 92931,
+    "name": "Prakash",
+    "username": "prakashbask",
+    "bio": "",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/a95ec041d8d07b0f2b1ca5aaeddb2cf14b3a853f429a8a0e12035ef9252f868d?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "GitHub",
+      "type": "n8n-nodes-base.github",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-02-26T09:43:30.005Z",
+  "path": "official/template_3021/workflow.json"
+}

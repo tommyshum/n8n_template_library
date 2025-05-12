@@ -1,0 +1,67 @@
+{
+  "id": 2584,
+  "name": "Telegram AI Bot: NeurochainAI Text & Image - NeurochainAI Basic API Integration",
+  "description": "This template provides a workflow to integrate a Telegram bot with NeurochainAI's inference capabilities, supporting both text processing and image generation. Follow these steps to get started:\n\n&gt; Purpose: Enables seamless integration between your Telegram bot and NeurochainAI for advanced AI-driven text and image tasks.\n\nRequirements\nTelegram Bot Token.\nNeurochainAI API Key.\nSufficient credits to utilize NeurochainAI services.\n\nFeatures\nText processing through NeurochainAI's inference engine.\nAI-powered image generation (Flux).\nEasy customization and scalability for your use case.\n\nSetup\nImport the template into N8N.\nAdd your Telegram Bot Token and NeurochainAI API Key where prompted.\nFollow the step-by-step instructions embedded in the template for configuration.\n\n[NeurochainAI Website](https://www.neurochain.ai/\n)\nNeurochainAI Guides\n",
+  "totalViews": 1498,
+  "source": "official",
+  "user": {
+    "id": 92204,
+    "name": "NeurochainAI",
+    "username": "neurochainai",
+    "bio": "",
+    "verified": false,
+    "links": "[\"https://neurochain.ai\"]",
+    "avatar": "https://gravatar.com/avatar/ee6c1abfac611b02cf45f2b5821110e4ce90af0e292e223b23b5104392907550?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-11-28T14:46:40.622Z",
+  "path": "official/template_2584/workflow.json"
+}

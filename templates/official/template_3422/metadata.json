@@ -1,0 +1,88 @@
+{
+  "id": 3422,
+  "name": "Get Live Crypto Market Data with AI-Powered CoinMarketCap Agent",
+  "description": "Access real-time cryptocurrency prices, market rankings, metadata, and global stats—powered by GPT-4o and CoinMarketCap!  \nThis modular AI-powered agent is part of a broader CoinMarketCap multi-agent system designed for crypto analysts, traders, and developers. It uses the CoinMarketCap API and intelligently routes queries to the correct tool using AI.\n\nThis agent can be used standalone or triggered by a supervisor AI agent for multi-agent orchestration.\n\nSupported API Tools (6 Total)  \nThis agent intelligently selects from the following tools to answer your crypto-related questions:\n\n🔍 Tool Summary  \nCrypto Map – Lookup CoinMarketCap IDs and active coins  \nCrypto Info – Get metadata, whitepapers, and social links  \nCrypto Listings – Ranked coins by market cap  \nCoinMarketCap Price – Live prices, volume, and supply  \nGlobal Metrics – Total market cap, BTC dominance  \nPrice Conversion – Convert between crypto and fiat\n\nWhat You Can Do with This Agent  \n🔹 Get live prices and volume for tokens (e.g., BTC, ETH, SOL)  \n🔹 Convert crypto → fiat or fiat → crypto instantly  \n🔹 Retrieve whitepapers, logos, and website links for any token  \n🔹 Analyze total market cap, BTC dominance, and circulating supply  \n🔹 Discover new tokens and track their CoinMarketCap IDs  \n🔹 View the top 100 coins ranked by market cap or volume  \n\nExample Queries  \n✅ \"What is the CoinMarketCap ID for PEPE?\"  \n✅ \"Show me the top 10 cryptocurrencies by market cap.\"  \n✅ \"Convert 5 ETH to USD.\"  \n✅ \"What’s the 24h volume for ADA?\"  \n✅ \"Get the global market cap and BTC dominance.\"  \n\nAI Architecture  \nAI Brain**: GPT-4o-mini  \nMemory**: Session buffer with sessionId  \nAgent Type**: Subworkflow AI tool  \nConnected APIs**: 6 CoinMarketCap endpoints  \nTrigger Mode**: Executes when called by a supervisor (via message and sessionId inputs)\n\nSetup Instructions  \nGet a CoinMarketCap API Key  \n   Register here: https://coinmarketcap.com/api/  \nConfigure Credentials in n8n  \n   Use HTTP Header Auth with your API key for each connected endpoint  \nConnect This Agent to a Supervisor Workflow (Optional)  \n   Trigger this agent using Execute Workflow with inputs message and sessionId  \nTest Prompts  \n   Try asking: “Convert 1000 DOGE to BTC” or “Top 5 coins in EUR”\n\nIncluded Sticky Notes  \n\nCrypto Agent Guide – Agent overview, node map, and endpoint details  \n\nUsage Instructions – Step-by-step usage and sample prompts  \n\nError Handling & Licensing – Troubleshooting and IP rights\n\n✅ Final Notes  \nThis agent is part of the CoinMarketCap AI Analyst System, which includes multiple specialized agents for cryptocurrencies, exchanges, community data, and DEX insights. Visit my Creator profile to find the full suite of tools.\n\nGet smarter about crypto—analyze the market in real time with AI and CoinMarketCap.  \n\n",
+  "totalViews": 3870,
+  "source": "official",
+  "user": {
+    "id": 93152,
+    "name": "Don Jayamaha Jr",
+    "username": "don-the-gem-dealer",
+    "bio": "With 12 years of experience as a Blockchain Strategist and Web3 Architect, I specialize in bridging the gap between traditional industries and decentralized technologies. My expertise spans tokenized assets, crypto payment integrations, and blockchain-driven market solutions.",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/donjayamahajr/\"]",
+    "avatar": "https://gravatar.com/avatar/95f70084b3fec5ed68a61eef6dc6128dfb085d865a02ed631d0853d2730696bf?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-04-03T13:26:21.792Z",
+  "path": "official/template_3422/workflow.json"
+}

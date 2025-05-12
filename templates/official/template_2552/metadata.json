@@ -1,0 +1,82 @@
+{
+  "id": 2552,
+  "name": "AI Powered Web Scraping with Jina, Google Sheets and OpenAI : the EASY way",
+  "description": "Purpose of workflow:\nThe purpose of this workflow is to automate  scraping of a website, transforming it into a structured format, and loading it directly into a Google Sheets spreadsheet. \n\nHow it works:\n\nWeb Scraping: Uses the Jina AI service to scrape website data and convert it into LLM-friendly text.\nInformation Extraction: Employs an AI node to extract specific book details (title, price, availability, image URL, product URL) from the scraped data.\nData Splitting: Splits the extracted information into individual book entries.\nGoogle Sheets Integration: Automatically populates a Google Sheets spreadsheet with the structured book data.\n\nStep by step setup:\n\nSet up Jina AI service:\n   Sign up for a Jina AI account and obtain an API key.\n\n\nConfigure the HTTP Request node:\n   Enter the Jina AI URL with the target website.\n   Add the API key to the request headers for authentication.\n\nSet up the Information Extractor node:\n   Use Claude AI to generate a JSON schema for data extraction.\n   Upload a screenshot of the target website to Claude AI.\n   Ask Claude AI to suggest a JSON schema for extracting required information.\n   Copy the generated schema into the Information Extractor node.\n\nConfigure the Split node:\n   Set it up to separate the extracted data into individual book entries.\n\nSet up the Google Sheets node:\n   Create a Google Sheets spreadsheet with columns for title, price, availability, image URL, and product URL.\n   Configure the node to map the extracted data to the appropriate columns.\n",
+  "totalViews": 38070,
+  "source": "official",
+  "user": {
+    "id": 91384,
+    "name": "Derek Cheung",
+    "username": "derekcheungsa",
+    "bio": "Derek is an engineer, instructor, and investor based in Canada. He is publicly building AI applications to solve real-world problems, leveraging his technical expertise to develop practical solutions.",
+    "verified": true,
+    "links": "[\"https://www.youtube.com/@derekcheungsa\"]",
+    "avatar": "https://gravatar.com/avatar/1d8dbb30401a76425734d4319abbaa38548b7572064ca080740bbfe60324772a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Information Extractor",
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2024-11-17T03:48:20.277Z",
+  "path": "official/template_2552/workflow.json"
+}

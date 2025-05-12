@@ -1,0 +1,97 @@
+{
+  "id": 3711,
+  "name": "Compare Different LLM Responses Side-by-Side with Google Sheets",
+  "description": "This workflow allows you to easily evaluate and compare the outputs of two language models (LLMs) before choosing one for production.\n\nIn the chat interface, both model outputs are shown side by side. Their responses are also logged into a Google Sheet, where they can be evaluated manually or automatically using a more advanced model.\n\nUse Case\nYou're developing an AI agent, and since LLMs are non-deterministic, you want to determine which one performs best for your specific use case. This template is designed to help you compare them effectively.\n\nHow It Works\nThe user sends a message to the chat interface.\nThe input is duplicated and sent to two different LLMs.\nEach model processes the same prompt independently, using its own memory context.\nTheir answers, along with the user input and previous context, are logged to Google Sheets.\nYou can review, compare, and evaluate the model outputs manually (or automate it later).\nIn the chat, both responses are also shown one after the other for direct comparison.\n\nHow To Use It\nCopy this Google Sheets template (File &gt; Make a Copy).\nSet up your System Prompt and Tools in the AI Agent node to suit your use case.\nStart chatting! Each message will trigger both models and log their responses to the spreadsheet.\n\n\nNote: This version is set up for two models. If you want to compare more, you’ll need to extend the workflow logic and update the sheet.\n\nAbout Models\nYou can use OpenRouter or Vertex AI to test models across providers.  \nIf you're using a node for a specific provider, like OpenAI, you can compare different models from that provider (e.g., gpt-4.1 vs gpt-4.1-mini).\n\nEvaluation in Google Sheets\nThis is ideal for teams, allowing non-technical stakeholders (not just data scientists) to evaluate responses based on real-world needs.\n\nAdvanced users can automate this evaluation using a more capable model (like o3 from OpenAI), but note that this will increase token usage and cost.\n\nToken Considerations\nSince each input is processed by two different models, the workflow will consume more tokens overall.  \nKeep an eye on usage, especially if working with longer prompts or running multiple evaluations, as this can impact cost.",
+  "totalViews": 867,
+  "source": "official",
+  "user": {
+    "id": 91734,
+    "name": "Dataki",
+    "username": "dataki",
+    "bio": "I am passionate about transforming complex processes into seamless automations with n8n. My expertise spans across creating ETL pipelines, sales automations, and data & AI-driven workflows. As an avid problem solver, I thrive on optimizing workflows to drive efficiency and innovation.",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/nicolas-aknin/\"]",
+    "avatar": "https://gravatar.com/avatar/0437c659b1ec6916896ebb30cc237391f0e1de89df5465c103e12d2cb12ce42d?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Chat Memory Manager",
+      "type": "@n8n/n8n-nodes-langchain.memoryManager",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenRouter Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-04-25T13:32:18.442Z",
+  "path": "official/template_3711/workflow.json"
+}

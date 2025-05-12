@@ -1,0 +1,47 @@
+{
+  "id": 2111,
+  "name": "Enrich new Hubspot contacts with contact and company data from ExactBuyer",
+  "description": "Use Case \n\nThis workflow aims to enrich new contacts in HubSpot. The more relevant the HubSpot profile, the more useful it is. Once active, this n8n workflow will update the social profiles, contact data (phone, email) as well as location data from ExactBuyer.\n\nSetup\nAdd HubSpot trigger credential (be careful, scopes must be exactly as in n8n docs )\nAdd your Exact Buyer API key\nAdd HubSpot credential for update node (be careful, scopes must be same as n8n docs for this. This is different from the trigger cred)\nActivate workflow\n\nHow to adjust this template\nThere's plenty of interesting info that ExactBuyer returns that could be helpful. Take a look and update this workflow to add what you need.",
+  "totalViews": 1295,
+  "source": "official",
+  "user": {
+    "id": 91243,
+    "name": "Mutasem",
+    "username": "mutasem",
+    "bio": "Team lead @ n8n",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/mutasemdmour/\"]",
+    "avatar": "https://gravatar.com/avatar/16d9c92db78317b6af7d0935bee34a47c522cb81d35c234ff76ea580ff1f6c29?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Sales"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "HubSpot",
+      "type": "n8n-nodes-base.hubspot",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-02-21T16:04:17.754Z",
+  "path": "official/template_2111/workflow.json"
+}

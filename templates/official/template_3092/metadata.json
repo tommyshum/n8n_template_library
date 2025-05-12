@@ -1,0 +1,98 @@
+{
+  "id": 3092,
+  "name": "Turn Any Podcast into Viral TikTok Clips – Fully Automated! (Edit, Captions...)",
+  "description": "🎯 Automatically Create and Post Engaging TikTok Clips (with Audience Retention Videos) from Podcasts Using AI! 🚀  \n\nEffortlessly transform long-form podcast content into highly engaging, viral-ready TikTok clips with this end-to-end automation template.  \n\nDesigned for content creators already monetizing on TikTok and those looking to start earning from the platform, this workflow streamlines the process of extracting highlights, editing clips, and posting to TikTok, allowing you to maximize reach while minimizing manual effort.  \n\nKey Features  \n\n🔹 AI-Powered Podcast Highlight Extraction  \nAutomatically identifies the best moments from any podcast video, ensuring each clip is engaging and shareable.  \n\n🔹 Smart Video Editing & Captioning  \nCombines podcast highlights with a copyright-free attention retainer video (e.g., Minecraft parkour, GTA 5 gameplay) for increased audience retention. Auto-generated captions make clips more dynamic and accessible.  \n\n🔹 Automated Title Generation  \nA Large Language Model (LLM) analyzes the clips to generate compelling titles, optimized for TikTok’s algorithm.  \n\n🔹 Hands-Free TikTok Posting  \nSeamlessly schedules and automatically posts clips to your TikTok account at defined intervals, keeping your audience engaged without manual uploads.  \n\n🔹 Fully Automated Workflow  \nFrom video download to content publishing 100% FREE, this template eliminates the need for time-consuming video editing, helping you scale your content strategy effortlessly, without having to pay for multiple subscriptions tediously.  \nSimply find a podcast you like and a cool Minecraft parkour (or any engaging) video, send their YouTube URLs, and let the automation handle everything—from video downloading and audio processing to highlight extraction, editing, captions, and publishing.  \n\nHow It Works (Step-by-Step Guide)  \n\n1️⃣ Provide the YouTube URLs  \n   One for the main podcast video (where highlights will be extracted).  \n   One for the background attention retainer video (e.g., Minecraft parkour, GTA 5 gameplay).  \n\n2️⃣ Automation Downloads and Processes the Videos  \n   Downloads both videos.  \n   Extracts audio from the podcast for analysis.  \n\n3️⃣ AI Analyzes and Extracts Key Highlights  \n   Detects the most engaging moments from the podcast.  \n\n4️⃣ Creates Fully Edited Clips  \n   Merges podcast highlights with the attention retainer video.  \n   Generates captions automatically.  \n\n5️⃣ Optimizes for TikTok  \n   Uses AI to generate a compelling title for each clip.  \n\n6️⃣ Posts to TikTok Automatically  \n   Uploads clips at your preferred intervals with zero manual effort.  \n\nWho Is This For?  \n\n✅ Content creators already making money on TikTok  \n✅ People looking to start earning with TikTok  \n✅ Podcasters wanting to repurpose content into bite-sized, viral clips  \n\nGet Started Today! 🚀  \n\nThis AI-driven automation is perfect for scaling your TikTok content effortlessly.  \n\nTo use this workflow, you’ll just need free accounts on Assembly, Andynocode, and Upload-Posts.\n",
+  "totalViews": 2525,
+  "source": "official",
+  "user": {
+    "id": 92893,
+    "name": "Mateo Fiorito Rocha",
+    "username": "lemolex",
+    "bio": "Passionate about AI-driven automation, LLMs, and intelligent systems that enhance efficiency and engagement. Let’s build smarter workflows, send me a message!",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/mateofioritorocha/\"]",
+    "avatar": "https://gravatar.com/avatar/1547577657bcdb579dd2c1946c4382029800b8e23e112916e4fe11cc66a6f9fa?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-03-06T00:02:48.248Z",
+  "path": "official/template_3092/workflow.json"
+}

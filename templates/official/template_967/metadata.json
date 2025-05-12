@@ -1,0 +1,34 @@
+{
+  "id": 967,
+  "name": "Monitor a file for changes and send an alert",
+  "description": "This flow monitors a file for changes of its content. If changed, an alert is sent out and you receive it as push, SMS or voice call on SIGNL4.\n\nUser cases:\nLog-file monitoring\nMonitoring of production data\nIntegration with third-party systems via file interface\nEtc.\n\nSample file \"alert-data.json\":\n{\n    \"Body\": \"Alert in building A2.\",\n    \"Done\": false,\n    \"eventId\": \"2518088743722201372_4ee5617b-2731-4d38-8e16-e4148b8fb8a0\"\n}\n\nBody: The alert text to be sent.\nDone: If false this is a new alert. If true this indicated the alert has been closed.\neventId: Last SIGNL4 event ID written by SIGNL4.\n\nThis flow can be easily adapted for database monitoring as well.\n",
+  "totalViews": 2571,
+  "source": "official",
+  "user": {
+    "id": 5220,
+    "name": "Ron",
+    "username": "rons4",
+    "bio": "Co-founder at Derdack, Exploration at SIGNL4. Passionate about technology, SaaS, IoT, mobile, alerting, learning and more.",
+    "verified": true,
+    "links": "[\"https://www.signl4.com\"]",
+    "avatar": "https://gravatar.com/avatar/1af910dd96a18543fb15bf2097e28a14a72401781ec1ac4ffce7a07ad11dac7f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "SIGNL4",
+      "type": "n8n-nodes-base.signl4",
+      "categories": [
+        "Communication",
+        "Development"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2021-03-03T12:14:04.406Z",
+  "path": "official/template_967/workflow.json"
+}

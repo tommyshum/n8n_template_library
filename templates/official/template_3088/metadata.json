@@ -1,0 +1,47 @@
+{
+  "id": 3088,
+  "name": "Generate 🤖🧠 AI-powered video 🎥 from image and upload it on Google Drive",
+  "description": "\nThis workflow automates the process of generating AI-powered video from image and then generates a video that is uploaded to Google Drive. \n\nThis workflow is a powerful tool for automating the creation of AI-generated videos from images, saving time and ensuring a seamless process from input to final output.\n\nBelow is a breakdown of the workflow:\n\n1. How It Works\nThe workflow is designed to create videos from images using AI and manage the generated content. Here's how it works:\n\nForm Submission:\n   The workflow starts with a Form Trigger node, where users submit a form with the following fields:\n     Description: The text description for the video.\n     Duration (in seconds): The length of the video.\n     Aspect Ratio: The aspect ratio of the video (e.g., 16:9, 9:16, 1:1).\n     Image URL: The URL of the image to be used for video generation.\n\n\n\n\nSet Data:\n   The Set Data node organizes the form inputs into a structured format for further processing.\n\nCreate Video:\n   The Create Video node sends a POST request to generate the video.\n   The request includes the description, image URL, duration, and aspect ratio.\n\nWait and Check Status:\n   The Wait 60 sec. node pauses the workflow for 60 seconds to allow the video generation process to complete.\n   The Get Status node checks the status of the video generation by querying the API.\n\nCompleted?:\n   The Completed? node checks if the video generation is complete. If not, the workflow loops back to wait and check again.\n\nRetrieve and Upload Video:\n   Once the video is generated, the Get Url Video node retrieves the video URL.\n   The Get File Video node downloads the video file.\n   The Upload Video node uploads the video to a specified folder in Google Drive.\n\nWatch the resulting video\n\n2. Set Up Steps\nTo set up and use this workflow in n8n, follow these steps:\n\nAPI Key:\n   Create an account on account and obtain your API Key.\n   In the Create Video node, set up HTTP Header Authentication:\n     Name: Authorization\n     Value: Key YOURAPIKEY\n\nGoogle Drive Integration:\n   Set up Google Drive credentials in n8n for the Upload Video node.\n   Specify the folder ID in Google Drive where the generated videos will be uploaded.\n\nForm Configuration:\n   The Form Trigger node is pre-configured with fields for:\n     Description: The text description for the video.\n     Duration (in seconds): The length of the video.\n     Aspect Ratio: Choose between 16:9, 9:16, or 1:1.\n     Image URL: The URL of the image to be used for video generation.\n   Customize the form fields if needed.\n\nTest the Workflow:\n   Submit the form with the required details (description, duration, aspect ratio, and image URL).\n   The workflow will:\n     Generate the video using the API.\n     Check the status until the video is ready.\n     Upload the video to Google Drive.\n\nOptional Customization:\n   Modify the workflow to include additional features, such as:\n     Adding more aspect ratio options.\n     Sending notifications when the video is ready.\n     Integrating with other storage services (e.g., Dropbox, AWS S3).\n\n",
+  "totalViews": 2053,
+  "source": "official",
+  "user": {
+    "id": 92207,
+    "name": "Davide",
+    "username": "n3witalia",
+    "bio": "Full-stack Web Developer based in Italy specialising in Marketing & AI-powered automations. For business enquiries, send me an email at info@n3w.it or add me on Linkedin.com/in/davideboizza",
+    "verified": true,
+    "links": "[\"https://n3w.it\"]",
+    "avatar": "https://gravatar.com/avatar/d41b8a0aa81139243509c58870f5b4be292824a507ab57d10ed066d8628ed8da?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-03-05T14:22:25.164Z",
+  "path": "official/template_3088/workflow.json"
+}

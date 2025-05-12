@@ -1,0 +1,49 @@
+{
+  "id": 2695,
+  "name": "Generating New Keywords and their Search Volumes using the Google Ads API",
+  "description": "Generate new keywords for SEO with the monthly Search volumes\n\nThis workflow is an improvement on the workflows below. It can be used to generate new keywords that you can use for your SEO campaigns or Google ads campaigns\n\n\nGenerate SEO Keyword Search Volume Data using Google API and Generating Keywords using Google Autosuggest\n\nUsage\nSend the keywords you need as an array to this workflow\nPin the data and map it to the set Keywords  node\nMap the keywords to the Google ads API with the location and Language of your choice\nSplit the results and set them data \nPass this to the next nodes as needed for storage\nMake a copy of this spreedsheet and update the data accordingly\n\nHaving challenges with the google Ads API? Read this blog \n\nSetup\n\nReplace the trigger with your desired trigger eg a webhook or manual trigger\n\nMap the data correctly to the set Keywords node\nOn the Generate new keywords, Update the {customer_id} on the url and login-customer-id with your actual one. Update the developer-token` also with your values. \n\nThe url should be corrected as below https://googleads.googleapis.com/v18/customers/{customer-id}:generateKeywordIdeas\n\nYou should send the headers as below\n\n\n\n            {\n              \"name\": \"content-type\",\n              \"value\": \"application/json\"\n            },\n            {\n              \"name\": \"developer-token\",\n              \"value\": \"5j-tyzivCNmiCcoW-xkaxw\"\n            },\n            {\n              \"name\": \"login-customer-id\",\n              \"value\": \"513554 \"\n            }\n         \n    \n\n\n\nand the json body should take the following format \n\n\n{\n  \"geoTargetConstants\": [\"geoTargetConstants/2840\"], \n  \"includeAdultKeywords\": false,\n  \"pageToken\": \"\",\n  \"pageSize\": 2,\n  \"keywordPlanNetwork\": \"GOOGLE_SEARCH\",\n  \"language\": \"languageConstants/1000\", \n  \"keywordSeed\": {\n    \"keywords\": {{ $json.Keyword }}\n  }\n}\n\nTroubleshooting\n\nIf you get an error with the workflow, check the credentials you are using\n\nCheck the account you are using eg the right customer id and developer token\n\nFollow the guide on the blog to set up your Google ads account \n\n\nMade by @Imperol",
+  "totalViews": 9858,
+  "source": "official",
+  "user": {
+    "id": 91335,
+    "name": "Imperol",
+    "username": "imperolq",
+    "bio": "Automation expert with years of experience helping businesses improve their efficiency and productivity with smart automations that are affordable, scalable, and flexible. ",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/zacharia-kimotho/\"]",
+    "avatar": "https://gravatar.com/avatar/13b050fd63dc0c9242774c4b8769c4788df8b47268c1fb183d6f1da085b9e6e2?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-01-03T14:59:40.018Z",
+  "path": "official/template_2695/workflow.json"
+}

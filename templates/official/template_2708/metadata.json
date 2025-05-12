@@ -1,0 +1,54 @@
+{
+  "id": 2708,
+  "name": "Send Jira task notifications to Telegram user via Bot",
+  "description": "What we wanna do?\n\nLet's look at the concern. In my experience, some developers don't check their Jira board to find out whether there are new updates on the issues or not or if some Issues need to be addressed as soon as possible. So, the developer or anyone else in other fields needs to be informed about the task as soon as possible, too. One way to send this immediate notification is through the Telegram Bot.\n\nSetup Guide\n\nso, first of all, you need to register a Telegram Bot in your account and obtain its token, so that we'll be able to send Telegram messages by using this token through our bot;\nafter getting your telegram bot token\ngo to the workflow and click on one of the telegram nodes\nselect the telegram credential or create one through the Credential to connect with field\nand put the token in the token in the Access Token field.\n\nOk, you're done with the Telegram Side setup.\n\nthen you need the Jira accounts (team users) accountId and also their telegram chatId for the telegram account node so that it can find the corresponding telegram user from the assignee of the issue, put this data as following guide comments in the telegram account node.\n\nNow we go for the Jira side setup, you need to setup some automation rules as your needs.\ngo to the Jira settings and Global automation section, click on the Create Rule button\nselect the Issue Created trigger type in the When step\nadd a Send webhook request action, after selecting it you'll see its settings\ngo back to workflow and from the jira-webhook node copy the Production URL \npaste it in the Web request URL field in the Jira action setting\nthen set the HTTP method field on POST \nset Web request body on Issue Data (Automation format)\nin the header section, add a new header with the name type and value created for the creation event.\n\nOK, the Jira side also is done! Now It's time to test!\n\nIf you've put your Jira accountId and telegram chatId in the telegram account node and of course started the telegram bot, after creating an Issue that is assigned to you, the creation notif will send to you in telegram!",
+  "totalViews": 1737,
+  "source": "official",
+  "user": {
+    "id": 92390,
+    "name": "Abolfazl Akbarzadeh",
+    "username": "abolfazlakbarzadeh",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/9431a7ca6e0b3d3a347f8ce50087c4be7b91a8352be4450dc34897013ba2f171?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-01-08T19:48:54.739Z",
+  "path": "official/template_2708/workflow.json"
+}

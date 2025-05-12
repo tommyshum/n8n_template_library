@@ -1,0 +1,95 @@
+{
+  "id": 3893,
+  "name": "Automatically Create JIRA Issues from Outlook Email Support Requests",
+  "description": "This n8n template watches an outlook shared inbox for support messages and creates an equivalent issue item in JIRA.\n\nHow it works\nA scheduled trigger fetches recent Outlook messages from an shared inbox which collects support requests.\nThese support requests are filtered to ensure they are only processed once and their HTML body is converted to markdown for easier parsing.\nEach support request is then triaged via an AI Agent which adds appropriate labels, assesses priority and summarises a title and description of the original request.\nFinally, the AI generated values are used to create an issue in JIRA to be actioned.\n\nHow to use\nEnsure the messages fetched are solely support requests otherwise you'll need to classify messages before processing them.\nSpecify the labels and priorities to use in the system prompt of the AI agent.\n\nRequirements\nOutlook for incoming support\nOpenAI for LLM\nJIRA for issue management\n\nCustomising this workflow\nConsider automating more steps after the issue is created such as attempting issue resolution or capacity planning.\n",
+  "totalViews": 162,
+  "source": "official",
+  "user": {
+    "id": 91804,
+    "name": "Jimleuk",
+    "username": "jimleuk",
+    "bio": "Freelance consultant based in the UK specialising in AI-powered automations. I work with select clients tackling their most challenging projects. For business enquiries, send me an email at hello@jimle.uk\n\nLinkedIn: https://www.linkedin.com/in/jimleuk/\nX/Twitter: https://x.com/jimle_uk",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4ab99e51473df76838beeaac908747f7928c625f869794815cabe34016967d51?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Productivity",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Jira Software",
+      "type": "n8n-nodes-base.jira",
+      "categories": [
+        "Development",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Microsoft Outlook",
+      "type": "n8n-nodes-base.microsoftOutlook",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-05-06T10:26:52.630Z",
+  "path": "official/template_3893/workflow.json"
+}

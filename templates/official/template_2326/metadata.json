@@ -1,0 +1,141 @@
+{
+  "id": 2326,
+  "name": "Organise an Event using Slack, Google Calendar and AI",
+  "description": "This n8n workflow takes Slack conversations and turns them into Calendar events complete with accurate date and times and location information. Adding and removing attendees are also managed automatically.\n\nHow it works\n\nWorkflow monitors a Slack channel for invite messages with a \"📅\" reaction and sends this to the AI agent.\nAI agent parses the message determining the time, date and location.\nUsing its Location tool, the AI agent searches for the precise location address from Google Maps.\nUsing its Calendar tool, the AI agent creates a Google Calendar invite with the title, description and location address for the user.\nBack in the Slack channel, others can RSVP to the invite by reacting with the \"✅\" emjoi.\nThe workflow polls the message after a while and adds the users who have reacted to the Calendar Invite as attendees. Conversely, removing any attendees who have since removed their reaction.\n\nExamples\n\nJill: \"Hey team, I'm organising a round of Laser Tag (Bunker 51) next Thursday around 6pm. Please RSVP with a ✅\"\n\nAI: \"I've helped you create an event in your calendar https://cal.google.com/...\"\n\nJack: \"✅\"\n\nAI: \"I've added Jack to the event as an attendee\".\n\nRequirements\nSlack channel to attach the workflow\nOpenAI account to use a GPT model\nGoogle Calendar to create and update events\n\nCustomising the Workflow\n\nThis workflow can work with other messaging platforms that support reactions or tagging like features such as discord. Don't use Google Calendar? Swap it out for Outlook or your own.\n\nUse any combinations of emjoi reactions and add new rules like \"RSVP maybe\" which could send reminder updates nearer the event date.",
+  "totalViews": 6589,
+  "source": "official",
+  "user": {
+    "id": 91804,
+    "name": "Jimleuk",
+    "username": "jimleuk",
+    "bio": "Freelance consultant based in the UK specialising in AI-powered automations. I work with select clients tackling their most challenging projects. For business enquiries, send me an email at hello@jimle.uk\n\nLinkedIn: https://www.linkedin.com/in/jimleuk/\nX/Twitter: https://x.com/jimle_uk",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4ab99e51473df76838beeaac908747f7928c625f869794815cabe34016967d51?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Google Calendar",
+      "type": "n8n-nodes-base.googleCalendar",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "SerpApi (Google Search)",
+      "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Wikipedia",
+      "type": "@n8n/n8n-nodes-langchain.toolWikipedia",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 8,
+  "createdAt": "2024-07-10T10:46:41.626Z",
+  "path": "official/template_2326/workflow.json"
+}

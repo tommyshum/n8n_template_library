@@ -1,0 +1,53 @@
+{
+  "id": 2367,
+  "name": "Replicate Line Items on New Deal in HubSpot and notify with Slack",
+  "description": "Replicate Line Items on New Deal in HubSpot Workflow\n\nUse Case\nThis workflow solves the problem of manually copying line items from one deal to another in HubSpot, reducing manual work and minimizing errors.\n\nWhat this workflow does\nTriggers** upon receiving a webhook with deal IDs.\nRetrieves** the IDs of the won and created deals.\nFetches** line items associated with the won deal.\nExtracts** product SKUs from the retrieved line items.\nFetches** product details based on SKUs.\nCreates** new line items for the created deal and associates them.\nSends** a Slack notification with success details.\n\nStep up steps\nCreate a HubSpot Deal Workflow\n 1.1 Set up your trigger (ex: when deal stage = Won)\n 1.2 Add step : Create Record (deal)\n 1.3 Add Step : Send webhook. The webhook should be a Get to your n8n first trigger. Set two query parameter : \n   deal_id_won as the Record ID of the deal triggering the HubSpot Workflow\n    deal_id_create as the Record ID of the deal created above. Click Insert Data -&gt; The created object\nSet up your HubSpot App token in HubSpot -&gt; Settings -&gt; Integration -&gt; Private Apps\nSet up your HubSpot Token integration using the predefined model.\nSet up your Slack connection\nAdd an error Workflow to monitor errors",
+  "totalViews": 1055,
+  "source": "official",
+  "user": {
+    "id": 91857,
+    "name": "Arnaud MARIE",
+    "username": "arnaud-marie",
+    "bio": "I love n8n. \n\nHere's my soul purpose: \nTo better learn and transcend myself to better help others achieve their true potential.",
+    "verified": false,
+    "links": "[\"https://www.linkedin.com/in/the-growth-juggler/\"]",
+    "avatar": "https://gravatar.com/avatar/06fdba2b484ebbdbd6447611a6831f8e7b8902cec593eb5429cbd432cce1d2db?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-07-26T13:52:02.140Z",
+  "path": "official/template_2367/workflow.json"
+}

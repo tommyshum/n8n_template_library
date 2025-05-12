@@ -1,0 +1,52 @@
+{
+  "id": 3524,
+  "name": "Upload Carousel of Images to Tiktok and Instagram  with upload-post.com",
+  "description": "Image Carousel Publisher for Instagram and TikTok\n\nDescription\nThis automation template is designed for content creators, digital marketers, and social media managers looking to streamline their image carousel posting workflow. It automates the process of uploading multiple images as carousels to Instagram and slideshows to TikTok, making your visual content management more efficient across platforms.\n\nWho Is This For?\nContent Creators & Influencers:** Simplify posting image collections and focus more on creating visual content.\nDigital Marketers:** Ensure consistent carousel posts across multiple platforms with minimal manual effort.\nSocial Media Managers:** Automate repetitive image uploading tasks and maintain visual engagement.\n\nWhat Problem Does This Workflow Solve?\nManually uploading image carousels to different platforms can be time-consuming and inconsistent. This workflow addresses these challenges by:\nAutomating Multi-Image Uploads:** Processes multiple images and prepares them for platform-specific formats.\nSupporting Cross-Platform Publishing:** Simultaneously posts your image carousels to Instagram and TikTok slideshows.\nMaintaining Visual Consistency:** Ensures your visual stories remain consistent across platforms.\nStreamlining Batch Processing:** Handles the technical complexity of multi-image uploads with a single workflow trigger.\n\nHow It Works\nImage Selection: Trigger the workflow with your selected images.\nImage Processing: The workflow automatically processes and prepares your images for both platforms.\nContent Distribution: Uploads the images as a carousel to Instagram and as a slideshow to TikTok.\nPlatform Optimization: Formats the uploads according to each platform's requirements.\n\nSetup\nAPI Token Generation:\n   Visit upload-post.com and create an account\n   Navigate to the API settings section\n   Generate a new API token\n   Copy the token for use in the next steps\n\nPlatform Configuration:\n   In the \"Upload to Instagram\" node:\n     Paste your API token in the designated field\n     Configure your Instagram account settings\n     Set your preferred posting parameters\n   \n   In the \"Upload to TikTok\" node:\n     Add the same API token\n     Set up your TikTok account credentials\n     Adjust posting preferences\n\nContent Parameters Setup:\n   Rename the \"HTTP Request\" node to \"Social Media Upload Request\"\n   Configure your account information:\n     Username\n     Account ID\n     Content title format\n     Posting schedule (if applicable)\n\nImage Source Configuration:\n   Set up your image source directory\n   Configure image format requirements\n   Test with sample images before going live\n\nAbout upload-post.com\nUpload-post.com is a third-party service that acts as a bridge between your workflow and social media platforms. It provides:\nSecure API endpoints for multi-platform posting\nImage format validation and optimization\nQueue management for scheduled posts\nAnalytics and posting status tracking\nCross-platform compatibility handling\n\nRequirements\nAccounts:** upload-post.com account with access to Instagram and TikTok publishing.\nAPI Keys:** Upload-post.com API token.\nImages:** Properly formatted images that meet Instagram and TikTok specifications:\n  Instagram: Up to 10 images per carousel, 1:1 to 4:5 aspect ratio\n  TikTok: Compatible with slideshow format, 9:16 aspect ratio recommended\n\nUse this template to enhance your visual storytelling, maintain consistency across social platforms, and engage your audience with compelling image carousels and slideshows.",
+  "totalViews": 1413,
+  "source": "official",
+  "user": {
+    "id": 92698,
+    "name": "Juan Carlos Cavero Gracia",
+    "username": "carlosgracia",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://x.com/fotoexamen\"]",
+    "avatar": "https://gravatar.com/avatar/e1fc0901703aede75c35d38ff26caf8e44b424893e1330efb483d68f5f67e059?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-04-12T10:08:09.168Z",
+  "path": "official/template_3524/workflow.json"
+}

@@ -1,0 +1,126 @@
+{
+  "id": 2170,
+  "name": "Extract data from resume and create PDF with Gotenberg",
+  "description": "With this workflow you can extract data from resume documents uploaded via a Telegram bot. Workflow transform readable content of PDF resume into structured data, using AI nodes and returns PDF with formatted, plain HTML. \n\nYou can modify this workflow to perform other actions with structured data (e.g. insert it into database or create other, well-formatted documents).\n\nFunctionality of this workflow was presented during the n8n community call on March 7, 2024 - recording of presentation available here. \n\n⚠️ Workflow made for demo purposes. If you want to use it in real life, please make sure necessary measures for personal data protection are set. \n\nHow it works? \n\nUser uploads readable PDF resume document into Telegram bot. After authentication based on chat ID parameter, workflow extracts text from the PDF and transfers it into AI chain with connected sub-nodes: OpenAI Chat Model and Structured Output (JSON) Parser. \n\nThen, each extracted section (employment history, projects etc.) is formatted into desired HTML structure. Finally, the document is converted into new, structured PDF using Gotenberg. \n\n💡 This workflow requires installed Gotenberg. If you are not familiar with this software, please have a look on my YouTube tutorial. You can also replace call to Gotenberg with other PDF generation service (such as PDFMonkey or ApiTemplate). \n\nSet up steps\n\nCreate Telegram bot and add its credentials in n8n. \nSet your chat ID parameter in Auth node. \nAdjust JSON schema in Structured Output Parser according to your needs. \nOptionally: replace HTTP call to Gotenberg with PDF generation service of your choice. \n\nIf you like this workflow, please subscribe to my YouTube channel and/or my newsletter.\n\n",
+  "totalViews": 13293,
+  "source": "official",
+  "user": {
+    "id": 91260,
+    "name": "Oskar",
+    "username": "workfloows",
+    "bio": "I make videos about workflow automation and other cool things.",
+    "verified": true,
+    "links": "[\"https://www.youtube.com/@workfloows\"]",
+    "avatar": "https://gravatar.com/avatar/0b29d7b98f977cc657c7217bb93dbc0f4a175f329cc44367ba870762c352222d?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Auto-fixing Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2024-03-13T13:34:13.030Z",
+  "path": "official/template_2170/workflow.json"
+}

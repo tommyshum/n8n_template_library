@@ -1,0 +1,79 @@
+{
+  "id": 3410,
+  "name": "Get notified on Gmail, Telegram and Slack on new Stripe purchase",
+  "description": "Get notified when a customer completes a Stripe checkout — including all products they purchased in a single checkout session.\n\n\n\nUsing the Stripe API can be tricky, especially when you're selling multiple products, order bumps, or recommended add-ons in one checkout. This workflow solves that for you.\n\nHow it works\n\nThe template listens for successful Stripe checkout events. When a payment is completed, it retrieves all items from the session, including main products, bumps, and extras — and sends a full breakdown straight to your chosen app.\n\n\n\nYou can receive the notification on:\n\nTelegram**\nWhatsApp**\nGmail**\nOr any other chat/notification service you prefer (Slack, Outlook etc. )\n\nWho is this template for?\n\nCreators, marketers, and online sellers who:\n\nUse Stripe Checkout\nWant to track what customers are buying in real time\nPrefer to get notifications instantly instead of digging through Stripe logs\n\nHow to set up\n\nConnect your Stripe account and choose where you want to receive notifications.\nAdjust the notification text for your preference, and you are done!\n\nEverything else is already configured in the template.\n\nCheck out my other templates\n\n👉 https://n8n.io/creators/solomon/",
+  "totalViews": 416,
+  "source": "official",
+  "user": {
+    "id": 91663,
+    "name": "Solomon",
+    "username": "solomon",
+    "bio": "Freelance consultant from Brazil, specializing in automations and data analysis. I work with select clients, addressing their toughest projects.\n\nFor business inquiries, email me at automations.solomon@gmail.com or message me on Telegram for a faster response.",
+    "verified": true,
+    "links": "[\"https://t.me/salomaoguilherme\"]",
+    "avatar": "https://gravatar.com/avatar/79aa147f090807fe0f618fb47a1de932669e385bb0c84bf3a7f891ae7d174256?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "WhatsApp Business Cloud",
+      "type": "n8n-nodes-base.whatsApp",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-04-03T00:14:38.539Z",
+  "path": "official/template_3410/workflow.json"
+}

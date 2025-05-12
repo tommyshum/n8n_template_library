@@ -1,0 +1,65 @@
+{
+  "id": 697,
+  "name": "Archive Spotify's discover weekly playlist",
+  "totalViews": 1665,
+  "purchaseUrl": null,
+  "user": {
+    "id": 7309,
+    "name": "Trey",
+    "username": "trey",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/a34b927d14a6b3b96f3a6e588ee0fbfd519efd1c8cec0586b1a6e5976fc72d2a?r=pg&d=retro&size=200"
+  },
+  "description": "\n\nThis workflow will archive your Spotify Discover Weekly playlist to an archive playlist named \"Discover Weekly Archive\" which you must create yourself. If you want to change the name of the archive playlist, you can edit value2 in the \"Find Archive Playlist\" node.\n\nIt is configured to run at 8am on Mondays, a conservative value in case you forgot to set your GENERIC_TIMEZONE environment variable (see the docs here).\n\nSpecial thanks to erin2722 for creating the Spotify node and harshil1712 for help with the workflow logic.\n\nTo use this workflow, you'll need to:\n\nCreate then select your credentials in each Spotify node\nCreate the archive playlist yourself\n\nOptionally, you may choose to:\nEdit the archive playlist name in the \"Find Archive Playlist\" node\nAdjust the Cron node with an earlier time if you know GENERIC_TIMEZONE is set\nSetup an error workflow like this one to be notified if anything goes wrong\n\n",
+  "createdAt": "2020-10-02T01:29:47.308Z",
+  "nodes": [
+    {
+      "id": 335,
+      "icon": "file:spotify.svg",
+      "name": "n8n-nodes-base.spotify",
+      "codex": {
+        "data": {
+          "alias": [
+            "Music",
+            "Song"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.spotify/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/spotify/"
+              }
+            ]
+          },
+          "categories": [
+            "Miscellaneous"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "Spotify"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiB2aWV3Qm94PSIwIDAgNjYgNjUiPjx1c2UgeGxpbms6aHJlZj0iI2EiIHg9Ii41IiB5PSIuNSIvPjxzeW1ib2wgaWQ9ImEiIG92ZXJmbG93PSJ2aXNpYmxlIj48cGF0aCBmaWxsPSIjMWVkNzYwIiBmaWxsLXJ1bGU9Im5vbnplcm8iIHN0cm9rZT0ibm9uZSIgZD0iTTMyIDBDMTQuMyAwIDAgMTQuMzM3IDAgMzJjMCAxNy43IDE0LjMzNyAzMiAzMiAzMiAxNy43IDAgMzItMTQuMzM3IDMyLTMyUzQ5LjY2MyAwIDMyIDBtMTQuNjggNDYuMTg0Yy0uNTczLjk1Ni0xLjc5NyAxLjIyMy0yLjc1My42NS03LjUzMi00LjU4OC0xNi45NzUtNS42Mi0yOC4xNC0zLjA5Ny0xLjA3LjIzLTIuMTQtLjQyLTIuMzctMS41cy40Mi0yLjE0IDEuNS0yLjM3YzEyLjE5Ni0yLjggMjIuNjctMS42MDYgMzEuMDgyIDMuNTU2YTIgMiAwIDAgMSAuNjg4IDIuNzUzem0zLjktOC43MTdjLS43MjYgMS4xODUtMi4yNTYgMS41My0zLjQ0Ljg0LTguNjAyLTUuMjc2LTIxLjcxNi02LjgwNS0zMS44ODUtMy43NDctMS4zMzguMzgyLTIuNzE0LS4zNDQtMy4wOTctMS42NDQtLjM4Mi0xLjMzOC4zNDQtMi43MTQgMS42ODItMy4wOTcgMTEuNjIyLTMuNTE3IDI2LjA3NC0xLjgzNSAzNS45NzYgNC4yNDQgMS4xNDcuNjg4IDEuNSAyLjIxNy43NjUgMy40MDN6bS4zNDQtOS4xYy0xMC4zMjMtNi4xMTctMjcuMzM2LTYuNy0zNy4yLTMuNzA4LTEuNTY4LjQ5Ny0zLjI1LS40Mi0zLjc0Ny0xLjk4OHMuNDItMy4yNSAxLjk4OC0zLjc0N2MxMS4zMTctMy40NCAzMC4xMjctMi43NTMgNDEuOTggNC4yODIgMS40MTUuODQgMS44NzMgMi42NzYgMS4wMzIgNC4xLS43NjUgMS40NTMtMi42MzggMS45MTItNC4wNTMgMS4wN3oiLz48L3N5bWJvbD48L3N2Zz4="
+      },
+      "displayName": "Spotify",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 11,
+          "name": "Miscellaneous"
+        }
+      ]
+    }
+  ]
+}

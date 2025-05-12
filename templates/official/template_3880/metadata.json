@@ -1,0 +1,64 @@
+{
+  "id": 3880,
+  "name": "Monitor Server Uptime & Get Email Alerts with Google Sheets",
+  "description": "🌐 Web Server Monitor & Alert System\n\nThis automation pings web servers at regular intervals, logs their status, and sends email alerts if a server goes down. It’s perfect for maintaining visibility over server uptime — without complex monitoring tools.\n🧠 How It Works\n\nThis workflow performs minute-by-minute checks on all listed servers in a Google Sheet and:\n\n    ✅ Logs all reachable servers in an “Alive” log.\n\n    🔻 Sends an email alert if a server is unreachable.\n\n    📄 Logs failed servers in a “Down” sheet with timestamps.\n\n🧩 Key Components\n⏰ 1. Schedule Trigger\n\nRuns the workflow every minute for real-time monitoring.\n📄 2. Web Servers List (Google Sheets)\n\nPulls server IPs or hostnames from a Google Sheet named Server_List.\nEach row = one server to monitor. This makes adding/removing servers effortless — just update the sheet.\n🌐 3. Servers Alive Check (HTTP Request)\n\nPerforms an HTTP GET request to each server (e.g., http://your-server.com).\nIf the request fails, it automatically triggers the error path (handled via continueOnFail).\n✅ 4. Web Server Alive Log (Google Sheets)\n\nRecords successful pings in Server_Status_Alive with:\n\n    Timestamp\n\n    Server IP\n\n    Status = Alive\n\nThis log can be used for uptime reports or audits.\n📧 5. Server Down Notification (Gmail)\n\nIf a server fails, this node sends an email to the admin.\nIt includes:\n\n    Server address\n\n    Timestamp\n\n    Suggested action\n\n📄 6. Web Server Down Log (Google Sheets)\n\nLogs failed pings in a separate sheet for historical tracking and debugging.\n✅ Main Advantages\n\n    Live Server Monitoring\n    Stay informed about server health in near real-time.\n\n    No-Code Configuration\n    Add/remove servers from the Google Sheet — no need to touch the workflow.\n\n    Email Alerts on Failure\n    Proactively notifies you before users report the issue.\n\n    Audit-Ready Logging\n    Maintains logs for both healthy and failed checks for documentation or reporting.\n\n    Flexible & Scalable\n    Monitor 1 or 100 servers with the same template — just scale the list.\n\n⚙️ Setup Steps\n🔑 Prerequisites\n\n    Google Sheet with server list (column name = “Server”)\n\n    Gmail OAuth2 Connection for alerts\n\n    n8n Instance running regularly\n\n🛠 Configuration\n\n    Google Sheets\n\n        Sheet 1 (Server_List): Your list of servers.\n\n        Sheet 2 (Server_Status_Alive): Log for reachable servers.\n\n        Sheet 3 (Server_Status_Down): Log for unreachable servers.\n\n    Gmail Integration\n\n        Connect your Gmail account in the Server Down Notification node.\n\n        Edit recipient email and message content as needed.\n\n    HTTP Check\n\n        Adjust the HTTP request URL template if using port numbers or paths (e.g., http://{{Server}}:8080/status).\n\n    Schedule\n\n        Default is every 1 minute. Change via Schedule Trigger if needed.\n\n🧪 Testing\n\n    Input a reachable server (e.g., example.com) and an unreachable IP.\n\n    Run the workflow manually or wait for the next scheduled run.\n\n    Check:\n\n        Alive log updates correctly.\n\n        Down log records failures.\n\n        Email alert is received.\n\n🚀 Deployment\n\nActivate the workflow, and it will quietly run in the background, notifying you of any server downtime instantly while keeping logs for future review.",
+  "totalViews": 399,
+  "source": "official",
+  "user": {
+    "id": 93776,
+    "name": "Khaled",
+    "username": "khaled",
+    "bio": "",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/a261ed08eb9caa81638c46953e522a5b4b9d13606eaeebd4711cf8e2e3b2df1c?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-05-05T17:52:03.128Z",
+  "path": "official/template_3880/workflow.json"
+}

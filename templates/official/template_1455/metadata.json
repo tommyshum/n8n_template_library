@@ -1,0 +1,60 @@
+{
+  "id": 1455,
+  "name": "Handle GDPR data deletion requests with Slack",
+  "description": "This workflow automatically deletes user data from different apps/services when a specific slash command is issued in Slack.\n\nWatch this talk and demo to learn more about this use case. The demo uses Slack, but Mattermost is Slack-compatible, so you can also connect Mattermost in this workflow.\n\nPrerequisites\n\nAccounts and credentials for the apps/services you want to use.\nSome basic knowledge of JavaScript.\n\nNodes\n\nWebhook node triggers the workflow when a Slack slash command is issued.\nIF nodes confirm Slack's verification token and verify that the data has the expected format.\nSet node simplifies the payload.\nSwitch node chooses the correct path for the operation to perform.\nRespond to Webhook nodes send responses back to Slack.\nExecute Workflow nodes call sub-workflows tailored to deleting data from each individual service.\nFunction node, Crypto node, and Airtable node generate and store a log entry containing a hash value.\nHTTP Request node sends the final response back to Slack.",
+  "totalViews": 1698,
+  "source": "official",
+  "user": {
+    "id": 21240,
+    "name": "Tom",
+    "username": "mutedjam",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://github.com/that-one-tom/\"]",
+    "avatar": "https://gravatar.com/avatar/7a3710173e907baffaf7ed7ebffc37955c9cdeadb8612200225a34a2e056aa17?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Crypto",
+      "type": "n8n-nodes-base.crypto",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2022-02-17T08:07:45.044Z",
+  "path": "official/template_1455/workflow.json"
+}

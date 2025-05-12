@@ -1,0 +1,56 @@
+{
+  "id": 2615,
+  "name": "Get Airtable data via AI and Obsidian Notes",
+  "description": "I am submitting this workflow for the Obsidian community to showcase the potential of integrating Obsidian with n8n. While straightforward, it serves as a compelling demonstration of the potential unlocked by integrating Obsidian with n8n.\n\nHow it works\n\nThis workflow  lets you retrieve specific Airtable data you need in seconds, directly within your Obsidian note, using n8n. By highlighting a question in Obsidian and sending it to a webhook via the Post Webhook Plugin, you can fetch specific data from your Airtable base and instantly insert the response back into your note. The workflow leverages OpenAI’s GPT model to interpret your query, extract relevant data from Airtable, and format the result for seamless integration into your note.\n\nSet up steps\n\nInstall the Post Webhook Plugin: Add this plugin to your Obsidian vault from the plugin store or GitHub.\nSet up the n8n Webhook: Copy the webhook URL generated in this workflow and insert it into the Post Webhook Plugin's settings in Obsidian.\nConfigure Airtable Access: Link your Airtable account and specify the desired base and table to pull data from.\nTest the Workflow: Highlight a question in your Obsidian note, use the “Send Selection to Webhook” command, and verify that data is returned as expected.",
+  "totalViews": 1714,
+  "source": "official",
+  "user": {
+    "id": 92215,
+    "name": "Obsidi8n",
+    "username": "derruttie",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/984ed54b1cb51c4034af653825fba87431a040243b4c9bee03360cc19f5edcff?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-12-08T19:21:21.748Z",
+  "path": "official/template_2615/workflow.json"
+}

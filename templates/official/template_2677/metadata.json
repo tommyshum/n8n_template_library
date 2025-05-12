@@ -1,0 +1,52 @@
+{
+  "id": 2677,
+  "name": "Analyze Email Headers for IP Reputation and Spoofing Detection - Gmail",
+  "description": "Analyze Emails for Security Insights\n\nWho is this for?\n\nThis workflow is ideal for IT professionals, security analysts, and organizations looking to enhance their email security practices. It is particularly useful for those who need to analyze Gmail email headers for IP tracking, spoofing detection, and sender reputation assessment. \n\nWhat problem is this workflow solving?\n\nEmail spoofing and phishing attacks are significant cybersecurity threats. By analyzing email headers, this workflow provides detailed insights into the email's origin, authentication status, and the reputation of the sending IP address. It helps detect potential spoofing attempts and assess the trustworthiness of incoming emails.\n\nWhat this workflow does\n\nThis n8n workflow automates the process of analyzing email headers received in Gmail. It performs the following key functions:\n\nTriggering and Email Header Extraction: It monitors Gmail inboxes for new emails and extracts their headers for analysis.\nAuthentication Analysis: It validates SPF, DKIM, and DMARC authentication results to ensure the email adheres to industry-standard security protocols.\nIP Analysis: The workflow extracts the originating IP address and evaluates its reputation and geographic details using external APIs.\nReputation Scoring: It integrates with IP Quality Score to detect spam activity and assess the sender's reputation.\nConsolidation and Webhook Response: All results are aggregated into a single JSON response, making it easy to integrate with third-party platforms or tools for further automation.\n\nSetup\n\nAuthenticate Gmail: Configure the Gmail Trigger node with your Gmail account credentials.\nAPI Keys (Optional):\n   Obtain an API key for IP Quality Score (https://ipqualityscore.com).\n   Ensure the IP-API endpoint is accessible.\n   This step is optional as ipqualityscore.com will provide a limited number of free lookups each month. See more details here.  \nActivate the Workflow: Ensure the workflow is active to process incoming emails in real-time.\n\nHow to customize this workflow to your needs\n\nAdd Alerts:** Use the Gmail - Respond to Webhook node to trigger notifications in Slack, email, or any other communication channel.\nIntegrate with SIEM:** Forward the workflow output to SIEM tools like Splunk or ELK Stack for further analysis.\nModify Validation Rules:** Update SPF, DKIM, or DMARC logic in the Set nodes to align with your organization’s security policies.\nExpand IP Analysis:** Add more APIs or services to enrich IP reputation data, such as VirusTotal or AbuseIPDB.\n\nThis workflow provides a robust foundation for email security monitoring and can be tailored to fit your organization's unique requirements. With its modular design and integration options, it’s a versatile tool to enhance your cybersecurity operations.",
+  "totalViews": 4146,
+  "source": "official",
+  "user": {
+    "id": 16588,
+    "name": "Angel Menendez",
+    "username": "djangelic",
+    "bio": "Angel Menendez is a Staff Developer Advocate at n8n.io, specializing in low-code tools for cybersecurity workflows. From Puerto Rico, Angel's tech journey began by helping his father translate technical books. He later started a web development business and transitioned from a career as a flight attendant to cybersecurity engineering. His workflows have saved companies significant time. Outside work, Angel enjoys time with his two sons, riding electric bikes, reading, and exploring new places.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/fdbe38425d21378d8c9ba8916e1eb0b320add299f12cc23fcd4961d4e6e00bec?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-12-27T06:47:56.660Z",
+  "path": "official/template_2677/workflow.json"
+}

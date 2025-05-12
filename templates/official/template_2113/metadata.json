@@ -1,0 +1,58 @@
+{
+  "id": 2113,
+  "name": "Enrich website visitors with Leadfeeder & Clearbit and save to Google Sheets",
+  "description": "Use Case\nWhen trying to maximize your outreach, website visitors are often an overlooked source of qualified new leads. This workflow allows your to track and enrich new website visitors and saves them to a Google Sheet once they meet a pre-defined criteria.\nWhat this workflow does\nThis workflow fires once a day and gets all your leads saved in Leadfeeder. It then takes the leads that meet a pre-defined engagement criteria, e.g. that they visited your site 3 times, and enriches them additionally with Clearbit. From there it filters the leads again by a criteria on the company, e.g. a minimum employee count, and saves matching leads into a Google Sheet document.\nSetup\nAdd your Leedfeeder credentials. The name should be Authorization and the value Token token=yourapitoken. You can find your token via Settings -&gt; Personal -&gt; API-Token\nAdd your Google Sheet credentials\nSave the Leedfeeder account names you want to use in the Setup node\nCopy the Google Sheets Template and add its URL to the Setup node\nHow to adjust this to your needs\nAdjust and/or remove the engagement and company criteria\nAdd more ways to enrich a company\nPotential ideas to enhance the use of this workflow\nAutomatically reach out to users that meet the criteria / that get added to the sheet\nCreate a workflow that finds the right employee in companies that are identified by this workflow",
+  "totalViews": 910,
+  "source": "official",
+  "user": {
+    "id": 91250,
+    "name": "Niklas Hatje",
+    "username": "nik8n",
+    "bio": "Product Manager at n8n - Responsible for the creator program",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/niklashatje/\"]",
+    "avatar": "https://gravatar.com/avatar/e16a4426e166713c34626bdde856b1cd15bb6787481a7ead9b74318f19e6259d?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Sales"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Clearbit",
+      "type": "n8n-nodes-base.clearbit",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-02-21T18:04:56.018Z",
+  "path": "official/template_2113/workflow.json"
+}

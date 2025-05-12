@@ -1,0 +1,49 @@
+{
+  "id": 1810,
+  "name": "Read XML file and store content in Google Sheets",
+  "description": "This workflow shows a low code approach to parsing an XML file and storing its contents in a Google Sheets spreadsheet.\n\n\n\nTo run the workflow:\n\nMake sure you are running n8n 0.197 or newer\nHave n8n authenticated with Google Sheets\n\nHow it's done:\n\nThis workflow first downloads an example file using the HTTP Request node and reads this file using the XML node.\n\nIt then runs the Item Lists node to split out the individual food items from the example file.\nIt then splits up the workflow into a separate branch creating a new spreadsheet file using the Google Sheets node. To read the column names we're using the Object.keys() method inside a Set node.\nOnce the spreadsheet is created (the workflow waits for this using the Merge node), the data is appended to the newly created sheet (again using the Google Sheets node).",
+  "totalViews": 4358,
+  "source": "official",
+  "user": {
+    "id": 21240,
+    "name": "Tom",
+    "username": "mutedjam",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://github.com/that-one-tom/\"]",
+    "avatar": "https://gravatar.com/avatar/7a3710173e907baffaf7ed7ebffc37955c9cdeadb8612200225a34a2e056aa17?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2022-10-11T08:48:16.956Z",
+  "path": "official/template_1810/workflow.json"
+}

@@ -1,0 +1,77 @@
+{
+  "id": 1970,
+  "name": "Create Unique Jira tickets from Splunk alerts",
+  "totalViews": 2042,
+  "purchaseUrl": null,
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "description": "The workflow is an automated process designed for incident management and tracking, specifically by integrating Splunk alerts with a Jira ticketing system using n8n. The initial step in the workflow is a Webhook Trigger, which is set up to receive POST requests with data from Splunk to initiate the workflow. Once the workflow is triggered, the \"Set Host Name\" node cleans up the hostname received from Splunk, ensuring that it is alphanumeric for consistency and security purposes.\n\nSubsequently, the \"Search Ticket\" node interacts with Jira through a Jira Query Language (JQL) request to locate any existing issues that match the sanitized hostname. The workflow splits at the \"IF Ticket Not Exists\" node, which checks for the presence of a key indicating a matching issue.\n\nIf an issue exists, the workflow proceeds to add a comment to the identified issue, and if not, it creates a new Jira issue. At the false path, the \"Add Ticket Comment\" node appends a new comment to the existing Jira issue, encapsulating details from the Splunk alert, such as the timestamp and the alert description.\n\n",
+  "createdAt": "2023-11-07T06:23:53.943Z",
+  "nodes": [
+    {
+      "id": 77,
+      "icon": "file:jira.svg",
+      "name": "n8n-nodes-base.jira",
+      "codex": {
+        "data": {
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/5-workflow-automations-for-mattermost-that-we-love-at-n8n/",
+                "icon": "🤖",
+                "label": "5 workflow automations for Mattermost that we love at n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/creating-custom-incident-response-workflows-with-n8n/",
+                "label": "How to automate every step of an incident response workflow"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.jira/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/jira/"
+              }
+            ]
+          },
+          "categories": [
+            "Development",
+            "Productivity"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"output\"]",
+      "defaults": {
+        "name": "Jira Software"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiB2aWV3Qm94PSIwIDAgNjguMjUgNzEuMjUiPjx1c2UgeGxpbms6aHJlZj0iI2EiIHg9IjMuMTI1IiB5PSIzLjEyNSIvPjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iYiIgeDE9IjkxLjklIiB4Mj0iMjguNDklIiB5MT0iNDAuMjIlIiB5Mj0iODEuNjMlIj48c3RvcCBvZmZzZXQ9IjE4JSIgc3RvcC1jb2xvcj0iIzAwNTJjYyIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzI2ODRmZiIvPjwvbGluZWFyR3JhZGllbnQ+PGxpbmVhckdyYWRpZW50IGlkPSJjIiB4MT0iOC43JSIgeDI9IjcyLjI2JSIgeTE9IjU5LjE3JSIgeTI9IjE3Ljk5JSI+PHN0b3Agb2Zmc2V0PSIxOCUiIHN0b3AtY29sb3I9IiMwMDUyY2MiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMyNjg0ZmYiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48c3ltYm9sIGlkPSJhIiBvdmVyZmxvdz0idmlzaWJsZSI+PGcgZmlsbC1ydWxlPSJub256ZXJvIiBzdHJva2U9Im5vbmUiPjxwYXRoIGZpbGw9IiMyNjg0ZmYiIGQ9Ik02MS4xNjEgMzAuMjExIDMwLjk1IDAgLjc0IDMwLjIxMWEyLjU0IDIuNTQgMCAwIDAgMCAzLjU4MWwzMC4yMTEgMzAuMjEgMzAuMjExLTMwLjIxYTIuNTQgMi41NCAwIDAgMCAwLTMuNTgxek0zMC45NSA0MS40NmwtOS40NjItOS40NjIgOS40NjItOS40NjIgOS40NjIgOS40NjJ6Ii8+PHBhdGggZmlsbD0idXJsKCNiKSIgZD0iTTMwLjk1IDIyLjU5OUMyNC43NTUgMTYuNDA1IDI0LjcyNCA2LjM3IDMwLjg4MS4xMzhMMTAuMTE0IDIwLjc3NGwxMS4yNjggMTEuMjY4eiIvPjxwYXRoIGZpbGw9InVybCgjYykiIGQ9Ik00MC40MzcgMzEuOTczIDMwLjk1IDQxLjQ2YTE1LjkzIDE1LjkzIDAgMCAxIDAgMjIuNTM2bDIwLjc0OS0yMC43NDl6Ii8+PC9nPjwvc3ltYm9sPjwvc3ZnPg=="
+      },
+      "displayName": "Jira Software",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 4,
+          "name": "Productivity"
+        },
+        {
+          "id": 5,
+          "name": "Development"
+        }
+      ]
+    }
+  ]
+}

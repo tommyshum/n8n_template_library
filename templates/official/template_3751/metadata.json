@@ -1,0 +1,102 @@
+{
+  "id": 3751,
+  "name": "Real-time Crypto News & Sentiment Analysis via Telegram with GPT-4o",
+  "description": "Stay on top of the latest crypto news and market sentiment instantly, all inside Telegram!  \nThis workflow aggregates articles from the top crypto news sources, filters for your topic of interest, and summarizes key news and market sentiment using GPT-4o AI. Ideal for crypto traders, investors, analysts, and market watchers needing fast, intelligent news briefings.\n\n&gt; 💬 Just type a coin name (e.g., \"Bitcoin\", \"Solana\", \"DeFi\") into your Telegram AI Agent—and get a smart news digest.\n\nHow It Works\n\nTelegram Bot Trigger  \n   User sends a keyword (e.g., \"Ethereum\") of questions to the Telegram AI Agent.\n\nKeyword Extraction (AI-Powered)  \n   An AI agent identifies the main topic for better targeting.\n\nNews Aggregation  \n   Pulls articles from 9 major crypto news RSS feeds:  \n   \n     Cointelegraph  \n     Bitcoin Magazine  \n     CoinDesk  \n     Bitcoinist  \n     NewsBTC  \n     CryptoPotato  \n     99Bitcoins  \n     CryptoBriefing  \n     Crypto.news  \n\nFiltering  \n   Finds and merges articles relevant to the user's keyword.\n\nAI Summarization  \n   GPT-4o generates a 3-part summary:\n     News Summary  \n     Market Sentiment Analysis  \n     List of Article Links\n\nTelegram Response  \n   Sends a structured, easy-to-read digest back to the user.\n\n🔍 What You Can Do with This Workflow\n\n🔹 Summarize breaking news for any crypto project or keyword  \n🔹 Monitor real-time market sentiment on Bitcoin, DeFi, NFTs, and more  \n🔹 Stay ahead of FUD, bullish trends, and major news events  \n🔹 Quickly brief yourself or your team via Telegram  \n🔹 Use it as a foundation for more advanced crypto alert bots\n\n✅ Example User Inputs\n\n✅ \"Bitcoin\" → Latest Bitcoin news and sentiment summary  \n✅ \"Solana\" → Updates on Solana projects, price movements, and community trends  \n✅ \"NFT\" → Aggregated news about NFT markets and launches  \n✅ \"Layer 2\" → Insights on Optimism, Arbitrum, and other L2s  \n\n🛠️ Setup Instructions\n\nCreate a Telegram Bot  \n   Use @BotFather and obtain the Bot Token.\n\nConfigure Telegram Credentials in n8n  \n   Add your bot token under Telegram API Credentials.\n\nConfigure OpenAI API  \n   Add your OpenAI credentials for GPT-4o access.\n\nUpdate Telegram Send Node  \n   In the Telegram Send node, replace the placeholder chatId with your real Telegram user or group chat ID.\n\nDeploy and Test  \n   Start chatting with your bot: e.g., \"Ethereum\" or \"DeFi\".\n\n📌 Workflow Highlights\n\n9 major crypto news sources combined**\nSmart keyword matching** with AI query parsing\nSummarized insights** in human-readable format\nReference links** included for deeper reading\nInstant delivery** via Telegram\n\n🚀 Get ahead of the crypto market—automate your news and sentiment monitoring with AI inside Telegram!",
+  "totalViews": 1406,
+  "source": "official",
+  "user": {
+    "id": 93152,
+    "name": "Don Jayamaha Jr",
+    "username": "don-the-gem-dealer",
+    "bio": "With 12 years of experience as a Blockchain Strategist and Web3 Architect, I specialize in bridging the gap between traditional industries and decentralized technologies. My expertise spans tokenized assets, crypto payment integrations, and blockchain-driven market solutions.",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/donjayamahajr/\"]",
+    "avatar": "https://gravatar.com/avatar/95f70084b3fec5ed68a61eef6dc6128dfb085d865a02ed631d0853d2730696bf?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-04-27T02:48:10.901Z",
+  "path": "official/template_3751/workflow.json"
+}

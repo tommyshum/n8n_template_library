@@ -1,0 +1,47 @@
+{
+  "id": 2109,
+  "name": "Enrich new Discourse members with Clearbit then notify in Slack",
+  "description": "Who is this template for?\nThis workflow template is designed for Sales and Customer Success professionals seeking alerts when potential high-value users, prospects, or existing customers register for a Discourse community. Leveraging Clearbit, it retrieves enriched data for the new member to assess their value.\nExample result in Slack\n\nHow it works\nEach time a new member is created in Discourse, the workflow runs (powered by Discourse's native Webhooks feature).\nAfter filtering out popular private email accounts, we run the member's email through Clearbit to fetch available information on the member as well as their organization. \nIf the enriched data meets certain criteria, we send a Slack message to a channel. This message has a few quick actions: Open LinkedIn profile and Email member\n\nSet up instructions\nOverview is below. Watch this 🎥 quick set up video for detailed instructions on how to get the template running, as well as how to customize it.\nComplete the Set up credentials step when you first open the workflow. You'll need a Discourse (admin user), Clearbit, and Slack account.\nSet up the Webhook in Discourse, linking the On new Discourse user Trigger with your Discourse community.\nSet the correct channel to send to in the Post message in channel step\nAfter testing your workflow, swap the Test URL to Production URL in Discourse and activate your workflow \n\n\nTemplate was created in n8n v1.29.1 ",
+  "totalViews": 979,
+  "source": "official",
+  "user": {
+    "id": 91246,
+    "name": "Max Tkacz",
+    "username": "max-n8n",
+    "bio": "Principal Product Designer @ n8n",
+    "verified": true,
+    "links": "[\"https://n8n.io\"]",
+    "avatar": "https://gravatar.com/avatar/c8f1965a9ff2bef51826e127081be880010ce5f0e3a3fc8ffd54e944d58bd2df?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Sales"
+  ],
+  "nodes": [
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Clearbit",
+      "type": "n8n-nodes-base.clearbit",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-02-21T14:54:38.952Z",
+  "path": "official/template_2109/workflow.json"
+}

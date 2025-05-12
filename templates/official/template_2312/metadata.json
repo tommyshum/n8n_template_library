@@ -1,0 +1,54 @@
+{
+  "id": 2312,
+  "name": "Attach a default error handler to all active workflows",
+  "description": "How it works:\n\nDid you ever miss any errors in your workflow executions? I did! And I usually only realised a few days or weeks later. 🙈\n\nThis template attaches a default error workflow to all your active workflows. From now on, you'll receive a notification whenever a workflow errors and you'll have peace of mind again.\n\nIt runs every night at midnight so you never have to think of this again. Of course, you can also run it manually.\n\nSteps to set up:\n\nUpdate the Gmail note with your own email address, or replace it with any other notification mechanism. You can also use Slack, Discord, Telegram or text messages.. \nActivate the workflow.\nRelax.\n\nCaveats:\n\nI did not add any rate limiting, so if you have a workflow that runs very frequently and it errors... well let's say your mailbox will not be a nice place anymore.\n\nIdeas for improvement?\n\nIf you have any suggestions for improvement, feel free to reach out to me at bart@n8n.io.\n\nEnjoy!",
+  "totalViews": 2998,
+  "source": "official",
+  "user": {
+    "id": 91453,
+    "name": "bartv",
+    "username": "bartv",
+    "bio": "I'm Senior Community Manager at n8n!",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/7ffea915bf7b5f167c31b664b719cf7d6c840be04c110a0206f0deb9d03dc908?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-07-04T15:38:49.281Z",
+  "path": "official/template_2312/workflow.json"
+}

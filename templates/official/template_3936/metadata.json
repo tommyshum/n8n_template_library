@@ -1,0 +1,105 @@
+{
+  "id": 3936,
+  "name": "YouTube Comment Sentiment Analysis with Google Gemini AI and Google Sheets",
+  "description": "This workflow automatically collects all comments from a specified YouTube video and analyzes the sentiment of each comment using an AI model (e.g., GPT, Claude or Gemini). The sentiment (Positive, Neutral, or Negative), its strength, and confidence score are extracted and saved into a connected Google Sheet for easy access, reporting, and visualization.\n\nAdvantages:\n\n🧠 AI-Powered Sentiment Analysis\n\n   Uses modern language models (LLMs) to categorize comments with high accuracy.\n\n📺 Ideal for YouTube Creators & Marketers\n\n   Provides insights into audience perception of videos, campaigns, or products.\n\n📈 Real-Time Feedback Monitoring\n\n   Quickly identify trends in viewer sentiment across large comment volumes.\n\n📊 Automatic Reporting\n\n   Saves results in Google Sheets for easy sharing or dashboard integration.\n\n🔁 Handles Pagination\n\n   Automatically fetches all comments, even from multi-page videos.\n\n⚙️ No-Code Customization\n\n   Easily adaptable to other platforms (e.g., TikTok, Instagram) or data sources.\n\n📥 Simple Setup\n\n   Requires just a YouTube video ID and API key — no coding needed.\n\n🔁 Loop and Update Logic\n\n   Continuously updates sheet with new results, avoiding duplicate processing.\n\n🧩 Modular Design\n\n   Easy to expand (e.g., reply classification, toxic comment detection, translation).\n\n💬 Multi-Language Compatibility\n\nAI can be configured to analyze comments in different languages with minimal setup.\n\nHow It Works  \nTrigger: The workflow starts manually (\"When clicking ‘Test workflow’\") or can be scheduled.  \nFetch Comments: The \"Get API Comments\" node retrieves comments from a YouTube video using the YouTube API.  \nProcess Comments:  \n   Extracts comments and replies via the \"Comments\" node.  \n   Splits them into individual entries (\"Split comments\").  \n   Saves raw comments to Google Sheets (\"Save comments\").  \nSentiment Analysis:  \n   Uses Google Gemini AI (or another model) to classify each comment as Positive, Neutral, or Negative.  \n   Captures strength and confidence metrics for deeper insights.  \nUpdate Results: The \"Update sentiment\" node writes the analysis back to Google Sheets, marking processed rows.  \nPagination Handling: Checks for multiple pages of comments (\"Multipage?\") and loops until all are processed.  \n\nSet Up Steps  \nPrepare Google Sheet:  \n   Clone the template: YouTube Comments Sheet.  \n   Ensure columns exist: VIDEO_ID, COMMENTS, SENTIMENT, STRENGTH, CONFIDENCE, and DO (tracking column).  \n\nConfigure YouTube API:  \n   Obtain a YouTube API key from Google Developers Console.  \n   Add it to the \"Get API Comments\" node under Youtube Query Auth (parameter: key).  \n\nSet Video ID:  \n   Replace the default xxxxxxxx in the \"ID Video\" node with your target YouTube video ID.  \n\nAI Integration:  \n   Ensure Google Gemini API credentials are configured in the \"Google Gemini\" node.  \n\nRun the Workflow:  \n   Test manually or automate execution (e.g., hourly/daily) to analyze new comments.  \n\nOutput: A Google Sheet with categorized sentiments, enabling trend analysis and audience engagement tracking.  \n\nNeed help customizing?  \nContact me for consulting and support or add me on Linkedin. \n",
+  "totalViews": 90,
+  "source": "official",
+  "user": {
+    "id": 92207,
+    "name": "Davide",
+    "username": "n3witalia",
+    "bio": "Full-stack Web Developer based in Italy specialising in Marketing & AI-powered automations. For business enquiries, send me an email at info@n3w.it or add me on Linkedin.com/in/davideboizza",
+    "verified": true,
+    "links": "[\"https://n3w.it\"]",
+    "avatar": "https://gravatar.com/avatar/d41b8a0aa81139243509c58870f5b4be292824a507ab57d10ed066d8628ed8da?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Marketing",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "QuickChart",
+      "type": "n8n-nodes-base.quickChart",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Sentiment Analysis",
+      "type": "@n8n/n8n-nodes-langchain.sentimentAnalysis",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-05-08T09:43:30.770Z",
+  "path": "official/template_3936/workflow.json"
+}

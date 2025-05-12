@@ -1,0 +1,104 @@
+{
+  "id": 3646,
+  "name": "💬 Daily WhatsApp Group Summarizer – GPT-4o, Google Sheets & Evolution API",
+  "description": "Hey! I’m Amanda ❤️\nI made this little workflow with care for people like you who are part of busy WhatsApp groups and want a simple way to keep track of everything.\n\nIt connects to Evolution API, collects all the group messages throughout the day, stores them in Google Sheets, and uses GPT-4o to generate a daily summary. The summary is saved as a document in Google Drive — ready to read, share, or archive.\n\nIt’s perfect for teams, communities, classes, or any group that talks a lot but doesn’t want to miss important info.\n\nWhat it does\n\nCollects WhatsApp group messages using Evolution API  \nSaves the messages in Google Sheets (organized by date)  \nCreates a clean, structured summary using GPT-4o  \nSaves the summary in Google Drive as a doc  \nCan run daily at a set time (fully automated)\n\nHow to set it up\n\nConnect your Evolution API and provide the group ID  \nUse this Google Sheets template  \nConnect Google Sheets and Google Drive in n8n  \nAdd your OpenAI API key  \n(Optional) Adjust the AI prompt for a custom tone or structure\n\n✅ Works on both n8n Cloud and Self-hosted  \n🔐 All credentials stay safe in n8n\n\nWant to customize this for your group or business?  \n❤️ Buy Workflows: https://iloveflows.gumroad.com  \n💬 Hire My Services: +5517991557874 (WhatsApp)\n\nTradução em Português (pt-br):\nOi! Eu sou a Amanda 💬\nSe você participa de grupos movimentados no WhatsApp e quer transformar tudo isso em resumos diários organizadinhos, esse fluxo foi feito com todo carinho pra você!\n\nEle conecta com a API da Evolution, coleta as mensagens trocadas em grupos, armazena tudo no Google Sheets, e no fim do dia gera um resumo completo usando GPT-4o. Esse resumo é salvo como documento no seu Google Drive — pronto pra ser lido, compartilhado ou arquivado.\n\nIdeal pra equipes, comunidades, projetos colaborativos ou até grupos de estudos 📚\n\nO que o fluxo faz\n\nMonitora e salva conversas do grupo no Google Sheets  \nGera resumos diários com IA (formato estruturado e pronto pra leitura)  \nSalva o resumo como documento no seu Google Drive  \nFunciona com qualquer grupo conectado à sua conta Evolution  \nPode ser agendado pra rodar automaticamente todo fim de dia\n\nComo configurar\n\nConecte sua API Evolution e informe o ID do grupo  \nUse essa planilha modelo para armazenar as mensagens  \nConecte sua conta do Google (Sheets + Drive)  \nAdicione sua chave da OpenAI  \nPersonalize o prompt do resumo (opcional)\n\n✅ Compatível com n8n Cloud e Auto-hospedado  \n🔐 Tudo seguro, simples e sem complicações\n\nQuer adaptar esse fluxo pro seu sistema?  \n❤️ Buy Workflows: https://iloveflows.gumroad.com  \n💬 Hire My Services: +5517991557874 (WhatsApp)",
+  "totalViews": 478,
+  "source": "official",
+  "user": {
+    "id": 93865,
+    "name": "Amanda Benks",
+    "username": "amanda",
+    "bio": "Hi loves! I've been making workflows for n8n for two years, and I hope you like my flows <3",
+    "verified": true,
+    "links": "[\"https://iloveflows.com\"]",
+    "avatar": "https://gravatar.com/avatar/b3a5d488866a5de1fb28471770f11f0dab20e328d3b47e4fa0a379ef2a22c041?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Summarization Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainSummarization",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-04-21T15:35:02.399Z",
+  "path": "official/template_3646/workflow.json"
+}

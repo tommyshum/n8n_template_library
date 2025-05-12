@@ -1,0 +1,61 @@
+{
+  "id": 1344,
+  "name": "Save email attachments to Nextcloud",
+  "totalViews": 7766,
+  "purchaseUrl": null,
+  "user": {
+    "id": 24063,
+    "name": "Manu",
+    "username": "tennox",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://txlab.io\"]",
+    "avatar": "https://gravatar.com/avatar/2d81612cea16a74b43a68c932b1519d95d075a9176396649fdd837c68e2de12b?r=pg&d=retro&size=200"
+  },
+  "description": "This workflow will take all emails you put into a certain folder, upload any attachements to Nextcloud, and mark the emails as read (configurable).\n\nAttachements will be saved with automatically generated filenames:\n2021-01-01_From-Sender-Name_Filename-of-attachement.pdf\n\nInstructions:\nAllow lodash to be used in n8n (or rewrite the code...)\n  NODE_FUNCTION_ALLOW_EXTERNAL=lodash (environment variable)\nImport workflow\nSet credentials for Email & Nextcloud nodes\nConfigure to use correct folder / custom filters\nActivate\n\nCustom filter examples:\nOnly unread emails:\n  Custom Email Config = [\"UNSEEN\"]\nFilter emails by 'to' address:\n  Custom Email Config = [[\"TO\", \"example+invoices@posteo.de\"]]",
+  "createdAt": "2021-11-29T13:59:16.771Z",
+  "nodes": [
+    {
+      "id": 25,
+      "icon": "file:nextcloud.svg",
+      "name": "n8n-nodes-base.nextCloud",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.nextcloud/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/nextCloud/"
+              }
+            ]
+          },
+          "categories": [
+            "Data & Storage"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "Nextcloud"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiB2aWV3Qm94PSIwIDAgNzYgNTEiPjx1c2UgeGxpbms6aHJlZj0iI2EiIHg9Ii41IiB5PSIuNSIvPjxzeW1ib2wgaWQ9ImEiIG92ZXJmbG93PSJ2aXNpYmxlIj48cGF0aCBmaWxsPSIjMDA4MmM5IiBmaWxsLXJ1bGU9Im5vbnplcm8iIHN0cm9rZT0ibm9uZSIgZD0iTTM3LjUzMyAwYy03Ljc3IDAtMTQuMzU1IDUuMjY4LTE2LjM5NiAxMi4zNzktMS43NzgtMy44MTktNS41OTctNi40NTMtMTAuMDc1LTYuNDUzQzUuMDA0IDUuOTI2IDAgMTAuOTMxIDAgMTcuMDU0YTExLjE2IDExLjE2IDAgMCAwIDExLjEyOCAxMS4xMjhjNC40MTIgMCA4LjI5Ny0yLjYzNCAxMC4wNzUtNi40NTNhMTYuOTkgMTYuOTkgMCAwIDAgMTYuMzMgMTIuMzc5YzcuNzA0IDAgMTQuMjg5LTUuMjAyIDE2LjM5Ni0xMi4yNDggMS43NzggMy42ODcgNS41OTcgNi4yNTYgOS45NDMgNi4yNTZBMTEuMTYgMTEuMTYgMCAwIDAgNzUgMTYuOTg5YzAtNi4xMjQtNS4wMDQtMTEuMDYyLTExLjEyOC0xMS4wNjItNC4zNDYgMC04LjE2NSAyLjU2OC05Ljk0MyA2LjI1NkM1MS44MjIgNS4yMDIgNDUuMzAzIDAgMzcuNTMzIDBtMCA2LjUxOWExMC40OCAxMC40OCAwIDAgMSAxMC41MzUgMTAuNTM2QTEwLjQ4IDEwLjQ4IDAgMCAxIDM3LjUzMyAyNy41OWExMC40OCAxMC40OCAwIDAgMS0xMC41MzYtMTAuNTM1QTEwLjQ4IDEwLjQ4IDAgMCAxIDM3LjUzMyA2LjUxOW0tMjYuNDA1IDUuOTI2YTQuNTggNC41OCAwIDAgMSA0LjYwOSA0LjYwOSA0LjU4IDQuNTggMCAwIDEtNC42MDkgNC42MDkgNC41OCA0LjU4IDAgMCAxLTQuNjA5LTQuNjA5IDQuNTggNC41OCAwIDAgMSA0LjYwOS00LjYwOW01Mi43NDQgMGE0LjU4IDQuNTggMCAwIDEgNC42MDkgNC42MDkgNC42MDkgNC42MDkgMCAxIDEtOS4yMTggMGMuMDY2LTIuNTY4IDIuMDQxLTQuNjA5IDQuNjA5LTQuNjA5TTE5LjE3NiA0MS45NTdjMS44MjcgMCAyLjg1IDEuMzAxIDIuODUgMy4yNTJhLjM0NC4zNDQgMCAwIDEtLjM0MS4zNDFIMTYuNzZjLjAzMSAxLjczNCAxLjIzOSAyLjcyNiAyLjYzMyAyLjcyNmEyLjkgMi45IDAgMCAwIDEuNzk2LS42MTljLjE4Ni0uMTI0LjM0MS0uMDkzLjQzNC4wOTNsLjA5My4xNTVjLjA5My4xNTUuMDYyLjMxLS4wOTMuNDM0YTMuODQgMy44NCAwIDAgMS0yLjI2MS43NDNjLTIuMDEzIDAtMy41NjItMS40NTYtMy41NjItMy41NjIuMDMxLTIuMjMgMS41MTgtMy41NjIgMy4zNzYtMy41NjJ6bTEuODg5IDIuOTExYy0uMDYyLTEuNDI1LS45MjktMi4xMzctMS45Mi0yLjEzNy0xLjE0NiAwLTIuMTM3Ljc0My0yLjM1NCAyLjEzN3ptMTAuMjUzLTEuOTJ2LTIuMzg1YzAtLjIxNy4xMjQtLjM0MS4zNDEtLjM0MWguMjQ4Yy4yMTcgMCAuMzEuMTI0LjMxLjM0MXYxLjYxMWgxLjM5NGMuMjE3IDAgLjM0MS4xMjQuMzQxLjM0MXYuMDkzYzAgLjIxNy0uMTI0LjMxLS4zNDEuMzFoLTEuMzk0djMuNDA3YzAgMS41OC45NiAxLjc2NiAxLjQ4NyAxLjc5Ni4yNzkuMDMxLjM3Mi4wOTMuMzcyLjM0MXYuMTg2YzAgLjIxNy0uMDkzLjMxLS4zNzIuMzEtMS40ODcgMC0yLjM4NS0uODk4LTIuMzg1LTIuNTA5di0zLjV6bTcuMDkzLS45OTFjMS4xNzcgMCAxLjkyLjQ5NiAyLjI2MS43NzQuMTU1LjEyNC4xODYuMjc5LjAzMS40NjVsLS4wOTMuMTU1Yy0uMTI0LjE4Ni0uMjc5LjE4Ni0uNDY1LjA2Mi0uMzEtLjIxNy0uODk4LS42MTktMS43MDMtLjYxOS0xLjQ4NyAwLTIuNjY0IDEuMTE1LTIuNjY0IDIuNzU3IDAgMS42MTEgMS4xNzcgMi43MjYgMi42NjQgMi43MjYuOTYgMCAxLjYxMS0uNDM0IDEuOTItLjcxMi4xODYtLjEyNC4zMS0uMDkzLjQzNC4wOTNsLjA5My4xMjRjLjA5My4xODYuMDYyLjMxLS4wOTMuNDY1YTMuOCAzLjggMCAwIDEtMi40MTYuODY3Yy0yLjAxMyAwLTMuNTYyLTEuNDU2LTMuNTYyLTMuNTYyLjAzMS0yLjEwNiAxLjU4LTMuNTkzIDMuNTkzLTMuNTkzem00LjExOS0yLjE5OWMwLS4yMTctLjEyNC0uMzQxLjA5My0uMzQxaC4yNDhjLjIxNyAwIC41NTguMTI0LjU1OC4zNDF2Ny40MDNjMCAuODY3LjQwMy45Ni43MTIuOTkxLjE1NSAwIC4yNzkuMDkzLjI3OS4zMXYuMjE3YzAgLjIxNy0uMDkzLjM0MS0uMzQxLjM0MS0uNTU3IDAtMS41NDktLjE4Ni0xLjU0OS0xLjY3M3ptNi4zNSAyLjE5OWMxLjk4MiAwIDMuNTkzIDEuNTE4IDMuNTkzIDMuNTMxIDAgMi4wNDQtMS42MTEgMy41OTMtMy41OTMgMy41OTNzLTMuNTkzLTEuNTQ5LTMuNTkzLTMuNTkzYzAtMi4wMTMgMS42MTEtMy41MzEgMy41OTMtMy41MzFtMCA2LjMxOWMxLjQ1NiAwIDIuNjMzLTEuMTc3IDIuNjMzLTIuNzg4IDAtMS41NDktMS4xNzctMi42OTUtMi42MzMtMi42OTVhMi42NyAyLjY3IDAgMCAwLTIuNjY0IDIuNjk1Yy4wMzEgMS41OCAxLjIwOCAyLjc4OCAyLjY2NCAyLjc4OG0xNS40NTYtNi4zMTlhMi40NSAyLjQ1IDAgMCAxIDIuMjMgMS4zNjNoLjAzMXMtLjAzMS0uMjE3LS4wMzEtLjUyNnYtMy4wNjZjMC0uMjE3LS4wOTMtLjM0MS4xMjQtLjM0MWguMjQ4Yy4yMTcgMCAuNTU4LjEyNC41NTguMzQxdjguODI3YzAgLjIxNy0uMDkzLjM0MS0uMzEuMzQxaC0uMjE3Yy0uMjE3IDAtLjM0MS0uMDkzLS4zNDEtLjMxdi0uNTI3YzAtLjI0OC4wNjItLjQzNC4wNjItLjQzNGgtLjAzMXMtLjU4OSAxLjQyNS0yLjM1NCAxLjQyNWMtMS44MjcgMC0yLjk3My0xLjQ1Ni0yLjk3My0zLjU2Mi0uMDYyLTIuMTA2IDEuMjA4LTMuNTMxIDMuMDA0LTMuNTMxbS4wMzEgNi4zMTljMS4xNDYgMCAyLjE5OS0uODA1IDIuMTk5LTIuNzU3IDAtMS4zOTQtLjcxMi0yLjcyNi0yLjE2OC0yLjcyNi0xLjIwOCAwLTIuMTk5Ljk5MS0yLjE5OSAyLjcyNi4wMzEgMS42NzMuODk4IDIuNzU3IDIuMTY4IDIuNzU3bS01Ni41NTguNjVoLjI0OGMuMjE3IDAgLjM0MS0uMTI0LjM0MS0uMzQxdi02LjYyOGMwLTEuMDUzIDEuMTQ2LTEuNzk2IDIuNDQ3LTEuNzk2czIuNDQ3Ljc0MyAyLjQ0NyAxLjc5NnY2LjY1OWMwIC4yMTcuMTI0LjM0MS4zNDEuMzQxaC4yNDhjLjIxNyAwIC4zMS0uMTI0LjMxLS4zNDF2LTYuNzIxYzAtMS43NjYtMS43NjUtMi42MzMtMy4zNzYtMi42MzMtMS41NDkgMC0zLjMxNC44NjctMy4zMTQgMi42MzN2Ni42OWMwIC4yMTcuMDkzLjM0MS4zMS4zNDF6bTUxLjY5NS02LjgxNGgtLjI0OGMtLjIxNyAwLS4zNDEuMTI0LS4zNDEuMzQxdjMuNzQ4YzAgMS4wNTMtLjY4MSAyLjAxMy0yLjAxMyAyLjAxMy0xLjMwMSAwLTIuMDEzLS45Ni0yLjAxMy0yLjAxM3YtMy43NDhjMC0uMjE3LS4xMjQtLjM0MS0uMzQxLS4zNDFINTQuM2MtLjIxNyAwLS4zMS4xMjQtLjMxLjM0MXYzLjk5NmMwIDEuNzY1IDEuMzAxIDIuNjMzIDIuOTEyIDIuNjMzczIuOTExLS44NjcgMi45MTEtMi42MzN2LTMuOTk2Yy4wMzEtLjIxNy0uMDkzLS4zNDEtLjMxLS4zNDF6bS0zMC42NjQtLjAzMWMtLjA2MiAwLS4xNTUuMDYyLS4yMTcuMTU1bC0xLjIzOSAxLjQ4Ny0uOTI5IDEuMTE1LTEuNDI1LTEuNzA0LS43NzQtLjkyOWMtLjA2Mi0uMDkzLS4xNTUtLjEyNC0uMjE3LS4xMjRzLS4xNTUuMDMxLS4yNDguMDkzbC0uMTg2LjE1NWMtLjE1NS4xMjQtLjE1NS4yNzktLjAzMS40NjVsMS4yMzkgMS40ODcgMS4wNTMgMS4yMzktMS41MTggMS44MjctLjc3NC45MjljLS4xMjQuMTU1LS4xMjQuMzQxLjAzMS40OTZsLjE4Ni4xNTVjLjE1NS4xMjQuMzEuMDkzLjQ2NS0uMDYybDEuMjM5LTEuNDg3LjkyOS0xLjExNSAxLjQyNSAxLjcwNC43NzQuOTI5Yy4xMjQuMTU1LjMxLjE4Ni40NjUuMDMxbC4xODYtLjE1NWMuMTU1LS4xMjQuMTU1LS4yNzkuMDMxLS40NjVsLTEuMjM5LTEuNDg3LTEuMDUzLTEuMjM5IDEuNTE4LTEuODI3Ljc3NC0uOTI5Yy4xMjQtLjE1NS4xMjQtLjM0MS0uMDMxLS40OTVsLS4xODYtLjE4NmMtLjA5My0uMDYyLS4xNTUtLjA5My0uMjQ4LS4wNjJ6Ii8+PC9zeW1ib2w+PC9zdmc+"
+      },
+      "displayName": "Nextcloud",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 3,
+          "name": "Data & Storage"
+        }
+      ]
+    }
+  ]
+}

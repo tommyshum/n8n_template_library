@@ -1,0 +1,47 @@
+{
+  "id": 1945,
+  "name": "Sync Outlook Calendar events to Notion",
+  "description": "This workflow syncs Outlook Calendar events to a Notion database. The Outlook Calendar event must be within a specific time frame (default of within next year) for the workflow to pick up the event. The event subject will be the title of the Notion page, and the event link will be added to the Notion page as a property.\n\nPrerequisites\n\nNotion account and Notion credentials.\nMicrosoft account and Microsoft credentials.\n\nHow it works\n\nOn scheduled intervals, find all Outlook Calendar events within a specific time frame. For each event, check if the event already exists in the Notion database. If it does not exist, create a new page in the Notion database, otherwise update the existing page.\n\nSetup\n\nThis workflow requires that you set up a Notion database or use an existing one with at least the following fields:\n\nTitle (title)\nDate (date)\nEvent ID (text)\nLink (URL)",
+  "totalViews": 2666,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2023-09-14T09:12:03.637Z",
+  "path": "official/template_1945/workflow.json"
+}

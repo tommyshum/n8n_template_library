@@ -1,0 +1,110 @@
+{
+  "id": 2414,
+  "name": "Extract spending history from gmail to google sheet",
+  "description": "How it works\nFetch transaction notification emails (including attachments)\nClean up data\nLet AI (Basic LLM Chain node) generate bookkeeping item\nSend to Google sheet\n\nDetails\nThe example fetch email from Gmail lables, suggested using filters to automatically orgianize email into the labels\nData will send to \"raw data\" sheet\nExample google sheet:\nhttps://docs.google.com/spreadsheets/d/1_IhdHj8bxtsfH2MRqKuU2LzJuzm4DaeKSw46eFcyYts/edit?gid=1617968863#gid=1617968863",
+  "totalViews": 1977,
+  "source": "official",
+  "user": {
+    "id": 91965,
+    "name": "hana",
+    "username": "hanamizuki",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/dec0b6dfd789bc16a80cba5ff859e1e1abe1364904c860a5c942187145432a12?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Groq Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2024-09-15T07:38:34.216Z",
+  "path": "official/template_2414/workflow.json"
+}

@@ -1,0 +1,35 @@
+{
+  "id": 1996,
+  "name": "AI Customer feedback sentiment analysis",
+  "description": "LOOM Walkthrough: https://www.loom.com/share/4fbe06872cb8483993e7792018594f08\n\nHow it works\nCreate a form for customer feedback, have OpenAI classify the sentiment of the feedback (positive/neutral/negative) and store it in Google sheets!\n\n\nSet up steps\nConnect Google sheets\nConnect your OpenAi account (api key + org Id)\nCreate a customer feedback form, use an existing one or use the one below as example. \nAll set!\n\n\nHere is the example google sheet being used in this workflow: https://docs.google.com/spreadsheets/d/1omWdRbiT6z6GNZ6JClu9gEsRhPQ6J0EJ2yXyFH9Zng4/edit?usp=sharing. You can download it to your account.",
+  "totalViews": 7955,
+  "source": "official",
+  "user": {},
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Utility"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "OpenAI",
+      "type": "n8n-nodes-base.openAi",
+      "categories": [
+        "Utility"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2023-11-28T12:10:03.364Z",
+  "path": "official/template_1996/workflow.json"
+}

@@ -1,0 +1,134 @@
+{
+  "id": 3951,
+  "name": "Extract and Organize Colombian Invoices with Gmail, GPT-4o & Google Workspace",
+  "description": "🧾 Personal Invoice Processor\n\nThis N8N workflow automates the extraction and organization of personal invoices in Colombia received via Gmail. It includes the following key steps:\n\n🔁 Flow Summary\n\nEmail Trigger\n   Polls Gmail every 30 minutes for emails with .zip attachments (assumed to contain invoices).\n   Expects ZIP file following DIAN standards.\n\nZIP File Handling\n   Extracts all files.\n   Filters only PDF and XML files for processing.\n\nData Extraction & Processing\n   Uses LangChain Agent + OpenAI (GPT-4o-mini) to extract:\n     Tipo de documento (Factura / Nota Crédito)\n     Número de factura\n     Fecha de emisión (YYYY-MM-DD)\n     NIT emisor y receptor (sin dígito de verificación)\n     Razón social del emisor\n     Subtotal, IVA, Total\n     CUFE\n     Resumen de compra (max 20 words, formatted sentence)\n\nValidation\n   Ensures Total = Subtotal + IVA using a calculator node.\n\nStorage\n   Uploads the original PDF to Google Drive.\n   Renames the file to: YYYY-MM-DD-NUMERO_FACTURA.pdf.\n   Inserts or updates invoice details in Google Sheets using a unique Key (NIT_Emisor + Numero_Factura) to prevent duplication.\n\n&gt; ⚙️ Designed for personal use with minimal latency tolerance and high automation reliability.",
+  "totalViews": 381,
+  "source": "official",
+  "user": {
+    "id": 94230,
+    "name": "Juan Sanchez",
+    "username": "juansave",
+    "bio": "Experienced cloud solutions professional with a strong focus on Microsoft technologies, including Microsoft 365, Azure, Entra, and the Power Platform. Skilled in designing and implementing automation using Power Automate and PowerShell. Proven track record in sales, marketing, and delivering managed services for cloud environments. Passionate about digital transformation, AI integration, and streamlining business processes through low-code platforms.",
+    "verified": false,
+    "links": "[\"https://x.com/juansanchez9\"]",
+    "avatar": "https://gravatar.com/avatar/bc2a30800e378b67ebe172833516927dbaf9fb84de469d49143acb1154cd1b70?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Core Nodes",
+    "Development",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Compression",
+      "type": "n8n-nodes-base.compression",
+      "categories": [
+        "Core Nodes",
+        "Data & Storage"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Files",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Calculator",
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 8,
+  "createdAt": "2025-05-09T00:09:17.630Z",
+  "path": "official/template_3951/workflow.json"
+}

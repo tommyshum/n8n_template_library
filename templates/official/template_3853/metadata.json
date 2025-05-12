@@ -1,0 +1,85 @@
+{
+  "id": 3853,
+  "name": "Structured Data Extract & Data Mining with Bright Data & Google Gemini",
+  "description": "Who this is for?\nThe Structured Data Extract & Data Mining workflow is crafted for researchers, content analysts, SEO strategists, and AI developers who need to transform semi-structured web data (like markdown content or scraped HTML) into actionable structured datasets. \n\nIt is ideal for:\n\nContent Analysts** - Organizing and mining large volumes of markdown or HTML content.\n\nSEO & Trend Researchers** - Exploring topics by location and category.\n\nAI Engineers & NLP Developers** - Looking to automate insight extraction from unstructured inputs.\n\nGrowth Marketers** - Tracking topic-level trends for strategic campaigns.\n\nAutomation Specialists** - Streamlining workflows from scrape to storage.\n\nWhat problem is this workflow solving?\n\nExtracting insights from markdown or HTML documents typically requires manual review, formatting, and parsing. This becomes unscalable when dealing with large datasets or when real-time response is needed. Additionally, trend and topic extraction usually involves external tools, custom scripts, and inconsistent formatting.\n\nThis workflow solves:\n\nAutomatic text extraction from markdown or structured content.\n\nLocation and category-based trend mining with semantic grouping.\n\nAI-driven topic extraction and summarization\n\nReal-time notification via webhook with rich structured payloads.\n\nPersistent storage of mined data to disk for audits or further processing.\n\nWhat this workflow does\n\nReceives input: Sets the URL for the data extraction and analysis.\n\nUses Bright Data's Web Unlocker to extract content from relevant sites.\n\nA Markdown/Text Extractor node parses the content into clean plaintext\n\nThe cleaned data is passed to Google Gemini to:\n\n\tIdentify trends by location and category\n\n\tExtract key topics and themes\n\n\tFormat the response into structured JSON\n\n\tThe structured insights are sent via Webhook Notification to external systems (e.g., Slack, Web apps, Zapier)\n\n\tThe final output is saved to disk\n\nSetup\n\nSign up at Bright Data.\nNavigate to Proxies & Scraping and create a new Web Unlocker zone by selecting Web Unlocker API under Scraping Solutions.\nIn n8n, configure the Header Auth account under Credentials (Generic Auth Type: Header Authentication).\n\nThe Value field should be set with the \nBearer XXXXXXXXXXXXXX. The XXXXXXXXXXXXXX should be replaced by the Web Unlocker Token.\nA Google Gemini API key (or access through Vertex AI or proxy).\nUpdate the Set URL and Bright Data Zone for setting the brand content URL and the Bright Data Zone name.\nUpdate the Webhook HTTP Request node with the Webhook endpoint of your choice.\n\nHow to customize this workflow to your needs\n\nUpdate Source** : Update the workflow input to read from Google Sheet or Airbase for dynamically tracking multiple brands or topics.\nGemini Prompt Customization** : \n\tExtract trends within a custom category (e.g., E-commerce design patterns in the US)\n\n\tOutput topics with popularity metrics\n\n\tStructure the output as per your database schema (e.g., [{ topic, trend_score, location }])\n\nWebhook Output** : Send notifications to -\n\n\tSlack – with AI summaries in rich blocks\n\tInternal APIs – for use in dashboards\n\n\tZapier/Make – for multi-step automation\n\nPersistence**\n\tSave output to:\n\n\t\tRemote FTP or SFTP storage\n\t\tAmazon S3, Google Cloud Storage etc.\n\n",
+  "totalViews": 201,
+  "source": "official",
+  "user": {
+    "id": 93657,
+    "name": "Ranjan Dailata",
+    "username": "ranjancse",
+    "bio": "",
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/7b74fe44a7ad32db7c783b972deb5848a4b1f043377bce4039737ed66da8305f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Information Extractor",
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-05-03T23:44:32.500Z",
+  "path": "official/template_3853/workflow.json"
+}

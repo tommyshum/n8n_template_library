@@ -1,0 +1,49 @@
+{
+  "id": 2581,
+  "name": "Simple Lead Capture and Follow-on with n8n Multi-Forms",
+  "description": "This n8n template demonstrates the easiest way to build a lead capture flow for your side project, startup or small business where simple works best!\n\nIf Typeform's costs are getting you down or you feel Google form URLs are off-putting, then definitely give this a try.\n\nHow it works\nOur flow begins with a form trigger to capture a newsletter signup and the user's email is captured into a google sheet. Google Sheet is used for demonstration purposes but this could be any database.\nMulti-page forms allow you to continue the onboarding experience with a short survey. 3 form nodes are chained to capture more details from the user which update the same row in the google sheet.\nFinally, a form ending node shows a customised completion screen for our user.\n\nCheck out the example sheet here: https://docs.google.com/spreadsheets/d/15W1PiFjCoiEBHHKKCRVMLmpKg4AWIy9w1dQ2Dq8qxPs/edit?usp=sharing\n\nHow to use\nKeeping forms simple may serve to increase form completion rates. If you feel the need to add additional fields, consider breaking them up into more forms and group them contextually.\n\nRequirements\nGoogle Sheets for data capture\nSlack for notifications\n\nFeel free to swap these out for services that you use!\n\nCustomising this workflow\nPlay with multi-form design to maximise the opportunity of getting to know the user better. That said, lengthy flows are likely to put people off.\nInstead of showing a static completion screen, perhaps redirecting to your blog or other more interesting page.",
+  "totalViews": 4195,
+  "source": "official",
+  "user": {
+    "id": 91804,
+    "name": "Jimleuk",
+    "username": "jimleuk",
+    "bio": "Freelance consultant based in the UK specialising in AI-powered automations. I work with select clients tackling their most challenging projects. For business enquiries, send me an email at hello@jimle.uk\n\nLinkedIn: https://www.linkedin.com/in/jimleuk/\nX/Twitter: https://x.com/jimle_uk",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4ab99e51473df76838beeaac908747f7928c625f869794815cabe34016967d51?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-11-26T18:04:48.815Z",
+  "path": "official/template_2581/workflow.json"
+}

@@ -1,0 +1,77 @@
+{
+  "id": 2272,
+  "name": "Enrich up to 1500 emails per hour with Dropcontact batch requests",
+  "description": "The template allows to make Dropcontact batch requests up to 250 requests every 10 minutes (1500/hour). Valuable if high volume email enrichment is expected.\n\nDropcontact will look for email & basic email qualification if first_name, last_name, company_name is provided.\n\n\n+++++++++++++++++++++++++++++++++++++++++\n\nStep 1:\nNode \"Profiles Query\"\nConnect your own source (Airtable, Google Sheets, Supabase,...) the template is using Postgres by default. \n\n\nNote I: \nBe careful your source is only returning a maximum of 250 items.\n\nNote II: \nThe next node uses the next variables, make sure you can map these from your source file: \nfirst_name\nlast_name\nwebsite (company_name would work too)\nfull_name (see note)\n\nNote III:\nThis template is using the Dropcontact Batch API, which works in a POST & GET setup. Not a GET request only to retrieve data, as Dropcontact needs to process the batch data load properly. \n\n\n+++++++++++++++++++++++++++++++++++++++++\n\nStep 2:\nNode \"Data Transformation\" \nWill transform the input variables in the proper json format. This json format is expected from the Dropcontact API to make a batch request.\n\n\n\"full_name\" is being used as a custom identifier to update the returned email to the proper contact in your source database.\n\nTo make things easy, use a unique identiefer in the full_name variable.\n\n+++++++++++++++++++++++++++++++++++++++++\n\nStep3:\nNode: \"Bulk Dropcontact Requests\".\nEnter your Dropcontact credentials in the node: Bulk Dropcontact Requests.\n\n+++++++++++++++++++++++++++++++++++++++++\n\nStep4:\nConnect your output source by mapping the data you like to use.\n\n+++++++++++++++++++++++++++++++++++++++++\n\nStep5:\nNode: \"Slack\" (OPTIONAL)\nConnect your slack account, if an error occur, you will be notified.\n\nTIP: Try to run the workflow with a batch of 10 (not 250) as it might need to run initially before you will be able to map the data to your final destination. Once the data fields are properly mapped, adjust back to 250.\n\n\n\n",
+  "totalViews": 3116,
+  "source": "official",
+  "user": {
+    "id": 91703,
+    "name": "victor de coster",
+    "username": "vliegendepater",
+    "bio": "",
+    "verified": false,
+    "links": "[\"https://www.linkedin.com/in/victordecoster/\"]",
+    "avatar": "https://gravatar.com/avatar/b30d31c33606cb6d6809c7f88d7eaf5b8bdd2b50dcbd3287f2f9fc0c769ecd90?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Postgres",
+      "type": "n8n-nodes-base.postgres",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2024-05-21T14:12:20.932Z",
+  "path": "official/template_2272/workflow.json"
+}

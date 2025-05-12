@@ -1,0 +1,103 @@
+{
+  "id": 3425,
+  "name": "Analyze Crypto Markets with the AI-Powered CoinMarketCap Data Analyst",
+  "description": "Meet your AI-powered crypto data analyst—fully integrated with CoinMarketCap APIs.  \n\nThis workflow acts as the supervisor agent for a multi-agent architecture built in n8n, connecting three powerful sub-agents to extract real-time insights from centralized and decentralized markets. It’s the ultimate tool for crypto traders, analysts, developers, and researchers who need strategic multi-source intelligence—all through Telegram.\n\nThis workflow requires 3 sub-agent templates to function correctly. See below.\n\n🔌 Required Sub-Workflows (Install First)\n\nCoinMarketCap Crypto Agent Tool  \n   → Token prices, metadata, conversions, listings\n\nCoinMarketCap Exchange & Community Agent Tool  \n   → Exchange info, token holdings, Fear & Greed index\n\nCoinMarketCap DEXScan Agent Tool  \n   → DEX trading pairs, liquidity, OHLCV data\n\n Download all from my Creator Profile:  \n https://n8n.io/creators/don-the-gem-dealer/\n\nWhat Makes This Workflow Special?\n\nThis is not just another API wrapper—it’s an intelligent routing agent powered by GPT-4o-mini, capable of:\n\nUnderstanding complex user queries  \nChoosing the appropriate tool workflow  \nStructuring the API request  \nExecuting sub-workflows  \nFormatting the output  \nReturning insights via Telegram\n\nIt connects three domains of market data:\nCryptocurrencies (CEX)**\nExchanges & Sentiment**\nDEX trading data**\n\n🔍 What You Can Do  \n\n💰 Token Intelligence\nGet token metadata, price, volume, supply\nCompare rankings and conversions\n\n🏦 Exchange Insights\nView assets held by exchanges\nTrack the CMC 100 Index and Fear & Greed Score\n\n🌐 DEX Market Analysis\nAnalyze pair quotes, historical OHLCV, live trades\nDiscover the top DEXs by volume across blockchains\n\n✅ Example Questions to Ask\n“What’s the market cap of Ethereum today?”  \n“Show liquidity and volume for SOL/USDT on Solana”  \n“Get token holdings for Binance”  \n“Compare BTC price on Uniswap vs Binance”  \n“What’s the Fear & Greed index right now?”\n\n🛠️ Setup Instructions\n\nCreate Telegram Bot  \n   Use @BotFather to get your bot token.\n\nGet CoinMarketCap API Key  \n   Apply here: https://coinmarketcap.com/api/\n\nInstall Sub-Agent Templates  \n   Required:\n     Crypto Agent Tool  \n     Exchange & Community Tool  \n     DEXScan Tool\n\nConfigure Credentials in n8n  \n   Add both Telegram and CoinMarketCap keys as HTTP Header Auth.\n\nDeploy & Test  \n   Ask your Telegram bot: “Top 10 tokens by 24h volume” or “Convert 5 ETH to USD”\n\nWorkflow Architecture\n\nAI Brain**: GPT-4o-mini  \nMemory**: Windowed buffer memory via sessionId  \nTool Agents**:  \n   toolWorkflow() → routes requests to the appropriate sub-agent  \n   Executes real-time API queries and returns structured output\n\nIncluded Sticky Notes  \nSystem Overview**  \nError Handling Guide (200, 400, 401, 429, 500)**  \nStep-by-Step Usage Instructions**  \nPrompt Examples + API Docs**  \nLegal & Licensing Notes**\n\nYour crypto insights—smarter, faster, and all in one Telegram message.\n\n",
+  "totalViews": 14976,
+  "source": "official",
+  "user": {
+    "id": 93152,
+    "name": "Don Jayamaha Jr",
+    "username": "don-the-gem-dealer",
+    "bio": "With 12 years of experience as a Blockchain Strategist and Web3 Architect, I specialize in bridging the gap between traditional industries and decentralized technologies. My expertise spans tokenized assets, crypto payment integrations, and blockchain-driven market solutions.",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/donjayamahajr/\"]",
+    "avatar": "https://gravatar.com/avatar/95f70084b3fec5ed68a61eef6dc6128dfb085d865a02ed631d0853d2730696bf?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-04-03T13:53:03.108Z",
+  "path": "official/template_3425/workflow.json"
+}

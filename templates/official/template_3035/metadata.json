@@ -1,0 +1,69 @@
+{
+  "id": 3035,
+  "name": "CallForge - 05 - Gong.io Call Analysis with Azure AI & CRM Sync",
+  "description": "\nCallForge - AI Sales Call Processing & Insights Extraction  \nAutomate sales call analysis with AI-powered insights for sales, marketing, and product teams.\n\nWho is This For?  \nThis workflow is designed for:  \n✅ Sales teams looking to extract structured insights from Gong call transcripts.  \n✅ Marketing professionals seeking AI-driven customer pain points & content strategy.  \n✅ Product teams needing feedback from sales calls to prioritize feature development.  \n\n🔍 What Problem Does This Workflow Solve?  \nManually analyzing Gong.io sales call transcripts is slow, inconsistent, and lacks structured insights.  \n\nWith CallForge, you can:  \n✔ Extract AI-powered insights about use cases, objections, competitors, and next steps.  \n✔ Provide structured marketing & product intelligence to enhance strategy.  \n✔ Automatically store call insights in Notion and Salesforce for easy access.  \n✔ Ensure resilience with automated reruns on failed workflows (handling Notion API limits).  \n✔ Improve decision-making with AI-powered competitor and sentiment analysis.  \n\n📌 Key Workflow Features  \n\n🎤 AI-Powered Transcript Analysis  \nUses AI to identify use cases, objections, competitors, and customer pain points.  \nCategorizes insights for sales, marketing, and product teams.  \n\n📌 AI Agent Breakdown  \n🔹 Sales AI Agent – Extracts customer objections, pain points, competitors, and next steps.  \n🔹 Marketing AI Agent – Identifies recurring topics, keyword trends, and content opportunities.  \n🔹 Product AI Agent – Captures feature requests and AI/ML-related references.  \n\n📊 Structured Output Processing  \nSales Data Processor* → Stores insights in *Notion & Salesforce** for sales tracking.  \nMarketing Data Processor* → Extracts *SEO & content strategy insights** for marketing teams.  \nProduct AI Data Processor* → Logs *customer feedback* to prioritize *feature development**.  \n\n💡 Competitor & Integration Analysis  \nTracks competing products mentioned in calls**.  \nIdentifies integration needs**, flagging workarounds used by prospects.  \n\n📢 Real-Time Slack Notifications  \nAlerts teams on workflow progress** and completed call analyses.  \n\n🔄 Failure Resilience & Automated Re-Runs  \nIf a Notion API limit is reached, the process resumes automatically.  \n\n🚀 How This Works  \n\n🛠 1. Trigger & Call Data Processing  \nThe workflow retrieves Gong call transcripts and metadata.  \nNormalizes data**, correcting common mispronunciations like \"n8n.\"  \n\n🤖 2. AI Agents Analyze the Call  \nSales Agent** – Extracts actionable insights for sales follow-ups.  \nMarketing Agent* – Identifies *recurring themes* and *keyword trends**.  \nProduct Agent* – Captures *feature requests and AI/ML usage mentions**.  \n\n📡 3. Data is Stored in Notion & Salesforce  \nLogs AI-extracted insights* in *Notion** for structured tracking.  \nPushes sales-related data* to *Salesforce** for team accessibility.  \n\n🔔 4. Slack Alerts for Teams  \nNotifies sales, marketing, and product teams** about extracted insights. \n\nCallForge - 01 - Filter Gong Calls Synced to Salesforce by Opportunity Stage\nCallForge - 02 - Prep Gong Calls with Sheets & Notion for AI Summarization\nCallForge - 03 - Gong Transcript Processor and Salesforce Enricher\nCallForge - 04 - AI Workflow for Gong.io Sales Calls\nCallForge - 05 - Gong.io Call Analysis with Azure AI & CRM Sync\nCallForge - 06 - Automate Sales Insights with Gong.io, Notion & AI\nCallForge - 07 - AI Marketing Data Processing with Gong & Notion\nCallForge - 08 - AI Product Insights from Sales Calls with Notion\n\n📊 Sample Output Data  \n\n1️⃣ Sales Insights  \n{\n  \"UseCases\": [\n    {\n      \"Summary\": \"A manufacturing company wants to automate inventory tracking and reduce manual entry delays.\",\n      \"DepartmentTags\": [\"Operations\"],\n      \"IndustryTags\": [\"Manufacturing\"],\n      \"ImplementationStatus\": \"Evaluating\"\n    }\n  ],\n  \"Objection\": {\n    \"ObjectionTags\": [\"Feature Limitation\"],\n    \"Nature\": \"The prospect wanted a deeper integration with their ERP system, which n8n currently lacks.\"\n  },\n  \"CallSummary\": \"The call focused on automation for supply chain processes. The prospect expressed interest but wanted confirmation on ERP integration capabilities.\",\n  \"NextSteps\": [\"Schedule a follow-up demo for ERP integration.\"]\n}\n\n2️⃣ Marketing Insights  \n{\n  \"MarketingInsights\": [\n    {\n      \"Tag\": \"Workflow Template Request\",\n      \"Summary\": \"The prospect requested a template for automating CRM lead tracking.\"\n    }\n  ],\n  \"RecurringTopics\": [\n    {\n      \"Topic\": \"CRM Integration\",\n      \"Mentions\": 3,\n      \"Context\": \"Discussed how n8n could sync CRM data automatically.\"\n    }\n  ],\n  \"ActionableInsights\": [\n    {\n      \"RecommendationType\": \"Tutorial\",\n      \"Title\": \"How to Automate CRM Lead Tracking with n8n\",\n      \"Topic\": \"CRM Integration\",\n      \"Rationale\": \"The prospect expressed a need for CRM automation templates.\"\n    }\n  ]\n}\n\n3️⃣ Product Feedback  \n{\n  \"ProductFeedback\": [\n    {\n      \"Sentiment\": \"Positive\",\n      \"Feedback\": \"The external speaker praised the simplicity of n8n's UI, making it easier for non-developers to automate tasks.\"\n    },\n    {\n      \"Sentiment\": \"Negative\",\n      \"Feedback\": \"The external speaker mentioned frustration over the lack of a dedicated ERP integration node.\"\n    }\n  ],\n  \"AI_ML_References\": {\n    \"Exist\": true,\n    \"Context\": \"The external speaker mentioned using AI for automating customer ticket categorization.\",\n    \"Details\": {\n      \"DevelopmentStatus\": \"Building\",\n      \"Department\": \"Support\",\n      \"RequiresAgents\": true,\n      \"RequiresRAG\": false,\n      \"RequiresChat\": \"Yes: External App (e.g., Slack)\"\n    }\n  }\n}\n\n🔧 How to Customize This Workflow  \n💡 🔗 Change Data Storage – Swap Notion for Airtable, HubSpot, or another CRM.  \n💡 📩 Customize Slack Notifications – Send alerts via email, webhook, or another channel.  \n💡 🛠 Modify AI Processing – Adjust AI models or processing prompts.  \n💡 📊 Add More Integrations – Sync insights with Pipedrive, HubSpot, or another CRM.  \n\n🚀 Why Use This Workflow?  \n✔ Automates Gong call transcript analysis, eliminating manual work.  \n✔ Improves collaboration by structuring insights for sales, marketing, and product teams.  \n✔ Boosts sales conversions by identifying objections and next steps.  \n✔ Enhances marketing and SEO strategy with AI-driven insights.  \n✔ Optimizes product roadmap decisions based on customer feedback.  \n\nThis workflow scales AI-powered sales intelligence for better decision-making, content strategy, and sales enablement. 🚀  ",
+  "totalViews": 1315,
+  "source": "official",
+  "user": {
+    "id": 16588,
+    "name": "Angel Menendez",
+    "username": "djangelic",
+    "bio": "Angel Menendez is a Staff Developer Advocate at n8n.io, specializing in low-code tools for cybersecurity workflows. From Puerto Rico, Angel's tech journey began by helping his father translate technical books. He later started a web development business and transitioned from a career as a flight attendant to cybersecurity engineering. His workflows have saved companies significant time. Outside work, Angel enjoys time with his two sons, riding electric bikes, reading, and exploring new places.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/fdbe38425d21378d8c9ba8916e1eb0b320add299f12cc23fcd4961d4e6e00bec?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Azure OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatAzureOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-02-28T06:41:38.496Z",
+  "path": "official/template_3035/workflow.json"
+}

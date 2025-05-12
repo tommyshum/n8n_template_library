@@ -1,0 +1,52 @@
+{
+  "id": 3188,
+  "name": "Turn YouTube Videos into Summaries, Transcripts, and Visual Insights",
+  "description": "Who is this for?  \n\nThis workflow is built for anyone who works with YouTube content, whether you're:  \n\nA learner looking to understand a video’s key points  \nA content creator repurposing video material  \nA YouTube manager looking to update titles, descriptions\nA social media strategist searching for the most shareable clips  \n\n\nDon't just ask questions about what's said. Find out what's going on in a video too.\n\nVideo Overview: https://www.youtube.com/watch?v=Ovg_KfKxnC8\n\nWhat problem does this solve?  \n\nYouTube videos hold valuable insights, but watching and processing them manually takes time. This workflow automates:  \n\nQuick content extraction**: Summarize key ideas without watching full videos   \nVisual analysis**: Understand what’s happening beyond spoken words  \nClip discovery**: Identify the best moments for social sharing  \n\nHow the workflow works  \n\nThis n8n-powered automation:  \n\nUses Google’s Gemini 1.5 Flash AI for intelligent video analysis  \nProvides multiple content analysis templates tailored to different needs  \n\nWhat makes this workflow powerful?  \n\nThe easiest place to start is by requesting a summary or transcript. From there, you can refine the prompts to match your specific use case and the type of video content you’re working with.  \n\nBut what's even more amazing? You can ask questions about what’s happening in the video — and get detailed insights about the people, objects, and scenes. It's jaw-dropping.  \n\nThis workflow is versatile — the actions adapt based on the values set. That means you can use a single workflow to:  \n\nExtract transcripts  \nGenerate an extended YouTube description  \nWrite a summary blog post  \n\nYou can also modify the trigger based on how you want to run the workflow — use a webhook, connect it to an event in Airtable, or leave it as-is for on-demand use. The output can then be sent anywhere: Notion, Airtable, CMS platforms, or even just stored for reference.  \n\nHow to set it up  \n\nConnect your Google API key  \nPaste a YouTube video URL  \nSelect an analysis method  \nRun the workflow and get structured results  \n\nAnalysis Templates  \n\nBasic & Timestamped Transcripts**: Extract spoken content  \nSummaries**: Get concise takeaways  \nVisual Scene Analysis**: Detect objects, settings, and people  \nClip Finder**: Locate shareable moments  \nActionable Insights**: Extract practical information  \n\nCustomization Options  \n\nModify templates to fit your needs  \nConnect with external platforms  \nAdjust formatting preferences  \n\nAdvanced Configuration  \n\nThis workflow is designed for use with gemini-1.5-flash. In the future, you can update the flow to work with different models or even modify the HTTP request node to define which API endpoint should be used. \n\nIt's also been designed so you can use this flow on it's own or add to a new / existing worflow. \n\nThis workflow helps you get the most out of YouTube content — quickly and efficiently.\n",
+  "totalViews": 17071,
+  "source": "official",
+  "user": {
+    "id": 91752,
+    "name": "Colleen Brady",
+    "username": "colleen",
+    "bio": "Experienced NoCode builder",
+    "verified": false,
+    "links": "[\"https://x.com/colleenmbrady\"]",
+    "avatar": "https://gravatar.com/avatar/669785cd2b85235c1ef4be4ac85d8f53078efaa90b3cf13918c507f4c8aaa780?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-03-17T02:41:29.515Z",
+  "path": "official/template_3188/workflow.json"
+}

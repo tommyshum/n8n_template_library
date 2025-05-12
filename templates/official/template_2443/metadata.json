@@ -1,0 +1,52 @@
+{
+  "id": 2443,
+  "name": "Public Webhook Relay",
+  "description": "Disclaimer\nThis template only works on n8n local instances!\n\nHow it Works\nThis workflow allows you to to receive webhooks from the public web and have your local workflow catch them, without any remote proxy. It is very useful for running quick tests without exposing your dev server. All you have to do is activate the workflow and use the public address as defined below.\n\nSet up steps\nIf you use the default key-value storage, there are only three steps:\nInstall the @horka.tv/n8n-nodes-storage-kv community node\nPut your n8n workflow address in Local Webhook Address\nActivate the workflow and, from Executions, note down your public webhook token from the inputs to Get Latest Requests. \n\nYou can now use https://webhook.site/[YOUR TOKEN] as a webhook destination, to receive webhook requests from the public web.",
+  "totalViews": 1100,
+  "source": "official",
+  "user": {
+    "id": 91959,
+    "name": "Jay Hartley",
+    "username": "jay",
+    "bio": "Low-code/no-code developer for automated solutions. Several years experience in automated workflow building for content creation management, distribution and marketing.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/6c7feb8fe0cc33e0668424a616614c0ddd1adecf273274b690c6b41dd8aea245?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-09-30T13:12:10.831Z",
+  "path": "official/template_2443/workflow.json"
+}

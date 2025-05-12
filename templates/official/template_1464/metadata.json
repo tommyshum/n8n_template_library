@@ -1,0 +1,47 @@
+{
+  "id": 1464,
+  "name": "Find and share mentions from Twitter and Slack",
+  "description": "This workflow searches for mentions of a company's name on Twitter and shares the tweets that mention it in a Slack channel.\n\nPrerequisites\n\nA Slack account and credentials\nA Twitter account and credentials\n\nNodes\n\nCron node executes the workflow every 10 minutes. Note that if you change the Mode from \"Every X\" you will need to manually update the Date & Time node to subtract the interval you are using.\nSet nodes set the required values (name of the Slack channel, name of the Twitter account to search for, the tweet text and URL).\nDate & Time node subtracts 10 minutes from the workflow execution time.\nTwitter node gets the latest 50 tweets that mention the specified account.\nIF node filters tweets posted in the past 10 minutes.\nSlack node posts tweets in a Slack channel.",
+  "totalViews": 3073,
+  "source": "official",
+  "user": {
+    "id": 25789,
+    "name": "Jonathan",
+    "username": "jon-n8n",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/5240094f838126182ceefb50ca4a3cf75cc7dc0808efd4b9920d792e41bfc45e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Marketing"
+  ],
+  "nodes": [
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "X (Formerly Twitter)",
+      "type": "n8n-nodes-base.twitter",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2022-02-17T15:06:20.942Z",
+  "path": "official/template_1464/workflow.json"
+}

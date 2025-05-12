@@ -1,0 +1,69 @@
+{
+  "id": 1323,
+  "name": "Create HubSpot contacts from LinkedIn post interactions",
+  "description": "This workflow automatically does the following:\nScrapes comments and likes from a LinkedIn post.\nAdds contact data (nominative and verified email address,  gender, standardized first name and last name, all legal company information).\nAdds these contacts to Airtable.\nSends an ultra-personalized cold email sequence.\nSends a Linkedin invitation after the cold email sending.\nPushes all contacts to HubSpot.\n\nPrerequisites\n\nA Phantombuster account and credentials\nA Lemlist account and credentials\nA Dropcontact account and credentials\nA HubSpot account and credentials\n\nHow it works\n\nCron node executes the workflow every hour.\nPhantombuster node (Launch agent) launches the \"LinkedIn Post Likers\" phantom and the \"LinkedIn Post Commenters\" phantom. Note that you have to create these phantoms before setting your workflow automation.\nPhantombuster node (Get Output agent)** gets results from the previous phantoms.\nDropcontact node fetches the new contact information and returns the data of the person and the company associated with the email address, job function, and all legal information.\nAirtable node (List) lists all the records in the Contacts table.\nIF node routes the workflow based on whether a contact is in Airtable.\nSet node sets the required data for the following nodes.\nAirtable node (Update)** updates the record's name.\nAirtable node (Append)** creates a record if the account doesn't exist yet.\nLemlist node adds a contact to an existing campaign.\nPhantombuster node (Launch agent)** launches the \"LinkedIn Network Booster\" phantom. Note that you have to create these phantoms before setting your automation.\nHubspot node creates or updates the contacts in the HubSpot CRM.",
+  "totalViews": 4384,
+  "source": "official",
+  "user": {
+    "id": 11407,
+    "name": "Pauline",
+    "username": "pauline",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/26b6f126594978870012d6649d3dc58b45104fa9632566cb9919c311ee57b674?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Sales",
+    "Marketing",
+    "Communication"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HubSpot",
+      "type": "n8n-nodes-base.hubspot",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Phantombuster",
+      "type": "n8n-nodes-base.phantombuster",
+      "categories": [
+        "Sales",
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Lemlist",
+      "type": "n8n-nodes-base.lemlist",
+      "categories": [
+        "Communication",
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Dropcontact",
+      "type": "n8n-nodes-base.dropcontact",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2021-11-15T14:48:51.258Z",
+  "path": "official/template_1323/workflow.json"
+}

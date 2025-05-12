@@ -1,0 +1,38 @@
+{
+  "id": 2836,
+  "name": "Automate Rank Math SEO Field Updates for Posts and Products",
+  "description": "This workflow automates the process of updating important Rank Math SEO fields (SEO Title, Description, and Canonical URL) directly via n8n. \n\nBy leveraging a custom WordPress plugin that extends the WordPress REST API, this workflow ensures that you can programmatically manage SEO metadata for your posts and WooCommerce products efficiently.\n\nHow it works:\nSends a POST request to a custom API endpoint exposed by the Rank Math plugin.\nUpdates SEO Title, Description, and Canonical URL fields for a specified post or product.\n\nSetup steps:\nInstall and activate the Rank Math API Manager Extended plugin on WordPress.\nProvide the post or product ID you want to update in the workflow.\nRun the workflow to update the metadata automatically.\n\nBenefits:\nFull automation of SEO optimizations.\nWorks for both standard posts and WooCommerce products.\nSimplifies large-scale SEO management tasks.\n\nTo understand exactly how to use it in detail, check out my comprehensive documentation here.\n\n\n\n\n\nRank Math API Manager Extended plugin on WordPress\n\n&lt;?php\n/**\n Plugin Name: Rank Math API Manager Extended v1.3\n Description: Manages the update of Rank Math metadata (SEO Title, SEO Description, Canonical URL) via the REST API for WordPress posts and WooCommerce products.\n Version: 1.3\n Author: Phil - https://inforeole.fr\n */\n\nif ( ! defined( 'ABSPATH' ) ) {\n    exit; // Exit if accessed directly.\n}\n\nclass Rank_Math_API_Manager_Extended {\n    public function __construct() {\n        add_action('rest_api_init', [$this, 'register_meta_fields']);\n        add_action('rest_api_init', [$this, 'register_api_routes']);\n    }\n\n    /**\n     Registers the Rank Math meta fields in the REST API for posts and products (if WooCommerce is active).\n     */\n    public function register_meta_fields() {\n        $meta_fields = [\n            'rank_math_title'         =&gt; 'SEO Title',\n            'rank_math_description'   =&gt; 'SEO Description',\n            'rank_math_canonical_url' =&gt; 'Canonical URL'\n        ];\n\n        // Register meta for posts by default.\n        $post_types = ['post'];\n\n        // If WooCommerce is active, add the 'product' post type.\n        if ( class_exists('WooCommerce') ) {\n            $post_types[] = 'product';\n        }\n\n        foreach ( $post_types as $post_type ) {\n            foreach ( $meta_fields as $key =&gt; $description ) {\n                register_post_meta( $post_type, $key, [\n                    'show_in_rest'   =&gt; true,\n                    'single'         =&gt; true,\n                    'type'           =&gt; 'string',\n                    'auth_callback'  =&gt; [$this, 'check_update_permission'],\n                    'description'    =&gt; $description,\n                ] );\n            }\n        }\n    }\n\n    /**\n     Registers the REST API route to update Rank Math meta fields.\n     */\n    public function register_api_routes() {\n        register_rest_route( 'rank-math-api/v1', '/update-meta', [\n            'methods'             =&gt; 'POST',\n            'callback'            =&gt; [$this, 'update_rank_math_meta'],\n            'permission_callback' =&gt; [$this, 'check_update_permission'],\n            'args'                =&gt; [\n                'post_id' =&gt; [\n                    'required'          =&gt; true,\n                    'validate_callback' =&gt; function( $param ) {\n                        return is_numeric( $param ) && get_post( $param );\n                    }\n                ],\n                'rank_math_title' =&gt; [\n                    'type'              =&gt; 'string',\n                    'sanitize_callback' =&gt; 'sanitize_text_field',\n                ],\n                'rank_math_description' =&gt; [\n                    'type'              =&gt; 'string',\n                    'sanitize_callback' =&gt; 'sanitize_text_field',\n                ],\n                'rank_math_canonical_url' =&gt; [\n                    'type'              =&gt; 'string',\n                    'sanitize_callback' =&gt; 'esc_url_raw',\n                ],\n            ],\n        ] );\n    }\n\n    /**\n     Updates the Rank Math meta fields via the REST API.\n     */\n    public function update_rank_math_meta( WP_REST_Request $request ) {\n        $post_id = $request-&gt;get_param( 'post_id' );\n        $fields  = ['rank_math_title', 'rank_math_description', 'rank_math_canonical_url'];\n        $result  = [];\n\n        foreach ( $fields as $field ) {\n            $value = $request-&gt;get_param( $field );\n            if ( $value !== null ) {\n                $update_result = update_post_meta( $post_id, $field, $value );\n                $result[ $field ] = $update_result ? 'updated' : 'failed';\n            }\n        }\n\n        if ( empty( $result ) ) {\n            return new WP_Error( 'no_update', 'No metadata was updated', ['status' =&gt; 400] );\n        }\n\n        return new WP_REST_Response( $result, 200 );\n    }\n\n    /**\n     Checks if the current user has permission to update the meta fields.\n     */\n    public function check_update_permission() {\n        return current_user_can( 'edit_posts' );\n    }\n}\n\nnew Rank_Math_API_Manager_Extended();\n\n\n.\n\nPhil | Inforeole",
+  "totalViews": 3967,
+  "source": "official",
+  "user": {
+    "id": 92304,
+    "name": "phil",
+    "username": "phil",
+    "bio": "Accélérateur de Chiffre d'Affaires : Automatisez votre entreprise pour la rendre plus visible sur Google, pour trouver de nouveaux Clients, pour gagner du temps",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/philippe-eveilleau-inforeole/\"]",
+    "avatar": "https://gravatar.com/avatar/e3fa7358cdb3b5be9c63e79d3d76a9a3f31efed6ea3611ec7bc18c0f34464d16?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-02-02T10:00:10.263Z",
+  "path": "official/template_2836/workflow.json"
+}

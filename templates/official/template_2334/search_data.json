@@ -1,0 +1,167 @@
+{
+  "id": 2334,
+  "name": "Organise Your Local File Directories With AI",
+  "totalViews": 9638,
+  "purchaseUrl": null,
+  "user": {
+    "id": 91804,
+    "name": "Jimleuk",
+    "username": "jimleuk",
+    "bio": "Freelance consultant based in the UK specialising in AI-powered automations. I work with select clients tackling their most challenging projects. For business enquiries, send me an email at hello@jimle.uk\n\nLinkedIn: https://www.linkedin.com/in/jimleuk/\nX/Twitter: https://x.com/jimle_uk",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4ab99e51473df76838beeaac908747f7928c625f869794815cabe34016967d51?r=pg&d=retro&size=200"
+  },
+  "description": "If you have a shared or personal drive location with a high frequency of files created by humans, it can become difficult to organise. This may not matter... until you need to search for something!\n\nThis n8n workflow works with the local filesystem to target the messy folder and categorise as well as organise its files into sub directories automatically.\n\nDisclaimer\nUnfortunately due to the intended use-case, this workflow will not work on n8n Cloud and a self-hosted version of n8n is required.\n\nHow it works\nUses the local file trigger to activate once a new file is introduced to the directory\nThe new file's filename and filetype are analysed using AI to determine the best location to move this file.\nThe AI assess the current subdirectories as to not create duplicates. If a relevant subdirectory is not found, a new subdirectory is suggested.\nFinally, an Execute Command node uses the AI's suggestions to move the new file into the correct location.\n\nRequirements\nSelf-hosted version of n8n. The nodes used in this workflow only work in the self-hosted version.\nIf you are using docker, you must create a bind mount to a host directory.\nMistral.ai account for LLM model\n\nCustomise this workflow\n\nIf the frequency of files created is high enough, you may not want the trigger to active on every new file created event. Switch to a timer to avoid concurrency issues.\n\nWant to go fully local?\n\nA version of this workflow is available which uses Ollama instead. You can download this template here:\nhttps://drive.google.com/file/d/1iqJ_zCGussXpfaUBYGrN5opziEFAEQMu/view?usp=sharing",
+  "createdAt": "2024-07-10T14:46:38.909Z",
+  "nodes": [
+    {
+      "id": 1123,
+      "icon": "fa:link",
+      "name": "@n8n/n8n-nodes-langchain.chainLlm",
+      "codex": {
+        "data": {
+          "alias": [
+            "LangChain"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.chainllm/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Chains",
+              "Root Nodes"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Basic LLM Chain",
+        "color": "#909298"
+      },
+      "iconData": {
+        "icon": "link",
+        "type": "icon"
+      },
+      "displayName": "Basic LLM Chain",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1179,
+      "icon": "fa:code",
+      "name": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "codex": {
+        "data": {
+          "alias": [
+            "json",
+            "zod"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.outputparserstructured/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Output Parsers"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Structured Output Parser"
+      },
+      "iconData": {
+        "icon": "code",
+        "type": "icon"
+      },
+      "displayName": "Structured Output Parser",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1245,
+      "icon": "file:mistral.svg",
+      "name": "@n8n/n8n-nodes-langchain.lmChatMistralCloud",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatmistralcloud/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Language Models",
+              "Root Nodes"
+            ],
+            "Language Models": [
+              "Chat Models (Recommended)"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Mistral Cloud Chat Model"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgd2lkdGg9IjIxNiIKICAgaGVpZ2h0PSIyMTYiCiAgIHZlcnNpb249IjEuMSIKICAgaWQ9InN2ZzQxIgogICBzb2RpcG9kaTpkb2NuYW1lPSJtaXN0cmFsLnN2ZyIKICAgaW5rc2NhcGU6dmVyc2lvbj0iMS4zLjIgKDA5MWUyMGVmMGYsIDIwMjMtMTEtMjUsIGN1c3RvbSkiCiAgIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIgogICB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiCiAgIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIgogICB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogIDxzb2RpcG9kaTpuYW1lZHZpZXcKICAgICBpZD0ibmFtZWR2aWV3NDEiCiAgICAgcGFnZWNvbG9yPSIjZmZmZmZmIgogICAgIGJvcmRlcmNvbG9yPSIjMDAwMDAwIgogICAgIGJvcmRlcm9wYWNpdHk9IjAuMjUiCiAgICAgaW5rc2NhcGU6c2hvd3BhZ2VzaGFkb3c9IjIiCiAgICAgaW5rc2NhcGU6cGFnZW9wYWNpdHk9IjAuMCIKICAgICBpbmtzY2FwZTpwYWdlY2hlY2tlcmJvYXJkPSIwIgogICAgIGlua3NjYXBlOmRlc2tjb2xvcj0iI2QxZDFkMSIKICAgICBpbmtzY2FwZTp6b29tPSIxLjkzNjQ4OCIKICAgICBpbmtzY2FwZTpjeD0iMTk3Ljc4MDcyIgogICAgIGlua3NjYXBlOmN5PSI3OS4wMDkwMSIKICAgICBpbmtzY2FwZTp3aW5kb3ctd2lkdGg9IjE5MjAiCiAgICAgaW5rc2NhcGU6d2luZG93LWhlaWdodD0iMTAxNyIKICAgICBpbmtzY2FwZTp3aW5kb3cteD0iMCIKICAgICBpbmtzY2FwZTp3aW5kb3cteT0iMCIKICAgICBpbmtzY2FwZTp3aW5kb3ctbWF4aW1pemVkPSIxIgogICAgIGlua3NjYXBlOmN1cnJlbnQtbGF5ZXI9InN2ZzQxIiAvPgogIDxzdHlsZQogICAgIGlkPSJzdHlsZTEiPjwhW0NEQVRBWy5Je2ZpbGw6I2ZmNzAwMH0uSntmaWxsOiNmZjQ5MDB9Lkt7ZmlsbDojZmZhMzAwfS5Me2ZpbGw6IzFjMWMxYiBpY2MtY29sb3IoYWRvYmUtcmdiLTE5OTgsIDAuMTMyOTk1NjEsIDAuMTMyOTk1NjEsIDAuMTI4OTk3OCl9XV0+PC9zdHlsZT4KICA8ZGVmcwogICAgIGlkPSJkZWZzMTAiPgogICAgPGNsaXBQYXRoCiAgICAgICBpZD0iQSI+CiAgICAgIDxwYXRoCiAgICAgICAgIGQ9Ik0gMCwxODQuMjUyIEggNDgxLjg5IFYgMCBIIDAgWiIKICAgICAgICAgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTIwNi4yNTEsLTE0MC4xMzkpIgogICAgICAgICBpZD0icGF0aDEiIC8+CiAgICA8L2NsaXBQYXRoPgogICAgPGNsaXBQYXRoCiAgICAgICBpZD0iQiI+CiAgICAgIDxwYXRoCiAgICAgICAgIGQ9Ik0gMCwxODQuMjUyIEggNDgxLjg5IFYgMCBIIDAgWiIKICAgICAgICAgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTI0Ny40MzYsLTEwNC44NjUpIgogICAgICAgICBpZD0icGF0aDIiIC8+CiAgICA8L2NsaXBQYXRoPgogICAgPGNsaXBQYXRoCiAgICAgICBpZD0iQyI+CiAgICAgIDxwYXRoCiAgICAgICAgIGQ9Ik0gMCwxODQuMjUyIEggNDgxLjg5IFYgMCBIIDAgWiIKICAgICAgICAgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTI4NS45MzgsLTEwMi4wODkpIgogICAgICAgICBpZD0icGF0aDMiIC8+CiAgICA8L2NsaXBQYXRoPgogICAgPGNsaXBQYXRoCiAgICAgICBpZD0iRCI+CiAgICAgIDxwYXRoCiAgICAgICAgIGQ9Ik0gMCwxODQuMjUyIEggNDgxLjg5IFYgMCBIIDAgWiIKICAgICAgICAgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTMzNy43NjksLTEzMS44NzcpIgogICAgICAgICBpZD0icGF0aDQiIC8+CiAgICA8L2NsaXBQYXRoPgogICAgPGNsaXBQYXRoCiAgICAgICBpZD0iRSI+CiAgICAgIDxwYXRoCiAgICAgICAgIGQ9Ik0gMCwxODQuMjUyIEggNDgxLjg5IFYgMCBIIDAgWiIKICAgICAgICAgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTM3Ny4yNDcsLTEzMi4zMTkpIgogICAgICAgICBpZD0icGF0aDUiIC8+CiAgICA8L2NsaXBQYXRoPgogICAgPGNsaXBQYXRoCiAgICAgICBpZD0iRiI+CiAgICAgIDxwYXRoCiAgICAgICAgIGQ9Ik0gMCwxODQuMjUyIEggNDgxLjg5IFYgMCBIIDAgWiIKICAgICAgICAgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTQxOC4xMDcsLTExNC42MzQpIgogICAgICAgICBpZD0icGF0aDYiIC8+CiAgICA8L2NsaXBQYXRoPgogICAgPGNsaXBQYXRoCiAgICAgICBpZD0iRyI+CiAgICAgIDxwYXRoCiAgICAgICAgIGQ9Ik0gMCwxODQuMjUyIEggNDgxLjg5IFYgMCBIIDAgWiIKICAgICAgICAgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTQ1MC4wMjMsLTE0MC4xMzkpIgogICAgICAgICBpZD0icGF0aDciIC8+CiAgICA8L2NsaXBQYXRoPgogICAgPGNsaXBQYXRoCiAgICAgICBpZD0iSCI+CiAgICAgIDxwYXRoCiAgICAgICAgIGQ9Ik0gMCwxODQuMjUyIEggNDgxLjg5IFYgMCBIIDAgWiIKICAgICAgICAgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTIxNy42OTQsLTQ0Ljc5NCkiCiAgICAgICAgIGlkPSJwYXRoOCIgLz4KICAgIDwvY2xpcFBhdGg+CiAgICA8Y2xpcFBhdGgKICAgICAgIGlkPSJJIj4KICAgICAgPHBhdGgKICAgICAgICAgZD0iTSAwLDE4NC4yNTIgSCA0ODEuODkgViAwIEggMCBaIgogICAgICAgICB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMjQ3LjQzNiwtMzUuMDI1KSIKICAgICAgICAgaWQ9InBhdGg5IiAvPgogICAgPC9jbGlwUGF0aD4KICAgIDxjbGlwUGF0aAogICAgICAgaWQ9IkoiPgogICAgICA8cGF0aAogICAgICAgICBkPSJNIDAsMTg0LjI1MiBIIDQ4MS44OSBWIDAgSCAwIFoiCiAgICAgICAgIGlkPSJwYXRoMTAiIC8+CiAgICA8L2NsaXBQYXRoPgogICAgPHBhdGgKICAgICAgIGlkPSJLIgogICAgICAgZD0ibSAxNzMuOTg3LDEzNC4zNjIgaCAtMzcuNzk1IGwgOS42MzMsLTM3Ljc3NiBoIDM3Ljc5NiB6IiAvPgogIDwvZGVmcz4KICA8ZwogICAgIHRyYW5zZm9ybT0ibWF0cml4KDEsMCwwLjI1NDUzNSwxLC01MS4zNjI3OTIsLTcuNDcyNTAwNykiCiAgICAgaWQ9ImczMiI+CiAgICA8ZwogICAgICAgY2xhc3M9IkwiCiAgICAgICBpZD0iZzIyIj4KICAgICAgPHBhdGgKICAgICAgICAgZD0iTSA5OC4zOTcsMTM0LjM2MiBIIDYwLjYwMiBsIDkuNjMzLC0zNy43NzYgaCAzNy43OTYgeiIKICAgICAgICAgaWQ9InBhdGgxMSIgLz4KICAgICAgPHBhdGgKICAgICAgICAgZD0iTSAxMjYuNTU4LDE3Mi4xMzggSCA4OC43NjMgbCA5LjYzMywtMzcuNzc2IGggMzcuNzk2IHoiCiAgICAgICAgIGlkPSJwYXRoMTIiIC8+CiAgICAgIDxwYXRoCiAgICAgICAgIGQ9Ik0gMTM2LjE5MiwxMzQuMzYyIEggOTguMzk3IGwgOS42MzMsLTM3Ljc3NiBoIDM3Ljc5NiB6IgogICAgICAgICBpZD0icGF0aDEzIiAvPgogICAgICA8dXNlCiAgICAgICAgIHhsaW5rOmhyZWY9IiNLIgogICAgICAgICBpZD0idXNlMTMiIC8+CiAgICAgIDxwYXRoCiAgICAgICAgIGQ9Ik0gMTA4LjAzMSw5Ni41ODUgSCA3MC4yMzYgbCA5LjYzMywtMzcuNzc2IGggMzcuNzk2IHoiCiAgICAgICAgIGlkPSJwYXRoMTQiIC8+CiAgICAgIDx1c2UKICAgICAgICAgeGxpbms6aHJlZj0iI0siCiAgICAgICAgIHg9IjkuNjMzOTk5OCIKICAgICAgICAgeT0iLTM3Ljc3NyIKICAgICAgICAgaWQ9InVzZTE0IiAvPgogICAgICA8cGF0aAogICAgICAgICBkPSJNIDYwLjYwMiwxMzQuMzYyIEggMjIuODA3IEwgMzIuNDQsOTYuNTg2IGggMzcuNzk2IHoiCiAgICAgICAgIGlkPSJwYXRoMTUiIC8+CiAgICAgIDxwYXRoCiAgICAgICAgIGQ9Ik0gNzAuMjM2LDk2LjU4NSBIIDMyLjQ0MSBMIDQyLjA3NCw1OC44MDkgSCA3OS44NyBaIgogICAgICAgICBpZD0icGF0aDE2IiAvPgogICAgICA8cGF0aAogICAgICAgICBkPSJNIDc5Ljg3LDU4LjgwOSBIIDQyLjA3NSBsIDkuNjMzLC0zNy43NzYgaCAzNy43OTYgeiIKICAgICAgICAgaWQ9InBhdGgxNyIgLz4KICAgICAgPHVzZQogICAgICAgICB4bGluazpocmVmPSIjSyIKICAgICAgICAgeD0iNTcuMDYzIgogICAgICAgICB5PSItNzUuNTUzMDAxIgogICAgICAgICBpZD0idXNlMTciIC8+CiAgICAgIDxwYXRoCiAgICAgICAgIGQ9Ik0gNTAuOTY4LDE3Mi4xMzggSCAxMy4xNzMgbCA5LjYzMywtMzcuNzc2IGggMzcuNzk2IHoiCiAgICAgICAgIGlkPSJwYXRoMTgiIC8+CiAgICAgIDxwYXRoCiAgICAgICAgIGQ9Ik0gNDEuMzM0LDIwOS45MTUgSCAzLjUzOSBsIDkuNjMzLC0zNy43NzYgaCAzNy43OTYgeiIKICAgICAgICAgaWQ9InBhdGgxOSIgLz4KICAgICAgPHVzZQogICAgICAgICB4bGluazpocmVmPSIjSyIKICAgICAgICAgeD0iMzcuNzk0OTk4IgogICAgICAgICBpZD0idXNlMTkiIC8+CiAgICAgIDx1c2UKICAgICAgICAgeGxpbms6aHJlZj0iI0siCiAgICAgICAgIHg9IjQ3LjQyOTAwMSIKICAgICAgICAgeT0iLTM3Ljc3NyIKICAgICAgICAgaWQ9InVzZTIwIiAvPgogICAgICA8dXNlCiAgICAgICAgIHhsaW5rOmhyZWY9IiNLIgogICAgICAgICB4PSIyOC4xNjA5OTkiCiAgICAgICAgIHk9IjM3Ljc3NjAwMSIKICAgICAgICAgaWQ9InVzZTIxIiAvPgogICAgICA8dXNlCiAgICAgICAgIHhsaW5rOmhyZWY9IiNLIgogICAgICAgICB4PSIxOC41MjciCiAgICAgICAgIHk9Ijc1LjU1MzAwMSIKICAgICAgICAgaWQ9InVzZTIyIiAvPgogICAgPC9nPgogICAgPHBhdGgKICAgICAgIGQ9Ik0gMTE0LjExNSwxMzQuMzU5IEggNzYuMzIxIGwgOS42MzMsLTM3Ljc3NiBoIDM3Ljc5NiB6IgogICAgICAgY2xhc3M9IkkiCiAgICAgICBpZD0icGF0aDIyIiAvPgogICAgPHVzZQogICAgICAgeGxpbms6aHJlZj0iI0siCiAgICAgICB4PSItMzEuNzA5OTk5IgogICAgICAgeT0iMzcuNzcyOTk5IgogICAgICAgY2xhc3M9IkoiCiAgICAgICBpZD0idXNlMjMiIC8+CiAgICA8ZwogICAgICAgY2xhc3M9IkkiCiAgICAgICBpZD0iZzI1Ij4KICAgICAgPHVzZQogICAgICAgICB4bGluazpocmVmPSIjSyIKICAgICAgICAgeD0iLTIyLjA3NiIKICAgICAgICAgeT0iLTAuMDAzIgogICAgICAgICBpZD0idXNlMjQiIC8+CiAgICAgIDx1c2UKICAgICAgICAgeGxpbms6aHJlZj0iI0siCiAgICAgICAgIHg9IjE1LjcxOSIKICAgICAgICAgeT0iLTAuMDAzIgogICAgICAgICBpZD0idXNlMjUiIC8+CiAgICA8L2c+CiAgICA8ZwogICAgICAgY2xhc3M9IksiCiAgICAgICBpZD0iZzI2Ij4KICAgICAgPHBhdGgKICAgICAgICAgZD0iTSAxMjMuNzQ5LDk2LjU4MiBIIDg1Ljk1NSBsIDkuNjMzLC0zNy43NzYgaCAzNy43OTYgeiIKICAgICAgICAgaWQ9InBhdGgyNSIgLz4KICAgICAgPHVzZQogICAgICAgICB4bGluazpocmVmPSIjSyIKICAgICAgICAgeD0iMjUuMzUzMDAxIgogICAgICAgICB5PSItMzcuNzc5OTk5IgogICAgICAgICBpZD0idXNlMjYiIC8+CiAgICA8L2c+CiAgICA8cGF0aAogICAgICAgZD0iTSA3Ni4zMiwxMzQuMzU5IEggMzguNTI2IGwgOS42MzMsLTM3Ljc3NiBoIDM3Ljc5NiB6IgogICAgICAgY2xhc3M9IkkiCiAgICAgICBpZD0icGF0aDI2IiAvPgogICAgPHBhdGgKICAgICAgIGQ9Ik0gODUuOTU0LDk2LjU4MiBIIDQ4LjE2IGwgOS42MzMsLTM3Ljc3NiBoIDM3Ljc5NiB6IgogICAgICAgY2xhc3M9IksiCiAgICAgICBpZD0icGF0aDI3IiAvPgogICAgPGcKICAgICAgIGZpbGw9IiNmZmNlMDAiCiAgICAgICBpZD0iZzI4Ij4KICAgICAgPHBhdGgKICAgICAgICAgZD0iTSA5NS41ODgsNTguODA2IEggNTcuNzk0IEwgNjcuNDI3LDIxLjAzIGggMzcuNzk2IHoiCiAgICAgICAgIGlkPSJwYXRoMjgiIC8+CiAgICAgIDx1c2UKICAgICAgICAgeGxpbms6aHJlZj0iI0siCiAgICAgICAgIHg9IjcyLjc4MTk5OCIKICAgICAgICAgeT0iLTc1LjU1NiIKICAgICAgICAgaWQ9InVzZTI4IiAvPgogICAgPC9nPgogICAgPHBhdGgKICAgICAgIGQ9Ik0gNjYuNjg2LDE3Mi4xMzUgSCAyOC44OTIgbCA5LjYzMywtMzcuNzc2IGggMzcuNzk2IHoiCiAgICAgICBjbGFzcz0iSiIKICAgICAgIGlkPSJwYXRoMjkiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTSA1Ny4wNTIsMjA5LjkxMiBIIDE5LjI1OCBsIDkuNjMzLC0zNy43NzYgaCAzNy43OTYgeiIKICAgICAgIGZpbGw9IiNmZjAxMDciCiAgICAgICBpZD0icGF0aDMwIiAvPgogICAgPHVzZQogICAgICAgeGxpbms6aHJlZj0iI0siCiAgICAgICB4PSI1My41MTQiCiAgICAgICB5PSItMC4wMDMiCiAgICAgICBjbGFzcz0iSSIKICAgICAgIGlkPSJ1c2UzMCIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJNIDIzNy4xMzUsOTYuNTgyIEggMTk5LjM0IGwgOS42MzMsLTM3Ljc3NiBoIDM3Ljc5NiB6IgogICAgICAgY2xhc3M9IksiCiAgICAgICBpZD0icGF0aDMxIiAvPgogICAgPHVzZQogICAgICAgeGxpbms6aHJlZj0iI0siCiAgICAgICB4PSI0My44ODAwMDEiCiAgICAgICB5PSIzNy43NzI5OTkiCiAgICAgICBjbGFzcz0iSiIKICAgICAgIGlkPSJ1c2UzMSIgLz4KICAgIDx1c2UKICAgICAgIHhsaW5rOmhyZWY9IiNLIgogICAgICAgeD0iMzQuMjQ1OTk4IgogICAgICAgeT0iNzUuNTUwMDAzIgogICAgICAgZmlsbD0iI2ZmMDEwNyIKICAgICAgIGlkPSJ1c2UzMiIgLz4KICA8L2c+Cjwvc3ZnPgo="
+      },
+      "displayName": "Mistral Cloud Chat Model",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    }
+  ]
+}

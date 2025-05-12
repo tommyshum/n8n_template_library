@@ -1,0 +1,34 @@
+{
+  "id": 1828,
+  "name": "Create or update Mautic contact on a new Calendly event",
+  "description": "This workflow creates or updates a Mautic contact when a new event is scheduled in Calendly. The first name and email address are the only two fields that get updated.\n\nPrerequisites\n\nCalendly account and Calendly credentials.\nMautic account and Mautic credentials.\n\nHow it works\n\nTriggers on a new event in Calendly.\nCreates a new contact in Mautic if the email address does not exist in Mautic.\nUpdates the contact's first name in Mautic if the email address exists in Mautic.",
+  "totalViews": 590,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Marketing",
+    "Communication"
+  ],
+  "nodes": [
+    {
+      "name": "Mautic",
+      "type": "n8n-nodes-base.mautic",
+      "categories": [
+        "Marketing",
+        "Communication"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2022-11-23T10:18:27.105Z",
+  "path": "official/template_1828/workflow.json"
+}

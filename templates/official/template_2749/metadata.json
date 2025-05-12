@@ -1,0 +1,127 @@
+{
+  "id": 2749,
+  "name": "Proxmox AI Agent with n8n and Generative AI Integration",
+  "description": "Proxmox AI Agent with n8n and Generative AI Integration\n\nThis template automates IT operations on a Proxmox Virtual Environment (VE) using an AI-powered conversational agent built with n8n. By integrating Proxmox APIs and generative AI models (e.g., Google Gemini), the workflow converts natural language commands into API calls, enabling seamless management of your Proxmox nodes, VMs, and clusters.\nBuy My Book:  \nMastering n8n on Amazon\n\nFull Courses & Tutorials:  \nhttp://lms.syncbricks.com\n\nWatch Video on Youtube\n\nHow It Works  \nTrigger Mechanism  \n   The workflow can be triggered through multiple channels like chat (Telegram, email, or n8n's built-in chat).  \n   Interact with the AI agent conversationally.\n\nAI-Powered Parsing  \n   A connected AI model (Google Gemini or other compatible models like OpenAI or Claude) processes your natural language input to determine the required Proxmox API operation.\n\nAPI Call Generation  \n   The AI parses the input and generates structured JSON output, which includes:  \n     response_type: The HTTP method (GET, POST, PUT, DELETE).  \n     url: The Proxmox API endpoint to execute.  \n     details: Any required payload parameters for the API call.\n\nProxmox API Execution  \n   The structured output is used to make HTTP requests to the Proxmox VE API. The workflow supports various operations, such as:  \n     Retrieving cluster or node information.  \n     Creating, deleting, starting, or stopping VMs.  \n     Migrating VMs between nodes.  \n     Updating or resizing VM configurations.\n\nResponse Formatting  \n   The workflow formats API responses into a user-friendly summary. For example:  \n     Success messages for operations (e.g., \"VM started successfully\").  \n     Error messages with missing parameter details.\n\nExtensibility  \n   You can enhance the workflow by connecting additional triggers, external services, or AI models. It supports:  \n     Telegram/Slack integration for real-time notifications.  \n     Backup and restore workflows.  \n     Cloud monitoring extensions.\n\nKey Features  \nMulti-Channel Input**: Use chat, email, or custom triggers to communicate with the AI agent.  \nLow-Code Automation**: Easily customize the workflow to suit your Proxmox environment.  \nGenerative AI Integration**: Supports advanced AI models for precise command interpretation.  \nProxmox API Compatibility**: Fully adheres to Proxmox API specifications for secure and reliable operations.  \nError Handling**: Detects and informs you of missing or invalid parameters in your requests.  \n\nExample Use Cases  \nCreate a Virtual Machine  \n   Input: \"Create a VM with 4 cores, 8GB RAM, and 50GB disk on psb1.\"  \n   Action: Sends a POST request to Proxmox to create the VM with specified configurations.\n\nStart a VM  \n   Input: \"Start VM 105 on node psb2.\"  \n   Action: Executes a POST request to start the specified VM.\n\nRetrieve Node Details  \n   Input: \"Show the memory usage of psb3.\"  \n   Action: Sends a GET request and returns the node's resource utilization.\n\nMigrate a VM  \n   Input: \"Migrate VM 202 from psb1 to psb3.\"  \n   Action: Executes a POST request to move the VM with optional online migration.\n\nPre-Requisites  \nProxmox API Configuration  \n   Enable the Proxmox API and generate API keys in the Proxmox Data Center.  \n   Use the Authorization header with the format:  \n     PVEAPIToken=&lt;user&gt;@&lt;realm&gt;!&lt;token-id&gt;=&lt;token-value&gt;\n\nn8n Setup  \n   Add Proxmox API credentials in n8n using Header Auth.  \n   Connect a generative AI model (e.g., Google Gemini) via the relevant credential type.\n\nAccess the Workflow  \n   Import this template into your n8n instance.  \n   Replace placeholder credentials with your Proxmox and AI service details.\n\nAdditional Notes  \nThis template is designed for Proxmox 7.x and above.  \nFor advanced features like backup, VM snapshots, and detailed node monitoring, you can extend this workflow.  \nAlways test with a non-production Proxmox environment before deploying in live systems.\n\nStart with n8n  \n\nLearn n8n with Amjid   \nGet n8n Book \n\nWhat is Proxmox",
+  "totalViews": 13945,
+  "source": "official",
+  "user": {
+    "id": 92318,
+    "name": "Amjid Ali",
+    "username": "amjid",
+    "bio": "**Amjid Ali** is an automation expert and AI enthusiast specializing in creating intelligent workflows using low-code platforms like **n8n**. With a passion for simplifying complex processes, he designs solutions that enhance productivity and streamline operations. As an active contributor to the **n8n Creator Hub**, Amjid shares innovative use cases, practical templates, and best practices, empowering the community to unlock the full potential of workflow automation.",
+    "verified": true,
+    "links": "[\"https://amjidali.com\"]",
+    "avatar": "https://gravatar.com/avatar/8760ed64a38ed65da42983737659c7e295e4a7f14b59ed5ce1b0b1077435f573?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Auto-fixing Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-01-18T14:13:14.250Z",
+  "path": "official/template_2749/workflow.json"
+}

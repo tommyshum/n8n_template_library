@@ -1,0 +1,53 @@
+{
+  "id": 878,
+  "name": "N8N Español - Bot Multi Idioma NoCode",
+  "description": "\nTutorial: https://comunidad-n8n.com/bot-multi-idioma-no-code/\n\nComunidad de telegram: https://t.me/comunidadn8n\n\nBOT: https://t.me/NocodeTranslateBot",
+  "totalViews": 1116,
+  "source": "official",
+  "user": {
+    "id": 6414,
+    "name": "The { AI } rtist",
+    "username": "tuxed",
+    "bio": "The {AI] rtist is a community focused on automation using n8n and integrating open-source AI. It features a weekly newsletter format where, every Sunday, actionable content is shared to help you learn about automation, create AI agents, AI influencers, GPTs, and much more. Additionally, by joining this community, you'll gain access to a wealth of resources with a strong emphasis on open-source software.",
+    "verified": true,
+    "links": "[\"https://nocodeopensource.io/the-airtist/\"]",
+    "avatar": "https://gravatar.com/avatar/18ffc8d16db92eed44f74c52089e85223a77583f96f476382cd446395ed4546b?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2021-01-06T18:53:51.912Z",
+  "path": "official/template_878/workflow.json"
+}

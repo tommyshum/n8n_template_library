@@ -1,0 +1,57 @@
+{
+  "id": 2242,
+  "name": "Post New YouTube Videos to X",
+  "description": "Automated YouTube Video Promotion Workflow\n\nAutomate the promotion of new YouTube videos on X (formerly Twitter) with minimal effort. This workflow is perfect for content creators, marketers, and social media managers who want to keep their audience updated with fresh content consistently.\n\nHow it works\n\nThis workflow triggers every 30 minutes to check for new YouTube videos from a specified channel. If a new video is found, it utilizes OpenAI's ChatGPT to craft an engaging, promotional message for X. Finally, the workflow posts the generated message to Twitter, ensuring your latest content is shared with your audience promptly.\n\nSet up steps\n\nSchedule the workflow to run at your desired frequency.\nConnect to your YouTube account and set up the node to fetch new videos based on your Channel ID.\nIntegrate with OpenAI to generate promotional messages using GPT-3.5 turbo.\nLink to your X account and set up the node to post the generated content.\n\nPlease note, you'll need API keys and credentials for YouTube, OpenAI, and X. Check out this quick video tutorial to make the setup process a breeze.\n\nAdditional Tips\n\nCustomize the workflow to match your branding and messaging tone.\nTest each step to ensure your workflow runs smoothly before going live.\n",
+  "totalViews": 8433,
+  "source": "official",
+  "user": {
+    "id": 91657,
+    "name": "Mike Russell",
+    "username": "mikerussell",
+    "bio": "Hey there, I'm Mike, and I'm all about mixing AI with creativity. I help you learn the latest AI tools and automation tricks to boost your productivity and creativity on YouTube, podcasts, and beyond. Find me on YouTube!",
+    "verified": false,
+    "links": "[\"https://mrc.fm/cmyt\"]",
+    "avatar": "https://gravatar.com/avatar/d9844709103382461f40a9c678b78ce99bb4fe4768dba9413263e3842c3906cc?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Marketing",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "X (Formerly Twitter)",
+      "type": "n8n-nodes-base.twitter",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "YouTube",
+      "type": "n8n-nodes-base.youTube",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-04-27T19:34:00.523Z",
+  "path": "official/template_2242/workflow.json"
+}

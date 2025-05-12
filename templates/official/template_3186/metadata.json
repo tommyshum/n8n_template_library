@@ -1,0 +1,21 @@
+{
+  "id": 3186,
+  "name": "Process Ko-fi Donations, Subscriptions & Shop Orders with Webhook Verification",
+  "description": "Who is this for?\nThis workflow is tailored for content creators, artists, and developers who use Ko-fi to receive financial support through donations, subscriptions, or product sales.\n\nUse case\nThis workflow automates the process of receiving and categorizing payment notifications from Ko-fi, ensuring that creators can focus on their work rather than administrative tasks. \n\nWhat this workflow does\nWebhook Reception**: The workflow listens for incoming payment notifications from Ko-fi via a configured webhook.\nToken Verification**: It validates incoming requests to ensure they originate from Ko-fi using a verification token for enhanced security.\nType Differentiation**: It categorizes payments into types—donations, subscriptions, and shop orders—allowing for tailored handling for each payment type.\nCustom Response Options**: Depending on the payment type received, the workflow activates specific actions or processes, enabling seamless integration with other applications or services.\n\nSetup\nWebhook Configuration:\n   Access the Webhook node within the workflow and take note of your unique webhook URL. \n   Visit your Ko-fi webhooks management page at Ko-fi Webhooks Management and input this URL.\n\nVerification Token Setup:\n   In your Ko-fi account, locate the verification token in the advanced settings.\n   Input this token in the Prepare node of your n8n workflow.\n\nEnable the Workflow:\n   Activate the workflow in n8n to start listening for incoming webhook notifications.\n\nTesting:\n   Use the test feature in the Ko-fi webhooks settings to send a test webhook to ensure everything is functioning as expected.\n\nHow to customize this workflow to your needs\nAdd Actions for Each Payment Type**: You can modify the Donation, Subscription, and Shop Order nodes to include actions such as sending emails, logging payments within a database, or triggering notifications.\n  \nEnhance Security Measures**: You can further refine the Check token node to include additional checks or to log all incoming webhook requests for monitoring.\n\nIntegration with Other Services**: Consider linking this workflow with messaging platforms (e.g., Slack, Discord) or CRM tools to keep your supporters informed or to manage relationships more effectively.\n\nCustom Fields**: If needed, adjust the fields captured in the Subscription and Shop Order nodes to include more data or different parameters based on your specific use case.",
+  "totalViews": 326,
+  "source": "official",
+  "user": {
+    "id": 93147,
+    "name": "Audun",
+    "username": "xqus",
+    "bio": "I’m an automagician who loves turning complex systems into simple, powerful workflows.\nHere to help you automate smarter and work easier.",
+    "verified": true,
+    "links": "[\"https://xqus.com/\"]",
+    "avatar": "https://gravatar.com/avatar/273c8f67ecb3e3ea711c36a448f1fd547ca9ad698ae800bebd69be68317f63d1?r=pg&d=retro&size=200"
+  },
+  "categories": [],
+  "nodes": [],
+  "nodeCount": 0,
+  "createdAt": "2025-03-16T20:49:50.130Z",
+  "path": "official/template_3186/workflow.json"
+}

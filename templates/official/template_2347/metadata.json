@@ -1,0 +1,104 @@
+{
+  "id": 2347,
+  "name": "Query n8n Credentials with AI SQL Agent",
+  "description": "This n8n workflow is a fun way to query and search over your credentials on your n8n instance.\n\nGood to know\nYour credentials should remain safe as this workflow does not decrypt or use any decrypted data.\n\nExample Usage\n\"Which workflows are using Slack and Google Calendar?\"\n\"Which workflows have AI in their name but are not using openAI?\"\n\nHow it works\nUsing the n8n API, it fetches all workflow data on the instance. Workflow data contains references to credentials used so this will be extracted.\nWith some necessary reformatting, the workflows and their credentials metadata are stored to a SQLite database.\nNext, an AI agent is used with a custom SQL tool that reads the SQLite database created in the previous step. \nThe AI agent is instructed to perform SQL queries against our workflow credential table when asked about credentials by the user.\n\nRequirements\nYou'll need an n8n API key. Please note that only workflows will be scoped to your API key.\n\nCustomising the workflow\n\nAdd extra table fields to the SQLite database to answer even more complex queries such as:\nworkflow status to differentiate between active and inactive workflows.",
+  "totalViews": 4230,
+  "source": "official",
+  "user": {
+    "id": 91804,
+    "name": "Jimleuk",
+    "username": "jimleuk",
+    "bio": "Freelance consultant based in the UK specialising in AI-powered automations. I work with select clients tackling their most challenging projects. For business enquiries, send me an email at hello@jimle.uk\n\nLinkedIn: https://www.linkedin.com/in/jimleuk/\nX/Twitter: https://x.com/jimle_uk",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4ab99e51473df76838beeaac908747f7928c625f869794815cabe34016967d51?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Code Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolCode",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2024-07-15T20:42:12.214Z",
+  "path": "official/template_2347/workflow.json"
+}

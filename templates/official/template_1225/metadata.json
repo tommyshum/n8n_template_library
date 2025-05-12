@@ -1,0 +1,65 @@
+{
+  "id": 1225,
+  "name": "Export new deals from HubSpot to Slack and Airtable",
+  "description": "This workflow is triggered when a new deal is created in HubSpot. Then, it processes the deal based on its value and stage.\n\nThe first branching follows three cases:\n\nIf the deal is closed and won, a message is sent in a Slack channel, so that the whole team can celebrate the success.\nIf a presentation has been scheduled for the deal, then a Google Slides presentation template is created.\nIf the deal is closed and lost, the deal’s details are added to an Airtable table. From here, you can analyze the data to get insights into what and why certain deals don’t get closed.\n\nThe second branching follows two cases:\n\nIf the deal is for a new business and has a value above 500, a high-priority ticket assigned to an experienced team member is created in HubSpot\nIf the deal is for an existing business and has a value below 500, a low-priority ticket is created.\n\n",
+  "totalViews": 1474,
+  "source": "official",
+  "user": {
+    "id": 12733,
+    "name": "Lorena",
+    "username": "lorenanda",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/df6358bcce2351cf878beab8f89b9f000f50588aaa728f7ea57127c1b85e7b06?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Communication",
+    "HITL",
+    "Sales",
+    "Marketing"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "HubSpot",
+      "type": "n8n-nodes-base.hubspot",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Google Slides",
+      "type": "n8n-nodes-base.googleSlides",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2021-09-10T14:28:58.405Z",
+  "path": "official/template_1225/workflow.json"
+}

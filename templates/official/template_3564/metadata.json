@@ -1,0 +1,97 @@
+{
+  "id": 3564,
+  "name": "Create Daily Israeli Economic Newsletter using RSS and GPT-4o",
+  "description": "Daily Economic News Brief for Israel (Hebrew, RTL, GPT-4o)\n\nOverview\nStay ahead of the curve with this AI-powered workflow that delivers a daily economic summary tailored for professionals tracking the Israeli economy.\nAt 8:00 PM Israel Time, this workflow:\n\nRetrieves the latest articles from Calcalist and Mako via RSS\nFilters duplicates and irrelevant stories\nUses OpenAI’s GPT-4o to identify the 5 most important stories of the day\nSummarizes each article in concise, readable Hebrew\nGenerates a fully styled, responsive HTML email (with proper RTL layout)\nSends it to your inbox using your preferred SMTP email provider\n\nPerfect for economists, analysts, investors, or policymakers who want an actionable and personalized news digest -- no distractions, no fluff.\n\nSetup Instructions\nEstimated setup time:\n10 minutes\n\nRequired credentials:\n\nOpenAI API Key\nSMTP credentials (for email delivery)\n\nSteps:\nImport this template into your n8n instance.\nAdd your OpenAI API Key under credentials.\nConfigure the SMTP Email node with:\n\tHost (e.g. smtp.gmail.com)\n\tPort (465 or 587)\n\tUsername (your email)\n\tPassword (app-specific password or login)\nSet your target email address in the last node.\n(Optional) Customize the GPT prompt to adjust tone or audience (e.g. general public, policy makers).\nActivate the workflow and receive daily updates straight to your inbox.\n\nCustomization Tips\nChange the RSS sources to pull from other Hebrew or international news websites\nModify the summarization prompt to fit different sectors (e.g. tech, health, politics)\nAdd integrations like Notion, Airtable, or Telegram for logging or distribution\nApply your branding to the HTML output (logos, footer, colors)\n\nWhy Use This?\nThis is more than a news digest. It’s an intelligent economic assistant that filters noise, highlights what matters, and keeps you informed-automatically.\n\nYou can set it up in 10 minutes and benefit every single day.",
+  "totalViews": 1321,
+  "source": "official",
+  "user": {
+    "id": 93820,
+    "name": "Elay Guez",
+    "username": "elay96",
+    "bio": "Finance related n8n Builder",
+    "verified": false,
+    "links": "[\"https://www.linkedin.com/in/elay-g\"]",
+    "avatar": "https://gravatar.com/avatar/781e87029e4a7d11be463acd014686df7502fe4e7e906a3d5c5e6be73fc7ee56?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Core Nodes",
+    "Development",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "categories": [
+        "Communication",
+        "HITL",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-04-15T17:51:10.645Z",
+  "path": "official/template_3564/workflow.json"
+}

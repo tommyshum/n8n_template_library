@@ -1,0 +1,38 @@
+{
+  "id": 2471,
+  "name": "create single new masked email address with fastmail",
+  "description": "Template Description\nThis n8n workflow template allows you to create a masked email address using the Fastmail API, triggered by a webhook. This is especially useful for generating disposable email addresses for privacy-conscious users or for testing purposes.\n\nWorkflow Details:\nWebhook Trigger: The workflow is initiated by sending a POST request to a specific webhook. You can include state and description in your request body to customize the masked email's state and description.\nSession Retrieval: The workflow makes an HTTP request to the Fastmail API to retrieve session information. It uses this data to authenticate further requests.\nCreate Masked Email: Using the retrieved session data, the workflow sends a POST request to Fastmail's JMAP API to create a masked email. It uses the provided state and description from the webhook payload.\nPrepare Output: Once the masked email is successfully created, the workflow extracts the email address and attaches the description for further processing.\nRespond to Webhook: Finally, the workflow responds to the original POST request with the newly created masked email and its description.\n\nRequirements:\nFastmail API Access**: You will need valid API credentials for Fastmail configured with HTTP Header Authentication.\nAuthorization Setup**: Optionally set up authorization if your webhook is exposed to the internet to prevent misuse.\nCustom Webhook Request**: Use a tool like curl or create a shortcut on macOS/iOS to send the POST request to the webhook with the necessary JSON payload, like so:\n  \n    curl -X POST -H 'Content-Type: application/json' https://your-n8n-instance/webhook/87f9abd1-2c9b-4d1f-8c7f-2261f4698c3c -d '{\"state\": \"pending\", \"description\": \"my mega fancy masked email\"}'\n  \nThis template simplifies the process of integrating masked email functionality into your projects or workflows and can be extended for various use cases.\n\nFeel free to use the companion shortcut I've also created. Please update the authorization header in the shortcut if needed.\n\nhttps://www.icloud.com/shortcuts/ac249b50eab34c04acd9fb522f9f7068",
+  "totalViews": 322,
+  "source": "official",
+  "user": {
+    "id": 92004,
+    "name": "Vitali",
+    "username": "vquie",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/9547a27c5842ef984e096548285dc3d902bdecaad51c800b6f100a068a2fc9f0?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-10-19T18:36:55.889Z",
+  "path": "official/template_2471/workflow.json"
+}

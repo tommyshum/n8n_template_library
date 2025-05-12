@@ -1,0 +1,55 @@
+{
+  "id": 2082,
+  "name": "Use any LangChain module in n8n (with the LangChain code node)",
+  "description": "LangChain is a framework for building AI functionality that users large language models. By leveraging the functionality of LangChain, you can write even more powerful workflows.\n\nThis workflow shows how you can write LangChain code within n8n, including importing LangChain modules. \n\nThe workflow itself produces a summary of a YouTube video, when given the video's ID. \n\nNote that to use this template, you need to be on n8n version 1.19.4 or later.",
+  "totalViews": 9636,
+  "source": "official",
+  "user": {
+    "id": 14122,
+    "name": "David Roberts",
+    "username": "davidn8n",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/4cda9c7c1c24fdb61896cac588296d1dad03655a439ab71ef34f4c62c0ba8524?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "LangChain Code",
+      "type": "@n8n/n8n-nodes-langchain.code",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Miscellaneous"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-02-06T11:51:49.404Z",
+  "path": "official/template_2082/workflow.json"
+}

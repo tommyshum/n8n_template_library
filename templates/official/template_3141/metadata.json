@@ -1,0 +1,38 @@
+{
+  "id": 3141,
+  "name": "Send n8n Error Reports to LINE",
+  "description": "This workflow template, \"n8n Error Report to LINE,\" is designed to streamline error handling by sending real-time notifications to your LINE account whenever an error occurs in any of your n8n workflows. By integrating with the LINE Messaging API , this template ensures you stay informed about workflow failures, allowing you to take immediate action and minimize downtime.\n\nWhether you're a developer managing multiple workflows or a business owner relying on automation, this template provides a simple yet powerful way to monitor and resolve errors efficiently.\n\nWho Is This Template For?\n\nDevelopers: Who manage complex n8n workflows and need real-time error notifications.\nDevOps Teams: Looking to enhance monitoring and incident response for automated systems.\nBusiness Owners: Who rely on n8n workflows for critical operations and want to ensure reliability.\nAutomation Enthusiasts: Seeking tools to simplify error tracking and improve workflow performance.\n\nWhat Problem Does This Workflow Solve?\nWhen automating processes with n8n, errors can occur due to various reasons such as misconfigurations, API changes, or unexpected inputs. Without proper error handling, these issues may go unnoticed, leading to delays or disruptions. This workflow solves that problem by:\n\n1) Automatically detecting errors in your n8n workflows.\n2) Sending instant notifications to your LINE account with details about the failed workflow, including its name and execution URL. Allowing you to quickly identify and resolve issues, ensuring smooth operation of your automated systems.\n\nWhat This Workflow Does\n1) Error Trigger:\nThe workflow is triggered automatically whenever an error occurs in any n8n workflow configured to use this error-handling flow.\n2) Send Notification via LINE:\nUsing the LINE Push API , the workflow sends a message to your LINE account with key details about the error, such as the workflow name and execution URL.\n\nYou can also customize the notification message to include additional information or format it to suit your preferences.\n\nSetup Guide\n\nPre-Requisites\nAccess to the LINE Developers Console with a registered bot and access to the Push API.\nhttps://developers.line.biz/console/\n[API Reference](\nhttps://developers.line.biz/en/reference/messaging-api/#send-narrowcast-message)\nBasic knowledge of n8n workflows and JSON formatting.\nAn active n8n instance where you can configure error workflows.\n\nStep-by-Step Setup\nConfigure the Error Trigger:\nSet this workflow as the default error workflow in your n8n instance. \nhttps://docs.n8n.io/flow-logic/error-handling/\nSet Up LINE Push API:\nReplace &lt;UID HERE&gt; in the HTTP Request node with your LINE user ID to ensure notifications are sent to the correct account.\n\n",
+  "totalViews": 307,
+  "source": "official",
+  "user": {
+    "id": 92858,
+    "name": "lin@davoy.tech",
+    "username": "linlinmhee",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4e38af5bc6715cea4e86e60c03e21e287cea3cdb5ceba78b3003e6404743fd32?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-03-12T06:35:11.585Z",
+  "path": "official/template_3141/workflow.json"
+}

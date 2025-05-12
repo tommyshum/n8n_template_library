@@ -1,0 +1,61 @@
+{
+  "id": 1546,
+  "name": "Create a QuickBooks invoice on a new Onfleet Task creation",
+  "totalViews": 847,
+  "purchaseUrl": null,
+  "user": {
+    "id": 11223,
+    "name": "James Li",
+    "username": "ilsemaj",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/f2676b8a1c6bf7a2b2c9c4df054571d29662ea0dab6f11e7a423c01af7259574?r=pg&d=retro&size=200"
+  },
+  "description": "Summary\n\nOnfleet is a last-mile delivery software that provides end-to-end route planning, dispatch, communication, and analytics to handle the heavy lifting while you can focus on your customers.\n\nThis workflow template listens to an Onfleet event and interacts with the QuickBooks API. You can easily streamline this with your QuickBooks invoices or other entities. Typically, you can create an invoice when an Onfleet task is created to allow your customers to pay ahead of an upcoming delivery.\n\nConfigurations\n\nUpdate the Onfleet trigger node with your own Onfleet credentials, to register for an Onfleet API key, please visit https://onfleet.com/signup to get started\nYou can easily change which Onfleet event to listen to. Learn more about Onfleet webhooks with Onfleet Support\nUpdate the QuickBooks Online node with your QuickBooks credentials",
+  "createdAt": "2022-03-22T02:31:44.880Z",
+  "nodes": [
+    {
+      "id": 455,
+      "icon": "file:quickbooks.svg",
+      "name": "n8n-nodes-base.quickbooks",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.quickbooks/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/quickbooks/"
+              }
+            ]
+          },
+          "categories": [
+            "Finance & Accounting"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "QuickBooks Online"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAwIDI1MDAiPjxjaXJjbGUgY3g9IjEyNTAiIGN5PSIxMjUwIiByPSIxMjUwIiBmaWxsPSIjMmNhMDFjIi8+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTMwMS4zIDEyNDkuNmMuMSAyODIuNiAyMjggNTEyLjQgNTEwLjYgNTE0LjloNzIuM3YtMTg4LjloLTcyLjNjLTE3NS4yIDQ3LjgtMzU1LjktNTUuNS00MDMuNi0yMzAuNy0uNC0xLjQtLjctMi44LTEuMS00LjItNDkuMS0xNzcuNSA1My43LTM2MS40IDIzMC42LTQxMi41aDM2LjFhMzIyIDMyMiAwIDAgMSAxMzcuNSAwSDk4N3YxMDAyLjljLS45IDEwNi4xIDg0LjQgMTkyLjkgMTkwLjUgMTkzLjlWNzI5LjZIODEzYy0yODQuNiAxLjUtNTE0IDIzMy40LTUxMi41IDUxOHYuMXptMTM4Ny41LTUxOS44aC03Mi4zdjE5OC45aDcyLjNjMTc0LjgtNDcuNyAzNTUuMSA1NS4zIDQwMi44IDIzMCAuNCAxLjMuNyAyLjcgMS4xIDQgNDguOCAxNzYuOS01My43IDM2MC4xLTIyOS45IDQxMS4xaC0zNi4xYTMyMiAzMjIgMCAwIDEtMTM3LjUgMGgtMTc1LjZWNTcxYy45LTEwNi4xLTg0LjQtMTkyLjktMTkwLjUtMTkzLjl2MTM5Ny40aDM2NC41YzI4Ny4xLTQuNSA1MTYuMi0yNDAuOCA1MTEuOC01MjcuOS00LjQtMjgwLjgtMjMwLjktNTA3LjQtNTExLjgtNTExLjh6Ii8+PC9zdmc+"
+      },
+      "displayName": "QuickBooks Online",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 8,
+          "name": "Finance & Accounting"
+        }
+      ]
+    }
+  ]
+}

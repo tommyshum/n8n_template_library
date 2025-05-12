@@ -1,0 +1,141 @@
+{
+  "id": 3617,
+  "name": "Generate Monthly Financial Reports with Gemini AI, SQL, and Outlook",
+  "description": "🚀 AI-Powered Business Performance Reporting Automation\n\nUnlock executive-level insights with ZERO manual work!  \nThis n8n template empowers you to automate your entire monthly business performance reporting using dynamic SQL queries, AI-driven analysis, and beautiful HTML dashboards — all delivered directly to your inbox.\n\n🎯 What This Automation Does\n\n📆 Triggers automatically every month (5th of each month)\n🧮 Fetches financial data from SQL (ERPNext or any database)\n🔁 Loops over cost centers to analyze each business unit individually\n📊 Generates Profit & Loss reports, WIP, Employee stats, and vertical breakdowns\n🤖 Uses Google Gemini 2.5 AI to perform advanced financial analysis\n💌 Delivers a polished HTML report to your email inbox\n🔧 Fully modular – replace data source with Excel, Google Sheets, or APIs\n\n🧑‍🏫 Step-by-Step Video Tutorial\n\n🎥 Watch the full tutorial on YouTube:  \n  \n📌 Learn how each node works and see the AI-generated report in action.\n\n🌐 Useful Links\n\n🔗 Sign up for n8n Cloud (recommended for non-tech users):  \n  👉 https://n8n.syncbricks.com\n\n📘 Download the step-by-step Guidebook (Free):  \n  👉 https://lms.syncbricks.com/books/n8n\n\n📚 Explore the full course on n8n (includes templates, workflows, and AI integrations):  \n  👉 https://lms.syncbricks.com/courses/n8n\n\n🛠 Requirements\n\n✅ n8n (Self-hosted or Cloud)\n✅ SQL Database (MySQL / PostgreSQL / ERPNext)\n✅ Microsoft Outlook or Gmail (to send the report)\n✅ Gemini API Key (for AI analysis)\n✅ Basic understanding of your data schema\n\n💡 Why Use This Template?\n\n⏱ Saves 2-3 days of manual work every month\n📈 Improves financial visibility across business units\n🤝 Great for CFOs, COOs, Finance Analysts, and BI teams\n🔄 Scales across multiple divisions and companies\n🧠 Leverages AI for actionable insights and recommendations\n\n🧩 Customize It Your Way\n\nReplace the SQL nodes with:\n  Excel / Google Sheets\n  Airtable / APIs\n  Custom Applications\n\nSwap the AI model:\n  OpenAI GPT\n  Claude\n  DeepSeek\n\nAdjust the report structure or HTML style\n\n🙌 Get Started Now\n\n🎯 Import the JSON template → Connect your data → Receive business insights via email.  \nDon’t let manual reporting slow down your decision-making.\n\n👉 Sign up for n8n Cloud  \n👉 Learn n8n with Amjid  \n👉 Download Guide\n\nCreated by Amjid Ali | SyncBricks™ – Automation for Everyone\n",
+  "totalViews": 5158,
+  "source": "official",
+  "user": {
+    "id": 92318,
+    "name": "Amjid Ali",
+    "username": "amjid",
+    "bio": "**Amjid Ali** is an automation expert and AI enthusiast specializing in creating intelligent workflows using low-code platforms like **n8n**. With a passion for simplifying complex processes, he designs solutions that enhance productivity and streamline operations. As an active contributor to the **n8n Creator Hub**, Amjid shares innovative use cases, practical templates, and best practices, empowering the community to unlock the full potential of workflow automation.",
+    "verified": true,
+    "links": "[\"https://amjidali.com\"]",
+    "avatar": "https://gravatar.com/avatar/8760ed64a38ed65da42983737659c7e295e4a7f14b59ed5ce1b0b1077435f573?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Data & Storage",
+    "Communication",
+    "HITL",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "MySQL",
+      "type": "n8n-nodes-base.mySql",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Microsoft Outlook",
+      "type": "n8n-nodes-base.microsoftOutlook",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Calculator",
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Think Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolThink",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 8,
+  "createdAt": "2025-04-19T20:25:03.594Z",
+  "path": "official/template_3617/workflow.json"
+}

@@ -1,0 +1,61 @@
+{
+  "id": 3519,
+  "name": "Generate Dynamic Images with Text & Templates using ImageKit.",
+  "description": "A Game-Changer in Dynamic Content Generation!\nIn a world where Templated.io and ApiTemplate.io charge between $29 to $179/month, we’re flipping the script…\n\nWhat if you could get all the power – for FREE?\nWe’re proud to introduce our N8N workflow, a modern, fast, and developer-friendly tool for generating dynamic images with $zero subscription fees.\n\nNo pricing tiers.\nNo usage caps.\nNo hidden fees.\nJust pure value – 100% free.\n\nHow We Compare:\n\n\nor \n\n\n\n\n\nBut we are always Free\n\nNote: Pricing is based on 2025-04-01 and the free imagekit plan.\n\nWhy Free?\n\nWe believe that powerful tools should be accessible to everyone — startups, developers, creators, and students alike. Our mission is to empower you to create amazing things without breaking the bank.\n\nWhat is a template idea, and how can you build one? (With examples)\nFollow this page to better understand everything. Add overlays on images\n\nGet Started in Seconds\n\nNo credit card. No trials. No limitations.\nJust sign up and start creating.\n\nWhat You Need\n\nn8n (Cloud or self-hosted).\nImagekit just the FREE plan.\n\nHow to Generate imagekit API\nAfter signing up, go to the ImageKit dashboard. On the left sidebar, scroll down until you find \"Developer Options\", then click on it.\n\nChoose your preferred method of integration – either API keys or Webhooks. In this case, we will proceed with the API option.\n\nOn the right side of the screen, you will see your Private Key. This is the API key you'll need for your n8n workflow, along with code samples in different programming languages.\n\nFor beginners: If you're not familiar with how to connect using the code from the previous step, simply visit this link: Upload file V1\n\nOn the right side of that page, enter your Private Key in the input field labeled \"API Key\", then click on the \"Send API Request\" button.\n\nOnce the request is sent, scroll down to view the Shell/cURL code. From this code, copy only the part that looks like this:  \n   --header 'Authorization: Basic ...'  \n   and use it in your n8n workflow.\n\nN8N Workflow Setup\n1- Import the workflow into n8n.\n\n2- Add imagekit API.\n\n3- Follow the instructions in the workflow.\n\n4- Test & launch",
+  "totalViews": 151,
+  "source": "official",
+  "user": {
+    "id": 92459,
+    "name": "Ahmed Alnaqa",
+    "username": "ahmedalnaqa",
+    "bio": "21+ years in IT across Education, Manufacturing, Telecom, and Banking. I’ve built innovative solutions and now focus on cloud-based Data Engineering and AI. Discovering n8n revolutionized my workflow—its power, flexibility, and open-source nature enable seamless integrations and scalable workflows. I’ve used n8n to automate nearly every process, enhancing productivity and delivering cost-effective, efficient solutions.",
+    "verified": false,
+    "links": "[\"https://www.linkedin.com/in/ahmedelnaqa/\"]",
+    "avatar": "https://gravatar.com/avatar/c6c5bcce4b2b47b09f2d95714dc7a980097e11495515846cd73f016ee879afba?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Marketing"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "APITemplate.io",
+      "type": "n8n-nodes-base.apiTemplateIo",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-04-11T08:27:56.751Z",
+  "path": "official/template_3519/workflow.json"
+}

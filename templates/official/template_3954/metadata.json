@@ -1,0 +1,65 @@
+{
+  "id": 3954,
+  "name": "Generate Logos and Images with Consistent Visual Styles using Imagen 3.0",
+  "description": "This n8n template allows you to use AI to generate logos or images which mimic visual styles of other logos or images. The model used to generate the images is Google's Imagen 3.0.\n\nWith this template, users will be able to automate design and marketing tasks such as creating variants of existing designs, remixing existing assets to validate different styles and explore a range of designs which would have been otherwise too expensive and time-consming previously.\n\nHow it works\nA form trigger is used to capture the source image to reference styles from and a prompt for the target image to generate.\nThe source image is passed to Gemini 2.0 to be analysed and its visual style and tone extracted as a detailed description.\nThis visual style description is then combined with the user's initial target image prompt. This final prompt is given to Imagen 3.0 to generate the images.\nA quick webpage is put together with the generated images to present back to the user.\nIf the user provided an email address, a copy of this HTML page will be sent.\n\nHow to use\nEnsure the workflow is live to share the form publicly.\nThe source image must be accessible to your n8n instance - either a public image of the internet or within your network.\nFor best results, select a source image which has strong visual identity as these will allow the LLM to better describe it.\nFor your prompt, refer to the imagen prompt guide found here: https://ai.google.dev/gemini-api/docs/image-generation#imagen-prompt-guide\n\nRequirements\nGemini for LLM and Imagen model.\nCloudinary for image CDN.\nGmail for email sending.\n\nCustomising this workflow\nFeel free to swap any of these out for tools and services you prefer.\nWant to fully automate? Switch the form trigger for a webhook trigger!\n",
+  "totalViews": 1123,
+  "source": "official",
+  "user": {
+    "id": 91804,
+    "name": "Jimleuk",
+    "username": "jimleuk",
+    "bio": "Freelance consultant based in the UK specialising in AI-powered automations. I work with select clients tackling their most challenging projects. For business enquiries, send me an email at hello@jimle.uk\n\nLinkedIn: https://www.linkedin.com/in/jimleuk/\nX/Twitter: https://x.com/jimle_uk",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4ab99e51473df76838beeaac908747f7928c625f869794815cabe34016967d51?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-05-09T08:58:19.404Z",
+  "path": "official/template_3954/workflow.json"
+}

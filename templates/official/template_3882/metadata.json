@@ -1,0 +1,73 @@
+{
+  "id": 3882,
+  "name": "Error Handling System with PostgreSQL Logging and Rate-Limited Notifications",
+  "description": "Log errors and avoid sending too many emails\n\nUse case\n\nMost of the time, it’s necessary to log all errors that occur. However, in some cases, a scheduled task or service consuming excessive resources might trigger a surge of errors.\n\nTo address this, we can log all errors but limit alerts to a maximum of one notification every 5 minutes.\n\nWhat this workflow does\n\nThis workflow can be configured to receive error events, or you can integrate it before your own error-handling logic.  \n\nIf used as the primary error handler, note that this flow will only add a database log entry and take no further action. You’ll need to add your own alerts (e.g., email or push notifications). Below is an example of a notification setup I prefer to use.  \n\nAt the end, there’s an error cleanup option. This feature is particularly useful in development environments.  \n\nIf you already have an error-handling workflow, you can call this one as a sub-workflow. Its final steps include cleanup logic to reset the execution state and terminate the workflow.\n\nSetup\n\nVerify all Postgres nodes and credentials when using the 'Error Handling Sample'\n\nHow to adjust it to your needs\n\n1) You can set this workflow as a sub-workflow within your existing error-handling setup.\n\n2) Alternatively, you can add the \"Error Handling Sample\" at the end of this workflow, which sends email and push notifications.\n\nConfiguration Requirements:\n\n⚠️ You must create a database table for this to work!\n\n\n\nDDL of this sample:\n\ncreate table p1gq6ljdsam3x1m.\"N8Err\"\n(\n    id         serial\n        primary key,\n    created_at timestamp,\n    updated_at timestamp,\n    created_by varchar,\n    updated_by varchar,\n    nc_order   numeric,\n    title      text,\n    \"URL\"      text,\n    \"Stack\"    text,\n    json       json,\n    \"Message\"  text,\n    \"LastNode\" text\n);\n\nalter table p1gq6ljdsam3x1m.\"N8Err\"\n    owner to postgres;\n\ncreate index \"N8Err_order_idx\"\n    on p1gq6ljdsam3x1m.\"N8Err\" (nc_order);\n\nby Davi Saranszky Mesquita\nhttps://www.linkedin.com/in/mesquitadavi/",
+  "totalViews": 87,
+  "source": "official",
+  "user": {
+    "id": 92352,
+    "name": "Davi Saranszky Mesquita",
+    "username": "frkr",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/mesquitadavi/\"]",
+    "avatar": "https://gravatar.com/avatar/65b677cfeb637f0494ad146d60c9f06b30db75d2eb8bd08707a3f80698c6f808?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Core Nodes",
+    "Development",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "categories": [
+        "Communication",
+        "HITL",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Postgres",
+      "type": "n8n-nodes-base.postgres",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Pushover",
+      "type": "n8n-nodes-base.pushover",
+      "categories": [
+        "Communication"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-05-05T21:38:38.282Z",
+  "path": "official/template_3882/workflow.json"
+}

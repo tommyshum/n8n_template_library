@@ -1,0 +1,32 @@
+{
+  "id": 848,
+  "name": "Send a message on Mattermost when an order is created in WooCommerce",
+  "description": "This workflow allows you to send a message on Mattermost when an order is created in WooCommerce.\n\n",
+  "totalViews": 921,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication"
+  ],
+  "nodes": [
+    {
+      "name": "Mattermost",
+      "type": "n8n-nodes-base.mattermost",
+      "categories": [
+        "Communication"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2020-12-25T06:13:32.496Z",
+  "path": "official/template_848/workflow.json"
+}

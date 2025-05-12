@@ -1,0 +1,99 @@
+{
+  "id": 2234,
+  "name": "AI-Powered Children's Arabic Storytelling on Telegram",
+  "description": "Template for Kids' Story in Arabic\n\nThe n8n template for creating kids' stories in Arabic offers a versatile platform for storytellers to captivate young audiences with educational and interactive tales. It allows for customization to suit various use cases and can be set up effortlessly.\n\nCheck this example: https://t.me/st0ries95\n\nUse Cases\nEducational Platforms:\n   Educational platforms can automate the creation and distribution of educational stories in Arabic for children using this template. By incorporating visual and auditory elements into the storytelling process, educational platforms can enhance learning experiences and engage young learners effectively.\n\nChildren's Libraries:\n   Children's libraries can utilize this template to curate and share a diverse collection of Arabic stories with young readers. The automated generation of visual content and audio files enhances the storytelling experience, encouraging children to immerse themselves in new worlds and characters through captivating narratives.\n\nLanguage Learning Apps:\n   Language learning apps focused on Arabic can integrate this template to offer culturally rich storytelling experiences for children learning the language. By translating stories into Arabic and supplementing them with visual and auditory components, these apps can facilitate language acquisition in an enjoyable and interactive manner.\n\nConfiguration Guide for Nodes\n\nOpenAI Chat Model Nodes:\nFunctionality**: Allows interaction with the OpenAI GPT-4 Turbo model.\nPurpose**: Enables communication with advanced chat capabilities.\n\nCreate a Prompt for DALL-E Node:\nCustomization**: Tailor prompts for generating relevant visual content.\nSummarization**: Define prompts for visual content generation without text.\n\nGenerate an Image for the Story Node:\nResource Type**: Specifies image as the resource.\nPrompt Setup**: Configures prompt for textless image creation within the visual content.\n\nGenerate Audio for the Story Node:\nResource Type**: Chooses audio as the resource.\nInput Definition**: Sets input text for audio file generation.\n\nTranslate the Story to Arabic Node:\nChunking Mode Selection**: Allows advanced chunking mode choice.\nSummarization Configuration**: Sets method and prompts for story translation into Arabic.\n\nSend the Story To Channel Node:\nChannel ID**: Specifies the channel ID for sending the story text.\nText Configuration**: Sets up the text to be sent to the channel.\n\nBy following these node descriptions, users can effectively configure the n8n template for kids' stories in Arabic, tailoring it to specific use cases for a seamless and engaging storytelling experience for young audiences.\n",
+  "totalViews": 1566,
+  "source": "official",
+  "user": {
+    "id": 91423,
+    "name": "AlQaisi",
+    "username": "omar",
+    "bio": "I'm specialize in automation and AI, developing innovative solutions to enhance efficiency and drive innovation. With expertise in advanced technologies, I create predictive models for optimal resource allocation. Collaborating with teams, I implement customized automation solutions. Passionate about shaping the future of intelligent automation through digital transformation.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/d8ed2f53474f44e189350538560e2dbcc2299c9f38c80d30b6a2f56e8bbc7b1f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Summarization Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainSummarization",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Recursive Character Text Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2024-04-13T20:07:06.571Z",
+  "path": "official/template_2234/workflow.json"
+}

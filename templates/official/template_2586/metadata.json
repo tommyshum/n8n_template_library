@@ -1,0 +1,52 @@
+{
+  "id": 2586,
+  "name": "Weekly dinner meal plan using recipes from Mealie",
+  "description": "This workflow randomly select recipes from a Mealie instance (can use a specific category) and then creates a meal plan in Mealie with those recipes.\n\nHow it works:\nWorkflow has a scheduled trigger (set to run weekly on a Friday)\nConfig node sets a few properties to configure the workflow\nA call to the Mealie API to get the list of recipes\nThe code node holds most of the logic, this will loop through the number of recipes defined in the config node and randomly select a recipe from the list (making sure not to double up any recipes)\nOnce all the recipes are selected it will call the Mealie API to set up the meal plan on the days\n\nSetup\nAdd your Mealie API token as a credential and set it on the Http Request nodes\nSet the relevant schedule trigger to run when you like\nUpdate the Config node with the config you want\n\tnumberOfRecipes - Number of recipes to populate for the meal plan\n\toffsetPlanDays - Number of days in the future to start the plan (0 will start it today, 1 tomorrow, etc.)\n\tmealieCategoryId - A category id of the category you want to pull in recipes from (default to select from all recipes)\n\tmealieBaseUrl - The base url of your Mealie instance\n",
+  "totalViews": 1428,
+  "source": "official",
+  "user": {
+    "id": 91841,
+    "name": "Damian Karzon",
+    "username": "dkarzon",
+    "bio": "",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/a5e1a9790861eaa4f54b083abc142c94da0010ca05a167b0e307a3d2d5bbb594?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-11-29T06:35:38.804Z",
+  "path": "official/template_2586/workflow.json"
+}

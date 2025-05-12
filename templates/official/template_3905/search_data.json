@@ -1,0 +1,221 @@
+{
+  "id": 3905,
+  "name": "Build a Personal Assistant with Google Gemini, Gmail and Calendar using MCP",
+  "totalViews": 695,
+  "purchaseUrl": null,
+  "user": {
+    "id": 94008,
+    "name": "Aitor | 1node.ai",
+    "username": "aitoralonso",
+    "bio": "Hi, I’m Aitor, cofounder of 1node.ai. We help businesses integrate full-scale AI solutions that save time, cut costs, and increase revenue. Guaranteed. Need help building smarter workflows? Visit 1node.ai and let's connect.",
+    "verified": true,
+    "links": "[\"https://1node.ai\"]",
+    "avatar": "https://gravatar.com/avatar/2f850f7b4c218087a3e7d9775daf6bd8dad05b5eb5ea82242d4bfd1a97465455?r=pg&d=retro&size=200"
+  },
+  "description": "Talk to Your Apps: Building a Personal Assistant MCP Server with Google Gemini\n\nWouldn't it be cool to just tell your computer or phone to \"schedule a meeting with Sarah next Tuesday at 3 PM\" or \"find John Doe's email address\" and have it actually do it? That's the dream of a personal assistant!\n\nWith n8n and the power of MCP and AI models like Google Gemini, you can actually build something pretty close to that. We've put together a workflow that shows you how you can use a natural language chat interface to interact with your other apps, like your CRM, email, and calendar.\n\nWhat You Need to Get Started\n\nBefore you dive in, you'll need a few things:\n\nn8n:** An n8n instance (either cloud or self-hosted) to build and run your workflow.\nGoogle Gemini Access:** Access to the Google Gemini model via an API key.\nCredentials for Your Apps:** API keys or login details for the specific CRM, Email, and Calendar services you want to connect (like Google Sheets for CRM, Gmail, Google Calendar, etc., depending on your chosen nodes).\nA Chat Interface:** A way to send messages to n8n to trigger the workflow (e.g., via a chat app node or webhook).\n\nHow it Works (In Simple Terms)\n\nImagine this workflow is like a helpful assistant who sits between you and your computer.\n\nStep 1: You Talk, the AI Agent Listens\n\nIt all starts when you send a message through your connected chat interface. Think of this as you speaking directly to your assistant.\n\nStep 2: The Assistant's Brain (Google Gemini)\n\nYour message goes straight to the assistant's \"brain.\" In this case, the brain is powered by a smart AI model like Google Gemini. In our template we are using the latest Gemini 2.5 Pro. But this is totally up to you. Experiment and track which model fits the kind of tasks you will pass to the agent. Its job is to understand exactly what you're asking for.\n\nAre you asking to create something?\nAre you asking to find information?\nAre you asking to update something?\n\nThe brain also uses a \"memory\" so it can remember what you've talked about recently, making the conversation feel more natural. We are using the default context window, which is the past 5 interactions.\n\nStep 3: The Assistant Decides What Tool to Use\n\nOnce the brain understands your request, the assistant figures out the best way to help you. It looks at the request and thinks, \"Okay, to do this, I need to use one of my tools.\"\n\nStep 4: The Assistant's Toolbox (MCP & Your Apps)\n\nHere's where the \"MCP\" part comes in. Think of \"MCP\" (Model Context Protocol) as the assistant's special toolbox. Inside this toolbox are connections to all the different apps and services you use – your CRM for contacts, your email service, and your calendar.\n\nThe MCP system acts like a manager for these tools, making them available to the assistant whenever they're needed.\n\nStep 5: Using the Right Tool for the Job\n\nBased on what you asked for, the assistant picks the correct tool from the toolbox.\n\nIf you asked to find a contact, it grabs the \"Get Contact\" node from the CRM section.\nIf you wanted to schedule a meeting, it picks the \"Create Event\" node from the Calendar section.\nIf you asked to draft an email, it uses the \"Draft Email\" node.\n\nStep 6: The Tool Takes Action\n\nNow, the node or set of nodes get to work! It performs the action you requested within the specific app.\n\nThe CRM tool finds or adds the contact.\nThe Email tool drafts the message.\nThe Calendar tool creates the event.\n\nStep 7: Task Completed!\n\nAnd just like that, your request is handled automatically, all because you simply told your assistant what you wanted in plain language.\n\nWhy This is Awesome\n\nThis kind of workflow shows the power of combining AI with automation platforms like n8n. You can move beyond clicking buttons and filling out forms, and instead, interact with your digital life using natural conversation. n8n makes it possible to visually build these complex connections between your chat, the AI brain, and all your different apps.\n\nTaking it Further (Possible Enhancements)\n\nThis is just the start! You could enhance this personal assistant by:\n\nConnecting more apps and services (task managers, project tools, etc.).\nAdding capabilities to search the web or internal documents.\nImplementing more sophisticated memory or context handling.\nGetting a notification when the AI agent is done completing each task such as in Slack or Microsoft Teams.\nAllowing the assistant to ask clarifying questions if needed. Building a robust prompt for the AI agent.\n\nReady to Automate Your Workflow?\n\nImagine the dozens of hours your team could save weekly by automating repetitive tasks through a simple, natural language interface. If you'd like to explore how tools like this personal assistant could be built and integrated into your teams and organization, get in touch with us at 1 Node.",
+  "createdAt": "2025-05-06T17:01:07.757Z",
+  "nodes": [
+    {
+      "id": 1119,
+      "icon": "fa:robot",
+      "name": "@n8n/n8n-nodes-langchain.agent",
+      "codex": {
+        "data": {
+          "alias": [
+            "LangChain",
+            "Chat",
+            "Conversational",
+            "Plan and Execute",
+            "ReAct",
+            "Tools"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Agents",
+              "Root Nodes"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "AI Agent",
+        "color": "#404040"
+      },
+      "iconData": {
+        "icon": "robot",
+        "type": "icon"
+      },
+      "displayName": "AI Agent",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1163,
+      "icon": "fa:database",
+      "name": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.memorybufferwindow/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Memory"
+            ],
+            "Memory": [
+              "For beginners"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Simple Memory"
+      },
+      "iconData": {
+        "icon": "database",
+        "type": "icon"
+      },
+      "displayName": "Simple Memory",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1262,
+      "icon": "file:google.svg",
+      "name": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatgooglegemini/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Language Models",
+              "Root Nodes"
+            ],
+            "Language Models": [
+              "Chat Models (Recommended)"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Google Gemini Chat Model"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgNDggNDgiPjxkZWZzPjxwYXRoIGlkPSJhIiBkPSJNNDQuNSAyMEgyNHY4LjVoMTEuOEMzNC43IDMzLjkgMzAuMSAzNyAyNCAzN2MtNy4yIDAtMTMtNS44LTEzLTEzczUuOC0xMyAxMy0xM2MzLjEgMCA1LjkgMS4xIDguMSAyLjlsNi40LTYuNEMzNC42IDQuMSAyOS42IDIgMjQgMiAxMS44IDIgMiAxMS44IDIgMjRzOS44IDIyIDIyIDIyYzExIDAgMjEtOCAyMS0yMiAwLTEuMy0uMi0yLjctLjUtNCIvPjwvZGVmcz48Y2xpcFBhdGggaWQ9ImIiPjx1c2UgeGxpbms6aHJlZj0iI2EiIG92ZXJmbG93PSJ2aXNpYmxlIi8+PC9jbGlwUGF0aD48cGF0aCBmaWxsPSIjRkJCQzA1IiBkPSJNMCAzN1YxMWwxNyAxM3oiIGNsaXAtcGF0aD0idXJsKCNiKSIvPjxwYXRoIGZpbGw9IiNFQTQzMzUiIGQ9Im0wIDExIDE3IDEzIDctNi4xTDQ4IDE0VjBIMHoiIGNsaXAtcGF0aD0idXJsKCNiKSIvPjxwYXRoIGZpbGw9IiMzNEE4NTMiIGQ9Im0wIDM3IDMwLTIzIDcuOSAxTDQ4IDB2NDhIMHoiIGNsaXAtcGF0aD0idXJsKCNiKSIvPjxwYXRoIGZpbGw9IiM0Mjg1RjQiIGQ9Ik00OCA0OCAxNyAyNGwtNC0zIDM1LTEweiIgY2xpcC1wYXRoPSJ1cmwoI2IpIi8+PC9zdmc+"
+      },
+      "displayName": "Google Gemini Chat Model",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1292,
+      "icon": "file:../mcp.svg",
+      "name": "@n8n/n8n-nodes-langchain.mcpClientTool",
+      "codex": {
+        "data": {
+          "alias": [
+            "Model Context Protocol",
+            "MCP Client"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolmcp/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Model Context Protocol",
+              "Tools"
+            ]
+          }
+        }
+      },
+      "group": "[\"output\"]",
+      "defaults": {
+        "name": "MCP Client"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgwIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDE5NSAxOTUiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+Cgk8ZyBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMTIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI+CgkJPHBhdGggZD0iTTI1IDk3Ljg1MjhMOTIuODgyMyAyOS45NzA2QzEwMi4yNTUgMjAuNTk4IDExNy40NTEgMjAuNTk4IDEyNi44MjMgMjkuOTcwNlYyOS45NzA2QzEzNi4xOTYgMzkuMzQzMSAxMzYuMTk2IDU0LjUzOTEgMTI2LjgyMyA2My45MTE3TDc1LjU1ODEgMTE1LjE3NyIvPgoJCTxwYXRoIGQ9Ik03Ni4yNjUzIDExNC40N0wxMjYuODIzIDYzLjkxMTdDMTM2LjE5NiA1NC41MzkxIDE1MS4zOTIgNTQuNTM5MSAxNjAuNzY1IDYzLjkxMTdMMTYxLjExOCA2NC4yNjUyQzE3MC40OTEgNzMuNjM3OCAxNzAuNDkxIDg4LjgzMzggMTYxLjExOCA5OC4yMDYzTDk5LjcyNDggMTU5LjZDOTYuNjAwNiAxNjIuNzI0IDk2LjYwMDYgMTY3Ljc4OSA5OS43MjQ4IDE3MC45MTNMMTEyLjMzMSAxODMuNTIiLz4KCQk8cGF0aCBkPSJNMTA5Ljg1MyA0Ni45NDExTDU5LjY0ODIgOTcuMTQ1N0M1MC4yNzU3IDEwNi41MTggNTAuMjc1NyAxMjEuNzE0IDU5LjY0ODIgMTMxLjA4N1YxMzEuMDg3QzY5LjAyMDggMTQwLjQ1OSA4NC4yMTY4IDE0MC40NTkgOTMuNTg5NCAxMzEuMDg3TDE0My43OTQgODAuODgyMiIvPgoJPC9nPgo8L3N2Zz4K"
+      },
+      "displayName": "MCP Client Tool",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    }
+  ]
+}

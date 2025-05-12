@@ -1,0 +1,65 @@
+{
+  "id": 3847,
+  "name": "Convert PDF to PNG with PDF.co API (Multi-Page Support)",
+  "description": "Page2Image: Convert PDF to PNG Workflow (Multi-Page Support)\n\nHow It Works\nThis workflow automatically converts each page of a multi-page PDF into high-quality PNG images. It uses the PDF.co API in the background to process the PDF and generate individual images for every page. The entire process is streamlined, making it ideal for converting documents quickly and efficiently.\n\nSet Up Steps\nCreate a PDF.co Account: Sign up for a PDF.co account and get your API Key. This will be required for authentication.\n\nImport the Workflow into n8n: Add the workflow to your n8n instance.\n\nEnter Your API Key: In the workflow, enter your PDF.co API Key to authenticate the process.\n\nTest the Workflow: Run the workflow, and check that each page of the sample PDFs has been converted to a PNG image.\n\nReplace the sample PDFs with your own PDFs and get started automatically converting your PDFs to images!\n\nSetup should take just a few minutes, assuming you already have your PDF.co API Key.\n\nGetting Started\nThis workflow requires PDF.co’s API for converting PDF pages into PNG images. You’ll need an active PDF.co account and your unique API Key. Once you have that, just plug it into the workflow, and you’re ready to convert multi-page PDFs into PNGs instantly!\n\nCustomizing the Workflow\nThe workflow currently uses sample PDF files to demonstrate the conversion process. To make it work for your use case, replace the sample PDF logic with your own logic to retrieve PDFs. Whether the PDFs are uploaded, fetched from a URL, or pulled from a storage service, just plug your retrieval method into the workflow, and it will handle the conversion seamlessly.\n\nAPI Reference\nThe PDF.co Web API is REST-based, ensuring secure and efficient communication. All requests are transmitted over HTTPS to protect your data.\n\nTo use the API, you simply authenticate with your API Key and make requests to initiate the conversion. For this workflow, your API Key allows seamless communication with PDF.co to convert PDF pages into images.",
+  "totalViews": 55,
+  "source": "official",
+  "user": {
+    "id": 91565,
+    "name": "Ludwig",
+    "username": "ludwig",
+    "bio": "If you have any questions about any of the templates I've built, please reach out to me on LinkedIn (https://www.linkedin.com/in/ludwiggerdes) or via my website down below. 👇",
+    "verified": true,
+    "links": "[\"https://www.lwwg.me\"]",
+    "avatar": "https://gravatar.com/avatar/85fa5dd88d3b3b71e5719184d2d889fe3c0fba02e925b2b9ad4ba34d9a774002?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Compression",
+      "type": "n8n-nodes-base.compression",
+      "categories": [
+        "Core Nodes",
+        "Data & Storage"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Files",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-05-03T16:37:39.983Z",
+  "path": "official/template_3847/workflow.json"
+}

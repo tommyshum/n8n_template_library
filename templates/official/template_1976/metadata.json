@@ -1,0 +1,67 @@
+{
+  "id": 1976,
+  "name": "Receive and analyze emails with rules in Sublime Security",
+  "description": "\nThis n8n workflow provides a comprehensive automation solution for processing email attachments, specifically targeting enhanced security protocols for organizations that use platforms like Outlook. It starts with the IMAP node, which is set to ingest emails and identify those with .eml attachments.\n\nOnce an email with an attachment is ingested, the workflow progresses to a conditional operation where it checks for the presence of attachments. If an attachment is found, the binary data is moved and converted to JSON format, preparing it for further analysis. This meticulous approach to detecting attachments is crucial for maintaining a robust security posture, allowing for the proactive identification and handling of potentially malicious content.\n\nIn the subsequent stage, the workflow leverages the capabilities of Sublime Security by analyzing the email attachment. The binary file is scrutinized for threats, and upon detection, the information is split to matched and unmatched data. This process not only speeds up the threat detection mechanism but also ensures compatibility with other systems, such as Slack, resulting in a smooth and efficient workflow. This automation emphasizes operational efficiency with minimal user involvement, enhancing the organization's defense against cyber threats.\n\nThe final phase of the workflow involves preparing the output for a Slack report. Whether a threat is detected or not, n8n ensures that stakeholders are immediately informed by dispatching comprehensive reports or notifications to Slack channels. This promotes a culture of transparency and prompt action within the team.",
+  "totalViews": 1680,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2023-11-13T08:50:29.487Z",
+  "path": "official/template_1976/workflow.json"
+}

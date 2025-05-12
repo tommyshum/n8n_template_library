@@ -1,0 +1,50 @@
+{
+  "id": 3504,
+  "name": "Store Retell transcripts in Sheets, Airtable or Notion from webhook",
+  "description": "Automatically store Retell transcripts in Google Sheets/Airtable/Notion from webhook\n\nOverview\nThis workflow stores the results of a Retell voice call (transcript, analysis, etc.) once it has ended and been analyzed.\nIt listens for call_analyzed webhook events from Retell and stores the data in Airtable, Google Sheets, and Notion (choose based on your stack).\nUseful for anyone building Retell agents who want to keep a detailed history of analyzed calls in structured tools.\n\nWho is it for\nFor builders of Retell's Voice Agents who want to store call history and essential analytic data.\n\nPrerequisites\nHave a Retell AI Account\nCreate a Retell agent\nAssociate a phone number with your Retell agent\nSet up one of the following:\n  An Airtable base and table (example: \"Transcripts\")\n  A Google Sheet with a “Transcripts” tab\n  A Notion database with columns to match the transcript fields\nTemplates:\n  Airtable\n  Google Sheets\n  Notion\n\nHow it works\nReceives a webhook POST request from Retell when a call has been analyzed.\nFilters out any event that is not call_analyzed (Retell sends webhooks for call_started, call_ended and call_analyzed)\nExtracts useful fields like:\n  Call ID, start/end time, duration, total cost\n  Transcript, summary, sentiment\nStores this data in your preferred tool:\n  Airtable\n  Google Sheets\n  Notion\n\nHow to use it\nCopy the webhook URL (e.g., https://your-instance.app.n8n.cloud/webhook/poc-retell-analysis) and paste it in your Retell agent under \"Webhook settings\" then \"Agent Level Webhook URL\".\n\nMake sure your Airtable, Google Sheet, or Notion databases are correctly configured to receive the fields.\nAfter each call, once Retell finishes the analysis, this workflow will automatically log the results.\n\nExtension\nIf you use any \"Post-Call Analysis\" fields, you can add columns to your Airtable, Google Sheet, or Notion database.\nThen fetch the data from the call.call_analysis.custom_analysis_data object.\n\nAdditional Notes\nPhone numbers are extracted depending on the call direction (from_number or to_number).\nCost is converted from cents to dollars before saving.\nDates are converted from timestamps to local ISO strings.\nYou can remove any of the outputs (Airtable, Google Sheets, Notion) if you're only using one.\n\n👉 Reach out to us if you're interested in analysing your Retell Agent conversations.",
+  "totalViews": 698,
+  "source": "official",
+  "user": {
+    "id": 91624,
+    "name": "Agent Studio",
+    "username": "agentstudio",
+    "bio": "We are a product studio that helps organizations leverage no-code and generative AI to automate internal processes and launch new digital products.\nLinkedIn: https://www.linkedin.com/in/baptistej/",
+    "verified": true,
+    "links": "[\"https://agentstudio.io/\"]",
+    "avatar": "https://gravatar.com/avatar/e9cf0d0fccead46655b11b2ce215cf14d33ecdaa2ce52828f003574c1800e77a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-04-09T21:21:05.383Z",
+  "path": "official/template_3504/workflow.json"
+}

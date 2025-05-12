@@ -1,0 +1,78 @@
+{
+  "id": 2189,
+  "name": "Assistant for Hubspot Chat using OpenAi and Airtable",
+  "description": "This workflow will allow you to use OpenAI Assistant API together with a chatting platform. This version is configured to work with Hubspot, however, the Hubspot modules can be replaced by other platform and it will work similarly. \n\nPrerequisites: \nCreate a Hubspot Chat (Live chat available on free plan) or Chatflow (paid hubspot only) and configure it to send all replies toward an n8n webhook (you need to create a custom app for that. I will create a separate article on how to do it, meanwhile, feel free to message me if you need support. \n\nSetup:\nCreate a OpenAI Assistant, define its functionality and functions\nUpdate the Hubspot modules with the Hubspot API Key\nUpdate the OpenAI modules with OpenAI API Key\nCreate an Airtable or any other database where you keep a reference between the thread id in Hubspot and Assistant API\n\nIf you need help deploying this solution don't hesitate to email  me or schedule a call here. \n\n\n\n\n ",
+  "totalViews": 1219,
+  "source": "official",
+  "user": {
+    "id": 91584,
+    "name": "Tiberiu S - Makeitfuture.com",
+    "username": "tbiyss",
+    "bio": "Tiberiu is the CEO of Makeitfuture, a leading nocode agency in Europe and worldwide. They specialize in Nocode automation and work with platforms such as Airtable to help companies optimize their business processes. Makeitfuture customizes, integrates, and develops business solutions to ensure maximum efficiency and ROI.",
+    "verified": false,
+    "links": "[\"https://makeitfuture.com/\"]",
+    "avatar": "https://gravatar.com/avatar/7c10efba6930bc9b0a726da137d58fa106b1a857958b57016eabf3d76d291ee4?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2024-03-23T18:31:45.702Z",
+  "path": "official/template_2189/workflow.json"
+}

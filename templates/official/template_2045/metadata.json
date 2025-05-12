@@ -1,0 +1,77 @@
+{
+  "id": 2045,
+  "name": "Advanced Telegram Bot, Ticketing System, LiveChat, User Management, Broadcasting",
+  "description": "\nA robust n8n workflow designed to enhance Telegram bot functionality for user management and broadcasting. It facilitates automatic support ticket creation, efficient user data storage in Redis, and a sophisticated system for message forwarding and broadcasting.\n\nHow It Works\n\nTelegram Bot Setup: Initiate the workflow with a Telegram bot configured for handling different chat types (private, supergroup, channel).\nUser Data Management: Formats and updates user data, storing it in a Redis database for efficient retrieval and management.\nSupport Ticket Creation: Automatically generates chat tickets for user messages and saves the corresponding topic IDs in Redis.\nMessage Forwarding: Forwards new messages to the appropriate chat thread, or creates a new thread if none exists.\nSupport Forum Management: Handles messages within a support forum, differentiating between various chat types and user statuses.\nBroadcasting System: Implements a broadcasting mechanism that sends channel posts to all previous bot users, with a system to filter out blocked users.\nBlocked User Management: Identifies and manages blocked users, preventing them from receiving broadcasted messages.\nVersatile Channel Handling: Ensures that messages from verified channels are properly managed and broadcasted to relevant users.\n\nSet Up Steps\n\nEstimated Time**: Around 30 minutes.\nRequirements**: A Telegram bot, a Redis database, and Telegram group/channel IDs are necessary.\nConfiguration**: Input the Telegram bot token and relevant group/channel IDs. Configure message handling and user data processing according to your needs.\nDetailed Instructions**: Sticky notes within the workflow provide extensive setup information and guidance.\n\nLive Demo Workflow\nBot: Telegram Bot Link (Click here)\nSupport Group: Telegram Group Link (Click here)\nBroadcasting Channel: Telegram Channel Link (Click here)\n\n\nKeywords: n8n workflow, Telegram bot, chat ticket system, Redis database, message broadcasting, user data management, support forum automation\n",
+  "totalViews": 20529,
+  "source": "official",
+  "user": {
+    "id": 91304,
+    "name": "Nskha",
+    "username": "nskha",
+    "bio": "Welcome to Nskha! We're all about making real changes in the no-code tech field, just like with N8N 😉. Check out our amazing collection of free public templates and join us in building a collaborative database of no-code idea projects. Let's revolutionize the way we create without code!",
+    "verified": true,
+    "links": "[\"https://nskha.com\"]",
+    "avatar": "https://gravatar.com/avatar/6f99957ae9e5a66cf0bb95f4584cf321b0644a0ceea6a633bc968b6ec55e8410?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Redis",
+      "type": "n8n-nodes-base.redis",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2024-01-08T18:52:20.503Z",
+  "path": "official/template_2045/workflow.json"
+}

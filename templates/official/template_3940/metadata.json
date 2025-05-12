@@ -1,0 +1,192 @@
+{
+  "id": 3940,
+  "name": "Document Q&A Chatbot with Gemini AI and Supabase Vector Search for Telegram",
+  "description": "This template creates a Telegram AI Assistant that answers questions based on your documents, powered by Google Gemini and Supabase. Key features include Intelligent HTML Post-processing for rich formatting in Telegram and Adaptive Message Chunking to handle long text responses.\n📹 Watch the Bot in Action\n\n\n\n▶️ Click the image above to watch a live demo on YouTube. \n\nThis video provides a live demonstration of the bot's core features and how it interacts. See a quick walkthrough of its capabilities and user flow.\n\nHow it works:\n\nUser uploads a PDF document to a Telegram bot.\n\nThe workflow processes the PDF, creates embeddings using Google Gemini, and stores these embeddings in a Supabase vector table.\n\nUsers then ask questions to the bot.\n\nThe workflow performs a vector search in Supabase to find relevant document chunks based on the user's query.\n\nGoogle Gemini uses the retrieved relevant chunks to generate an intelligent answer.\n\nThe bot sends the formatted answer back to the user on Telegram, utilizing HTML markup for enhanced presentation.\n\nSet up steps:\n\nSetup should take approximately 15-20 minutes.\n\nImport the workflow into your n8n instance.\n\nConfigure credentials for Telegram, Google Gemini, and Supabase.\n\nSet up your Supabase vector table using the provided SQL script.\n\nActivate the workflow.\n\nDetailed setup instructions, including how to get API keys and configure nodes, are available in the sticky notes within the workflow itself.",
+  "totalViews": 2082,
+  "source": "official",
+  "user": {
+    "id": 94368,
+    "name": "Mohammad Ghaffarifar",
+    "username": "mohamadghaffari",
+    "bio": "A Senior Software Engineer with over 14 years of experience, I'm a coding enthusiast passionate about building scalable full-stack and backend cloud solutions.",
+    "verified": false,
+    "links": "[\"https://www.linkedin.com/in/mohamadghaffari/\"]",
+    "avatar": "https://gravatar.com/avatar/8f7dd1bf1ad19772abe110bf52c40c67d6a475879630e06129b7b26462eaa2c4?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Recursive Character Text Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Supabase Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    },
+    {
+      "name": "Embeddings Google Gemini",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Vector Store Question Answer Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolVectorStore",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Think Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolThink",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 11,
+  "createdAt": "2025-05-08T14:40:13.702Z",
+  "path": "official/template_3940/workflow.json"
+}

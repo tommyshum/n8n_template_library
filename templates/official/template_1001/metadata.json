@@ -1,0 +1,32 @@
+{
+  "id": 1001,
+  "name": "Manage group members in Bitwarden automatically",
+  "description": "This workflow allows you to create a group, add members to the group, and get the members of the group.\n\n\n\nBitwarden node: This node will create a new group called documentation in Bitwarden.\n\nBitwarden1 node: This node will get all the members from Bitwarden.\n\nBitwarden2 node: This node will update all the members in the group that we created earlier.\n\nBitwarden3 node: This node will get all the members in the group that we created earlier.",
+  "totalViews": 751,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "Bitwarden",
+      "type": "n8n-nodes-base.bitwarden",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2021-03-25T10:52:17.734Z",
+  "path": "official/template_1001/workflow.json"
+}

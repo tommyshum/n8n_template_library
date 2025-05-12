@@ -1,0 +1,49 @@
+{
+  "id": 2291,
+  "name": "Create Leads in SuiteCRM, synchronize with Brevo and notify in NextCloud",
+  "description": "Who is this template for?\nThis workflow template is designed for Marketing and pre-Sales to get prospects from a form like Tally, decline data in the famous opensource CRM (SuiteCRM), synchronize contact in Brevo with linking the id from CRM, and then notify in NextCloud.\n\nBonus : validate email with ++CaptainVerify++ and notify in NextCloud depending on response\n\nHow it works\nFor each submission in the form, a webhook is triggered.\nA check of the email is done with CaptainVerify. Depending on the response, and if it is ok, then a Lead is created in SuiteCRM. Else, a message in your selected discussion is sent.\nAs the lead has been created, we can create a contact in Brevo (for future campain), ank link this contact with the lead_id from the CRM in a dedicated field.\nFinaly, a message in your selected discussion in NextCloud informs you about the lead.\n\nSet up instructions\nComplete the Set up credentials step when you first open the workflow. You'll need a CaptainVerify account (Api Key), a dedicated SuiteCRM user with Oauth, a Brevo account (Api Key) and a Nextcloud account.\nSet up the Webhook in the form's tool of your choice (why not Tally ?).\nSet each node with the explanations in sticky Notes.\nEnjoy !\n\nTemplate was created in n8n v1.44.1\n\n",
+  "totalViews": 1097,
+  "source": "official",
+  "user": {
+    "id": 91735,
+    "name": "algopi.io",
+    "username": "algopi",
+    "bio": "Empowering your Business with strong organization and automate Process. Booking a meeting is possible on website.",
+    "verified": false,
+    "links": "[\"https://algopi.io\"]",
+    "avatar": "https://gravatar.com/avatar/a3df2e0d4944e8fc7b56768f7da57051348a112dba9991ad2a853abf2b100c93?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Marketing",
+    "Communication"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Brevo",
+      "type": "n8n-nodes-base.sendInBlue",
+      "categories": [
+        "Marketing",
+        "Communication"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-06-12T13:57:07.354Z",
+  "path": "official/template_2291/workflow.json"
+}

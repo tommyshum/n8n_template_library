@@ -1,0 +1,77 @@
+{
+  "id": 2991,
+  "name": "Automate Figma Versioning and Jira Updates with n8n Webhook Integration",
+  "totalViews": 2938,
+  "purchaseUrl": null,
+  "user": {
+    "id": 92899,
+    "name": "omid dev",
+    "username": "omiddev",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/ebc74dd3889c1d32d7f861fbd351dfab69332da3f6279bb52ee5b21637f725bc?r=pg&d=retro&size=200"
+  },
+  "description": "How It Works:\nThis n8n template automates the process of tracking design changes in Figma and updating relevant Jira issues. The template is triggered when a new version is created in Figma via a custom plugin. Once the version is committed, the plugin sends the design details to an n8n workflow using a webhook.\n\nThe workflow then performs the following actions:\nFetches the Jira issue based on the provided issue link from Figma.\nAdds the design changes as a comment to the Jira issue.\nUpdates the status of the Jira issue based on the provided task status (e.g., \"In Progress\", \"Done\").\nThis streamlines the workflow, reducing the need for manual updates and ensuring that both the design team and developers have the latest design changes and task statuses in sync.\n\nHow to Use It:\nSet up the Figma Plugin:\n\nInstall the Figma Commit Plugin from GitHub.\nIn the plugin, fill out the version name, design link, Jira issue link, and the task status.\nCommit the changes in Figma, which will trigger the webhook.\n\nSet Up the n8n Workflow:\nImport this template into your n8n instance.\nConnect the Figma Trigger node to capture version updates from Figma.\nConfigure the Jira nodes to retrieve the issue and update the status/comment based on the data sent from the plugin.\n\nAutomate:\nOnce the version is committed in Figma, the workflow will automatically update the Jira issue and keep both your Figma design and Jira tasks in sync!\nBy integrating Figma, Jira, and n8n through this template, you’ll eliminate manual steps, making collaboration between design and development teams more efficient.",
+  "createdAt": "2025-02-24T10:06:38.772Z",
+  "nodes": [
+    {
+      "id": 77,
+      "icon": "file:jira.svg",
+      "name": "n8n-nodes-base.jira",
+      "codex": {
+        "data": {
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/5-workflow-automations-for-mattermost-that-we-love-at-n8n/",
+                "icon": "🤖",
+                "label": "5 workflow automations for Mattermost that we love at n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/creating-custom-incident-response-workflows-with-n8n/",
+                "label": "How to automate every step of an incident response workflow"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.jira/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/jira/"
+              }
+            ]
+          },
+          "categories": [
+            "Development",
+            "Productivity"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"output\"]",
+      "defaults": {
+        "name": "Jira Software"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiB2aWV3Qm94PSIwIDAgNjguMjUgNzEuMjUiPjx1c2UgeGxpbms6aHJlZj0iI2EiIHg9IjMuMTI1IiB5PSIzLjEyNSIvPjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iYiIgeDE9IjkxLjklIiB4Mj0iMjguNDklIiB5MT0iNDAuMjIlIiB5Mj0iODEuNjMlIj48c3RvcCBvZmZzZXQ9IjE4JSIgc3RvcC1jb2xvcj0iIzAwNTJjYyIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzI2ODRmZiIvPjwvbGluZWFyR3JhZGllbnQ+PGxpbmVhckdyYWRpZW50IGlkPSJjIiB4MT0iOC43JSIgeDI9IjcyLjI2JSIgeTE9IjU5LjE3JSIgeTI9IjE3Ljk5JSI+PHN0b3Agb2Zmc2V0PSIxOCUiIHN0b3AtY29sb3I9IiMwMDUyY2MiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMyNjg0ZmYiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48c3ltYm9sIGlkPSJhIiBvdmVyZmxvdz0idmlzaWJsZSI+PGcgZmlsbC1ydWxlPSJub256ZXJvIiBzdHJva2U9Im5vbmUiPjxwYXRoIGZpbGw9IiMyNjg0ZmYiIGQ9Ik02MS4xNjEgMzAuMjExIDMwLjk1IDAgLjc0IDMwLjIxMWEyLjU0IDIuNTQgMCAwIDAgMCAzLjU4MWwzMC4yMTEgMzAuMjEgMzAuMjExLTMwLjIxYTIuNTQgMi41NCAwIDAgMCAwLTMuNTgxek0zMC45NSA0MS40NmwtOS40NjItOS40NjIgOS40NjItOS40NjIgOS40NjIgOS40NjJ6Ii8+PHBhdGggZmlsbD0idXJsKCNiKSIgZD0iTTMwLjk1IDIyLjU5OUMyNC43NTUgMTYuNDA1IDI0LjcyNCA2LjM3IDMwLjg4MS4xMzhMMTAuMTE0IDIwLjc3NGwxMS4yNjggMTEuMjY4eiIvPjxwYXRoIGZpbGw9InVybCgjYykiIGQ9Ik00MC40MzcgMzEuOTczIDMwLjk1IDQxLjQ2YTE1LjkzIDE1LjkzIDAgMCAxIDAgMjIuNTM2bDIwLjc0OS0yMC43NDl6Ii8+PC9nPjwvc3ltYm9sPjwvc3ZnPg=="
+      },
+      "displayName": "Jira Software",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 4,
+          "name": "Productivity"
+        },
+        {
+          "id": 5,
+          "name": "Development"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "id": 2963,
+  "name": "Automate WooCommerce SEO with Yoast & AI-Powered Meta Tag Generation for FREE",
+  "description": "This workflow is designed to automate the generation and updating of SEO meta titles and descriptions for WooCommerce products using n8n. It leverages Google Sheets for data input, a FREE language model (Gemini 2.0 Flash Exp. via OpenRouter) for generating SEO-optimized meta tags, and WooCommerce for updating product details.\n\nHow It Works:\nTrigger: The workflow can be triggered manually or on a schedule. The manual trigger allows for testing, while the schedule trigger can be set to run at regular intervals (e.g., every few minutes) to process new products.\n   \nData Retrieval: \n   The workflow starts by retrieving product IDs from a Google Sheets document. It looks for products that do not yet have meta titles or descriptions.\n   Using the retrieved product ID, the workflow fetches the corresponding product details from WooCommerce, including the product name, description, short description, and categories.\n\nMeta Tag Generation:\n   The product details are passed to a language model (Gemini 2.0 Flash Exp) via OpenRouter. The model generates SEO-optimized meta titles and descriptions based on the provided content.\n   The generated meta tags are structured and validated to ensure they meet SEO best practices, such as character limits and keyword inclusion.\n\nUpdate WooCommerce:\n   The generated meta title and description are then updated in the WooCommerce product metadata using the Yoast SEO fields.\n\nUpdate Google Sheets:\n   Finally, the workflow updates the Google Sheets document with the newly generated meta tags, along with the product URL, title, and the timestamp of the update.\n\nSet Up Steps:\nGoogle Sheets Setup:\n   Create a copy of the provided Google Sheets template and insert WooCommerce product IDs in column \"B\".\n   Ensure the Google Sheets document has columns for METATITLE, METADESCRIPTION, URL, TITLE POST, and DATA (timestamp).\n\nn8n Workflow Configuration:\n   Google Sheets Node: Configure the \"Get product ID\" node to connect to your Google Sheets document. Use OAuth2 for authentication.\n   WooCommerce Node: Set up the WooCommerce nodes to connect to your WooCommerce store using the WooCommerce API credentials.\n   OpenRouter Node: Configure the \"Gemini 2.0 Flash Exp\" node with your OpenRouter API credentials to access the language model.\n   Structured Output Parser: Ensure the output parser is set to handle the structured data format for meta titles and descriptions.\n\nWorkflow Execution:\n   Trigger the workflow manually to test the process or set up a schedule trigger to automate the workflow at regular intervals.\n   Monitor the workflow execution to ensure that meta tags are generated and updated correctly in both WooCommerce and Google Sheets.\n\nValidation:\n   After the workflow runs, verify that the meta titles and descriptions in WooCommerce are correctly updated and that the Google Sheets document reflects the changes.\n\nThis workflow streamlines the process of optimizing WooCommerce product pages for SEO, saving time and ensuring consistency in meta tag generation.\n\nNeed help customizing?  \nContact me for consulting and support or add me on Linkedin. ",
+  "totalViews": 3756,
+  "source": "official",
+  "user": {
+    "id": 92207,
+    "name": "Davide",
+    "username": "n3witalia",
+    "bio": "Full-stack Web Developer based in Italy specialising in Marketing & AI-powered automations. For business enquiries, send me an email at info@n3w.it or add me on Linkedin.com/in/davideboizza",
+    "verified": true,
+    "links": "[\"https://n3w.it\"]",
+    "avatar": "https://gravatar.com/avatar/d41b8a0aa81139243509c58870f5b4be292824a507ab57d10ed066d8628ed8da?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Sales",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "WooCommerce",
+      "type": "n8n-nodes-base.wooCommerce",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "OpenRouter Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-02-21T15:28:26.052Z",
+  "path": "official/template_2963/workflow.json"
+}

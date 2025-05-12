@@ -1,0 +1,84 @@
+{
+  "id": 2271,
+  "name": "Gmail AI Auto-Responder: Create Draft Replies to incoming emails",
+  "description": "This workflow automatically generates draft replies in Gmail.\nIt's designed for anyone who manages a high volume of emails or often face writer's block when crafting responses.\nSince it doesn't send the generated message directly, you're still in charge of editing and approving emails before they go out.\n\nHow It Works:\nEmail Trigger: activates when new emails reach the Gmail inbox\nAssessment: uses OpenAI gpt-4o and a JSON parser to determine if a response is necessary.\nReply Generation: crafts a reply with OpenAI GPT-4 Turbo\nDraft Integration: after converting the text to html, it places the draft into the Gmail thread as a reply to the first message\n\nSet Up Overview (~10 minutes):\nOAuth Configuration (follow n8n instructions here):\n  Setup Google OAuth in Google Cloud console. Make sure to add Gmail API with the modify scope.\n  Add Google OAuth credentials in n8n. Make sure to add the n8n redirect URI to the   Google Cloud Console consent screen settings.\nOpenAI Configuration: add OpenAI API Key in the credentials\nTweaking the prompt: edit the system prompt in the \"Generate email reply\" node to suit your needs\n\nDetailed Walkthrough\nCheck out this blog post where I go into more details on how I built this workflow.\n\nReach out to me here if you need help building automations for your business.",
+  "totalViews": 43923,
+  "source": "official",
+  "user": {
+    "id": 91701,
+    "name": "Nicolas Chourrout",
+    "username": "nchourrout",
+    "bio": "Founder of Flowful, an AI consulting agency.",
+    "verified": false,
+    "links": "[\"https://flowful.ai\"]",
+    "avatar": "https://gravatar.com/avatar/2fba0be00731d911f64fdf32d28cf0ae59830ee1d42ad0e415d3ea53c0d5a802?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2024-05-19T21:48:39.986Z",
+  "path": "official/template_2271/workflow.json"
+}

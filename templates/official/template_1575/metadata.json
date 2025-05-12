@@ -1,0 +1,40 @@
+{
+  "id": 1575,
+  "name": "Update people through Zulip about open tickets in Zammad",
+  "description": "Fetches Zammad tickets at daily basis at 08:30 then sends them to #customer support&gt;ticket on zulip for daily standups.",
+  "totalViews": 1220,
+  "source": "official",
+  "user": {
+    "id": 32953,
+    "name": "Ghazi Triki",
+    "username": "riadvice",
+    "bio": null,
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/71d74d73bf90a7fb76abed7708eed6662d33401f34731fdb3419f47361daf304?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication"
+  ],
+  "nodes": [
+    {
+      "name": "Zulip",
+      "type": "n8n-nodes-base.zulip",
+      "categories": [
+        "Communication"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Zammad",
+      "type": "n8n-nodes-base.zammad",
+      "categories": [
+        "Communication"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2022-04-05T20:46:58.132Z",
+  "path": "official/template_1575/workflow.json"
+}

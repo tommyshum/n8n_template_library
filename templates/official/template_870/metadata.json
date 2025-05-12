@@ -1,0 +1,34 @@
+{
+  "id": 870,
+  "name": "Send an SMS to a number whenever you go out",
+  "description": "This workflow allows you to send an SMS to a number whenever you go out. \n\n\n\nPushcut is an app for iOS that lets you create smart notifications to kick off shortcuts, URLs, and online automation. \n\nYou can have multiple actions for a notification. You can use the IF node to check which action was selected and build the workflow accordingly. \n\nPushcut Trigger node: This node triggers the workflow when an action is selected by the user. \n\nTwilio node: The Twilio node sends an SMS with the input given by the user. \n\nBased on your use-case, you might want to do something else, for example, send a Tweet, dim or turn off your Philips Hue lights, add activity to Strava or play music on Spotify. Replace the Twilio node with these nodes to customize the workflow as per your needs.",
+  "totalViews": 1072,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "Twilio",
+      "type": "n8n-nodes-base.twilio",
+      "categories": [
+        "Communication",
+        "Development"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2021-01-01T05:28:46.492Z",
+  "path": "official/template_870/workflow.json"
+}

@@ -1,0 +1,38 @@
+{
+  "id": 2310,
+  "name": "Convert web page to PDF using ConvertAPI",
+  "description": "Who is this for?\nFor developers and organizations that need to convert web page to PDF.\n\nWhat problem is this workflow solving?\nThe web page conversion to PDF problem.\n\nWhat this workflow does\n\nConverts web page to PDF.\nStores the PDF file in the local file system.\n\nHow to customize this workflow to your needs\nOpen the HTTP Request node.\nAdjust the URL parameter (all endpoints can be found here).\nAdd your secret to the Query Auth account parameter. Please create a ConvertAPI account to get an authentication secret.\nChange the parameter url to the webpage you want to convert to pdf\nOptionally, additional Body Parameters can be added for the converter.\n",
+  "totalViews": 1945,
+  "source": "official",
+  "user": {
+    "id": 91747,
+    "name": "ConvertAPI",
+    "username": "convertapi",
+    "bio": "",
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/0a8b4805dec6f16c7ef2b6d9689d9384bd20ccfe8443b62b8cf32a8c4d1a22e8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-07-04T09:00:41.915Z",
+  "path": "official/template_2310/workflow.json"
+}

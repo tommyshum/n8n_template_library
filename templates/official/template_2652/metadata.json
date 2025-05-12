@@ -1,0 +1,60 @@
+{
+  "id": 2652,
+  "name": "Backup your workflows to GitHub",
+  "description": "Based on Jonathan's work. Check out his templates.\n\nHow it works\nThis workflow will backup your workflows to GitHub. It uses the n8n API node to export all workflows.\n\nIt then loops over the data, checks in GitHub to see if a file exists that uses the credential's ID. Once checked it will:\nupdate the file on GitHub if it exists;\ncreate a new file if it doesn't exist;\nignore if it's the same.\n\nWho is this for?\nPeople wanting to backup their workflows outside the server for safety purposes or to migrate to another server.\n\nCheck out my other templates\n👉 https://n8n.io/creators/solomon/\n",
+  "totalViews": 7873,
+  "source": "official",
+  "user": {
+    "id": 91663,
+    "name": "Solomon",
+    "username": "solomon",
+    "bio": "Freelance consultant from Brazil, specializing in automations and data analysis. I work with select clients, addressing their toughest projects.\n\nFor business inquiries, email me at automations.solomon@gmail.com or message me on Telegram for a faster response.",
+    "verified": true,
+    "links": "[\"https://t.me/salomaoguilherme\"]",
+    "avatar": "https://gravatar.com/avatar/79aa147f090807fe0f618fb47a1de932669e385bb0c84bf3a7f891ae7d174256?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "GitHub",
+      "type": "n8n-nodes-base.github",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-12-18T15:05:17.137Z",
+  "path": "official/template_2652/workflow.json"
+}

@@ -1,0 +1,63 @@
+{
+  "id": 2808,
+  "name": "Enrich Linkedin Profiles from Google Sheets via RapidAPI",
+  "description": "LinkedIn Profile Enrichment Workflow\n\nWho is this for?\n\nThis workflow is ideal for recruiters, sales professionals, and marketing teams who need to enrich LinkedIn profiles with additional data for lead generation, talent sourcing, or market research.\n\nWhat problem is this workflow solving?\n\nManually gathering detailed LinkedIn profile information can be time-consuming and prone to errors. This workflow automates the process of enriching profile data from LinkedIn, saving time and ensuring accuracy.\n\nWhat this workflow does\n\nInput: Reads LinkedIn profile URLs from a Google Sheet.\nValidation: Filters out already enriched profiles to avoid redundant processing.\nData Enrichment: Uses RapidAPI's Fresh LinkedIn Profile Data API to retrieve detailed profile information.\nOutput: Updates the Google Sheet with enriched profile data, appending new information efficiently.\n\nSetup\n\nGoogle Sheet: Create a sheet with a column named linkedin_url and populate it with the profile URLs to enrich.\nRapidAPI Account: Sign up at RapidAPI and subscribe to the Fresh LinkedIn Profile Data API.\nAPI Integration: Replace the x-rapidapi-key and x-rapidapi-host values with your credentials from RapidAPI.\nRun the Workflow: Trigger the workflow and monitor the updates to your Google Sheet.\n\nHow to customize this workflow\n\nFilter Criteria**: Modify the filter step to include additional conditions for processing profiles.\nAPI Configuration**: Adjust API parameters to retrieve specific fields or extend usage.\nOutput Format**: Customize how the enriched data is appended to the Google Sheet (e.g., format, column mappings).\nError Handling**: Add steps to handle API rate limits or missing data for smoother automation.\n\nThis workflow streamlines LinkedIn profile enrichment, making it faster and more effective for data-driven decision-making.",
+  "totalViews": 10987,
+  "source": "official",
+  "user": {
+    "id": 92501,
+    "name": "PollupAI",
+    "username": "zeerobug",
+    "bio": "We create bespoke AI solutions, automations and agents that help your business as it scales.",
+    "verified": true,
+    "links": "[\"https://pollup.ai\"]",
+    "avatar": "https://gravatar.com/avatar/6d3d2053279bc63e9be7bf4cd3fb74e13e7cc1309d32eab0b72140332cff577e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-01-27T14:52:02.869Z",
+  "path": "official/template_2808/workflow.json"
+}

@@ -1,0 +1,72 @@
+{
+  "id": 2718,
+  "name": "AI agent for Instagram DM/inbox. Manychat + Open AI integration",
+  "description": "Automate Instagram DMs with OpenAI GPT and ManyChat\n\nHow It Works:  \nOnce connected, GPT will automatically initiate conversations with messages from new recipients in Intagram.\n\nWho Is This For?\nThis workflow is ideal for\nmarketers,\nbusiness owners\ncontent creators\n\nwho want to automatically respond to Instagram direct messages using OpenAI GPT. \n\nBy integrating ManyChat, you can manage conversations, nurture leads, and provide instant replies at scale.\n\nWhat This Workflow Does\nCaptures** incoming Instagram DMs through ManyChat’s integration.  \nProcesses** messages with GPT to generate a relevant response.  \nDelivers** instant replies back to Instagram users, creating efficient, AI-driven communication.  \n\nSetup\nImport the Template: Copy the n8n workflow into your workspace.  \nOpenAI Credentials: Add your OpenAI API key in n8n so GPT can generate responses.  \nManyChat Account: Create (or log in to) your ManyChat account.  \nConnect Instagram: Link your Instagram profile as a channel in ManyChat.  \nManyChat Custom Field: Create a custom field for storing user input or conversation context.  \nConfigure Default Reply: In ManyChat, set up the default Instagram reply flow to point to your n8n webhook.  \nAdd External Request: Create an external request step in ManyChat to send messages to n8n.  \nTest the Flow: Send yourself a DM on Instagram to confirm the workflow triggers and GPT responds correctly.  \n\nInstructions and links:\n\nNotion instruction\n\nRegister in ManyChat",
+  "totalViews": 18986,
+  "source": "official",
+  "user": {
+    "id": 92393,
+    "name": "Alex Hi no code",
+    "username": "alex-nocode",
+    "bio": "AI + Low-code development agency founder.\n\nMain focus: AI solutions for businesses in sales. .",
+    "verified": false,
+    "links": "[\"https://hinocode.ai/\"]",
+    "avatar": "https://gravatar.com/avatar/3cbbb9fa4e67c10b37fb59f284938c393e1cc1544f6307d0f2ca7ee3dedcdf43?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-01-12T12:45:33.424Z",
+  "path": "official/template_2718/workflow.json"
+}

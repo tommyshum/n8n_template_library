@@ -1,0 +1,38 @@
+{
+  "id": 2155,
+  "name": "Generating Keywords using Google Autosuggest",
+  "description": "This workflow is aimed at generating keywords for SEO and articles\nTo get started, you need to use the workflow as it is. You just call the webhook URL with a query parameter as q={{ $keywords}}\nFor example, you can call it using ?q=keyword research\nThis will give you a list of keywords back as an array.\nThis system can be used by SEO pros, content marketers and also social media marketers to generate relevant keywords for their user needs",
+  "totalViews": 22684,
+  "source": "official",
+  "user": {
+    "id": 91335,
+    "name": "Imperol",
+    "username": "imperolq",
+    "bio": "Automation expert with years of experience helping businesses improve their efficiency and productivity with smart automations that are affordable, scalable, and flexible. ",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/zacharia-kimotho/\"]",
+    "avatar": "https://gravatar.com/avatar/13b050fd63dc0c9242774c4b8769c4788df8b47268c1fb183d6f1da085b9e6e2?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-02-29T21:16:39.285Z",
+  "path": "official/template_2155/workflow.json"
+}

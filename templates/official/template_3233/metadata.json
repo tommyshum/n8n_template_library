@@ -1,0 +1,63 @@
+{
+  "id": 3233,
+  "name": "Automate n8n User Invitations from a Google Spreadsheet",
+  "description": "This workflow retrieves all users from n8n, compares them against entries in a Google Sheets spreadsheet, and automatically creates new users when needed.  \n\nOnce new users are created, invitation emails are sent automatically.  \n\nYou can trigger the workflow manually or set it to run on a schedule to ensure continuous synchronization.  \n\nSpreadsheet Template  \nThis workflow is designed to work with a Google Sheets structure inspired by Squarespace's newsletter block connection. You can modify the node settings to adapt to a different column format.  \n\n👉 Clone the sample sheet here  \n\nSuggested columns:  \nSubmitted On  \nEmail Address  \nName  \n\nRequirements\nCredentials\nTo use this workflow, you need:\n\nn8n API Key – to update users from n8n.\nGoogle Sheets API credentials – Required to get data from a spreadsheet.\nConfigure Your n8n Instance  \nTo make this workflow work with your n8n instance, update the API endpoint:  \n\n🔧 Edit Global node 👇  \nChange n8n_url to match your instance URL:  \nAuthentication Guide  \n\nExplore More Templates\n👉 Check out my other n8n templates",
+  "totalViews": 282,
+  "source": "official",
+  "user": {
+    "id": 92981,
+    "name": "bangank36",
+    "username": "bangank36",
+    "bio": "Automation specialist with 10+ years of experience helping SME website owners streamline their workflows—specializing in Squarespace, Shopify, and WordPress. Book an initial consultation for custom n8n automation using my link.",
+    "verified": true,
+    "links": "[\"https://beyondspace.studio\"]",
+    "avatar": "https://gravatar.com/avatar/499b5f6868bff3f56c51a6650bf87b946b25b2e17d353e3c9bbf5b34d2bd5bf4?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-03-20T12:24:06.239Z",
+  "path": "official/template_3233/workflow.json"
+}

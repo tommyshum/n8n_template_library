@@ -1,0 +1,133 @@
+{
+  "id": 2978,
+  "name": "Analyze Reddit Posts with AI to Identify Business Opportunities",
+  "description": "Use case\nManually monitoring Reddit for viable business ideas is time-consuming and inconsistent. This workflow automatically analyzes trending Reddit discussions using AI to surface high-potential opportunities, filter irrelevant content, and generate actionable insights - saving entrepreneurs 10+ hours weekly in market research.\n\nWhat this workflow does\nThis AI-powered workflow automatically collects trending Reddit discussions, analyzes posts for viable business opportunities using GPT-4, applies smart filters to exclude low-value content, and generates scored opportunity reports with market insights. It identifies unmet customer needs through sentiment analysis, prioritizes high-potential ideas using custom criteria, and outputs structured data to Google Sheets for actionable decision-making.\n\nSetup\nAdd Reddit,Google and OpenAI credentials\nConfigure target subreddits in Subreddit node\nTest workflow by testing workflow\nReview generated opportunity report in Google Sheets\n\n\nHow to adjust this template\nChange data sources**: Replace Reddit trigger with Twitter/X or Hacker News API\nModify criteria**: Adjust scoring thresholds in Opportunity Calculator node\nAdd integrations**:\n   Create automatic Slack alerts for urgent opportunities\n   Generate draft business plans using AI Document Writer\n\n\n\n",
+  "totalViews": 13360,
+  "source": "official",
+  "user": {
+    "id": 92734,
+    "name": "Alex Huang",
+    "username": "tao",
+    "bio": "",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/1bb3c83a65cdcfd680342b7fe09a36fb6a199bf107ecd91ad357d3d81da3d033?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Reddit",
+      "type": "n8n-nodes-base.reddit",
+      "categories": [
+        "Communication"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Summarization Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainSummarization",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Sentiment Analysis",
+      "type": "@n8n/n8n-nodes-langchain.sentimentAnalysis",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 8,
+  "createdAt": "2025-02-22T17:43:37.472Z",
+  "path": "official/template_2978/workflow.json"
+}

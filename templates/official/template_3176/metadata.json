@@ -1,0 +1,38 @@
+{
+  "id": 3176,
+  "name": "Generate Images from Text Prompts with Google Imagen 3 via Replicate API",
+  "description": "Who is this for?\nThis n8n workflow is designed for developers, digital artists, and content creators who want to leverage the power of AI-generated images using the Replicate API.\n\nWhat problem is this workflow solving? / Use case\nThe workflow automates the process of generating images from textual prompts using the Replicate API. It allows users to generate, check the status of, and retrieve images with minimal manual intervention.\n\nWhat this workflow does\nInitialize Workflow**: Triggered by a manual click, the workflow starts with a prompt for image generation.\nSet Image Generation Parameters**: The user can define a prompt and other parameters, which will be sent to the Replicate API for processing.\nCreate Prediction**: The workflow sends a request to generate an image based on the provided input.\nCheck Prediction Status**: After a short waiting period, the workflow checks the status of the image generation process.\nHandle Errors**: If the status indicates an error (e.g., \"failed\" or \"canceled\"), the workflow stops and reports an error.\nRetrieve Image URL**: If the image generation is successful, it retrieves and outputs the URL of the generated image.\n\nSetup\nReplicate API Key:\n   Go to the Replicate website and sign up for an account if you don’t have one.\n   Generate an API key from your Replicate dashboard.\nConfigure HTTP Credentials:\n   In n8n, navigate to the \"Credentials\" section and create a new HTTP Header Authentication credential.\n   Set the name to Authorization, and enter Bearer YOUR_REPLICATE_API_KEY in the value field, replacing YOUR_REPLICATE_API_KEY with your actual API key.\n\nHow to customize this workflow to your needs\nEdit the Prompt Text**: Change the text in the \"Set prompt\" node to customize the image you want to generate. This can be adjusted to include dynamic input from other parts of your n8n workflow.\nChange Image Generation Settings**: In the \"Create prediction\" node, you may modify any parameters such as aspect ratio, safety filter level, or even the model being used by changing the URL.\nAdd More Logic**: If you want to add more complex logic or branching conditions based on the image generation results, modify the \"Check for success\" and \"Check for errors\" nodes accordingly.\nModify Wait Duration**: Depending on your application, you may want to adjust the waiting times in the \"Wait\" and \"Pause\" nodes to optimize processing time based on expected image generation speed.",
+  "totalViews": 709,
+  "source": "official",
+  "user": {
+    "id": 93147,
+    "name": "Audun",
+    "username": "xqus",
+    "bio": "I’m an automagician who loves turning complex systems into simple, powerful workflows.\nHere to help you automate smarter and work easier.",
+    "verified": true,
+    "links": "[\"https://xqus.com/\"]",
+    "avatar": "https://gravatar.com/avatar/273c8f67ecb3e3ea711c36a448f1fd547ca9ad698ae800bebd69be68317f63d1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-03-15T22:08:03.398Z",
+  "path": "official/template_3176/workflow.json"
+}

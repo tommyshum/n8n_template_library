@@ -1,0 +1,64 @@
+{
+  "id": 1997,
+  "name": "Authenticate a user in a workflow with openid connect",
+  "description": "Intro\n\nThis workflow needs a user to authenticate by using an openid connect provider in order to call the webhook.\n\nIf the user is not authenticated, it starts a login process by using an Authorization Code with PKCE https://datatracker.ietf.org/doc/html/rfc7636, a standard way to authenticate users with openid connect.\n\nThen, after the user logs in, the webhook is refreshed and gets the user's token from a cookie. With this token, all details about the user are requested through the userinfo endpoint on the identity provider.\n\nHow to set up with Keycloak\n\nKeycloak Keycloak is an open source identity and access management solution.\n\nFeel free to get a demo realm at https://please-open.it or get your own Keycloak server up and running.\n\nAfter creating a realm, go to \"Realm Settings\" and click on \"OpenID Endpoint Configuration\" \n\n\n\nRetrieve authorization_endpoint, token_endpoint and userinfo_endpoint values. Set those variables in the \"Set variables\" node.\n\nIn Keycloak, create a new client (name it as you want)\n\n\n\nDisable the client authentication, check only \"standard flow\" : \n\n\n\nAt the third step, put the webhook url in \"valid redirect URIs\", fill \"Web origins\" with a \"+\".\n\n\n\nYou're done, open the webhook and it asks you to authenticate.\n\nUsage\n\nUser informations\n\nThe userinfo node returns this structure about the user has logged in : \n\n[\n  {\n    \"sub\":\"73a6543f-f420-4fa6-9811-209e903c348b\",\n    \"email_verified\":true,\n    \"preferred_username\": \"mathieu.passenaud@please-open.it\",\n    \"email\": \"mathieu.passenaud@please-open.it\"\n  }\n]\n\nI can use those infos in my workflow for custom operations.\n\nAPIs calls\n\nthe \"code\" node returns me a cookie named \"n8n-custom-auth\" which is the access_token returned by the identity provider. This access_token can be used to call APIs connected to this identity provider (for example, we call userinfo API with this token).\n\nExample : asks a user to log in with his Google account then call an API (Gmail, drive...) with his own token.\n\nHow it works\n\nWe published a blog post about this flow, how it works and how you can use it : \nhttps://blog.please-open.it/n8n-openid-client/",
+  "totalViews": 6056,
+  "source": "official",
+  "user": {
+    "id": 91315,
+    "name": "please-open.it",
+    "username": "please-open-it",
+    "bio": "Authentication consultant with over 6 years experience, we can help companies with their SSO, especially with Keycloak",
+    "verified": false,
+    "links": "[\"https://blog.please-open.it\"]",
+    "avatar": "https://gravatar.com/avatar/07abf2c86f638d25ac295d52c898529e41369832bfc7c7b81253142fc190c48d?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2023-11-29T09:31:35.842Z",
+  "path": "official/template_1997/workflow.json"
+}

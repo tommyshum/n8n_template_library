@@ -1,0 +1,45 @@
+{
+  "id": 2274,
+  "name": "Low-code API for Flutterflow apps",
+  "totalViews": 3149,
+  "purchaseUrl": null,
+  "user": {
+    "id": 91713,
+    "name": "Matheus Weckwerth",
+    "username": "matheusweck",
+    "bio": "",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/6c33fde69a065ccba416c71aab3a2a13ab865633894ec3a8782b9538bcd2935a?r=pg&d=retro&size=200"
+  },
+  "description": "Flow Start: The flow starts upon receiving an HTTP GET call.\nWebhook: Receives the HTTP GET call and triggers the flow.\nDatabase: Connects to the database (Customer Datastore) to retrieve all necessary information (getAllPeople).\nData Processing:\nVariable Insertion: The retrieved data is inserted into a variable.\nVariable Aggregation: The variables are aggregated and prepared for use in FlutterFlow.\nWebhook Response: Sends the response back through the Webhook with the processed data ready for use in FlutterFlow.",
+  "createdAt": "2024-05-28T20:09:31.792Z",
+  "nodes": [
+    {
+      "id": 496,
+      "icon": "file:n8nTrainingCustomerDatastore.svg",
+      "name": "n8n-nodes-base.n8nTrainingCustomerDatastore",
+      "codex": {
+        "data": {
+          "categories": []
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Customer Datastore (n8n training)"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTcuODg3ODYgMjEuNDExQzcuNzE5ODYgMjEuMzA5IDcuNTA1ODYgMjEuNDI3IDcuNTA1ODYgMjEuNjIzVjI2LjkwM0M3LjUwNTg2IDI5LjE1MSAxMy4xMDM5IDMwLjk4NSAyMC4wMDU5IDMwLjk4NUMyNi45MDc5IDMwLjk4NSAzMi41MDU5IDI5LjE1MSAzMi41MDU5IDI2LjkwM1YyMS42MjNDMzIuNTA1OSAyMS40MjcgMzIuMjkxOSAyMS4zMDkgMzIuMTIzOSAyMS40MTFDMjkuMzcxOSAyMy4wOTEgMjQuNjgxOSAyMy44NzUgMjAuMDA1OSAyMy44NzVDMTUuMzI5OSAyMy44NzUgMTAuNjM5OSAyMy4wODkgNy44ODc4NiAyMS40MTFaIiBmaWxsPSIjNzE3MTcyIi8+CjxwYXRoIGQ9Ik03Ljg4NzkxIDMwLjMzOUM3LjcxOTkxIDMwLjIzNyA3LjUwNTkxIDMwLjM1NSA3LjUwNTkxIDMwLjU1MVYzNS44MzFDNy41MDU5MSAzOC4wNzkgMTMuMTAzOSAzOS45MTMgMjAuMDA1OSAzOS45MTNDMjYuOTA3OSAzOS45MTMgMzIuNTA1OSAzOC4wNzkgMzIuNTA1OSAzNS44MzFWMzAuNTUxQzMyLjUwNTkgMzAuMzU1IDMyLjI5MTkgMzAuMjM3IDMyLjEyMzkgMzAuMzM5QzI5LjM3MTkgMzIuMDE5IDI0LjY4MTkgMzIuODAzIDIwLjAwNTkgMzIuODAzQzE1LjMyOTkgMzIuODAzIDEwLjYzOTkgMzIuMDE5IDcuODg3OTEgMzAuMzM5Wk0yMS45MDE5IDE2Ljk2NUMyMS4yODU5IDE3LjE1NSAyMC42NDc5IDE3LjI1MSAyMC4wMDU5IDE3LjI1MUMxOS4zNTU5IDE3LjI1MSAxOC43MTM5IDE3LjE1NSAxOC4wOTc5IDE2Ljk2N0w3LjkyOTkxIDEzLjg0M0M3LjgwOTkxIDEzLjgwNyA3LjY3NzkxIDEzLjg2MyA3LjYyNzkxIDEzLjk3N0M3LjU0NTkxIDE0LjE2NSA3LjUwMzkxIDE0LjM1NSA3LjUwMzkxIDE0LjU0OVYxNy45NzVDNy41MDM5MSAyMC4yMjMgMTMuMTAxOSAyMi4wNTcgMjAuMDAzOSAyMi4wNTdDMjYuOTA1OSAyMi4wNTcgMzIuNTAzOSAyMC4yMjMgMzIuNTAzOSAxNy45NzVWMTQuNTQ5QzMyLjUwMzkgMTQuMzUzIDMyLjQ2MTkgMTQuMTYxIDMyLjM3OTkgMTMuOTczQzMyLjMyOTkgMTMuODU5IDMyLjE5NzkgMTMuODAzIDMyLjA3NzkgMTMuODM5TDIxLjkwMTkgMTYuOTY1WiIgZmlsbD0iIzcxNzE3MiIvPgo8cGF0aCBkPSJNMzguODk2IDYuNTc0OThMMjEuNDYyIDEuMjE4OThDMjAuNTA5MiAwLjkyNzAwOCAxOS40OTA4IDAuOTI3MDA4IDE4LjUzOCAxLjIxODk4TDEuMTA0IDYuNTc0OThDLTAuMzY4IDcuMDI2OTggLTAuMzY4IDguOTcyOTggMS4xMDQgOS40MjQ5OEw0LjE0NCAxMC4zNTlDMy40NzggMTEuMTgzIDMuMDY4IDEyLjE4OSAzLjAyNiAxMy4yOTFDMi40MjQgMTMuNjM1IDIgMTQuMjU3IDIgMTUuMDAxQzIgMTUuNjc1IDIuMzU2IDE2LjI0MSAyLjg2NiAxNi42MDVMMS4yNyAyMy43ODVDMS4xMzIgMjQuNDA5IDEuNjA2IDI1LjAwMSAyLjI0NiAyNS4wMDFINS43NTJDNi4zOTIgMjUuMDAxIDYuODY4IDI0LjQwOSA2LjcyOCAyMy43ODVMNS4xMzIgMTYuNjA1QzUuNjQ0IDE2LjI0MyA1Ljk5OCAxNS42NzUgNS45OTggMTUuMDAxQzUuOTk4IDE0LjI3NyA1LjU5NCAxMy42NzMgNS4wMiAxMy4zMjFDNS4wNjggMTIuMzgzIDUuNTQ4IDExLjU1MyA2LjMxNCAxMS4wMjVMMTguNTM4IDE0Ljc4MUMxOS4xMDQgMTQuOTU1IDIwLjE5IDE1LjE3MSAyMS40NjIgMTQuNzgxTDM4Ljg5NiA5LjQyNDk4QzQwLjM2OCA4Ljk3Mjk4IDQwLjM2OCA3LjAyODk4IDM4Ljg5NiA2LjU3NDk4WiIgZmlsbD0iI0ZGNkQ1QSIvPgo8L3N2Zz4K"
+      },
+      "displayName": "Customer Datastore (n8n training)",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": null,
+          "name": null
+        }
+      ]
+    }
+  ]
+}

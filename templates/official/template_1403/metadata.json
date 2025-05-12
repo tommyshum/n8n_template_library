@@ -1,0 +1,41 @@
+{
+  "id": 1403,
+  "name": "Collect posts from Twitter and send to Airtable",
+  "description": "This workflow collects tweets (100 but adjustable) and add them to AirTable. Starting the 2nd execution, the workflow will add only the new tweets (based on Tweet ID), so there won't be any tweet duplications \n\n",
+  "totalViews": 3330,
+  "source": "official",
+  "user": {
+    "id": 25677,
+    "name": "OsherD",
+    "username": "osherd",
+    "bio": null,
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/d0525c2b1f0dde6452eccbb3a3d23be260d4529e09dc7c3aa27ac9d11ba60e6e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Marketing"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "X (Formerly Twitter)",
+      "type": "n8n-nodes-base.twitter",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2022-01-19T15:13:23.582Z",
+  "path": "official/template_1403/workflow.json"
+}

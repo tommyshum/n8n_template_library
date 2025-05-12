@@ -1,0 +1,119 @@
+{
+  "id": 3724,
+  "name": "Smart Job Search: Resume Scoring & Tailoring with OpenAI, Apify, and Airtable",
+  "description": "\nWho is this for?\n\nThis workflow is designed for job seekers who want to automate their job application research and resume optimization. It's ideal for professionals who want to match their CVs to new job postings daily, improving the chance of landing interviews without manual work.\n\nUse case\n\nProblem**: Manually searching for jobs, matching resumes, and updating application records is time-consuming and inefficient.\n\nUse Case**: Automatically fetches new job listings based on user preferences, scores them against the user's existing CV, generates a revamped CV tailored for each job, and stores everything neatly into an Airtable database for easy tracking.\n\nWhat this workflow does? \n\nFetches user job preferences from Google Sheets daily.\nSearches for jobs matching those preferences using Apify’s scraping.\nFilters job posts that are fresh (posted within 24-48 hours).\nScores each job against the user’s current CV using an OpenAI agent.\nGenerates a revamped CV tailored to each job.\nStores the job listing, compatibility score, match reason, and revamped CV into Airtable for future use.\n\nAPI Credentials Required\n\n\nGoogle Sheets API Credentials — for reading user-defined job preferences.\nApify API Key — to scrape job postings (e.g., Indeed Scraper Actor).\nOpenAI API Key — for AI scoring and CV enhancement.\nAirtable API Key — for job listing and tracking.\n\nSetup \n\nGoogle Sheets**: Store your job preferences (like titles, locations, etc.).\n\n\n\nApify API**: Set up a scraper for LinkedIn, Indeed, or other job boards.\nOpenAI API**: Provide access to a GPT model (ideally GPT-4 Turbo) to handle CV scoring and revamping.\nAirtable**: Create two tables:\n\n\tOne for archived jobs (old jobs &gt;48 hours).\n\n\tOne for current processed jobs with AI scores and revamped CVs.\n\t\tColumns for Airtable: \n\t\t job_title,company,location,date_posted,job_type,description,link,compatibilityScore,matcReason,revampedCV,newCompatibilityScore,newMatchReason. \n\n\n\nn8n**: Deploy the full workflow with nodes for triggers, loops, API calls, parsing, and storage.\n\nHow to customize it for your needs\n\nEdit Job Preferences**: Add or update the fields in Google Sheets (Columns: job_title, job_location) to search.\n\nFine-tune AI Prompts**: Adjust the scoring criteria (e.g., favor remote roles, leadership experience, certifications).\n\nCustomize CV Style**: Configure the AI to generate shorter, more detailed, or industry-specific resumes.\n\n\nChange Storage Destination**: Replace Airtable with Notion, Google Sheets, a CRM system, or even send yourself Slack updates.\n\nExpand Job Sources**: Easily swap the job scraper to pull listings from your favorite niche job boards.\n\nWhy Use This Template?\n\nSaves 10+ hours/week on manual job search.\nInstantly tailor CVs to each application.\nCentralizes all data across Google Sheets and Airtable.\nFlexible — customize AI prompts, scoring logic, or expand to multiple users!\n\nNeed Assistance?\n\nFor setup guidance, customization, or business inquiries,\nEmail: ashish060921@gmail.com\n\n",
+  "totalViews": 233,
+  "source": "official",
+  "user": {
+    "id": 94085,
+    "name": "Ashish Kumar Swain",
+    "username": "phoenix",
+    "bio": "Hi, I’m Ashish — an automation architect and AI enthusiast helping people work smarter. I build AI-powered workflows that save time, boost productivity, and create real-world impact. Passionate about no-code, startups, and smart systems that scale. Let’s automate success, one workflow at a time! 🚀",
+    "verified": false,
+    "links": "[\"https://www.linkedin.com/in/ashishkumarswain/\"]",
+    "avatar": "https://gravatar.com/avatar/776f02fd73e699aa3a9b1b63dbea78459c4465bdd091b0d0ef2d26405e4a7848?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-04-26T20:41:27.698Z",
+  "path": "official/template_3724/workflow.json"
+}

@@ -1,0 +1,48 @@
+{
+  "id": 2499,
+  "name": "Integrate Xero with FileMaker using Webhooks",
+  "description": "Integrate Xero with FileMaker using Webhooks\n\nWorkflow Description\n\nThis n8n workflow automates the integration between Xero and FileMaker, allowing for seamless data transfer between the two platforms. By listening for webhooks from Xero (e.g., new invoices, payments, or contacts), this workflow ensures that data is automatically sent and recorded in a FileMaker database.\n\nWho is This For?\n\nThis workflow template is ideal for:\nAccountants** who need a streamlined process to sync financial data between Xero and FileMaker.\nBusiness Owners** looking to automate data entry and improve accuracy across their systems.\nDevelopers** building solutions for clients that require integration between accounting software and databases.\nOperations Teams** focused on minimizing manual work and improving efficiency.\n\nKey Steps\n\nXero Webhook Trigger: The workflow starts by capturing events from Xero via a webhook.\nData Processing: Transforms and maps the incoming data to match FileMaker’s required format.\nFileMaker Node: Utilizes the FileMaker node to create or update records directly in the FileMaker database.\nLogging & Error Handling: Tracks successful entries and manages any errors with automated alerts.\n\nSetup Instructions\n\nSet Up the Xero Webhook:\n   Create a webhook in Xero and point it to your n8n webhook node URL.\n   Configure the types of events to trigger the workflow (e.g., new invoices or payments).\n   Xero will then send some test calls to test you are doing proper hash control.\n\nConnect the FileMaker Node:\n   Set up your FileMaker node with the appropriate credentials and database configuration.\n   Map the fields between the incoming Xero data and your FileMaker database structure.\nCustomize Data Processing:\n   Adjust data transformations as needed to ensure compatibility with your FileMaker schema.\nTest and Deploy:\n   Run the workflow with sample data to ensure everything is functioning correctly.\n   Monitor the execution log to verify data transfer and make any adjustments as needed.\nError Handling Configuration:\n   Configure error-handling nodes or alerts to notify you of any issues during data processing.\n\nBenefits\n\nThis setup facilitates real-time data synchronization between Xero and FileMaker, reducing the need for manual data entry and improving overall operational efficiency.",
+  "totalViews": 558,
+  "source": "official",
+  "user": {
+    "id": 92096,
+    "name": "Stathis Askaridis",
+    "username": "stathisaska",
+    "bio": "FileMaker Expert",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/0c068cfbc50aadf26747b8f22f38bf59a327e9c3232bfb0f0a55b4315fd032a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Data & Storage",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "FileMaker",
+      "type": "n8n-nodes-base.filemaker",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Crypto",
+      "type": "n8n-nodes-base.crypto",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-10-25T14:24:00.538Z",
+  "path": "official/template_2499/workflow.json"
+}

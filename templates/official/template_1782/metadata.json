@@ -1,0 +1,47 @@
+{
+  "id": 1782,
+  "name": "Enrich new accounts in Pipedrive using Datagma API",
+  "description": "This workflow enriches new accounts in Pipedrive using Datagma API by adding data about ICP (ideal customer profile). Instead of Pipedrive, you can use any other CRM. In this example, ideal buyers are heads of sales/business development.\n\nPrerequisites\nPipedrive account and Pipedrive credentials\n\nHow it works\nPipedrive trigger node starts the workflow when a new company is created.\nHTTP Request node queries data from Datagma.\nPipedrive node updates Pipedrive contact with new data from Datagma.\nThe Item Lists node simplifies returned data from Datagma that contain lists (arrays), enabling you to easily modify the structure for further processing without the need to use Function nodes and write custom JavaScript.\nIF node identifies if the lead corresponds ICP.\nHTTP Request node searches for emails in Datagma.\nSet node prepares data for further merging.\nMerge node combines data from multiple streams.\nPipedrive node adds a new person in Pipedrive.\n",
+  "totalViews": 561,
+  "source": "official",
+  "user": {
+    "id": 36027,
+    "name": "Lucas Perret",
+    "username": "lempire",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/b0a32f127a6ad690cd4ee808cb4d1b59d3b5e53410181d54f91d10c0027ebb43?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Sales"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Pipedrive",
+      "type": "n8n-nodes-base.pipedrive",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2022-08-30T14:58:08.324Z",
+  "path": "official/template_1782/workflow.json"
+}

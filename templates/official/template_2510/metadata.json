@@ -1,0 +1,38 @@
+{
+  "id": 2510,
+  "name": "Enhance Security Operations with the Qualys Slack Shortcut Bot!",
+  "description": "\nEnhance Security Operations with the Qualys Slack Shortcut Bot!\n\nOur Qualys Slack Shortcut Bot is strategically designed to facilitate immediate security operations directly from Slack. This powerful tool allows users to initiate vulnerability scans and generate detailed reports through simple Slack interactions, streamlining the process of managing security assessments.\n\nWorkflow Highlights:\nInteractive Modals**: Utilizes Slack modals to gather user inputs for scan configurations and report generation, providing a user-friendly interface for complex operations.\nDynamic Workflow Execution**: Integrates seamlessly with Qualys to execute vulnerability scans and create reports based on user-specified parameters.\nReal-Time Feedback**: Offers instant feedback within Slack, updating users about the status of their requests and delivering reports directly through Slack channels.\n\n\nOperational Flow:\nParse Webhook Data**: Captures and parses incoming data from Slack to understand user commands accurately.\nExecute Actions**: Depending on the user's selection, the workflow triggers other sub-workflows like 'Qualys Start Vulnerability Scan' or 'Qualys Create Report' for detailed processing.\nRespond to Slack**: Ensures that every interaction is acknowledged, maintaining a smooth user experience by managing modal popups and sending appropriate responses.\n\n\nSetup Instructions:\nVerify that Slack and Qualys API integrations are correctly configured for seamless interaction.\nCustomize the modal interfaces to align with your organization's operational protocols and security policies.\nTest the workflow to ensure that it responds accurately to Slack commands and that the integration with Qualys is functioning as expected.\n\n\nNeed Assistance?\nExplore our Documentation or get help from the n8n Community for more detailed guidance on setup and customization.\n\nDeploy this bot within your Slack environment to significantly enhance the efficiency and responsiveness of your security operations, enabling proactive management of vulnerabilities and streamlined reporting.\n\nTo handle the actual processing of requests, you will also need to deploy these two subworkflows:\nQualys Start Vulnerability Scan\nQualys Create Report\n\nTo simplify deployment, use this Slack App manifest to quickly create an app with the correct permissions:\n\n{\n    \"display_information\": {\n        \"name\": \"Qualys n8n Bot\",\n        \"description\": \"n8n Integration for Qualys\",\n        \"background_color\": \"#2a2b2e\"\n    },\n    \"features\": {\n        \"bot_user\": {\n            \"display_name\": \"Qualys n8n Bot\",\n            \"always_online\": false\n        },\n        \"shortcuts\": [\n            {\n                \"name\": \"Scan Report Generator\",\n                \"type\": \"global\",\n                \"callback_id\": \"qualys-scan-report\",\n                \"description\": \"Generate a report from the latest scan to review vulnerabilities and compliance.\"\n            },\n            {\n                \"name\": \"Launch Qualsys VM Scan\",\n                \"type\": \"global\",\n                \"callback_id\": \"trigger-qualys-vmscan\",\n                \"description\": \"Start a Qualys Vulnerability scan from the comfort of your Slack Workspace\"\n            }\n        ]\n    },\n    \"oauth_config\": {\n        \"scopes\": {\n            \"bot\": [\n                \"commands\",\n                \"channels:join\",\n                \"channels:history\",\n                \"channels:read\",\n                \"chat:write\",\n                \"chat:write.customize\",\n                \"files:read\",\n                \"files:write\"\n            ]\n        }\n    },\n    \"settings\": {\n        \"interactivity\": {\n            \"is_enabled\": true,\n            \"request_url\": \"Replace everything inside the double quotes with your workflow webhook url, for example: https://n8n.domain.com/webhook/99db3e73-57d8-4107-ab02-5b7e713894ad\"\",\n            \"message_menu_options_url\": \"Replace everything inside the double quotes with your workflow message options webhook url, for example: https://n8n.domain.com/webhook/99db3e73-57d8-4107-ab02-5b7e713894ad\"\"\n        },\n        \"org_deploy_enabled\": false,\n        \"socket_mode_enabled\": false,\n        \"token_rotation_enabled\": false\n    }\n}\n",
+  "totalViews": 819,
+  "source": "official",
+  "user": {
+    "id": 16588,
+    "name": "Angel Menendez",
+    "username": "djangelic",
+    "bio": "Angel Menendez is a Staff Developer Advocate at n8n.io, specializing in low-code tools for cybersecurity workflows. From Puerto Rico, Angel's tech journey began by helping his father translate technical books. He later started a web development business and transitioned from a career as a flight attendant to cybersecurity engineering. His workflows have saved companies significant time. Outside work, Angel enjoys time with his two sons, riding electric bikes, reading, and exploring new places.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/fdbe38425d21378d8c9ba8916e1eb0b320add299f12cc23fcd4961d4e6e00bec?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-10-30T19:28:02.510Z",
+  "path": "official/template_2510/workflow.json"
+}

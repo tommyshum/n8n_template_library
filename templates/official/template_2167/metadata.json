@@ -1,0 +1,85 @@
+{
+  "id": 2167,
+  "name": "ChatGPT Automatic Code Review in Gitlab MR",
+  "description": "Who this template is for\nThis template is for every engineer who wants to automate their code reviews or just get a 2nd opinion on their PR.\n\nHow it works\nThis workflow will automatically review your changes in a Gitlab PR using the power of AI. It will trigger whenever you comment with +0 to a Gitlab PR, get the code changes, analyze them with GPT, and reply to the PR discussion.\n\nSet up Steps\nSet up webhook of note_events in Gitlab repository (see here on how to do it)\nConfigure ChatGPT credentials\nNote \"+0\" in MergeRequest to trigger automatic review by ChatGPT",
+  "totalViews": 22592,
+  "source": "official",
+  "user": {
+    "id": 91521,
+    "name": "assert",
+    "username": "assert",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/dc591f3a04143d3696fde7e79bea67f23aaeb1ee4c5d5befc18b21e3453ee117?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2024-03-07T10:49:11.392Z",
+  "path": "official/template_2167/workflow.json"
+}

@@ -1,0 +1,105 @@
+{
+  "id": 3700,
+  "name": "Automated Generation of AI Advertising Photos for Product Marketing",
+  "description": "How it works\n\nThis workflow automates the transformation of standard product images into professional product photography featuring human models\nIt uses AI to analyze product images, create tailored photography prompts, and generate high-quality enhanced versions\n\nSet up steps\n\nYou'll need an OpenAI API key and access to gpt-image-1 (verify your organization)\nSet up a Google Sheets spreadsheet with columns: Image-URL, Prompt, Output\nCreate a Google Drive folder to store the generated images\n\nRequirements:\n\nOpenAI API access (for image generation and analysis)\nGoogle Sheets and Google Drive accounts\nBasic product images (URLs) as input\nThe spreadsheet must contain a column named \"Image-URL\" with links to the product images\n\nThis workflow automatically:\n\nReads product image URLs from your Google Sheet\nDownloads the images for processing\nAnalyzes each image to understand what product it contains\nCreates specialized photography prompts ensuring each product is shown with a human model\nGenerates professional product photography using OpenAI's image generation capabilities\nUploads results to Google Drive and updates your spreadsheet with links\n\nExtra:\nYou can also use the included simple image generation workflow to directly create images via prompt without product image input. This option lets you quickly generate images through the OpenAI API using just text prompts",
+  "totalViews": 1689,
+  "source": "official",
+  "user": {
+    "id": 93914,
+    "name": "Julian Ivanov",
+    "username": "julian-ivanov",
+    "bio": "I run an AI Automation Agency in Germany called Crystalflow AI and I like to make Youtube Videos about AI with a focus on n8n & automation.",
+    "verified": false,
+    "links": "[\"https://www.youtube.com/@Julian-Ivanov\"]",
+    "avatar": "https://gravatar.com/avatar/e43fc3fe590d1173bcc4cac89c7f8580780755c0976b57298f8fefad52ae2f9c?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-04-24T21:36:54.279Z",
+  "path": "official/template_3700/workflow.json"
+}

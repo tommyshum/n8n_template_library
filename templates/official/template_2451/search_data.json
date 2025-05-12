@@ -1,0 +1,139 @@
+{
+  "id": 2451,
+  "name": "Download and Compress Folder from S3 to ZIP File",
+  "totalViews": 1043,
+  "purchaseUrl": null,
+  "user": {
+    "id": 91823,
+    "name": "Marcel Claus-Ahrens",
+    "username": "geckse",
+    "bio": "Hey 👋 I'm an Automation Expert with a passion for AI workflow automations and AI agents in general. Coming from a software background, I bring the necessary hard skills but love using NoCode to get the job done faster – hence n8n.",
+    "verified": true,
+    "links": "[\"https://let-the-work-flow.com\"]",
+    "avatar": "https://gravatar.com/avatar/4765e05c5f4cdab88efcfd24b9c464910cea34e6121d350b452dd166cbc27abb?r=pg&d=retro&size=200"
+  },
+  "description": "\nThis workflow downloads all files from a specific folder in a S3 Bucket and compresses them so you can download it via n8n or do further processings.\n\nFill in your Credentials and Settings in the Nodes marked with \"*\".\n\nMight serve well as Blueprint or as manual Download for S3 Folders. \n\nSince I found it rather tricky to compress all binary files into one zip file I figured might it be an interesting Template. \n\nHint:\nThis is the expression to get every binary key to compress them dynamically. \n(used in the \"Compress\"-Node)\n\n\nEnjoy the Workflow! ❤️ \nhttps://let-the-work-flow.com\nWorkflow Automation & Development",
+  "createdAt": "2024-10-04T22:59:30.391Z",
+  "nodes": [
+    {
+      "id": 307,
+      "icon": "file:s3.svg",
+      "name": "n8n-nodes-base.awsS3",
+      "codex": {
+        "data": {
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/why-business-process-automation-with-n8n-can-change-your-daily-life/",
+                "icon": "🧬",
+                "label": "Why business process automation with n8n can change your daily life"
+              },
+              {
+                "url": "https://n8n.io/blog/aws-workflow-automation/",
+                "label": "7 no-code workflow automations for Amazon Web Services"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.awss3/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/aws/"
+              }
+            ]
+          },
+          "categories": [
+            "Development",
+            "Data & Storage"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"output\"]",
+      "defaults": {
+        "name": "AWS S3"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDY1IiBoZWlnaHQ9IjI1MDAiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIiB2aWV3Qm94PSIwIDAgMjU2IDMxMCI+PHBhdGggZmlsbD0iIzhDMzEyMyIgZD0iTTIwLjYyNCA1My42ODYgMCA2NHYxODEuMDJsMjAuNjI0IDEwLjI1NC4xMjQtLjE0OVY1My44Mjh6Ii8+PHBhdGggZmlsbD0iI0UwNTI0MyIgZD0iTTEzMSAyMjkgMjAuNjI0IDI1NS4yNzRWNTMuNjg2TDEzMSA3OS4zODd6Ii8+PHBhdGggZmlsbD0iIzhDMzEyMyIgZD0ibTgxLjE3OCAxODcuODY2IDQ2LjgxOCA1Ljk2LjI5NC0uNjc4LjI2My03Ni43Ny0uNTU3LS42LTQ2LjgxOCA1Ljg3NHoiLz48cGF0aCBmaWxsPSIjOEMzMTIzIiBkPSJtMTI3Ljk5NiAyMjkuMjk1IDEwNy4zNzEgMjYuMDM1LjE2OS0uMjY5LS4wMDMtMjAxLjE5NS0uMTctLjE4LTEwNy4zNjcgMjUuOTk2eiIvPjxwYXRoIGZpbGw9IiNFMDUyNDMiIGQ9Im0xNzQuODI3IDE4Ny44NjYtNDYuODMxIDUuOTZ2LTc4LjA0OGw0Ni44MzEgNS44NzR6Ii8+PHBhdGggZmlsbD0iIzVFMUYxOCIgZD0ibTE3NC44MjcgODkuNjMxLTQ2LjgzMSA4LjUzNS00Ni44MTgtOC41MzUgNDYuNzU5LTEyLjI1NnoiLz48cGF0aCBmaWxsPSIjRjJCMEE5IiBkPSJtMTc0LjgyNyAyMTkuODAxLTQ2LjgzMS04LjU5MS00Ni44MTggOC41OTEgNDYuNzYxIDEzLjA1M3oiLz48cGF0aCBmaWxsPSIjOEMzMTIzIiBkPSJtODEuMTc4IDg5LjYzMSA0Ni44MTgtMTEuNTg2LjM3OS0uMTE3Vi4zMTNMMTI3Ljk5NiAwIDgxLjE3OCAyMy40MTN6Ii8+PHBhdGggZmlsbD0iI0UwNTI0MyIgZD0ibTE3NC44MjcgODkuNjMxLTQ2LjgzMS0xMS41ODZWMGw0Ni44MzEgMjMuNDEzeiIvPjxwYXRoIGZpbGw9IiM4QzMxMjMiIGQ9Im0xMjcuOTk2IDMwOS40MjgtNDYuODIzLTIzLjQwNXYtNjYuMjE3bDQ2LjgyMyAxMS41ODIuNjg5Ljc4My0uMTg3IDc1LjkwNnoiLz48cGF0aCBmaWxsPSIjRTA1MjQzIiBkPSJtMTI3Ljk5NiAzMDkuNDI4IDQ2LjgyNy0yMy40MDV2LTY2LjIxN2wtNDYuODI3IDExLjU4MnpNMjM1LjM2NyA1My42ODYgMjU2IDY0djE4MS4wMmwtMjAuNjMzIDEwLjMxeiIvPjwvc3ZnPg=="
+      },
+      "displayName": "AWS S3",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 3,
+          "name": "Data & Storage"
+        },
+        {
+          "id": 5,
+          "name": "Development"
+        }
+      ]
+    },
+    {
+      "id": 440,
+      "icon": "fa:file-archive",
+      "name": "n8n-nodes-base.compression",
+      "codex": {
+        "data": {
+          "alias": [
+            "Zip",
+            "Gzip",
+            "uncompress",
+            "compress",
+            "decompress",
+            "archive",
+            "unarchive",
+            "Binary",
+            "Files",
+            "File"
+          ],
+          "details": "The Compression node is useful when you want to compress files to either gzip or zip format. You can even use this node to decompress your gzip and zip files.",
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.compression/"
+              }
+            ]
+          },
+          "categories": [
+            "Core Nodes",
+            "Data & Storage"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0",
+          "subcategories": {
+            "Core Nodes": [
+              "Files",
+              "Data Transformation"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Compression",
+        "color": "#408000"
+      },
+      "iconData": {
+        "icon": "file-archive",
+        "type": "icon"
+      },
+      "displayName": "Compression",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 3,
+          "name": "Data & Storage"
+        },
+        {
+          "id": 9,
+          "name": "Core Nodes"
+        }
+      ]
+    }
+  ]
+}

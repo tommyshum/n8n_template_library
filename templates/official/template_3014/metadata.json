@@ -1,0 +1,59 @@
+{
+  "id": 3014,
+  "name": "🔄 Workflow Repos8r: Github Version Control User Interface for n8n Workflows",
+  "description": "🔥 n8n Members Sale – n8n Community Members Get ideoGener8r for Just $10! (Reg. $15)\nUse Coupon Code: FeelinTheFlowgramming\n(Valid for n8n community members)\n\n💪 How it works\nSeamlessly track, manage, and version-control your n8n workflows with an intuitive Git-style system. Whether you're making updates or creating new workflows, this tool ensures structured commits, detailed change tracking, and seamless GitHub integration—all within a Matrix-inspired UI.\n\n🎯 Who is this for?\n\nPerfect for:\n\nn8n Developers & Automation Engineers** – Maintain workflow history and prevent accidental overwrites.\nTeams Collaborating on Automation** – Track and commit changes with structured version control.\nDevOps & IT Professionals** – Streamline deployment across multiple n8n environments.\n\n🚀 Key Features\n\nVersion Control & Workflow Management\n\nCommit changes when editing existing workflows\nCreate & commit new workflows from scratch\nDetect modifications with deep node comparison\nAccess repo with direct links from changes window\nWorkflow JSON Browser Caching **to avoid large loads on n8n\"\n\nCore Features\n\nWorkflow Management\nWorkflow Selection**: Easy selection of n8n workflows and GitHub workflows from dropdown menus\nSmart Caching**: Client-side caching of workflows for faster loading (1-week cache duration)\nCache Control**: Manual cache clearing via hard refresh (Cmd+Shift+R)\nMatrix-Style UI**: Terminal-inspired interface with glowing effects and animations\n\nGitHub Integration\nPush to GitHub**: Direct pushing of n8n workflows to GitHub repositories\nCommit Control**: Automated commit message generation with workflow details\nBranch Management**: Automatic branch creation and management\nPull from GitHub**: Future feature for pulling workflows from GitHub (Coming Soon)\n\nWorkflow Comparison\nSide-by-Side Comparison**: Compare n8n workflows with their GitHub counterparts\nChange Detection**: Automatic detection and highlighting of workflow changes\nDiff Visualization**: Clear visualization of additions, deletions, and modifications\nJSON Validation**: Ensures workflow JSON integrity before operations\n\nUser Experience\nSystem Notifications**: Matrix-themed toast notifications for important alerts\n  30-second duration with manual close option\n  Context-aware messages (e.g., cache refresh hints)\n  Glowing effects matching system console aesthetics\nLoading Animations**: Matrix-style loading indicators during operations\nError Handling**: Clear error messages and recovery suggestions\nResponsive Design**: Adapts to different screen sizes\n\nSecurity & Performance\nLocal Storage**: Efficient client-side storage for workflow data\nHeader Authentication**: Secure API communication with authentication tokens\nPerformance Optimization**: Smart caching to reduce server load\nData Validation**: Input validation and sanitization\n\nTechnical Features\n\nCode Organization\nModular Structure**: Well-organized HTML, CSS, and JavaScript\nComponent Separation**: Clear separation of concerns\nCSS Variables**: Consistent styling with CSS custom properties\nEvent Handling**: Robust event listeners and handlers\n\nAPI Integration\nn8n Integration**: Direct communication with n8n workflow API\nGitHub API**: Seamless integration with GitHub repositories\nRESTful Endpoints**: Clean API design for workflow operations\nError Handling**: Comprehensive error handling and user feedback\n\nDevelopment Features\nDebug Mode**: Console logging for development\nCode Comments**: Well-documented code sections\nCSS Animations**: Smooth transitions and effects\nBrowser Compatibility**: Works across modern browsers\n\nFuture Enhancements\nPull workflows from GitHub repositories\nEnhanced diff visualization\nAdditional GitHub integration features\nExtended caching options\nMore customization options for notifications\nAdvanced workflow comparison tools\n\nGitHub Integration\n\nPush workflows directly to GitHub\nCommit new workflows directly to GitHub\nAuto-generate structured commit messages\nPull workflows from GitHub into n8n\n\nChange Detection\n\nIdentifies node additions, deletions, and property modifications\nCompares connections, settings, and configurations\nReal-time visualization** of detected changes\n\nSleek UI for Effortless Control\n\nMatrix-style interface** for a futuristic feel\nClear prompts to prevent accidental overwrites\nInteractive workflow commit & sync options\n\n🔧 Setup & Usage\n\nGenerate your n8n API key\nSet up GitHub repository & access tokens\nCreate Generic Basic Auth credentials\nCreate Generic Header Auth credentials\nSet the workflow variables\nDeploy & start tracking your workflow versions\n\n📚 Use Cases\n\n🔹 Workflow Development – Ensure clean versioning and commit history.  \n🔹 Team Collaboration – Review and track modifications before deployment.  \n🔹 Audit & Compliance – Maintain an organized change log.\n\n🙌 Built for the n8n Community\n\nCreated with ❤️ to bring reliable version control to the n8n community.",
+  "totalViews": 807,
+  "source": "official",
+  "user": {
+    "id": 92159,
+    "name": "RealSimple Solutions",
+    "username": "joeperes",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://joeperes.com\"]",
+    "avatar": "https://gravatar.com/avatar/4ad55fbdcc7808056aa180c02d52e3e373d4b894df7fa986e2dfd6c7eb127bfc?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "GitHub",
+      "type": "n8n-nodes-base.github",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-02-25T20:42:06.051Z",
+  "path": "official/template_3014/workflow.json"
+}

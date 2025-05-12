@@ -1,0 +1,32 @@
+{
+  "id": 697,
+  "name": "Archive Spotify's discover weekly playlist",
+  "description": "\n\nThis workflow will archive your Spotify Discover Weekly playlist to an archive playlist named \"Discover Weekly Archive\" which you must create yourself. If you want to change the name of the archive playlist, you can edit value2 in the \"Find Archive Playlist\" node.\n\nIt is configured to run at 8am on Mondays, a conservative value in case you forgot to set your GENERIC_TIMEZONE environment variable (see the docs here).\n\nSpecial thanks to erin2722 for creating the Spotify node and harshil1712 for help with the workflow logic.\n\nTo use this workflow, you'll need to:\n\nCreate then select your credentials in each Spotify node\nCreate the archive playlist yourself\n\nOptionally, you may choose to:\nEdit the archive playlist name in the \"Find Archive Playlist\" node\nAdjust the Cron node with an earlier time if you know GENERIC_TIMEZONE is set\nSetup an error workflow like this one to be notified if anything goes wrong\n\n",
+  "totalViews": 1665,
+  "source": "official",
+  "user": {
+    "id": 7309,
+    "name": "Trey",
+    "username": "trey",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/a34b927d14a6b3b96f3a6e588ee0fbfd519efd1c8cec0586b1a6e5976fc72d2a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Miscellaneous"
+  ],
+  "nodes": [
+    {
+      "name": "Spotify",
+      "type": "n8n-nodes-base.spotify",
+      "categories": [
+        "Miscellaneous"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2020-10-02T01:29:47.308Z",
+  "path": "official/template_697/workflow.json"
+}

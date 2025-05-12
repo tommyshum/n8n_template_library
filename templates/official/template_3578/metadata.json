@@ -1,0 +1,41 @@
+{
+  "id": 3578,
+  "name": "Generate Dynamic Line Chart from JSON Data to Upload to Google Drive",
+  "description": "What Does This Flow Do?\n\nThis workflow demonstrates how to dynamically generate a line chart using the QuickChart node based on data provided in a JSON object and then upload the resulting chart image to Google Drive. \n\nUse Cases\n\nYou can use it in presentations or requesting for chart generation from a software with HTTP requests.\nAutomated report generation (e.g., daily sales charts).\nVisualizing data fetched from APIs or databases.\nSimple monitoring dashboards.\nAdding charts to internal tools or notifications.\n\nHow it Works\n\nTrigger: The workflow starts manually when you click 'Test workflow'.\nSet Sample Data: A Set node (Edit Fields: Set JSON data to test) defines a sample JSON object named jsonData. This object contains:\n    reportTitle: A title (not used in the chart generation in this example, but useful for context).\n    labels: An array of strings representing the labels for the chart's X-axis (e.g., [\"Q1\", \"Q2\", \"Q3\", \"Q4\"]).\n    salesData: An array of numbers representing the data points for the chart's Y-axis (e.g., [1250, 1800, 1550, 2100]).\nGenerate Chart: The QuickChart node is configured to:\n    Create a line chart.\n    Dynamically read labels from the jsonData.labels array (Labels Mode: From Array).\n    Use the jsonData.salesData array as the input data (Note: This configuration places data in the top-level 'Data' field. For more complex charts with multiple datasets or specific dataset options, configure datasets under 'Dataset Options' instead).\n    The node outputs the generated chart image as binary data in a field named data.\nUpload to Google Drive: The Google Drive node (Google Drive: Upload File):\n    Takes the binary data (data) from the QuickChart node.\n    Uploads the image to your specified Google Drive folder.\n    Dynamically names the file based on its extension (e.g., chart.png).\n\nSetup Steps\n\nImport: Import this template into your n8n instance.\nConfigure Google Drive Credentials:\n    Select the Google Drive: Upload File node.\n    You MUST configure your own Google Drive credentials. Click on the 'Credentials' dropdown and either select existing credentials or create new ones by following the authentication prompts.\n(Optional) Customize Google Drive Folder: In the Google Drive: Upload File node, you can change the Drive ID and Folder ID to specify exactly where the chart should be uploaded.\nActivate: Activate the workflow if you want it to run automatically based on a different trigger.\n\nHow to Use & Customize\n\nChange Input Data:** Modify the labels and salesData arrays within the Edit Fields: Set JSON data to test node to use your own data. Ensure the number of labels matches the number of data points.\nUse Real Data Sources:** Replace the Edit Fields: Set JSON data to test node with nodes that fetch data from real sources like:\n    HTTP Request (APIs)\n    Postgres / MongoDB nodes (Databases)\n    Google Sheets node\n    Ensure the output data from your source node is formatted similarly (providing labels and salesData arrays). You might need another Set node to structure the data correctly before the QuickChart node.\nChange Chart Type:** In the QuickChart node, modify the Chart Type parameter (e.g., change from line to bar, pie, doughnut, etc.).\nCustomize Chart Appearance:** Explore the Chart Options parameter within the QuickChart node to add titles, change colors, modify axes, etc., using QuickChart's standard JSON configuration options.\nUse Datasets (Recommended for Complex Charts):** For multiple lines/bars or more control, configure datasets explicitly in the QuickChart node:\n    Remove the expression from the top-level Data field.\n    Go to Dataset Options -&gt; Add option -&gt; Add dataset.\n    Set the Data field within the dataset using an expression like {{ $json.jsonData.salesData }}.\n    You can add multiple datasets this way.\nChange Output Destination:** Replace the Google Drive: Upload File node with other nodes to handle the chart image differently:\n    Write Binary File: Save the chart to the local filesystem where n8n is running.\n    Slack / Discord / Telegram: Send the chart to messaging platforms.\n    Move Binary Data: Convert the image to Base64 to embed in HTML or return via webhook response.\n\nNodes Used\n\nManual Trigger\nSet\nQuickChart\nGoogle Drive\n\n\n\nTags: (Suggestions for tags field)\n\nQuickChart, Chart, Visualization, Line Chart, Google Drive, Reporting, Automation\n\n",
+  "totalViews": 432,
+  "source": "official",
+  "user": {
+    "id": 93758,
+    "name": "Lucas Correia",
+    "username": "lucascorrei4",
+    "bio": "Brazilian Software Engineer passionate about productivity AI tools. Looking to connect with others on building and integrating AI agents into web apps.",
+    "verified": false,
+    "links": "[\"https://focusorganize.com\"]",
+    "avatar": "https://gravatar.com/avatar/d13a2afd18bdf50c5c9c5d345c7ec2254ee33b3af21c8560c9a2cf116a3a6d77?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Marketing"
+  ],
+  "nodes": [
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "QuickChart",
+      "type": "n8n-nodes-base.quickChart",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-04-16T16:57:21.009Z",
+  "path": "official/template_3578/workflow.json"
+}

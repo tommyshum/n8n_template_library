@@ -1,0 +1,136 @@
+{
+  "id": 3684,
+  "name": "🗞️ AI-Powered Sustainability Newsletter for Marketing with Gmail, GPT-4o",
+  "description": "Tags: Sustainability, Web Scraping, OpenAI, Google Sheets, Newsletter, Marketing\n\nContext\n\nHey! I’m Samir, a Supply Chain Engineer and Data Scientist from Paris, and the founder of LogiGreen Consulting.\n\nWe use AI, automation, and data to support sustainable business practices for small, medium and large companies.\n\nI use this workflow to bring awareness about sustainability and promote my business by delivering automated daily news digests.\n\n\n\n&gt; Promote your business with a fully automated newsletter powered by AI!\n\nThis n8n workflow scrapes articles from the official EU news website and sends a daily curated digest, highlighting only the most relevant sustainability news.\n\n📬 For business inquiries, feel free to connect with me on LinkedIn\n\nWho is this template for?\n\nThis workflow is useful for:\nBusiness owners** who want to promote their service or products with a fully automated newsletter\nSustainability professionals** staying informed on EU climate news  \nConsultants and analysts** working on CSRD, Green Deal, or ESG initiatives  \nCorporate communications teams** tracking relevant EU activity  \nMedia curators** building newsletters  \n\nWhat does it do?\n\nThis n8n workflow:\n⏰ Triggers automatically every morning  \n🌍 Scrapes articles from the EU Commission News Portal  \n🧠 Uses OpenAI GPT-4o to classify each article for sustainability relevance  \n📄 Stores the results in a Google Sheet for tracking  \n🧾 Generates a beautiful HTML digest email, including titles, summaries, and images  \n📬 Sends the digest via Gmail to your mailing list  \n\nHow it works\n\n\n\nTrigger at 08:30 every morning\nScrape and extract article blocks from the EU news site  \nUse OpenAI to decide if articles are sustainability-related  \nStore relevant entries in Google Sheets  \nGenerate HTML email with a professional layout and logo  \nSend the digest via Gmail to a configured recipient list\n\nWhat do I need to get started?\n\nYou’ll need:\nA Google Sheet connected to your n8n instance  \nAn OpenAI account with GPT-4 or GPT-4o access  \nA Gmail OAuth credential setup  \n\nFollow the Guide!\n\nFollow the sticky notes inside the workflow or check out my step-by-step tutorial on how to configure and deploy it.\n\n\n🎥 Watch My Tutorial\n\nNotes\n\nYou can customize the system prompt to adjust how AI classifies “sustainability”  \nWorks well for tracking updates relevant to climate action, green transition, and circular economy\n\nThis workflow was built using n8n version 1.85.4  \nSubmitted: April 24, 2025\n",
+  "totalViews": 1609,
+  "source": "official",
+  "user": {
+    "id": 93233,
+    "name": "Samir Saci",
+    "username": "samirsaci",
+    "bio": "Automation, AI and Analytics for Supply Chain & Business Optimization\nHelping businesses streamline operations using n8n, AI agents, and data science to enhance efficiency and sustainability. \nLinkedin: www.linkedin.com/in/samir-saci",
+    "verified": true,
+    "links": "[\"https://linktr.ee/samirsaci\"]",
+    "avatar": "https://gravatar.com/avatar/d3644476a59e5813c5f00a7933977e2be8805cbdc574958b9cc6a53b45bedd6a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 8,
+  "createdAt": "2025-04-24T05:06:47.509Z",
+  "path": "official/template_3684/workflow.json"
+}

@@ -1,0 +1,47 @@
+{
+  "id": 3815,
+  "name": "Upload & Rename Videos to Google Drive via Apps Script from URL",
+  "description": "📄 Google Script Workflow: Upload File from URL to Google Drive (via n8n)\n\n🔧 Purpose:\nThis lightweight Google Apps Script acts as a server endpoint that receives a file URL (from n8n), downloads the file, uploads it to your specified Google Drive folder, and responds with the file’s metadata (like Drive file ID and URL). This is useful for large video/audio files that n8n cannot handle directly via HTTP Download nodes.\n\n🚀 Setup Steps:\n\n1. Create a New Script Project\n\nGo to https://script.google.com\nClick “New Project”\nRename the project to something like: DriveUploader\n\n2. Paste the Script Code\n\nReplace the default Code.gs content with the following (your custom script):\n\nfunction doPost(e) {\n  const SECRET_KEY = 'your-strong-secret-here'; // Set your secret key here\n\n  try {\n    const data = JSON.parse(e.postData.contents);\n\n    // 🔒 Check for correct secret key\n    if (!data.secret || data.secret !== SECRET_KEY) {\n      return ContentService.createTextOutput(\"Unauthorized\")\n        .setMimeType(ContentService.MimeType.TEXT);\n    }\n\n    const videoUrl = data.videoUrl;\n    const folderId = 'YOUR_FOLDER_ID_HERE'; // Replace with your target folder ID\n    const folder = DriveApp.getFolderById(folderId);\n\n    const response = UrlFetchApp.fetch(videoUrl);\n    const blob = response.getBlob();\n    const file = folder.createFile(blob);\n    file.setName('uploaded_video.mp4'); // You can customize the name\n\n    return ContentService.createTextOutput(file.getUrl())\n      .setMimeType(ContentService.MimeType.TEXT);\n  } catch (err) {\n    return ContentService.createTextOutput(\"Error: \" + err.message)\n      .setMimeType(ContentService.MimeType.TEXT);\n  }\n}\n\n3. Generate & Set Up Secret Key\nTo allow authorized post requests to your script only, we need to generate a secret key from aany reliable key generator. \nYou can head over to acte, click generate and copy the \"Encryption key 256\". \nPaste it in the 'your-strong-secret-here' placeholder in your script then click save\n   const SECRET_KEY = 'your-strong-secret-here'; // Set your secret key here;\n4. Replace Folder ID in Code\n\nOpen the target Drive folder in your browser  \nThe folder ID is the part of the URL after /folders/  \n  Example:  \n    https://drive.google.com/drive/u/0/folders/1Xabc12345678defGHIJklmn\n  Paste that ID in the script:  \n    var folderId = \"1Xabc12345678defGHIJklmn\";\n5. Set Up Deployment as Web App\n\nClick “Deploy” &gt; “Manage Deployments” &gt; “New Deployment”\nUnder Select type, choose Web app\nDescription: Upload from URL to Drive\nExecute as: Me\nWho has access: Anyone\nClick Deploy\nAuthorize the script when prompted\nCopy the Web App URL\n\n📤 How to Use in n8n\n\n1. HTTP Request Node\n\nMethod: POST\nURL: (your web app URL)\nSecret Key: (Secret Key set in script)\nBody Content Type: JSON\nPaste code:\n{\n  \"videoUrl\": \"https://example.com/path/to/your.mp4\",\n  \"secret\": \"your-strong-secret-here\"\n}\n  videoUrl: The file download URL\n  secret: The generated and set up secret key \n\n2. Rename Node\n\nA simple drive update node to rename the file using the file drive url returned from the script.\n\n",
+  "totalViews": 39,
+  "source": "official",
+  "user": {
+    "id": 93572,
+    "name": "Joseph",
+    "username": "mjomba",
+    "bio": "Automation expert specializing in building smart, scalable workflows using tools like n8n, Make, and Airtable. I help businesses save time, reduce manual work, and grow faster with tailored automation solutions. Feel free to reach out at joseph@uppfy.com to discuss your project.",
+    "verified": true,
+    "links": "[\"https://x.com/juppfy\"]",
+    "avatar": "https://gravatar.com/avatar/460cadca403550e24f9e17a9ee3f4670046503b32fb59618a1b390378b803162?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-05-01T07:57:29.410Z",
+  "path": "official/template_3815/workflow.json"
+}

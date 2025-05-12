@@ -1,0 +1,21 @@
+{
+  "id": 2732,
+  "name": "CSV to JSON Converter with Error Handling and Slack Notifications",
+  "description": "Who this template is for\nThis template is for developers or teams who need to convert CSV data into JSON format through an API endpoint, with support for both file uploads and raw CSV text input.\n\nUse case\nConverting CSV files or raw CSV text data into JSON format via a webhook endpoint, with error handling and notifications. This is particularly useful when you need to transform CSV data into JSON as part of a larger automation or integration process.\n\nHow this workflow works\n\nReceives POST requests through a webhook endpoint at \n/tool/csv-to-json\nUses a Switch node to handle different input types:\n    File uploads (binary data)\n    Plain text CSV data\n    JSON format data\nProcesses the CSV data:\n    For files: Uses the Extract From File node\n    For raw text: Converts the text to CSV using a custom Code node that handles both comma and semicolon delimiters\nAggregates the processed data and returns:\n    Success response (200): Converted JSON data\n    Error response (500): Error message with details\nIn case of errors, sends notifications to a Slack error channel with execution details and a link to debug\n\nSet up steps\n\nConfigure the webhook endpoint by deploying the workflow\nSet up Slack integration for error notifications:\n    Update the Slack channel ID (currently set to \"C0832GBAEN4\")\n    Configure OAuth2 authentication for Slack\nTest the endpoint using either:\n    CURL for file uploads:\n        \n                bash\n        Copy\n        curl -X POST \"https://yoururl.com/webhook-test/tool/csv-to-json\" \\\n             -H \"Content-Type: text/csv\" \\\n             --data-binary @path/to/your/file.csv\n        \n                \n    Or send raw CSV data as text/plain content type",
+  "totalViews": 2374,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [],
+  "nodes": [],
+  "nodeCount": 0,
+  "createdAt": "2025-01-15T11:45:23.218Z",
+  "path": "official/template_2732/workflow.json"
+}

@@ -1,0 +1,43 @@
+{
+  "id": 2163,
+  "name": "Qualify new leads in Google Sheets via OpenAI's GPT-4",
+  "description": "This n8n workflow was developed to evaluate and categorize incoming leads based on certain criteria. The workflow is triggered by adding a new row in a Google Sheets document.\n\nThe workflow uses the OpenAI node to process the lead information. The system query contains detailed qualification rules and the response format. The user message contains the data for the individual lead.\n\nThe JSON response from the OpenAI node is then processed by the Edit Fields node to extract the response. This response is merged together with the original lead data by the Merge node.\n\nFinally, the Google Sheets node updates the original lead entry in the Google Sheets document with the qualification result (\"qualified\" or \"not qualified\") in a separate column. This allows for easy tracking and sorting of the qualified leads.",
+  "totalViews": 24059,
+  "source": "official",
+  "user": {
+    "id": 91386,
+    "name": "Yulia",
+    "username": "yulia",
+    "bio": "Let's connect! ",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/yulia-dmitrievna-1112361b5/\"]",
+    "avatar": "https://gravatar.com/avatar/d29a8262aa8835d430919f8002957a77169f8da987dee0740aa494ae67a061b7?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Utility"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "OpenAI",
+      "type": "n8n-nodes-base.openAi",
+      "categories": [
+        "Utility"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-03-05T09:29:37.858Z",
+  "path": "official/template_2163/workflow.json"
+}

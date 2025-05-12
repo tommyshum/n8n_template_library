@@ -1,0 +1,87 @@
+{
+  "id": 3778,
+  "name": "Scrape Web Data with Bright Data, Google Gemini and MCP Automated AI Agent",
+  "description": "Disclaimer\nThis template is only available on n8n self-hosted as it's making use of the community node for MCP Client.\n\nWho this is for?\n\nThe Scrape Web Data with Bright Data and MCP Automated AI Agent workflow is built for professionals who need to automate large-scale, intelligent data extraction by utilizing the Bright Data MCP Server and Google Gemini.\n\nThis solution is ideal for:\n\nData Analysts - Who require structured, enriched datasets for analysis and reporting.\n\nMarketing Researchers - Seeking fresh market intelligence from dynamic web sources.\n\nProduct Managers - Who want competitive product and feature insights from various websites.\n\nAI Developers - Aiming to feed web data into downstream machine learning models.\n\nGrowth Hackers - Looking for high-quality data to fuel campaigns, research, or strategic targeting.\n\nWhat problem is this workflow solving?\n\nManually scraping websites, cleaning raw HTML data, and generating useful insights from it can be slow, error-prone, and non-scalable.\n\nThis workflow solves these problems by:\n\nAutomating complex web data extraction through Bright Data’s MCP Server.\n\nReducing the human effort needed for cleaning, parsing, and analyzing unstructured web content.\n\nAllowing seamless integration into further automation processes.\n\nWhat this workflow does?\n\nThis n8n workflow performs the following steps:\n\nTrigger: Start manually.\n\nInput URL(s): Specify the URL to perform the web scrapping.\n\nWeb Scraping (Bright Data): Use Bright Data’s MCP Server tools to accomplish the web data scrapping with markdown and html format.\n\nStore / Output: Save results into disk and also performs a Webhook notification.\n\nSetup\nPlease make sure to setup n8n locally with MCP Servers by navigating to n8n-nodes-mcp\nPlease make sure to install the Bright Data MCP Server @brightdata/mcp  on your local machine.\nSign up at Bright Data.\nCreate a Web Unlocker proxy zone called mcp_unlocker on Bright Data control panel.\nNavigate to Proxies & Scraping and create a new Web Unlocker zone by selecting Web Unlocker API under Scraping Solutions.\nIn n8n, configure the Google Gemini(PaLM) Api account with the Google Gemini API key (or access through Vertex AI or proxy).\nIn n8n, configure the credentials to connect with MCP Client (STDIO) account with the Bright Data MCP Server as shown below.\n\n\n\nMake sure to copy the Bright Data API_TOKEN within the Environments textbox above.\nUpdate the LinkedIn URL person and company workflow.\nUpdate the Webhook HTTP Request node with the Webhook endpoint of your choice.\nUpdate the file name and path to persist on disk.\n\nHow to customize this workflow to your needs\nDifferent Inputs: Instead of static URLs, accept URLs dynamically via webhook or form submissions.\n\nOutputs: Update the Webhook endpoints to send the response to Slack channels, Airtable, Notion, CRM systems, etc.",
+  "totalViews": 375,
+  "source": "official",
+  "user": {
+    "id": 93657,
+    "name": "Ranjan Dailata",
+    "username": "ranjancse",
+    "bio": "",
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/7b74fe44a7ad32db7c783b972deb5848a4b1f043377bce4039737ed66da8305f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-04-28T23:06:34.655Z",
+  "path": "official/template_3778/workflow.json"
+}

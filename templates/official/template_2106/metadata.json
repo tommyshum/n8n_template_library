@@ -1,0 +1,47 @@
+{
+  "id": 2106,
+  "name": "Reach out via Email to new form submissions that meet a certain criteria",
+  "description": "Use case\nWhen collecting new leads via a form, you need to follow up on new submissions. Often, this required a lot of manual work that includes reviewing each submission, checking if they meet your criteria and then outreaching. With this workflow you can do all of that fully automatically and save a lot of your valuable time.\nWhat this workflow does\nThis workflow runs every time you're receiving a new submission from an n8n form. It then filters out typical personal emails (such as Gmail, Hotmail, Yahoo etc.) before enriching the submission via Clearbit. It then checks, if the company of the submitter is a B2B company and has more than 499 employees. If it does, it sends an email via Gmail to the user.\nSetup\nAdd the Clearbit and Gmail credentials\nClick on Test Workflow\nEnter your own email (which needs to be a business email to work) in the Form\nCheck your email\nOnce you're happy don't forget to activate this workflow\nHow to adjust this template\nReplace the form trigger with your form provider of choice (e.g. Typeform, SurveyMonkey, Google Forms etc.)\nAdjust the criteria to your needs via the If node\nAdjust the email you're sending in the Gmail node",
+  "totalViews": 1524,
+  "source": "official",
+  "user": {
+    "id": 91250,
+    "name": "Niklas Hatje",
+    "username": "nik8n",
+    "bio": "Product Manager at n8n - Responsible for the creator program",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/niklashatje/\"]",
+    "avatar": "https://gravatar.com/avatar/e16a4426e166713c34626bdde856b1cd15bb6787481a7ead9b74318f19e6259d?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Sales",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Clearbit",
+      "type": "n8n-nodes-base.clearbit",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-02-21T10:45:02.202Z",
+  "path": "official/template_2106/workflow.json"
+}

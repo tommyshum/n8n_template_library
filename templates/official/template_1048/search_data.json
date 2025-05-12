@@ -1,0 +1,61 @@
+{
+  "id": 1048,
+  "name": "Create, update, and get an item from Webflow",
+  "totalViews": 1089,
+  "purchaseUrl": null,
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "description": "This workflow allows you to create, update, and get an item from Webflow.\n\n\n\nWebflow node: This node will create a new collection of the type Team Members in Webflow. If you want to create a collection with a different type, use that type instead.\n\nWebflow1 node: This node will update the item that we created using the previous node.\n\nWebflow2 node: This node will retrieve the information of the object that we created earlier.",
+  "createdAt": "2021-04-20T09:03:21.161Z",
+  "nodes": [
+    {
+      "id": 480,
+      "icon": "file:webflow.svg",
+      "name": "n8n-nodes-base.webflow",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.webflow/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/webflow/"
+              }
+            ]
+          },
+          "categories": [
+            "Marketing"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Webflow"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiB2aWV3Qm94PSIwIDAgNjcgNjYiPjx1c2UgeGxpbms6aHJlZj0iI2EiIHg9IjEiIHk9IjEiLz48c3ltYm9sIGlkPSJhIiBvdmVyZmxvdz0idmlzaWJsZSI+PGcgZmlsbC1ydWxlPSJub256ZXJvIiBzdHJva2U9Im5vbmUiPjxwYXRoIGZpbGw9IiM0MzUzZmYiIGQ9Ik0wIDMyQzAgMTQuMjcyIDE0LjI3MiAwIDMyIDBzMzIgMTQuMjcyIDMyIDMyLTE0LjI3MiAzMi0zMiAzMlMwIDQ5LjcyOCAwIDMyIi8+PHBhdGggZD0ibTQxLjQgMjguMi0yLjkgOS4xNGMwLS43LTItMTUuODYtMi0xNS44Ni00LjYgMC03LjA0IDMuMjYtOC4zMiA2LjcybC0zLjU0IDkuMTZjMC0uNjYtLjUtOS4wOC0uNS05LjA4YTcuNDggNy40OCAwIDAgMC03LjI2LTYuNzhsMy43NiAyMi45NmM0LjggMCA3LjQtMy4yNiA4Ljc0LTYuNzJsMy03LjhjMCAuMzIgMiAxNC41MiAyIDE0LjUyYTkuMjQgOS4yNCAwIDAgMCA4LjgtNi40Nmw2LjgtMTYuNTJjLTQuOCAwLTcuMzIgMy4yNi04LjYgNi43MnoiLz48L2c+PC9zeW1ib2w+PC9zdmc+"
+      },
+      "displayName": "Webflow",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 27,
+          "name": "Marketing"
+        }
+      ]
+    }
+  ]
+}

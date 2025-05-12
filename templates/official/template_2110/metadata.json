@@ -1,0 +1,76 @@
+{
+  "id": 2110,
+  "name": "Scrape recent news about a company before a call",
+  "description": "How It works\n\nIt's very important to come prepared to Sales calls. This often means a lot of manual research about the person you're calling with. This workflow delivers the latest news about businesses you are about to interact with each day.\n\nScans Your Calendar**: Each morning, it reviews your Google Calendar for any scheduled meetings or calls with companies.\nFetches Latest News**: For each identified company, it searches the web for the most recent and relevant news articles using newsapi.org\nDelivers Insights**: You receive personalized emails via Gmail, each dedicated to a company you're meeting with that day, containing a curated list of news headlines, brief descriptions, and direct links to full articles.\n\nSetup steps\nThe workflow requires you to have the following accounts set up in their respective nodes:\nGoogle Calendar\nGMail\n\nBesides those, there are a few parameters in the node called Setup that can be used to tweak the workflow:\n\n\n",
+  "totalViews": 12740,
+  "source": "official",
+  "user": {
+    "id": 91247,
+    "name": "Milorad Filipović",
+    "username": "n8n_milorad",
+    "bio": "Senior Frontend Engineer @ n8n",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/milorad-filipovi%C4%87-47188882/\"]",
+    "avatar": "https://gravatar.com/avatar/fe589e45711c79f138c00077e28d9bc41a22d79f684d203cd3fdd41e218ef6ba?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Productivity",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Calendar",
+      "type": "n8n-nodes-base.googleCalendar",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2024-02-21T16:02:20.603Z",
+  "path": "official/template_2110/workflow.json"
+}

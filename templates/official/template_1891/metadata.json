@@ -1,0 +1,65 @@
+{
+  "id": 1891,
+  "name": "Lonescale Hiring Signal - Send leads to lemlist and Hubspot",
+  "description": "Job offers are a goldmine of information.\n\nUse them to boost your outreach results. \n\nThey'll give you: \nmore context to personalize your messaging\na steady flow of new leads\nthe right timing to contact your lead",
+  "totalViews": 761,
+  "source": "official",
+  "user": {
+    "id": 36027,
+    "name": "Lucas Perret",
+    "username": "lempire",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/b0a32f127a6ad690cd4ee808cb4d1b59d3b5e53410181d54f91d10c0027ebb43?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Sales",
+    "Marketing"
+  ],
+  "nodes": [
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "HubSpot",
+      "type": "n8n-nodes-base.hubspot",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Lemlist",
+      "type": "n8n-nodes-base.lemlist",
+      "categories": [
+        "Communication",
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Dropcontact",
+      "type": "n8n-nodes-base.dropcontact",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2023-02-09T12:59:15.155Z",
+  "path": "official/template_1891/workflow.json"
+}

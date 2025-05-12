@@ -1,0 +1,61 @@
+{
+  "id": 908,
+  "name": "Compress binary files to zip format",
+  "description": "This workflow allows you to compress binary files to zip format.\n\n\n\n\nHTTP Request node: The workflow uses the HTTP Request node to fetch files from the internet. If you want to fetch files from your local machine, replace it with the Read Binary File or Read Binary Files node.\n\nCompression node: The Compression node compresses the file into a zip. If you want to compress the files to gzip, then select the gzip format instead.\n\nBased on your use-case, you may want to write the files to your disk or upload it to Google Drive or Box. If you want to write the compressed file to your disk, replace the Dropbox node with the Write Binary File node, or if you want to upload the file to a different service, use the respective node.",
+  "totalViews": 1491,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Dropbox",
+      "type": "n8n-nodes-base.dropbox",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Compression",
+      "type": "n8n-nodes-base.compression",
+      "categories": [
+        "Core Nodes",
+        "Data & Storage"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Files",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2021-01-27T09:14:11.802Z",
+  "path": "official/template_908/workflow.json"
+}

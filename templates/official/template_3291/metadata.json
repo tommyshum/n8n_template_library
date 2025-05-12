@@ -1,0 +1,123 @@
+{
+  "id": 3291,
+  "name": "🔍🛠️Generate SEO-Optimized WordPress Content with AI Powered Perplexity Research",
+  "description": "Generate SEO-Optimized WordPress Content with Perplexity Research\n\nWho is This For?\nThis workflow is ideal for content creators, marketers, and businesses looking to streamline the creation of SEO-optimized blog posts for WordPress. It is particularly suited for professionals in the AI consulting and workflow automation industries.\n\nWhat Problem Does This Workflow Solve?\nCreating high-quality, SEO-friendly blog posts can be time-consuming and challenging, especially when trying to balance research, formatting, and publishing. This workflow automates the process by integrating research capabilities, AI-driven content creation, and seamless WordPress publishing. It reduces manual effort while ensuring professional-grade output.\n\nWhat This Workflow Does\nResearch: Gathers detailed insights from Perplexity AI based on user-provided queries.\nContent Generation: Uses OpenAI models to create structured blog posts, including titles, slugs, meta descriptions, and HTML content optimized for WordPress.\nImage Handling: Automatically fetches and uploads featured images to WordPress posts.\nPublishing: Drafts the blog post directly in WordPress with all necessary formatting and metadata.\nNotification: Sends a success message via Telegram upon completion.\n\nSetup Guide\nPrerequisites:\n   A WordPress account with API access.\n   OpenAI API credentials.\n   Perplexity AI API credentials.\n   Telegram bot credentials for notifications.\n\nSteps:\n   Import the workflow into your n8n instance.\n   Configure API credentials for WordPress, OpenAI, Perplexity AI, and Telegram.\n   Customize the form trigger to define your research query.\n   Test the workflow using sample queries to ensure smooth execution.\n\nHow to Customize This Workflow to Your Needs\nModify the research query prompt in the \"Form Trigger\" node to suit your industry or niche.\nAdjust content generation guidelines in the \"Copywriter AI Agent\" node for specific formatting preferences.\nReplace the image URL in the \"Set Image URL\" node with your own source or dynamic image selection logic.\n\n",
+  "totalViews": 32918,
+  "source": "official",
+  "user": {
+    "id": 92125,
+    "name": "Joseph LePage",
+    "username": "joe",
+    "bio": "As an AI Automation consultant based in Canada, I partner with forward-thinking organizations to implement AI solutions that streamline operations and drive growth.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/e7ca218dfc87b68344bbd66f40da01546d2f6fc1cf884267821e8a77e3e8410a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "Marketing",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Wordpress",
+      "type": "n8n-nodes-base.wordpress",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-03-23T02:02:14.835Z",
+  "path": "official/template_3291/workflow.json"
+}

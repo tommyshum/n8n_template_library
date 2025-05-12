@@ -1,0 +1,38 @@
+{
+  "id": 2572,
+  "name": "CV Screening with OpenAI",
+  "description": "Video Guide\n\nI prepared a detailed guide that showed the whole process of building a resume analyzer.\n\nWho is this for?\nThis workflow is ideal for recruitment agencies, HR professionals, and hiring managers looking to automate the initial screening of CVs. It is especially useful for organizations handling large volumes of applications and seeking to streamline their recruitment process.\n\nWhat problem does this workflow solve?\nManually screening resumes is time-consuming and prone to human error. This workflow automates the process, providing consistent and objective analysis of CVs against job descriptions. It helps filter out unsuitable candidates early, reducing workload and improving the overall efficiency of the recruitment process.\n\nWhat this workflow does\nThis workflow automates the resume screening process using OpenAI for analysis. It provides a matching score, a summary of candidate suitability, and key insights into why the candidate fits (or doesn’t fit) the job. \n\nRetrieve Resume: The workflow downloads CVs from a direct link (e.g., Supabase storage or Dropbox).\nExtract Data: Extracts text data from PDF or DOC files for analysis.\nAnalyze with OpenAI: Sends the extracted data and job description to OpenAI to:\n   Generate a matching score.\n   Summarize candidate strengths and weaknesses.\n   Provide actionable insights into their suitability for the job.\n\nSetup\n\nPreparation\nCreate Accounts:\n   N8N: For workflow automation.\n   OpenAI: For AI-powered CV analysis.\nGet CV Link:\n   Upload CV files to Supabase storage or Dropbox to generate a direct link for processing.\nPrepare Artifacts for OpenAI:\n   Define Metrics: Identify the metrics you want from the analysis (e.g., matching percentage, strengths, weaknesses).\n   Generate JSON Schema: Use OpenAI to structure responses, ensuring compatibility with your database.\n   Write a Prompt: Provide OpenAI with a clear and detailed prompt to ensure accurate analysis.\n\nN8N Scenario\nDownload File: Fetch the CV using its direct URL.\nExtract Data: Use N8N’s PDF or text extraction nodes to retrieve text from the CV.\nSend to OpenAI:\n   URL: POST to OpenAI’s API for analysis.\n   Parameters:\n     Include the extracted CV data and job description.\n     Use JSON Schema to structure the response.\n\nSummary\nThis workflow provides a seamless, automated solution for CV screening, helping recruitment agencies and HR teams save time while maintaining consistency in candidate evaluation. It enables organizations to focus on the most suitable candidates, improving the overall hiring process.",
+  "totalViews": 11125,
+  "source": "official",
+  "user": {
+    "id": 92018,
+    "name": "Mark Shcherbakov",
+    "username": "lowcodingdev",
+    "bio": "I am a business analyst with a development background, dedicated to helping small businesses and entrepreneurs leverage cloud services for increased efficiency. My expertise lies in automating manual workflows, integrating data from multiple cloud service providers, creating insightful dashboards, and building custom CRM systems.\n\nhttps://www.linkedin.com/in/marklowcoding/",
+    "verified": true,
+    "links": "[\"https://www.skool.com/5minai-pro\"]",
+    "avatar": "https://gravatar.com/avatar/3055cd5035cfb1030d9d1923b60646d1a156927eead957956bea71f88c5186cd?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-11-25T10:38:26.100Z",
+  "path": "official/template_2572/workflow.json"
+}

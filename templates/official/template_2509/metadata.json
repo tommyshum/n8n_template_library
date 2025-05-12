@@ -1,0 +1,62 @@
+{
+  "id": 2509,
+  "name": "TwentyCRM event based updates on selective messaging channels with logs",
+  "description": "Who is this template for?\n\nThis workflow template is designed for DevOps, Engineering, and Managed Service Provider professionals seeking alerts on various channels, with each channel being logically chosen based on the severity of the event.\n\nHow it works\n\nEach time a new event occurs, the workflow runs (powered by TwentyCRM's native Webhooks feature).\nAfter filtering for the required data from the webhook, the filtered data is logged using Google Sheets.\nBased on the eventType from the webhook, we conditionally select a predefined messaging channel and send updates or alerts through it.\n\nSet up instructions\n\nComplete the Set up credentials step when you first open the workflow. You'll need a Google-OAuth2.0 with Gmail API & Google Sheets Scope, Slack with OAuth2.0 - chat:write scopes.\nSet up the Webhook in TwentyCRM, linking the On new TwentyCRM event Trigger with your TwentyCRM App.\nSet the correct channel to send to in the Post message in channel step.\nAfter testing your workflow, swap the Test URL to Production URL in TwentyCRM and activate your workflow.\n\nTemplate was created in n8n v1.63.4.\n",
+  "totalViews": 824,
+  "source": "official",
+  "user": {
+    "id": 92090,
+    "name": "sateshcharan",
+    "username": "sateshcharan",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/2a53e5f56f51a55d446c31895a633e145b48a575ecc5593739ae7c678eb60616?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-10-30T13:18:04.260Z",
+  "path": "official/template_2509/workflow.json"
+}

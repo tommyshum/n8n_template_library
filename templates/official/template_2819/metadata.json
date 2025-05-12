@@ -1,0 +1,113 @@
+{
+  "id": 2819,
+  "name": "Simple Expense Tracker with n8n Chat, AI Agent and Google Sheets",
+  "description": "Use Case\nIt is very convenient to add expenses via simple chat message. This workflow attempts to do exactly this using AI-powered n8n magic!\n\n\nSend message to a chat, something like \"car wash; 59.3 usd; 25 jan 2024\"\n\nAnd get a response:\nYour expense saved, here is the output of save sub-workflow:{\"cost\":59.3,\"descr\":\"car wash\",\"date\":\"2024-01-25\",\"msg\":\"car wash; 59.3 usd; 25 jan 2024\"}\n\n\nLLM will smartly parse your message to structured JSON and save the expense as a new row into Google Sheet!\n\nInstallation\n1. Set up Google Sheets:\nClone this Sheet:\nhttps://docs.google.com/spreadsheets/d/1D0r3tun7LF7Ypb21CmbTKEtn76WE-kaHvBCM5NdgiPU/edit?gid=0#gid=0\n\n(File -&gt; Make a copy)\n\nChoose this sheet into \"Save expense into Google Sheets\" node.\n\n2. Fix sub-workflow dropdown: \nopen \"Parse msg and save to Sheets\" node (which is an n8n sub-workflow executor tool) and make sure the SAME workflow is chosen in the dropdown. it will allow n8n to locate and call \"Workflow Input Trigger\" properly when needed.\n\n3. Activate the workflow to make chat work properly.\nSent message to chat, something like \"car wash; 59.3 usd; 25 jan 2024\"\n\nyou should get a response:\nYour expense saved, here is the output of save sub-workflow:{\"cost\":59.3,\"descr\":\"car wash\",\"date\":\"2024-01-25\",\"msg\":\"car wash; 59.3 usd; 25 jan 2024\"}\n\nand new row in Google sheets should be inserted!\n",
+  "totalViews": 8585,
+  "source": "official",
+  "user": {
+    "id": 91927,
+    "name": "Anthony",
+    "username": "scrapeninja",
+    "bio": "I am a software engineer and technical lead with over 15 years of experience, and I am passionate about building and scaling SaaS products. ScrapeNinja.net (bootstrapped) has been the most exciting and challenging product I have built so far. ScrapeNinja is primarily aimed at fellow developers and founders of software products, and it tries to alleviate the major pains of reliable, observable and scalable web scraping and feeding data into LLMs. ",
+    "verified": true,
+    "links": "[\"https://pixeljets.com\"]",
+    "avatar": "https://gravatar.com/avatar/edbc5b9e7a0952395b10b4f8af8dfe7b157328e94f8a6776715a89edc27412e0?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    },
+    {
+      "name": "Information Extractor",
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-01-29T13:43:53.212Z",
+  "path": "official/template_2819/workflow.json"
+}

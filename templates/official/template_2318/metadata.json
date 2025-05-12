@@ -1,0 +1,93 @@
+{
+  "id": 2318,
+  "name": "Enrich Pipedrive's Organization Data with OpenAI GPT-4o & Notify it in Slack",
+  "description": "This workflow enriches new Pipedrive organization's data by adding a note to the organization object in Pipedrive. It assumes there is a custom \"website\" field in your Pipedrive setup, as data will be scraped from this website to generate a note using OpenAI. Then, a notification is sent in Slack.\n\n⚠️ Disclaimer\nThis workflow uses a scraping API. Before using it, ensure you comply with the regulations regarding web scraping in your country or state.\n\nImportant Notes\nThe OpenAI model used is GPT-4o, chosen for its large input token capacity. However, it is not the cheapest model if cost is very important to you.\n\nThe system prompt in the OpenAI Node generates output with relevant information, but feel free to improve or modify it according to your needs.\n\nHow It Works\n\nNode 1: Pipedrive Trigger - An Organization is Created\nThis is the trigger of the workflow. When an organization object is created in Pipedrive, this node is triggered and retrieves the data. Make sure you have a \"website\" custom field in Pipedrive (the name of the field in the n8n node will appear as a random ID and not with the Pipedrive custom field name).\n\nNode 2: ScrapingBee - Get Organization's Website's Homepage Content\nThis node scrapes the content from the URL of the website associated with the Pipedrive Organization created in Node 1. The workflow uses the ScrapingBee API, but you can use any preferred API or simply the HTTP request node in n8n.\n\nNode 3: OpenAI - Message GPT-4o with Scraped Data\nThis node sends HTML-scraped data from the previous node to the OpenAI GPT-4o model. The system prompt instructs the model to extract company data, such as products or services offered and competitors (if known by the model), and format it as HTML for optimal use in a Pipedrive Note.\n\nNode 4: Pipedrive - Create a Note with OpenAI Output\nThis node adds a Note to the Organization created in Pipedrive using the OpenAI node output. The Note will include the company description, target market, selling products, and competitors (if GPT-4o was able to determine them).\n\nNode 5 & 6: HTML To Markdown & Code - Markdown to Slack Markdown\nThese two nodes format the HTML output to Slack Markdown.\n\nThe Note created in Pipedrive is in HTML format, as specified by the System Prompt of the OpenAI Node. To send it to Slack, it needs to be converted to Markdown and then to Slack Markdown.\n\nNode 7: Slack - Notify\nThis node sends a message in Slack containing the Pipedrive Organization Note created with this workflow.\n",
+  "totalViews": 1482,
+  "source": "official",
+  "user": {
+    "id": 91734,
+    "name": "Dataki",
+    "username": "dataki",
+    "bio": "I am passionate about transforming complex processes into seamless automations with n8n. My expertise spans across creating ETL pipelines, sales automations, and data & AI-driven workflows. As an avid problem solver, I thrive on optimizing workflows to drive efficiency and innovation.",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/nicolas-aknin/\"]",
+    "avatar": "https://gravatar.com/avatar/0437c659b1ec6916896ebb30cc237391f0e1de89df5465c103e12d2cb12ce42d?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Sales",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Pipedrive",
+      "type": "n8n-nodes-base.pipedrive",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2024-07-06T16:24:36.463Z",
+  "path": "official/template_2318/workflow.json"
+}

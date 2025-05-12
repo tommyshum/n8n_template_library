@@ -1,0 +1,86 @@
+{
+  "id": 2906,
+  "name": "AI-Powered Crypto Analysis Using OpenRouter, Gemini, and SerpAPI",
+  "description": "This n8n automation is designed to analyze cryptocurrency trends by extracting, processing, and interpreting candlestick charts using AI-powered agents. The workflow enhances technical analysis by integrating real-time market data, ensuring traders receive accurate and actionable insights.\n\nWorkflow Breakdown:\n\n🔹 1. Chat Node – Provide Crypto Information\nUsers enter a crypto symbol in the required format (EXCHANGE:SYMBOL), such as BINANCE:BTCUSDT. This ensures the workflow retrieves the correct market data.\n\n🔹 Retrieve Daily Candlestick Chart\nOnce the input is received, the workflow fetches the full-day candlestick chart for the selected crypto, providing a macro-level market trend.\n\n🔹 AI Agent – Analyze Daily Chart\nThe first AI agent, powered by Google Gemini 2.0 Flash via OpenRouter, analyzes the daily candlestick pattern to detect trends and potential market signals.\n\n🔹 Fetch 5-Minute Candlestick Chart\nTo refine the analysis, the workflow retrieves a 5-minute interval candlestick chart, allowing for real-time market movement evaluation.\n\n🔹 AI Agent – Advanced Candlestick Analysis\nThis AI agent combines the 5-minute chart with the daily analysis to provide an in-depth market prediction. Here’s where the real magic happens—AI interprets short-term trends in the context of long-term movements.\n\n🔹 Shared Windows Buffer – Store Intermediate Results\nThe Windows Buffer temporarily stores analysis results, ensuring seamless data flow between AI agents for a more structured interpretation.\n\n🔹 Serp API – Retrieve Crypto News\nTo add fundamental analysis, the Serp API tool fetches the latest crypto-related news from the web, providing additional market context.\n\n🔹 Chat Window – Deliver Final Insights\nOnce all data points are processed, the final market analysis is displayed in the chat window, combining technical and fundamental analysis for a more comprehensive trading strategy.\n\nUse Case:\n\nThis automation simplifies crypto market analysis by integrating AI-driven technical and fundamental insights. It’s ideal for:\n\n✅ Traders looking for automated market insights\n✅ Analysts seeking structured candlestick interpretations\n✅ Developers wanting to integrate AI-powered trading analysis into applications\n\nBy automating candlestick chart analysis, this workflow enhances decision-making and reduces manual effort, making it a valuable tool for anyone involved in cryptocurrency trading.\n\nSetup Instructions:\n\n1️⃣ Import the workflow to your n8n instance\n\n2️⃣ Prepare & add credentials:\n\nOpenRouter (Google Gemini 2.0 Flash) Get a free API key from https://openrouter.ai/\nSerp API (for news retrieval) Get a free API key from https://serpapi.com/\nChart Img (For candlestick chart) Get a free API key from https://chart-img.com/\n\n3️⃣ Run the workflow and get AI-powered crypto insights!\n\nNOTE\nRemember: Not all LLM models are capable of analyzing image data, so choose your model wisely.\n\nLimitations: All free services come with usage limits. For example, OpenRouter has a daily limit, and once it's consumed, the workflow will stop processing further requests.\n\nDisclaimer\nThis workflow is designed purely for educational and research purposes. It does not provide financial advice. 🚀",
+  "totalViews": 2636,
+  "source": "official",
+  "user": {
+    "id": 92457,
+    "name": "Udit Rawat",
+    "username": "ailistmaster",
+    "bio": "Hi, I’m Udit, an Acquia-certified developer with a strong background in web development and creating enterprise solutions. Recently, I’ve transitioned into AI and ML, I hold DIAT Professional AI Certification. I specialize in building AI-driven automation to streamline workflows, improve efficiency, and solve complex problems. With expertise in AI/ML tools and years of experience in Acquia and Drupal, I’m passionate about leveraging tech to drive innovation and create smarter solutions.",
+    "verified": true,
+    "links": "[\"https://x.com/AilistMaster\"]",
+    "avatar": "https://gravatar.com/avatar/6e96ede8d526c20ff6df15da46bbafb0fbe8862f1e12faa6de21514bb3c641e8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "SerpApi (Google Search)",
+      "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-02-14T14:17:26.205Z",
+  "path": "official/template_2906/workflow.json"
+}

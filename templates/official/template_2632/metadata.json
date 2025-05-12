@@ -1,0 +1,82 @@
+{
+  "id": 2632,
+  "name": "Screen Applicants With AI, notify HR and save them in a Google Sheet",
+  "description": "What this workflow does\nThis workflow helps HR teams screen CVs with AI, store compatibility ratings in Google Sheets, and send email notifications to candidates and HR. It simplifies the recruitment process.\n\nCV Submission Form:\nCandidates submit their details and CV (PDF) through a web form, triggering the workflow in n8n.\nPDF Extraction & AI Rating:\nThe submitted CV is processed to extract text, and AI analyzes it to generate a compatibility rating.\nResults Storage & Notifications:\nRatings are stored in a Google Sheet for easy access and organization.\nConfirmation emails are automatically sent to both HR and the candidate.\n\nSetup\nUse the provided template to configure your form and connect it to n8n.\nEnsure your Google Sheets and email service integrations are active.\n\nCustomization Instructions:\n\nModify the email template to match your organization’s branding.\nAdjust the AI compatibility rating thresholds based on your requirements.\nEnsure you have updated the prompt for cv screening.",
+  "totalViews": 4449,
+  "source": "official",
+  "user": {
+    "id": 92249,
+    "name": "Sarfaraz Muhammad Sajib",
+    "username": "sarfarazmuhammad",
+    "bio": "",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/f1c0e8cf8f8318849c173cbf7d8aa9ba839306da189d23a3bc4b0ef97da27131?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2024-12-11T11:14:52.865Z",
+  "path": "official/template_2632/workflow.json"
+}

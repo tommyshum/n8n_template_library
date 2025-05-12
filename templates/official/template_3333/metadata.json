@@ -1,0 +1,39 @@
+{
+  "id": 3333,
+  "name": "Generate PDF Invoices with CustomJS API",
+  "description": "\nn8n Workflow: Invoice PDF Generator\n\nThis n8n workflow captures invoice data and generates a PDF invoice, ready to be sent or saved. It uses a webhook to trigger the process, preprocesses the invoice data, and converts it to a PDF using HTML and custom styling.\n\n@custom-js/n8n-nodes-pdf-toolkit\n\nFeatures:\n\nWebhook Trigger**: Receives incoming data, including invoice details.\nPreprocessing**: Transforms the invoice data into HTML format.\nHTML to PDF Conversion**: Converts the preprocessed HTML into a styled PDF document.\nResponse**: Sends the generated PDF back to the webhook response.\n\nNotice\n\nCommunity nodes can only be installed on self-hosted instances of n8n.\n\nRequirements\n\nSelf-hosted** n8n instance\nA CustomJS API key for website screenshots.\nInvoice data** for PDF generation\n\nWorkflow Steps:\n\nWebhook Trigger:\n\n   Accepts incoming data (e.g., invoice number, recipient details, itemized list).\n   This data is passed to the next node for processing.\n\nSet Data Node:\n\n   Configures initial values for the invoice, including the recipient, sender, invoice number, and the items on the invoice.\n   The invoice details include information like description, unit price, and quantity.\n\nPreprocess Node:\n\n   Processes the raw data to format it correctly for HTML. This includes splitting addresses and converting the items into an HTML table format.\n\nHTML to PDF Conversion:\n\n   Converts the generated HTML into a PDF document. The HTML includes a header, a detailed invoice table, and a footer with contact information.\n\nRespond to Webhook:\n   Returns the generated PDF as a response to the initial webhook request.\n\nSetup Guide:\n\n1. Configure CustomJS API\n\nSign up at CustomJS.\nRetrieve your API key from the profile page.\n\nAdd your API key as n8n credentials.\n\n2. Design Workflow\n\nCreate a Webhook:\n\n   Set up a webhook to trigger the workflow when invoice data is received.\n\nPrepare Data:\n\n   Ensure the incoming request contains fields like \"Invoice No\", \"Bill To\", \"From\", and \"Details\" (list of items with price and quantity).\n\nCustomize the HTML:\n\n   The HTML template for the invoice includes custom styling to give the invoice a professional look.\n\nConvert to PDF:\n   The HTML to PDF node is configured with the data generated from the preprocessing step to convert the invoice HTML to a PDF format.\n\nExample Invoice Data:\n\n{\n  \"Invoice No\": \"1\",\n  \"Bill To\": \"John Doe\\n1234 Elm St, Apt 567\\nCity, Country, 12345\",\n  \"From\": \"ABC Corporation\\n789 Business Ave\\nCity, Country, 67890\",\n  \"Details\": [\n    {\n      \"description\": \"Web Hosting\",\n      \"price\": 150,\n      \"qty\": 2\n    },\n    {\n      \"description\": \"Domain\",\n      \"price\": 15,\n      \"qty\": 5\n    }\n  ],\n  \"Email\": \"support@mycompany.com\"\n}\n\nResult PDF File\n\n",
+  "totalViews": 3485,
+  "source": "official",
+  "user": {
+    "id": 93320,
+    "name": "CustomJS",
+    "username": "customjs",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://www.customjs.space\"]",
+    "avatar": "https://gravatar.com/avatar/942ecdadf17761bc7f516b67fb0f3617809720caf8912cfd1815ed2a9f8b9ad3?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-03-26T10:03:14.743Z",
+  "path": "official/template_3333/workflow.json"
+}

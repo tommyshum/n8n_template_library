@@ -1,0 +1,32 @@
+{
+  "id": 3918,
+  "name": "💾 Backup Automation for n8n Workflows to Google Drive (Daily or Manual)",
+  "description": "💾 Backup Automation for n8n Workflows to Google Drive – No Risk, No Stress\n\nHi! I’m Amanda,\nI build automation workflows for n8n and Make.  \nThis ready-to-use workflow is designed to automatically export and back up all your n8n workflows to a designated Google Drive folder, organized by date.\n\nIt’s perfect for agencies, developers, and teams that want to protect their automation assets — without relying on manual exports or risking losing their work.\n\n✅ What this workflow does\n\nFetches all your existing workflows from the n8n API  \nCompiles each workflow as a .json file  \nCreates a new folder in Google Drive using the current date  \nUploads each .json file to that folder  \nCan be triggered manually or automatically via cron (date-time node)\n\n⚙️ How to set it up\n\nConnect your Google Drive in the “Folder Creation” and “Save to Drive” nodes  \nAdd your n8n API Key in the “Search All Workflows” and “Compiles Individual Data” nodes  \nDefine your time zone and execution method:\n   Run manually via the “Manual Trigger” node  \n   Or schedule backups using the “Date & Time” and “Schedule Trigger” nodes  \n(Optional) Change the parent folder ID in the “Folder Creation in Drive” node to set your destination\n\nOnce configured, the workflow will back up your entire workflow list daily — or whenever you run it — and send the files to your Google Drive!\n\n🧰 Nodes & Tech Used\n\nSchedule Trigger + Manual Trigger  \nDate & Time – For timestamp folder naming  \nn8n API – To list and fetch each workflow  \nGoogle Drive – Folder creation and file upload  \nMerge, Move Binary Data, Set – Workflow compilation and formatting  \n\n🧑‍💻 Who this is for\n\nn8n developers who want peace of mind  \nAgencies managing many client automations  \nAnyone worried about losing their workflow work  \nTeams needing version control and backup history\n\n🛠️ Requirements\n\nGoogle Drive OAuth2 credential**  \nn8n API Key** (from your account settings)  \nn8n Cloud or self-hosted instance\n\n🌐 Want to use this workflow?\n\n❤️ Buy workflows: https://iloveflows.com  \n☁️ Try n8n Cloud with my partner link: https://n8n.partnerlinks.io/amanda\n",
+  "totalViews": 41,
+  "source": "official",
+  "user": {
+    "id": 93865,
+    "name": "Amanda Benks",
+    "username": "amanda",
+    "bio": "Hi loves! I've been making workflows for n8n for two years, and I hope you like my flows <3",
+    "verified": true,
+    "links": "[\"https://iloveflows.com\"]",
+    "avatar": "https://gravatar.com/avatar/b3a5d488866a5de1fb28471770f11f0dab20e328d3b47e4fa0a379ef2a22c041?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-05-07T11:36:46.111Z",
+  "path": "official/template_3918/workflow.json"
+}

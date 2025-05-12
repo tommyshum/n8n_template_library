@@ -1,0 +1,86 @@
+{
+  "id": 3879,
+  "name": "Build an MCP Server with Airtable",
+  "description": "Who is this for?\nThis template is designed for anyone who wants to integrate MCP with their AI Agents using Airtable. Whether you're a developer, a data analyst, or an automation enthusiast, if you're looking to leverage the power of MCP and Airtable in your n8n workflows, this template is for you.\n\nWhat problem is this workflow solving?\nThis template caters to MCP beginners seeking a hands-on example and developers looking to integrate Airtable MCP service. When integrating MCP with Airtable, manually updating AI Agents after changes to Airtable data on the MCP Server is time-consuming and error-prone.\n\nThis template automates the process, enabling the AI Agent to instantly recognize changes made to Airtable on the MCP Server. In data management, for example, it ensures that record updates or additions in Airtable are automatically detected by the AI Agent. With detailed steps, it simplifies the integration process for all users.\n\nWhat this workflow does\nThis workflow focuses on integrating MCP with Airtable within n8n. Specifically, it allows you to build an MCP Server and Client using Airtable nodes in n8n. Any changes made to the Airtable Base/Table on the MCP Server are automatically recognized by the MCP Client in the workflow. This means that you can make changes to your Airtable (such as adding, deleting, or modifying records) on the MCP Server, and the MCP Client in the n8n workflow will immediately detect these changes without any manual intervention.\n\nSetup\n\nRequirements\nAn active n8n account.\nAccess to Airtable API.\nA sample base and rows in Airtable that you can use to test.\nAn API key from your preferred LLM to power the AI agent.\n\nStep-by-step guide\nCreate a new workflow in n8n: Log in to your n8n account and create a new workflow.\nAdd Airtable nodes: Search for and add the Airtable nodes to your workflow that you wish the MCP client to have access to.\nSet up the MCP Server and Client: Use the appropriate nodes in n8n to set up the MCP Server and Client. Connect the Airtable nodes to the MCP nodes as required.\nActivate and test the workflow: Talk to the chat trigger once all credentials have been updated and table data synced and try adding some rows, deleting or finding and updating cells.\n\nHow to customize this workflow to your needs\nIf you want to customize this workflow, you can:\nModify the triggers:** You can change the conditions under which the MCP Client detects changes. For example, you can set it to detect changes only in specific fields or based on certain record values in Airtable.\nIntegrate with other services:** You can add more nodes to the workflow to integrate with other services, such as sending notifications to Slack or triggering further actions based on the detected Airtable changes.\n\nNeed Assistance or Want to Explore Advanced Integrations?\n\nThis template provides a solid starting point for integrating Airtable with your MCP server in n8n. If you have questions about this workflow, encounter any challenges, or are looking to build more complex AI automation solutions, we're here to help.\n\nAt 1 Node, we specialize in empowering businesses with AI integrations.\n\nVisit our website to learn more about our services and how we can support your journey.",
+  "totalViews": 2750,
+  "source": "official",
+  "user": {
+    "id": 94008,
+    "name": "Aitor | 1node.ai",
+    "username": "aitoralonso",
+    "bio": "Hi, I’m Aitor, cofounder of 1node.ai. We help businesses integrate full-scale AI solutions that save time, cut costs, and increase revenue. Guaranteed. Need help building smarter workflows? Visit 1node.ai and let's connect.",
+    "verified": true,
+    "links": "[\"https://1node.ai\"]",
+    "avatar": "https://gravatar.com/avatar/2f850f7b4c218087a3e7d9775daf6bd8dad05b5eb5ea82242d4bfd1a97465455?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "MCP Client Tool",
+      "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Model Context Protocol",
+          "Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-05-05T17:38:07.713Z",
+  "path": "official/template_3879/workflow.json"
+}

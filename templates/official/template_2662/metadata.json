@@ -1,0 +1,80 @@
+{
+  "id": 2662,
+  "name": "Generate 9:16 Images from Content and Brand Guidelines",
+  "description": "Overview\nThis n8n workflow automates the creation of 9:16 aspect ratio images optimized for short-form video content and thumbnails. It integrates multiple tools to retrieve content, generate scripts, and create AI-generated imagery.\n\nKey Features\nTrigger Workflow Manually  \n   The workflow starts when triggered manually in n8n.\n\nRetrieve Brand Guidelines  \n   Fetch brand elements like style, tone, and guidelines from Airtable.\n\nSEO Keywords and Blog Post Retrieval  \n   Retrieves blog posts and associated SEO keywords from Airtable to form the basis of image content.\n\nContent Preparation  \n   Uses GPT-4 to prepare a 4-scene script and thumbnail prompts for short-form videos.\n\nAI Image Generation  \n   Uses Leonardo.ai API to generate:\n     Thumbnail Images\n     Scene-specific Images (9:16 Aspect Ratio)\n\nAirtable Asset Management  \n   Generated assets (images) are saved back into Airtable with metadata like URLs and file sizes.\n\nTools and Integrations\nn8n**: Workflow automation platform.\nOpenAI**: Generates scripts and prompts (GPT-4O-MINI).\nLeonardo.ai**: AI tool for improving prompts and generating high-quality images.\nAirtable**: Used as a data source for brand guidelines, blog posts, and to store generated assets.\n\nWorkflow Steps\nManual Trigger  \n   Initiate the workflow.\n\nRetrieve Brand and SEO Guidelines  \n   Fetch essential brand elements like tone, style, and keywords.\n\nFilter and Fetch Blog Content  \n   Search for blog posts relevant to selected SEO keywords.\n\nScript Preparation  \n   Use GPT-4 to generate a script with image prompts for scenes and thumbnails.\n\nImage Generation  \n   Call Leonardo.ai to create:\n     Scene Images in 9:16 Aspect Ratio.\n     A Thumbnail Image with an improved prompt.\n\nStore Assets  \n   Save generated assets (images) to Airtable for future use.\n\nWorkflow Structure\nNodes Breakdown:\nManual Trigger**: Start the workflow.\nGet Brand Guidelines**: Pull brand-related information (style, tagline, tone, etc.) from Airtable.\nSet Guidelines**: Prepare fetched data.\nGet SEO Keywords**: Retrieve keywords to filter relevant content.\nKeyword Filter*: Filter results for specified keywords (e.g., *\"AI Automation\").\nScript Prep**: Generate 4-scene scripts and prompts with GPT-4.\nLeo - Improve Prompt**: Improve image prompts for clarity and detail.\nLeo - Generate Image**: Create AI-generated images for scenes and thumbnails.\nWait Nodes**: Ensures Leonardo image generation is complete.\nAdd Asset Info**: Store the generated images back into Airtable with metadata.\n\nAPI Credentials Required\nEnsure the following credentials are configured in n8n:\nOpenAI API Key\nLeonardo.ai API Key\nAirtable API Token\n\nOutput\nGenerated Images**: High-quality AI-generated images with a 9:16 aspect ratio.\nSaved Metadata**: Asset details (URLs, sizes, types) stored in Airtable.\n\nUsage\nImport this workflow into n8n.\nSet up your Airtable API, Leonardo.ai API, and OpenAI API credentials.\nRun the workflow manually.\nMonitor image generation and check the Airtable output for results.\n\nTags\nOpenAI**\nRunwayML**\nLeonardo**\nAirtable**\nVideo Automation**\n\nAuthor\nAlexK1919  \nAI-Native Workflow Architect  \nMore Workflow Templates  \nYouTube Channel  \nConnect with Alex\n",
+  "totalViews": 5980,
+  "source": "official",
+  "user": {
+    "id": 91693,
+    "name": "Alex Kim",
+    "username": "alexk1919",
+    "bio": "n8n Ambassador & Verified Partner",
+    "verified": true,
+    "links": "[\"https://wot-ai.com\"]",
+    "avatar": "https://gravatar.com/avatar/2b74c7f530e250439f5d752f2623ead4921fbb8aef56343c922b2873ef8a619f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Wikipedia",
+      "type": "@n8n/n8n-nodes-langchain.toolWikipedia",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2024-12-19T23:45:55.512Z",
+  "path": "official/template_2662/workflow.json"
+}

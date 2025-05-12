@@ -1,0 +1,34 @@
+{
+  "id": 1754,
+  "name": "Identify new Google Sheets rows",
+  "description": "\n\nThis workflow identifies new rows in Google Sheets using a separate column keeping track of already processed rows.\n\nFor this approach to work, the sheet needs to meet two requirements:\nA unique identifier for each row is required\nA column used to differentiate new/processed rows is present\n\nOur example sheet looks like this:\n\n\n\nSo the row identifier is named ID, the new/processed column is called Processed. Update the workflow accordingly if your columns have different names.\n\nNow if the workflow runs, it discovers all three rows as new. After processing them, it will add a timestamp to the Processed column:\n\n\n\nThe next time the workflow is executed it will skip the existing rows and only process newly added data:\n\n\n\n",
+  "totalViews": 3583,
+  "source": "official",
+  "user": {
+    "id": 21240,
+    "name": "Tom",
+    "username": "mutedjam",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://github.com/that-one-tom/\"]",
+    "avatar": "https://gravatar.com/avatar/7a3710173e907baffaf7ed7ebffc37955c9cdeadb8612200225a34a2e056aa17?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2022-07-08T14:53:34.969Z",
+  "path": "official/template_1754/workflow.json"
+}

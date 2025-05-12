@@ -1,0 +1,103 @@
+{
+  "id": 2400,
+  "name": "AI Agent with charts capabilities using OpenAI Structured Output and Quickchart",
+  "description": "This workflow is an experiment to integrate charts in AI Agents, using the new Structured Output from OpenAI and Quickchart.io.\n\nHow it works\nUsers chat with an AI Agent.\nAnytime the AI Agent considers a chart is needed, it calls a tool to generate a chart\nOpenAI generates a chart using the Quickchart definition\nThis object is added at the end of a Quickchart.io URL (see documentation)\nThe url is added in the conversation via the AI Agent as markdown.\n\nSet up steps\nCreate an OpenAI API Key\nCreate the OpenAI credentials\nUse the credentials for the HTTP Request node (as Predefined Credential type)\nActivate your workflow\nStart chatting\nFor example, you can ask the AI Agent to generate a chart about the top 5 movies at the box office\nStart exploring the limits\n\nShout-out\nQuickchart.io is an amazing open source project that provides a free API to test. Go check them out!\n\n\nExample of chart\n",
+  "totalViews": 12099,
+  "source": "official",
+  "user": {
+    "id": 91624,
+    "name": "Agent Studio",
+    "username": "agentstudio",
+    "bio": "We are a product studio that helps organizations leverage no-code and generative AI to automate internal processes and launch new digital products.\nLinkedIn: https://www.linkedin.com/in/baptistej/",
+    "verified": true,
+    "links": "[\"https://agentstudio.io/\"]",
+    "avatar": "https://gravatar.com/avatar/e9cf0d0fccead46655b11b2ce215cf14d33ecdaa2ce52828f003574c1800e77a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2024-09-04T12:26:58.160Z",
+  "path": "official/template_2400/workflow.json"
+}

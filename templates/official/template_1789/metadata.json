@@ -1,0 +1,47 @@
+{
+  "id": 1789,
+  "name": "Add a note to Pipedrive's contact once PR is added on GitHub",
+  "description": "This workflow automatically adds a note of the PR from GitHub to the Pipedrive contact if their GitHub email matches a Person in Pipedrive.\n\nPrerequisites\nPipedrive account and Pipedrive credentials\nGitHub account and GitHub credentials\n\nHow it works\nGitHub Trigger node activates the workflow when a GitHub user adds a PR.\nHTTP Request node gets the user's data and sends it further.\nPipedrive node searches the same email that GitHub user has in Pipedrive.\nIF node checks whether a person with the same email exists in Pipedrive.\nIn case there's such a person in Pipedrive, the Pipedrive node creates a note within the person's profile.\n",
+  "totalViews": 443,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Sales"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Pipedrive",
+      "type": "n8n-nodes-base.pipedrive",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2022-09-09T14:40:58.900Z",
+  "path": "official/template_1789/workflow.json"
+}

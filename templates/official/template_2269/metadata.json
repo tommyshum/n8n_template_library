@@ -1,0 +1,51 @@
+{
+  "id": 2269,
+  "name": "🦅 Get a bird's-eye view of your n8n instance with the Workflow Dashboard!",
+  "description": "⚡ UPDATE on May 2025 – added section with all n8n instance webhooks\n\nUsing n8n a lot?\n\nSoar above the limitations of the default n8n dashboard! This template gives you an overview of your workflows, nodes, and tags – all in one place. 💪\n\nBuilt using XML stylesheets and the Bootstrap 5 library, this workflow is self-contained and does not depend on any third-party software. 🙌 It generates a comprehensive overview JSON that can be easily integrated with other BI tools for further analysis and visualization. 📊\n\nReach out to Eduard if you need help adapting this workflow to your specific use-case!\n\n🚀 Benefits:\nWorkflow Summary** 📈: Instant overview of your workflows, active counts, and triggers.\nLeft-Side Panel** 📋: Quick access to all your workflows, nodes, and tags for seamless navigation.\nWorkflow Details** 🔬: Deep dive into each workflow's nodes, timestamps, and tags.\nNode Analysis** 🧩: Identify the most frequently used nodes across your workflows.\nTag Organization** 🗂️: Workflows are grouped according to their tags.\nWebhooks** ⚡: List of all webhook endpoints with the links to workflows.\nVisually Stunning** 🎨: Clean, intuitive, and easy-to-navigate dashboard design.\nXML & Bootstrap 5** 🛠️: Built using XML stylesheets and Bootstrap 5, ensuring a self-contained and responsive dashboard.\nNo Dependencies** 🔒: The workflow does not rely on any third-party software. Bootstrap 5 files are loaded via CDN but can be delivered directly from your server.\n\n⚠️ Important note for cloud users\nSince the cloud version doesn't support environmental variables, please make the following changes:\n\nget-nodes-via-jmespath node. Update the instance_url variable: enter your n8n URL instead of {{$env[\"N8N_PROTOCOL\"]}}://{{$env[\"N8N_HOST\"]}}\nCreate HTML node. Please provide the n8n instance URL instead of {{ $env.WEBHOOK_URL }}\n\n🌟Example:\n\n\nFollow me on LinkedIn for more tips on AI automation and n8n workflows!",
+  "totalViews": 7942,
+  "source": "official",
+  "user": {
+    "id": 21242,
+    "name": "Eduard",
+    "username": "eduard",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/parsadanyan/\"]",
+    "avatar": "https://gravatar.com/avatar/a551e67c6fe7affd5f882a527dee154bb6c3ac90cf878326accb3fb3ec77c8a6?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-05-17T11:16:22.248Z",
+  "path": "official/template_2269/workflow.json"
+}

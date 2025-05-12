@@ -1,0 +1,79 @@
+{
+  "id": 2322,
+  "name": "Speed Up Social Media Banners With BannerBear.com",
+  "description": "This n8n workflow shows an easy way to automate the creation of social media assets using AI and a service like BannerBear.\n\nDesigned for the busy marketer, leveraging AI image generation capabilities can help cut down production times and allow reinvesting into higher quality content.\n\nHow it works\nThis workflow generates social media banners for online events. Using a form trigger, a user can define the banner text and suggest an image to be generated.\nThis request is passed to OpenAI's Dalle-3 image generation service to produce a relevant graphic for the event banner.\nThis generated image is uploaded and sent to BannerBear where a template will use it and the rest of the form data to produce the banner.\nBannerBear returns the final banner which can now be used in an assortment of posts and publications.\n\nRequirements\nA BannerBear.com account and template is required\nAn OpenAI account to use the Dalle-3 service.\n\nCustomising the workflow\n\nWe've only shown a small section of what BannerBear has to offer. With experimentation and other asset generating services such as AI audio and video, you should be able to generate more than just static banners! ",
+  "totalViews": 4344,
+  "source": "official",
+  "user": {
+    "id": 91804,
+    "name": "Jimleuk",
+    "username": "jimleuk",
+    "bio": "Freelance consultant based in the UK specialising in AI-powered automations. I work with select clients tackling their most challenging projects. For business enquiries, send me an email at hello@jimle.uk\n\nLinkedIn: https://www.linkedin.com/in/jimleuk/\nX/Twitter: https://x.com/jimle_uk",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4ab99e51473df76838beeaac908747f7928c625f869794815cabe34016967d51?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "Marketing",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Discord",
+      "type": "n8n-nodes-base.discord",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Bannerbear",
+      "type": "n8n-nodes-base.bannerbear",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2024-07-09T13:13:45.473Z",
+  "path": "official/template_2322/workflow.json"
+}

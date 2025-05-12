@@ -1,0 +1,88 @@
+{
+  "id": 3424,
+  "name": "Analyze DEX Liquidity, Trades & Spot Pairs with CoinMarketCap AI Agent",
+  "description": "Gain full visibility into decentralized exchanges using CoinMarketCap’s DEXScan API—powered by AI.  \n\nThis workflow is part of the CoinMarketCap AI Analyst system and delivers real-time and historical insights on spot trading pairs, DEX liquidity, trading activity, and OHLCV data across chains like Ethereum, Polygon, Solana, and more.\n\nUse this workflow as a sub-agent triggered by a parent supervisor workflow, or run it manually with inputs sessionId and message.\n\n🔧 Supported Tools (8 Total)\n\nDEX Metadata → Static info (name, launch date, logo, URLs)  \nDEX Networks List → All supported DEX chains + network metadata  \nDEX Listings Quotes → Ranked list of DEXs with live trading volume, market share  \nDEX Pair Quotes (Latest) → Real-time liquidity, price, and buy/sell stats  \nDEX OHLCV Historical → Time-series data (daily/hourly/1m)  \nDEX OHLCV Latest → Today’s price, volume, open/close for pairs  \nDEX Trades Latest → Up to 100 recent trades for any DEX pair  \nDEX Spot Pairs Latest → Active token pairs across DEXs + filters (volume, liquidity, volatility)\n\nAgent Architecture  \nAI Model**: gpt-4o-mini  \nContext Memory**: Window buffer using sessionId  \nTrigger Input**: message, sessionId  \nExecution**: Via Execute Workflow or parent AI supervisor  \nDesign**: Tool-based LangChain agent with CMC DEXScan endpoints  \n\n���� Use Cases  \n🔹 Find top DEXs by 24h volume  \n🔹 Get spot pairs with highest liquidity on a specific network  \n🔹 Track historical OHLCV for Uniswap pairs  \n🔹 View latest trades for SOL/USDC pool  \n🔹 Analyze tax, pooled % and holders for specific pairs  \n🔹 Filter pairs by 24h volume, percent change, liquidity, or number of transactions  \n\n✅ Example Queries  \n✅ \"Top 5 DEXs by 24h volume on Ethereum\"  \n✅ \"Get historical OHLCV for SOL-USDC on Solana\"  \n✅ \"Latest trades for a PancakeSwap pair\"  \n✅ \"Show all spot pairs with over $500K in liquidity on Polygon\"  \n✅ \"Retrieve metadata for Uniswap and SushiSwap\"  \n\n🛠️ Setup Instructions  \nGet a CoinMarketCap API Key  \n   Sign up at: https://coinmarketcap.com/api/  \nAdd API Key to Credentials in n8n  \n   Use HTTP Header Auth method  \nTrigger from Parent Workflow (Optional)  \n   Use Execute Workflow and pass message and sessionId  \nTest Prompt Ideas  \n   Try: \"Compare liquidity of Uniswap and Curve pairs on Ethereum\"\n\nSticky Notes Included  \n\nDEXScan Agent Guide – Workflow architecture + supported tools  \n\nUsage & API Call Examples – Prompts, test inputs, setup flow  \n\nError Codes + Licensing – 400/401/429/500 troubleshooting, IP rights\n\n✅ Final Notes  \nThis agent is part of the CoinMarketCap AI Analyst System, which includes multiple specialized agents for cryptocurrencies, exchanges, and community data. Visit my Creator profile to find the full suite of tools.\n\nMaster DEX analytics with AI—get powerful liquidity, trading, and pair insights in seconds.\n\n",
+  "totalViews": 2363,
+  "source": "official",
+  "user": {
+    "id": 93152,
+    "name": "Don Jayamaha Jr",
+    "username": "don-the-gem-dealer",
+    "bio": "With 12 years of experience as a Blockchain Strategist and Web3 Architect, I specialize in bridging the gap between traditional industries and decentralized technologies. My expertise spans tokenized assets, crypto payment integrations, and blockchain-driven market solutions.",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/donjayamahajr/\"]",
+    "avatar": "https://gravatar.com/avatar/95f70084b3fec5ed68a61eef6dc6128dfb085d865a02ed631d0853d2730696bf?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-04-03T13:41:05.768Z",
+  "path": "official/template_3424/workflow.json"
+}

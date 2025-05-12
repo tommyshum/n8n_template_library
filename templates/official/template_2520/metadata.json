@@ -1,0 +1,61 @@
+{
+  "id": 2520,
+  "name": "Summarize Umami data with AI (via Openrouter) and save it to Baserow",
+  "description": "Who's this for?\nAnyone who wants to improve the SEO of their website\nUmami users who want insights on how to improve their site\nSEO managers who need to generate reports weekly\n\nCase study\n\nWatch youtube tutorial here\n\nGet my SEO A.I. agent system here\n\nYou can read more about how this works here.\n\nHow it works\nThis workflow calls the Umami API to get data \nThen it sends the data to A.I. for analysis\nIt saves the data and analysis to Baserow\n\nHow to use this\nInput your Umami credentials\nInput your website property ID\nInput your Openrouter.ai credentials\nInput your baserow credentials\nYou will need to create a baserow database with columns: Date, Summary, Top Pages, Blog (name of your blog).\n\nFuture development\nUse this as a template. There's alot more Umami stats you can pull from the API.\nChange the A.I. prompt to give even more detailed analysis.\n\nCreated by Rumjahn",
+  "totalViews": 983,
+  "source": "official",
+  "user": {
+    "id": 92000,
+    "name": "Keith Rumjahn",
+    "username": "rumjahn",
+    "bio": "I create automations with A.I. for SEO content and other smart automations.",
+    "verified": true,
+    "links": "[\"https://rumjahn.com/\"]",
+    "avatar": "https://gravatar.com/avatar/e037c9d6e16284c4cf5149094a1725ed92f76e61813b8f8c32c1b83dcf4f9f4b?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Baserow",
+      "type": "n8n-nodes-base.baserow",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-11-02T07:13:06.199Z",
+  "path": "official/template_2520/workflow.json"
+}

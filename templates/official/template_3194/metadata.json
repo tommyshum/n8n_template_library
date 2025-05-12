@@ -1,0 +1,122 @@
+{
+  "id": 3194,
+  "name": "Automated Voice Appointment Reminders with Google Calendar GPT ElevenLabs Gmail",
+  "description": "This workflow automates voice reminders for upcoming appointments by generating a professional audio message and sending it to clients via email with the voice file attached.\n\nIt integrates Google Calendar to track appointments, ElevenLabs to generate high-quality voice messages, and Gmail to deliver them efficiently.\n\nWho Needs Automated Voice Appointment Reminders?\n\nThis automated voice appointment reminder system is ideal for businesses that rely on scheduled appointments. It helps reduce no-shows, improve client engagement, and streamline communication.\n\nMedical Offices & Clinics – Ensure patients receive timely appointment reminders.\nReal Estate Agencies – Keep potential buyers and renters informed about property visits.\nService-Based Businesses – Perfect for salons, consultants, therapists, and coaches.\nLegal & Financial Services – Help clients remember important meetings and consultations.\n\nIf your business depends on scheduled appointments, this workflow saves time and enhances client satisfaction. 🚀\n\nWhy Use This Workflow?\n\nEnsures clients receive timely reminders.\nReduces appointment no-shows and scheduling issues.\nAutomates the process with a personalized voice message.\n\nStep-by-Step: How This Workflow Automates Voice Reminders\n\nTrigger the Workflow – The system runs manually or on a schedule to check upcoming appointments in Google Calendar.\nRetrieve Appointment Data – It fetches event details (client name, time, and location) from Google Calendar.\nThe workflow uses the summary, start.dateTime, location, and attendees[0].email fields from Google Calendar to personalize and send the voice reminders.\nGenerate a Voice Reminder – Using ElevenLabs, the workflow converts the appointment details into a natural-sounding voice message.\nSend via Email – The generated audio file is attached to an email and sent to the client as a reminder.\n\nCustomization: Tailor the Workflow to Your Business Needs\n\nAdjust Trigger Frequency – Modify the scheduling to run daily, hourly, or at specific intervals.\nCustomize Voice Message Format – Change the script structure and voice tone to match your business needs.\nChange Notification Method – Instead of email, integrate SMS or WhatsApp for delivery.\n\n🔑 Prerequisites\n\nGoogle Calendar Access** – Ensure you have access to the calendar with scheduled appointments.\nElevenLabs API Key – Required for generating voice messages (you can start for free).\nGmail API Access** – Needed for sending reminder emails.\nn8n Setup** – The workflow runs on an n8n instance (self-hosted or cloud).\n\n🚀 Step-by-Step Installation & Setup\n\nSet Up Google Calendar API**\n\tGo to Google Cloud Console.\n\tCreate a new project and enable Google Calendar API.\n\tGenerate OAuth 2.0 credentials and save them for n8n.\n\nGet an ElevenLabs API Key**\n\tSign up at ElevenLabs.\n\tRetrieve your API key from the dashboard.\n\nConfigure Gmail API**\n\tEnable Gmail API in Google Cloud Console.\n\tCreate OAuth credentials and authorize your email address for sending.\n\nDeploy n8n & Install the Workflow**\n\tInstall n8n (Installation Guide).\n\tAdd the required Google Calendar, ElevenLabs, and Gmail nodes.\n\tImport or build the workflow with the correct credentials.\n\tTest and fine-tune as needed.\n\n⚠ Important:\nThe LangChain Community node used in this workflow only works on self-hosted n8n instances. It is not compatible with n8n Cloud. Please ensure you are running a self-hosted instance before using this workflow.\n\nSummary\n\nThis workflow ensures a professional and seamless experience for your clients, keeping them informed and engaged. 🚀🔊\n\nPhil | Inforeole ",
+  "totalViews": 2766,
+  "source": "official",
+  "user": {
+    "id": 92304,
+    "name": "phil",
+    "username": "phil",
+    "bio": "Accélérateur de Chiffre d'Affaires : Automatisez votre entreprise pour la rendre plus visible sur Google, pour trouver de nouveaux Clients, pour gagner du temps",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/philippe-eveilleau-inforeole/\"]",
+    "avatar": "https://gravatar.com/avatar/e3fa7358cdb3b5be9c63e79d3d76a9a3f31efed6ea3611ec7bc18c0f34464d16?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Productivity",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Calendar",
+      "type": "n8n-nodes-base.googleCalendar",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-03-17T08:34:54.999Z",
+  "path": "official/template_3194/workflow.json"
+}

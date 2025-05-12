@@ -1,0 +1,93 @@
+{
+  "id": 3507,
+  "name": "Parse Gmail Inbox and Transform into Todoist tasks with Solve Propositions",
+  "description": "Who is it for?\n\nIf you are getting a lot of emails into your Gmail inbox, then probably some of those can be solved easly by replying or by doing specific short tasks. But analyzing whole email thread content just to catch up with multiple threads can be very wasteful. So by using AI you can actually get simple propositions of what should be done before closing this specific email and actual proposed answer to that email. \n\nThis is especially useful if you need to do some actions before replying to email. In that case you can simply assign task to specific person, await until it's done, copy-paste AI answer when it's done, and close.\n\nAnother good use would be if on one inbox there are working multiple people. It can make the process much more streamlined.\n\nHow It Works?\n\nScript runs on your selected trigger. If you are using section \"Read and Star\", then you may use \"Email Trigger\".\nAutomation is looking for exiting open Todoist tasks, that have the same title as email\nIf task does not exist, then we are asking AI to analyze thread and give output that is Todoist-API-ready:\n\thaving summary of email content\n\thaving proposed actions to be taken\n\thaving proposed answer to this email\nIf email was unstarred for some reason but task was not closed, then task is being closed automatically.\nScript FOR PURPOSE is not trying to unstar messagess which have closed tasks, because this could lead to some inconsistencies.\n\nHow to set up?\n\nSelect and setup your triggers, depending on your needs\nSetup connections using N8N instructions. You will need:\n\tGmail\n\tTodoist\n\tAI (in this workflow OpenAI is used)\n(Optional) Remove \"Read and Star\" section if you don't want tasks automatically read and starred.\n(Optional) Adjust AI node - especially useful if you want to use different model or have response in different language\n\nNOTE Chat does not heave memory attached on purpose. The purpose is that it should analyze each inbox message separately, not in thread. When using memory, it can get lost easily.\n\nNOTE2 You might want to adjust limits on nodes \"Get Unread From Inbox\", \"Get Starred From Inbox\" and \"Get Open Tasks\", especially if having issues with model complying to output structure.\n\nAnd that's it. I hope that this automation will make your Gmail &lt;-&gt; Todoist process much more streamlined!\n\nWhat's More?\n\nThere is actually more that you could do with this automation, but it really depends on your needs. For example, you could add Form trigger to handle incoming support requests. Another thing is that you could replace Todoist with Asana or any database (like NocoDB) if you are using it for your task management.",
+  "totalViews": 2163,
+  "source": "official",
+  "user": {
+    "id": 91864,
+    "name": "Łukasz",
+    "username": "lukaszpp",
+    "bio": "Developer, automation enthusiast and dedicated CTO/CEO",
+    "verified": true,
+    "links": "[\"https://sailingbyte.com\"]",
+    "avatar": "https://gravatar.com/avatar/aae1a29225cc13556a92db7f75050da4bb664bf68e1d73407da6c9cd5a7a9a8a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Productivity",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Todoist",
+      "type": "n8n-nodes-base.todoist",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-04-10T11:11:44.593Z",
+  "path": "official/template_3507/workflow.json"
+}

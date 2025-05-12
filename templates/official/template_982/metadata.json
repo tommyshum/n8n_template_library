@@ -1,0 +1,32 @@
+{
+  "id": 982,
+  "name": "Gender inclusive language bot for Mattermost",
+  "description": "This workflow ensures gender inclusive language in Mattermost channels. If someone addresses the group with “guys” or “gals”, a bot promptly replies with: \"May I suggest “folks” or “y'all”? We use gender inclusive language here. 😄\".\n\nWebhook node**: triggers the workflow when a new message is posted in Mattermost.\nIF node**: verifies if the message includes the words \"guys\" or \"gals\". If false, it does not take any action. If true, it triggers the Mattermost node.\nMattermost node**: posts the language warning message in the Mattermost channel.\n",
+  "totalViews": 635,
+  "source": "official",
+  "user": {
+    "id": 12733,
+    "name": "Lorena",
+    "username": "lorenanda",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/df6358bcce2351cf878beab8f89b9f000f50588aaa728f7ea57127c1b85e7b06?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication"
+  ],
+  "nodes": [
+    {
+      "name": "Mattermost",
+      "type": "n8n-nodes-base.mattermost",
+      "categories": [
+        "Communication"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2021-03-15T08:58:33.146Z",
+  "path": "official/template_982/workflow.json"
+}

@@ -1,0 +1,184 @@
+{
+  "id": 3414,
+  "name": "Slack AI Chatbot for business team with RAG, Claude 3.7 Sonnet and Google Drive",
+  "description": "Imagine having an AI chatbot on Slack that seamlessly integrates with your company’s workflow, automating repetitive requests. No more digging through emails or documents to find answers about IT requests, company policies, or vacation days—just ask the bot, and it will instantly provide the right information.  \n\nWith its 24/7 availability, the chatbot ensures that team members get immediate support without waiting for a colleague to be online, making assistance faster and more efficient.  \n\nMoreover, this AI-powered bot serves as a central hub for internal communication, allowing everyone to quickly access procedures, documents, and company knowledge without searching manually. A simple Slack message is all it takes to get the information you need, enhancing productivity and collaboration across teams.\n\nHow It Works  \nSlack Trigger: The workflow starts when a user mentions the AI bot in a Slack channel. The trigger captures the message and forwards it to the AI Agent.  \nAI Agent Processing:  \n   The AI Agent, powered by Anthropic's Claude 3.7 Sonnet model, processes the query.  \n   It uses Retrieval-Augmented Generation (RAG) to fetch relevant information from the company’s internal knowledge base stored in Qdrant (a vector database).  \n   A Simple Memory buffer retains recent conversation context (last 10 messages) for continuity.  \nKnowledge Retrieval:  \n   The RAG tool searches Qdrant’s vector store using OpenAI embeddings to find the most relevant document chunks (top 10 matches).  \nResponse Generation:  \n   The AI synthesizes the retrieved data into a concise, structured response (1-2 sentences for the answer, 2-3 supporting details, and a source citation).  \n   The response is formatted in Slack-friendly markdown (bullet points, blockquotes) and sent back to the user.  \n\nSet Up Steps  \nPrepare Qdrant Vector Database:  \n   Create a Qdrant collection via HTTP request (Create collection node).  \n   Optionally, refresh/clear the collection (Refresh collection node) before adding new documents.  \nLoad Company Documents:  \n   Fetch files from a Google Drive folder (Get folder → Download Files).  \n   Process documents: Split text into chunks (Token Splitter) and generate embeddings (Embeddings OpenAI2).  \n   Store embeddings in Qdrant (Qdrant Vector Store1).  \nConfigure Slack Bot:  \n   Create a Slack bot via Slack API with required permissions\n   Add the bot to the desired Slack channel and note the channelId for the workflow.  \nDeploy AI Components:  \n   Connect the AI Agent to Anthropic’s model, RAG tool, and memory buffer.  \n   Ensure OpenAI embeddings are configured for both RAG and document processing.  \nTest & Activate:  \n   Use the manual trigger (When clicking ‘Test workflow’) to validate document ingestion.  \n   Activate the workflow to enable real-time Slack interactions.  \n\nNeed help customizing?  \nContact me for consulting and support or add me on Linkedin.",
+  "totalViews": 4135,
+  "source": "official",
+  "user": {
+    "id": 92207,
+    "name": "Davide",
+    "username": "n3witalia",
+    "bio": "Full-stack Web Developer based in Italy specialising in Marketing & AI-powered automations. For business enquiries, send me an email at info@n3w.it or add me on Linkedin.com/in/davideboizza",
+    "verified": true,
+    "links": "[\"https://n3w.it\"]",
+    "avatar": "https://gravatar.com/avatar/d41b8a0aa81139243509c58870f5b4be292824a507ab57d10ed066d8628ed8da?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "Data & Storage",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    },
+    {
+      "name": "Anthropic Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Token Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterTokenSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Calculator",
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    },
+    {
+      "name": "Qdrant Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreQdrant",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 11,
+  "createdAt": "2025-04-03T07:33:30.762Z",
+  "path": "official/template_3414/workflow.json"
+}

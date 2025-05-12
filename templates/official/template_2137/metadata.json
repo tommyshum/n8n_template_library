@@ -1,0 +1,65 @@
+{
+  "id": 2137,
+  "name": "Gmail campaign sender: Bulk-send emails and follow up automatically if no reply",
+  "description": "This workflow allows you to send multi-step email campaigns using n8n, Gmail and Google Sheets.\n\nYou define a sequence of emails, and a list of email addresses to send them to. The first email is sent to everyone, but the later emails in the sequence are only sent if no-one has replied to the thread yet.\n\nThis means you only need to worry about replying to people who respond to your email, not chasing people who don’t.\n\nRequirements\n\nA list of emails in a Google sheet. You can define extra info that will be available to your email templates (e.g. name, company, etc.)\n\n\n\nA sequence of emails to send, plus how long to wait to send each one, e.g.\n\nOn day 0:** “Hi, {name} — nice to meet you at the conference. Was wondering whether {company} would be interested in a quick call about X?”\nOn day 3:** “Hi, {name}, just wanted to check in on this. Let me know if there’s any interest!”\nOn day 7:** “{name}, just wanted to give this one last try”\n\nA Gmail account (although you could also swap out that part for any other email service)\n\nHow it works\n\nWhen sending the emails, n8n inserts a hidden attribute in each one that tags it as being part of the email campaign. It then regularly looks through the email threads with that tag and checks whether:\n\nNo-one has replied yet\nIt’s time to send the next message\n\nThe workflow doesn’t send emails on weekends.\n\nNotes\n\nThis workflow is not intended for spam! Please use responsibly\nYou can use this workflow for multiple different campaigns by making copies of the workflow and changing the sequence / Google Sheet that it uses",
+  "totalViews": 14595,
+  "source": "official",
+  "user": {
+    "id": 14122,
+    "name": "David Roberts",
+    "username": "davidn8n",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/4cda9c7c1c24fdb61896cac588296d1dad03655a439ab71ef34f4c62c0ba8524?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Communication",
+    "HITL",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-02-28T12:40:23.201Z",
+  "path": "official/template_2137/workflow.json"
+}

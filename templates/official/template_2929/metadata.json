@@ -1,0 +1,161 @@
+{
+  "id": 2929,
+  "name": "Smart Email Assistant: Automate Customer Support with AI & Supabase",
+  "description": "Intelligent Email Support System with Vector Database\n\nOverview\n\nThis n8n workflow automates email support using AI and vector database technology to provide smart, context-aware responses. It seamlessly integrates email automation and document management, ensuring efficient customer support.\n\n📌 System Components\n\n✉️ Email Support System\n\nEmail Monitoring & Classification\n\n   Gmail trigger node monitoring inbox\n   AI-powered email classification\n   Intelligent routing (support vs non-support inquiries)\n\nAI Response Generation\n\n   LangChain agent for response automation\n   OpenAI integration for NLP-driven replies\n   Vector-based knowledge retrieval\n   Automated draft creation in Gmail\n\nVector Database System\n\n   Supabase vector store for document management\n   OpenAI embeddings for vector conversion\n   Fast and efficient similarity search\n\n📂 Document Management System\n\nGoogle Drive Integration\n\n   Monitors specific folders for new/updated files\n   Automatic document processing\n   Supports various file formats\n\nDocument Processing Pipeline\n\n   Auto file download & text extraction\n   Smart text chunking for better indexing\n   Embedding generation via OpenAI\n   Storage in Supabase vector database\n\n🔄 Workflow Processes\n\n📧 Email Support Flow\n\nMonitor Gmail inbox for new emails\nAI classification of incoming messages\nRoute support emails to AI response generator\nPerform vector similarity search for knowledge retrieval\nGenerate personalized AI-driven response\nCreate email drafts in Gmail\n\n📁 Document Management Flow\n\nMonitor Google Drive for new/updated files\nAuto-download and process documents\nClean up outdated vector entries for updated files\nExtract and split document text efficiently\nGenerate OpenAI embeddings\nStore processed data in Supabase vector DB\n\n⚙️ Setup Instructions\n\n1️⃣ Prerequisites\n\nSupabase** account & project\nOpenAI API key**\nGmail account** with OAuth2 setup\nGoogle Drive API** access\nn8n installation**\n\n2️⃣ Supabase Database Setup\n\n-- Create the vector extension\ncreate extension if not exists vector;\n\n-- Create the documents table\ncreate table documents (\n  id bigserial primary key,\n  content text,\n  metadata jsonb,\n  embedding vector(1536)\n);\n\n-- Create an index for similarity search\ncreate index on documents using ivfflat (embedding vector_cosine_ops)\n  with (lists = 100);\n\n3️⃣ Google Drive Setup\n\nCreate & configure two monitored folders:\n  RAG folder for new documents\ndocuments\nAssign correct folder permissions\nAdd folder IDs to the workflow\n\n4️⃣ Document Processing Configuration\n\nSet up triggers for file creation and file updates\nConfigure text extraction:\n  Define chunk size & overlap settings\n  Set document metadata processing\n\n🔍 Maintenance & Optimization\n\n📌 Regular Tasks\n\nMonitor system performance\nUpdate the knowledge base regularly\nReview AI response quality\nOptimize vector search parameters\nClean up outdated document embeddings\n\n✅ Best Practices\n\nDocument Organization\n\n   Maintain structured folders & naming conventions\n   Keep knowledge base content updated\n\nSystem Optimization\n\n   Track AI classification accuracy\n   Tune response times & chunk sizes\n   Perform regular database maintenance\n\n🛠️ Troubleshooting\n\nEmail Issues\n\n   Verify Gmail API credentials\n   Check AI service uptime\n   Monitor classification performance\n\nDocument Processing Issues\n\n   Ensure correct file permissions\n   Validate extraction & embedding processes\n   Debug vector database insertions\n\n\n",
+  "totalViews": 5259,
+  "source": "official",
+  "user": {
+    "id": 92022,
+    "name": "Badr",
+    "username": "b4dr",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/035184cdd91cc274d7293ceaed93c97d64e57fc49fc4ba8346956a812dc35b3e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Supabase",
+      "type": "n8n-nodes-base.supabase",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Recursive Character Text Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Supabase Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Vector Store Question Answer Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolVectorStore",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 10,
+  "createdAt": "2025-02-18T00:07:16.517Z",
+  "path": "official/template_2929/workflow.json"
+}

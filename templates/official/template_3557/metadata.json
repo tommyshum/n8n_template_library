@@ -1,0 +1,97 @@
+{
+  "id": 3557,
+  "name": "Sync WordPress Content to Pinecone for AI Chatbots with OpenAI",
+  "description": "\n\nThis workflow automatically syncs your WordPress content (Pages and Posts) into a vector database like Pinecone, making it searchable and usable by AI agents through embeddings. This allows your AI chatbot to stay continuously up to date with your latest site content — without manual uploads or retraining steps.\n\nIt pulls all published and private content via WordPress's REST API, processes the data into clean JSON, and sends it to Pinecone using vector embeddings (OpenAI by default, but swappable). This enables a dynamic AI knowledge base that grows with your website.\n\nBest of all, you don’t need to modify your workflow: keep managing your content in WordPress — this automation takes care of the rest.\n\nRequirements\n\nA WordPress site with API access\nPinecone account credentials (API Key + Environment)\nOpenAI account (or any LLM with embedding capabilities)\nAn n8n instance (cloud or self-hosted)\n\nSetup\n\nConfigure WordPress Access:\n   Create HTTP credentials in n8n with your WordPress site's base URL and authentication.\n   This workflow uses the REST API to fetch pages and posts.\n\nConnect Pinecone and OpenAI:\n   Set up credentials for both Pinecone and OpenAI in n8n's Credentials Manager.\n   The workflow automatically uses them in the relevant nodes.\n\nSet Your Schedule:\n   The workflow starts with a Schedule node. Open it to adjust how often the sync runs (e.g., daily, weekly).\n\nCheck the Nodes:\n   Make sure your folder structure and API URLs match your WordPress setup.\n   Adjust filters if needed (only published and private content is fetched by default).\n\nUsage\n\nOnce the workflow is active:\n\nIt runs on a defined schedule.\nIt fetches all WordPress Pages and Posts.\nIt converts them into structured JSON, including metadata (title, tags, URL, categories, etc.).\nIt generates embeddings (via OpenAI) and sends them to Pinecone.\nAll vectors are stored with rich metadata for easy use in search/chat-based AI tools.\n\nYou’ll have a continuously refreshed, vectorized copy of your WordPress site content.\n\nCustomization\n\nReplace Pinecone:** You can swap Pinecone for any other vector database by updating the vector node.\nSwap Embedding Provider:** You’re not limited to OpenAI — just replace the embedding step with your LLM of choice.\nSelective Sync:** If you want to sync only posts or only pages:\n  Delete the node that fetches the type you don’t want.\n  Remove the associated Merge node.\nSchedule:** Edit the first node to control how often the automation runs.\n\nIf you have any question, or difficulty, feel free to come discuss about it on my Telegram (you might find something there 🎁)",
+  "totalViews": 121,
+  "source": "official",
+  "user": {
+    "id": 93650,
+    "name": "Niten Musa",
+    "username": "nitenmusa",
+    "bio": "Just like every business has its own processes, every business will have its own AI agents — I sell and teach that transition\n\nFrom France 🇫🇷 — Discipline, Humility, Benevolence",
+    "verified": true,
+    "links": "[\"https://www.bonzai.pro/niten-musa\"]",
+    "avatar": "https://gravatar.com/avatar/7c12ff05ad25ca88cd977720280c51c995d53c91fe572a7a90a6b5a4b8660118?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    },
+    {
+      "name": "Token Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterTokenSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Pinecone Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-04-15T09:22:15.767Z",
+  "path": "official/template_3557/workflow.json"
+}

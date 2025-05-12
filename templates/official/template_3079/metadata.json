@@ -1,0 +1,108 @@
+{
+  "id": 3079,
+  "name": "Query Google Sheets/CSV data through an AI Agent using PostgreSQL",
+  "description": "Want to see it in action? Watch the full breakdown here: 📺 Video Link  \n\nTemplate Description  \nThis n8n workflow empowers you to query structured financial data from Google Sheets or CSV files using AI-generated SQL. Unlike traditional vector database solutions that falter with numerical queries, this template leverages PostgreSQL for efficient data storage and an AI agent to dynamically create optimized SQL queries from natural language inputs.\n\nWhat It Does  \nRetrieves data from Google Sheets or CSV files  \nInfers the data schema and builds a PostgreSQL table  \nPopulates the table with your data  \nUses an AI agent to translate natural language questions into SQL queries  \nReturns precise numerical results quickly and efficiently  \n\nWhy Use This?  \nNo SQL knowledge required—the AI generates queries for you  \nBypasses the inefficiencies and costs of vector database approaches  \nScales effortlessly without overwhelming the language model  \nFully free and open-source  \n\nSetup Requirements  \n\nPre-Conditions  \nPostgreSQL Database**: A running PostgreSQL instance (no specific extensions required beyond standard installation).  \nGoogle Sheets Access**: A publicly accessible or shared Google Sheet URL with structured data (e.g., financial records). Need a starting point? Use this Sample Google Sheet Template.  \nn8n Instance**: A working n8n setup with access to the Google Drive and PostgreSQL nodes.  \n\nStep-by-Step Instructions  \nAdd Your Google Sheets URL  \n   Open the \"Google Drive Trigger\" node.  \n   Replace the placeholder URL with your Google Sheet’s link.  \n   Verify the sheet name matches your data source.  \n\nConfigure PostgreSQL  \n   Update the \"PostgreSQL\" nodes with your database credentials (host, database, user, password).  \n   The workflow automatically creates and populates the table based on your data schema.  \n\nRun the Workflow  \n   Execute the workflow manually to set up the database.  \n   Once initialized, use the AI agent by asking questions like:  \n     \"How much did I sell last week?\"  \n     \"What were the total sales for Product X in February?\"  \n\n(Optional) Automate Updates  \n   Add a \"Schedule Trigger\" node to sync your Google Sheets data with PostgreSQL on a regular basis.  \n\nHow It Works  \nSchema Detection**: The workflow analyzes your Google Sheets or CSV data to infer its structure and create an appropriate PostgreSQL table.  \nAI-Powered Queries**: An optimized AI agent converts your natural language questions into precise SQL queries, ensuring accurate results.  \nEfficient Retrieval**: By using PostgreSQL instead of vector-based methods, this template avoids common pitfalls like slow performance or inaccurate numerical outputs.  \n\nTips for Success  \nEnsure your Google Sheet or CSV has consistent column headers for smooth schema detection.  \nTest with simple questions first to verify the AI agent’s query generation.  \nCheck out the n8n Template Submission Guidelines for more best practices.  ",
+  "totalViews": 6407,
+  "source": "official",
+  "user": {
+    "id": 92219,
+    "name": "Leonardo Grigorio",
+    "username": "leonardogrig",
+    "bio": "I combine my full-stack development expertise with AI automation using n8n, creating scalable workflows and seamless integrations for smarter business solutions.",
+    "verified": true,
+    "links": "[\"https://x.com/leonardogrig\"]",
+    "avatar": "https://gravatar.com/avatar/2bb981acd7d0e27410fb1aa4f7989788741d6faafc4e173f69847ec5e5f30e88?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Postgres",
+      "type": "n8n-nodes-base.postgres",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-03-04T20:13:37.139Z",
+  "path": "official/template_3079/workflow.json"
+}

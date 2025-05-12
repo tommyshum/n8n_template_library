@@ -1,0 +1,48 @@
+{
+  "id": 2186,
+  "name": "Baserow campaign database to Shopify with image upload & dynamic template update",
+  "description": "Automating your marketing campaign management process can streamline your workflow and save you valuable time. With the combination of Baserow and n8n, you can efficiently handle your campaign data and seamlessly publish content to your Shopify store.\n\nIn this workflow template, I demonstrate how to leverage Baserow as a centralized platform for organizing your marketing campaign assets, including copy and images. By utilizing n8n, we automate the process of fetching images and campaign descriptions from Baserow and uploading them directly to your Shopify store.\n\nWith this automated solution, you can expedite the publishing process, ensuring that your campaigns are launched swiftly across your sales channels. Additionally, this workflow serves as a foundational step towards further automation in campaign management, allowing you to dynamically generate and upload content to your Shopify store with ease.\n\nThis template will help you:\n\nUse n8n to get images for marketing campaigns from Baserow and upload them to your Shopify media library\nDynamically inject data from Baserow into a template file \nUpload a template file to your Shopify theme\n\nThis template will demonstrate the follwing concepts in n8n:\n\nuse the Webhook node\nuse the IF node to control the execution flow of the workflow\ndo time calculation using expressions and javascript\nuse the GraphQL node to upload images to your Shopify media files\ncreate a dynamic template file for your Shopify theme\nuse the HTTP Reqest node to upload your template file to your Shopify store\n\nHow to get started?\n\nCreate a custom app in Shopify get the credentials needed to connect n8n to Shopify\nThis is needed for the Shopify Trigger\nCreate Shopify Acces Token API credentials n n8n for the Shopify trigger node\nCreate Header Auth credentials: \nUse X-Shopify-Access-Token as the name and the Acces-Token from the Shopify App you created as the value.\nThe Header Auth is neccessary for the GraphQL nodes.\nYou will need a running Baserow instance for this. You can also sign up for a free account at https://baserow.io/\n\nPlease make sure to read the notes in the template. \n\nFor a detailed explanation please check the corresponding video: https://youtu.be/Ky-dYlljGiY",
+  "totalViews": 837,
+  "source": "official",
+  "user": {
+    "id": 91450,
+    "name": "Sascha",
+    "username": "m3tam3re",
+    "bio": "",
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/d0bb36ca6da107a39b902adcf9b118616c8b27a189be33ac2ad74e7102c9478f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "GraphQL",
+      "type": "n8n-nodes-base.graphql",
+      "categories": [
+        "Data & Storage",
+        "Development"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-03-20T14:46:48.643Z",
+  "path": "official/template_2186/workflow.json"
+}

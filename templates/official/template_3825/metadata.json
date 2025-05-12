@@ -1,0 +1,48 @@
+{
+  "id": 3825,
+  "name": "🧹 Archive (delete) duplicate items from a Notion database",
+  "description": "🧑‍💼 Who is this for?\n\nIf you’re using Notion to manage a database (like saving links, tasks, notes, or anything really), and it’s starting to get messy with duplicate entries, this workflow is for you.\n\nIt’s especially useful if you want to keep things tidy without doing any manual cleanup.\n\n🧠 What problem is this workflow solving?\n\nNotion doesn’t have a built-in way to find or remove duplicates, so you either clean them up manually 😩 or just let them pile up.\n\nThis workflow automatically finds entries that share the same property (like a URL or title) and archives the extra copies, keeping just one.\n\n⚙️ What this workflow does\n\nPulls all pages from a Notion database.\nIdentifies duplicates based on a property you choose.\nArchives the duplicate pages (which is like soft-deleting them).\nKeeps one version of each duplicate group.\n\nIt includes two optional triggers:\n\nRun it every day ⏰\nOr trigger it automatically when a new page is added to the database ⚡\n\n🛠️ Setup\n\nConnect your Notion account in n8n.\nSelect your database in the Notion nodes.\nIn the “Format items properly” node, replace \"SET YOUR PROPERTY HERE\" with a reference to the property you want to use for detecting duplicates. I recommend using the n8n property drag-and-drop feature.\nEnable whichever trigger you prefer — or both.\n\nAnd that’s it. It runs on its own after that.\n\n🧩 How to customize this workflow to your needs\n\nUse a different property for detecting duplicates by updating the Set node.\nWant to tag duplicates instead of archiving them? Just replace the last Notion node with an update operation.\nAdjust the schedule to run it hourly, weekly, or whenever suits your setup.",
+  "totalViews": 60,
+  "source": "official",
+  "user": {
+    "id": 94040,
+    "name": "Lucía Maio Brioso",
+    "username": "luciamb",
+    "bio": "I'm a backend software developer who loves n8n ⚙️ I enjoy automating everything and share templates I personally find helpful 💡",
+    "verified": false,
+    "links": "[\"https://linktr.ee/luciamb\"]",
+    "avatar": "https://gravatar.com/avatar/988aa6720bcbcddbc20442260f55f01896aa4c7fbcb8b1d7ad61acffc87f43f4?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-05-01T19:04:14.005Z",
+  "path": "official/template_3825/workflow.json"
+}

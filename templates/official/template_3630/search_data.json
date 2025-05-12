@@ -1,0 +1,67 @@
+{
+  "id": 3630,
+  "name": "Build your own FileSystem MCP server",
+  "totalViews": 690,
+  "purchaseUrl": null,
+  "user": {
+    "id": 91804,
+    "name": "Jimleuk",
+    "username": "jimleuk",
+    "bio": "Freelance consultant based in the UK specialising in AI-powered automations. I work with select clients tackling their most challenging projects. For business enquiries, send me an email at hello@jimle.uk\n\nLinkedIn: https://www.linkedin.com/in/jimleuk/\nX/Twitter: https://x.com/jimle_uk",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4ab99e51473df76838beeaac908747f7928c625f869794815cabe34016967d51?r=pg&d=retro&size=200"
+  },
+  "description": "This template is for self-hosted n8n instances only.\nThis n8n demonstrates how to build a simple FileSystem MCP server. Connecting to this server allows MCP clients and agents to list, read and create directories and files on the local machine or remote server.\n\nThis MCP example is based off an official MCP reference implementation which can be found here -https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem\n\nHow it works\nA MCP server trigger is used and connected to 5 tools: 3 Execute Command tools and 2 custom workflow tools.\nThe 3 Execute Command tools allow for listing, searching and creating directories. \nThe 2 custom workflow tools are for reading and writing files to disk.\nSpecial care has been to not allow the MCP agent to execute arbitrary linux commands on the target server. This is achieved by only allowing the agent to provide parameters such as filenames and paths rather than raw commands. \n\nHow to use\nThis Filesystem MCP server will write to the server which hosts the n8n instance - this can be your local machine or a remove server. If your target filesystem is on neither, then modify the commands to connect to the desired server.\nConnect your MCP client by following the n8n guidelines here - https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-langchain.mcptrigger/#integrating-with-claude-desktop\nTry the following queries in your MCP client:\n  \"Please help me list all folders under the project directory.\"\n  \"Help me create a bash script to send a notification to Slack.\"\n  \"Search for the log file on the 22nd April and read its contents. What was the cause of the outage?\"\n\nRequirements\nLinux file system for this example template. Feel free to modify if working on Windows.\nMCP Client or Agent for usage such as Claude Desktop - https://claude.ai/download\n\nCustomising this workflow\nImplement the moving and renaming of files by adding more custom workflow tools to the MCP server.\nRemember to set the MCP server to require credentials before going to production and sharing this MCP server with others!",
+  "createdAt": "2025-04-21T10:07:32.061Z",
+  "nodes": [
+    {
+      "id": 1205,
+      "icon": "fa:network-wired",
+      "name": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolworkflow/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Tools"
+            ],
+            "Tools": [
+              "Recommended Tools"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Call n8n Workflow Tool"
+      },
+      "iconData": {
+        "icon": "network-wired",
+        "type": "icon"
+      },
+      "displayName": "Call n8n Workflow Tool",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    }
+  ]
+}

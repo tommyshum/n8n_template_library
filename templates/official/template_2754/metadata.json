@@ -1,0 +1,92 @@
+{
+  "id": 2754,
+  "name": "Summarize the New Documents from Google Drive and Save Summary in Google Sheet",
+  "description": "This workflow is created by AI developers at WeblineIndia. It streamlines the process of managing content by automatically identifying and fetching the most recently added Google Doc file from your Google Drive. It extracts the content of the document for processing and leverages an AI model to generate a concise and meaningful summary of the extracted text. The summarized content is then stored in a designated Google Sheet, alongside relevant details like the document name and the date it was added, providing an organized and easily accessible reference for future use. This automation simplifies document handling, enhances productivity, and ensures seamless data management.\n\nSteps :\nFetch the Most Recent Document from Google Drive\nAction:** Use the Google Drive Node.\nDetails:** List files, filter by date to fetch the most recently added .doc file, and retrieve its file ID and metadata.\n\nExtract Content from the Document\nAction:** Use the Google Docs Node.\nDetails:** Set the operation to \"Get Content,\" pass the file ID, and extract the document's text content.\n\nSummarize the Document Using an AI Model\nAction:** Use an AI Model Node (e.g., OpenAI, ChatGPT).\nDetails:** Provide the extracted text to the AI model, use a prompt to generate a summary, and capture the result.\n\nStore the Summarized Content in Google Sheets\nAction:** Use the Google Sheets Node.\nDetails:** Append a new row to the target sheet with details such as the original document name, summary, and date added.\n\nAbout WeblineIndia\nWeblineIndia specializes in delivering innovative and custom AI solutions to simplify and automate business processes. If you need any help, please reach out to us.\n",
+  "totalViews": 5171,
+  "source": "official",
+  "user": {
+    "id": 92407,
+    "name": "WeblineIndia",
+    "username": "weblineindia",
+    "bio": "A Leading Software Engineering, Consulting & Outsourcing Services Company in USA & India serving Clients Globally since 1999.",
+    "verified": true,
+    "links": "[\"https://www.weblineindia.com/\"]",
+    "avatar": "https://gravatar.com/avatar/a229d43aefca4588581583c58bb37b4773aebbdf4c1fef86a08bb1d38eae91fa?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Miscellaneous",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Google Docs",
+      "type": "n8n-nodes-base.googleDocs",
+      "categories": [
+        "Miscellaneous"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Calculator",
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Wikipedia",
+      "type": "@n8n/n8n-nodes-langchain.toolWikipedia",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-01-20T04:56:30.203Z",
+  "path": "official/template_2754/workflow.json"
+}

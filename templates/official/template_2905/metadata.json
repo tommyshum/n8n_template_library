@@ -1,0 +1,71 @@
+{
+  "id": 2905,
+  "name": "Slack slash commands AI Chat Bot",
+  "description": "This is a response chatbot in public channels through slash commands. I explain more in detail through the YouTube video, but it's only available in Korean.\n\nHow it works?\n\nWhen you request the created slash command in Slack, the request comes to the webhook. Then, the Switch Node branches appropriately according to each slash command request. Here, a slash command called /ask is connected to the chatbot, and the chatbot generates answers to the questions asked. The final node responds to the channel.\n\nSet up steps\n\nCreate a Slack app.\nAdd chat:write permission in Slack OAuth&Permissions&gt;Scopes.\nCreate a Command in Slack Slash Commands menu and enter the n8n Webhook node's URL.\nComplete creating the Slash Commands.\nEnter the created command in the Switch node.\n\n\n\n\n\n슬래시 커맨드를 통한 공개 채널에서의 응답 챗봇 입니다. 유튜브 영상에 더 자세하게 설명 드립니다.\n\n설명\n\n슬랙에 생성한 슬래시 커맨드를 슬랙에서 요청하면 웹훅에 요청이 들어옵니다. 이후 Switch Node에서 각 슬래시 커맨드의 요청에 따라 알맞게 분기합니다. 여기에서는 /ask​라는 슬래시 커맨드가 챗봇으로 연결되어 있고, 챗봇에서 질문한 내용의 답변을 생성합니다. 마지막 노드에서 채널로 응답을 합니다. \n\n설정 방법\n\nSlack 앱을 만드세요.\nSlack OAuth&Permissions&gt;Scopes 에서 chat:write 권한을 추가하세요.\nSlack Slash Commands 메뉴에서 Command를 생성하고, n8n Webhook 노드의 url을 입력하세요.\nSlash Slash Commands 생성을 완료하세요.\nSwitch 노드에 생성한 커맨드를 입력하세요.\n",
+  "totalViews": 2669,
+  "source": "official",
+  "user": {
+    "id": 92687,
+    "name": "InfoGrab",
+    "username": "infograb",
+    "bio": "",
+    "verified": false,
+    "links": "[\"https://insight.infograb.net\"]",
+    "avatar": "https://gravatar.com/avatar/d5cc1abc430b384cfe815eed3b956a53adf36f1ca290311499e306e695509a09?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-02-14T04:46:59.611Z",
+  "path": "official/template_2905/workflow.json"
+}

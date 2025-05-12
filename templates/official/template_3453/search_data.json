@@ -1,0 +1,126 @@
+{
+  "id": 3453,
+  "name": "Automated Weekly Project Cost Reports with MySQL and Outlook HTML Emails",
+  "totalViews": 115,
+  "purchaseUrl": null,
+  "user": {
+    "id": 92318,
+    "name": "Amjid Ali",
+    "username": "amjid",
+    "bio": "**Amjid Ali** is an automation expert and AI enthusiast specializing in creating intelligent workflows using low-code platforms like **n8n**. With a passion for simplifying complex processes, he designs solutions that enhance productivity and streamline operations. As an active contributor to the **n8n Creator Hub**, Amjid shares innovative use cases, practical templates, and best practices, empowering the community to unlock the full potential of workflow automation.",
+    "verified": true,
+    "links": "[\"https://amjidali.com\"]",
+    "avatar": "https://gravatar.com/avatar/8760ed64a38ed65da42983737659c7e295e4a7f14b59ed5ce1b0b1077435f573?r=pg&d=retro&size=200"
+  },
+  "description": "Automated Weekly Project Cost Reports with MySQL and Outlook HTML Emails\n\n🧠 Use Case\n\nNeed to keep your finance or operations team updated on missing project costs?  \nThis practical automated report workflow does the job without AI — and saves hours weekly.\n\nRuns on a weekly schedule\nQueries your MySQL database for projects missing cost data\nFilters by budgeted_project_cost IS NULL\nGenerates a clean HTML email report\nSends it through Microsoft Outlook to relevant teams\n\n🚀 How It Works\n\nSchedule Trigger – Runs every Monday at 8 AM\nMySQL Node – Connects and runs SQL to fetch project data missing budgeted_project_cost\nSwitch Node – Routes logic based on cost_center (e.g., Retail, Service, Projects)\nOutlook Nodes – Sends formatted HTML emails; each node handles a specific group\nDynamic Content – Inject values using mustache tags like {{ $json.project_name }}\n\n🔧 Setup Instructions\n\nMySQL Setup:\n   Ensure the MySQL node is connected using a valid credential set:\n     Hostname/IP\n     Port (default: 3306)\n     Database name\n     Username with SELECT permissions\n     Password\n   Query Example:\n          SELECT project_name, cost_center FROM tabProject \n     WHERE status = 'Open' AND project_type = 'External' AND budgeted_project_cost IS NULL;\n     \nOutlook Configuration:\n   Connect your Microsoft Outlook node using OAuth2 credentials.\n   Rename each Outlook node clearly (e.g., Send Email - Retail, Send Email - Service).\n\nSwitch Node:\n   Modify cost center values as needed to match your organization (e.g., 'Retail', 'Service', 'Projects').\n\nHTML Email Formatting:\n   Customize the HTML message body using inline styles and mustache syntax.\n   Sample:\n          Missing Budgeted Cost Report\n     \n       Project: {{ $json.project_name }}\n       Cost Center: {{ $json.cost_center }}\n     \n     \nRecipients:\n   Replace amjid@amjidali.com with the actual email addresses of the concerned teams.\n\n📘 Read More\n\n👉 Why Simple Workflows Work  \n\n📺 Demo & Tutorial\n\n🎥 Watch the video walkthrough:  \nhttps://youtube.com/@syncbricks\n\n👤 About the Creator\n\nAmjid Ali  \n🌐 amjidali.com  \n📘 n8n Book  \n🎓 Learn n8n\n\n&gt; “Start simple, scale smart. Even basic workflows like this can save your team hours!” — Amjid Ali",
+  "createdAt": "2025-04-07T05:56:27.085Z",
+  "nodes": [
+    {
+      "id": 109,
+      "icon": "file:mysql.svg",
+      "name": "n8n-nodes-base.mySql",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.mysql/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/mySql/"
+              }
+            ]
+          },
+          "categories": [
+            "Development",
+            "Data & Storage"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "MySQL"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTM2Ljg0NDUgMzAuMzY4NEMzNC42NjggMzAuMzEzOSAzMi45ODE1IDMwLjUzMTkgMzEuNTY2NSAzMS4xMzA0QzMxLjE1ODUgMzEuMjkzNCAzMC41MDU1IDMxLjI5MzkgMzAuNDUxIDMxLjgxMDRDMzAuNjY5IDMyLjAyODQgMzAuNjk2IDMyLjM4MTkgMzAuODg2NSAzMi42ODA5QzMxLjIxMyAzMy4yMjQ5IDMxLjc4NCAzMy45NTk0IDMyLjMwMSAzNC4zNDA0QzMyLjg3MiAzNC43NzU0IDMzLjQ0MzUgMzUuMjEwOSAzNC4wNDIgMzUuNTkxOUMzNS4xMDMgMzYuMjQ0OSAzNi4zIDM2LjYyNTkgMzcuMzM0IDM3LjI3ODRDMzcuOTMyNSAzNy42NTg5IDM4LjUzMSAzOC4xNDg5IDM5LjEyOTUgMzguNTU2OUMzOS40MjkgMzguNzc0NCAzOS42MTkgMzkuMTI3OSA0MCAzOS4yNjQ0VjM5LjE4MjlDMzkuODA5NSAzOC45Mzc5IDM5Ljc1NSAzOC41ODQ0IDM5LjU2NSAzOC4zMTI0QzM5LjI5MyAzOC4wNDA0IDM5LjAyMSAzNy43OTU0IDM4Ljc0OSAzNy41MjM0QzM3Ljk2IDM2LjQ2MjQgMzYuOTgwNSAzNS41Mzc0IDM1LjkxOTUgMzQuNzc1OUMzNS4wNDkgMzQuMTc3NCAzMy4xNDQ1IDMzLjM2MTQgMzIuNzkxIDMyLjM1NDRMMzIuNzM2NSAzMi4yOTk5QzMzLjMzNSAzMi4yNDU0IDM0LjA0MjUgMzIuMDI3OSAzNC42MTM1IDMxLjg2NDRDMzUuNTM4NSAzMS42MTk0IDM2LjM4MiAzMS42NzM5IDM3LjMzNCAzMS40Mjk0QzM3Ljc3MjggMzEuMzE0NyAzOC4yMDg0IDMxLjE4NzcgMzguNjQgMzEuMDQ4NFYzMC44MDM5QzM4LjE1MDUgMzAuMzEzOSAzNy43OTY1IDI5LjY2MTQgMzcuMjggMjkuMTk4OUMzNS44OTI1IDI4LjAwMTQgMzQuMzY5IDI2LjgzMTkgMzIuNzkxIDI1Ljg1MjlDMzEuOTQ3NSAyNS4zMDg5IDMwLjg1OTUgMjQuOTU0OSAyOS45NjE1IDI0LjQ5MjRDMjkuNjM1IDI0LjMyODkgMjkuMDkxIDI0LjI0NzQgMjguOTAwNSAyMy45NzU0QzI4LjQxMDUgMjMuMzc2OSAyOC4xMzg1IDIyLjU4NzkgMjcuNzg1IDIxLjg4MDRDMjYuOTk2NSAyMC4zODM5IDI2LjIzNDUgMTguNzI0OSAyNS41NTQgMTcuMTQ2OUMyNS4wNjQ1IDE2LjA4NTkgMjQuNzY1IDE1LjAyNDkgMjQuMTY2NSAxNC4wNDU0QzIxLjM2NDUgOS40MjA0MSAxOC4zMTc1IDYuNjE4NDIgMTMuNjM4MSAzLjg3MDQzQzEyLjYzMTYgMy4yOTk0MyAxMS40MzQ2IDMuMDU0NDMgMTAuMTU2MSAyLjc1NDkzTDguMTE1NTcgMi42NDU5M0M3LjY4MDU3IDIuNDU1NDMgNy4yNDUwNyAxLjkzODQzIDYuODY0MDcgMS42OTM5M0M1LjMxMzU3IDAuNzE0OTMyIDEuMzE0NTggLTEuNDA2NTYgMC4xNzE1ODIgMS4zOTU0M0MtMC41NjI5MTcgMy4xNjM0MyAxLjI2MDA4IDQuOTA0NDIgMS44ODU1OCA1LjgwMjQyQzIuMzQ4MDggNi40Mjc5MiAyLjk0NjU4IDcuMTM1NDIgMy4yNzMwOCA3Ljg0MjkyQzMuNDYzNTggOC4zMDQ5MiAzLjUxNzU3IDguNzk0OTIgMy43MDgwNyA5LjI4NDkxQzQuMTQzNTcgMTAuNDgxOSA0LjU1MTU3IDExLjgxNDkgNS4xMjI1NyAxMi45MzA0QzUuNDIyMDcgMTMuNTAxNCA1Ljc0ODA3IDE0LjEwMDQgNi4xMjkwNyAxNC42MTY5QzYuMzQ2NTcgMTQuOTE1OSA2LjcyNzU3IDE1LjA1MjQgNi44MDkwNyAxNS41NDE5QzYuNDI4MDcgMTYuMDg1OSA2LjQwMTA3IDE2LjkwMjQgNi4xODMwNyAxNy41ODI0QzUuMjAzNTcgMjAuNjU2NCA1LjU4NDU3IDI0LjQ2NTQgNi45NzIwNyAyNi43MjM0QzcuNDA3MDcgMjcuNDAzNCA4LjQ0MTA2IDI4Ljg5OTkgOS44Mjg1NiAyOC4zMjg0QzExLjA1MjYgMjcuODM4OSAxMC43ODA2IDI2LjI4NzkgMTEuMTM0NiAyNC45Mjc5QzExLjIxNjYgMjQuNjAxNCAxMS4xNjIxIDI0LjM4MzkgMTEuMzI1MSAyNC4xNjY0VjI0LjIyMDlMMTIuNDQwNiAyNi40Nzg5QzEzLjI4NDEgMjcuODExOSAxNC43NTMxIDI5LjE5OTQgMTUuOTc3IDMwLjEyNDRDMTYuNjMgMzAuNjEzOSAxNy4xNDcgMzEuNDU3NCAxNy45NjMgMzEuNzU2OVYzMS42NzQ5SDE3LjkwODVDMTcuNzQ1IDMxLjQyOTkgMTcuNTAwNSAzMS4zMjE0IDE3LjI4MyAzMS4xMzA5QzE2Ljc5MzUgMzAuNjQxNCAxNi4yNDkgMzAuMDQyOSAxNS44Njg1IDI5LjQ5ODRDMTQuNzI2MSAyNy45NzQ5IDEzLjcxOTEgMjYuMjg4NCAxMi44MjE2IDI0LjU0NjlDMTIuMzg2NiAyMy43MDM0IDEyLjAwNTYgMjIuNzc4NCAxMS42NTE2IDIxLjkzNTRDMTEuNDg4MSAyMS42MDg5IDExLjQ4ODEgMjEuMTE5NCAxMS4yMTYxIDIwLjk1NTlDMTAuODA4MSAyMS41NTQ0IDEwLjIwOTYgMjIuMDcxNCA5LjkxMDA2IDIyLjgwNTlDOS4zOTM1NiAyMy45NzU5IDkuMzM5MDYgMjUuNDE3NCA5LjE0ODU2IDI2LjkxMzlDOS4wNDAwNiAyNi45NDE0IDkuMDk0MDYgMjYuOTEzOSA5LjAzOTU2IDI2Ljk2ODRDOC4xNjkwNyAyNi43NTA0IDcuODY5NTcgMjUuODUyOSA3LjU0MzA3IDI1LjA5MTRDNi43MjcwNyAyMy4xNTk5IDYuNTkxMDcgMjAuMDU4NCA3LjI5ODU3IDE3LjgyNzlDNy40ODkwNyAxNy4yNTY0IDguMzA1MDcgMTUuNDYwOSA3Ljk3ODU3IDE0LjkxNjlDNy44MTU1NyAxNC4zOTk5IDcuMjcxMDcgMTQuMTAwOSA2Ljk3MjA3IDEzLjY5MjlDNi42MTg1NyAxMy4xNzU5IDYuMjM3NTcgMTIuNTIyOSA1Ljk5MjU3IDExLjk1MTlDNS4zMzk1NyAxMC40Mjg0IDUuMDEzMDcgOC43NDE5MiA0LjMwNjA3IDcuMjE3OTJDMy45Nzk1NyA2LjUxMDQyIDMuNDA4NTggNS43NzU5MiAyLjk0NTU4IDUuMTIzNDJDMi40MzAwOCA0LjM4NzkyIDEuODU4NTggMy44NzA5MyAxLjQ1MDU4IDMuMDAwNDNDMS4zMTQ1OCAyLjcwMTQzIDEuMTI0MDggMi4yMTE0MyAxLjM0MTU4IDEuODg0OTNDMS4zOTYwOCAxLjY2NzQzIDEuNTA0NTggMS41ODU5MyAxLjcyMjU4IDEuNTMxNDNDMi4wNzYwOCAxLjIzMTkzIDMuMDgzMDggMS42MTI5MyAzLjQzNjU4IDEuNzc1OTNDNC40NDMwNyAyLjE4MzkzIDUuMjg2NTcgMi41NjQ5MyA2LjEzMDA3IDMuMTM2NDNDNi41MTEwNyAzLjQwODQzIDYuOTE5MDcgMy45MjU0MyA3LjQwODU3IDQuMDYxNDNINy45ODAwN0M4Ljg1MDU2IDQuMjUxOTIgOS44MzAwNiA0LjExNTkyIDEwLjY0NjEgNC4zNjA0MkMxMi4wODgxIDQuODIyOTIgMTMuMzkzNiA1LjUwMjkyIDE0LjU2MzYgNi4yMzc0MkMxOC4xMjc1IDguNDk1NDIgMjEuMDY1NSAxMS43MDU5IDIzLjA1MTUgMTUuNTQxNEMyMy4zNzggMTYuMTY2OSAyMy41MTQgMTYuNzM4NCAyMy44MTMgMTcuMzkxNEMyNC4zODQ1IDE4LjcyNDQgMjUuMDkxNSAyMC4wODQ5IDI1LjY2MyAyMS4zOTA0QzI2LjIzNCAyMi42Njg5IDI2Ljc3ODUgMjMuOTc0OSAyNy41OTQ1IDI1LjAzNTlDMjguMDAyNSAyNS42MDY5IDI5LjYzNSAyNS45MDY0IDMwLjM2OTUgMjYuMjA1OUMzMC45MTM1IDI2LjQ1MDQgMzEuNzU3IDI2LjY2ODQgMzIuMjQ2NSAyNi45Njc0QzMzLjE3MTUgMjcuNTM4NCAzNC4wOTY1IDI4LjE5MTQgMzQuOTY3IDI4LjgxNzRDMzUuNDAyNSAyOS4xNDM5IDM2Ljc2MjUgMjkuODIzOSAzNi44NDQgMzAuMzY3OUwzNi44NDQ1IDMwLjM2ODRaTTkuMDk1MDYgNi43Mjc0MkM4LjcxODg4IDYuNzIzNzYgOC4zNDM4NSA2Ljc2OTQ4IDcuOTc5NTcgNi44NjM0MlY2LjkxNzkySDguMDM0MDdDOC4yNTIwNyA3LjM1MjkyIDguNjMyNTYgNy42NTI0MiA4LjkwNDU2IDguMDMzNDJMOS41MzA1NiA5LjMzOTQxTDkuNTg1MDYgOS4yODQ5MUM5Ljk2NjA2IDkuMDEyOTEgMTAuMTU2NiA4LjU3NzQyIDEwLjE1NjYgNy45MjQ0MkM5Ljk5MzA2IDcuNzMzOTIgOS45NjYwNiA3LjU0MzQyIDkuODMwMDYgNy4zNTI5MkM5LjY2NzA2IDcuMDgwOTIgOS4zMTMwNiA2Ljk0NDkyIDkuMDk1NTYgNi43MjY5Mkw5LjA5NTA2IDYuNzI3NDJaIiBmaWxsPSIjMDA1NDZCIi8+Cjwvc3ZnPgo="
+      },
+      "displayName": "MySQL",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 3,
+          "name": "Data & Storage"
+        },
+        {
+          "id": 5,
+          "name": "Development"
+        }
+      ]
+    },
+    {
+      "id": 433,
+      "icon": "file:outlook.svg",
+      "name": "n8n-nodes-base.microsoftOutlook",
+      "codex": {
+        "data": {
+          "alias": [
+            "email",
+            "human",
+            "form",
+            "wait",
+            "hitl",
+            "approval"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.microsoftoutlook/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/microsoft/"
+              }
+            ]
+          },
+          "categories": [
+            "Communication",
+            "HITL"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0",
+          "subcategories": {
+            "HITL": [
+              "Human in the Loop"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Microsoft Outlook"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiB2aWV3Qm94PSIwIDAgODEgODEiPjx1c2UgeGxpbms6aHJlZj0iI2EiIHg9Ii41IiB5PSIuNSIvPjxzeW1ib2wgaWQ9ImEiIG92ZXJmbG93PSJ2aXNpYmxlIj48cGF0aCBmaWxsPSIjMjM3MmJhIiBzdHJva2U9Im5vbmUiIGQ9Ik03Ny45IDE5LjJINDYuODZWMEwwIDguMjMyVjcxLjk4TDQ2Ljg2IDgwVjYxLjg0N0g3Ny45YzEuMjY2IDAgMi4xLTEuMDU1IDIuMS0yLjFWMjEuMzJjMC0xLjI2Ni0uODQ0LTIuMS0yLjEtMi4xek0yMS45NTIgNTQuNDZjLTE1LjQtMS4wNTUtMTQuNzc2LTI5LjEzLjQyMi0yOS45NzQgMTYuNjc1LS44NDQgMTYuMjUzIDMxLjAzLS40MjIgMjkuOTc0bTU1LjUxNSA0LjY0NEg0Ni44NlYzNS4wNGw5LjUgOS4wNzdjLjQyMi40MjIuODQ0LjYzMyAxLjQ3Ny42MzNzMS4wNTUtLjIgMS40NzgtLjYzM0w3Ny40NjcgMjcuMjN6bTAtMzUuNDYyLTE5LjYzIDE4LjE1M0w0Ni44NiAzMS40NXYtOS43aDMwLjM5NnYxLjloLjJ6bS01NS4wOTIgNi41NDNjLTguMjMyLjQyMi04LjQ0MyAxOC4zNjQtLjIgMTguNTc1IDguNjU0LjQyMiA4LjY1NC0xOC45OTcuMi0xOC41NzUiLz48L3N5bWJvbD48L3N2Zz4="
+      },
+      "displayName": "Microsoft Outlook",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 6,
+          "name": "Communication"
+        },
+        {
+          "id": 28,
+          "name": "HITL"
+        }
+      ]
+    }
+  ]
+}

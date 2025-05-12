@@ -1,0 +1,38 @@
+{
+  "id": 3301,
+  "name": "Forward Filtered Gmail Notifications to Telegram Chat",
+  "description": "This workflow automatically forwards incoming Gmail emails to a Telegram chat only if the email subject contains specific keywords (like \"Urgent\" or \"Server Down\").\n\nThe workflow extracts key details such as the sender, subject, and message body, and sends them as a formatted message to a specified Telegram chat.\n\nThis is useful for real-time notifications, security alerts, or monitoring important emails directly from Telegram — filtering out unnecessary emails.\n\nPrerequisites: \n\nBefore setting up the workflow, ensure the following:\n\nThe Gmail API should be enabled.\nCreate a bot using @BotFather and obtain the API key.\nRetrieve the telegram Chat ID (for personal messages or group messages).\nSet up OAuth2 for Gmail and use the Bot Token for Telegram.\n\nCustomisation Options :\n\nModify the subject keywords in the IF Node to change the filtering criteria.\nCustomize how the email details appear in Telegram (bold subject, italic body, etc.).\nExtend the workflow to include email attachments in Telegram.\n\nSteps :\n\nStep 1: Gmail Trigger Node (On Message Received)\n\nSelect \"Gmail Trigger\" and add it to the workflow.\nAuthenticate with your Google Account.\nSet Trigger Event to \"Message Received\".\n(Optional) Add filters for specific senders, labels, or subjects.\nClick \"Execute Node\" to test the connection.\nClick \"Save\".\n\nStep 2: IF Node (Conditional Filtering)\n\nAdd an \"IF\" Node after the Gmail Trigger.\nConfigure the condition to check if the email subject contains specific keywords (e.g., \"Urgent\", \"Server Down\", \"Alert\").\nIf the condition is true, proceed to the next step.\nIf false, you can stop or route it elsewhere (optional).\n\nStep 3: Telegram Node (Send Message Action)\n\nClick \"Add Node\" and search for Telegram.\nSelect \"Send Message\" as the action.\nAuthenticate using your Telegram Bot Token.\nSet the Chat ID (personal or group chat).\nFormat the message using email details received from the email trigger node and set the message in text.\n\nSteps 4. Connect & Test the Workflow\n\nLink Gmail Trigger → if node → Telegram Send Message.\nSave and execute the workflow manually.\nSend a test email to your Gmail account.\nVerify if the email details appear in your Telegram chat.\n\nAbout the Creator, WeblineIndia\n\nThis workflow is created by the Agentic business process automation developers at WeblineIndia. We build automation and AI-driven tools that make life easier for your team. If you’re looking to hire dedicated developers who can customize workflows around your business, we’re just a click away.",
+  "totalViews": 1437,
+  "source": "official",
+  "user": {
+    "id": 92407,
+    "name": "WeblineIndia",
+    "username": "weblineindia",
+    "bio": "A Leading Software Engineering, Consulting & Outsourcing Services Company in USA & India serving Clients Globally since 1999.",
+    "verified": true,
+    "links": "[\"https://www.weblineindia.com/\"]",
+    "avatar": "https://gravatar.com/avatar/a229d43aefca4588581583c58bb37b4773aebbdf4c1fef86a08bb1d38eae91fa?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-03-24T06:25:35.050Z",
+  "path": "official/template_3301/workflow.json"
+}

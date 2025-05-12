@@ -1,0 +1,71 @@
+{
+  "id": 2903,
+  "name": "Youtube Outlier Detector (Find trending content based on your competitors)",
+  "description": "Video explanation\n\nThis n8n workflow helps you identify trending videos within your niche by detecting outlier videos that significantly outperform a channel's average views. It automates the process of monitoring competitor channels, saving time and streamlining content research.\n\nIncluded in the Workflow\n\nAutomated Competitor Video Tracking\nMonitors videos from specified competitor channels, fetching data directly from the YouTube API.\n\nOutlier Detection Based on Channel Averages\nCompares each video’s performance against the channel’s historical average to identify significant spikes in viewership.\n\nHistorical Video Data Management\nStores video statistics in a PostgreSQL database, allowing the workflow to only fetch new videos and optimize API usage.\n\nShort Video Filtering\nAutomatically removes short videos based on duration thresholds.\n\nFlexible Video Retrieval\nFetches up to 3 months of historical data on the first run and only new videos on subsequent runs.\n\nPostgreSQL Database Integration\nIncludes SQL queries for database setup, video insertion, and performance analysis.\n\nConfigurable Outlier Threshold\nFocuses on videos published within the last two weeks with view counts at least twice the channel's average.\n\nData Output for Analysis\nOutputs best-performing videos along with their engagement metrics, making it easier to identify trending topics.\n\nRequirements\n\nn8n installed on your machine or server\n\nA valid YouTube Data API key\n\nAccess to a PostgreSQL database\n\nThis workflow is intended for educational and research purposes, helping content creators gain insights into what topics resonate with audiences without manual daily monitoring.",
+  "totalViews": 3687,
+  "source": "official",
+  "user": {
+    "id": 92219,
+    "name": "Leonardo Grigorio",
+    "username": "leonardogrig",
+    "bio": "I combine my full-stack development expertise with AI automation using n8n, creating scalable workflows and seamless integrations for smarter business solutions.",
+    "verified": true,
+    "links": "[\"https://x.com/leonardogrig\"]",
+    "avatar": "https://gravatar.com/avatar/2bb981acd7d0e27410fb1aa4f7989788741d6faafc4e173f69847ec5e5f30e88?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage",
+    "Marketing"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Postgres",
+      "type": "n8n-nodes-base.postgres",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "YouTube",
+      "type": "n8n-nodes-base.youTube",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-02-14T01:13:30.607Z",
+  "path": "official/template_2903/workflow.json"
+}

@@ -1,0 +1,176 @@
+{
+  "id": 3622,
+  "name": "AI-Powered Upwork Cover Letter Generator – Pinecone, Groq, Google Gemin, SerpAPI",
+  "description": "\n🚀 Automated Upwork Cover Letter Generator with n8n + MacOS Shortcut + Pinecone Context Retrieval\n\nThis n8n automation is designed to streamline the Upwork proposal process by generating highly personalized, context-aware cover letters using your own skills and project data stored in a Pinecone vector store.\n\nWith the help of an AI Agent powered by Groq’s Qwen LLM, and triggered instantly via a MacOS Shortcut, this system takes job descriptions from your clipboard and returns a ready-to-use HTML cover letter—right on your desktop.\n\n⚙️ Workflow Breakdown\n\n🔹 MacOS Shortcut – Trigger the Workflow Instantly\nThe process begins with a MacOS Shortcut that captures job description text from your clipboard and sends it to a custom webhook in n8n.\n\n🔹 Webhook Node – Receive and Process Input\nThe webhook node receives the clipboard data, along with the required credentials for authentication. This node serves as the entry point to the full automation.\n\n🔹 Field Mapping & Pre-Processing\nA series of basic logic nodes map and clean up the input fields. These are then passed to an LLM Chain to generate specific questions related to the job description.\n\n🔹 Question Answer Chain + Vector Search (Pinecone)\nUsing your previously stored skills and project data in a Pinecone vector store, the system retrieves relevant information to answer the generated questions and builds a rich context around the job description.\n\n🔹 AI Agent Node – Generate Personalized Cover Letter\nWith both the job post and contextual data, the AI Agent (powered by Groq’s Qwen LLM) creates a tailored cover letter.  \nThe agent is equipped with:\n\n🔍 Google Search Tool  \n🧠 Vector Store Retriever Tool  \n🗃️ Buffer Memory  \n\nThis ensures the generated proposal is insightful, relevant, and professional.\n\n🔹 Markdown to HTML – Clean Output Conversion\nThe markdown output from the AI is converted into HTML using a Markdown node, making it easy to paste directly into Upwork or emails.\n\n🔹 Return to Shortcut – Display Final Result\nThe final HTML response is sent back to the MacOS Shortcut, which displays it in a modal window for easy review and copy-paste.\n\n💼 Use Case\n\nThis automation is built specifically for freelancers on Upwork (or any freelance platform) who want to:\n\n✅ Save time on repetitive proposal writing  \n✅ Create job-specific cover letters with context  \n✅ Stand out with better personalization  \n✅ Reduce manual effort with automation  \n\nWhether you’re a beginner or a seasoned pro, this tool elevates your workflow while staying simple to use.\n\n📦 Setup Instructions\n\nImport Workflow to your n8n instance  \nCreate and Configure MacOS Shortcut (drag-and-drop ready)  \nPrepare and Embed Your Skills/Project Data into Pinecone  \nAdd API Credentials:\n   Groq (for Qwen LLM)  \n   Pinecone  \n   n8n Webhook (Basic Auth if needed)  \nRun the Workflow & Submit Smarter Proposals\n\n&gt; Note: This workflow is designed for building and returning Upwork cover letters using job descriptions copied to your clipboard. All generation is context-aware and tailored per submission.\n",
+  "totalViews": 243,
+  "source": "official",
+  "user": {
+    "id": 92457,
+    "name": "Udit Rawat",
+    "username": "ailistmaster",
+    "bio": "Hi, I’m Udit, an Acquia-certified developer with a strong background in web development and creating enterprise solutions. Recently, I’ve transitioned into AI and ML, I hold DIAT Professional AI Certification. I specialize in building AI-driven automation to streamline workflows, improve efficiency, and solve complex problems. With expertise in AI/ML tools and years of experience in Acquia and Drupal, I’m passionate about leveraging tech to drive innovation and create smarter solutions.",
+    "verified": true,
+    "links": "[\"https://x.com/AilistMaster\"]",
+    "avatar": "https://gravatar.com/avatar/6e96ede8d526c20ff6df15da46bbafb0fbe8862f1e12faa6de21514bb3c641e8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Question and Answer Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainRetrievalQa",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Vector Store Retriever",
+      "type": "@n8n/n8n-nodes-langchain.retrieverVectorStore",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Retrievers"
+        ]
+      }
+    },
+    {
+      "name": "SerpApi (Google Search)",
+      "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Pinecone Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Embeddings Google Gemini",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    },
+    {
+      "name": "Groq Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Vector Store Question Answer Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolVectorStore",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 10,
+  "createdAt": "2025-04-20T15:24:51.535Z",
+  "path": "official/template_3622/workflow.json"
+}

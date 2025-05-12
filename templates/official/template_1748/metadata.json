@@ -1,0 +1,38 @@
+{
+  "id": 1748,
+  "name": "Pulling data from services that n8n doesn’t have a pre-built integration for",
+  "description": "You still can use the app in a workflow even if we don’t have a node for that or the existing operation for that. With the HTTP Request node, it is possible to call any API point and use the incoming data in your workflow \n\nMain use cases:\nConnect with apps and services that n8n doesn’t have integration with\nWeb scraping\n\nHow it works\nThis workflow can be divided into three branches, each serving a distinct purpose:\n\n1.Splitting into Items (HTTP Request - Get Mock Albums):\nThe workflow initiates with a manual trigger (On clicking 'execute').\nIt performs an HTTP request to retrieve mock albums data from \"https://jsonplaceholder.typicode.com/albums.\"\nThe obtained data is split into items using the Item Lists node, facilitating easier management.\n\n2.Data Scraping (HTTP Request - Get Wikipedia Page and HTML Extract):\nAnother branch of the workflow involves fetching a random Wikipedia page using an HTTP request to \"https://en.wikipedia.org/wiki/Special:Random.\"\nThe HTML Extract node extracts the article title from the fetched Wikipedia page.\n\n3.Handling Pagination (The final branch deals with handling pagination for a GitHub API request):\nIt sends an HTTP request to \"https://api.github.com/users/that-one-tom/starred,\" with parameters like the page number and items per page dynamically set by the Set node.\nThe workflow uses conditions (If - Are we finished?) to check if there are more pages to retrieve and increments the page number accordingly (Set - Increment Page).\nThis process repeats until all pages are fetched, allowing for comprehensive data retrieval.",
+  "totalViews": 142159,
+  "source": "official",
+  "user": {
+    "id": 25789,
+    "name": "Jonathan",
+    "username": "jon-n8n",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/5240094f838126182ceefb50ca4a3cf75cc7dc0808efd4b9920d792e41bfc45e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2022-07-06T14:00:52.853Z",
+  "path": "official/template_1748/workflow.json"
+}

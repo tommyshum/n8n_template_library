@@ -1,0 +1,54 @@
+{
+  "id": 2748,
+  "name": "Merge and filter several Rss & send to Telegram",
+  "description": "Purpose of this Template:\nThis template will help us combine multiple RSS sources, curate the content, and send the result to a Telegram channel for easy access.\n\nHow it Works:\nWe start with two RSS sources from which we primarily want to extract the title, link, and publication date. The workflow will periodically query both sources and use regular expressions and some JavaScript to edit several fields until we have the desired data in the proper format.\nOnce the sources are formatted, we will combine them using the \"Merge\" node.\nSince the workflow will run twice a day, we will discard items older than two days. This will be achieved using a \"Filter\" node.\nA \"Sort\" node will arrange the items by publication date so that the most recent ones appear first.\nTo create a flat list in \"Markdown\" format from the resulting items, we will use a small JavaScript function. This function must escape special characters to ensure they are correctly interpreted.\nFinally, the list will be sent to the appropriate channel using a \"Telegram\" node.\n\nConfiguration Instructions:\nWhen opening the workflow for the first time, configure the Telegram credential.\nIn the \"RSS\" nodes, insert the URLs of the sources to query.\nIn the \"Edit Fields\" nodes we will have to adjust the regular expressions to obtain the desired result based on our RSS sources. In this case the expressions have been adjusted to obtain the name, size and link of each published file.\nIn the \"Sort\" node we can modify the maximum age of the elements that we are going to send. In this case, 2 days have been included (2 * 24 * 60 * 60 * 1000 milliseconds) since it is necessary to take into account that Telegram has a maximum message length and if we exceed it, it will return an error instead of sending it.\nLastly, include the channel ID in the \"Telegram\" node where the messages will be sent.\n\n\nTemplate was created in n8n v1.72.1",
+  "totalViews": 6072,
+  "source": "official",
+  "user": {
+    "id": 92331,
+    "name": "Sherlockes",
+    "username": "sherlockes",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://sherblog.es\"]",
+    "avatar": "https://gravatar.com/avatar/feb9866e71611dc78851ffebfa0ca03c60df5c9f6b718a2e9e735d69a5a8f8c2?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-01-17T18:47:18.063Z",
+  "path": "official/template_2748/workflow.json"
+}

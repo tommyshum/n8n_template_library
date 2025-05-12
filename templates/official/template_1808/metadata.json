@@ -1,0 +1,32 @@
+{
+  "id": 1808,
+  "name": "Sync Shopify orders with your Zendesk contacts",
+  "description": "This workflow automatically syncs Shopify orders with your Zendesk contacts. Using this workflow, the Shopify email ID, phone number ID and order information will be added or updated to Zendesk contacts. \n\nPrerequisites\nShopify account and Shopify credentials\nZendesk account and Zendesk credentials \n\nHow it works\nShopify Trigger starts the workflow whenever a customer`s data is updated.\nZendesk Node then searches the contact by email address.\nSet node keeps only the UserId and email of the contact.\nMerge by Key node combines the Shopify and Zendesk data.\nIf node splits the workflow conditionally, check if the contact already exists or not.\nIf the user exists, Zendesk node updates its contact data.\nIf the user does not exist, Zendesk node creates a new contact.",
+  "totalViews": 769,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication"
+  ],
+  "nodes": [
+    {
+      "name": "Zendesk",
+      "type": "n8n-nodes-base.zendesk",
+      "categories": [
+        "Communication"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2022-10-07T10:04:40.834Z",
+  "path": "official/template_1808/workflow.json"
+}

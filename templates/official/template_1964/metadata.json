@@ -1,0 +1,44 @@
+{
+  "id": 1964,
+  "name": "Sync Google Sheets data with MySQL",
+  "description": "This workflow performs several data integration and synchronization tasks between Google Sheets and a MySQL database.\n\nHere is a step-by-step description of what this workflow does:\n\nManual Trigger: The workflow starts when the user clicks \"Execute Workflow.\"\nSchedule Trigger: This node schedules the workflow to run at specific intervals on weekdays (Monday to Friday) between 6 AM and 10 PM. It ensures regular data synchronization.\nGoogle Sheet Data: This node connects to a specific Google Sheets document and retrieves data from the \"Form Responses 1\" sheet, filtering by the \"DB Status\" column.\nSQL Get inquiries from Google: This node retrieves data from a MySQL database table named \"ConcertInquiries\" where the \"source_name\" is \"GoogleForm.\"\nRename GSheet variables: This node renames the columns retrieved from Google Sheets and transforms the data into a format suitable for MySQL, assigning a value for \"source_name\" as \"GoogleForm.\"\nCompare Datasets: This node compares the data retrieved from Google Sheets and the MySQL database based on timestamp and source_name fields. It identifies changes and updates.\nNo reply too long?: This node checks if there has been no reply within the last four hours, using the \"timestamp\" field from the Google Sheets data.\nDB Status assigned?: This node checks if the \"DB Status\" field is not empty in the compared dataset.\nUpdate GSheet status: If conditions are met in the previous nodes, this node updates the \"DB Status\" field in Google Sheets with the corresponding value from the MySQL dataset.\nDB Status in sync?: This node checks if the \"source_name\" field in Google Sheets is not empty.\nSync MySQL data: If conditions are met in the previous nodes, this node updates the \"source_name\" field in the MySQL database to \"GoogleFormSync.\"\nSend Notifications: If conditions are met in the \"No reply too long?\" node, this node sends notifications or performs actions as needed.\nSticky Notes: These nodes provide additional information and documentation links for users.",
+  "totalViews": 6559,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "MySQL",
+      "type": "n8n-nodes-base.mySql",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2023-10-06T13:58:01.005Z",
+  "path": "official/template_1964/workflow.json"
+}

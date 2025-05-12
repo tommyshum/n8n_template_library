@@ -1,0 +1,52 @@
+{
+  "id": 3922,
+  "name": "Upload Large Files to Kommo/AmoCRM with Automatic File Chunking",
+  "description": "Upload files from any source to your account Kommo or AmoCRM with a simple and reusable workflow.\nAdvantages of workflow\nIt can split a large file into small ones and upload chunks.\nWorks for Kommo and amoCRM\nThere are 3 required parameters in total (drive_url, file_name and file_base64)\nWhere it can be useful\nTo send files in a message to clients chat in Kommo or amoCRM\nTo upload the generated files to the transaction or contact fields\nTo upload files to notes\nHow it works\nChecking the file availability\nOpening the session to download the file\nSplit the file into chunks, if necessary.\nSend parts of the file to CRM one at a time.\nInstallation Steps\nImport workflow\nConfiguring Oauth2 credentials in Kommo or amoCRM\nApplying credentials for specific workflow steps\nSpecifying the link to the file and the disk_url address\nLaunching a workflow to upload a file to a Kommo or amoCRM account",
+  "totalViews": 27,
+  "source": "official",
+  "user": {
+    "id": 92495,
+    "name": "yatolstoy",
+    "username": "yatolstoy",
+    "bio": "Backend typescript developer. I specialize in integrations of amoCRM, Common, Telegram, AI",
+    "verified": false,
+    "links": "[\"https://t.me/yatolstoy\"]",
+    "avatar": "https://gravatar.com/avatar/eab297becc4d0f74b037b2f177a6768f0d1201e05bec5e405bfc1152b51d55d8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-05-07T15:10:30.214Z",
+  "path": "official/template_3922/workflow.json"
+}

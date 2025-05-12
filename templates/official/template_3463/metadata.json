@@ -1,0 +1,50 @@
+{
+  "id": 3463,
+  "name": "RSS Feed Reader that saves the feeds of the last 3 days in Google Sheets",
+  "description": "++How it Works:++\nThis RSS reader retrieves links from a Google Sheets file and goes through each link to retrieve the messages that are younger than 3 days, then saves them in a second Google Sheets file and then deletes all older entries in the second Google Sheets file!\n\nThe retrieval can take a while due to the Google API block prevention, depending on the number of news feeds that were retrieved!==*\n\nDetailed Description is in the sticky Notes from the Workflow!*",
+  "totalViews": 158,
+  "source": "official",
+  "user": {
+    "id": 93153,
+    "name": "Holger",
+    "username": "capa",
+    "bio": "Hobby programmer since 2001, interested in automation and AI",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/0f3b9045f4b9c17f5c26696a9b980b88ca8b0edb8ca7e4ac35935a689453a1ed?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-04-07T21:16:17.406Z",
+  "path": "official/template_3463/workflow.json"
+}

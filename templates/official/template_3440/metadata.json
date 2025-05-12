@@ -1,0 +1,78 @@
+{
+  "id": 3440,
+  "name": "Track LLM Token Costs per Customer Using the Langchain Code Node ",
+  "description": "\n\nNote: This template only works for self-hosted n8n.\n\nThis n8n template demonstrates how to use the Langchain code node to track token usage and cost for every LLM call.\n\nThis is useful if your templates handle multiple clients or customers and you need a cheap and easy way to capture how much of your AI credits they are using.\n\nHow it works\nIn our mock AI service, we're offering a data conversion API to convert Resume PDFs into JSON documents.\nA form trigger is used to allow for PDF upload and the file is parsed using the Extract from File node.\nAn Edit Fields node is used to capture additional variables to send to our log.\nNext, we use the Information Extractor node to organise the Resume data into the given JSON schema.\nThe LLM subnode attached to the Information Extractor is a custom one we've built using the Langchain Code node.\nWith our custom LLM subnode, we're able to capture the usage metadata using lifecycle hooks.\nWe've also attached a Google Sheet tool to our LLM subnode, allowing us to send our usage metadata to a google sheet.\nFinally, we demonstrate how you can aggregate from the google sheet to understand how much AI tokens/costs your clients are liable for.\n\n\nCheck out the example Client Usage Log - https://docs.google.com/spreadsheets/d/1AR5mrxz2S6PjAKVM0edNG-YVEc6zKL7aUxHxVcffnlw/edit?usp=sharing\n\nHow to use\nSELF-HOSTED N8N ONLY** - the Langchain Code node is only available in the self-hosted version of n8n. It is not available in n8n cloud.\nThe LLM subnode can only be attached to non-\"AI agent\" nodes; Basic LLM node, Information Extractor, Question & Answer Chain, Sentiment Analysis, Summarization Chain and Text Classifier.\n\nRequirements\nSelf-hosted version of n8n \nOpenAI for LLM\nGoogle Sheets to store usage metadata\n\nCustomising this template\nBring the custom LLM subnode into your own templates! In many cases, it can be a drop-in replacement for the regular OpenAI subnode.\nNot using Google Sheets? Try other databases or a HTTP call to pipe into your CRM.",
+  "totalViews": 116,
+  "source": "official",
+  "user": {
+    "id": 91804,
+    "name": "Jimleuk",
+    "username": "jimleuk",
+    "bio": "Freelance consultant based in the UK specialising in AI-powered automations. I work with select clients tackling their most challenging projects. For business enquiries, send me an email at hello@jimle.uk\n\nLinkedIn: https://www.linkedin.com/in/jimleuk/\nX/Twitter: https://x.com/jimle_uk",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4ab99e51473df76838beeaac908747f7928c625f869794815cabe34016967d51?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "LangChain Code",
+      "type": "@n8n/n8n-nodes-langchain.code",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Miscellaneous"
+        ]
+      }
+    },
+    {
+      "name": "Information Extractor",
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-04-05T10:50:28.430Z",
+  "path": "official/template_3440/workflow.json"
+}

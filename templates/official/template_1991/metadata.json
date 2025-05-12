@@ -1,0 +1,52 @@
+{
+  "id": 1991,
+  "name": "Analyze Email Headers for IPs and Spoofing",
+  "description": "This n8n workflow is designed to analyze email headers received via a webhook. The workflow splits into two main paths based on the presence of the received and authentication results headers.\n\nIn the first path, if received headers are present, the workflow extracts IP addresses from these headers and then queries the IP Quality Score API to gather information about the IP addresses, including fraud score, abuse history, organization, and more. Geolocation data is also obtained from the IP-API API. The workflow collects and aggregates this information for each IP address.\n\nIn the second path, if authentication-results headers are present, the workflow extracts SPF, DKIM, and DMARC authentication results. It then evaluates these results and sets fields accordingly (e.g., SPF pass/fail/neutral).\n\nThe paths merge their results, and the workflow responds to the original webhook with the aggregated analysis, including IP information and authentication results.\n\nPotential issues during setup include ensuring proper configuration of the webhook calls with header authentication, handling authentication and API keys for the IP Quality Score API, and addressing any discrepancies or errors in the logic nodes, such as handling SPF, DKIM, and DMARC results correctly. Additionally, thorough testing with various email header formats is essential to ensure accurate analysis and response.",
+  "totalViews": 4295,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2023-11-27T12:12:10.798Z",
+  "path": "official/template_1991/workflow.json"
+}

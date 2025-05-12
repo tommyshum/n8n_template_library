@@ -1,0 +1,38 @@
+{
+  "id": 3072,
+  "name": "Send Voice Calls in seconds: Automate Text-To-Speech using ClickSend API",
+  "description": "This workflow automates the process of sending text-to-speech (TTS) voice calls using API. It allows users to submit a form with the message content, recipient's phone number, voice type, and language, and then sends a voice call with the provided text. \n\nThis workflow is a simple yet powerful way to automate text-to-speech voice calls using API. It’s ideal for notifications, reminders, or any scenario where voice communication is needed.\n\nBelow is a breakdown of the workflow:\n\n1. How It Works\nThe workflow is designed to send voice calls with text-to-speech functionality. Here's how it works:\n\nForm Submission:\n   The workflow starts with a Form Trigger node, where users submit a form with the following fields:\n     Body: The text message to be converted to speech (max 600 characters).\n     To: The recipient's phone number (including the international prefix, e.g., +39xxxxxxxxxx).\n     Voice: The voice type (male or female).\n     Lang: The language for the voice call (e.g., en-us, it-it, fr-fr, etc.).\n   Once the form is submitted, the workflow is triggered.\n\nSend Voice Call:\n   The Send Voice node sends a POST request to the ClickSend API (https://rest.clicksend.com/v3/voice/send).\n   The request includes:\n     The text message (Body) to be converted to speech.\n     The recipient's phone number (To).\n     The voice type (Voice).\n     The language (Lang).\n     Machine detection is enabled to detect if the call is answered by a machine.\n   The API processes the request and initiates a voice call to the specified number, where the text is read aloud by the selected voice.\n\nOutcome:\n   The recipient receives a voice call, and the submitted text is read aloud in the chosen voice and language.\n\n2. Set Up Steps\nTo set up and use this workflow in n8n, follow these steps:\n\nRegister on ClickSend:\n   Go to ClickSend and create an account.\n   Obtain your API Key and take advantage of the 2 € free credits provided.\n\nConfigure ClickSend API in n8n:\n   In the Send Voice node, set up HTTP Basic Authentication:\n     Username: Use the username you registered with on ClickSend.\n     Password: Use the API Key provided by ClickSend.\n\nSet Up the Form Trigger:\n   The Form Trigger node is pre-configured with fields for:\n     Body: The text message to be converted to speech.\n     To: The recipient's phone number.\n     Voice: Choose between male or female voice.\n     Lang: Select the language for the voice call.\n   Customize the form fields if needed (e.g., add more languages or voice options).\n\nTest the Workflow:\n   Submit the form with the required details (text, phone number, voice, and language).\n   The workflow will send a voice call to the specified number, and the recipient will hear the text read aloud.\n\nOptional Customization:\n   Modify the workflow to include additional features, such as:\n     Adding more languages or voice options.\n     Sending multiple voice calls in bulk.\n     Integrating with other APIs or services for advanced use cases.\n",
+  "totalViews": 1676,
+  "source": "official",
+  "user": {
+    "id": 92207,
+    "name": "Davide",
+    "username": "n3witalia",
+    "bio": "Full-stack Web Developer based in Italy specialising in Marketing & AI-powered automations. For business enquiries, send me an email at info@n3w.it or add me on Linkedin.com/in/davideboizza",
+    "verified": true,
+    "links": "[\"https://n3w.it\"]",
+    "avatar": "https://gravatar.com/avatar/d41b8a0aa81139243509c58870f5b4be292824a507ab57d10ed066d8628ed8da?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-03-03T15:19:31.178Z",
+  "path": "official/template_3072/workflow.json"
+}

@@ -1,0 +1,109 @@
+{
+  "id": 3069,
+  "name": "Analyze Meta Ad Library Video Ads with Gemini and store results in Google Sheets",
+  "description": "Meta Ads Analyzer\n\nThis n8n template builds an automated system to scrape, analyze, and extract insights from Meta advertising content. The workflow uses AI to perform deep analysis of video ads and organize the results in a structured format.\n\nHow it works\nThe workflow connects to Facebook's Ad Library to scrape video ads based on a specified page ID.\nVideos are filtered by reach and processed through Google's Gemini AI to analyze their content.\nEach video is systematically analyzed for its hook, transcript, advertising format, concept, and narrative structure.\nResults are processed through an AI agent that structures the data into standardized fields.\nAll analysis is saved to a Google Sheet for easy access and further processing.\n\nHow to use\nOnce you've set up your Credentials and configured the output:\nConfigure the Google Sheets connection for data output.\nSpecify the Meta Ad Library URL you want to analyze.\nAdjust the maximum number of ads to scrape and analyze based on your needs.\nClick \"Test Workflow\" to start the analysis process.\n\nRequirements\nApify account (for Meta Ad Library scraping)\nGoogle Gemini \nGoogle Sheets \n\nCustomizing this workflow\nModify the AI prompts in the Settings node to extract different information from the videos.\nAdjust the output formats in the AI Agent and Structured Output Parser nodes.\nChange the Google Sheets mapping to match your desired output structure.\nIncrease the number of ads analyzed for more comprehensive research.",
+  "totalViews": 1123,
+  "source": "official",
+  "user": {
+    "id": 93016,
+    "name": "Daniel Setzermann",
+    "username": "danielsetzermann",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/cc0c0344efbf422cf0a665550834dc278a15ad8a89659c5a72665296f44dd141?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-03-03T12:43:59.853Z",
+  "path": "official/template_3069/workflow.json"
+}

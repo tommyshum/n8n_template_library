@@ -1,0 +1,53 @@
+{
+  "id": 1570,
+  "name": "Uploading a file to a Slack channel",
+  "description": "This workflow shows you how to post a message to a Slack channel and add a file attachment. It also shows you the general pattern for working with Binary data in n8n (any file like a PDF, Image etc).\n\n\nSpecifically, this workflow shows how to download a file from a URL into your workflow, and then upload it to Slack.\n\nVideo walkthrough\nWatch this 3 min Loom video for a walkthrough and more context on this general pattern:\n\n\n",
+  "totalViews": 1916,
+  "source": "official",
+  "user": {
+    "id": 3420,
+    "name": "Max Tkacz",
+    "username": "maxt",
+    "bio": "Design @ n8n",
+    "verified": true,
+    "links": "[\"https://n8n.io\"]",
+    "avatar": "https://gravatar.com/avatar/4eca9c29591ed5132a4c192e7447d9a42f5ae70f6ca2dbf89c15113e195a810b?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2022-04-01T14:40:59.489Z",
+  "path": "official/template_1570/workflow.json"
+}

@@ -1,0 +1,32 @@
+{
+  "id": 2886,
+  "name": "Backup all n8n workflows to Google Drive every 4 hours",
+  "description": "This workflow takes off the task of backing up workflows regularly on Github and uses Google Drive as the main tool to host these. \n\nThis can be a good way to keep track of your workflows so that you never lose any workflows in case your n8n goes down.\n\nHow does it work\n\nCreates a new folder within a specified folder with the time its backed up\nLoops around all workflows, converts them to a JSON file and uploads them to the created folder\nGets the previous backups and deletes them\n\nThis has a clean feel and look as it simplifies the backup while not keeping a cache of workflows on your drive.\n\nSetup\n\nCreate a new folder\nCreate new service account credentials\nShare the folder with the service account email\nUpload this workflow to your canvas and map the credentials\nSet the schedule that you need your workflows to run and manage your backups\nActivate the workflow\n\nHappy Productivity!\n\n@Imperol",
+  "totalViews": 3698,
+  "source": "official",
+  "user": {
+    "id": 91335,
+    "name": "Imperol",
+    "username": "imperolq",
+    "bio": "Automation expert with years of experience helping businesses improve their efficiency and productivity with smart automations that are affordable, scalable, and flexible. ",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/zacharia-kimotho/\"]",
+    "avatar": "https://gravatar.com/avatar/13b050fd63dc0c9242774c4b8769c4788df8b47268c1fb183d6f1da085b9e6e2?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-02-12T04:51:48.065Z",
+  "path": "official/template_2886/workflow.json"
+}

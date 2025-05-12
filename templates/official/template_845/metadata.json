@@ -1,0 +1,32 @@
+{
+  "id": 845,
+  "name": "Receive messages from a queue via RabbitMQ and send an SMS",
+  "description": "This workflow allows you to receive messages from a queue via RabbitMQ and send an SMS.\n\n",
+  "totalViews": 2558,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication"
+  ],
+  "nodes": [
+    {
+      "name": "Vonage",
+      "type": "n8n-nodes-base.vonage",
+      "categories": [
+        "Communication"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2020-12-24T12:06:51.022Z",
+  "path": "official/template_845/workflow.json"
+}

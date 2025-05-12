@@ -1,0 +1,98 @@
+{
+  "id": 3489,
+  "name": "🧠 Build AI Agents with Think-Plan-Act Architecture Using Llama-4 Reasoning",
+  "description": "\n\n🧠 A plug-and-play n8n workflow that adds LLM-powered reasoning, planning, and action to your automations — with prompts, schemas, and full agent logic included.\n\nEver wish your n8n flows could think before they act?\n\nNow they can. Say hello to the ultimate agent-based upgrade:\n\n\"Think → Plan → Act\" – fully automated. Fully intelligent.⚡\n\n🧩 What Is This?\nThis product is a ready-to-use AI-powered workflow template for n8n, featuring a smart “Thinking Agent” that:\n\n🧠 Analyzes tasks\n📋 Generates a step-by-step plan\n🛠️ Executes actions intelligently\n🧾 Returns structured JSON outputs for your next steps\n\nInspired by the Hugging Face agent architecture, this template gives your automations a brain before they press the red button. 🔴✅\n\nA clean 2-step process:\nTHINK mode → Generates structured reasoning (goal, subgoals, tools, assumptions)\nACT mode → Executes subgoals step-by-step using tools and AI.\n\n🧬 What's Inside?\nThis isn’t just a flow — it’s a framework. You get:\n🔹 Modular Agent Loop\n🔹 A demonstration workflow\n\n📝 Requirements\n🔹 OpenRouter API Key (or any other provider like OpenAI, groq...)\n\n🔹 Built-in Parsers\n🧾 Structured JSON parser for reliable outputs\n🪄 Natural language and unstructured parsing fallback\n\n🛠️ Plug in your own goals, tools, and OpenRouter keys\n\n📦 Includes a demo (e.g., “get the weather”) to get started fast\n\n💡 Why You'll Love It\n✅ Plug & Play – Drop into any existing n8n flow\n✅ Tool-Aware Reasoning – Plans include which tool to use and why\n✅ Composable – Build workflows like agents: Reason → Plan → Execute\n✅ Customizable by anyone – Even your intern can tweak the prompts\n\n⚙️ Agent customization\n🔹 Feel free to customize the agent settings by changing the Config node. Here's the default configuration:\n\nconst config = {\n  THINK: {\n    CONTEXT: ``, // Add the necessary context to the AI.\n    CONSTRAINTS: [Rule 1, Rule 2], // here are the rules that your AI should follow\n    TOOLS: [\n      {\n        tool: \"\",\n        description: \"\",\n      },\n    ], // add here the list of the tools that the AI will call in your backend or workflow.\n  },\n};\n\nreturn {\n  json: {\n    config: config,\n    input: $input.last().json,\n  },\n};\nAfter updating the configuration file, you will see the AI reasoning for your input. Feel free to connect with any other node creating smart tasks!",
+  "totalViews": 219,
+  "source": "official",
+  "user": {
+    "id": 93684,
+    "name": "Lucas Dias",
+    "username": "devreis",
+    "bio": "Senior Full Stack engineer with more than 13y of building web applications.",
+    "verified": false,
+    "links": "[\"https://x.com/dev_reis\"]",
+    "avatar": "https://gravatar.com/avatar/4a25c01ab18ae2fb2745ab99914bde58c25ea60cf4f6bce6c76d7dbd67caa400?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Auto-fixing Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "OpenRouter Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-04-08T21:26:21.801Z",
+  "path": "official/template_3489/workflow.json"
+}

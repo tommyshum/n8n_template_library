@@ -1,0 +1,135 @@
+{
+  "id": 2161,
+  "name": "AI-powered WooCommerce Support-Agent",
+  "description": "With this workflow you get a fully automated AI powered Support-Agent for your WooCommerce webshop. It allows customers to request information about things like:\nthe status of their order\nthe ordered products\nshipping and billing address\ncurrent DHL shipping status\n\nHow it works\n\nThe workflow receives chat messages from an in a website integrated chat. For security and data-privacy reasons, does the website transmit the email address of the user encrypted with the requests. That ensures that user can just request the information about their own orders.\n\nAn AI agent with a custom tool supplies the needed information. The tool calls a sub-workflow (in this case, in the same workflow for convenience) to retrieve the required information. This includes the full information of past orders plus the shipping information from DHL.\nIf otherr shipping providers are used it should be simple to adjust the workflow to query information from other APIs like UPS, Fedex or others. ",
+  "totalViews": 13903,
+  "source": "official",
+  "user": {
+    "id": 8,
+    "name": "Jan Oberhauser",
+    "username": "jan",
+    "bio": "Founder/CEO of n8n",
+    "verified": true,
+    "links": "[\"https://twitter.com/JanOberhauser\"]",
+    "avatar": "https://gravatar.com/avatar/457e4b99bfbbb2d3fb5b045a6d80165b3bc80dc3ff24306ac18fd1180e257786?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Sales",
+    "Miscellaneous",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "WooCommerce",
+      "type": "n8n-nodes-base.wooCommerce",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "DHL",
+      "type": "n8n-nodes-base.dhl",
+      "categories": [
+        "Miscellaneous"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 8,
+  "createdAt": "2024-03-05T08:57:26.120Z",
+  "path": "official/template_2161/workflow.json"
+}

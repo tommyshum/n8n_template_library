@@ -1,0 +1,32 @@
+{
+  "id": 2075,
+  "name": "Nightly n8n backup to Dropbox",
+  "description": "This template will create a nightly backup of all your n8n workflows to a Dropbox folder. Each night, the previous night's backups are moved into an \"old\" folder, and renamed with the date they were taken.\n\nBackups over a specified age are deleted. (this is disabled by default for safety until you manually enable and verify it with your own setup)\n\nPrerequisites\nDropbox account and credentials\nA destination folder for backups\n\nSetup\nUpdate all dropbox nodes with your credential\nEdit the Schedule Trigger node with the desired time to run the backup\nEdit the DESTINATION FOLDER node to specify the path in dropbox to upload to. This should be a folder and include the trailing /\nIf you want to automatically purge old backups\n\tEdit the PURGE DAYS node to specify the age to purge\n\tEnable the PURGE DAYS node, and the 3 subsequent nodes\nEnable the workflow to run on the specified schedule\n\n",
+  "totalViews": 5877,
+  "source": "official",
+  "user": {
+    "id": 91413,
+    "name": "Joey D’Anna",
+    "username": "jdana",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://twitter.com/joeydanna\"]",
+    "avatar": "https://gravatar.com/avatar/e72923eb7b6fddc64bafeb6b1911939d6047a6ec3cf4143054d6753df7d54e29?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "Dropbox",
+      "type": "n8n-nodes-base.dropbox",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-01-30T18:55:11.856Z",
+  "path": "official/template_2075/workflow.json"
+}

@@ -1,0 +1,121 @@
+{
+  "id": 2415,
+  "name": "Notion AI Assistant Generator",
+  "description": "This n8n workflow template lets teams easily generate a custom AI chat assistant based on the schema of any Notion database. Simply provide the Notion database URL, and the workflow downloads the schema and creates a tailored AI assistant designed to interact with that specific database structure.\n\nSet Up\nWatch this quick set up video 👇\n\nKey Features\nInstant Assistant Generation**: Enter a Notion database URL, and the workflow produces an AI assistant configured to the database schema.\nAdvanced Querying**: The assistant performs flexible queries, filtering records by multiple fields (e.g., tags, names). It can also search inside Notion pages to pull relevant content from specific blocks.\nSchema Awareness**: Understands and interacts with various Notion column types like text, dates, and tags for accurate responses.\nReference Links**: Each query returns direct links to the exact Notion pages that inform the assistant’s response, promoting transparency and easy access.\nSelf-Validation**: The workflow has logic to check the generated assistant, and if any errors are detected, it reruns the agent to fix them.\n\nIdeal for\nProduct Managers**: Easily access and query product data across Notion databases.\nSupport Teams**: Quickly search through knowledge bases for precise information to enhance support accuracy.\nOperations Teams**: Streamline access to HR, finance, or logistics data for fast, efficient retrieval.\nData Teams**: Automate large dataset queries across multiple properties and records.\n\nHow It Works\nThis AI assistant leverages two HTTP request tools—one for querying the Notion database and another for retrieving data within individual pages. It’s powered by the Anthropic LLM (or can be swapped for GPT-4) and always provides reference links for added transparency.\n",
+  "totalViews": 34403,
+  "source": "official",
+  "user": {
+    "id": 91246,
+    "name": "Max Tkacz",
+    "username": "max-n8n",
+    "bio": "Principal Product Designer @ n8n",
+    "verified": true,
+    "links": "[\"https://n8n.io\"]",
+    "avatar": "https://gravatar.com/avatar/c8f1965a9ff2bef51826e127081be880010ce5f0e3a3fc8ffd54e944d58bd2df?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Anthropic Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Auto-fixing Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Text Classifier",
+      "type": "@n8n/n8n-nodes-langchain.textClassifier",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2024-09-16T12:56:40.493Z",
+  "path": "official/template_2415/workflow.json"
+}

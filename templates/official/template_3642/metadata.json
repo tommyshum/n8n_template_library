@@ -1,0 +1,111 @@
+{
+  "id": 3642,
+  "name": "Customer Feedback Analysis with AI, QuickChart & HTML Report Generator",
+  "description": "Generative Customer Insights from Feedback Data using AI Agents & Charts\n\nThis workflow automates the analysis of customer feedback or social media data from Google Sheets using DeepSeek LLM, transforming raw text into structured semantic insights. The workflow also generates data visualizations and produces a final HTML report, ready for email delivery.\n\nTable of Contents\nWhat This Workflow Does\nPre-conditions and Requirements\nStep-by-Step Workflow Explanation\nExample Results\nCustomization Guide\n\nWhat This Workflow Does\n\nThis workflow performs automated semantic analysis on unstructured feedback data (from Google Sheets), using LLM-based agents and a sequence of transformations. It achieves:\n\nPrompt proposal generation**: AI generates generalizable prompts for various analysis dimensions.\nRow-level analysis**: Each row of data is evaluated against all prompts.\nOutput merging and refinement**: Raw analysis outputs are merged, deduplicated, and semantically clustered.\nVisualization and report generation**: QuickChart is used to create graphs, and an HTML report is produced.\nEmail delivery**: The full report is sent automatically via Gmail.\n\nPre-conditions and Requirements\n\nAPI Keys**\n  DeepSeek API Key\n  Gmail OAuth2 (for sending results)\n\nGoogle Sheet Access**\n  A preformatted Google Sheet containing social listening feedback\n  The sheet must include at least 20 rows for sample prompt generation\n\nn8n Configuration**\n  Nodes used: Google Sheets, LangChain (LLM/Agent/Parser), Function, Merge, QuickChart (via URL), Gmail\n  Ensure all credentials are configured properly in n8n’s credential manager\n\nStep-by-Step Workflow Explanation\n\nGoogle Sheet Import\n   Retrieves feedback rows from a specific Google Sheet tab\n   Filters to the first 20 rows for prompt generation\n\nPrompt Proposal Agent\n   AI generates 3–6 row-level analysis prompts in a structured JSON format\n   Prompts must be agnostic to product names and column headers\n\nPrompt Injection and Pairing\n   Each row is paired with all prompts\n   Combined into a single dataset for row-by-row LLM evaluation\n\nFirst Iteration of Analysis\n   An LLM answers all injected prompts row-by-row\n   Output is parsed and transformed into structured fields\n\nSemantic Merging and Refinement\n   Merged lists of values from all rows\n   AI clusters synonyms and regenerates improved prompt definitions\n\nSecond Iteration of Analysis\n   The refined prompts are used to re-analyze each row\n   A new structured output per row is generated and merged into one object\n\nSummarization and Visualization\n   AI generates summaries per dimension (e.g., sentiment)\n   QuickChart visualizations are created and URL-encoded\n   Cross-dimensional insights and a global narrative are generated\n\nFinal Report Generation and Emailing\n   A final HTML report is generated\n   Sent to the specified email using Gmail node\n\nExample Results\n\nCustomization Guide\n\n1. Modify Data Source\nChange the Google Sheet ID or sheet tab\nAdd filters for specific time periods or product names\n\n2. Adjust Prompt Definitions\nRefine the initial prompt agent instruction to tailor the type of analysis\n\n3. Swap LLM Models\nReplace DeepSeek with OpenAI or another LLM via LangChain nodes\n\n4. Visual Styling\nCustomize QuickChart configurations to adjust chart types, colors, legends\n\n5. Report Format\nUpdate the final HTML prompt to reflect brand design or restructure sections\n\n6. Add Report Destinations\nReplace Gmail with Google Drive upload, Notion page creation, or Slack post\n\nThis end-to-end AI-powered social listening workflow enables scalable, repeatable, and customizable insights generation from unstructured customer feedback.",
+  "totalViews": 476,
+  "source": "official",
+  "user": {
+    "id": 92736,
+    "name": "hippolyte-hu",
+    "username": "hippolyte-hu",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/50c235b82d1a4f0d0c1a50338c1c84780db38e2846daad908ca00999151a69e5?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Communication",
+    "HITL",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-04-21T15:24:43.394Z",
+  "path": "official/template_3642/workflow.json"
+}

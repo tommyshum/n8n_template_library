@@ -1,0 +1,48 @@
+{
+  "id": 2979,
+  "name": "Bulk File Upload to Google Drive with Folder Management",
+  "description": "🗂️ Bulk File Upload to Google Drive with Folder Management\n\nHow it works\nUser submits files and target folder name via form\nWorkflow checks if folder exists in Drive\nCreates folder if needed or uses existing one\nProcesses and uploads all files maintaining structure\n\nSet up steps (Est. 10-15 mins)\nSet up Google Drive credentials in n8n\nReplace parent folder ID in search query with your Drive folder ID\nConfigure form node with:\n   Multiple file upload field\n   Folder name text field\nTest workflow with sample files\n\n💡 Detailed configuration steps and patterns are documented in sticky notes within the workflow.\n\nPerfect for:\nBulk file organization\nAutomated Drive folder management\nFile upload automation\nMaintaining consistent file structures\n",
+  "totalViews": 3783,
+  "source": "official",
+  "user": {
+    "id": 92760,
+    "name": "Julian Kaiser",
+    "username": "jksr",
+    "bio": "Full Stack Developer turned AI & Automation Engineer, implementing intelligent solutions with custom code, LLMs & n8n. Use my link to book a free 30-minute call to discuss your AI challenges and see if my services might be a good fit for your needs.",
+    "verified": true,
+    "links": "[\"https://juliankaiser.neetocal.com/introduction-call\"]",
+    "avatar": "https://gravatar.com/avatar/b8108390ad4740aaba8fd05c203fc1d9418524cebf94cc2b9966a28b52120563?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-02-22T18:31:11.835Z",
+  "path": "official/template_2979/workflow.json"
+}

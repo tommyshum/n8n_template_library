@@ -1,0 +1,73 @@
+{
+  "id": 3794,
+  "name": "Automate Solar Lead Qualification & Follow-ups with Google Sheets and Gmail",
+  "description": "Automate Solar Lead Qualification & Follow-ups with Google Sheets and Gmail\n\nNote: This template is designed for self-hosted n8n instances. The workflow image above shows the complete automation flow.\n\nThis n8n workflow automates the entire solar lead qualification process - from capturing lead information through a webhook, storing data in Google Sheets, evaluating qualification criteria, and sending personalized email follow-ups based on qualification status.\n\nWho is this for?\n\nThis workflow is designed for:\n\nSolar installation companies\nSolar sales teams\nRenewable energy consultants\nLead generation specialists in the solar industry\n\nWhat problem does this workflow solve?\n\nManaging solar leads efficiently can be challenging. This workflow solves several key pain points:\n\nTime-consuming manual lead qualification: Automatically evaluates leads against predefined criteria\nInconsistent follow-up: Ensures every lead receives a timely, personalized response\nDocument management: Securely stores and shares utility bill documents\nLead tracking inefficiency: Centralizes lead data in Google Sheets with qualification status\n\nWhat this workflow does\n\nThis workflow creates a complete solar lead management system that:\n\nCaptures lead information through a webhook endpoint\nSecurely stores utility bill uploads in Google Drive\nRecords all lead data in Google Sheets\nAutomatically evaluates leads based on three qualification criteria:\n   Homeownership status\n   Credit score (must be 650+)\n   Absence of trees on roof\nUpdates qualification status in the Google Sheet\nSends personalized email follow-ups based on qualification status:\n   Qualified leads receive a congratulatory email with next steps\n   Disqualified leads receive helpful information about why they didn't qualify and suggestions for remediation\n\nSetup\n\nPrerequisites\n\nBefore setting up this workflow, you'll need:\n\nA self-hosted n8n instance\nGoogle account with access to:\n   Google Sheets\n   Google Drive\n   Gmail\nA form on your website that can make POST requests to a webhook\n\nStep 1: Google Sheets Setup\n\nCreate a new Google Sheet for storing leads\nAdd the following columns in the first row (exact naming is important):\n   Name\n   Address\n   Has Trees on Roof\n   credit score\n   phone\n   Zip code\n   Email\n   Homeowner\n   utility bill\n   Qualification status\n   Disqualification reason\n\nStep 2: Google Drive Setup\n\nSign in to your Google Drive account\nCreate a folder named \"Solar Lead Utility Bills\" (or your preferred name)\nRight-click on the folder and select \"Share\"\nSet permissions to \"Anyone with the link can view\"\nNote the folder ID from the URL for configuration (the long string after /folders/ in the URL)\n\nStep 3: Configure Google Credentials in n8n\n\nIn your n8n instance, go to Settings → Credentials\nAdd credentials for:\n   Google Sheets: Create new credentials, follow OAuth2 authentication\n   Google Drive: Create new credentials, follow OAuth2 authentication\n   Gmail: Create new credentials, follow OAuth2 authentication\nEnsure all credentials have the necessary scopes:\n   Google Sheets: .../auth/spreadsheets\n   Google Drive: .../auth/drive\n   Gmail: .../auth/gmail.send\n\nStep 4: Import and Configure the Workflow\n\nIn n8n, go to Workflows → Import from File\nUpload the workflow JSON file\nUpdate all Google Sheets nodes with your Google Sheet document ID:\n   Open your Google Sheet\n   Copy the ID from the URL (long string between /d/ and /edit)\n   Update the document ID field in the Google Sheets nodes\nIn the \"[STEP 2] Upload Utility Bill\" node, set the folder destination to your created folder\n\nStep 5: Configure the Webhook\n\nActivate the \"[STEP 1] Receive Form Submission\" webhook node\nCopy the generated webhook URL\nConfigure your website form to send data to this URL\nEnsure your form submits the following fields with exact naming:\n   firstName\n   lastName\n   address\n   hasTreesOnRoof\n   creditScore\n   phone\n   zipCode\n   email\n   homeOwnership\n   utilityBill (file upload)\n\nStep 6: Customize Email Templates\n\nOpen the \"[STEP 10A] Send Acceptance Email\" node\nCustomize the email subject and message to match your company's branding\nOpen the \"[STEP 10B] Send Rejection Email\" node\nCustomize the rejection email to reflect your company's voice\n\nStep 7: Activate and Test\n\nClick \"Save\" on the workflow\nToggle the \"Active\" switch to activate the workflow\nSubmit a test lead through your form\nCheck that:\n   The data appears in your Google Sheet\n   The qualification status is updated correctly\n   The appropriate email is sent\n\nHow to customize this workflow to your needs\n\nAdjusting Qualification Criteria\n\nYou can modify the qualification logic in the \"[STEP 7] Check Qualification Criteria\" node:\n\nOpen the node and click the \"Edit Code\" button\nLocate the criteria sections (homeowner, credit score, trees on roof)\nModify the conditions as needed:\n\n// Example: Change credit score threshold\nif (creditScoreRaw.includes(\"600 - 649\") ||\n    creditScoreRaw.includes(\"650 - 689\") ||\n    creditScoreRaw.includes(\"690 - 719\") ||\n    creditScoreRaw.includes(\"720+\")) {\n    creditQualified = true;\n}\n\nAdd additional criteria if needed\n\nCustomizing Email Templates\n\nPersonalize your emails further:\n\nOpen the email nodes\nUse variable references to include more customer data:\n\nDear {{ $json.Name }},\n\nWe noticed your utility bill shows an average of {{ $json.monthlyBill }} per month.\nWith solar, you could save approximately {{ $json.monthlySavings }}.\n\nAdding Integration with CRM Systems\n\nExtend this workflow by connecting it to your CRM:\n\nAdd a Hubspot/Salesforce/etc. node after the \"[STEP 8] Update Qualification Status\" node\nConfigure the node to create or update contacts in your CRM\nMap the lead data fields to your CRM fields\n\nTroubleshooting\n\nCommon Issues\n\nWebhook not receiving data\n   Verify your form is correctly configured to send POST requests\n   Check CORS settings on your website\n   Ensure all required fields are being sent\n\nGoogle Drive upload failing\n   Check Google Drive permissions\n   Verify your OAuth scopes include drive.file\n   Ensure your Drive has sufficient storage space\n\nEmail not sending\n   Verify Gmail credentials\n   Check if Gmail API is enabled in your Google Cloud Console\n   Look for Send Rate Exceeded errors in execution logs\n\nGoogle Sheets Column Format\n\nIf you're having issues with data not appearing correctly:\n\nMake sure the column names exactly match those in the code\nCheck that the Google Sheet permissions allow editing\nVerify the sheet name is correctly referenced in the nodes\n\nGetting Help\n\nIf you encounter issues with this template, you can:\n\nCheck the n8n documentation on webhooks\nReview Google Sheets integration documentation\nPost in the n8n community forum\n\nThis template was created by David Olusola. If you find it helpful, please consider giving it a star in the n8n template library!",
+  "totalViews": 111,
+  "source": "official",
+  "user": {
+    "id": 93916,
+    "name": "David Olusola",
+    "username": "dae221",
+    "bio": "I love building smart, efficient automations with n8n that help businesses save time and scale effortlessly. Turning complex workflows into simple solutions is where I have the most fun",
+    "verified": false,
+    "links": "[\"https://www.linkedin.com/in/david-olusola-892966312/\"]",
+    "avatar": "https://gravatar.com/avatar/2abbc4c9e828c54a8d8838beda1382e8e4a66684ef9fa8451dbeb3e72b0c9f9c?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Communication",
+    "HITL",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-04-29T22:42:19.778Z",
+  "path": "official/template_3794/workflow.json"
+}

@@ -1,0 +1,48 @@
+{
+  "id": 2116,
+  "name": "Verify emails & enrich new form leads and save them to HubSpot",
+  "description": "Use case\nWhen collecting leads via a form you're typically facing a few problems: \nOften end up with a bunch of leads who don't have a valid email address\nYou want to know as much about the new lead as possible but also want to keep the form short\nAfter forms are submitted you have to walk over the submissions and see which you want to add to your CRM\n\nThis workflow helps you to fix all those problems.\nWhat this workflow does\nThe workflow checks every new form submission and verifies the email using Hunter.io. If the email is valid, it then tries to enrich the person using Clearbit and saves the new lead into your Hubspot CRM.\nSetup\nAdd you Hunter, Clearbit and Hubspot credentials\nClick the Test Workflow button, enter your email and check your Hubspot\nActivate the workflow and use the form trigger production URL to collect your leads in a smart way \nHow to adjust it to your needs\nChange the form to the form you need in your use case (e.g. Typeform, Google Forms, SurveyMonkey etc.)\nAdd criteria before an account is added to your CRM. This could for example be the size of company, industry etc. You can find some inspiration in our other template Reach out via Email to new form submissions that meet a certain criteria\nAdd more data sources to save the new lead in",
+  "totalViews": 2683,
+  "source": "official",
+  "user": {
+    "id": 91250,
+    "name": "Niklas Hatje",
+    "username": "nik8n",
+    "bio": "Product Manager at n8n - Responsible for the creator program",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/niklashatje/\"]",
+    "avatar": "https://gravatar.com/avatar/e16a4426e166713c34626bdde856b1cd15bb6787481a7ead9b74318f19e6259d?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Sales"
+  ],
+  "nodes": [
+    {
+      "name": "HubSpot",
+      "type": "n8n-nodes-base.hubspot",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Hunter",
+      "type": "n8n-nodes-base.hunter",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Clearbit",
+      "type": "n8n-nodes-base.clearbit",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-02-22T09:59:02.137Z",
+  "path": "official/template_2116/workflow.json"
+}

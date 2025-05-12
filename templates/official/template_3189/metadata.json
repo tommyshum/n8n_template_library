@@ -1,0 +1,72 @@
+{
+  "id": 3189,
+  "name": "💥🛠️Build a Web Search Chatbot with GPT-4o and MCP Brave Search",
+  "description": "MCP AI Chatbot using Brave Search\n\nDisclaimer:  This workflow only works with local installations of n8n because it uses a community MCP node\n\nWho is this for?\nThis workflow is ideal for developers, automation enthusiasts, and businesses looking to integrate AI-powered chat capabilities into their workflows. It's particularly useful for those leveraging Brave Search and MCP tools to enhance user interactions and streamline data retrieval.\n\nWhat problem is this workflow solving?\nThis workflow addresses the challenge of creating an intelligent chatbot that can process user queries, execute searches using Brave Search, and provide responses enriched by AI. It simplifies the integration of multiple tools into a cohesive system, saving time and effort for users who need a robust conversational AI solution.\n\nWhat this workflow does\nListens for incoming chat messages using the Chat Trigger node.\nProcesses user input with an AI Agent powered by GPT-4o.\nRetrieves relevant tools using the MCP Get Brave Tools node.\nExecutes specific search queries via the MCP Execute Brave Search node.\nMaintains short-term memory of conversations with the Simple Memory node.\n\nSetup\nPrerequisites:\n   Access to an n8n instance (self-hosted).\n   API credentials for OpenAI and MCP Client Tools.\n   Brave Search API key.\n\nSteps:\n   Import the workflow JSON into your n8n instance.\n   Configure the API credentials for OpenAI and MCP Client Tools in their respective nodes.\n   Set up your Brave Search API key in the MCP nodes. https://brave.com/search/api/\n\nTesting:\n   Use the built-in chat interface to send test messages.\n   Verify that the chatbot processes queries and returns results as expected.\n\nHow to customize this workflow to your needs\nModify the AI Agent's prompt settings to tailor responses to your specific use case.\nAdjust the memory buffer in the Simple Memory node to retain more or less conversational context.\nReplace or add additional tools in the MCP nodes to expand functionality.\n",
+  "totalViews": 20705,
+  "source": "official",
+  "user": {
+    "id": 92125,
+    "name": "Joseph LePage",
+    "username": "joe",
+    "bio": "As an AI Automation consultant based in Canada, I partner with forward-thinking organizations to implement AI solutions that streamline operations and drive growth.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/e7ca218dfc87b68344bbd66f40da01546d2f6fc1cf884267821e8a77e3e8410a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-03-17T04:10:26.833Z",
+  "path": "official/template_3189/workflow.json"
+}

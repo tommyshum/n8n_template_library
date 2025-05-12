@@ -1,0 +1,38 @@
+{
+  "id": 2162,
+  "name": "WhatsApp Starter Workflow",
+  "description": "This n8n workflow is designed for working with the WhatsApp Business platform. It allows to send custom replies via WhatsApp in response to incoming user messages. \n\n💡 Take a look at the step-by-step tutorial on how to create a WhatsApp bot.\n\nThe workflow consists of two parts:\n \nThe first Verify webhook sends back verification challenge string. You will need this part during the setup process on the Meta for Developers portal:\n\n \n\nSelect your App\nGo to WhatsApp Configuration\nClick on the Edit button in the Webhook session\nEnter your production webhook URL, provide Verify token (can be any text string)\nRemember to activate the n8n workflow!\nFinally press \"Verify and save\"\n\n\n\nOnce the webhook is verified, the Respond webhook receives various POST requests from Meta regarding WhatsApp messages (user messages and status notifications). \n\nThe workflow checks whether the incoming JSON contains a user message. If this is the case, it sends the text message back to the user. This is a custom message, not a WhatsApp Business template.",
+  "totalViews": 22951,
+  "source": "official",
+  "user": {
+    "id": 91386,
+    "name": "Yulia",
+    "username": "yulia",
+    "bio": "Let's connect! ",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/yulia-dmitrievna-1112361b5/\"]",
+    "avatar": "https://gravatar.com/avatar/d29a8262aa8835d430919f8002957a77169f8da987dee0740aa494ae67a061b7?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "WhatsApp Business Cloud",
+      "type": "n8n-nodes-base.whatsApp",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-03-05T09:28:05.729Z",
+  "path": "official/template_2162/workflow.json"
+}

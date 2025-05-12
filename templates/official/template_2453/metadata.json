@@ -1,0 +1,62 @@
+{
+  "id": 2453,
+  "name": "Telegram Bot with Supabase memory and OpenAI assistant integration",
+  "description": "Video Guide\n\nI prepared a detailed guide that showed the whole process of building an AI bot, from the simplest version to the most complex in a template.\n\n.png)\n\nWho is this for?\n\nThis workflow is ideal for developers, chatbot enthusiasts, and businesses looking to build a dynamic Telegram bot with memory capabilities. The bot leverages OpenAI's assistant to interact with users and stores user data in Supabase for personalized conversations.\n\nWhat problem does this workflow solve?\n\nMany simple chatbots lack context awareness and user memory. This workflow solves that by integrating Supabase to keep track of user sessions (via \nWhat this workflow does\n\nThis Telegram bot template connects with OpenAI to answer user queries while storing and retrieving user information from a Supabase database. The memory component ensures that the bot can reference past interactions, making it suitable for use cases such as customer support, virtual assistants, or any application where context retention is crucial.\n\n1.Receive New Message: The bot listens for incoming messages from users in Telegram.\nCheck User in Database: The workflow checks if the user is already in the Supabase database using the Create New User (if necessary): If the user does not exist, a new record is created in Supabase with the telegram_id and a unique Start or Continue Conversation with OpenAI: Based on the user’s context, the bot either creates a new thread or continues an existing one using the stored Merge Data: User-specific data and conversation context are merged.\nSend and Receive Messages: The message is sent to OpenAI, and the response is received and processed.\nReply to User: The bot sends OpenAI’s response back to the user in Telegram.\n\nSetup\n\nCreate a Telegram Bot using the Botfather and obtain the bot token.\nSet up Supabase:\n\tCreate a new project and generate a \tCreate a new table named create table\n  public.telegram_users (\n    id uuid not null default gen_random_uuid (),\n    date_created timestamp with time zone not null default (now() at time zone 'utc'::text),\n    telegram_id bigint null,\n    openai_thread_id text null,\n    constraint telegram_users_pkey primary key (id)\n  ) tablespace pg_default;\nOpenAI Setup:\n\tCreate an OpenAI assistant and obtain the \tCustomize your assistant’s personality or use cases according to your requirements.\nEnvironment Configuration in n8n:\n\tConfigure the Telegram, Supabase, and OpenAI nodes with the appropriate credentials.\n\tSet up triggers for receiving messages and handling conversation logic.\n\tSet up OpenAI assistant ID in \"++OPENAI - Run assistant++\" node.",
+  "totalViews": 8033,
+  "source": "official",
+  "user": {
+    "id": 92018,
+    "name": "Mark Shcherbakov",
+    "username": "lowcodingdev",
+    "bio": "I am a business analyst with a development background, dedicated to helping small businesses and entrepreneurs leverage cloud services for increased efficiency. My expertise lies in automating manual workflows, integrating data from multiple cloud service providers, creating insightful dashboards, and building custom CRM systems.\n\nhttps://www.linkedin.com/in/marklowcoding/",
+    "verified": true,
+    "links": "[\"https://www.skool.com/5minai-pro\"]",
+    "avatar": "https://gravatar.com/avatar/3055cd5035cfb1030d9d1923b60646d1a156927eead957956bea71f88c5186cd?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Supabase",
+      "type": "n8n-nodes-base.supabase",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-10-06T15:30:16.808Z",
+  "path": "official/template_2453/workflow.json"
+}

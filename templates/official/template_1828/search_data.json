@@ -1,0 +1,78 @@
+{
+  "id": 1828,
+  "name": "Create or update Mautic contact on a new Calendly event",
+  "totalViews": 590,
+  "purchaseUrl": null,
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "description": "This workflow creates or updates a Mautic contact when a new event is scheduled in Calendly. The first name and email address are the only two fields that get updated.\n\nPrerequisites\n\nCalendly account and Calendly credentials.\nMautic account and Mautic credentials.\n\nHow it works\n\nTriggers on a new event in Calendly.\nCreates a new contact in Mautic if the email address does not exist in Mautic.\nUpdates the contact's first name in Mautic if the email address exists in Mautic.",
+  "createdAt": "2022-11-23T10:18:27.105Z",
+  "nodes": [
+    {
+      "id": 126,
+      "icon": "file:mautic.svg",
+      "name": "n8n-nodes-base.mautic",
+      "codex": {
+        "data": {
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/how-a-digital-strategist-uses-n8n-for-online-marketing/",
+                "icon": "💻",
+                "label": "How a digital strategist uses n8n for online marketing"
+              },
+              {
+                "url": "https://n8n.io/blog/how-a-membership-development-manager-automates-his-work-and-investments/",
+                "icon": "📈",
+                "label": "How a Membership Development Manager automates his work and investments"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.mautic/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/mautic/"
+              }
+            ]
+          },
+          "categories": [
+            "Marketing",
+            "Communication"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"output\"]",
+      "defaults": {
+        "name": "Mautic"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSIzNDkuNzc5IiBoZWlnaHQ9IjM0OS43NzkiPjxwYXRoIGZpbGw9IiNGRkYiIGQ9Ik0xNzQuODkgMzQ5Ljc3OUM3OC42MTIgMzQ5Ljc3OSAwIDI3MS40NjIgMCAxNzQuODlTNzguNjEyIDAgMTc0Ljg5IDBjMjMuMjYgMCA0NS45MzEgNC40MTcgNjcuMTI5IDEzLjU0MyA1Ljg4OSAyLjY1IDguODMzIDkuNDIyIDYuNDc4IDE1LjYwNS0yLjY0OSA1Ljg4OC05LjQyMSA4LjgzMy0xNS42MDQgNi40NzctMTguNTQ5LTcuNjU1LTM3Ljk4LTExLjQ4Mi01OC4wMDItMTEuNDgyLTgzLjMyMyAwLTE1MS4wNDEgNjcuNzE4LTE1MS4wNDEgMTUxLjA0MXM2Ny43MTcgMTUxLjA0MSAxNTEuMDQgMTUxLjA0MSAxNTEuMDQxLTY3LjcxOCAxNTEuMDQxLTE1MS4wNDFjMC0xNy45Ni0yLjk0NC0zNS4zMzItOS4xMjctNTEuODE5LTIuMzU1LTYuMTgzLjg4My0xMi45NTUgNy4wNjYtMTUuMzFzMTIuOTU0Ljg4MyAxNS4zMSA3LjA2NmM3LjA2NiAxOS4xMzggMTAuNiAzOS40NTMgMTAuNiA2MC4wNjMtLjAwMSA5NS45ODMtNzguMzE4IDE3NC41OTUtMTc0Ljg5IDE3NC41OTUiLz48cGF0aCBmaWxsPSIjRkRCOTMzIiBkPSJtMjUxLjQ0IDE1Ni45My0yNy4wODYgMjguMjY0IDE1LjAxNSA2My4zMDJoMzQuMTUzem0tMTEuMTg3LTgzLjYxOCA5LjQyMSA5LjQyMi03NC43ODQgNzkuMjAxLTYzLjg5MS02NS42NTgtMzYuODAzIDE1Mi4yMTloMzQuMTU0bDIwLjMxNS04NC41IDQ2LjIyNSA1MC4zNDcgOTguOTI3LTEwNy43NiA5LjQyMiA5LjcxNiA5LjQyMS01My4yOTJ6Ii8+PC9zdmc+"
+      },
+      "displayName": "Mautic",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 6,
+          "name": "Communication"
+        },
+        {
+          "id": 27,
+          "name": "Marketing"
+        }
+      ]
+    }
+  ]
+}

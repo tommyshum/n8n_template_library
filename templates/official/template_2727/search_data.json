@@ -1,0 +1,66 @@
+{
+  "id": 2727,
+  "name": "Display ServiceNow Incident Details in Slack using Slash Commands",
+  "totalViews": 563,
+  "purchaseUrl": null,
+  "user": {
+    "id": 16588,
+    "name": "Angel Menendez",
+    "username": "djangelic",
+    "bio": "Angel Menendez is a Staff Developer Advocate at n8n.io, specializing in low-code tools for cybersecurity workflows. From Puerto Rico, Angel's tech journey began by helping his father translate technical books. He later started a web development business and transitioned from a career as a flight attendant to cybersecurity engineering. His workflows have saved companies significant time. Outside work, Angel enjoys time with his two sons, riding electric bikes, reading, and exploring new places.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/fdbe38425d21378d8c9ba8916e1eb0b320add299f12cc23fcd4961d4e6e00bec?r=pg&d=retro&size=200"
+  },
+  "description": "Who is this for?\nThis workflow is designed for teams using Slack for communication and ServiceNow for incident management. It simplifies incident lookup by enabling team members to fetch incident details directly within Slack via a Slash Command.\n\nWhat problem is this workflow solving?\nManually switching between Slack and ServiceNow to retrieve incident details can be time-consuming and disrupt workflow efficiency. This workflow bridges the two platforms, providing instant access to critical incident information in Slack, saving time, and improving response efficiency.\n\nWhat this workflow does?\nThe workflow listens for a Slash Command in Slack that includes an incident ID, extracts the ID from the incoming payload, queries ServiceNow for the corresponding incident details, and sends a formatted response back to Slack. Depending on the query result, it can:\nDisplay incident details (e.g., ID, description, severity, and priority).\nNotify the user if no matching incident is found.\nAlert the user if there’s an issue connecting to ServiceNow.\n\nSetup\nSlack Setup:\n   Create a Slash Command in Slack with the appropriate endpoint URL.\n   Configure the command to send a POST request to the webhook endpoint of this workflow.\n   For details on how to setup the Slack app using Slash commands and n8n, check out this video. \n\nServiceNow Setup:\n   Create or use an existing account with the necessary permissions to access incident data.\n   Configure the ServiceNow node with your ServiceNow credentials.\n\nn8n Workflow Activation:\n   Deploy and activate the workflow in your n8n instance.\n   Ensure all nodes are properly configured and connected.\n\nHow to customize this workflow to your needs\nModify Incident Query Parameters:** Adjust the query logic in the Search For Incident in ServiceNow node to include additional filters or data points based on your organization’s needs.\nSlack Response Customization:** Customize the Slack response template to display additional incident details or to match your team’s tone and style.\nError Handling:** Enhance the error handling nodes to include more detailed logs or send alerts to a dedicated Slack channel.",
+  "createdAt": "2025-01-14T20:55:38.962Z",
+  "nodes": [
+    {
+      "id": 503,
+      "icon": "file:servicenow.svg",
+      "name": "n8n-nodes-base.serviceNow",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.servicenow/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/serviceNow/"
+              }
+            ]
+          },
+          "categories": [
+            "Productivity",
+            "Communication"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"output\"]",
+      "defaults": {
+        "name": "ServiceNow"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiB2aWV3Qm94PSIwIDAgNjYgNTkiPjx1c2UgeGxpbms6aHJlZj0iI2EiIHg9Ii41IiB5PSIuNSIvPjxzeW1ib2wgaWQ9ImEiIG92ZXJmbG93PSJ2aXNpYmxlIj48cGF0aCBmaWxsPSIjODFiNWExIiBzdHJva2U9Im5vbmUiIGQ9Ik0zMi4xOTYgMEEzMi4yNyAzMi4yNyAwIDAgMCAyLjMxMiAyMC4yNzUgMzIuMjcgMzIuMjcgMCAwIDAgOS45NSA1NS41NzFhNi4zNDYgNi4zNDYgMCAwIDAgOC4yNjQuNDMgMjMuMDMgMjMuMDMgMCAwIDEgMjcuNDQ1IDAgNi4zNjQgNi4zNjQgMCAwIDAgOC4zODktLjQzQTMyLjI3IDMyLjI3IDAgMCAwIDMyLjE5NiAwbS0uMTggNDguMjc1YTE1LjYzIDE1LjYzIDAgMCAxLTE2LjEzMy0xNi4wMjYgMTYuMDQzIDE2LjA0MyAwIDEgMSAzMi4wNjkgMGMuMTE1IDQuMjg0LTEuNTM3IDguNDI4LTQuNTY4IDExLjQ1OHMtNy4xNzQgNC42ODItMTEuNDU4IDQuNTY4Ii8+PC9zeW1ib2w+PC9zdmc+"
+      },
+      "displayName": "ServiceNow",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 4,
+          "name": "Productivity"
+        },
+        {
+          "id": 6,
+          "name": "Communication"
+        }
+      ]
+    }
+  ]
+}

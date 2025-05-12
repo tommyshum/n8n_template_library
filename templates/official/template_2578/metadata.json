@@ -1,0 +1,67 @@
+{
+  "id": 2578,
+  "name": "Linear Project to Productboard feature Sync",
+  "description": "Linear Project Status and End Date to Productboard feature Sync\n\nSync project data between Linear and Productboard to keep teams aligned. This workflow updates Productboard features with the status and end date from Linear projects. It ensures consistent data and sends a Slack notification whenever changes are made.\n\nFeatures\nListens for updates in Linear projects.\nMaps Linear statuses to Productboard feature statuses.\nUpdates Productboard feature details including timeframe.\nSends a Slack notification summarizing the updates.\n\nSetup\nLinear Credentials: Add your Linear API credentials in n8n.  \nProductboard Credentials: Configure the Productboard API credentials in n8n.  \nLinear Projects: Select the Linear project(s) you want to monitor for updates.  \nProductboard Custom Field: Create a custom field in Productboard named \"Linear Project\". This field should store the URL of the Linear project you want to sync. Retrieve the UUID of the custom field in Productboard and set it up in the \"Get Productboard Feature ID\" node.\nSlack Notification: Update the Slack node with the desired Slack channel ID.  \nActivate the Workflow: Enable the workflow to automatically sync data when triggered by updates in Linear.",
+  "totalViews": 305,
+  "source": "official",
+  "user": {
+    "id": 92193,
+    "name": "Romain Jouhannet",
+    "username": "rjouhann",
+    "bio": "Technical Product Manager with a background in software development. Experienced in launching products, leading teams, and creating API-first solutions. Skilled in SaaS, Self-Hosted products, major public clouds, and automation, with a focus on simplifying complex technical concepts for enterprise clients.",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/romainj/\"]",
+    "avatar": "https://gravatar.com/avatar/d85f4c3b78e574e660ecc7f0ad9ffa5151f963e7a2c3d7cbc80c01c2ff01ce30?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-11-26T08:14:27.367Z",
+  "path": "official/template_2578/workflow.json"
+}

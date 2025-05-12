@@ -1,0 +1,85 @@
+{
+  "id": 3583,
+  "name": "High-Level Service Page SEO Blueprint Report Generator",
+  "description": "Introduction\nThe \"High-Level Service Page SEO Blueprint Report\" workflow is a powerful, AI-driven solution designed to generate comprehensive SEO content strategies for service-based businesses.\n\nBy analyzing competitor websites and user intent, this workflow creates a detailed blueprint that outlines the optimal structure, content, and conversion elements for a service page. The workflow leverages the JINA Reader API to extract content from competitor websites and uses Google Gemini AI to perform deep analysis across multiple dimensions: competitor content structure, user intent, strategic opportunities, and conversion optimization.\n\nThe final output is a professionally formatted Markdown document that provides actionable guidance for creating a high-performing service page that satisfies both user needs and search engine requirements. This workflow eliminates the time-consuming process of manually analyzing competitors and developing content strategies, providing a data-driven foundation for service page creation that would typically require hours of expert analysis.\n\nWho is this for?\nThis workflow is designed for digital marketers, SEO specialists, content strategists, and web developers who need to create or optimize service pages for businesses. It's particularly valuable for marketing agencies and freelancers who regularly develop content strategies for clients across various industries. \n\nUsers should have a basic understanding of SEO concepts, content marketing, and website structure. While technical SEO knowledge is beneficial, the workflow is designed to provide comprehensive guidance even for those with intermediate-level expertise. \n\nThe ideal user is someone who wants to streamline their content planning process and ensure their service pages are built on data-driven insights rather than guesswork.\n\nWhat problem is this workflow solving?\nCreating effective service pages that rank well in search engines while converting visitors is a complex challenge that typically requires extensive competitive research, content planning, and conversion optimization expertise. This workflow addresses several key pain points:\n\nTime-consuming competitor analysis: Manually analyzing multiple competitor websites to identify content patterns, heading structures, and meta tag strategies can take hours.\n\nDifficulty identifying content gaps: Determining what topics competitors are missing that could provide a competitive advantage requires deep analysis and industry knowledge.\n\nBalancing SEO and conversion elements: Creating content that satisfies both search engines and user needs while driving conversions is a delicate balance that many struggle to achieve.\n\nLack of structured approach: Many content creators work without a comprehensive blueprint, leading to inconsistent results and missed opportunities.\n\nDifficulty translating analysis into actionable recommendations: Even when analysis is performed, turning those insights into a concrete content plan can be challenging.\n\nThis workflow automates these processes, providing a structured, data-driven approach to service page creation that saves hours of research and planning time.\n\nWhat this workflow does\nOverview\nThe workflow takes a list of competitor URLs and a target keyword as input, then performs a multi-stage analysis to generate a comprehensive service page blueprint. It extracts and analyzes competitor content, evaluates user intent, identifies strategic opportunities, and creates detailed recommendations for page structure, content, and conversion elements. \n\nThe final output is a professionally formatted Markdown document that serves as a complete roadmap for creating an effective service page.\n\nProcess\nData Collection: The workflow begins with a form that collects essential information: competitor URLs, target keyword, services offered, brand name, and whether the page is a homepage.\n\nCompetitor Content Extraction: The workflow processes each competitor URL, using the JINA Reader API to extract the HTML content from each site.\n\nContent Structure Analysis: For each competitor site, the workflow extracts and analyzes heading structures, meta tags, schema markup, and recurring phrases (n-grams).\n\nCompetitor Analysis Report: The AI synthesizes the competitive data to identify patterns in meta titles/descriptions, common outline sections, key heading concepts, and structural elements.\n\nUser Intent Analysis: The workflow analyzes the target keyword to determine primary and secondary user intents, user personas, and their position in the buyer's journey.\n\nGap Analysis: The AI identifies content overlaps (\"table stakes\"), content gaps (opportunities), SEO keyword priorities, and potential UX/conversion advantages.\n\nPage Outline Generation: Based on the previous analyses, the workflow creates an optimal page structure with H1, H2s, H3s, and potentially H4s, with justifications for each section.\n\nUX & Conversion Recommendations: The workflow adds detailed recommendations for calls-to-action, trust signals, copywriting tone, visual elements, and risk reversal strategies.\n\nFinal Blueprint Creation: All analyses and recommendations are compiled into a comprehensive, well-structured Markdown document that serves as a complete service page blueprint.\n\nSetup\nDownload or import the \"High-Level Service Page SEO Blueprint Report\" workflow JSON file into your n8n instance.\n\nCreate a JINA Reader API key by visiting https://jina.ai/api-dashboard/key-manager. You can claim a free API key that allows up to 1 million tokens.\n\nSet up Google Gemini (PaLM) credentials by following the guide at https://docs.n8n.io/integrations/builtin/credentials/googleai/#using-geminipalm-api-key.\n\nUpdate the \"Edit Fields\" node with:\n   Your JINA Reader API Key\n   Adjust the \"Waiting Time\" to 20 seconds if using the free Google Gemini API tier (which limits to 5 requests per minute)\n   Optionally change the Gemini model if needed\n\nActivate the workflow and start the form trigger.\n\nComplete the form with:\n   Competitors (up to 5 direct competitor URLs)\n   Target Keyword (the query related to your service)\n   Services Offered (details of your complete service offerings)\n   Brand Name (your company name)\n   Whether the page is a homepage\n\nAfter processing, download the generated .txt file, which contains the blueprint in Markdown format.\n\nHow to customize this workflow to your needs\nAdjust AI parameters: Modify the temperature settings in the Google Gemini Chat Model nodes to control creativity vs. precision in the AI outputs.\n\nCustomize extraction logic: Edit the \"Extract HTML Elements\" code node to focus on specific HTML elements that are most relevant to your industry or content type.\n\nModify analysis prompts: Customize the prompts in the various analysis nodes to focus on specific aspects of SEO or content strategy that are most important for your use case.\n\nAdd industry-specific guidance: Enhance the prompts with industry-specific instructions or examples to make the output more relevant to particular sectors.\n\nIntegrate with content management systems: Extend the workflow to automatically send the blueprint to content management systems, project management tools, or document storage platforms.\n\nAdd competitor scoring: Implement a scoring system to evaluate and rank competitors based on specific criteria relevant to your strategy.\n\nExpand the analysis: Add additional analysis nodes to evaluate other aspects of competitor websites, such as page speed, mobile-friendliness, or backlink profiles.",
+  "totalViews": 5942,
+  "source": "official",
+  "user": {
+    "id": 93195,
+    "name": "Custom Workflows AI",
+    "username": "customworkflowsai",
+    "bio": "We specializes in crafting tailored automation solutions that help businesses streamline their operations and boost productivity. With expertise in creating custom n8n workflows, we transform complex business processes into seamless, automated systems that save time and reduce manual effort.",
+    "verified": true,
+    "links": "[\"https://customworkflows.ai\"]",
+    "avatar": "https://gravatar.com/avatar/8b94720cd9c980204474d25605eb1bd96393f7e0bf0cb9c6e2b36b92262fa778?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-04-17T10:36:18.449Z",
+  "path": "official/template_3583/workflow.json"
+}

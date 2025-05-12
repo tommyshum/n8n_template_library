@@ -1,0 +1,32 @@
+{
+  "id": 1039,
+  "name": "Send a message on Mattermost when you get a reply in Emelia",
+  "description": "This workflow allows you to send a message on Mattermost when a lead replies to your email.\n\n\n\nEmelia Trigger node: The Emelia Trigger node will trigger the workflow when a lead sends a reply to a campaign\n\nMattermost node: This node will send a message to the Leads channel in Mattermost with the information about the reply. Based on your use case, you may want to send the message to a different channel. You may even want to use a different service. Replace the node with the service where you want to send a message.",
+  "totalViews": 323,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication"
+  ],
+  "nodes": [
+    {
+      "name": "Mattermost",
+      "type": "n8n-nodes-base.mattermost",
+      "categories": [
+        "Communication"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2021-04-14T12:18:51.002Z",
+  "path": "official/template_1039/workflow.json"
+}

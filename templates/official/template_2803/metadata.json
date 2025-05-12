@@ -1,0 +1,102 @@
+{
+  "id": 2803,
+  "name": "Generate Instagram Content from Top Trends with AI Image Generation",
+  "description": "How it works\n\nThis automated workflow discovers trending Instagram posts and creates similar AI-generated content. Here's the high-level process:\n\n1. Content Discovery & Analysis\nScrapes trending posts from specific hashtags\nAnalyzes visual elements using AI\nFilters out videos and duplicates\n\n2. AI Content Generation\nCreates unique images based on trending content\nGenerates engaging captions with relevant hashtags\nMaintains brand consistency while being original\n\n3. Automated Publishing\nPosts content directly to Instagram\nMonitors publication status\nSends notifications via Telegram\n\nSet up steps\n\nSetting up this workflow takes approximately 15-20 minutes:\n\n1. API Configuration (7-10 minutes)\nInstagram Business Account setup\nTelegram Bot creation\nAPI key generation (OpenAI, Replicate, Rapid Api)\n\n2. Database Setup (3-5 minutes)\nCreate required database table\nConfigure PostgreSQL credentials\n\n3. Workflow Configuration (5-7 minutes)\nSet scheduling preferences\nConfigure notification settings\nTest connection and permissions\n\nDetailed technical specifications and configurations are available in sticky notes within the workflow.",
+  "totalViews": 56658,
+  "source": "official",
+  "user": {
+    "id": 92522,
+    "name": "mustafa kendigüzel",
+    "username": "mustafakendiguzel",
+    "bio": "Full-stack developer with 5+ years of experience in scalable software solutions. Skilled in Node.js, NestJS, PostgreSQL, and cloud platforms like AWS and Google Cloud. Expertise in microservices, real-time data processing, and API development. Passionate about delivering high-performance applications and driving innovation through cutting-edge technologies.",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/a41acdf437da5c346ea6dde03fd2967b5cb8611231c6b4d38c8292604f11f070?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Postgres",
+      "type": "n8n-nodes-base.postgres",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Facebook Graph API",
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-01-26T14:36:11.785Z",
+  "path": "official/template_2803/workflow.json"
+}

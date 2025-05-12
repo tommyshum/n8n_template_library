@@ -1,0 +1,145 @@
+{
+  "id": 3086,
+  "name": "Publish WordPress Posts to Social Media X, Facebook, LinkedIn, Instagram with AI",
+  "description": "Workflow Description for n8n: Social Media Post from Ideas Copy\n\nThis workflow automates the process of creating and publishing social media posts across multiple platforms (Twitter/X, Facebook, LinkedIn, and Instagram) based on content from a WordPress post. It uses AI models to generate platform-specific captions and images, and integrates with Google Sheets, WordPress, and various social media APIs. \n\nIs a powerful tool for automating social media post creation and publishing, saving time and ensuring consistent, platform-optimized content across multiple channels.\n\nBelow is a breakdown of the workflow:\n\n1. How It Works\nThe workflow is designed to streamline the creation and publishing of social media posts. Here's how it works:\n\nTrigger:\n   The workflow starts with a Manual Trigger node, which initiates the process when the user clicks \"Test workflow.\"\n\nFetch Data:\n   The Google Sheets node retrieves the WordPress Post ID from a predefined Google Sheet.\n   The Get Post node fetches the corresponding WordPress post content using the retrieved Post ID.\n\nGenerate Social Media Content:\n   The Social Media Manager node uses an AI model (OpenRouter) to analyze the WordPress post and generate platform-specific captions for Twitter/X, Facebook, LinkedIn, and Instagram.\n   The AI ensures that each caption is tailored to the platform's audience, tone, and style, including hashtags and calls to action.\n\nGenerate Images:\n   The Image Instagram and Image Facebook e Linkedin nodes use OpenAI to generate platform-specific images for Instagram, Facebook, and LinkedIn posts.\n\nPublish on Social Media:\n   The workflow publishes the generated content and images on the respective platforms:\n     Publish on X: Posts the caption on Twitter/X.\n     Publish on LinkedIn: Posts the caption and image on LinkedIn.\n     Publish on Facebook: Posts the caption and image on Facebook.\n     Publish on Instagram: Posts the caption and image on Instagram.\n\nUpdate Google Sheets:\n   The workflow updates the Google Sheet to mark the posts as published (e.g., \"X OK,\" \"Facebook OK,\" \"LinkedIn OK,\" \"Instagram OK\").\n\n2. Set Up Steps\nTo set up and use this workflow in n8n, follow these steps:\n\nGoogle Sheets Setup:\n   Create (or clone) a Google Sheet with columns for POST ID, TEXT, TWITTER, FACEBOOK, INSTAGRAM, and LINKEDIN.\n   Link the Google Sheet to the Google Sheets node by providing the Document ID and Sheet Name.\n\nWordPress Integration:\n   Set up WordPress credentials in n8n for the Get Post node.\n   Ensure the WordPress site is accessible via its REST API.\n\nAI Model Configuration:\n   Configure the OpenRouter credentials in n8n for the Social Media Manager node.\n   Ensure the AI model is set up to generate platform-specific captions.\n\nImage Generation:\n   Set up OpenAI credentials for the Image Instagram and Image Facebook e Linkedin nodes to generate images.\n\nSocial Media API Integration:\n   Set up credentials for each social media platform:\n     Twitter/X: Configure the Publish on X node with Twitter OAuth2 credentials.\n     LinkedIn: Configure the Publish on LinkedIn node with LinkedIn OAuth2 credentials.\n     Facebook: Configure the Publish on Facebook and Publish on Instagram nodes with Facebook Graph API credentials.\n\nTest the Workflow:\n   Click the \"Test workflow\" button in n8n to trigger the workflow.\n   The workflow will:\n     Fetch the WordPress post content.\n     Generate platform-specific captions and images.\n     Publish the posts on Twitter/X, Facebook, LinkedIn, and Instagram.\n     Update the Google Sheet to mark the posts as published.\n\nOptional Customization:\n   Modify the workflow to include additional platforms or customize the AI-generated content further.\n\nNeed help customizing?  \nContact me for consulting and support or add me on Linkedin. ",
+  "totalViews": 24716,
+  "source": "official",
+  "user": {
+    "id": 92207,
+    "name": "Davide",
+    "username": "n3witalia",
+    "bio": "Full-stack Web Developer based in Italy specialising in Marketing & AI-powered automations. For business enquiries, send me an email at info@n3w.it or add me on Linkedin.com/in/davideboizza",
+    "verified": true,
+    "links": "[\"https://n3w.it\"]",
+    "avatar": "https://gravatar.com/avatar/d41b8a0aa81139243509c58870f5b4be292824a507ab57d10ed066d8628ed8da?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Marketing",
+    "Communication",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Wordpress",
+      "type": "n8n-nodes-base.wordpress",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Facebook Graph API",
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "X (Formerly Twitter)",
+      "type": "n8n-nodes-base.twitter",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "LinkedIn",
+      "type": "n8n-nodes-base.linkedIn",
+      "categories": [
+        "Marketing",
+        "Communication"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenRouter Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 10,
+  "createdAt": "2025-03-05T10:25:33.216Z",
+  "path": "official/template_3086/workflow.json"
+}

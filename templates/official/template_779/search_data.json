@@ -1,0 +1,66 @@
+{
+  "id": 779,
+  "name": "Create, update, and get an entry in Strapi",
+  "totalViews": 2141,
+  "purchaseUrl": null,
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "description": "",
+  "createdAt": "2020-11-16T08:59:48.937Z",
+  "nodes": [
+    {
+      "id": 403,
+      "icon": "file:strapi.svg",
+      "name": "n8n-nodes-base.strapi",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.strapi/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/strapi/"
+              }
+            ]
+          },
+          "categories": [
+            "Data & Storage",
+            "Marketing"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "Strapi"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDI1IiBoZWlnaHQ9IjEwMzIiIGZpbGw9Im5vbmUiPjxwYXRoIGZpbGw9InVybCgjYSkiIGQ9Ik0zNDEuMzI4IDB2MzQ0LjA2MWgzNDEuMzMzdjM0NC4wNmgzNDEuMzI5VjB6Ii8+PHBhdGggZmlsbD0idXJsKCNiKSIgZD0iTTY4MyAzNDMuNzI1SDM0M3YzNDQuNzMyaDM0MHoiLz48cGF0aCBmaWxsPSJ1cmwoI2MpIiBkPSJNMzQxLjMzMyAzNDQuMDYxSDBMMzQxLjMzMyAweiIvPjxwYXRoIGZpbGw9InVybCgjZCkiIGQ9Ik02ODIuMzY3IDEwMzEuMThWNjg3LjQ1N2gzNDIuMDAzeiIvPjxjaXJjbGUgcj0iMS43OTYiIGZpbGw9IiM5NTZGRkYiIHRyYW5zZm9ybT0ibWF0cml4KDEgMCAwIC0xIDM2NS4xNjIgMzE0LjY2MykiLz48Y2lyY2xlIHI9IjEuNzk2IiBmaWxsPSIjOTU2RkZGIiB0cmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSAzNzQuNTAyIDMxNC42NjMpIi8+PGNpcmNsZSByPSIxLjc5NiIgZmlsbD0iIzk1NkZGRiIgdHJhbnNmb3JtPSJtYXRyaXgoMSAwIDAgLTEgMzgzLjg0MyAzMTQuNjYzKSIvPjxjaXJjbGUgcj0iMS43OTYiIGZpbGw9IiM5NTZGRkYiIHRyYW5zZm9ybT0ibWF0cml4KDEgMCAwIC0xIDM5My4xODQgMzE0LjY2MykiLz48Y2lyY2xlIHI9IjEuNzk2IiBmaWxsPSIjOTU2RkZGIiB0cmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSA0MDIuNTI1IDMxNC42NjMpIi8+PGNpcmNsZSByPSIxLjc5NiIgZmlsbD0iIzk1NkZGRiIgdHJhbnNmb3JtPSJtYXRyaXgoMSAwIDAgLTEgNDExLjg2NiAzMTQuNjYzKSIvPjxjaXJjbGUgcj0iMS43OTYiIGZpbGw9IiM5NTZGRkYiIHRyYW5zZm9ybT0ibWF0cml4KDEgMCAwIC0xIDQyMS4yMDYgMzE0LjY2MykiLz48Y2lyY2xlIHI9IjEuNzk2IiBmaWxsPSIjOTU2RkZGIiB0cmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSA0MzAuNTQ2IDMxNC42NjMpIi8+PGNpcmNsZSByPSIxLjc5NiIgZmlsbD0iIzk1NkZGRiIgdHJhbnNmb3JtPSJtYXRyaXgoMSAwIDAgLTEgNDM5Ljg4NyAzMTQuNjYzKSIvPjxjaXJjbGUgcj0iMS43OTYiIGZpbGw9IiM5NTZGRkYiIHRyYW5zZm9ybT0ibWF0cml4KDEgMCAwIC0xIDQ0OS4yMjggMzE0LjY2MykiLz48Y2lyY2xlIHI9IjEuNzk2IiBmaWxsPSIjOTU2RkZGIiB0cmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSA0NTguNTY5IDMxNC42NjMpIi8+PGNpcmNsZSByPSIxLjc5NiIgZmlsbD0iIzk1NkZGRiIgdHJhbnNmb3JtPSJtYXRyaXgoMSAwIDAgLTEgMzY1LjE2MiAzMDYuMDQxKSIvPjxjaXJjbGUgcj0iMS43OTYiIGZpbGw9IiM5NTZGRkYiIHRyYW5zZm9ybT0ibWF0cml4KDEgMCAwIC0xIDM3NC41MDIgMzA2LjA0MSkiLz48Y2lyY2xlIHI9IjEuNzk2IiBmaWxsPSIjOTU2RkZGIiB0cmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSAzODMuODQzIDMwNi4wNDEpIi8+PGNpcmNsZSByPSIxLjc5NiIgZmlsbD0iIzk1NkZGRiIgdHJhbnNmb3JtPSJtYXRyaXgoMSAwIDAgLTEgMzkzLjE4NCAzMDYuMDQxKSIvPjxjaXJjbGUgcj0iMS43OTYiIGZpbGw9IiM5NTZGRkYiIHRyYW5zZm9ybT0ibWF0cml4KDEgMCAwIC0xIDQwMi41MjUgMzA2LjA0MSkiLz48Y2lyY2xlIHI9IjEuNzk2IiBmaWxsPSIjOTU2RkZGIiB0cmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSA0MTEuODY2IDMwNi4wNDEpIi8+PGNpcmNsZSByPSIxLjc5NiIgZmlsbD0iIzk1NkZGRiIgdHJhbnNmb3JtPSJtYXRyaXgoMSAwIDAgLTEgNDIxLjIwNiAzMDYuMDQxKSIvPjxjaXJjbGUgcj0iMS43OTYiIGZpbGw9IiM5NTZGRkYiIHRyYW5zZm9ybT0ibWF0cml4KDEgMCAwIC0xIDQzMC41NDYgMzA2LjA0MSkiLz48Y2lyY2xlIHI9IjEuNzk2IiBmaWxsPSIjOTU2RkZGIiB0cmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSAzNjUuMTYyIDI5Ny40MTkpIi8+PGNpcmNsZSByPSIxLjc5NiIgZmlsbD0iIzk1NkZGRiIgdHJhbnNmb3JtPSJtYXRyaXgoMSAwIDAgLTEgMzc0LjUwMiAyOTcuNDE5KSIvPjxjaXJjbGUgcj0iMS43OTYiIGZpbGw9IiM5NTZGRkYiIHRyYW5zZm9ybT0ibWF0cml4KDEgMCAwIC0xIDM4My44NDMgMjk3LjQxOSkiLz48Y2lyY2xlIHI9IjEuNzk2IiBmaWxsPSIjOTU2RkZGIiB0cmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSAzOTMuMTg0IDI5Ny40MTkpIi8+PGNpcmNsZSByPSIxLjc5NiIgZmlsbD0iIzk1NkZGRiIgdHJhbnNmb3JtPSJtYXRyaXgoMSAwIDAgLTEgNDAyLjUyNSAyOTcuNDE5KSIvPjxjaXJjbGUgcj0iMS43OTYiIGZpbGw9IiM5NTZGRkYiIHRyYW5zZm9ybT0ibWF0cml4KDEgMCAwIC0xIDM2NS4xNjIgMjg4Ljc5NikiLz48Y2lyY2xlIHI9IjEuNzk2IiBmaWxsPSIjOTU2RkZGIiB0cmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSAzNzQuNTAyIDI4OC43OTcpIi8+PGNpcmNsZSByPSIxLjc5NiIgZmlsbD0iIzk1NkZGRiIgdHJhbnNmb3JtPSJtYXRyaXgoMSAwIDAgLTEgMzgzLjg0MyAyODguNzk3KSIvPjxjaXJjbGUgY3g9IjcxNi4xNjIiIGN5PSI2MzguNzk2IiByPSIxLjc5NiIgZmlsbD0iIzk1NkZGRiIvPjxjaXJjbGUgY3g9IjcyNS41MDIiIGN5PSI2MzguNzk2IiByPSIxLjc5NiIgZmlsbD0iIzk1NkZGRiIvPjxjaXJjbGUgY3g9IjczNC44NDMiIGN5PSI2MzguNzk2IiByPSIxLjc5NiIgZmlsbD0iIzk1NkZGRiIvPjxjaXJjbGUgY3g9Ijc0NC4xODQiIGN5PSI2MzguNzk2IiByPSIxLjc5NiIgZmlsbD0iIzk1NkZGRiIvPjxjaXJjbGUgY3g9Ijc1My41MjUiIGN5PSI2MzguNzk2IiByPSIxLjc5NiIgZmlsbD0iIzk1NkZGRiIvPjxjaXJjbGUgY3g9Ijc2Mi44NjYiIGN5PSI2MzguNzk2IiByPSIxLjc5NiIgZmlsbD0iIzk1NkZGRiIvPjxjaXJjbGUgY3g9Ijc3Mi4yMDYiIGN5PSI2MzguNzk2IiByPSIxLjc5NiIgZmlsbD0iIzk1NkZGRiIvPjxjaXJjbGUgY3g9IjcxNi4xNjIiIGN5PSI2NDcuNDE5IiByPSIxLjc5NiIgZmlsbD0iIzk1NkZGRiIvPjxjaXJjbGUgY3g9IjcyNS41MDIiIGN5PSI2NDcuNDE5IiByPSIxLjc5NiIgZmlsbD0iIzk1NkZGRiIvPjxjaXJjbGUgY3g9IjczNC44NDMiIGN5PSI2NDcuNDE5IiByPSIxLjc5NiIgZmlsbD0iIzk1NkZGRiIvPjxjaXJjbGUgY3g9Ijc0NC4xODQiIGN5PSI2NDcuNDE5IiByPSIxLjc5NiIgZmlsbD0iIzk1NkZGRiIvPjxjaXJjbGUgY3g9Ijc1My41MjUiIGN5PSI2NDcuNDE5IiByPSIxLjc5NiIgZmlsbD0iIzk1NkZGRiIvPjxjaXJjbGUgY3g9Ijc2Mi44NjYiIGN5PSI2NDcuNDE5IiByPSIxLjc5NiIgZmlsbD0iIzk1NkZGRiIvPjxjaXJjbGUgY3g9IjcxNi4xNjIiIGN5PSI2NTYuMDQxIiByPSIxLjc5NiIgZmlsbD0iIzk1NkZGRiIvPjxjaXJjbGUgY3g9IjcyNS41MDIiIGN5PSI2NTYuMDQiIHI9IjEuNzk2IiBmaWxsPSIjOTU2RkZGIi8+PGNpcmNsZSBjeD0iNzM0Ljg0MyIgY3k9IjY1Ni4wNCIgcj0iMS43OTYiIGZpbGw9IiM5NTZGRkYiLz48Y2lyY2xlIGN4PSI3NDQuMTg0IiBjeT0iNjU2LjA0IiByPSIxLjc5NiIgZmlsbD0iIzk1NkZGRiIvPjxjaXJjbGUgY3g9Ijc1My41MjUiIGN5PSI2NTYuMDQiIHI9IjEuNzk2IiBmaWxsPSIjOTU2RkZGIi8+PGNpcmNsZSBjeD0iNzE2LjE2MiIgY3k9IjY2NC42NjQiIHI9IjEuNzk2IiBmaWxsPSIjOTU2RkZGIi8+PGNpcmNsZSBjeD0iNzI1LjUwMiIgY3k9IjY2NC42NjMiIHI9IjEuNzk2IiBmaWxsPSIjOTU2RkZGIi8+PGNpcmNsZSBjeD0iNzM0Ljg0MyIgY3k9IjY2NC42NjMiIHI9IjEuNzk2IiBmaWxsPSIjOTU2RkZGIi8+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJhIiB4MT0iMTA3Mi4zNiIgeDI9IjU1My4wMzEiIHkxPSItNTEuNDA3IiB5Mj0iNDQ2Ljk0NSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPjxzdG9wIG9mZnNldD0iLjAyMSIgc3RvcC1jb2xvcj0iIzk1NkZGRiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzFDMUI3RSIvPjwvbGluZWFyR3JhZGllbnQ+PGxpbmVhckdyYWRpZW50IGlkPSJiIiB4MT0iNjM0LjM2NSIgeDI9IjI3Ny4xNzciIHkxPSIzOTYuNSIgeTI9IjcxMi45MDEiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj48c3RvcCBzdG9wLWNvbG9yPSIjOTU2RkZGIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMUEyNjcwIi8+PC9saW5lYXJHcmFkaWVudD48bGluZWFyR3JhZGllbnQgaWQ9ImMiIHgxPSIxNzAuNjY3IiB4Mj0iMTcwLjY2NyIgeTE9IjAiIHkyPSIzNDQuMDYxIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHN0b3Agb2Zmc2V0PSIuMDIxIiBzdG9wLWNvbG9yPSIjOTU2RkZGIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMUMxQjdFIi8+PC9saW5lYXJHcmFkaWVudD48bGluZWFyR3JhZGllbnQgaWQ9ImQiIHgxPSIxMDg1LjE4IiB4Mj0iNjk1LjY1NCIgeTE9IjU1Ni4yMiIgeTI9Ijk2Ny4wNDIiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj48c3RvcCBzdG9wLWNvbG9yPSIjOTU2RkZGIi8+PHN0b3Agb2Zmc2V0PSIuODM5IiBzdG9wLWNvbG9yPSIjMUMxQjdFIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PC9zdmc+"
+      },
+      "displayName": "Strapi",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 3,
+          "name": "Data & Storage"
+        },
+        {
+          "id": 27,
+          "name": "Marketing"
+        }
+      ]
+    }
+  ]
+}

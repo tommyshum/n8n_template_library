@@ -1,0 +1,38 @@
+{
+  "id": 2398,
+  "name": "KB Tool - Confluence Knowledge Base",
+  "description": "\nEnhance Query Resolution with the Knowledge Base Tool!\n\nOur KB Tool - Confluence KB is crafted to seamlessly integrate into the IT Ops AI SlackBot Workflow, enhancing the IT support process by enabling sophisticated search and response capabilities via Slack.\n\nWorkflow Functionality:\nReceive Queries**: Directly accepts user queries from the main workflow, initiating a dynamic search process.\nAI-Powered Query Transformation**: Utilizes OpenAI's models or local ai to refine user queries into searchable keywords that are most likely to retrieve relevant information from the Knowledge Base.\nConfluence Integration**: Executes searches within Confluence using the refined keywords to find the most applicable articles and information.\nDeliver Accurate Responses**: Gathers essential details from the Confluence results, including article titles, links, and summaries, preparing them to be sent back to the parent workflow for final user response.\n\nTo view a demo video of this workflow in action, click here. \n\nQuick Setup Guide:\nEnsure correct configurations are set for OpenAI and Confluence API integrations.\nCustomize query transformation logic as per your specific Knowledge Base structure to improve search accuracy.\n\n\nNeed Help?\nDive into our Documentation or get support from the Community Forum!\n\n\nDeploy this tool to provide precise and informative responses, significantly boosting the efficiency and reliability of your IT support workflow.\n",
+  "totalViews": 4749,
+  "source": "official",
+  "user": {
+    "id": 16588,
+    "name": "Angel Menendez",
+    "username": "djangelic",
+    "bio": "Angel Menendez is a Staff Developer Advocate at n8n.io, specializing in low-code tools for cybersecurity workflows. From Puerto Rico, Angel's tech journey began by helping his father translate technical books. He later started a web development business and transitioned from a career as a flight attendant to cybersecurity engineering. His workflows have saved companies significant time. Outside work, Angel enjoys time with his two sons, riding electric bikes, reading, and exploring new places.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/fdbe38425d21378d8c9ba8916e1eb0b320add299f12cc23fcd4961d4e6e00bec?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-09-03T17:00:41.507Z",
+  "path": "official/template_2398/workflow.json"
+}

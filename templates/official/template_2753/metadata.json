@@ -1,0 +1,154 @@
+{
+  "id": 2753,
+  "name": "RAG Chatbot for Company Documents using Google Drive and Gemini",
+  "description": "This workflow implements a Retrieval Augmented Generation (RAG) chatbot that answers employee questions based on company documents stored in Google Drive. It automatically indexes new or updated documents in a Pinecone vector database, allowing the chatbot to provide accurate and up-to-date information. The workflow uses Google's Gemini AI for both embeddings and response generation.\n\nHow it works\nThe workflow uses two Google Drive Trigger nodes: one for detecting new files added to a specified Google Drive folder, and another for detecting file updates in that same folder.\nAutomated Indexing: When a new or updated document is detected\nThe Google Drive node downloads the file.\nThe Default Data Loader node loads the document content.\nThe Recursive Character Text Splitter node breaks the document into smaller text chunks.\nThe Embeddings Google Gemini node generates embeddings for each text chunk using the text-embedding-004 model.\nThe Pinecone Vector Store node indexes the text chunks and their embeddings in a specified Pinecone index.\n7.The Chat Trigger node receives user questions through a chat interface. The user's question is passed to an AI Agent node.\nThe AI Agent node uses a Vector Store Tool node, linked to a Pinecone Vector Store node in query mode, to retrieve relevant text chunks from Pinecone based on the user's question.\nThe AI Agent sends the retrieved information and the user's question to the Google Gemini Chat Model (gemini-pro).\nThe Google Gemini Chat Model generates a comprehensive and informative answer based on the retrieved documents.\nA Window Buffer Memory node connected to the AI Agent provides short-term memory, allowing for more natural and context-aware conversations.\n\nSet up steps\n\nGoogle Cloud Project and Vertex AI API:\nCreate a Google Cloud project.\nEnable the Vertex AI API for your project.\nGoogle AI API Key:\nObtain a Google AI API key from Google AI Studio.\nPinecone Account:\nCreate a free account on the Pinecone website.\nObtain your API key from your Pinecone dashboard.\nCreate an index named company-files in your Pinecone project.\nGoogle Drive:\nCreate a dedicated folder in your Google Drive where company documents will be stored.\nCredentials in n8n: Configure credentials in your n8n environment for:\nGoogle Drive OAuth2\nGoogle Gemini(PaLM) Api (using your Google AI API key)\nPinecone API (using your Pinecone API key)\nImport the Workflow:\nImport this workflow into your n8n instance.\nConfigure the Workflow:\nUpdate both Google Drive Trigger nodes to watch the specific folder you created in your Google Drive.\nConfigure the Pinecone Vector Store nodes to use your company-files index.",
+  "totalViews": 67918,
+  "source": "official",
+  "user": {
+    "id": 91633,
+    "name": "Mihai Farcas",
+    "username": "mihailtd",
+    "bio": "Full-stack developer with 5+ years streamlining healthcare processes. Proficient in NodeJS, VueJS, MongoDB, PostgreSQL, Kubernetes, and n8n. Ready to optimize your workflows – book a consult via my link.",
+    "verified": true,
+    "links": "[\"https://mihai.ltd\"]",
+    "avatar": "https://gravatar.com/avatar/a73ca84b07b557e95322815bc04859245e9243c7cfd5bf9a14568fd0ce3e72c5?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Recursive Character Text Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Pinecone Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    },
+    {
+      "name": "Embeddings Google Gemini",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Vector Store Question Answer Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolVectorStore",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 9,
+  "createdAt": "2025-01-20T00:06:27.623Z",
+  "path": "official/template_2753/workflow.json"
+}

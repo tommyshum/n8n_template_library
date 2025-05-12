@@ -1,0 +1,56 @@
+{
+  "id": 2436,
+  "name": "Siri AI Agent: Apple Shortcuts powered voice template",
+  "description": "This template demonstrates how to trigger an AI Agent with Siri and Apple Shortcuts, showing a simple pattern for voice-activated workflows in n8n. It's easy to customize—add app nodes before the AI Agent step to pass additional context, or modify the Apple Shortcut to send inputs like text, geolocation, images, or files.\n\nSet Up\nBasic instructions in template itself.\n\nRequirements\nn8n account** (cloud or self-hosted)\nApple Shortcuts app** on iOS or macOS. Dictation (\"Siri\") must be activated. Download the Shortcuts template here.\n\nKey Features:\nVoice-Controlled AI:** Trigger AI Agent via Siri for real-time voice replies.\nCustomizable Inputs:** Modify Apple Shortcut to send text, images, geolocation, and more.\nFlexible Outputs:** Siri can return the AI’s response as text, files, or customize it to trigger CRUD actions in connected apps.\nContext-Aware:** Automatically feeds the current date and time to the AI Agent, with easy options to pass in more data.\n\nHow It Works:\nActivate Siri and speak your request.  \nSiri sends the transcribed text to the n8n workflow via Apple Shortcuts.  \nAI Agent processes the request and generates a response.  \nSiri reads the response, or the workflow can return geolocation, files, or even perform CRUD actions in apps.\n\nInspiration: Custom Use Cases\nTweak this template and make it your own.\nCapture Business Cards:** Snap a photo of a business card and record a voice note. Have the AI Agent draft a follow-up email in Gmail, ready to send.\nVoice-to-Task Automation:** Speak a new to-do item, and the workflow will add it to a Notion task board.\nBusiness English on the Fly:** Convert casual speech into polished business language, and save the refined text directly to your pasteboard, ready to be pasted into any app. \"It's late because of you\" -&gt; \"There has been a delay, and I believe your input may have contributed to it.\"\n\n",
+  "totalViews": 21433,
+  "source": "official",
+  "user": {
+    "id": 91246,
+    "name": "Max Tkacz",
+    "username": "max-n8n",
+    "bio": "Principal Product Designer @ n8n",
+    "verified": true,
+    "links": "[\"https://n8n.io\"]",
+    "avatar": "https://gravatar.com/avatar/c8f1965a9ff2bef51826e127081be880010ce5f0e3a3fc8ffd54e944d58bd2df?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-09-27T13:48:03.535Z",
+  "path": "official/template_2436/workflow.json"
+}

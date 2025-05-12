@@ -1,0 +1,32 @@
+{
+  "id": 936,
+  "name": "Add the affiliate to a program automatically",
+  "description": "This workflow allows you to create an affiliate, add metadata, and add the affiliate to a program.\n\n\n\nTapfiliate node: This node allows you to create a new affiliate in Tapfiliate.\n\nTapfiliate1 node: This node allows you add metadata to the affiliate that you created previously. Based on your use-case, you may or may not require this node.\n\nTapfiliate2 node: This node allows you to add the affiliate that you created previously to a program. \n\nBased on your use-case, you might want to replace the Start node with a trigger node that gets you the information of an affiliate.",
+  "totalViews": 809,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Sales"
+  ],
+  "nodes": [
+    {
+      "name": "Tapfiliate",
+      "type": "n8n-nodes-base.tapfiliate",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2021-02-12T07:23:35.399Z",
+  "path": "official/template_936/workflow.json"
+}

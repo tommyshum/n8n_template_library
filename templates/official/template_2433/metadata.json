@@ -1,0 +1,88 @@
+{
+  "id": 2433,
+  "name": "Daily Podcast Summary",
+  "description": "What this workflow does\nDownloads the daily top podcasts of a selected genre\nSummarizes the content of each podcast in a few paragraphs\nSends the summaries and the direct link to each podcast in a formatted email\n\nSetup\n Create a free API key on Taddy here: https://taddy.org/signup/developers\n Input your user number and API key into the TaddyTopDaily node in the header parameters X-USER-ID and X-API-KEY respectively.\n Create access credentials for your Gmail as described here: https://developers.google.com/workspace/guides/create-credentials. Use the credentials from your client_secret.json in the Gmail node.\n In the Genre node, set the genre of podcasts you want a summary for. Valid values are: TECHNOLOGY, NEWS, ARTS, COMEDY, SPORTS, FICTION, etc. Look at api.taddy.org for the full list (they will be displayed in the help docs as PODCASTSERIES_TECHNOLOGY, PODCASTSERIES_NEWS, etc.)\n Enter your email address in the Gmail node.\n Change the schedule time for sending email from Schedule to whichever time you want to receive the email.\n\nTest:\nHit Test Workflow.\nCheck your email for the results.\n\nThat's it! It should take less than 5 minutes total.",
+  "totalViews": 12916,
+  "source": "official",
+  "user": {
+    "id": 91959,
+    "name": "Jay Hartley",
+    "username": "jay",
+    "bio": "Low-code/no-code developer for automated solutions. Several years experience in automated workflow building for content creation management, distribution and marketing.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/6c7feb8fe0cc33e0668424a616614c0ddd1adecf273274b690c6b41dd8aea245?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "Utility"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "n8n-nodes-base.openAi",
+      "categories": [
+        "Utility"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2024-09-26T13:08:46.986Z",
+  "path": "official/template_2433/workflow.json"
+}

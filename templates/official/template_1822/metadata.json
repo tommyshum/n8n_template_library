@@ -1,0 +1,43 @@
+{
+  "id": 1822,
+  "name": "Two way sync Pipedrive and MySQL",
+  "description": "This workflow automates a two way sync of customer data between Pipedrive and MySQL. It will create new records in one source if it only exists in the other. Where matching records have different data for name, phone number or email address, it will sync the most recently updated version.",
+  "totalViews": 6328,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Sales",
+    "Development",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "Pipedrive",
+      "type": "n8n-nodes-base.pipedrive",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "MySQL",
+      "type": "n8n-nodes-base.mySql",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2022-11-03T14:20:34.511Z",
+  "path": "official/template_1822/workflow.json"
+}

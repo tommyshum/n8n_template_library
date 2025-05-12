@@ -1,0 +1,38 @@
+{
+  "id": 3084,
+  "name": "Send SMS via ClickSend API Worldwide without a Phone number",
+  "description": "This workflow allows you to send SMS messages globally using API without needing a physical phone number. \n\n1. How It Works\n\nConsists of three main nodes:\n\nManual Trigger**: The workflow starts when you click the \"Test workflow\" button in n8n.\nSet SMS Data**: This node defines the SMS message content and the recipient's phone number (including the international prefix).\nSend SMS**: This node sends the SMS using the ClickSend API. It uses HTTP Basic Authentication with your ClickSend credentials and sends a POST request to the ClickSend API endpoint with the message and recipient details.\n\nThe workflow is simple and efficient, making it easy to automate SMS sending for various use cases, such as notifications, alerts, or marketing campaigns.\n\n2. Set Up Steps\nTo set up and use this workflow in n8n, follow these steps:\n\nRegister on ClickSend:\n   Go to ClickSend and create an account.\n   Obtain your API Key and take advantage of the 2 € free credits provided.\n\nSet Up Basic Authentication in n8n:\n   In the \"Send SMS\" node, configure the HTTP Basic Auth credentials:\n     Username: Use the username you registered with on ClickSend.\n     Password: Use the API Key provided by ClickSend.\n\nConfigure the SMS Data:\n   In the \"Set SMS data\" node, define:\n     The message content (e.g., \"Hi, this is my first message\").\n     The recipient's phone number, including the international prefix (e.g., +39xxxxxxxx).\n\nTest the Workflow:\n   Click the \"Test workflow\" button in n8n to trigger the workflow.\n   The workflow will send the SMS using the ClickSend API, and you should receive the message on the specified phone number.\n\nOptional Customization:\n   You can modify the workflow to dynamically set the message content or recipient phone number using data from other nodes or external sources.\n\nThis workflow is a quick and efficient way to send SMS messages programmatically.",
+  "totalViews": 1093,
+  "source": "official",
+  "user": {
+    "id": 92207,
+    "name": "Davide",
+    "username": "n3witalia",
+    "bio": "Full-stack Web Developer based in Italy specialising in Marketing & AI-powered automations. For business enquiries, send me an email at info@n3w.it or add me on Linkedin.com/in/davideboizza",
+    "verified": true,
+    "links": "[\"https://n3w.it\"]",
+    "avatar": "https://gravatar.com/avatar/d41b8a0aa81139243509c58870f5b4be292824a507ab57d10ed066d8628ed8da?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-03-05T10:23:44.925Z",
+  "path": "official/template_3084/workflow.json"
+}

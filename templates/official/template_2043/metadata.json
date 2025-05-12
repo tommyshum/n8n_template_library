@@ -1,0 +1,67 @@
+{
+  "id": 2043,
+  "name": "Crypto Market Alert System with Binance and Telegram Integration",
+  "description": "An innovative N8N workflow that monitors cryptocurrency prices on Binance, identifies significant market movements, and sends customized alerts through Telegram. Ideal for traders and enthusiasts seeking real-time market insights.\n\nHow It Works\n\nTrigger Options: Choose between a manual trigger or a scheduled trigger to start the workflow.\nFetch Market Data: The 'Binance 24h Price Change' node retrieves the latest 24-hour price changes for cryptocurrencies from Binance.\nIdentify Significant Changes: The 'Filter by 10% Change rate' node filters out cryptocurrencies with price changes of 10% or more.\nAggregate Data: The 'Aggregate' node combines all significant changes into a single dataset.\nFormat Data for Telegram: The 'Split By 1K chars' node formats this data into chunks suitable for Telegram's message size limit.\nSend Telegram Message: The 'Send Telegram Message' node broadcasts the formatted message to a specified Telegram chat.\n\nSet Up Steps\nEstimated Time**: About 1-5 minutes for setup.\nInitial Configuration**: Set up a Binance API connection (Optional) and your Telegram bot credentials.\nCustomization**: Adjust the trigger according to your preference (manual or scheduled) and update the Telegram chat ID.\n\nCreate Telegram bot steps**:-\nSetting up a Telegram bot and obtaining its token involves several steps. Here's a detailed guide:\n\nStart a Chat with BotFather:\n   Open Telegram and search for \"BotFather\". This is the official bot that allows you to create new bots.\n   Start a chat with BotFather by clicking on the \"Start\" button at the bottom of the screen.\n\nCreate a New Bot:\n   In the chat with BotFather, type /newbot and send the message.\n   BotFather will ask you to choose a name for your bot. This is a display name and can be anything you like.\n   Next, you'll need to choose a username for your bot. This must be unique and end in bot. For example, my_crypto_alert_bot.\n\nReceive Your Token:\n   After you've set the name and username, BotFather will provide you with a token. This token is like a password for your bot, so keep it secure.\n   The message will look something like this: \n          Done! Congratulations on your new bot. You will find it at t.me/my_crypto_alert_bot. You can now add a description, about section and profile picture for your bot, see /help for a list of commands. Use this token to access the HTTP API: 123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11\n        The token in this case is 123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11.\n\nTest Your Bot:\n   You can find your bot by searching for its username in Telegram.\n   Start a chat with your bot and try sending it a message. Although it won't respond yet, this step is essential to ensure it's set up correctly.\n\nUse the Token in n8n:\n   In your n8n workflow, when setting up the Telegram node, you'll be prompted to enter credentials.\n   Choose to add new credentials and paste the token you received from BotFather.\n\nGet Your Chat ID:\n   To send messages to a specific chat, you need to know the chat ID.\n   The easiest way to find this is to first message your bot, then use a bot like @userinfobot to get your chat ID.\n   Once you have the chat ID, you can configure it in the Telegram node in your n8n workflow.\n\nFinalize Your Workflow:\n   With the bot token and chat ID set up in n8n, your Telegram notifications should work as intended in your workflow.\n\nRemember, keep your bot token secure and never share it publicly. If your token is compromised, you can always generate a new one by chatting with BotFather and selecting /token.\n\nExample result\n\n\n\nKeywords: n8n workflow, cryptocurrency market, Binance API, Telegram bot, price alert system, automated trading signals, market analysis\n`",
+  "totalViews": 11563,
+  "source": "official",
+  "user": {
+    "id": 91304,
+    "name": "Nskha",
+    "username": "nskha",
+    "bio": "Welcome to Nskha! We're all about making real changes in the no-code tech field, just like with N8N 😉. Check out our amazing collection of free public templates and join us in building a collaborative database of no-code idea projects. Let's revolutionize the way we create without code!",
+    "verified": true,
+    "links": "[\"https://nskha.com\"]",
+    "avatar": "https://gravatar.com/avatar/6f99957ae9e5a66cf0bb95f4584cf321b0644a0ceea6a633bc968b6ec55e8410?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-01-08T13:46:04.939Z",
+  "path": "official/template_2043/workflow.json"
+}

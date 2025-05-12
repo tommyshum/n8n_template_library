@@ -1,0 +1,43 @@
+{
+  "id": 2709,
+  "name": "Automated Email Optin Form with n8n and Hunter io for verification",
+  "description": "Case Study 📧\nWant to collect email subscribers without paying expensive monthly fees? 💰 This workflow creates a free email collection system with built-in email verification to ensure you only collect legitimate email addresses! ✨\n\nLearn more:\n📺 Watch the tutorial: \n\n📝 Read the detailed guide\n\nWhat this workflow does 🛠️\nCreates a customizable email collection form that can be embedded on your website 🌐\nVerifies email addresses using Hunter.io to filter out fake or invalid emails ✅\nStores verified email addresses in SendGrid for your email marketing needs 📊\nCompletely free solution (except for Hunter.io's 50 free monthly credits) 🆓\n\nSetup ⚙️\nSet up a free Hunter.io account for email verification\nConfigure your SendGrid account credentials\nCustomize the email collection form fields\nGet the embedded form code for your website\n\nHow to adjust it to your needs 🔧\nAdd additional form fields beyond just email collection\nCustomize the form's appearance and labels\nModify the verification logic based on your requirements\nConnect to different email marketing platforms instead of SendGrid\nAdd additional automation steps after email verification\n\nBenefits 🌟\nNo monthly subscription fees for email collection 💸\nBuilt-in email verification prevents fake signups 🛡️\nScalable solution that won't lock you into expensive plans 📈\nClean email list with only verified addresses ✨\nSimple setup and customization 🎯\n\nThis workflow is perfect for bloggers, small businesses, and anyone looking to build an email list without getting locked into expensive email marketing platforms as their subscriber count grows! 🚀\n\nBuilt by rumjahn",
+  "totalViews": 699,
+  "source": "official",
+  "user": {
+    "id": 92000,
+    "name": "Keith Rumjahn",
+    "username": "rumjahn",
+    "bio": "I create automations with A.I. for SEO content and other smart automations.",
+    "verified": true,
+    "links": "[\"https://rumjahn.com/\"]",
+    "avatar": "https://gravatar.com/avatar/e037c9d6e16284c4cf5149094a1725ed92f76e61813b8f8c32c1b83dcf4f9f4b?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Sales",
+    "Marketing",
+    "Communication"
+  ],
+  "nodes": [
+    {
+      "name": "Hunter",
+      "type": "n8n-nodes-base.hunter",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "SendGrid",
+      "type": "n8n-nodes-base.sendGrid",
+      "categories": [
+        "Marketing",
+        "Communication"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-01-09T05:40:32.489Z",
+  "path": "official/template_2709/workflow.json"
+}

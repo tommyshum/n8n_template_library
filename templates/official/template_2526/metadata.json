@@ -1,0 +1,64 @@
+{
+  "id": 2526,
+  "name": "Telegram to Spotify with OpenAI",
+  "description": "Search music and play to Spotify from Telegram\n\nThis workflow is a simple demonstration on accessing a message model from Telegram and it makes searching for songs an easy task even if you can't remember the artist or song name.\nAn OpenAI message model tries to figure out the song and sends it to an active Spotify device**.\n\nUse case\nImagine an office where you play music in the background and the employees can control the music without having to login to the playing account.\n\nHow it works\nYou describe the song in Telegram.\nTelegram bot sends the text to n8n.\nAn OpenAI message model tries to find the song.\nSpotify gets the search query string.\nFirst match is then added to queue.\n-- If there is no match a message is sent to Telegram and the process ends.\nWe change to the next track in the list.\nWe make sure the song starts playing by trying to resume.\nWe fetch the currently playing track.\nWe return \"now playing\" information to Telegram: Song Name - Artist Name - Album Name.\n\nError handling\nEvery Spotify step has it's on error handler under settings where we output the error.\nMessage parser receives the error and sends it to Telegram.\n\nRequirements\nActive workflow*\nOpenAI API key\nTelegram bot\nSpotify account and Oauth2 API\nSpotify active on a device**\n\n.* The Telegram trigger is activated only if this workflow is active. You can however TEST the workflow in the editor by clicking \"Test step\" and then it waits for the Telegram event. When event is received, just step through all steps or just clicking \"Test step\" on the \"Fetch Now Playing\" node.\n\n.** You must have a Spotify device active when trying to communicate with a device. Open Spotify and play something - not it is active.\n\n",
+  "totalViews": 1804,
+  "source": "official",
+  "user": {
+    "id": 92132,
+    "name": "Alexander Bentlund",
+    "username": "nld-alex",
+    "bio": "Gen-AI creator that fell in love with n8n's simplicity and diversitity.",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/1cd002ee45ad6bd46aa53abf75f64049d4876f5cd292f98ee1a47be36e724af4?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Miscellaneous",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Spotify",
+      "type": "n8n-nodes-base.spotify",
+      "categories": [
+        "Miscellaneous"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-11-05T09:33:03.164Z",
+  "path": "official/template_2526/workflow.json"
+}

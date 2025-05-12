@@ -1,0 +1,49 @@
+{
+  "id": 1500,
+  "name": "User Enablement Demo",
+  "description": "This workflow was originally presented at the February 2022 n8n Meetup.\n\nRequirements\nIn order to use this workflow, you will need the following in place:\nA configured Baserow account\n  A group in Baserow called User Empowerment Demo\n  A database in the User Empowerment Demo called Office Shopping List\n  Inside the Office Shopping List database, you will need two tables:\n    Shopping List:\n      Column 1 - Single line text column named Item\n    Shopper:\n      Column 1 - Single line text column named Name\n      Column 2 - Email column named Email\nAn email account for sending out alerts\n\nCustomization\nTo make this workflow work for you, please customize the following items:\nAll Baserow nodes will need to be updated with your own credentials, database, tables and fields\nThe Send Shopping List node will need to be configured with your email credentials and email addresses\nThe Create Shopper Form Set node will need to have the code in the HTML value modified to reflect your Production URL from the Submit Shopper node (See instructions below)\nThe Cron node will need to be modified to reflect the timing that you wish to use\n\nModifying the Webform\nThe webform is the piece that people normally want to customize but is often the most complex because it is raw HTML. Here are some quick tips for making changes to the form.\n\nWebform Nodes\nThere are two nodes that control what you see in the form:\nCreate Shopper Form - displays the form and submits it to the correct webhook\nCreate Response Page - displays the results when the form is submitted\n\nEditing the Webform\nThe easiest way that I have found to edit the webform is to:\nOpen up the Set node (Create Shopper Form or Create Response Page) that contains the HTML you wish to edit.\nCopy the contents of the HTML value to your favourite HTML editor\nMake your changes\nPaste the updated HTML back into the Set node\n\nChanging the Webhook URL the Webform Posts To\nIn order for the webform to work properly, do the following:\nDetermine the Production URL for the Submit Shopper webhook node\nIn the Create Shopper Form node, look for the following line in the HTML value:\nform action=\"https://tephlon.app.n8n.cloud/webhook/submit-shopper\" method=\"POST\"\nReplace https://tephlon.app.n8n.cloud/webhook/submit-shopper with your Production URL\n\nChanging the Webform Image\nThe image that is in the webform is actually embedded in the HTML in each of the Create Shopper Form or Create Response Page Set nodes and can be modified from there using these steps:\nOpen up the appropriate Set node\nIn the HTML value, find the line that starts with background-image:. It will be followed by a long string that looks like random characters\nUsing a tool like Image to Base64 Converter, upload your image and generate a new CSS background source\nReplace the original background-image: line (including all the \"random\" characters) with the new generated CSS background source\n\n",
+  "totalViews": 5020,
+  "source": "official",
+  "user": {
+    "id": 4031,
+    "name": "jason",
+    "username": "tephlon",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/ee7788870e9ab8d34c979c940727f579ecc3c3e8f60069d1297d51eb30af831e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Core Nodes",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "categories": [
+        "Communication",
+        "HITL",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Baserow",
+      "type": "n8n-nodes-base.baserow",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2022-03-03T13:20:54.608Z",
+  "path": "official/template_1500/workflow.json"
+}

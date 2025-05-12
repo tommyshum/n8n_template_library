@@ -1,0 +1,92 @@
+{
+  "id": 3153,
+  "name": "Generate Complete Stories with GPT-4o and Save Them in Google Drive",
+  "description": "AI Story Generator with GPT-4o and Google Drive Integration\n\nAutomatically generate complete stories with GPT-4o and seamlessly save them to Google Drive.\n\nWho is this for?\n\nCreative writers and authors\nMarketing and sales professionals\nEducators and content creators\nFan fiction enthusiasts\nAnyone interested in automating storytelling with AI\n\nWhat problem is this workflow solving?\n\nManually creating engaging, structured narratives can be time-consuming. Writers and content creators often struggle to maintain consistency, depth, and engaging storytelling structure. This workflow solves these challenges by automating story creation using advanced AI (GPT-4o) and proven storytelling techniques.\n\nWhat this workflow does\n\nThis n8n automation generates comprehensive stories through an iterative AI-driven process:\n\nStep 1: Provide Your Story Idea\nUsers input a clear description and specify their desired story format (short story, fan fiction, sales email, etc.).\n\nStep 2: AI-Driven Analysis\nGPT-4o analyzes the provided idea, categorizes the story, selects relevant storytelling frameworks inspired by PipDeck Storyteller Tactics, and determines narrative tone and direction.\n\nStep 3: Story and Character\nFoundationEstablishes core themes, emotional hooks, and detailed character backgrounds.\n\nStep 4: Initial Story Development\nCreates a structured plot outline including engaging elements such as hooks, twists, and resolutions.\n\nStep 5: Iterative Enhancement\nRefines the story through multiple automated prompts, improving narrative depth, character development, dialogue, and realism.\n\nStep 6: Editorial Feedback\nGenerates automated critiques highlighting clichés, weak dialogues, and areas for improvement.\n\nStep 7: Final Polished Version\nIncorporates editorial feedback to produce a complete, polished, ready-to-use narrative.\n\nStep 8: Instant Google Drive\nOrganizationAutomatically saves the final story directly to your specified Google Drive folder for easy access and management.\n\nSetup Instructions\n\nPrerequisites:\nn8n account (cloud or self-hosted)\nGPT-4o API access via OpenAI\nGoogle Drive account\n\nConfigure OpenAI Node:\nAdd your GPT-4o API key in the OpenAI node settings.\nConfigure Google Drive Node:\nConnect your Google Drive account by authenticating with n8n.\nSpecify the folder where generated stories should be saved.\n\nTest Workflow:\n\nRun the workflow with a simple story prompt to ensure proper setup.\n\nHow to Customize this Workflow\n\nAdjust Prompt Details: Modify AI prompt instructions to suit your specific story style and audience.\n\nExpand or Narrow Iterations: Change the number of iterations to balance between speed and story complexity.\n\nCustomize Feedback Level: Adjust the level of editorial feedback provided.\n\nDependencies and Requirements\n\nGPT-4o API from OpenAI\nGoogle Drive integration enabled in n8n\n\nGet Started\n\nDownload and deploy this template today to streamline your storytelling process and produce consistently engaging, high-quality content effortlessly.",
+  "totalViews": 538,
+  "source": "official",
+  "user": {
+    "id": 92817,
+    "name": "Ian Dikhtiar",
+    "username": "ian-dikhtiar",
+    "bio": "",
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/5bf8e571dafcba53bfb9714253d714c87e9facbbd9d5260257d4c397f0896677?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Azure OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatAzureOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Sentiment Analysis",
+      "type": "@n8n/n8n-nodes-langchain.sentimentAnalysis",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-03-13T15:32:01.628Z",
+  "path": "official/template_3153/workflow.json"
+}

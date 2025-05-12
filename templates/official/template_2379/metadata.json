@@ -1,0 +1,39 @@
+{
+  "id": 2379,
+  "name": "Validate TOTP Token (without creating a credential)",
+  "description": "TOTP Validation with Function Node\n\nThis template allows you to verify if a 6-digit TOTP code is valid using the corresponding TOTP secret. It can be used in an authentication system.\nThe inputs need to be: \na base32 totp secret (String)\na 6 digits code (String)\n\n++Important:++ The 6-digit code must be in text format. If the code starts with zeros and is treated as a number, it could cause validation issues.\n\nThe function node will generate a 6-digit code from the TOTP secret, then compare it with the provided code. If they match, it will return 1 otherwise, it will return 0.\nExample usage:\n\nYou retrieve the user's TOTP secret from a database, then you want to verify if the 2FA code provided by the user is valid.\n\nSetup Guidelines\nYou only need the ==TOTP VALIDATION== node.\nYou will need to modify lines 39 and 40== of the node with the correct values for your specific context.\n\nTesting the Template\nYou can define a sample secret and code in the EXAMPLE FIELDS node of the template, then click \"Test Workflow\".\nIf the code is valid for the provided secret, the flow will proceed to the true branch of the IF CODE IS VALID node. Otherwise, it will go to the false branch.",
+  "totalViews": 403,
+  "source": "official",
+  "user": {
+    "id": 91904,
+    "name": "Bazhard",
+    "username": "bazhard",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/d41d15d517803b4d274ee10e7024ec6774daa39fa150579a0b7afd5a42fccd56?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-08-14T18:06:42.138Z",
+  "path": "official/template_2379/workflow.json"
+}

@@ -1,0 +1,49 @@
+{
+  "id": 3522,
+  "name": "Auto-Publish Social Videos to 9 Platforms via Google Sheets and Blotato",
+  "description": "\nAuto-Publish Social Videos to 9 Platforms via Google Sheets and Blotato\n\nWho is this workflow for?\n\nThis workflow is ideal for marketers, content creators, virtual assistants, and automation specialists managing multi-platform video content. It’s especially useful for teams who want to centralize publishing via a spreadsheet and automate social distribution in one shot.\n\nWhat problem does this workflow solve?\n\nManually posting videos to multiple social platforms is tedious and time-consuming. This workflow allows you to streamline video distribution using Blotato’s API — no more switching between platforms or re-uploading the same video multiple times.\n\nWhat this workflow does\n\nThis automation reads video metadata (URL, caption, title) from a Google Sheet, uploads the video to Blotato, and automatically publishes it to Instagram, YouTube, TikTok, Facebook, LinkedIn, Threads, Twitter (X), Pinterest, and Bluesky.\n\nIt also updates the sheet to reflect the publishing status (STATUS = DONE), ensuring that your data remains clean and trackable.\n\nSetup\n\nSet up your Google Sheet with the required columns: PROMPT, DESCRIPTION, URL VIDEO, Titre, row_number, and STATUS.\nAdd your Blotato API key in the headers of the Upload Video and Post to X nodes.\nReplace the platform-specific IDs in the Assign Social Media IDs node (Instagram ID, Facebook Page ID, etc.).\nSet the schedule in the Schedule Trigger node to define when the publishing happens.\n\n&gt; ⚠️ Disclaimer: This workflow uses Community Nodes. These are only available on self-hosted n8n instances.\n\nHow to customize this workflow\n\nAdd logic to skip rows already marked as DONE.\nExpand to more platforms supported by Blotato.\nUse a webhook or Telegram trigger instead of the scheduler for more interactivity.\nModify content per platform if needed (caption formatting, hashtags, etc.).\n\n📄 Documentation: Notion Guide\n\nDemo Video\n\n🎥 Watch the full tutorial here: YouTube Demo",
+  "totalViews": 5314,
+  "source": "official",
+  "user": {
+    "id": 93440,
+    "name": "Dr. Firas",
+    "username": "drfiras",
+    "bio": "Automation expert and certified trainer. I create hands-on courses to master automation with n8n. Contact me to access my exclusive training and start building powerful workflows today. 🚀",
+    "verified": true,
+    "links": "[\"https://www.youtube.com/@DRFIRASS\"]",
+    "avatar": "https://gravatar.com/avatar/988a46579257f9e8c522aeb7b906f1ee96e47c4298faa548e41b04957f455ae3?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-04-12T02:42:56.028Z",
+  "path": "official/template_3522/workflow.json"
+}

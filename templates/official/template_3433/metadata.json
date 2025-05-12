@@ -1,0 +1,72 @@
+{
+  "id": 3433,
+  "name": "Smart Sales Support Chatbot with GPT-4o and Google Sheets",
+  "description": "Who is this tempate for?\nThis workflow powers a simple yet effective customer and sales support chatbot for your webshop. It's perfect for solopreneurs who want to automate customer interactions without relying on expensive or complex support tools.\n\nHow it works?\nThe chatbot listens to user requests—such as checking product availability—and automatically handles the following\n\nFetches product information from a Google Sheet\nAnswers customer queries\nPlaces an order\nUpdates the stock after a successful purchase\n\nEverything runs through a single Google Sheet used for both stock tracking and order management.\n\nSetup Instructions\n\nBefore you begin, connect your Google Sheets credentials by following this guide: This will be used to connect all the tools to Google Sheets\n👉 Setup Google sheets credentials\n\nGet Stock\n\n\tOpen \"Get Stock\" tool node and select the Google sheet credentials you created. \n\tChoose the correct google sheet document and sheet name and you are done.\nPlace order\n\t\n\tGo to your \"Place Order\" tool node and select the Google sheet credentials you have created. \n\tChoose the correct google sheet document and sheet name.\n\nUpdate Stock\n\t- Open your \"Update Stock\" tool node and select the Google sheet credentials you have created. \n\tChoose the correct google sheet document and sheet name.\n\tIn \"Mapping Column Mode\" section select map each column manually.\n\tIn \"Column to match on\" select the column with a unique identifier (e.g., Product ID) to match stock items.\n\tIn values to update section, add only the column(s) that need to be updated—usually the stock count.\nAI Agent node \n\tAdjust the prompt according to your use case and customize what you need. \n\nGoogle Sheet Template\nStock sheet\n\n|Case ID|Phone Model|Case Name|Case Type|Image URL|Quantity Avaialble|Initital Inventory|Sold|\n|-|-|-|-|-|-|-|-|\n|1023|Iphone 14 pro|Black Leather|Magsafe|https://example.com/url|90|100|10\n\nOrder sheet\n\n|Case ID|Phone Model|Case Name|Name|Phone Number|Address|\n|-|-|-|-|-|-|\n|1023|Black Leather |Iphone 14 pro|Fernando Torres|9998898888|Paris, France\n\n",
+  "totalViews": 4399,
+  "source": "official",
+  "user": {
+    "id": 93262,
+    "name": "Babish Shrestha",
+    "username": "bbz",
+    "bio": "I’m currently obsessed with building cool things using AI automation and AI agents — systems that save time, cut manual work, and actually do stuff on their own. If there’s a way to automate it, I’m probably already trying it out (or planning to). Having worked in IT industry for 15 years, I’m combining that background with AI to help businesses move smarter, not just faster.\n",
+    "verified": false,
+    "links": "[\"https://www.linkedin.com/in/babishshrestha/\"]",
+    "avatar": "https://gravatar.com/avatar/d99533504c12d78d96f97288cfbf7d95cfa88e0135401733e9eddb2a96de999f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-04-04T09:13:57.734Z",
+  "path": "official/template_3433/workflow.json"
+}

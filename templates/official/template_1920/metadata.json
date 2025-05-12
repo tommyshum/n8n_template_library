@@ -1,0 +1,38 @@
+{
+  "id": 1920,
+  "name": "Respond with file download to incoming HTTP request",
+  "description": "This simple workflow demonstrates how to get an end user's browser to download a file. It makes use of the Content-Disposition header to set a filename and control the browser behaviour.\n\n\n\nA use case could be the download of a PDF file at the end of an application process or to export data from a database without replacing the current page content in the browser.\n\nWith this approach, the current page remains open and the file is simply downloaded instead:\n\n\n\nThe original idea was first present here by @dickhoning in the n8n community.",
+  "totalViews": 4022,
+  "source": "official",
+  "user": {
+    "id": 21240,
+    "name": "Tom",
+    "username": "mutedjam",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://github.com/that-one-tom/\"]",
+    "avatar": "https://gravatar.com/avatar/7a3710173e907baffaf7ed7ebffc37955c9cdeadb8612200225a34a2e056aa17?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2023-06-05T08:13:15.247Z",
+  "path": "official/template_1920/workflow.json"
+}

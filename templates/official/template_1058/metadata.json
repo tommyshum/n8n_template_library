@@ -1,0 +1,32 @@
+{
+  "id": 1058,
+  "name": "Send message on Mattermost when your n8n instance starts",
+  "description": "This workflow allows you to receive a message on Mattermost when your n8n instance starts.\n\n\n\nn8n Trigger node: The n8n Trigger node will trigger the workflow whenever the instance starts.\n\nMattermost node: This node will send a message on Mattermost, notifying you when n8n starts.",
+  "totalViews": 1038,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication"
+  ],
+  "nodes": [
+    {
+      "name": "Mattermost",
+      "type": "n8n-nodes-base.mattermost",
+      "categories": [
+        "Communication"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2021-04-28T08:30:06.240Z",
+  "path": "official/template_1058/workflow.json"
+}

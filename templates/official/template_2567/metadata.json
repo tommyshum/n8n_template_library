@@ -1,0 +1,63 @@
+{
+  "id": 2567,
+  "name": "Scrape business emails from Google Maps without the use of any third party APIs",
+  "description": "Who is this template for?\nThis workflow template is designed for sales, marketing, and business development professionals who want a cost-effective and efficient way to generate leads. By leveraging n8n core nodes, it scrapes business emails from Google Maps without relying on third-party APIs or paid services, ensuring there are no additional costs involved.\n\nIdeal for small business owners, freelancers, and agencies, this template automates the process of collecting contact information for targeted outreach, making it a powerful tool for anyone looking to scale their lead generation efforts without incurring extra expenses.\n\nYou can watch the video tutorial here: https://youtu.be/HaiO-UeiKBA\n\nHow it works\nThis template streamlines email scraping from Google Maps using only n8n core nodes, ensuring a completely free and self-contained solution. Here’s how it operates:\n\nInput Queries\nYou provide a list of queries, each consisting of keywords related to the type of business you want to target and the specific region or subregion you’re interested in.\n\nIterates through Queries\nThe workflow processes each query one at a time. For each query, it triggers a sub-workflow dedicated to handling the scraping tasks.\n\nScrapes Google Maps for URLs\nUsing these queries, the workflow scrapes Google Maps to collect URLs of business listings matching the provided criteria.\n\nFetches HTML Content\nThe workflow then fetches the HTML pages of the collected URLs for further processing.\n\nExtracts Emails\n\nUsing a Code Node with custom JavaScript, the workflow runs regular expressions on the HTML content to extract business email addresses.\n\nSetup\nAdd Queries:\nOpen the first node, \"Run Workflow\" and input a list of queries, each containing the business keywords and the target region.\n\nConfigure the Google Sheets Node:\nOpen the Google Sheets node and select a document and specific sheet where the scraped results will be saved.\n\nRun the workflow:\nClick on \"Test workflow\" and watch your Google Sheets document gradually receive business email addresses. \n\nCustomize as Needed:\n\nYou can adjust the regular expressions in the Code Node to refine the email extraction logic or add logic to extract other kinds of information.",
+  "totalViews": 104076,
+  "source": "official",
+  "user": {
+    "id": 92128,
+    "name": "Akram Kadri",
+    "username": "akramkadri",
+    "bio": "n8n Automation Freelancer\n------------------------\nContact me at: akram@digispruce.com",
+    "verified": true,
+    "links": "[\"https://youtube.com/@kadri_akram\"]",
+    "avatar": "https://gravatar.com/avatar/e57785a112fbcca1ac70d537a9ed5c5a68be59f808ed8b36475bde0e2c8f384b?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-11-24T10:56:50.080Z",
+  "path": "official/template_2567/workflow.json"
+}

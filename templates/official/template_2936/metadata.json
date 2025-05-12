@@ -1,0 +1,47 @@
+{
+  "id": 2936,
+  "name": "Get notified when Meta Ads balance is low",
+  "description": "Receive a notification when your Facebook Ads balance drops below a set limit.\n\nHow it works\n\nThere are two methods to determine your available balance, depending on your account's billing setup.\n\nThis template gives you both methods, so you can choose the one that best fits your situation.\n\nYou can also replace the Telegram node with another chat app, like WhatsApp, Slack, Discord, Twilio or even Email.\n\nWho is this template for?\n\nMarketing professionals who want to automate low balance notifications, so they don’t have to check their balance all the time.\n\nHow to set up\n\nAll information you need to set up this workflow is already inside the template.\n\nCheck out my other templates\n\n👉 https://n8n.io/creators/solomon/",
+  "totalViews": 688,
+  "source": "official",
+  "user": {
+    "id": 91663,
+    "name": "Solomon",
+    "username": "solomon",
+    "bio": "Freelance consultant from Brazil, specializing in automations and data analysis. I work with select clients, addressing their toughest projects.\n\nFor business inquiries, email me at automations.solomon@gmail.com or message me on Telegram for a faster response.",
+    "verified": true,
+    "links": "[\"https://t.me/salomaoguilherme\"]",
+    "avatar": "https://gravatar.com/avatar/79aa147f090807fe0f618fb47a1de932669e385bb0c84bf3a7f891ae7d174256?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Facebook Graph API",
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-02-18T12:56:14.123Z",
+  "path": "official/template_2936/workflow.json"
+}

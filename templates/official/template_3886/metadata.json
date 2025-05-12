@@ -1,0 +1,87 @@
+{
+  "id": 3886,
+  "name": "Send YouTube Video Summaries to Obsidian via Dropbox",
+  "description": "\nHow it works\n\nThis workflow runs on a schedule you set (default is every 10 minutes). It fetches all videos from a specific YouTube playlist, retrieves details and transcripts for each video using RapidAPI, cleans the transcript text, and then uses OpenAI (GPT models) to generate detailed notes, YAML frontmatter, and internal links formatted for Obsidian. Finally, it assembles everything into a Markdown file, saves it to your designated Dropbox folder, and removes the processed video from the source YouTube playlist.\n\nSet up steps\n\nGetting started should take about 5 minutes. A Quick Start Guide (PDF) is included in the download with step-by-step instructions!\n\nHere's a quick overview of the setup:\n\nConnect Credentials: Add your n8n credentials for YouTube (OAuth2), OpenAI, and Dropbox (OAuth2).\nAdd API Keys:\n    RapidAPI: You'll need a key for the yt-api service. The template uses ={{ $env[\"RAPIDAPI_API_KEY\"] }}. You can either set up an environment variable in n8n named RAPIDAPI_API_KEY or simply delete that expression in the \"Get Video Details\" and \"Get Video Transcript\" nodes and paste your API key directly into the x-rapidapi-key field.\nConfigure Nodes:\n    Update the Playlist ID in the \"Get Playlist Videos\" node to your target YouTube playlist.\n    (Optional) Adjust the Save Path in the \"Save Note to Dropbox\" node if you want to save files to a different folder.\nActivate: Turn on the workflow.\n\n&gt; Bonus Trick: Symlink the Dropbox folder (using the Dropbox desktop app) to a folder in your Obsidian vault for beautifully organized YouTube summary notes!\n\n",
+  "totalViews": 207,
+  "source": "official",
+  "user": {
+    "id": 94254,
+    "name": "I versus AI",
+    "username": "iversusai",
+    "bio": "AI tips & tricks that no one else is talking about • Promptcrafting & AI Automating on YT since 2023 • Yes, that's my real voice • She/Her • Voice of https://www.ImagineAI.live",
+    "verified": false,
+    "links": "[\"https://www.youtube.com/@IversusAI\"]",
+    "avatar": "https://gravatar.com/avatar/fd936beb5af715d334c6445dd6d7f9cfd57274eaf4be397c4bb60ea8f2eace81?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes",
+    "Marketing",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Dropbox",
+      "type": "n8n-nodes-base.dropbox",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "YouTube",
+      "type": "n8n-nodes-base.youTube",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-05-06T07:18:28.095Z",
+  "path": "official/template_3886/workflow.json"
+}

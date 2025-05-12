@@ -1,0 +1,133 @@
+{
+  "id": 3050,
+  "name": "Build Your First AI Data Analyst Chatbot",
+  "description": "Enhance your data analysis by connecting an AI Agent to your dataset, using n8n tools.\n\nThis template teaches you how to build an AI Data Analyst Chatbot that is capable of pulling data from your sources, using tools like Google Sheets or databases. It's designed to be easy and efficient, making it a good starting point for AI-driven data analysis.\n\nYou can easily replace the current Google Sheets tools for databases like Postgres or MySQL.\n\nHow It Works\nThe core of the workflow is the AI Agent. It's connected to different data retrieval tools, to get data from Google Sheets (or your preferred database) in many different ways.\n\nOnce the data is retrieved, the Calculator tool allows the AI to perform mathematical operations, making your data analysis precise.\n\nWho is this template for\nData Analysts & Researchers:** Pull data from different sources and perform quick calculations.\nDevelopers & AI Enthusiasts:** Learn to build your first AI Agent with easy dataset access.\nBusiness Owners:** Streamline your data analysis with AI insights and automate repetitive tasks.\nAutomation Experts:** Enhance your automation skills by integrating AI with your existing databases.\n\nHow to Set Up\nYou can find detailed instructions in the workflow itself.\n\nCheck out my other templates\n👉 https://n8n.io/creators/solomon/",
+  "totalViews": 84288,
+  "source": "official",
+  "user": {
+    "id": 91663,
+    "name": "Solomon",
+    "username": "solomon",
+    "bio": "Freelance consultant from Brazil, specializing in automations and data analysis. I work with select clients, addressing their toughest projects.\n\nFor business inquiries, email me at automations.solomon@gmail.com or message me on Telegram for a faster response.",
+    "verified": true,
+    "links": "[\"https://t.me/salomaoguilherme\"]",
+    "avatar": "https://gravatar.com/avatar/79aa147f090807fe0f618fb47a1de932669e385bb0c84bf3a7f891ae7d174256?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Calculator",
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-03-01T12:08:21.886Z",
+  "path": "official/template_3050/workflow.json"
+}

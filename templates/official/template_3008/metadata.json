@@ -1,0 +1,71 @@
+{
+  "id": 3008,
+  "name": "Extract Thai Bank Slip Data from LINE using SpaceOCR and Save to Google Sheets",
+  "description": "Who is this for?\nThis workflow is ideal for businesses, accountants, and finance teams who receive bank slip images via LINE and want to automate the extraction of transaction details. It eliminates manual data entry and speeds up financial tracking.\n\nWhat problem does this workflow solve?\nMany businesses receive bank transfer slips via LINE from customers, but manually recording transaction details into spreadsheets is time-consuming and error-prone. This workflow automates the entire process, extracting structured data from the bank slips and storing it in Google Sheets for seamless record-keeping.\n\nWhat this workflow does:\nReceives bank slip images from LINE BOT\nExtracts transaction details (sender, receiver, amount, transaction ID) using SpaceOCR\nAutomatically logs extracted data into Google Sheets\nWorks with Standard Bank Slips & PromptPay transactions\nEliminates manual data entry and reduces errors\n\nSetup Instructions:\n1. Prerequisites\nA LINE BOT with Messaging API enabled\nA SpaceOCR API Key (Get from https://spaceocr.com/)\nA Google Sheets account to store extracted data\nAn n8n instance running (Cloud or Self-hosted)\n\n2. Setup Google Sheets\nCreate a Google Sheet with the following structure:\n\nA (Date)\tB (Time)\tC (Sender)\tD (Receiver)\tE (Bank Name)\tF (Amount)\tG (Transaction ID)\n\nEnsure your Google Sheets API is enabled and connected to n8n.\n\nFor an example of the required format, check this Google Sheets template: Google Sheets Template\n\n3. Configure n8n Workflow\n1. Webhook Node (Receives bank slip from LINE BOT)\n\nSet method:* Set Path:* \n2. HTTP Request (Download Image from LINE Message)\nRetrieves image URL from the LINE message payload\n\n3. SpaceOCR Node (Extract Text from Bank Slip)\nInput:* API Key:* #### 4. Google Sheets Node (Save Transaction Data)\nSelect your Google Sheet\nMap extracted data (sender, receiver, amount, etc.) to the respective columns\n\n4. Deploy & Test\nActivate the workflow in n8n\nSet Webhook URL in LINE Developer Console\nSend a test bank slip image to the LINE BOT\nCheck Google Sheets for extracted transaction data\n\n",
+  "totalViews": 1195,
+  "source": "official",
+  "user": {
+    "id": 92667,
+    "name": "Jaruphat J.",
+    "username": "jaruphatj",
+    "bio": "Project Manager who passionate about Automation & AI and continuously explore innovative ways to improve business processes through intelligent workflow automation. Let’s connect and automate the future! ",
+    "verified": true,
+    "links": "[\"https://www.youtube.com/@JaruphatJ\"]",
+    "avatar": "https://gravatar.com/avatar/847eff98bf683847ee92dd56b7d8169f88e9e8f3d839590713d6eab45c59a72f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-02-25T03:44:14.911Z",
+  "path": "official/template_3008/workflow.json"
+}

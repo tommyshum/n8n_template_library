@@ -1,0 +1,52 @@
+{
+  "id": 2820,
+  "name": "Backup Workflows to Git Repository on Gitea",
+  "description": "Overview\nThis workflow automates the backup of all workflows from your system to a Git repository hosted on Gitea. It runs on a scheduled trigger, fetching, encoding, and committing workflow data, ensuring seamless version control and disaster recovery.\n\n📌 Quick Setup: Just update three global variables and configure authentication—no manual exports needed!\n\nHow It Works (Quick Glance)\n1️⃣ Scheduled Execution → Runs automatically at defined intervals.\n2️⃣ Fetch Workflows → Uses the API to retrieve all workflows.\n3️⃣ Process Workflows → Converts workflow data into a Git-friendly format.\n4️⃣ Commit & Push to Git → Saves workflows in a Gitea repository.\n\nSetup Steps (⚡ Takes ~5 min)\n\n1️⃣ Set Global Variables\nGo to the Globals section in the workflow and update:\nrepo.url* → https://your-gitea-instance.com *(Replace with your actual Gitea URL)\nrepo.name* → workflows *(Repository name where backups will be stored)\nrepo.owner* → octoleo *(Gitea account that owns the repository)\n\n📌 These three variables define where the workflows are stored.\n\n2️⃣ Configure Gitea Authentication\nGo to your Gitea account* → Generate a *Personal Access Token**\nIn the credential manager, create a new Gitea Token with:\nName:** Authorization\nValue:** Bearer YOUR_PERSONAL_ACCESS_TOKEN\n\n📌 Ensure there is a space after Bearer before the token!\n\n3️⃣ Link Credentials to Git Nodes\nAttach the Gitea credentials to these three Git nodes:\nGetGitea** → Retrieves existing repository data\nPutGitea** → Updates workflows\nPostGitea** → Adds new workflows\n\n4️⃣ Link Credentials for API Requests\nAdd API authentication** in the node that fetches all workflows.\n\n5️⃣ Test & Activate\nRun the workflow manually** to confirm backups work.\nEnable the schedule trigger for automation.\n\n📌 The workflow automatically checks for changes before committing updates.\n\nWhy Use This Workflow?\n✅ Automated Backups → No manual exports needed.\n✅ Version Control → Easily track workflow changes.\n✅ Simple Setup → Just configure globals & credentials.\n✅ Secure → Uses token-based authentication.\n\nNext Steps\n💬 Have questions? Reach out on the forum! 🚀",
+  "totalViews": 787,
+  "source": "official",
+  "user": {
+    "id": 92541,
+    "name": "Octoleo",
+    "username": "octoleo",
+    "bio": "Hi, I’m Llewellyn van der Merwe, also known as <<ewe>>yn, pioneering tools to automate freedom!",
+    "verified": false,
+    "links": "[\"https://git.vdm.dev/octoleo\"]",
+    "avatar": "https://gravatar.com/avatar/d229b0bae7753b1f1011cbf6db03b771de50e618170aa9f251c222e497bc5422?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-01-29T14:22:41.191Z",
+  "path": "official/template_2820/workflow.json"
+}

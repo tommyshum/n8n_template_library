@@ -1,0 +1,114 @@
+{
+  "id": 2883,
+  "name": "Open Deep Research - AI-Powered Autonomous Research Workflow",
+  "description": "Open Deep Research - AI-Powered Autonomous Research Workflow  \n\nDescription  \nThis workflow automates deep research by leveraging AI-driven search queries, web scraping, content analysis, and structured reporting. It enables autonomous research with iterative refinement, allowing users to collect, analyze, and summarize high-quality information efficiently.\n\nHow it works  \n\n🔹 User Input  \n   The user submits a research topic via a chat message.\n\n🧠 AI Query Generation  \n   A Basic LLM generates up to four refined search queries to retrieve relevant information.\n\n🔎 SERPAPI Google Search  \n   The workflow loops through each generated query and retrieves top search results using the SerpAPI API.\n\n📄 Jina AI Web Scraping  \n   Extracts and summarizes webpage content from the URLs obtained via SerpAPI.\n\n📊 AI-Powered Content Evaluation  \n   An AI Agent evaluates the relevance and credibility of the extracted content.\n\n🔁 Iterative Search Refinement  \n   If the AI finds insufficient or low-quality information, it generates new search queries to improve results.\n\n📜 Final Report Generation  \n   The AI compiles a structured markdown report, including sources with citations.\n\nSet Up Instructions  \n🚀 Estimated setup time: ~10-15 minutes  \n\n✅ Required API Keys:**  \n  SerpAPI → For Google Search results  \n  Jina AI → For text extraction  \n  OpenRouter → For AI-driven query generation and summarization  \n\n⚙️ n8n Components Used:**  \n  AI Agents with memory buffering for iterative research  \n  Loops to process multiple search queries efficiently  \n  HTTP Requests for direct API interactions with SerpAPI and Jina AI  \n\n📝 Recommended Enhancements:**  \n  Add sticky notes in n8n to explain each step for new users  \n  Implement Google Drive or Notion Integration to save reports automatically  \n\n🎯 Ideal for:  \n✔️ Researchers & Analysts - Automate background research  \n✔️ Journalists - Quickly gather reliable sources  \n✔️ Developers - Learn how to integrate multiple AI APIs into n8n  \n✔️ Students - Speed up literature reviews  \n\n🔗 Completely free and open-source! 🚀  \n",
+  "totalViews": 17446,
+  "source": "official",
+  "user": {
+    "id": 92677,
+    "name": "Leonard",
+    "username": "leonardvanhemert",
+    "bio": "",
+    "verified": false,
+    "links": "[\"https://www.linkedin.com/in/leonard-van-hemert/\"]",
+    "avatar": "https://gravatar.com/avatar/d74804b344150d186e6c1ba970566f07cde315413fa8ed125810c5fb7386c6ca?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Wikipedia",
+      "type": "@n8n/n8n-nodes-langchain.toolWikipedia",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-02-11T16:42:07.823Z",
+  "path": "official/template_2883/workflow.json"
+}

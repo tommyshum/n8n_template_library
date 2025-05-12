@@ -1,0 +1,65 @@
+{
+  "id": 3307,
+  "name": "🍅 Custom Pomodoro Tracker using Telegram and Google Sheet",
+  "description": "Tags: Productivity, Pomodoro, Organization\n\nContext  \nHey! I’m Samir, a Supply Chain Engineer and Data Scientist from Paris, founder of LogiGreen Consulting 🌱\n\nA significant improvement in my productivity came from following the Pomodoro Technique.\n\nWhat is the Pomodoro Technique?  \nThe Pomodoro Technique is a time management method that breaks your workday into 25-minute focus intervals followed by short breaks. After 4 cycles, you take a longer break to recharge.  \nIt helps maintain concentration while preventing burnout.\n\n\n\nI’ve used this technique with web apps to receive break/work notifications. But I always wished I had a way to track my sessions for self-assessment.\n\n&gt; Let’s use n8n to boost our productivity and log our deep work sessions automatically!\n\n📬 For business inquiries, you can add me on Here\n\nWho Is This Template For?  \nI built this workflow for creators, freelancers, students, and professionals who love the Pomodoro technique but want more than just timers — they want data.\n\nThis template helps you:\nTrack every deep work session automatically\nStore logs in Google Sheets for later analysis\nStay in control via Telegram commands  \n\nThere is no need to pay for premium apps. It’s all free and powered by n8n.\n\nHow Does It Work?  \nThis Telegram bot tracks your Pomodoro sessions and sends you alerts during the process.\n\nHere’s what happens:\n\nA user sends /start to the bot.\nIt launches a 25-minute deep work timer.\nAfter 25 minutes, the bot sends a break reminder.\nAfter four cycles, a long break is triggered and the session is logged.\nThe session is automatically recorded to Google Sheets with (Date & Time, User ID, Pomodoro count, Session ID, Duration of focus and breaks)\n\nWhat Gets Tracked?\n\n| Field              | Description                          |\n|-------------------|--------------------------------------|\n| Date & Time        | When the session was logged          |\n| User ID           | Your Telegram ID                     |\n| Block Type    | Deep Work or Short Break\n| Pomodoro Count    | Number of cycles completed            |\n| Working Session ID        | Unique ID for each session           |\n| Focus Duration    | Length of each deep work session     |\n| Break Duration    | Short or long break info             |\n\nYou can use this workflow as a base to bring additional features like:\nConnecting with tasks from Google Task\nSend automated productivity reports to monitor your activity\nLink a Pomodoro with a task using Google Calendar\n\nWhat Do I Need to Start?\n\nThis workflow is beginner-friendly — no coding required.\n\nGoogle Drive API* and *Google Sheet API** credentials\nA Google Sheet set up to log sessions (with the columns of the table above)\nAPI Credentials:\n  Google Sheets API (OAuth2)\n  Telegram Bot Token\nTelegram app to chat with the bot\n\n&gt; The template is plug-and-play. Just follow the sticky notes in the n8n editor to configure it.\n\nNext Steps  \nFollow the sticky notes in the n8n workflow editor to:\n\nSet your credentials  \nConnect your Google Sheet  \nInitialize the static data  \nLaunch your first /start command on Telegram\n\n  \n🎥 Watch My Tutorial\n\n🚀 Curious how n8n can supercharge productivity and learning skills??  \n📬 Let’s connect on LinkedIn\n\nThis workflow has been created with N8N 1.82.1\nSubmitted: March 24th, 2025",
+  "totalViews": 1288,
+  "source": "official",
+  "user": {
+    "id": 93233,
+    "name": "Samir Saci",
+    "username": "samirsaci",
+    "bio": "Automation, AI and Analytics for Supply Chain & Business Optimization\nHelping businesses streamline operations using n8n, AI agents, and data science to enhance efficiency and sustainability. \nLinkedin: www.linkedin.com/in/samir-saci",
+    "verified": true,
+    "links": "[\"https://linktr.ee/samirsaci\"]",
+    "avatar": "https://gravatar.com/avatar/d3644476a59e5813c5f00a7933977e2be8805cbdc574958b9cc6a53b45bedd6a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Communication",
+    "HITL",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-03-24T11:35:08.457Z",
+  "path": "official/template_3307/workflow.json"
+}

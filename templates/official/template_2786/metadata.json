@@ -1,0 +1,148 @@
+{
+  "id": 2786,
+  "name": "Create a Branded AI-Powered Website Chatbot",
+  "description": "Create a Branded AI Website Chatbot\n\nEngage website visitors with an intelligent chat widget powered by OpenAI. This template includes:\n\n💬 Natural conversation handling\n📅 Microsoft Outlook calendar integration\n📝 Lead capture and information gathering\n🔄 Human handoff capabilities\n\nSimply add a JavaScript snippet to your website and configure the workflow to match your needs. Follow our detailed setup guide to get started in minutes.\n\n\n\n&gt; Note: Widget includes a \"Powered By\" affiliate link",
+  "totalViews": 61361,
+  "source": "official",
+  "user": {
+    "id": 91547,
+    "name": "Wayne Simpson",
+    "username": "nocodecreative",
+    "bio": "I’m Wayne, an AI, automation & low-code consultant, passionate about helping businesses unlock their potential through smart, practical solutions.\n\nContact me at https://www.nocodecreative.io",
+    "verified": true,
+    "links": "[\"https://www.nocodecreative.io\"]",
+    "avatar": "https://gravatar.com/avatar/4411649cc7663c2b65bc85988745080d5a677931114ea9e85f02b66a74d2e323?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Microsoft Outlook",
+      "type": "n8n-nodes-base.microsoftOutlook",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 8,
+  "createdAt": "2025-01-23T17:44:16.860Z",
+  "path": "official/template_2786/workflow.json"
+}

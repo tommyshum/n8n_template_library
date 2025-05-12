@@ -1,0 +1,18 @@
+{
+  "id": 1407,
+  "name": "Simple file based key value store (WriteKey)",
+  "totalViews": 1254,
+  "purchaseUrl": null,
+  "user": {
+    "id": 21541,
+    "name": "Peter",
+    "username": "rottmann",
+    "bio": null,
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/784768e5875d89a835cba511f5ebe3097a0a8e302e7693f71e68267774c4ed71?r=pg&d=retro&size=200"
+  },
+  "description": "Store a key with a value in a local json file. Multiple keys could be saved in a single file.\n\nRelated workflow: GetKey\n\nCreate a subfolder in your n8n homedir: /home/node/.n8n/local-files. In docker look at the data path and create a subfolder local-files.\nSet the correct access rights chmod 1000.1000 local-files.\n\nPut the workflow code in a new workflow named WriteKey.\n\nCreate another workflow with a function item:\n\nreturn  {\n  file: '/4711.json', // 4711 should be your workflow id\n  key: 'MyKey',\n  value: 'MyValue'\n}\n\nPipe the function item to an Execution Workflow that calls the WriteKey workflow.\n\nIt would be nice if we could get someday a shiny built-in n8n node that does the job. :)",
+  "createdAt": "2022-01-24T19:14:14.942Z",
+  "nodes": []
+}

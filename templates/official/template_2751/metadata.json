@@ -1,0 +1,101 @@
+{
+  "id": 2751,
+  "name": "🤖 Telegram Messaging Agent for Text/Audio/Images",
+  "description": "🤖 This n8n workflow creates an intelligent Telegram bot that processes multiple types of messages and provides automated responses using AI capabilities. The bot serves as a personal assistant that can handle text, voice messages, and images through a sophisticated processing pipeline.\n\nCore Components\n\nMessage Reception and Validation 📥\n🔄 Implements webhook-based message reception for real-time processing\n🔐 Features a robust user validation system that verifies sender credentials\n🔀 Supports both testing and production webhook endpoints for development flexibility\n\nMessage Processing Pipeline ⚡\n🔄 Uses a smart router to detect and categorize incoming message types\n📝 Processes three main message formats:\n  💬 Text messages\n  🎤 Voice recordings\n  📸 Images with captions\n\nAI Integration 🧠\n🤖 Leverages OpenAI's GPT-4 for message classification and processing\n🗣️ Incorporates voice transcription capabilities for audio messages\n👁️ Features image analysis using GPT-4 Vision API for processing visual content\n\nTechnical Architecture\n\nWebhook Management 🔌\n🌐 Maintains separate endpoints for testing and production environments\n📊 Implements automatic webhook status monitoring\n⚡ Provides real-time webhook configuration updates\n\nError Handling ⚠️\n🔍 Features comprehensive error detection and reporting\n🔄 Implements fallback mechanisms for unprocessable messages\n💬 Provides user feedback for failed operations\n\nMessage Classification System 📋\n🏷️ Categorizes incoming messages into tasks and general conversation\n🔀 Implements separate processing paths for different message types\n🧩 Maintains context awareness across message processing\n\nSecurity Features\n\nUser Authentication 🔒\n✅ Validates user credentials against predefined parameters\n👤 Implements first name, last name, and user ID verification\n🚫 Restricts access to authorized users only\n\nResponse System\n\nIntelligent Responses 💡\n🤖 Generates contextual responses based on message classification\n\n",
+  "totalViews": 40934,
+  "source": "official",
+  "user": {
+    "id": 92125,
+    "name": "Joseph LePage",
+    "username": "joe",
+    "bio": "As an AI Automation consultant based in Canada, I partner with forward-thinking organizations to implement AI solutions that streamline operations and drive growth.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/e7ca218dfc87b68344bbd66f40da01546d2f6fc1cf884267821e8a77e3e8410a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Text Classifier",
+      "type": "@n8n/n8n-nodes-langchain.textClassifier",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-01-18T18:10:46.426Z",
+  "path": "official/template_2751/workflow.json"
+}

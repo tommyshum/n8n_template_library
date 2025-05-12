@@ -1,0 +1,61 @@
+{
+  "id": 2887,
+  "name": "Export PDF invoices from SmartBill to Google Drive",
+  "description": "This workflow automates the retrieval of invoice PDFs from the Smartbill API and saves them to Google Drive in a dynamically created folder based on last month’s date. It also generates a range of invoice numbers, ensuring proper formatting, and uploads each PDF with a structured filename.\n\nOverview\n\nTrigger and Data Setup:  \n   The workflow is manually triggered. It sets the invoice range (start and end numbers), invoice series, the parent Google Drive folder ID and the folder where to save the PDF files.\n\nFolder Handling:  \n   Folder Name Calculation: Calculates a default folder name based on last month’s date (formatted as YYYY-MM).\n\nInvoice Generation:  \n   A code node generates invoice items by iterating over a specified range of numbers. Each invoice number is padded to custom number of digits (e.g., 0013), and the invoice series and folder ID are attached to each item.\n\nRetrieving Invoice PDFs:  \n   For each generated invoice, the Smartbill API is called (using an HTTP Request node) to retrieve the corresponding invoice PDF.\n\nHow to Use\n\nCredentials:**  \n  Ensure you have configured the Smartbill API (HTTP Basic Auth) and Google API credentials correctly.\n  \nParameter Adjustment:**  \n  Modify the SetData node if you need to change the invoice range, series, or target parent folder.\n  \nExecution:**  \n  Click Execute Workflow to run the workflow manually.\n",
+  "totalViews": 890,
+  "source": "official",
+  "user": {
+    "id": 92547,
+    "name": "Codez & AI",
+    "username": "codez",
+    "bio": "Building automations and AI agents for businesses",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/896ac5706f22050261dab53648aed193ebdf79040118c0a0ab0d3378dd5bd9f1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-02-12T11:02:03.340Z",
+  "path": "official/template_2887/workflow.json"
+}

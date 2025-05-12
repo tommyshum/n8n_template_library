@@ -1,0 +1,97 @@
+{
+  "id": 3532,
+  "name": "Summarize Glassdoor Company Info with Google Gemini and Bright Data Web Scraper",
+  "description": "Who is this for?\nThis workflow is designed for HR professionals, employer branding teams, talent acquisition strategists, market researchers, and business intelligence analysts who want to monitor, understand, and act upon employee sentiment and company perception on Glassdoor.\n\nIt's ideal for organizations that value real-time feedback, are tracking employer brand perception, or need summarized insights for leadership reporting without sifting through thousands of raw reviews.\n\nWhat problem is this workflow solving?\nManually reviewing and analyzing Glassdoor reviews is tedious, subjective, and not scalable especially for larger companies or those with many subsidiaries.\nThis workflow:\nAutomates review collection by making a Glassdoor company request via the Bright Data Web Scrapper API.\nUses Google Gemini to summarize the content.\nSends an actionable summary to HR dashboards, leadership teams, or alert systems via the Webhook notification.\n\nWhat this workflow does\nMakes an HTTP Request to Glassdoor via the Bright Data Web Scrapper API.\nPolls the BrightData Glassdoor for the completion of the request.\nDownloads the Glassdoor response when a new snapshot is ready.\nSends the prompt to Google Gemini for summarization.\nDelivers the summarized insights (strengths, weaknesses, sentiment, patterns) to a configured webhook or dashboard endpoint.\n\nSetup\nSign up at Bright Data.\nNavigate to Proxies & Scraping and create a new Web Unlocker zone by selecting Web Unlocker API under Scraping Solutions.\nIn n8n, configure the Header Auth account under Credentials (Generic Auth Type: Header Authentication).\n\nThe Value field should be set with the\nBearer XXXXXXXXXXXXXX. The XXXXXXXXXXXXXX should be replaced by the Web Unlocker Token.\nA Google Gemini API key (or access through Vertex AI or proxy).\nA webhook or endpoint to receive the summary (e.g., Slack, Notion, or custom HR dashboard).\n\nHow to customize this workflow to your needs\n\nChange Summary Focus by updating the Summarization of Glassdoor Response node Summarization methods and prompts to extract specific insights:\nCultural feedback\nLeadership issues\nCompensation comments\nExit motivation\nUpdate the HTTP Request to Glassdoor node with a specific Glassdoor Company information that you are looking for.\nFormat the output to produce a customized summary to Markdown or HTML for rich delivery.\nIntegrate with HR Systems\nBambooHR, Workday, SAP SuccessFactors via API.\nGoogle Sheets or Airtable\n \t",
+  "totalViews": 520,
+  "source": "official",
+  "user": {
+    "id": 93657,
+    "name": "Ranjan Dailata",
+    "username": "ranjancse",
+    "bio": "",
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/7b74fe44a7ad32db7c783b972deb5848a4b1f043377bce4039737ed66da8305f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Summarization Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainSummarization",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Recursive Character Text Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-04-13T05:41:52.066Z",
+  "path": "official/template_3532/workflow.json"
+}

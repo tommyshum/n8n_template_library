@@ -1,0 +1,89 @@
+{
+  "id": 3018,
+  "name": "Automated Content Generation & Publishing - Wordpress",
+  "description": "Workflow Description: Automated Content Publishing for WordPress\nThis n8n workflow automates the entire process of content generation, image selection, and scheduled publishing to a self-hosted WordPress website. It is designed for bloggers, marketers, and businesses who want to streamline their content creation and posting workflow.\n\n🌟 Features\n✅ AI-Powered Content Generation  \nUses ChatGPT to generate engaging, market-ready blog articles  \nDynamically incorporates high-search volume keywords  \n\n✅ Automated Image Selection  \nSearches for relevant stock images from Pexels  \nEmbeds images directly into posts  \n(Optional)* Supports *Featured Image from URL (FIFU) plugin** for WordPress  \n\n✅ Scheduled & Randomized Posting  \nAutomatically schedules posts at predefined intervals  \nSupports randomized delay (0-6 hours) for natural publishing  \n\n✅ WordPress API Integration  \nUses WordPress REST API to directly publish posts  \nConfigures featured images, categories, and metadata  \nSupports SEO-friendly meta fields  \n\n✅ Flexible & Customizable  \nWorks with any WordPress website (self-hosted)  \nCan be modified for other CMS platforms  \n\n🔧 How It Works\n1️⃣ Trigger & Scheduling  \n   Automatically runs at preset times or on-demand  \n   Supports cron-like scheduling  \n\n2️⃣ AI Content Generation  \n   Uses a well-crafted prompt to generate high-quality blog posts  \n   Extracts relevant keywords for both SEO and image selection  \n\n3️⃣ Image Fetching from Pexels  \n   Searches and retrieves high-quality images  \n   Embeds image credits and ensures proper formatting  \n\n4️⃣ WordPress API Integration  \n   Sends post title, content, image, and metadata via HTTP Request  \n   Can include custom fields, categories, and tags  \n\n5️⃣ Randomized Delay Before Publishing  \n   Ensures natural posting behavior  \n   Avoids bulk publishing issues  \n\n📌 Requirements\nSelf-hosted WordPress website* with *REST API enabled**  \nFIFU Plugin* (optional) for *external featured images**  \nn8n Self-Hosted or Cloud Instance**  \n\n🚀 Who Is This For?\n✅ Bloggers who want to automate content publishing  \n✅ Marketing teams looking to scale content production  \n✅ Business owners who want to boost online presence  \n✅ SEO professionals who need consistent, optimized content  \n\n💡 Ready to Automate?\n👉 Click here to get this workflow! (Replace with Purchase URL)\n",
+  "totalViews": 24854,
+  "source": "official",
+  "user": {
+    "id": 92929,
+    "name": "Sunny",
+    "username": "xicpoywriter",
+    "bio": "Luxury Brand Storyteller meets AI Innovation. Helping brands craft unforgettable narratives.",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/f48b83d9203b4c4ddddc61aee4245dc65b9b9543ad744013bedf6dae9ea76d70?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Marketing",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Wordpress",
+      "type": "n8n-nodes-base.wordpress",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-02-26T05:00:48.559Z",
+  "path": "official/template_3018/workflow.json"
+}

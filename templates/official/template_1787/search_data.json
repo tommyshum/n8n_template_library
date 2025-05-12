@@ -1,0 +1,131 @@
+{
+  "id": 1787,
+  "name": "Upload leads from a CSV file to Pipedrive CRM",
+  "totalViews": 1957,
+  "purchaseUrl": null,
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "description": "This workflow gets leads' contacts from a CSV file and adds it to the Pipedrive CRM by creating an organization and a person. The CSV file in this workflow serves as a universal connector allowing you to export contacts from any platform like LinkedIn, Facebook, etc.\n\nPrerequisites\nGoogle account and Google credentials\nPipedrive account and Pipedrive credentials\n\nHow it works\nThe Google Drive Trigger node starts the workflow when a new CSV file is uploaded to a specific folder in Google Drive.\nGoogle Drive node downloads the CSV file.\nSpreadsheet File node reads data from the CSV file and sends the output to the Merge node. This Spreadsheet File's output becomes the input 1 for the Merge node.\nMeanwhile, the Pipedrive node gets the same list of contacts from the CSV file.\nIF node checks if Pipedrive has these contacts already created previously and sends the checked results to the Merge node. These results arrive at the Merge node as input 2.\nMerge node compares two inputs via email and removes the matches. \nPipedrive node creates new contacts based on the data provided by the Merge node with necessary details such as organization and notes.\n",
+  "createdAt": "2022-09-09T11:43:13.319Z",
+  "nodes": [
+    {
+      "id": 28,
+      "icon": "file:pipedrive.svg",
+      "name": "n8n-nodes-base.pipedrive",
+      "codex": {
+        "data": {
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/how-to-sync-data-between-two-systems/",
+                "icon": "🏬",
+                "label": "How to synchronize data between two systems (one-way vs. two-way sync"
+              },
+              {
+                "url": "https://n8n.io/blog/how-to-get-started-with-crm-automation-and-no-code-workflow-ideas/",
+                "icon": "👥",
+                "label": "How to get started with CRM automation (with 3 no-code workflow ideas"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.pipedrive/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/pipedrive/"
+              }
+            ]
+          },
+          "categories": [
+            "Sales"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Pipedrive"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiB2aWV3Qm94PSIwIDAgMzIgMzIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PG1hc2sgaWQ9Im1hc2swMDEiIG1hc2stdHlwZT0iYWxwaGEiIG1hc2tVbml0cz0idXNlclNwYWNlT25Vc2UiIHg9IjAiIHk9IjAiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgZmlsbD0iIzI2MjkyQyI+PHBhdGggZD0iTTIuNzM2OTQgMEgyOS4yNjMxQzMwLjc3NDYgMCAzMiAxLjIyNTA3IDMyIDIuNzM2OTVWMjkuMjYzMUMzMiAzMC43NzQ2IDMwLjc3NDkgMzIgMjkuMjYzMSAzMkgyLjczNjk0QzEuMjI1MzcgMzIgMCAzMC43NzQ5IDAgMjkuMjYzMVYyLjczNjk1QzAgMS4yMjUzNyAxLjIyNTA4IDAgMi43MzY5NCAwWiIgZmlsbD0iIzI2MjkyQyI+PC9wYXRoPjwvbWFzaz48ZyBtYXNrPSJ1cmwoI21hc2swMDEpIiBmaWxsPSIjMjYyOTJDIj48cGF0aCBkPSJNMi43MzY5NCAwSDI5LjI2MzFDMzAuNzc0NiAwIDMyIDEuMjI1MDcgMzIgMi43MzY5NVYyOS4yNjMxQzMyIDMwLjc3NDYgMzAuNzc0OSAzMiAyOS4yNjMxIDMySDIuNzM2OTRDMS4yMjUzNyAzMiAwIDMwLjc3NDkgMCAyOS4yNjMxVjIuNzM2OTVDMCAxLjIyNTM3IDEuMjI1MDggMCAyLjczNjk0IDBaIiBmaWxsPSIjMjYyOTJDIj48L3BhdGg+PC9nPjxtYXNrIGlkPSJtYXNrMSIgbWFzay10eXBlPSJhbHBoYSIgbWFza1VuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeD0iNyIgeT0iNCIgd2lkdGg9IjE4IiBoZWlnaHQ9IjI0IiBmaWxsPSIjMjYyOTJDIj48cGF0aCBkPSJNMTMuMzM0OCAxMy4xNzY2QzEzLjMzNDggMTUuMzE5NCAxNC40MjE5IDE3LjYzMTEgMTYuODE0MSAxNy42MzExQzE4LjU4ODEgMTcuNjMxMSAyMC4zODE5IDE2LjI0NjEgMjAuMzgxOSAxMy4xNDUxQzIwLjM4MTkgMTAuNDI2NCAxOC45NzE4IDguNjAxMjcgMTYuODczMSA4LjYwMTI3QzE1LjE2MyA4LjYwMTI3IDEzLjMzNDggOS44MDI1OCAxMy4zMzQ4IDEzLjE3NjZaTTE3LjcxNTggNC42MzE1OUMyMi4wMDUxIDQuNjMxNTkgMjQuODg5MSA4LjAyODczIDI0Ljg4OTEgMTMuMDg1NkMyNC44ODkxIDE4LjA2MjkgMjEuODUwOSAyMS41Mzc4IDE3LjUwNzYgMjEuNTM3OEMxNS40MzY4IDIxLjUzNzggMTQuMTEwMyAyMC42NTA5IDEzLjQxNjggMjAuMDA4OUMxMy40MjE3IDIwLjE2MTEgMTMuNDI1IDIwLjMzMTYgMTMuNDI1IDIwLjUxMzZWMjcuMjYzMkg4Ljk4MTY0VjkuMjc5N0M4Ljk4MTY0IDkuMDE4MjQgOC44OTgwMiA4LjkzNTUyIDguNjM4OTcgOC45MzU1Mkg3LjExMDg1VjQuOTk3MjlIMTAuODM5M0MxMi41NTYgNC45OTcyOSAxMi45OTU0IDUuODcwOTcgMTMuMDc5IDYuNTQ0NDRDMTMuNzc1OSA1Ljc2MzQyIDE1LjIyMDQgNC42MzE1OSAxNy43MTU4IDQuNjMxNTlaIiBmaWxsPSIjMjYyOTJDIj48L3BhdGg+PC9tYXNrPjxnIG1hc2s9InVybCgjbWFzazEpIiBmaWxsPSIjMjYyOTJDIj48cGF0aCBkPSJNMTMuMzM0OCAxMy4xNzY2QzEzLjMzNDggMTUuMzE5NCAxNC40MjE5IDE3LjYzMTEgMTYuODE0MSAxNy42MzExQzE4LjU4ODEgMTcuNjMxMSAyMC4zODE5IDE2LjI0NjEgMjAuMzgxOSAxMy4xNDUxQzIwLjM4MTkgMTAuNDI2NCAxOC45NzE4IDguNjAxMjcgMTYuODczMSA4LjYwMTI3QzE1LjE2MyA4LjYwMTI3IDEzLjMzNDggOS44MDI1OCAxMy4zMzQ4IDEzLjE3NjZaTTE3LjcxNTggNC42MzE1OUMyMi4wMDUxIDQuNjMxNTkgMjQuODg5MSA4LjAyODczIDI0Ljg4OTEgMTMuMDg1NkMyNC44ODkxIDE4LjA2MjkgMjEuODUwOSAyMS41Mzc4IDE3LjUwNzYgMjEuNTM3OEMxNS40MzY4IDIxLjUzNzggMTQuMTEwMyAyMC42NTA5IDEzLjQxNjggMjAuMDA4OUMxMy40MjE3IDIwLjE2MTEgMTMuNDI1IDIwLjMzMTYgMTMuNDI1IDIwLjUxMzZWMjcuMjYzMkg4Ljk4MTY0VjkuMjc5N0M4Ljk4MTY0IDkuMDE4MjQgOC44OTgwMiA4LjkzNTUyIDguNjM4OTcgOC45MzU1Mkg3LjExMDg1VjQuOTk3MjlIMTAuODM5M0MxMi41NTYgNC45OTcyOSAxMi45OTU0IDUuODcwOTcgMTMuMDc5IDYuNTQ0NDRDMTMuNzc1OSA1Ljc2MzQyIDE1LjIyMDQgNC42MzE1OSAxNy43MTU4IDQuNjMxNTlaIiBmaWxsPSIjRkZGRkZGIj48L3BhdGg+PC9nPjwvc3ZnPgo="
+      },
+      "displayName": "Pipedrive",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 2,
+          "name": "Sales"
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "icon": "file:googleDrive.svg",
+      "name": "n8n-nodes-base.googleDrive",
+      "codex": {
+        "data": {
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/your-business-doesnt-need-you-to-operate/",
+                "icon": " 🖥️",
+                "label": "Hey founders! Your business doesn't need you to operate"
+              },
+              {
+                "url": "https://n8n.io/blog/why-this-product-manager-loves-workflow-automation-with-n8n/",
+                "icon": "🧠",
+                "label": "Why this Product Manager loves workflow automation with n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/aws-workflow-automation/",
+                "label": "7 no-code workflow automations for Amazon Web Services"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googledrive/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/google/oauth-single-service/"
+              }
+            ]
+          },
+          "categories": [
+            "Data & Storage"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "Google Drive"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiB2aWV3Qm94PSIwIDAgODEgNzMiPjx1c2UgeGxpbms6aHJlZj0iI2EiIHg9Ii41IiB5PSIuNSIvPjxzeW1ib2wgaWQ9ImEiIG92ZXJmbG93PSJ2aXNpYmxlIj48ZyBmaWxsLXJ1bGU9Im5vbnplcm8iIHN0cm9rZT0ibm9uZSI+PHBhdGggZmlsbD0iIzAwNjZkYSIgZD0ibTYuMDQ4IDYxLjI2IDMuNTI4IDYuMDk0Yy43MzMgMS4yODMgMS43ODcgMi4yOTEgMy4wMjQgMy4wMjRsMTIuNi0yMS44MUgwYTguMyA4LjMgMCAwIDAgMS4xIDQuMTI0eiIvPjxwYXRoIGZpbGw9IiMwMGFjNDciIGQ9Ik00MCAyMi45MSAyNy40IDEuMWMtMS4yMzcuNzMzLTIuMjkxIDEuNzQxLTMuMDI0IDMuMDI0TDEuMSA0NC40NDVBOC4zIDguMyAwIDAgMCAwIDQ4LjU2OGgyNS4yeiIvPjxwYXRoIGZpbGw9IiNlYTQzMzUiIGQ9Ik02Ny40IDcwLjM3OGMxLjIzNy0uNzMzIDIuMjkxLTEuNzQxIDMuMDI0LTMuMDI0bDEuNDY2LTIuNTIgNy4wMS0xMi4xNDJhOC4zIDguMyAwIDAgMCAxLjEtNC4xMjRINTQuNzk4bDUuMzYzIDEwLjUzOHoiLz48cGF0aCBmaWxsPSIjMDA4MzJkIiBkPSJNNDAgMjIuOTEgNTIuNiAxLjFDNTEuMzYzLjM2NyA0OS45NDMgMCA0OC40NzcgMEgzMS41MjRjLTEuNDY2IDAtMi44ODcuNDEyLTQuMTI0IDEuMXoiLz48cGF0aCBmaWxsPSIjMjY4NGZjIiBkPSJNNTQuNzk5IDQ4LjU2OEgyNS4ybC0xMi42IDIxLjgxYzEuMjM3LjczMyAyLjY1NyAxLjEgNC4xMjQgMS4xaDQ2LjU1MmMxLjQ2NiAwIDIuODg3LS40MTIgNC4xMjQtMS4xeiIvPjxwYXRoIGZpbGw9IiNmZmJhMDAiIGQ9Ik02Ny4yNjIgMjQuMjg0IDU1LjYyNCA0LjEyNEM1NC44OTEgMi44NDEgNTMuODM3IDEuODMzIDUyLjYgMS4xTDQwIDIyLjkxbDE0LjggMjUuNjU5aDI1LjE1NWE4LjMgOC4zIDAgMCAwLTEuMS00LjEyNHoiLz48L2c+PC9zeW1ib2w+PC9zdmc+"
+      },
+      "displayName": "Google Drive",
+      "typeVersion": 3,
+      "nodeCategories": [
+        {
+          "id": 3,
+          "name": "Data & Storage"
+        }
+      ]
+    }
+  ]
+}

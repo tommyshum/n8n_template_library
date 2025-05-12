@@ -1,0 +1,32 @@
+{
+  "id": 1819,
+  "name": "Send Google Drive files to Notion database",
+  "description": "This workflow sends a file to a Notion database of your choosing when a new file is created in a specific Google Drive folder.\n\nPrerequisites\n\nNotion account and Notion credentials.\nGoogle account and Google credentials.\nGoogle Drive folder to monitor for new files.\n\nHow it works\n\nWhen a Google Drive file is created in the folder you specified, the workflow sends the file to the Notion database you created. The workflow uses the On file upload node to trigger the workflow when a new file is created in the folder. The Create database page node creates a new page in the Notion database you created.\n\nSetup\n\nCreate a Notion database called \"My Google Drive Files\" with the following columns:\n    Filename\n    Google Drive File\nShare the database to n8n.\nIn the n8n workflow, click on the Create database page node and select the database you created in step 1.\nIn Google Drive, create a folder and navigate to it.\nCopy the URL of the Google Drive folder you are currently in.\nIn the n8n workflow, add the folder URL to On file upload node.",
+  "totalViews": 2953,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2022-11-01T10:20:32.979Z",
+  "path": "official/template_1819/workflow.json"
+}

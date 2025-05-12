@@ -1,0 +1,58 @@
+{
+  "id": 2178,
+  "name": "Transcribe Audio Files, Summarize with GPT-4, and Store in Notion",
+  "description": "Who is this for?\nThis workflow template is perfect for content creators, researchers, students, or anyone who regularly works with audio files and needs to transcribe and summarize them for easy reference and organization.\n\nWhat problem does this workflow solve?\nTranscribing audio files and summarizing their content can be time-consuming and tedious when done manually. This workflow automates the process, saving users valuable time and effort while ensuring accurate transcriptions and concise summaries.\n\nWhat this workflow does\nThis template automates the following steps:\n\nMonitors a specified Google Drive folder for new audio files\nSends the audio file to OpenAI's Whisper API for transcription\nPasses the transcribed text to GPT-4 for summarization\nCreates a new page in Notion with the summary\n\nSetup\nTo set up this workflow:\n\nConnect your Google Drive, OpenAI, and Notion accounts to n8n\nConfigure the Google Drive node with the folder you want to monitor for new audio files\nSet up the OpenAI node with your API key and desired parameters for Whisper and GPT-4\nSpecify the Notion database where you want the summaries to be stored\n\nHow to customize this workflow\nAdjust the Google Drive folder being monitored\nModify the OpenAI node parameters to fine-tune the transcription and summarization process\nChange the Notion database or page properties to match your preferred structure\n\n\nWith this AI-powered workflow, you can effortlessly transcribe audio files, generate concise summaries, and store them in a structured manner within Notion. \n\nStreamline your audio content processing and organization with this automated template.\n",
+  "totalViews": 43456,
+  "source": "official",
+  "user": {
+    "id": 91534,
+    "name": "Pat",
+    "username": "checkso",
+    "bio": "",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/a3f78329cbd3f3239726910fb8b0f8e5e7bb340868f57b959989e7f8d8ea1608?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-03-15T17:04:09.594Z",
+  "path": "official/template_2178/workflow.json"
+}

@@ -1,0 +1,32 @@
+{
+  "id": 1856,
+  "name": "Turn on a light to a specific color on any update in GitHub repository",
+  "description": "This workflow turns a light red when an update is made to a GitHub repository. By default, updates include pull requests, issues, pushes just to name a few.\n\nPrerequisites\n\nGitHub credentials.\nHome Assistant credentials.\n\nHow it works\n\nTriggers off on the On any update in repository node.\nUses Home Assistant to turn on a light and then configure the light to turn red.",
+  "totalViews": 5620,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Miscellaneous"
+  ],
+  "nodes": [
+    {
+      "name": "Home Assistant",
+      "type": "n8n-nodes-base.homeAssistant",
+      "categories": [
+        "Miscellaneous"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2023-01-05T14:10:52.233Z",
+  "path": "official/template_1856/workflow.json"
+}

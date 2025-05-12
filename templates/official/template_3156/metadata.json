@@ -1,0 +1,126 @@
+{
+  "id": 3156,
+  "name": "Summarize YouTube Videos & Chat About Content with GPT-4o-mini via Telegram",
+  "description": "Summarize YouTube Videos & Chat About Content with GPT-4o-mini via Telegram\n\nDescription\n\nThis n8n workflow automates the process of summarizing YouTube video transcripts and enables users to interact with the content through AI-powered question answering via Telegram. It leverages the GPT-4o-mini model to generate summaries and provide insights based on the video’s transcript.\n\nHow It Works\n\nInput: The workflow starts by receiving a YouTube video URL. This can be submitted through:\n   A Telegram chat message.\n   A webhook (e.g., triggered by a shortcut on Apple devices).\n\nTranscript Extraction: The URL is processed to extract the video transcript using the custom youtubeTranscripter community node (available here). The transcript is concatenated into a single text and stored in a Google Docs document.\n\nSummarization: The GPT-4o-mini AI model analyzes the transcript and generates a structured summary, including:\n   A general overview.\n   Key moments.\n   Instructions (if applicable).  \n   The summary is then sent back to the user via Telegram.\n\nInteractive Q&A: Users can ask questions about the video content via Telegram. The AI retrieves the stored transcript from Google Docs and provides accurate, context-based answers, which are sent back through Telegram.\n\nSetup Instructions\n\nTo configure this workflow, follow these steps:\n\nImport the Workflow: Download the provided JSON template and import it into your n8n instance.\nInstall the Community Node: Install the youtubeTranscripter community node via npm:\n      npm install n8n-nodes-youtube-transcription-kasha\n      Important: This node requires a self-hosted n8n instance due to its external dependencies.\nConfigure Nodes:\n   Webhook: Set up the webhook to receive YouTube URLs. Alternatively, configure the Telegram node if using Telegram as the input method.\n   Google Docs: Provide valid credentials to enable writing the transcript to a Google Docs document.\n   AI Model: Set up the GPT-4o-mini model for summarization and Q&A functionality.\nTest the Workflow: Send a YouTube URL via your chosen input method (Telegram or webhook) and confirm that the summary is generated and delivered correctly.\n\nCustomization\n\nLanguage**: Adjust the AI prompts to generate summaries and answers in any desired language.\nOutput Format**: Modify the summary structure by editing the prompt in the summarization node.\nInput Methods**: Replace the Telegram node with another messaging or input node to adapt the workflow to different platforms.\n\nWho Can Benefit?\n\nThis template is perfect for:\nContent Creators**: Quickly summarize video content for repurposing or review.\nStudents and Researchers**: Extract key insights from educational or informational videos efficiently.\nGeneral Users**: Interact with video content via AI without needing to watch the full video.\n\nProblem Solved\n\nThis workflow simplifies video content consumption by:\nAutomating the extraction and summarization of key points.\nEnabling interactive Q&A to address specific questions without rewatching the video.\n\nAdditional Notes\n\nDisclaimer**: The youtubeTranscripter community node is required and only works on self-hosted n8n instances due to its reliance on external services.\nApple Users**: Enhance your experience with a custom shortcut to share YouTube videos directly to the workflow. Download the shortcut here.\n",
+  "totalViews": 2119,
+  "source": "official",
+  "user": {
+    "id": 93156,
+    "name": "Grzegorz Hanus",
+    "username": "grzegorzhanus",
+    "bio": "A novice automation engineer who fell in love with n8n",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/075995de20d6a7d959792d8e88daf82183a5f654fd36d045ecb5028633e43f70?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Miscellaneous",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Google Docs",
+      "type": "n8n-nodes-base.googleDocs",
+      "categories": [
+        "Miscellaneous"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-03-13T22:07:45.648Z",
+  "path": "official/template_3156/workflow.json"
+}

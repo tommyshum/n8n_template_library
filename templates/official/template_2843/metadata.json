@@ -1,0 +1,47 @@
+{
+  "id": 2843,
+  "name": "Automate Sports Betting Data with the Odds API",
+  "description": "Automate Sports Betting Data with TheOddsAPI  \n\nThis workflow enables you to create and update a table using TheOddsAPI for sports betting data. It automatically pulls upcoming Ice Hockey games at the start of the day and updates the table with results at the end of the day. You can modify it to retrieve odds and game data for any sport.  \n\nThis setup is particularly useful for sports betting applications, such as tracking the results of a predictive model. It leverages scheduled triggers to activate HTTP requests, which then create or update fields in Airtable by matching on the game ID.  \n\nPrerequisites  \n\nBefore implementing this workflow, ensure you have the following:  \n\nTheOddsAPI Account & API Key  \n   Sign up at TheOddsAPI and obtain an API key.  \n   Ensure you have the correct API permissions to access sports odds and results.  \n\nAirtable Account & API Key  \n   Create an account at Airtable and set up a database.  \n   Obtain an API key from the Account Settings page.  \n\nAPI Access & Rate Limits  \n   Review TheOddsAPI’s rate limits and ensure your account tier allows for scheduled API calls.  \n   Confirm that Airtable API limits align with your expected data retrieval frequency.  \n\nStep-by-Step Guide to Integrating TheOddsAPI  \n\n1. Schedule API Requests  \nSet up a trigger to automatically pull upcoming Ice Hockey games at the start of each day.  \n\n2. Fetch Data from TheOddsAPI  \nRetrieve the latest sports betting data, including game details and odds, using TheOddsAPI.  \n\n3. Store Data in Airtable  \nInsert or update records in Airtable by matching game IDs, ensuring data accuracy.  \n\nSample Airtable Template Column Setup for Ice Hockey  \n(Table can adjust depending on sport and data needs. Reference TheOddsAPI for more documentation.)  \n\nGame ID**  \nSport**  \nLeague**  \nGame Date (UTC)**  \nHome Team**  \nAway Team**  \nCompleted** (Boolean: TRUE/FALSE for game completion status)  \nScores** (JSON or String for final scores)  \nLast Update** (Timestamp of the latest update)  \n\n4. Schedule an End-of-Day Update  \nConfigure another trigger to fetch final game results at the end of the day.  \n\n5. Update Records in Airtable  \nModify existing Airtable records with final scores and game outcomes for complete tracking.  \n\n6. Customize for Other Sports  \nAdjust API parameters to retrieve data for different sports and betting odds, making the system flexible for multiple use cases.  \n\nThis structured workflow automates sports betting data collection and updates, ensuring accurate and real-time tracking of odds and game results. By integrating TheOddsAPI with Airtable, you can build scalable applications for predictive sports analytics and betting insights.  \n\n\n",
+  "totalViews": 2040,
+  "source": "official",
+  "user": {
+    "id": 92587,
+    "name": "Marketing Canopy",
+    "username": "johnmarketingcanopy",
+    "bio": "A results-driven Six Sigma Green Belt with 5 years of experience specializing in marketing process optimization, AI-powered data automation, and performance analytics. Adept at leveraging machine learning models, predictive analytics, and automation tools to enhance marketing efficiency, streamline workflows, and maximize ROI.\n",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/f8537ca92d23b090c21cebe3e9a6ab748c653a79b122dfc8c68efe14cbc06a87?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-02-04T01:22:43.903Z",
+  "path": "official/template_2843/workflow.json"
+}

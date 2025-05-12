@@ -1,0 +1,34 @@
+{
+  "id": 1839,
+  "name": "Import CSV into MySQL",
+  "description": "This workflow demonstrates how CSV file can be automatically imported into existing MySQL database.\n\n\n\nBefore running the workflow please make sure you have a file on the server:\n/home/node/.n8n/concerts-2023.csv\n\n\nAnd the content of the file is the following:\n\nDate,Band,ConcertName,Country,City,Location,LocationAddress,\n2023-05-28,Ozzy Osbourne,No More Tours 2 - Special Guest: Judas Priest,Germany,Berlin,Mercedes-Benz Arena Berlin,\"Mercedes-Platz 1, 10243 Berlin-Friedrichshain\",\n2023-05-08,Elton John,Farewell Yellow Brick Road Tour 2023,Germany,Berlin,Mercedes-Benz Arena Berlin,\"Mercedes-Platz 1, 10243 Berlin-Friedrichshain\",\n2023-05-26,Hans Zimmer Live,Europe Tour 2023,Germany,Berlin,Mercedes-Benz Arena Berlin,\"Mercedes-Platz 1, 10243 Berlin-Friedrichshain\",\n2023-07-07,Depeche Mode,Memento Mori World Tour 2023,Germany,Berlin,Olympiastadion Berlin,\"Olympischer Platz 3, 14053 Berlin-Charlottenburg\",\n\n\nThe detailed process is explained in the tutorial\nhttps://blog.n8n.io/import-csv-into-mysql\n",
+  "totalViews": 12182,
+  "source": "official",
+  "user": {
+    "id": 21242,
+    "name": "Eduard",
+    "username": "eduard",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/parsadanyan/\"]",
+    "avatar": "https://gravatar.com/avatar/a551e67c6fe7affd5f882a527dee154bb6c3ac90cf878326accb3fb3ec77c8a6?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "MySQL",
+      "type": "n8n-nodes-base.mySql",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2022-12-20T15:29:44.552Z",
+  "path": "official/template_1839/workflow.json"
+}

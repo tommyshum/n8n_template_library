@@ -1,0 +1,103 @@
+{
+  "id": 3158,
+  "name": "CoinMarketCap Telegram Price Bot",
+  "description": "Get real-time cryptocurrency prices directly in Telegram! This workflow integrates CoinMarketCap API with Telegram, allowing users to request live crypto prices simply by sending a message to the bot. Ideal for crypto traders, analysts, and enthusiasts who need quick and easy access to market data.  \n\nHow It Works  \nA Telegram bot listens for user input (e.g., \"BTC\" for Bitcoin).  \nThe workflow sends a request to the CoinMarketCap API to fetch the latest price.  \nThe response is processed using an AI-powered language model (GPT-4o-mini) for structured messaging.  \nThe workflow logs session data using a memory buffer for better response tracking.  \nThe latest price is sent back to the user via Telegram.  \n\nSet Up Steps  \nCreate a Telegram Bot  \n   Use @BotFather on Telegram to create a bot and obtain an API token.  \nGet a CoinMarketCap API Key  \n   Sign up at CoinMarketCap and retrieve your API key.  \nConfigure API Credentials in n8n  \n   Add the CoinMarketCap API key under HTTP Header Auth.  \n   Add your Telegram bot token under Telegram API credentials.  \nDeploy and Test  \n   Send a message (e.g., \"BTC\") to your Telegram bot and receive live price updates instantly!  \n\n Automate your crypto price tracking today with this powerful Telegram bot!  ",
+  "totalViews": 5074,
+  "source": "official",
+  "user": {
+    "id": 93152,
+    "name": "Don Jayamaha Jr",
+    "username": "don-the-gem-dealer",
+    "bio": "With 12 years of experience as a Blockchain Strategist and Web3 Architect, I specialize in bridging the gap between traditional industries and decentralized technologies. My expertise spans tokenized assets, crypto payment integrations, and blockchain-driven market solutions.",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/donjayamahajr/\"]",
+    "avatar": "https://gravatar.com/avatar/95f70084b3fec5ed68a61eef6dc6128dfb085d865a02ed631d0853d2730696bf?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-03-14T03:02:15.361Z",
+  "path": "official/template_3158/workflow.json"
+}

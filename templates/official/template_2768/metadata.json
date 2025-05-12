@@ -1,0 +1,71 @@
+{
+  "id": 2768,
+  "name": "🤖🔍 The Ultimate Free AI-Powered Researcher with Tavily Web Search & Extract",
+  "description": "🔍 This n8n workflow integrates Tavily's search and extract APIs with AI summarization capabilities to process web content efficiently.\n\nQuick Setup\nGet your Tavily API key from https://app.tavily.com/home\nReplace tvly-YOUR_API_KEY in the \"Tavily API Key\" node\nConnect your OpenAI credentials to the \"OpenAI Chat Model\" node\nDeploy the workflow and start the chat trigger\n\nCore Features\nSearch & Extract 🎯\nIntelligent web searching with relevance filtering\nAutomated content extraction from top results\nAI-powered content summarization in markdown format\n\nUser Interaction 💬\nChat-based search topic input\nReal-time processing pipeline\nStructured markdown output\n\nThe workflow demonstrates practical implementation of Tavily's API endpoints while handling the complete process from search to summarization in a single automated pipeline.\n",
+  "totalViews": 16663,
+  "source": "official",
+  "user": {
+    "id": 92125,
+    "name": "Joseph LePage",
+    "username": "joe",
+    "bio": "As an AI Automation consultant based in Canada, I partner with forward-thinking organizations to implement AI solutions that streamline operations and drive growth.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/e7ca218dfc87b68344bbd66f40da01546d2f6fc1cf884267821e8a77e3e8410a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-01-21T16:42:02.076Z",
+  "path": "official/template_2768/workflow.json"
+}

@@ -1,0 +1,39 @@
+{
+  "id": 2896,
+  "name": "N8N for Beginners: Looping over Items",
+  "description": "N8N for Beginners: Looping Over Items\n\nDescription\n\nThis workflow is designed for n8n beginners to understand how n8n handles looping (iteration) over multiple items. It highlights two key behaviors:\n\nBuilt-In Looping:** By default, most n8n nodes iterate over each item in an input array.\nExplicit Looping:* The *Loop Over Items* node allows controlled iteration, enabling *custom batch processing** and multi-step workflows.\n\nThis workflow demonstrates the difference between processing an unsplit array of strings (single item) vs. a split array (multiple items).\n\nSetup\n\n1. Input Data\n\nTo begin, paste the following JSON into the Manual Trigger node:\n\n{\n  \"urls\": [\n    \"https://www.reddit.com\",\n    \"https://www.n8n.io/\",\n    \"https://n8n.io/\",\n    \"https://supabase.com/\",\n    \"https://duckduckgo.com/\"\n  ]\n}\n\n📌 Steps to Paste Data:\nDouble-click** the \"Manual Trigger\" node.\nClick \"Edit Output\" (top-right corner).\nPaste the JSON and Save.\nThe node turns purple, indicating that test data is pinned.\n\n1. Click \"Test Workflow\" button at the bottom of the canvas\n\nExplanation of the n8n Nodes in the Workflow\n\n| Node Name | Purpose | Documentation Link |\n|-----------|---------|--------------------|\n| Manual Trigger | Starts the workflow manually and sends test data | Docs |\n| Split Out | Converts an array of strings into separate JSON objects | Docs |\n| Loop Over Items (Loop Over Items 1) | Demonstrates how an unsplit array is treated as one item | Docs |\n| Loop Over Items (Loop Over Items 2) | Iterates over each item separately | Docs |\n| Wait | Introduces a delay per iteration (set to 1 second) | Docs |\n| Code | Adds a constant parameter (param1) to each item | Docs |\n| NoOp (Result Nodes) | Displays output for inspection | Docs |\n\nExecution Details\n\n1. How the Workflow Runs\n\nManual Trigger starts execution** with the pasted JSON data.\nThe workflow follows two paths:\n  Unsplit Array Path → Loop Over Items 1  \n     Processes the entire array as a single item.\n     Result1 & Result5: Show that the array was not split.\n  \n  Split Array Path → Split Out → Loop Over Items 2\n     Splits the array into separate objects.\n     Result2, Result3, Result4: Show that each item is processed individually.\n     A Wait node (1 sec delay) demonstrates controlled execution.\n     Code nodes modify the JSON, adding a parameter (param1).\n\n2. What You Will See\n\n| Node | Expected Output |\n|------|---------------|\n| Result1 & Result5 | The entire array is processed as one item. |\n| Result2, Result3, Result4 | The array is split and processed as individual items. |\n| Wait Node | Adds a 1-second delay per item in Loop Over Items 2. |\n\nUse Cases\n\nThis workflow is useful for:\n\n✅ API Data Processing: Loop through API responses containing arrays.  \n✅ Web Scraping: Process multiple URLs individually.  \n✅ Task Automation: Execute a sequence of actions per item.  \n✅ Workflow Optimization: Control execution order, delays, and dependencies.\n\nNotes\n\nSticky notes are included in the workflow for easy reference.\nThe Wait node is optional—remove it for faster execution.\nThis template is structured for beginners but serves as a building block for more advanced automations.\n\n",
+  "totalViews": 15112,
+  "source": "official",
+  "user": {
+    "id": 92689,
+    "name": "Dominik Baranowski",
+    "username": "dom",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/412926a58d669d9ba17342ac8c447255b43d50797cfe53353a41dacabd98de17?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-02-13T00:40:12.140Z",
+  "path": "official/template_2896/workflow.json"
+}

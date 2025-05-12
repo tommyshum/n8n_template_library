@@ -1,0 +1,73 @@
+{
+  "id": 865,
+  "name": "Gathering tasks in Typeform and send to ClickUp",
+  "totalViews": 959,
+  "purchaseUrl": null,
+  "user": {
+    "id": 4031,
+    "name": "jason",
+    "username": "tephlon",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/ee7788870e9ab8d34c979c940727f579ecc3c3e8f60069d1297d51eb30af831e?r=pg&d=retro&size=200"
+  },
+  "description": "Using Typeform to push task requests to an n8n webhook that then categorizes the request and assigns it in ClickUp accordingly.\n\n\n\nIn order to get his workflow working for yourself, you will need:\nClickUp account\nTypeform account\nCredentials for these services\nClickUp configured with appropriate lists\nTypeform setup with options that correspond with ClickUp lists.\n\nYou may modify this workflow to meet your specific needs and configuration. This is a very simple version of this workflow and you can make it as complicated as you wish to meet your requirements.",
+  "createdAt": "2020-12-31T00:12:31.643Z",
+  "nodes": [
+    {
+      "id": 129,
+      "icon": "file:clickup.svg",
+      "name": "n8n-nodes-base.clickUp",
+      "codex": {
+        "data": {
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/2021-the-year-to-automate-the-new-you-with-n8n/",
+                "icon": "☀️",
+                "label": "2021: The Year to Automate the New You with n8n"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.clickup/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/clickUp/"
+              }
+            ]
+          },
+          "categories": [
+            "Productivity",
+            "Communication"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"output\"]",
+      "defaults": {
+        "name": "ClickUp"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMCAwIDE1NSAxNTUiPjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iYSIgeDE9IjAlIiB5MT0iNjguMDElIiB5Mj0iNjguMDElIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjODkzMEZEIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjNDlDQ0Y5Ii8+PC9saW5lYXJHcmFkaWVudD48bGluZWFyR3JhZGllbnQgaWQ9ImIiIHgxPSIwJSIgeTE9IjY4LjAxJSIgeTI9IjY4LjAxJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI0ZGMDJGMCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI0ZGQzgwMCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxnIGZpbGw9Im5vbmUiPjxwYXRoIGZpbGw9InVybCgjYSkiIGQ9Im0uNCAxMTkuMTIgMjMuODEtMTguMjRDMzYuODYgMTE3LjM5IDUwLjMgMTI1IDY1LjI2IDEyNWMxNC44OCAwIDI3Ljk0LTcuNTIgNDAuMDItMjMuOWwyNC4xNSAxNy44QzExMiAxNDIuNTIgOTAuMzQgMTU1IDY1LjI2IDE1NWMtMjUgMC00Ni44Ny0xMi40LTY0Ljg2LTM1Ljg4Ii8+PHBhdGggZmlsbD0idXJsKCNiKSIgZD0iTTY1LjE4IDM5Ljg0IDIyLjggNzYuMzYgMy4yMSA1My42NCA2NS4yNy4xNmw2MS41NyA1My41Mi0xOS42OCAyMi42NHoiLz48L2c+PC9zdmc+"
+      },
+      "displayName": "ClickUp",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 4,
+          "name": "Productivity"
+        },
+        {
+          "id": 6,
+          "name": "Communication"
+        }
+      ]
+    }
+  ]
+}

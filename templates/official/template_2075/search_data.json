@@ -1,0 +1,72 @@
+{
+  "id": 2075,
+  "name": "Nightly n8n backup to Dropbox",
+  "totalViews": 5877,
+  "purchaseUrl": null,
+  "user": {
+    "id": 91413,
+    "name": "Joey D’Anna",
+    "username": "jdana",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://twitter.com/joeydanna\"]",
+    "avatar": "https://gravatar.com/avatar/e72923eb7b6fddc64bafeb6b1911939d6047a6ec3cf4143054d6753df7d54e29?r=pg&d=retro&size=200"
+  },
+  "description": "This template will create a nightly backup of all your n8n workflows to a Dropbox folder. Each night, the previous night's backups are moved into an \"old\" folder, and renamed with the date they were taken.\n\nBackups over a specified age are deleted. (this is disabled by default for safety until you manually enable and verify it with your own setup)\n\nPrerequisites\nDropbox account and credentials\nA destination folder for backups\n\nSetup\nUpdate all dropbox nodes with your credential\nEdit the Schedule Trigger node with the desired time to run the backup\nEdit the DESTINATION FOLDER node to specify the path in dropbox to upload to. This should be a folder and include the trailing /\nIf you want to automatically purge old backups\n\tEdit the PURGE DAYS node to specify the age to purge\n\tEnable the PURGE DAYS node, and the 3 subsequent nodes\nEnable the workflow to run on the specified schedule\n\n",
+  "createdAt": "2024-01-30T18:55:11.856Z",
+  "nodes": [
+    {
+      "id": 8,
+      "icon": "file:dropbox.svg",
+      "name": "n8n-nodes-base.dropbox",
+      "codex": {
+        "data": {
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/your-business-doesnt-need-you-to-operate/",
+                "icon": " 🖥️",
+                "label": "Hey founders! Your business doesn't need you to operate"
+              },
+              {
+                "url": "https://n8n.io/blog/aws-workflow-automation/",
+                "label": "7 no-code workflow automations for Amazon Web Services"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.dropbox/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/dropbox/"
+              }
+            ]
+          },
+          "categories": [
+            "Data & Storage"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "Dropbox"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiB2aWV3Qm94PSIwIDAgNjcgNjIiPjx1c2UgeGxpbms6aHJlZj0iI2EiIHg9IjEiIHk9IjEiLz48c3ltYm9sIGlkPSJhIiBvdmVyZmxvdz0idmlzaWJsZSI+PHBhdGggZmlsbD0iIzAwN2VlNSIgZmlsbC1ydWxlPSJub256ZXJvIiBzdHJva2U9Im5vbmUiIGQ9Ik0xOC44NzQuMDIgMCAxMi4xOGwxMy4wNjYgMTAuNTI2TDMyIDExLjAzMm0tMzIgMjIgMTguODc0IDEyLjRMMzIgMzQuNDIyIDEzLjA2NiAyMi42ODZNMzIgMzQuNDIybDEzLjE4OCAxMS4wMUw2NCAzMy4xNTIgNTAuOTk0IDIyLjY4Nk02NCAxMi4yOCA0NS4xODggMCAzMiAxMS4wMWwxOC45OTQgMTEuNjc0TTMyLjA2IDM2Ljc3OCAxOC44NzIgNDcuNzI2bC01LjY4Ni0zLjY5djQuMTc0TDMyLjA2IDU5LjUyMiA1MC45MzQgNDguMjF2LTQuMTc0bC01LjY4NiAzLjY5Ii8+PC9zeW1ib2w+PC9zdmc+"
+      },
+      "displayName": "Dropbox",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 3,
+          "name": "Data & Storage"
+        }
+      ]
+    }
+  ]
+}

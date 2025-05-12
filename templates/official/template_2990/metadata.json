@@ -1,0 +1,38 @@
+{
+  "id": 2990,
+  "name": "Generate Text Images from the Free DummyJSON API Using the HTTP Request Node",
+  "description": "Who is this for?\n\nThis workflow template is ideal for marketers, designers, content creators, and developers who need to generate custom text-based images dynamically. Whether you want to create social media graphics, placeholder images, or text-based LinkedIn carousels, this workflow provides a simple, no-code solution using an API that requires no authentication.\n\nWhat problem does this workflow solve?\n\nCreating text-based images often requires design software or complex integrations with graphic tools. This workflow eliminates that hassle by allowing users to generate images with custom text, font styles, colors, and background colors using a simple HTTP request. It’s perfect for automating image generation without relying on external tools or manual effort.\n\nWhat this workflow does\n\nThis workflow leverages an HTTP request to a free API that generates text-based images dynamically. Here's what it enables you to do:\n\nDefine custom image text\nSet image dimensions (width x height)\nChoose a background color and text color using hex codes\nSelect a font family and font size\nSpecify the image format (PNG, JPG, or WebP)\n\nThe generated image can be used immediately, making it ideal for automating content creation workflows.\n\nSetup\n\nOpen the workflow in n8n.\nModify the Set node to define your preferred image properties:\ntext: The message displayed on the image.\nsize: Image dimensions (e.g., 500x300 pixels).\nbackgroundColor: Hex color code for the background.\ntextColor: Hex color code for the text.\nfontFamily: Select from available font options (e.g., Pacifico, Ubuntu).\nfontSize: Define the text size.\ntype: Choose the image format (PNG, JPG, or WebP).\n\nExecute the workflow to generate an image.\nThe HTTP request returns the generated image, ready for use.\n\nHow to customize this workflow\n\n1.     Adjust the Set node values to match your desired design.\n2.     Use dynamic data for text, allowing personalized images based on user input.\n3.     Automate image delivery by adding email or social media posting nodes.\n4.     Integrate this workflow into larger automation sequences, such as content marketing pipelines.",
+  "totalViews": 2252,
+  "source": "official",
+  "user": {
+    "id": 92128,
+    "name": "Akram Kadri",
+    "username": "akramkadri",
+    "bio": "n8n Automation Freelancer\n------------------------\nContact me at: akram@digispruce.com",
+    "verified": true,
+    "links": "[\"https://youtube.com/@kadri_akram\"]",
+    "avatar": "https://gravatar.com/avatar/e57785a112fbcca1ac70d537a9ed5c5a68be59f808ed8b36475bde0e2c8f384b?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-02-23T22:19:30.985Z",
+  "path": "official/template_2990/workflow.json"
+}

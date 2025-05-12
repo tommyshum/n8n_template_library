@@ -1,0 +1,61 @@
+{
+  "id": 2073,
+  "name": "Monday.com Useful Utilities",
+  "description": "This template is a set of building blocks to access Monday.com in ways not supported by the official Monday node.\n\nPrerequisites\nMonday account and Monday credentials.\n\nIncluded are setups to:\nFind a column value by the column's name (instead of a numerical index which can change when board structure is changed)\nFind a column value by the column's ID (again, instead of using a numerical index)\nPull a board relation column, and get all the related pulses\nPull an items subitems and split them out\nUpload a file to an item's files field\n\nSetup\nCreate a Monday.com credential\nUpdate the nodes in the template to use your credential\nCopy/Paste the nodes you need from this template into any other workflow\nTo retreive a column by name:\n\tRoute a Monday.com node that gets an item to the COLUMN BY NAME node\n\tEdit the COLUMN BY NAME node, and enter the name in the first line of code.\nTo retreive a column by its ID:\n\tFollow Monday.com's instructions to locate the column's ID\n\tRoute a Monday.com node that gets an item to the COLUMN BY ID node\n\t-Edit the COLUMN BY ID node, and enter the ID in the first line of code.\nTo retreive all linked pulses from a Board Relation column:\n\tRoute a Monday.com node that gets an item to the GET BOARD RELATION node\n\tEdit the GET BOARD RELATION node to specify the column name.\n\tAll linked pulses will be retrieved by the subsequent PULL LINKEDPULSE node\nTo pull all subitems from an item:\n\tRoute a Monday.com node that gets an item to the PULL SUBITEMS node\n\tAll subitems will be retrieved by the subsequent GET EACH SUBITEM node\nTo upload a File:\n\tRepalce the Convert to File node with whatever node you are using to output your binary file data\n\tEnable the MONDAY UPLOAD node\n\tIf the destination column is named anything other then the default of \"file\" - edit the MONDAY UPLOAD node and change column_id:\"file\" in the first Value field to match the name of your file column\n\n\n\t",
+  "totalViews": 2022,
+  "source": "official",
+  "user": {
+    "id": 91413,
+    "name": "Joey D’Anna",
+    "username": "jdana",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://twitter.com/joeydanna\"]",
+    "avatar": "https://gravatar.com/avatar/e72923eb7b6fddc64bafeb6b1911939d6047a6ec3cf4143054d6753df7d54e29?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Monday.com",
+      "type": "n8n-nodes-base.mondayCom",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-01-30T04:14:16.403Z",
+  "path": "official/template_2073/workflow.json"
+}

@@ -1,0 +1,40 @@
+{
+  "id": 2217,
+  "name": "Configure your own Image Creation API Using OpenAI DALLE-3",
+  "description": "How it works:\nWebhook URL that responds to Requests with an AI generated Image based on the prompt provided in the URL.\n\n\nSetup Steps:\nIdeate your prompt\nURL Encode The Prompt (as shown in the Template)\nAuthenticate with your OpenAI Credentials\nPut together the Webhook URL with your prompt and enter into a webbrowser\n\nIn this way you can expose a public url to users, employee's etc. without exposing your OpenAI API Key to them.\n\nClick here to find a blog post with additional information.",
+  "totalViews": 5039,
+  "source": "official",
+  "user": {
+    "id": 91415,
+    "name": "Bela",
+    "username": "bwiertz",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://n8n-automation.com/our-services/\"]",
+    "avatar": "https://gravatar.com/avatar/9ee80c295a2f128e898348c2b2349f369b065d504f5b214ced40800eb3b6a46d?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-04-08T09:48:55.111Z",
+  "path": "official/template_2217/workflow.json"
+}

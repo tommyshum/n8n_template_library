@@ -1,0 +1,142 @@
+{
+  "id": 3798,
+  "name": "Create a Session-Based Telegram Chatbot with GPT-4o-mini and Google Sheets",
+  "description": "How It Works  \nThis workflow creates an AI-powered Telegram chatbot with session management, allowing users to:  \nStart new conversations** (/new).  \nCheck current sessions** (/current).  \nResume past sessions** (/resume).  \nGet summaries** (/summary).  \nAsk questions** (/question).  \n\nKey Components:  \nSession Management**:  \n  Uses Google Sheets to track active/expired sessions (storing SESSION IDs and STATE).  \n  /new creates a session; /resume reactivates past ones.  \nAI Processing**:  \n  OpenAI GPT-4 generates responses with contextual memory (via Simple Memory node).  \n  Summarization: Condenses past conversations when requested.  \nData Logging**:  \n  All interactions (prompts/responses) are saved to Google Sheets for audit and retrieval.  \nUser Interaction**:  \n  Telegram commands trigger specific actions (e.g., /question [query] fetches answers from session history).  \n\nMain Advantages\n\n1. Multi-session Handling  \nEach user can create, manage, and switch between multiple sessions independently, perfect for organizing different conversations without confusion.\n\n2. Persistent Memory  \nConversations are stored in Google Sheets, ensuring that chat history and session states are preserved even if the server or n8n instance restarts.\n\n3. Commands for Full Control  \nWith intuitive commands like /new, /current, /resume, /summary, and /question, users can manage sessions easily without needing a web interface.\n\n4. Smart Summarization and Q&A  \nThanks to OpenAI models, the workflow can summarize entire conversations or answer specific questions about past discussions, saving time and improving the chatbot’s usability.\n\n5. Easy Setup and Scalability  \nBy using Google Sheets instead of a database, the workflow is easy to clone, modify, and deploy — ideal for quick prototyping or lightweight production uses.\n\n6. Modular and Extensible  \nEach logical block (new session, get current session, resume, summarize, ask question) is modular, making it easy to extend the workflow with additional features like analytics, personalized greetings, or integrations with CRM systems.\n\nSetup Steps  \n\nPrerequisites:  \nTelegram Bot Token**: Create via BotFather.  \nGoogle Sheets**:  \n  Duplicate this template.  \n  Two sheets: Session (active/inactive sessions) and Database (chat logs).  \nOpenAI API Key**: For GPT-4 responses.  \n\nConfiguration:  \nTelegram Integration:  \n   Add your bot token to the Telegram Trigger and Telegram Send nodes.  \n\nGoogle Sheets Setup:  \n   Authenticate the Google Sheets nodes with OAuth.  \n   Ensure sheet names (Session, Database) and column mappings match the template.  \n\nOpenAI & Memory:  \n   Add your API key to the OpenAI Chat Model nodes.  \n   Adjust contextWindowLength in the Simple Memory node for conversation history length.  \n\nTesting:  \n   Use Telegram commands to test:  \n     /new: Starts a session.  \n     /question [query]: Tests AI responses.  \n     /summary: Checks summarization.  \n\nDeployment:  \n   Activate the workflow; the bot will respond to Telegram messages in real-time.  \n\nNeed help customizing?  \nContact me for consulting and support or add me on Linkedin. ",
+  "totalViews": 6411,
+  "source": "official",
+  "user": {
+    "id": 92207,
+    "name": "Davide",
+    "username": "n3witalia",
+    "bio": "Full-stack Web Developer based in Italy specialising in Marketing & AI-powered automations. For business enquiries, send me an email at info@n3w.it or add me on Linkedin.com/in/davideboizza",
+    "verified": true,
+    "links": "[\"https://n3w.it\"]",
+    "avatar": "https://gravatar.com/avatar/d41b8a0aa81139243509c58870f5b4be292824a507ab57d10ed066d8628ed8da?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Communication",
+    "HITL",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Summarization Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainSummarization",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 8,
+  "createdAt": "2025-04-30T08:31:26.629Z",
+  "path": "official/template_3798/workflow.json"
+}

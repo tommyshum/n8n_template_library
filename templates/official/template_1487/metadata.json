@@ -1,0 +1,32 @@
+{
+  "id": 1487,
+  "name": "Creates a time tracking project from Syncro to Clockify",
+  "description": "This workflow creates a project in Clockify that any user can track time against. Syncro should be setup with a webhook via Notification Set for Ticket - created (for anyone).\n\n&gt; This workflow is part of an MSP collection, The original can be found here: https://github.com/bionemesis/n8nsyncro",
+  "totalViews": 580,
+  "source": "official",
+  "user": {
+    "id": 25789,
+    "name": "Jonathan",
+    "username": "jon-n8n",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/5240094f838126182ceefb50ca4a3cf75cc7dc0808efd4b9920d792e41bfc45e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "Clockify",
+      "type": "n8n-nodes-base.clockify",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2022-02-22T14:25:27.783Z",
+  "path": "official/template_1487/workflow.json"
+}

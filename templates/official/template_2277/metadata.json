@@ -1,0 +1,64 @@
+{
+  "id": 2277,
+  "name": "Training Feedback Automation with Usertask and Airtable",
+  "description": "Who is this template for?\n\nThis workflow template is designed for teams involved in training management and feedback analysis. It is particularly useful for:\n\nHR Departments**: Automating the collection and response to training feedback.\nTraining Managers**: Streamlining the process of handling feedback and ensuring timely follow-up.\nCorporate Trainers**: Receiving direct feedback and taking actions to improve training sessions.\n\n\n\nThis workflow offers a comprehensive solution for automating feedback management, ensuring timely responses, and improving the quality of training programs.\n\nHow it works\n\nThis workflow operates with an Airtable trigger but can be easily adapted to work with other triggers like webhooks from external applications.\n\nOnce feedback data is captured, the workflow evaluates the feedback and directs it to the appropriate channel for action. Tasks are created in Usertask based on the feedback rating, and notifications are sent to relevant parties.\n\nHere’s a brief overview of this n8n workflow template:\n\nAirtable Trigger**: Captures new or updated feedback entries from Airtable.\nSwitch Node**: Evaluates the feedback rating and directs the workflow based on the rating.\nWebhook**: Retrieves the result of a Usertask task.\nTask Creation**:\n  Creates tasks in Usertask for poor feedback.\n  Creates follow-up tasks for fair to good feedback.\n  Documents positive feedback and posts recognition on LinkedIn for very good to excellent ratings.\nNotifications**:\n  Sends email notifications to responsible parties for urgent actions.\n  Sends congratulatory emails and posts on LinkedIn for positive feedback.\n\nTo summarize\n\nFlexible Integration**: This workflow can be triggered by various methods like Airtable updates or webhooks from other applications.\nAutomated Task Management**: It creates tasks in Usertask based on feedback ratings to ensure timely follow-up.\nMultichannel Notifications**: Sends notifications via email and LinkedIn to keep stakeholders informed and recognize successes.\nComprehensive Feedback Handling**: Automates the evaluation and response to training feedback, improving efficiency and response time.\n\nInstructions:\n\nSet Up Airtable: Create a table in Airtable to capture training feedback.\nConfigure n8n: Set up the Airtable trigger in n8n to capture new or updated feedback entries.\nSet Up Usertask: Configure the Usertask nodes in n8n to create and manage tasks based on feedback ratings.\nConfigure Email and LinkedIn Nodes: Set up the email and LinkedIn nodes to send notifications and post updates.\nTest the Workflow: Run tests to ensure the workflow captures feedback, creates tasks, and sends notifications correctly.\n\nVideo : https://youtu.be/U14MhTcpqeY\n\n\nRemember, this template was created in n8n v1.38.2.",
+  "totalViews": 1678,
+  "source": "official",
+  "user": {
+    "id": 91668,
+    "name": "NonoCode",
+    "username": "nonocode",
+    "bio": "I am an expert in business process automation, specializing in the use of Nintex and n8n. Passionate about these two platforms, I find them particularly complementary. What fascinates me most about n8n is its remarkable flexibility and the diversity of processes it can automate. I truly enjoy exploring and implementing innovative solutions that enhance operational efficiency and turn challenges into opportunities.",
+    "verified": false,
+    "links": "[\"https://www.linkedin.com/in/nohamchoulant/\"]",
+    "avatar": "https://gravatar.com/avatar/1507b4567363cfca292aab84b1611f254bc4dc6b4c04e951128204415508bd30?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Core Nodes",
+    "Development",
+    "Marketing"
+  ],
+  "nodes": [
+    {
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "categories": [
+        "Communication",
+        "HITL",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "LinkedIn",
+      "type": "n8n-nodes-base.linkedIn",
+      "categories": [
+        "Marketing",
+        "Communication"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-06-02T14:21:20.222Z",
+  "path": "official/template_2277/workflow.json"
+}

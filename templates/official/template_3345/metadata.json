@@ -1,0 +1,95 @@
+{
+  "id": 3345,
+  "name": "Automate LinkedIn Requests & Icebreaker with Browserflow and Google sheets",
+  "description": "Disclaimer: As this workflow uses a Community node, it is available only to  self-hosted installation of n8n\n\nWho is this for?\nThis n8n template is designed for professionals, recruiters, and marketers who need to automate LinkedIn data population and contact request processes. It is particularly useful for those looking to streamline their outreach efforts and manage LinkedIn connections more efficiently.\nWhat problem is this workflow solving? / Use Case\nThe workflow addresses the challenge of manually managing LinkedIn connections and sending contact requests followed by an AI generated ice-breaker. By automating these tasks, users can save time, reduce errors, and ensure consistent follow-ups with potential clients, partners, or candidates. \nWhat this workflow does:\nThis template extract LinkedIn adresses from a google sheet, check if they already are connected to you, and send them a contact request if hey are not. Then it sends to them an AI generated Ice breaker messages, which take into account the personal and company posts, and your company description, to find common points of interest. \nYou can contact up to 50 persons for free. \nSetup\nCopy this google sheet to your Google account\n\nEnter your data in \"Set your Data Here\":\n    Google sheet URL: Paste here the URL of your google sheet\n    Your activity: Define here what your company is about (used to match your activity with the users activity)\n    Your name: Enter your name (used to sign your mail)\n    Your company: Enter here your company name\n    Your email: Used to send your email\n    Maxitems: The number of maximum posts to download from LinkedIn\n\nSet an account on Rapid API, you are allowed for free to 50 credits (5$ for 500) and most of the calls cost 1 credit. \nSetup an account at Browserflow You will benefit from a 7 days free trial. And then you will have to pay $17.95. With this account you'll be able to send 1920 connection invites and 3204 messages. \n\nInstall n8n-nodes-browserflow from your n8n Settings &gt; Community Nodes. (it means for now that you'll need a self-hosted installation of n8n). and paste the API key you copied earlier as a credential.\n   \nExecute it regularly to check if your connections have accepted your connection request.\nHow to customize this workflow to your needs\nCustomize Contact Messages**: Personalize the AI agent prompt that generates the icebreaker\nIntegrate with Other Tools**: Add additional nodes to integrate with CRM systems or other marketing tools for enhanced functionality.\nMonitor and Optimize**: Regularly review the workflow's performance and make adjustments to improve efficiency and effectiveness.\n\nBy following this setup and customization guide, users can leverage this n8n template to enhance their LinkedIn outreach and connection management processes.",
+  "totalViews": 203,
+  "source": "official",
+  "user": {
+    "id": 92501,
+    "name": "PollupAI",
+    "username": "zeerobug",
+    "bio": "We create bespoke AI solutions, automations and agents that help your business as it scales.",
+    "verified": true,
+    "links": "[\"https://pollup.ai\"]",
+    "avatar": "https://gravatar.com/avatar/6d3d2053279bc63e9be7bf4cd3fb74e13e7cc1309d32eab0b72140332cff577e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-03-28T13:56:12.050Z",
+  "path": "official/template_3345/workflow.json"
+}

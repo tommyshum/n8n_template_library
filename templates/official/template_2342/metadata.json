@@ -1,0 +1,132 @@
+{
+  "id": 2342,
+  "name": "Handling Appointment Leads and Follow-up With Twilio, Cal.com and AI",
+  "description": "This n8n workflow builds an appointment scheduling AI agent which can\nTake enquiries from prospective customers and help them book an appointment by checking appointment availability\nWhere no appointment is booked, the Agent is able to send follow-up messages to re-engage leads.\nAfter an appointment is booked, the agent is able reschedule or even cancel the booking for the user without human intervention.\n\nFor small outfits, this workflow could contribute the necessary \"man-power\" required to increase business sales.\n\nThe sample Airtable can be found here: https://airtable.com/appO2nHiT9XPuGrjN/shroSFT2yjf87XAox\n\n2024-10-22 Updated to Cal.com API v2.\n\nHow it works\n\nThe customer sends an enquiry via SMS to trigger our workflow. For this trigger, we'll use a Twilio webhook.\nThe prospective or existing customer's number is logged in an Airtable Base which we'll be using to track all our enquries.\nNext, the message is sent to our AI Agent who can reply to the user and decide if an appointment booking can be made. The reply is made via SMS using Twilio.\nA scheduled trigger which runs every day, checks our chat logs for a list of prospective customers who have yet to book an appointment but still show interest.\nThis list is sent to our AI Agent to formulate a personalised follow-up message to each lead and ask them if they want to continue with the booking.\nThe follow-up interaction is logged so as to not to send too many messages to the customer.\n\nRequirements\nA Twilio account to receive customer messages.\nAn Airtable account and Base to use as our datastore for enquiries.\nCal.com account to use as our scheduling service.\nOpenAI account for our AI model.\n\nCustomising this workflow\n\nNot using Airtable? Swap this out for your CRM of choice such as hubspot or your own service.\n\nNot using Cal.com? Swap this out for API-enabled services such as Acuity Scheduling or your own service.",
+  "totalViews": 17963,
+  "source": "official",
+  "user": {
+    "id": 91804,
+    "name": "Jimleuk",
+    "username": "jimleuk",
+    "bio": "Freelance consultant based in the UK specialising in AI-powered automations. I work with select clients tackling their most challenging projects. For business enquiries, send me an email at hello@jimle.uk\n\nLinkedIn: https://www.linkedin.com/in/jimleuk/\nX/Twitter: https://x.com/jimle_uk",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4ab99e51473df76838beeaac908747f7928c625f869794815cabe34016967d51?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Communication",
+    "Development",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Twilio",
+      "type": "n8n-nodes-base.twilio",
+      "categories": [
+        "Communication",
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Auto-fixing Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 8,
+  "createdAt": "2024-07-11T11:02:06.795Z",
+  "path": "official/template_2342/workflow.json"
+}

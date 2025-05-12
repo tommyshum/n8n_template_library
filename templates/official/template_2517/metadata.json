@@ -1,0 +1,70 @@
+{
+  "id": 2517,
+  "name": "Send Google analytics data to A.I. to analyze then save results in Baserow",
+  "description": "Who's this for?\nIf you own a website and need to analyze your Google analytics data\nIf you need to create an SEO report on which pages are getting most traffic or how your google search terms are performing\nIf you want to grow your site based on suggestions from data\n\nUse case\nInstead of hiring an SEO expert, I run this report weekly. It checks compares the data from this week to the week before:\nViews based on countries\nThe top performing pages\nGoogle search console performance\n\nWatch youtube tutorial here\n\nGet my SEO A.I. agent system here\n\nRead my detailed case study here\n\nHow it works\nThe workflow gathers google analytics for the past 7 days then it gathers the data for the week before for comparison.\nIt does this 3 times to get: views per country, engagement per page and google search console results for organic search results.\nThe google analytics nodes has already chosen the correct dimensions and metrics. \nAt the end, it passes the data to openrouter.ai for A.I. analyse.\nFinally it saves to baserow. \n\nHow to use this\nInput your Google analytics credentials\nInput your property ID\nInput your Openrouter.ai credentials\nInput your baserow credentials\nYou will need to create a baserow database with columns: Name, Country Views, Page Views, Search Report, Blog (name of your blog).\n\nCreated by Rumjahn\n",
+  "totalViews": 4292,
+  "source": "official",
+  "user": {
+    "id": 92000,
+    "name": "Keith Rumjahn",
+    "username": "rumjahn",
+    "bio": "I create automations with A.I. for SEO content and other smart automations.",
+    "verified": true,
+    "links": "[\"https://rumjahn.com/\"]",
+    "avatar": "https://gravatar.com/avatar/e037c9d6e16284c4cf5149094a1725ed92f76e61813b8f8c32c1b83dcf4f9f4b?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Analytics",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Analytics",
+      "type": "n8n-nodes-base.googleAnalytics",
+      "categories": [
+        "Analytics"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Baserow",
+      "type": "n8n-nodes-base.baserow",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2024-11-01T15:33:44.130Z",
+  "path": "official/template_2517/workflow.json"
+}

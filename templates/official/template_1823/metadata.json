@@ -1,0 +1,32 @@
+{
+  "id": 1823,
+  "name": "Create Monday item on a new Mautic contact",
+  "description": "This workflow creates a new item in a Monday.com board when a new contact is created in Mautic. Additional fields can be added to the workflow to send more data to Monday.com.\n\nPrerequisites\n\nMonday account and Monday credentials.\nMautic account and Mautic credentials.\n\nHow it works\n\nWhen a new contact is created in Mautic, the workflow creates a new item in the Monday.com board. By default the workflow will send the contact's email address to Monday.com and name the item after the contact's first and last name.\n\nSetup\n\nThis workflow requires that you set up a Monday.com board. To do so, follow the steps below:\n\nIn Monday.com, create a new item board.\nIn the board, add the following columns:\n    Email (with type \"Email\")\n    Any other fields you require to the board.\nIf more columns are created, you will need to find out what their ID's are by turning on developer mode as explained in this Monday article.\nWith these new IDs, you can add them to the Create item Monday.com node, this is explained further in the workflow as a sticky note.",
+  "totalViews": 840,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "Monday.com",
+      "type": "n8n-nodes-base.mondayCom",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2022-11-10T15:05:45.374Z",
+  "path": "official/template_1823/workflow.json"
+}

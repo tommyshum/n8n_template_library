@@ -1,0 +1,47 @@
+{
+  "id": 1492,
+  "name": "Update time-tracking projects based on Syncro status changes",
+  "description": "This workflow is part of an MSP collection, which is publicly available on GitHub.\n\nThis workflow archives or unarchives a Clockify projects, depending on a Syncro status. Note that Syncro should be setup with a webhook via 'Notification Set for Ticket - Status was changed'. It doesn't handle merging of tickets, as Syncro doesn't support a 'Notification Set' for merged tickets, so you should change a ticket to 'Resolved' first before merging it.\n\nPrerequisites\n\nA Clockify account and credentials\n\nNodes\n\nWebhook node triggers the workflow.\nIF node filters projects that don't have the status 'Resolved'.\nClockify nodes get all projects that (don't) have the status 'Resolved', based on the IF route.\nHTTP Request nodes unarchives unresolved projects, and archives resolved projects, respectively.",
+  "totalViews": 772,
+  "source": "official",
+  "user": {
+    "id": 25789,
+    "name": "Jonathan",
+    "username": "jon-n8n",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/5240094f838126182ceefb50ca4a3cf75cc7dc0808efd4b9920d792e41bfc45e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Clockify",
+      "type": "n8n-nodes-base.clockify",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2022-02-22T14:34:32.216Z",
+  "path": "official/template_1492/workflow.json"
+}

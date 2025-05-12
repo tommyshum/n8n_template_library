@@ -1,0 +1,54 @@
+{
+  "id": 1250,
+  "name": "Parse Ycombinator news page",
+  "description": "Extract data from a webpage (Ycombinator news page) and create a nice list using itemList node. It seems that current version in n8n (0.141.1) requires to extract each variable one by one. Hopefully in a futute it will be possible to create the table using just one itemList node.\n\nAnother nice feature of the workflow is an automatically generated file name with the resulting table. Check out the \"fileName\" option of the Spreadsheet File node:\n \"Ycombinator_news_{{new Date().toISOString().split('T', 1)[0]}}.{{$parameter[\\\"fileFormat\\\"]}}\"\n\n\nThe resulting table is saved as .xls file and delivered via email\n\n",
+  "totalViews": 2577,
+  "source": "official",
+  "user": {
+    "id": 21242,
+    "name": "Eduard",
+    "username": "eduard",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/parsadanyan/\"]",
+    "avatar": "https://gravatar.com/avatar/a551e67c6fe7affd5f882a527dee154bb6c3ac90cf878326accb3fb3ec77c8a6?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Core Nodes",
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "categories": [
+        "Communication",
+        "HITL",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2021-10-04T08:13:47.332Z",
+  "path": "official/template_1250/workflow.json"
+}

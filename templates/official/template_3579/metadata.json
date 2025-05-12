@@ -1,0 +1,177 @@
+{
+  "id": 3579,
+  "name": "Automated Research Report Generation with AI, Wiki, Search & Gmail/Telegram ",
+  "description": "Automated Research Report Generation with OpenAI, Wikipedia, Google Search, Gmail/Telegram and PDF Output\nDescription\n\nWhat Problem Does This Solve? 🛠️\nThis workflow automates the process of generating professional research reports for researchers, students, and professionals. It eliminates manual research and report formatting by aggregating data, generating content with AI, and delivering the report as a PDF via Gmail or Telegram. Target audience: Researchers, students, educators, and professionals needing quick, formatted research reports.\n\nWhat Does It Do? 🌟\nAggregates research data from Wikipedia, Google Search, and SerpApi.\nRefines user queries and generates structured content using OpenAI.\nConverts the content into a professional HTML report, then to PDF.\nSends the PDF report via Gmail or Telegram.\n\nKey Features 📋\nReal-time data aggregation from multiple sources.\nAI-driven content generation with OpenAI.\nAutomated HTML-to-PDF conversion for professional reports.\nFlexible delivery via Gmail or Telegram.\nError handling for robust execution.\n\nSetup Instructions\n\nPrerequisites ⚙️\nn8n Instance**: Self-hosted or cloud n8n instance.\nAPI Credentials**:\n  OpenAI API: API key with GPT model access, stored in n8n credentials.\n  SerpApi (Google Search): API key from SerpApi, stored in n8n credentials (do not hardcode in nodes).\n  Gmail API: Credentials from Google Cloud Console with Gmail scope.\n  Telegram API: Bot token from BotFather on Telegram.\n\nInstallation Steps 📦\nImport the Workflow:\n   Copy the workflow JSON from the \"Template Code\" section below.\n   Import it into n8n via \"Import from File\" or \"Import from URL\".\nConfigure Credentials:\n   Add API credentials in n8n’s Credentials section for OpenAI, SerpApi, Gmail, and Telegram.\n   Assign credentials to respective nodes. For example:\n     In the SerpApi Google Search node, use n8n credentials for SerpApi: api_key={{ $credentials.SerpApiKey }}.\n     In the Send Research PDF on Gmail node, use Gmail credentials.\n     In the Send PDF to Telegram node, use Telegram bot credentials.\nSet Up Nodes:\n   OpenAI Nodes (Research AI Agent, OpenAI Chat Model, OpenAI Chat Middle Memory): Update the model (e.g., gpt-4o) and prompt as needed.\n   Input Validation (Input Validation node): Ensure your input query format matches the expected structure (e.g., topic: \"AI ethics\").\n   Delivery Options (Send Research PDF on Gmail, Send PDF to Telegram): Configure recipient email or Telegram chat ID.\nTest the Workflow:\n   Run the workflow by clicking the \"Test Workflow\" node.\n   Verify that the research report PDF is generated and sent via Gmail or Telegram.\n\nHow It Works\n\nHigh-Level Steps 🔍\nQuery Refinement**: Refines the input query for better research.\nAggregate Data**: Fetches data from Wikipedia, Google Search, and SerpApi.\nGenerate Report**: Uses OpenAI to create a structured report.\nConvert to PDF**: Converts the report to HTML, then PDF.\nDeliver Report**: Sends the PDF via Gmail or Telegram.\n\nDetailed descriptions are available in the sticky notes within the workflow screenshot above.\n\nNode Names and Actions\n\nResearch and Report Generation\nTest Workflow: Triggers the workflow for testing.\nInput Validation: Validates the input query.\nQuery Refiner: Refines the query for better results.\nResearch AI Agent: Coordinates research using OpenAI.\nOpenAI Chat Model: Generates content for the report.\nStructured Output Parser: Parses OpenAI output into structured data.\nOpenAI Chat Middle Memory: Retains context during research.\nWikipedia Google Search: Fetches data from Wikipedia.\nSerpApi Google Search: Fetches data via SerpApi.\nMerge Split Items: Merges data from multiple sources.\nAggregate: Aggregates all research data.\nGenerate PDF HTML: Creates an HTML report.\nConvert HTML to PDF: Converts HTML to PDF.\nDownload PDF: Downloads the PDF file.\nSend PDF to Telegram: Sends the PDF via Telegram.\nSend Research PDF on Gmail: Sends the PDF via Gmail.\n\nCustomization Tips\n\nExpand Data Sources** 📡: Add more sources (e.g., academic databases) by adding nodes to Merge Split Items.\nChange Report Style** ✍️: Update the Generate PDF HTML node to modify the HTML template (e.g., adjust styling or sections).\nAlternative Delivery** 📧: Add nodes to send the PDF via other platforms (e.g., Slack).\nAdjust AI Model** 🧠: Modify the OpenAI Chat Model node to use a different model (e.g., gpt-3.5-turbo).\n\n",
+  "totalViews": 2716,
+  "source": "official",
+  "user": {
+    "id": 93189,
+    "name": "Immanuel",
+    "username": "spectrabit",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/d56a3b4ce7573e035c16e2b0fa5c2f2d658085ba319b166f406b5cd07ac40ad0?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 11,
+  "createdAt": "2025-04-16T16:59:02.174Z",
+  "path": "official/template_3579/workflow.json"
+}

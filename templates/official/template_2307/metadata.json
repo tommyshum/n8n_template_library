@@ -1,0 +1,60 @@
+{
+  "id": 2307,
+  "name": "Backup your credentials to GitHub",
+  "description": "Based on Jonathan's work. Check out his templates.\n\nThis workflow will backup your credentials to GitHub. It uses a CLI command to export all credentials.\n\nIt then loops over the data, checks in GitHub to see if a file exists that uses the credential's ID. Once checked it will:\nupdate the file on GitHub if it exists;\ncreate a new file if it doesn't exist;\nignore if it's the same.\n\nConfig Options\nrepo.owner - Github owner\n\nrepo.name - Github repository name\n\nrepo.path - Path within the Github repository\n\n⚠ The credentials are all decrypted. Make sure you save them safely or tweak the CLI command to store them encrypted.==\n\nCheck out my other templates\n👉 https://n8n.io/creators/solomon/",
+  "totalViews": 8489,
+  "source": "official",
+  "user": {
+    "id": 91663,
+    "name": "Solomon",
+    "username": "solomon",
+    "bio": "Freelance consultant from Brazil, specializing in automations and data analysis. I work with select clients, addressing their toughest projects.\n\nFor business inquiries, email me at automations.solomon@gmail.com or message me on Telegram for a faster response.",
+    "verified": true,
+    "links": "[\"https://t.me/salomaoguilherme\"]",
+    "avatar": "https://gravatar.com/avatar/79aa147f090807fe0f618fb47a1de932669e385bb0c84bf3a7f891ae7d174256?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "GitHub",
+      "type": "n8n-nodes-base.github",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-07-02T18:51:07.089Z",
+  "path": "official/template_2307/workflow.json"
+}

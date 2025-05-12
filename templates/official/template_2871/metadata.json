@@ -1,0 +1,121 @@
+{
+  "id": 2871,
+  "name": "RAG:Context-Aware Chunking | Google Drive to Pinecone via OpenRouter & Gemini",
+  "description": "Workflow based on the following article.\nhttps://www.anthropic.com/news/contextual-retrieval\n\nThis n8n automation is designed to extract, process, and store content from documents into a Pinecone vector store using context-based chunking. The workflow enhances retrieval accuracy in RAG (Retrieval-Augmented Generation) setups by ensuring each chunk retains meaningful context.\n\nWorkflow Breakdown:\n🔹 Google Drive - Retrieve Document:\nThe automation starts by fetching a source document from Google Drive. This document contains structured content, with predefined boundary markers for easy segmentation.\n\n🔹 Extract Text Content - Once retrieved, the document’s text is extracted for processing. Special section boundary markers are used to divide the text into logical sections.\n\n🔹 Code Node - Create Context-Based Chunks:\nA custom code node processes the extracted text, identifying section boundaries and splitting the document into meaningful chunks. Each chunk is structured to retain its context within the entire document.\n\n🔹 Loop Node - Process Each Chunk:\nThe workflow loops through each chunk, ensuring they are processed individually while maintaining a connection to the overall document context.\n\n🔹 Agent Node - Generate Context for Each Chunk:\nWe use an Agent node powered by OpenAI’s GPT-4.0-mini via OpenRouter to generate contextual metadata for each chunk, ensuring better retrieval accuracy.\n\n🔹 Prepend Context to Chunks & Create Embeddings - The generated context is prepended to the original chunk, creating context-rich embeddings that improve searchability.\n\n🔹 Google Gemini - Text Embeddings:\nThe processed text is passed through Google Gemini text-embedding-004, which converts the text into semantic vector representations.\n\n🔹 Pinecone Vector Store - Store Embeddings:\nThe final embeddings, along with the enriched chunk content and metadata, are stored in Pinecone, making them easily retrievable for RAG-based AI applications.\n\nUse Case:\nThis automation enhances RAG retrieval by ensuring each chunk is contextually aware of the entire document, leading to more accurate AI responses. It’s perfect for applications that require semantic search, AI-powered knowledge management, or intelligent document retrieval.\n\nBy implementing context-based chunking, this workflow ensures that LLMs retrieve the most relevant data, improving response quality and accuracy in AI-driven applications.\n\n",
+  "totalViews": 6904,
+  "source": "official",
+  "user": {
+    "id": 92457,
+    "name": "Udit Rawat",
+    "username": "ailistmaster",
+    "bio": "Hi, I’m Udit, an Acquia-certified developer with a strong background in web development and creating enterprise solutions. Recently, I’ve transitioned into AI and ML, I hold DIAT Professional AI Certification. I specialize in building AI-driven automation to streamline workflows, improve efficiency, and solve complex problems. With expertise in AI/ML tools and years of experience in Acquia and Drupal, I’m passionate about leveraging tech to drive innovation and create smarter solutions.",
+    "verified": true,
+    "links": "[\"https://x.com/AilistMaster\"]",
+    "avatar": "https://gravatar.com/avatar/6e96ede8d526c20ff6df15da46bbafb0fbe8862f1e12faa6de21514bb3c641e8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Recursive Character Text Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Pinecone Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    },
+    {
+      "name": "Embeddings Google Gemini",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-02-09T19:03:21.513Z",
+  "path": "official/template_2871/workflow.json"
+}

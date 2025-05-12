@@ -1,0 +1,52 @@
+{
+  "id": 2888,
+  "name": "Post to an XMLRPC API via the HTTP Request node",
+  "description": "What this does\n\nShow you how to us XMLRPC APIs via the generic HTTP-Request-node, by the example of posting to a wordpress blog\nThis is also a feasible workaround if a specific n8n integration does not work or stops working (which happens e.g. with the Wordpress node)\n\nHow it works\n\nFirst, the XML payload for the request is being prepared (in a code node, which also properly escapes special character in the values that you want to send to the XMLRPC endpoint)\nThen, the HTTP Request node sends the request using the HTTP post method\nLast, the returned XML response is converted to JSON which a conditional node uses to determine whether th operation was successful or not\n\nSetup steps:\n\nImport workflow\nEnsure you have a wordpress blog with a user that has an app-Password\nEdit the \"Settings\"-node and enter your individual values for url/user/app-pw",
+  "totalViews": 514,
+  "source": "official",
+  "user": {
+    "id": 92666,
+    "name": "Daniel Nolde",
+    "username": "dnolde",
+    "bio": "",
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/d086ae47fe6c069e1dd7c9c76cd4ecb7a86eb59a00c19b3dd5a4abb3e8932b24?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-02-12T11:18:36.582Z",
+  "path": "official/template_2888/workflow.json"
+}

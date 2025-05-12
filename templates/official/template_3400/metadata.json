@@ -1,0 +1,38 @@
+{
+  "id": 3400,
+  "name": "Send structured logs to BetterStack from any workflow using HTTP Request",
+  "description": "Send structured logs to BetterStack from any workflow using HTTP Request\n\nWho is this for?\n\nThis workflow is perfect for automation builders, developers, and DevOps teams using n8n who want to send structured log messages to BetterStack Logs. Whether you're monitoring mission-critical workflows or simply want centralized visibility into process execution, this reusable log template makes integration easy.\n\nWhat problem is this workflow solving?\n\nLogging failures or events across multiple workflows typically requires duplicated logic. This workflow solves that by acting as a shared log sender, letting you forward consistent log entries from any other workflow using the Execute Workflow node.\n\nWhat this workflow does\n\nAccepts level (e.g., \"info\", \"warn\", \"error\") and message fields via Execute Workflow Trigger\nSends the structured log to your BetterStack ingestion endpoint via HTTP Request\nUses HTTP Header Auth for secure delivery\nIncludes a manual trigger for testing and a sample call to demonstrate usage\nComes with clear sticky notes to help you get started\n\nSetup\n\nCopy your BetterStack Logs ingestion URL.\nCreate a Header Auth credential in n8n with your Authorization: Bearer YOUR_API_KEY.\nReplace the URL in the HTTP Request node with your BetterStack endpoint.\nOptionally modify the test data or log levels for custom scenarios.\nUse Execute Workflow in any of your workflows to send logs here.",
+  "totalViews": 333,
+  "source": "official",
+  "user": {
+    "id": 93147,
+    "name": "Audun",
+    "username": "xqus",
+    "bio": "I’m an automagician who loves turning complex systems into simple, powerful workflows.\nHere to help you automate smarter and work easier.",
+    "verified": true,
+    "links": "[\"https://xqus.com/\"]",
+    "avatar": "https://gravatar.com/avatar/273c8f67ecb3e3ea711c36a448f1fd547ca9ad698ae800bebd69be68317f63d1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-04-01T18:56:59.369Z",
+  "path": "official/template_3400/workflow.json"
+}

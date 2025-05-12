@@ -1,0 +1,90 @@
+{
+  "id": 2647,
+  "name": "Sentiment Analysis Tracking on Support Issues with Linear and Slack",
+  "description": "This n8n template monitors active support issues in Linear.app to track the mood of their ongoing conversation between reporter and assignee using Sentiment Analysis. When sentiment dips into the negative, a notification is sent via Slack to alert the team.\n\nHow it works\nA scheduled trigger is used to fetch recently updated issues in Linear using the GraphQL node.\nEach issue's comments thread is passed into a simple Information Extractor node to identify the overall sentiment.\nThe resulting sentiment analysis combined with the some issue details are uploaded to Airtable for review.\nWhen the template is re-run at a later date, each issue is re-analysed for sentiment\nEach issue's new sentiment state is saved to the airtable whilst its previous state is moved to the \"previous sentiment\" column.\nAn Airtable trigger is used to watch for recently updated rows\nEach matching Airtable row is filtered to check if it has a previous non-negative state but now has a negative state in its current sentiment.\nThe results are sent via notification to a team slack channel for priority.\n\nCheck out the sample Airtable here: https://airtable.com/appViDaeaFw4qv9La/shrq6HgeYzpW6uwXL\n\nHow to use\nModify the GraphQL filter to fetch issues to a relevant issue type, team or person.\nUpdate the Slack channel to ensure messages are sent to the correct location or persons.\nThe Airtable also serves to give a snapshot of Sentiment across support tickets for a given period. It's possible to use this to assess the daily operations.\n\nRequirements\nLinear for issue tracking (but feel free to use another system if preferred)\nAirtable for Database\nOpenAI for LLM and Sentiment Analysis\n\nCustomising the workflow\nAdd more granular levels of sentiment to reduce the number of alerts.\nExplore different types of sentiment based on issue types and customer types. This may help prioritise alerts and response.\nRun across teams or categories of issues to get an overview of sentiment across the support organisation.",
+  "totalViews": 1904,
+  "source": "official",
+  "user": {
+    "id": 91804,
+    "name": "Jimleuk",
+    "username": "jimleuk",
+    "bio": "Freelance consultant based in the UK specialising in AI-powered automations. I work with select clients tackling their most challenging projects. For business enquiries, send me an email at hello@jimle.uk\n\nLinkedIn: https://www.linkedin.com/in/jimleuk/\nX/Twitter: https://x.com/jimle_uk",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4ab99e51473df76838beeaac908747f7928c625f869794815cabe34016967d51?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Communication",
+    "HITL",
+    "Development",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "GraphQL",
+      "type": "n8n-nodes-base.graphql",
+      "categories": [
+        "Data & Storage",
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Information Extractor",
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2024-12-17T10:19:26.716Z",
+  "path": "official/template_2647/workflow.json"
+}

@@ -1,0 +1,38 @@
+{
+  "id": 1491,
+  "name": "Triage alerts from Syncro and submit to OpsGenie",
+  "description": "This workflow will take an alert from Syncro, determine if it's an agent_offline_trigger type, then determine if it's a new alert or a close to an existing alert, and then submit it to OpsGenie. New alerts will create a new alert in OpsGenie and resolved alerts will close the alert in OpsGenie. It doesn't require any kind of Google Sheets because OpsGenie allows you to submit a unique ID (known as an alias) along with the alert, which can be referenced later when closing the alert. The trigger type can be changed to suit your needs. You will need to create an API integration in OpsGenie. In Syncro, in addition to setting up the appropriate notification to webhook, you will also need a script that closes the agent_offline_trigger alert and an automated remediation to trigger that script when the asset goes offline (the script is queued and run when the asset comes back online).\n\n&gt; This workflow is part of an MSP collection, The original can be found here: https://github.com/bionemesis/n8nsyncro",
+  "totalViews": 1114,
+  "source": "official",
+  "user": {
+    "id": 25789,
+    "name": "Jonathan",
+    "username": "jon-n8n",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/5240094f838126182ceefb50ca4a3cf75cc7dc0808efd4b9920d792e41bfc45e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2022-02-22T14:32:59.058Z",
+  "path": "official/template_1491/workflow.json"
+}

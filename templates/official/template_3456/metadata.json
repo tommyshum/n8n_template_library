@@ -1,0 +1,88 @@
+{
+  "id": 3456,
+  "name": "Automated Discord Chatbot for chat Interaction in channel using Gemini 2.0 Flash",
+  "description": "A Discord bot that responds to mentions by sending messages to n8n workflows and returning the responses. Connects Discord conversations with custom automations, APIs, and AI services through n8n.\n\nFull guide on: https://github.com/JimPresting/AI-Discord-Bot/blob/main/README.md \n\nDiscord Bot Summary\n\nOverview\nThe Discord bot listens for mentions, forwards questions to an n8n workflow, processes responses, and replies in Discord.\nThis workflow is intended for all Discord users who want to offer AI interactions with their respective channels.\n\nWhat do you need?\nYou need a Discord account as well as a Google Cloud Project\n\nKey Features\n\n1. Listens for Mentions\nThe bot monitors Discord channels for messages that mention it.\nOptional Configuration**: Can be set to respond only in a specific channel.\n\n2. Forwards Questions to n8n\nWhen a user mentions the bot and asks a question:\n  The bot extracts the question.\n  Sends the question, along with channel and user information, to an n8n webhook URL.\n\n3. Processes Data in n8n\nThe n8n workflow receives the question and can:\n  Interact with AI services (e.g., generating responses).\n  Access databases or external APIs.\n  Perform custom logic.\nn8n formats the response and sends it back to the bot.\n\n4. Replies to Discord with n8n's Response\nThe bot receives the response from n8n.\nIt replies to the user's message in the Discord channel with the answer.\nLong Responses**: Handles responses exceeding Discord's 2000-character limit by chunking them into multiple messages.\n\n5. Error Handling\nIncludes error handling for:\n  Issues with n8n communication.\n  Response formatting problems.\nManages cases where:\n  No question is asked.\n  An invalid response is received from n8n.\n\n6. Typing Indicator\nWhile waiting for n8n's response, the bot sends a \"typing...\" indicator to the Discord channel.\n\n7. Status Update\nFor lengthy n8n processes, the bot sends a message to the Discord channel to inform the user that it is still processing their request.\n\nStep-by-Step Setup Guide as per Github Instructions\n\n\nKey Takeaways\n\nYou’ll configure an n8n webhook to receive Discord messages, process them with your workflow, and respond.  \nYou’ll set up a Discord application and bot, grant the right permissions/intents, and invite it to your server.  \nYou’ll prepare your server environment (Node.js), scaffold the project, and wire up environment variables.  \nYou’ll implement message‐chunking, “typing…” indicators, and robust error handling in your bot code.  \nYou’ll deploy with PM2 for persistence and know how to test and troubleshoot common issues.\n\n1. n8n: Create & Expose Your Webhook\n\nNew Workflow  \n   Log into your n8n instance.  \n   Click Create Workflow (➕), name it e.g. Discord Bot Handler.  \n\nWebhook Trigger  \n   Add a node (➕) → search Webhook.  \n   Set:  \n     Authentication: None (or your choice)  \n     HTTP Method: POST  \n     Path: e.g. /discord-bot  \n   Click Execute Node to activate.\n\nCopy Webhook URL  \n   After execution, copy the Production Webhook URL.  \n   You’ll paste this into your bot’s .env.  \n\nBuild Your Logic  \n   Chain additional nodes (AI, database lookups, etc.) as required.\n\nFormat the JSON Response  \n   Insert a Function node before the end:  \n          return {\n       json: { answer: \"Your processed reply\" }\n     };\n     \nRespond to Webhook  \n   Add Respond to Webhook as the final node.  \n   Point it at your Function node’s output (with the answer field).\n\nActivate  \n   Toggle Active in the top‐right and Save.\n\n2. Discord Developer Portal: App & Bot\n\nNew Application  \n   Visit the Discord Developer Portal.  \n   Click New Application, name it.  \n   Go to Bot → Add Bot.\n\nEnable Intents & Permissions  \n   Under Privileged Gateway Intents, toggle Message Content Intent.  \n   Under Bot Permissions, check:  \n     Read Messages/View Channels  \n     Send Messages  \n     Read Message History  \n\nGrab Your Token  \n   In Bot → click Copy (or Reset Token).  \n   Store it securely.\n\nInvite Link (OAuth2 URL)  \n   Go to OAuth2 → URL Generator.  \n   Select scopes: bot, applications.commands.  \n   Under Bot Permissions, select the same permissions as above.  \n   Copy the generated URL, open it in your browser, and invite your bot.\n\n3. Server Prep: Node.js & Project Setup\n\nInstall Node.js v20.x  \n      sudo apt purge nodejs npm\n   sudo apt autoremove\n   curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -\n   sudo apt install -y nodejs\n   node -v    # Expect v20.x.x\n   npm -v     # Expect 10.x.x\n   \nProject Folder  \n      mkdir discord-bot\n   cd discord-bot\n   \nInitialize & Dependencies  \n      npm init -y\n   npm install discord.js axios dotenv\n4. Bot Code & Configuration\n\nEnvironment Variables  \n   Create .env:  \n          nano .env\n        Populate:  \n          DISCORD_BOT_TOKEN=your_bot_token\n     N8N_WEBHOOK_URL=https://your-n8n-instance.com/webhook/discord-bot\nOptional: restrict to one channel\nTARGET_CHANNEL_ID=123456789012345678\n     \nBot Script  \n   Create index.js:  \n          nano index.js\n        Implement:  \n     Import dotenv, discord.js, axios.  \n     Set up client with MessageContent intent.  \n     On messageCreate:  \n       Ignore bots or non‐mentions.  \n       (Optional) Filter by channel ID.  \n       Extract and validate the user’s question.  \n       Send “typing…” every 5 s; after 20 s send a status update if still processing.  \n       POST to your n8n webhook with question, channelId, userId, userName.  \n       Parse various response shapes to find answer.  \n       If answer.length ≤ 2000, message.reply(answer).  \n       Else, split into ~1900‑char chunks at sentence/paragraph breaks and send sequentially.  \n       On errors, clear intervals, log details, and reply with an error message.\n\nLogin  \n      client.login(process.env.DISCORD_BOT_TOKEN);\n5. Deployment: Keep It Alive with PM2\n\nInstall PM2  \n      npm install -g pm2\n   \nStart & Monitor  \n      pm2 start index.js --name discord-bot\n   pm2 status\n   pm2 logs discord-bot\n   \nAuto‐Start on Boot  \n      pm2 startup\nFollow the printed command (e.g. sudo env PATH=$PATH:/usr/bin pm2 startup systemd -u your_user --hp /home/your_user)\n   pm2 save\n6. Test & Troubleshoot\n\nFunctional Test  \n   In your Discord server:  \n          @YourBot What’s the weather like?\n        Expect a reply from your n8n workflow.\n\nCommon Pitfalls  \n   No reply → check pm2 logs discord-bot.  \n   Intent Errors → verify Message Content Intent in Portal.  \n   Webhook failures → ensure workflow is active and URL is correct.  \n   Formatting issues → confirm your Function node returns json.answer.\n\nInspect Raw Data  \n   Search your logs for Complete response from n8n: to debug payload shapes.\n\n`",
+  "totalViews": 123,
+  "source": "official",
+  "user": {
+    "id": 93653,
+    "name": "JPres",
+    "username": "stardawnai",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://github.com/JimPresting/\"]",
+    "avatar": "https://gravatar.com/avatar/c1767436a4c7e4856114365bcac5df2f32cfb367c6dc607106edffd6d3df4b2e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-04-07T09:39:02.177Z",
+  "path": "official/template_3456/workflow.json"
+}

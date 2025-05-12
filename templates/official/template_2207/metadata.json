@@ -1,0 +1,55 @@
+{
+  "id": 2207,
+  "name": "Automate Screenshots with URLbox & Analyze them with AI",
+  "description": "In this automation we first make a screenshot with a screenshot API called URLbox and then send this screenshot into the OpenAI API and analyze it.\n\nYou can extend this automation by the way you want to ingest the website url's & names into this workflow. \n\nOptions as data source:\nPostgres\nGoogle Sheets\nYour CRM\n...\n\nSetup:\nReplace Website & URL in Setup Node\nPut in your URLbox API Key\nPut in your OpenAI credentials\n\n\nClick here for a blog article with more information on the automation.",
+  "totalViews": 3429,
+  "source": "official",
+  "user": {
+    "id": 91415,
+    "name": "Bela",
+    "username": "bwiertz",
+    "bio": "",
+    "verified": true,
+    "links": "[\"https://n8n-automation.com/our-services/\"]",
+    "avatar": "https://gravatar.com/avatar/9ee80c295a2f128e898348c2b2349f369b065d504f5b214ced40800eb3b6a46d?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-03-30T23:04:08.589Z",
+  "path": "official/template_2207/workflow.json"
+}

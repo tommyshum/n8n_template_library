@@ -1,0 +1,131 @@
+{
+  "id": 3586,
+  "name": "AI-Powered WhatsApp Chatbot 🤖📲 for Text, Voice, Images & PDFs with memory 🧠",
+  "description": "This workflow is a highly advanced multimodal AI assistant designed to operate through WhatsApp. It can understand and respond to text, images, voice messages, and PDF documents by combining OpenAI models with smart logic to adapt to the content received.\n\n🎯 Core Features\n\n📥 1. Automatic Message Type Detection\nUsing the Input type node, the bot detects whether the user has sent:\nText\nVoice messages\nImages\nFiles (PDF)\nOther unsupported content\n\n💬 2. Smart Text Message Handling\nText messages are processed by an OpenAI GPT-4o-mini agent with a customized system prompt.\nReplies are concise, accurate, and formatted for mobile readability.\n\n🖼️ 3. Image Analysis & Description\nImages are downloaded, converted to base64, and analyzed by an image-aware AI model.\nThe output is a rich, structured description, designed for visually impaired users or visual content interpretation.\n\n🎙️ 4. Voice Message Transcription & Reply\nAudio messages are downloaded and transcribed using OpenAI Whisper.\nThe transcribed text is analyzed and answered by the AI.\nOptionally, the AI reply can be converted back to voice using OpenAI's text-to-speech, and sent as an audio message.\n\n📄 5. PDF Document Extraction & Summary\nOnly PDFs are allowed (filtered via MIME type).\nThe document’s content is extracted and combined with the user's message.\nThe AI then provides a relevant summary or answer.\n\n🧠 6. Contextual Memory\nEach user has a personalized session ID with a memory window of 10 interactions.\nThis ensures a more natural and contextual conversation flow.\n\nHow It Works  \n\nThisworkflow is designed to handle incoming WhatsApp messages and process different types of inputs (text, audio, images, and PDF documents) using AI-powered analysis. Here’s how it functions:  \n\nTrigger: The workflow starts with the **WhatsApp Trigger node, which listens for incoming messages (text, audio, images, or documents).  \nInput Routing: The **Input type (Switch node) checks the message type and routes it to the appropriate processing branch:  \n  Text: Directly forwards the message to the AI agent for response generation.  \n  Audio: Downloads the audio file, transcribes it using OpenAI, and sends the transcription to the AI agent.  \n  Image: Downloads the image, analyzes it with OpenAI’s GPT-4 model, and generates a detailed description.  \n  PDF Document: Downloads the file, extracts text, and processes it with the AI agent.  \n  Unsupported Formats: Sends an error message if the input is not supported.  \nAI Processing: The **AI Agent1 node, powered by OpenAI, processes the input (text, transcribed audio, image description, or PDF content) and generates a response.  \nResponse Handling**:  \n  For audio inputs, the AI’s response is converted back into speech (using OpenAI’s TTS) and sent as a voice message.  \n  For other inputs, the response is sent as a text message via WhatsApp.  \nMemory: The **Simple Memory node maintains conversation context for follow-up interactions.  \n\nSetup Steps  \nTo deploy this workflow in n8n, follow these steps:  \n\nConfigure WhatsApp API Credentials:  \n   Set up WhatsApp Business API credentials (Meta Developer Account).  \n   Add the credentials in the WhatsApp Trigger, Get Image/Audio/File URL, and Send Message nodes.  \n\nSet Up OpenAI Integration:  \n   Provide an OpenAI API key in the Analyze Image, Transcribe Audio, Generate Audio Response, and AI Agent1 nodes.  \n\n Adjust Input Handling (Optional):  \n   Modify the Switch node (\"Input type\") to handle additional message types if needed.  \n   Update the \"Only PDF File\" IF node to support other document formats.  \n\nTest & Deploy:  \n   Activate the workflow and test with different message types (text, audio, image, PDF).  \n   Ensure responses are correctly generated and sent back via WhatsApp.  \n\nNeed help customizing?  \nContact me for consulting and support or add me on Linkedin. ",
+  "totalViews": 34410,
+  "source": "official",
+  "user": {
+    "id": 92207,
+    "name": "Davide",
+    "username": "n3witalia",
+    "bio": "Full-stack Web Developer based in Italy specialising in Marketing & AI-powered automations. For business enquiries, send me an email at info@n3w.it or add me on Linkedin.com/in/davideboizza",
+    "verified": true,
+    "links": "[\"https://n3w.it\"]",
+    "avatar": "https://gravatar.com/avatar/d41b8a0aa81139243509c58870f5b4be292824a507ab57d10ed066d8628ed8da?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "WhatsApp Business Cloud",
+      "type": "n8n-nodes-base.whatsApp",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-04-17T14:22:12.162Z",
+  "path": "official/template_3586/workflow.json"
+}

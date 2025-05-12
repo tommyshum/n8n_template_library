@@ -1,0 +1,143 @@
+{
+  "id": 2898,
+  "name": "AI Agent: Find the Right LinkedIn Profiles in Seconds",
+  "description": "Automate LinkedIn Prospecting with AI Agent and Get Results Straight to Google Sheets!\n\nA practical AI-powered workflow that helps you find relevant LinkedIn profiles using natural language queries and saves the results automatically to Google Sheets.\n\n🎯 What It Actually Does\n\nAccepts natural language requests (e.g., \"Find marketing managers in Paris\")\nUses AI to extract search parameters:\n  Job titles\n  Industry\n  Location\nSearches for matching LinkedIn profiles\nSaves profile URLs and titles to Google Sheets\n\n🛠️ Technical Components\n\nAI Query Processor\n   Converts natural language to structured search parameters\n   Handles various input formats and languages\n   Maintains context for accurate parameter extraction\n\nSearch Engine Integration\n   Uses Google Custom Search API\n   Handles pagination for multiple results\n   Filters for actual LinkedIn profile URLs\n\nData Storage\n   Automatically saves to Google Sheets\n   Stores profile titles and URLs\n   Easy to access and export\n\n📋 Prerequisites\n\nOpenAI API key\nGoogle Custom Search API credentials\nGoogle Sheets access\n\n💡 Adaptation Possibilities\n\nThis template can be modified to scrape other websites by:\nChanging the search domain in the HTTP Request node\nAdjusting the URL filter in the Code node\nModifying the column structure in Google Sheets\nUpdating the AI prompt for different parameter extraction\n\nExample adaptations:\nTwitter profile finder\nGitHub repository search\nCompany website finder\nProfessional blog discovery\n\n🔧 Setup Instructions\n\nAPI Setup\n   Configure Google Custom Search API\n   Set up OpenAI API\n   Prepare Google Sheets\n\nWorkflow Configuration\n   Import both workflows\n   Connect your API credentials\n   Set up your Google Sheet\n   Test with a sample query\n\n📝 Usage Example\n\nInput: \"Find software developers in London working in fintech\"\nOutput: A Google Sheet containing:\nLinkedIn profile URLs of software developers\nProfile titles/headlines\nReady for your review and outreach\n\n#AIAgent #WebScraping #Automation #n8n #Workflow #LinkedInProspecting",
+  "totalViews": 3890,
+  "source": "official",
+  "user": {
+    "id": 92022,
+    "name": "Badr",
+    "username": "b4dr",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/035184cdd91cc274d7293ceaed93c97d64e57fc49fc4ba8346956a812dc35b3e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 8,
+  "createdAt": "2025-02-13T14:50:33.590Z",
+  "path": "official/template_2898/workflow.json"
+}

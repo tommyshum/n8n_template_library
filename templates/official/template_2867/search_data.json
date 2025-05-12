@@ -1,0 +1,223 @@
+{
+  "id": 2867,
+  "name": "Credit Card Payment Reminder & Tracking-For Taiwan Banks",
+  "totalViews": 806,
+  "price": 10,
+  "purchaseUrl": "https://martechdarrell.gumroad.com/l/srclv",
+  "user": {
+    "id": 92348,
+    "name": "darrell_tw",
+    "username": "darrelltw",
+    "bio": "Martech Engineer with automation.\nhere is my website: https://www.darrelltw.com/",
+    "verified": true,
+    "links": "[\"https://x.com/DarrellMarTech\"]",
+    "avatar": "https://gravatar.com/avatar/4bf99603c608dc2e9a91e3d17bf47743b41153512a14098c8070213d7dccc199?r=pg&d=retro&size=200"
+  },
+  "description": "Workflow Description\nThis workflow automates the processing of credit card statement emails from multiple banks. It extracts important payment details, stores them in Google Sheets, and creates calendar reminders in Google Calendar. Additionally, it allows users to update the payment status once the bill has been paid.\n\nKey Features\nEmail Processing: Retrieves credit card statement emails from eight Taiwanese banks.\nPDF Parsing: Extracts payment due date and amount from email content or attached PDF files.\nGoogle Sheets Integration: Logs extracted data into a Google Sheets document for record-keeping.\nGoogle Calendar Integration: Creates Google Calendar events as reminders for due payments.\nWebhook for Payment Updates: Allows users to update the payment status via a webhook.\n\nNode Configurations\n\n1. Email Retrieval\nPurpose**: Fetches credit card statement emails from Gmail.\nConfiguration**:\n  Email Filters:\n    SinoPac Bank: from:(newebill.banksinopac.com.tw) SinoPac Bank Credit Card E-Statement Notification\n    Cathay United Bank: from:(service@pxbillrc01.cathaybk.com.tw) Cathay United Bank Monthly E-Statement\n    CTBC Bank: from:(ebill@estats.ctbcbank.com) CTBC Bank Credit Card E-Statement\n    Taipei Fubon Bank: from:(rs@cf.taipeifubon.com.tw) Taipei Fubon Bank Credit Card Statement\n    E.SUN Commercial Bank: from:(estatement@esunbank.com) E.SUN Commercial Bank Credit Card E-Statement\n    DBS Bank: from:(eservicetw@dbs.com) DBS Bank Credit Card E-Statement\n    Union Bank of Taiwan: from:(聯邦銀行信用卡) Union Bank of Taiwan Credit Card E-Statement (Year Month)\n    Taishin International Bank: from:(webmaster@bhurecv.taishinbank.com.tw) Taishin International Bank Credit Card E-Statement\n\n2. Extract Payment Information\nPurpose**: Extracts payment due date, total amount, and minimum payment amount.\nMethods**:\n  Text-based Extraction: Uses regex to parse email body.\n  PDF Parsing: Extracts text from PDF attachments.\n\n3. Data Processing and Storage\n3.1. Consolidate Extracted Data\nPurpose**: Standardizes extracted payment details.\nData Fields**:\n  payment_due_date\n  payment_amount\n  minimum_payment\n  email_id\n  bank\n  email_subject\n\n3.2. Google Sheets Integration\nPurpose**: Stores the extracted data in a structured format.\nConfiguration**:\n  Sheet Name: n8n-Credit Card Payment Reminder\n  Columns:\n    calendar_id\n    Paid\n    Billing Period\n    Amount\n    Minimum Payment\n    Bank\n    email_id\n\n4. Google Calendar Integration\n4.1. Create Calendar Reminders\nPurpose**: Generates reminders for upcoming payments.\nConfiguration**:\n  Event Title: Credit Card Payment - {{ bank }}\n  Due Date: payment_due_date\n  Reminders:\n    30 minutes before\n    60 minutes before\n    1 day before\n\n4.2. Update Payment Status\nPurpose**: Updates the calendar event once payment is made.\nConfiguration**:\n  Webhook URL: Automatically updates the Google Calendar event title and description.\n\n5. Webhook for Payment Updates\nPurpose: Users can mark a payment as **paid via a webhook.\nConfiguration**:\n  Webhook Path: darrell_demo_creditcard_pay_update_path\n  Updates:\n    Marks the payment as Paid\n    Updates Google Calendar and Google Sheets\n",
+  "createdAt": "2025-02-08T08:38:52.038Z",
+  "nodes": [
+    {
+      "id": 18,
+      "icon": "file:googleSheets.svg",
+      "name": "n8n-nodes-base.googleSheets",
+      "codex": {
+        "data": {
+          "alias": [
+            "CSV",
+            "Sheet",
+            "Spreadsheet",
+            "GS"
+          ],
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/love-at-first-sight-ricardos-n8n-journey/",
+                "icon": "❤️",
+                "label": "Love at first sight: Ricardo’s n8n journey"
+              },
+              {
+                "url": "https://n8n.io/blog/why-business-process-automation-with-n8n-can-change-your-daily-life/",
+                "icon": "🧬",
+                "label": "Why business process automation with n8n can change your daily life"
+              },
+              {
+                "url": "https://n8n.io/blog/automatically-adding-expense-receipts-to-google-sheets-with-telegram-mindee-twilio-and-n8n/",
+                "icon": "🧾",
+                "label": "Automatically Adding Expense Receipts to Google Sheets with Telegram, Mindee, Twilio, and n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/supercharging-your-conference-registration-process-with-n8n/",
+                "icon": "🎫",
+                "label": "Supercharging your conference registration process with n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/creating-triggers-for-n8n-workflows-using-polling/",
+                "icon": "⏲",
+                "label": "Creating triggers for n8n workflows using polling"
+              },
+              {
+                "url": "https://n8n.io/blog/no-code-ecommerce-workflow-automations/",
+                "icon": "store",
+                "label": "6 e-commerce workflows to power up your Shopify s"
+              },
+              {
+                "url": "https://n8n.io/blog/migrating-community-metrics-to-orbit-using-n8n/",
+                "icon": "📈",
+                "label": "Migrating Community Metrics to Orbit using n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/automate-google-apps-for-productivity/",
+                "icon": "💡",
+                "label": "15 Google apps you can combine and automate to increase productivity"
+              },
+              {
+                "url": "https://n8n.io/blog/your-business-doesnt-need-you-to-operate/",
+                "icon": " 🖥️",
+                "label": "Hey founders! Your business doesn't need you to operate"
+              },
+              {
+                "url": "https://n8n.io/blog/how-honest-burgers-use-automation-to-save-100k-per-year/",
+                "icon": "🍔",
+                "label": "How Honest Burgers Use Automation to Save $100k per year"
+              },
+              {
+                "url": "https://n8n.io/blog/how-a-digital-strategist-uses-n8n-for-online-marketing/",
+                "icon": "💻",
+                "label": "How a digital strategist uses n8n for online marketing"
+              },
+              {
+                "url": "https://n8n.io/blog/why-this-product-manager-loves-workflow-automation-with-n8n/",
+                "icon": "🧠",
+                "label": "Why this Product Manager loves workflow automation with n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/sending-automated-congratulations-with-google-sheets-twilio-and-n8n/",
+                "icon": "🙌",
+                "label": "Sending Automated Congratulations with Google Sheets, Twilio, and n8n "
+              },
+              {
+                "url": "https://n8n.io/blog/how-a-membership-development-manager-automates-his-work-and-investments/",
+                "icon": "📈",
+                "label": "How a Membership Development Manager automates his work and investments"
+              },
+              {
+                "url": "https://n8n.io/blog/aws-workflow-automation/",
+                "label": "7 no-code workflow automations for Amazon Web Services"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googlesheets/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/google/oauth-single-service/"
+              }
+            ]
+          },
+          "categories": [
+            "Data & Storage",
+            "Productivity"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\",\"output\"]",
+      "defaults": {
+        "name": "Google Sheets"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGZpbGw9IiMyOEI0NDYiIGQ9Ik0zNS42OSAxIDUyIDE3LjIyNXYzOS4wODdhMy42NyAzLjY3IDAgMCAxLTEuMDg0IDIuNjFBMy43IDMuNyAwIDAgMSA0OC4yOTMgNjBIMTIuNzA3YTMuNyAzLjcgMCAwIDEtMi42MjMtMS4wNzhBMy42NyAzLjY3IDAgMCAxIDkgNTYuMzEyVjQuNjg4YTMuNjcgMy42NyAwIDAgMSAxLjA4NC0yLjYxQTMuNyAzLjcgMCAwIDEgMTIuNzA3IDF6Ii8+PHBhdGggZmlsbD0iIzZBQ0U3QyIgZD0iTTM1LjY5IDEgNTIgMTcuMjI1SDM5LjM5N2MtMi4wNTQgMC0zLjcwNy0xLjgyOS0zLjcwNy0zLjg3MnoiLz48cGF0aCBmaWxsPSIjMjE5QjM4IiBkPSJNMzkuMjExIDE3LjIyNSA1MiAyMi40OHYtNS4yNTV6Ii8+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTIwLjEyIDMxLjk3NWMwLS44MTcuNjYyLTEuNDc1IDEuNDgzLTEuNDc1aDE3Ljc5NGMuODIxIDAgMS40ODIuNjU4IDEuNDgyIDEuNDc1djE1LjQ4N2MwIC44MTgtLjY2MSAxLjQ3NS0xLjQ4MiAxLjQ3NUgyMS42MDNhMS40NzYgMS40NzYgMCAwIDEtMS40ODItMS40NzRWMzEuOTc0em0yLjIyNSAxLjQ3NWg2LjY3MnYyLjIxMmgtNi42NzJ6bTAgNS4xNjJoNi42NzJ2Mi4yMTNoLTYuNjcyem0wIDUuMTYzaDYuNjcydjIuMjEyaC02LjY3MnptOS42MzgtMTAuMzI1aDYuNjcydjIuMjEyaC02LjY3MnptMCA1LjE2Mmg2LjY3MnYyLjIxM2gtNi42NzJ6bTAgNS4xNjNoNi42NzJ2Mi4yMTJoLTYuNjcyeiIvPjxwYXRoIGZpbGw9IiMyOEI0NDYiIGQ9Ik0zNC42OSAwIDUxIDE2LjIyNXYzOS4wODdhMy42NyAzLjY3IDAgMCAxLTEuMDg0IDIuNjFBMy43IDMuNyAwIDAgMSA0Ny4yOTMgNTlIMTEuNzA3YTMuNyAzLjcgMCAwIDEtMi42MjMtMS4wNzhBMy42NyAzLjY3IDAgMCAxIDggNTUuMzEyVjMuNjg4YTMuNjcgMy42NyAwIDAgMSAxLjA4NC0yLjYxQTMuNyAzLjcgMCAwIDEgMTEuNzA3IDB6Ii8+PHBhdGggZmlsbD0iIzZBQ0U3QyIgZD0iTTM0LjY5IDAgNTEgMTYuMjI1SDM4LjM5N2MtMi4wNTQgMC0zLjcwNy0xLjgyOS0zLjcwNy0zLjg3MnoiLz48cGF0aCBmaWxsPSIjMjE5QjM4IiBkPSJNMzguMjExIDE2LjIyNSA1MSAyMS40OHYtNS4yNTV6Ii8+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTE5LjEyIDMwLjk3NWMwLS44MTcuNjYyLTEuNDc1IDEuNDgzLTEuNDc1aDE3Ljc5NGMuODIxIDAgMS40ODIuNjU4IDEuNDgyIDEuNDc1djE1LjQ4N2MwIC44MTgtLjY2MSAxLjQ3NS0xLjQ4MiAxLjQ3NUgyMC42MDNhMS40NzYgMS40NzYgMCAwIDEtMS40ODItMS40NzRWMzAuOTc0em0yLjIyNSAxLjQ3NWg2LjY3MnYyLjIxMmgtNi42NzJ6bTAgNS4xNjJoNi42NzJ2Mi4yMTNoLTYuNjcyem0wIDUuMTYzaDYuNjcydjIuMjEyaC02LjY3MnptOS42MzgtMTAuMzI1aDYuNjcydjIuMjEyaC02LjY3MnptMCA1LjE2Mmg2LjY3MnYyLjIxM2gtNi42NzJ6bTAgNS4xNjNoNi42NzJ2Mi4yMTJoLTYuNjcyeiIvPjwvZz48L3N2Zz4="
+      },
+      "displayName": "Google Sheets",
+      "typeVersion": 5,
+      "nodeCategories": [
+        {
+          "id": 3,
+          "name": "Data & Storage"
+        },
+        {
+          "id": 4,
+          "name": "Productivity"
+        }
+      ]
+    },
+    {
+      "id": 317,
+      "icon": "file:googleCalendar.svg",
+      "name": "n8n-nodes-base.googleCalendar",
+      "codex": {
+        "data": {
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/how-to-host-virtual-coffee-breaks-with-n8n/",
+                "icon": "☕️",
+                "label": "How to host virtual coffee breaks with n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/supercharging-your-conference-registration-process-with-n8n/",
+                "icon": "🎫",
+                "label": "Supercharging your conference registration process with n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/automate-google-apps-for-productivity/",
+                "icon": "💡",
+                "label": "15 Google apps you can combine and automate to increase productivity"
+              },
+              {
+                "url": "https://n8n.io/blog/your-business-doesnt-need-you-to-operate/",
+                "icon": " 🖥️",
+                "label": "Hey founders! Your business doesn't need you to operate"
+              },
+              {
+                "url": "https://n8n.io/blog/5-workflow-automations-for-mattermost-that-we-love-at-n8n/",
+                "icon": "🤖",
+                "label": "5 workflow automation for Mattermost that we love at n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/tracking-time-spent-in-meetings-with-google-calendar-twilio-and-n8n/",
+                "icon": "🗓",
+                "label": "Tracking Time Spent in Meetings With Google Calendar, Twilio, and n8n"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googlecalendar/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/google/oauth-single-service/"
+              }
+            ]
+          },
+          "categories": [
+            "Productivity"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "Google Calendar"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiB2aWV3Qm94PSIwIDAgODEgODIiPjx1c2UgeGxpbms6aHJlZj0iI2EiIHg9Ii41IiB5PSIuNSIvPjxzeW1ib2wgaWQ9ImEiIG92ZXJmbG93PSJ2aXNpYmxlIj48ZyBmaWxsLXJ1bGU9Im5vbnplcm8iIHN0cm9rZT0ibm9uZSI+PHBhdGggZD0iTTYxLjA1MiAxOC45NDdIMTguOTQ3djQyLjEwNWg0Mi4xMDV6Ii8+PHBhdGggZmlsbD0iI2VhNDMzNSIgZD0iTTYxLjA1MyA4MCA4MCA2MS4wNTNINjEuMDUzeiIvPjxwYXRoIGZpbGw9IiNmYmJjMDQiIGQ9Ik04MCAxOC45NDdINjEuMDUzdjQyLjEwNUg4MHoiLz48cGF0aCBmaWxsPSIjMzRhODUzIiBkPSJNNjEuMDUyIDYxLjA1M0gxOC45NDdWODBoNDIuMTA1eiIvPjxwYXRoIGZpbGw9IiMxODgwMzgiIGQ9Ik0wIDYxLjA1M3YxMi42MzJBNi4zMTQgNi4zMTQgMCAwIDAgNi4zMTYgODBoMTIuNjMyVjYxLjA1M3oiLz48cGF0aCBmaWxsPSIjMTk2N2QyIiBkPSJNODAgMTguOTQ3VjYuMzE2QTYuMzE0IDYuMzE0IDAgMCAwIDczLjY4NSAwSDYxLjA1M3YxOC45NDd6Ii8+PHBhdGggZmlsbD0iIzQyODVmNCIgZD0iTTYxLjA1MyAwSDYuMzE2QTYuMzE0IDYuMzE0IDAgMCAwIDAgNi4zMTZ2NTQuNzM3aDE4Ljk0N1YxOC45NDdoNDIuMTA1VjB6TTI3LjU4NCA1MS42MTFjLTEuNTc0LTEuMDYzLTIuNjYzLTIuNjE2LTMuMjU4LTQuNjY4bDMuNjUzLTEuNTA1cS40OTggMS44OTQgMS43MzcgMi45MzdjMS4yMzkgMS4wNDMgMS44MjEgMS4wMzcgMi45ODkgMS4wMzdxMS43OTIgMCAzLjA3OS0xLjA4OWMxLjI4Ny0xLjA4OSAxLjI5LTEuNjUzIDEuMjktMi43NzRhMy40NCAzLjQ0IDAgMCAwLTEuMzU4LTIuODExYy0uOTA1LS43MjctMi4wNDItMS4wODktMy40LTEuMDg5aC0yLjExMXYtMy42MTZIMzIuMXExLjc1MiAwIDIuOTUzLS45NDdjMS4yMDEtLjk0NyAxLjItMS40OTUgMS4yLTIuNTk1cTAtMS40NjctMS4wNzQtMi4zNDJjLTEuMDc0LS44NzUtMS42MjEtLjg3OS0yLjcyMS0uODc5cS0xLjYxLS4wMDItMi41NTguODU4Yy0uOTQ4Ljg2LTEuMTA2IDEuMzAxLTEuMzc5IDIuMTExbC0zLjYxNi0xLjUwNWMuNDc5LTEuMzU4IDEuMzU4LTIuNTU4IDIuNjQ3LTMuNTk1czIuOTM3LTEuNTU4IDQuOTM3LTEuNTU4cTIuMjItLjAwMiAzLjk4OS44NThjMS43NjkuODYgMi4xMDUgMS4zNjggMi43NzQgMi4zNzlzMSAyLjE1MyAxIDMuNDE2cTAgMS45MzItLjkzMiAzLjI3NGMtLjkzMiAxLjM0Mi0xLjM4NCAxLjU3OS0yLjI4OSAyLjA1OHYuMjE2YTYuOTUgNi45NSAwIDAgMSAyLjkzNyAyLjI4OXExLjE0NiAxLjUzOCAxLjE0NyAzLjY4NGMuMDAxIDIuMTQ2LS4zNjMgMi43MTEtMS4wODkgMy44MzJzLTEuNzMyIDIuMDA1LTMuMDA1IDIuNjQ3Yy0xLjI3OS42NDItMi43MTYuOTY4LTQuMzExLjk2OC0xLjg0Ny4wMDUtMy41NTMtLjUyNi01LjEyNi0xLjU4OXptMjIuNDM3LTE4LjEyNi00LjAxIDIuOS0yLjAwNS0zLjA0MiA3LjE5NS01LjE4OWgyLjc1OHYyNC40NzloLTMuOTM3VjMzLjQ4NHoiLz48L2c+PC9zeW1ib2w+PC9zdmc+"
+      },
+      "displayName": "Google Calendar",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 4,
+          "name": "Productivity"
+        }
+      ]
+    }
+  ]
+}

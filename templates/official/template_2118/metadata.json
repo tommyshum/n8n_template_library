@@ -1,0 +1,62 @@
+{
+  "id": 2118,
+  "name": "Send follow-ups using Gmail to Hubspot contacts",
+  "description": "Use Case\nFollowing up at the right time is one of the most important parts of sales. This workflow uses Gmail to send outreach emails to Hubspot contacts that have already been contacted only once more than a month ago, and records the engagement in Hubspot. \n\nSetup \nSetup HubSpot Oauth2 creds (Be careful with scopes. They have to be exact, not less or more. Yes, it’s not simple, but it’s well documented in the n8n docs. Be smarter than me, read the docs)\nSetup Gmail creds.\nChange the email variables in the Set keys node\n\nHow to adjust this template\nThere's plenty to do here because the approach here is really just a starting point. Most important here is to figure out what your rules are to follow up. After a month? More than once?\n\nAlso, remember to update the follow-up email! Unless you want to sell n8n 😉",
+  "totalViews": 2032,
+  "source": "official",
+  "user": {
+    "id": 91243,
+    "name": "Mutasem",
+    "username": "mutasem",
+    "bio": "Team lead @ n8n",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/mutasemdmour/\"]",
+    "avatar": "https://gravatar.com/avatar/16d9c92db78317b6af7d0935bee34a47c522cb81d35c234ff76ea580ff1f6c29?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Sales",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "HubSpot",
+      "type": "n8n-nodes-base.hubspot",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-02-22T12:29:34.962Z",
+  "path": "official/template_2118/workflow.json"
+}

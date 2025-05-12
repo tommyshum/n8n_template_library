@@ -1,0 +1,47 @@
+{
+  "id": 2424,
+  "name": "Manipulate PDF with Adobe developer API",
+  "description": "Adobe developer API\n\nDid you know that Adobe provides an API to perform all sort of manipulation on PDF files : \n\nSplit PDF, Combine PDF\nOCR\nInsert page, delete page, replace page, reorder page\nContent extraction (text content, tables, pictures)\n...\n\nThe free tier allows up to 500 PDF operation / month. As it comes directly from Adobe, it works often better than other alternatives.\n\nAdobe documentation: \n\nhttps://developer.adobe.com/document-services/docs/overview/pdf-services-api/howtos/\nhttps://developer.adobe.com/document-services/docs/overview/pdf-extract-api/gettingstarted/\n\nWhat does this workflow do\n\nThe API is a bit painful to use. To perform a transformation on a PDF it requires to \n\nAuthenticate and get a temporal token\nRegister a new asset (file)\nUpload you PDF to the registered asset\nPerform a query according to the transformation requested\nWait for the query to be proccessed by Adobe backend\nDownload the result\n\nThis workflow is a generic wrapper to perform all these steps for any transformation endpoint. I usually use it from other workflow with an Execute Workflow node.\n\nExamples are given in the workflow.\n\nExample use case\n\nThis service is useful for example to clean PDF data for an AI / RAG system. \n\nMy favorite use-case is to extract table as images and forward images to an AI for image recognition / description which is often more accuarate than feedind raw tabular data to a LLM.",
+  "totalViews": 3170,
+  "source": "official",
+  "user": {
+    "id": 91981,
+    "name": "digi-stud.io",
+    "username": "valerian",
+    "bio": "",
+    "verified": false,
+    "links": "[\"https://digi-stud.io\"]",
+    "avatar": "https://gravatar.com/avatar/9254a400c8ca50af4338c32a77da2b49b4eb8b980e684ea8e30bc9e314f82d4f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Dropbox",
+      "type": "n8n-nodes-base.dropbox",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-09-23T12:32:15.091Z",
+  "path": "official/template_2424/workflow.json"
+}

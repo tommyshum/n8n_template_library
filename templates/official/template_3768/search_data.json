@@ -1,0 +1,61 @@
+{
+  "id": 3768,
+  "name": "Automatically Create Google Tasks from Gmail Labeled Emails",
+  "totalViews": 193,
+  "purchaseUrl": null,
+  "user": {
+    "id": 93633,
+    "name": "Aayushman Sharma",
+    "username": "ajstyle0411",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/0e0256718cceba1e7d5067e428cc2c6e737fbba135f113f7f4b9258858a25691?r=pg&d=retro&size=200"
+  },
+  "description": "Automatically create Google Tasks from new Gmail emails labeled \"To-Do\"\n\nWho is this for?\nThis template is perfect for individuals and teams who want to boost their productivity by automatically converting important emails into actionable tasks in Google Tasks.\n\nWhat problem is this workflow solving?\nManually managing emails and creating tasks can be tedious. This workflow ensures you never miss a follow-up by instantly turning important emails into tasks without switching between apps.\n\nWhat this workflow does?\nWatches for new emails in Gmail with the label \"To-Do\".\nCreates a new Google Task with the email subject as the task title and the email snippet as notes.\nSets the task due date to 24 hours after the email is received.\n\nSetup\nCreate a label \"To-Do\" in your Gmail account if it doesn't already exist.\nConnect your Gmail and Google Tasks accounts to n8n using OAuth2 credentials.\nImport the workflow into n8n and activate it.\n\nHow to customize this workflow to your needs?\nChange the Gmail label to a different one (e.g., \"Important\", \"Follow-up\").\nModify the due date logic in the expression if you want more/less time to complete tasks:\n{{ $now.add(2, 'days').toISOString() }}\nAdd additional Gmail filters (like only unread emails) to refine which emails create tasks.\n\n",
+  "createdAt": "2025-04-28T08:08:03.684Z",
+  "nodes": [
+    {
+      "id": 332,
+      "icon": "file:googleTasks.svg",
+      "name": "n8n-nodes-base.googleTasks",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googletasks/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/google/oauth-single-service/"
+              }
+            ]
+          },
+          "categories": [
+            "Productivity"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "Google Tasks"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTMxLjE0MTEgNS40MjM4M0wyNy45ODQ1IDcuMTYxNDdMMjYuNDIxNCAxMC4xNTExTDI3Ljk4NDUgMTMuODA4NUwzMC45NDM4IDE3LjAxMDdMMzQuMTQ1OSAxNS4yMjc1TDM2LjExMTIgMTEuODM1N0wzNC4xNDU5IDcuNjM5NTJMMzEuMTQxMSA1LjQyMzgzWiIgZmlsbD0iIzAwNjZEQSIvPgo8cGF0aCBkPSJNMTguOTE2OCAxNy42NDhMMjYuNDIxMyAxMC4xNDM1QzI4LjYyOTQgMTEuODIwNSAzMC4yNTMzIDE0LjIyNTggMzAuOTQzOCAxNy4wMDNMMjAuNjQ2OSAyNy4zMDc1QzE5LjcyMTEgMjguMjMzMiAxOC4yMTg3IDI4LjIzMzIgMTcuMjkzIDI3LjMwNzVMMTAuMzUgMjAuMzY0NUM5LjYwNjM3IDE5LjYyMDkgOS42MDYzNyAxOC40MjIgMTAuMzUgMTcuNjg2TDEzLjMwOTMgMTQuNzI2NkMxNC4wNTI5IDEzLjk4MyAxNS4yNTE4IDEzLjk4MyAxNS45ODc5IDE0LjcyNjZMMTguOTE2OCAxNy42NDhaTTM5LjQ0MjMgNS44MjU5NUwzNi40Mjk5IDIuODEzNTNDMzUuNjkzOCAyLjA3NzQ5IDM0LjQ4NzMgMi4wNzc0OSAzMy43NTEzIDIuODEzNTNMMzEuMTQxIDUuNDIzNzlDMzMuMjI3NyA3LjE2OTAyIDM0LjkyNzQgOS4zNTQzNiAzNi4xMTEyIDExLjgzNTZMMzkuNDQyMyA4LjUwNDUxQzQwLjE4NTkgNy43Njg0NyA0MC4xODU5IDYuNTYxOTggMzkuNDQyMyA1LjgyNTk1Wk0zMS4zMDA0IDE5Ljk2OTlDMzEuMzAwNCAyNi43ODM5IDI1Ljc3NjMgMzIuMzAwNCAxOC45Njk5IDMyLjMwMDRDMTIuMTYzNSAzMi4zMDA0IDYuNjM5NDggMjYuNzgzOSA2LjYzOTQ4IDE5Ljk2OTlDNi42Mzk0OCAxMy4xNTU5IDEyLjE1NTkgNy42Mzk0OCAxOC45Njk5IDcuNjM5NDhDMjEuNzY5OSA3LjYzOTQ4IDI0LjM0OTggOC41NzI4IDI2LjQyMTMgMTAuMTUxMUwzMS4xNDEgNS40MzEzOEMyNy44NDc5IDIuNjYxNzcgMjMuNjA2MiAxIDE4Ljk2OTkgMUM4LjQ5MDk0IDEgMCA5LjQ5MDk0IDAgMTkuOTY5OUMwIDMwLjQ0ODkgOC40OTA5NCAzOC45Mzk5IDE4Ljk2OTkgMzguOTM5OUMyOS40NDg5IDM4LjkzOTkgMzcuOTM5OSAzMC40NDg5IDM3LjkzOTkgMTkuOTY5OUMzNy45Mzk5IDE3LjA2MzcgMzcuMjc5NyAxNC4zMDE3IDM2LjExMTIgMTEuODM1NkwzMC45NDM4IDE3LjAxMDZDMzEuMTcxNCAxNy45NTkxIDMxLjMwMDQgMTguOTUzMSAzMS4zMDA0IDE5Ljk2OTlaIiBmaWxsPSIjMjY4NEZDIi8+Cjwvc3ZnPgo="
+      },
+      "displayName": "Google Tasks",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 4,
+          "name": "Productivity"
+        }
+      ]
+    }
+  ]
+}

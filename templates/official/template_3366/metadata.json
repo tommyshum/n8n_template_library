@@ -1,0 +1,97 @@
+{
+  "id": 3366,
+  "name": "Webpage Change Detection & Alerts with Google Suite and Hash Tracking",
+  "description": "This n8n template can monitor and detect changes to a webpage's contents and notify you only when a change occurs.\n\nGreat to keep an eye on and track publicly available documents such as  company TOS, government policy or competitor pages.\n\nHow it works\nA scheduled trigger is used so we can run everyday to automate this process.\nA website page is then fetched with the HTTP request node and the contents we want to track are extracted using the HTML node.\nTo detect changes, we generate a hash on the contents with the cryptography node and compare it with previously seen hashes using the \"remove duplicates\" node. If the hash was seen before, the workflow stops here.\nFinally, when new changes are detected a copy of the contents are uploaded to Google Drive and a logged into a Google sheet. A notification email can also be sent if action is required.\n\nHow to use\nUpdate the URL you want to track in the node named \"variables\" and ensure the HTML node has updated selectors to get the content you want.\nEnsure the timezone is set correctly when using the Scheduled Trigger node.\n\nRequirements\nGoogle Sheets, Drive and Gmail for storing and notifying about changes.\nWebpages should ideally be publicly accessible. If not, you may need to switch the HTTP request node with a webscraping service.\n\nCustomising this workflow\nNot using Google? Easier swap to other Service providers such as Miscrosoft365.\nNeed more URLs? Try modifing the variables node to accept multiple URLs though the HTML node will need to be customised.",
+  "totalViews": 1876,
+  "source": "official",
+  "user": {
+    "id": 91804,
+    "name": "Jimleuk",
+    "username": "jimleuk",
+    "bio": "Freelance consultant based in the UK specialising in AI-powered automations. I work with select clients tackling their most challenging projects. For business enquiries, send me an email at hello@jimle.uk\n\nLinkedIn: https://www.linkedin.com/in/jimleuk/\nX/Twitter: https://x.com/jimle_uk",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4ab99e51473df76838beeaac908747f7928c625f869794815cabe34016967d51?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Crypto",
+      "type": "n8n-nodes-base.crypto",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-03-30T11:27:55.561Z",
+  "path": "official/template_3366/workflow.json"
+}

@@ -1,0 +1,49 @@
+{
+  "id": 3453,
+  "name": "Automated Weekly Project Cost Reports with MySQL and Outlook HTML Emails",
+  "description": "Automated Weekly Project Cost Reports with MySQL and Outlook HTML Emails\n\n🧠 Use Case\n\nNeed to keep your finance or operations team updated on missing project costs?  \nThis practical automated report workflow does the job without AI — and saves hours weekly.\n\nRuns on a weekly schedule\nQueries your MySQL database for projects missing cost data\nFilters by budgeted_project_cost IS NULL\nGenerates a clean HTML email report\nSends it through Microsoft Outlook to relevant teams\n\n🚀 How It Works\n\nSchedule Trigger – Runs every Monday at 8 AM\nMySQL Node – Connects and runs SQL to fetch project data missing budgeted_project_cost\nSwitch Node – Routes logic based on cost_center (e.g., Retail, Service, Projects)\nOutlook Nodes – Sends formatted HTML emails; each node handles a specific group\nDynamic Content – Inject values using mustache tags like {{ $json.project_name }}\n\n🔧 Setup Instructions\n\nMySQL Setup:\n   Ensure the MySQL node is connected using a valid credential set:\n     Hostname/IP\n     Port (default: 3306)\n     Database name\n     Username with SELECT permissions\n     Password\n   Query Example:\n          SELECT project_name, cost_center FROM tabProject \n     WHERE status = 'Open' AND project_type = 'External' AND budgeted_project_cost IS NULL;\n     \nOutlook Configuration:\n   Connect your Microsoft Outlook node using OAuth2 credentials.\n   Rename each Outlook node clearly (e.g., Send Email - Retail, Send Email - Service).\n\nSwitch Node:\n   Modify cost center values as needed to match your organization (e.g., 'Retail', 'Service', 'Projects').\n\nHTML Email Formatting:\n   Customize the HTML message body using inline styles and mustache syntax.\n   Sample:\n          Missing Budgeted Cost Report\n     \n       Project: {{ $json.project_name }}\n       Cost Center: {{ $json.cost_center }}\n     \n     \nRecipients:\n   Replace amjid@amjidali.com with the actual email addresses of the concerned teams.\n\n📘 Read More\n\n👉 Why Simple Workflows Work  \n\n📺 Demo & Tutorial\n\n🎥 Watch the video walkthrough:  \nhttps://youtube.com/@syncbricks\n\n👤 About the Creator\n\nAmjid Ali  \n🌐 amjidali.com  \n📘 n8n Book  \n🎓 Learn n8n\n\n&gt; “Start simple, scale smart. Even basic workflows like this can save your team hours!” — Amjid Ali",
+  "totalViews": 115,
+  "source": "official",
+  "user": {
+    "id": 92318,
+    "name": "Amjid Ali",
+    "username": "amjid",
+    "bio": "**Amjid Ali** is an automation expert and AI enthusiast specializing in creating intelligent workflows using low-code platforms like **n8n**. With a passion for simplifying complex processes, he designs solutions that enhance productivity and streamline operations. As an active contributor to the **n8n Creator Hub**, Amjid shares innovative use cases, practical templates, and best practices, empowering the community to unlock the full potential of workflow automation.",
+    "verified": true,
+    "links": "[\"https://amjidali.com\"]",
+    "avatar": "https://gravatar.com/avatar/8760ed64a38ed65da42983737659c7e295e4a7f14b59ed5ce1b0b1077435f573?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Data & Storage",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "MySQL",
+      "type": "n8n-nodes-base.mySql",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Microsoft Outlook",
+      "type": "n8n-nodes-base.microsoftOutlook",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2025-04-07T05:56:27.085Z",
+  "path": "official/template_3453/workflow.json"
+}

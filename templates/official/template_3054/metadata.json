@@ -1,0 +1,38 @@
+{
+  "id": 3054,
+  "name": "Generate AI Videos from Text with HeyGen and Voice Cloning.",
+  "description": "🎥 AI Video Generator with HeyGen\n\n🚀 Create AI-Powered Videos in n8n with HeyGen  \n\nThis workflow enables you to generate realistic AI videos using HeyGen, an advanced AI platform for video automation. Simply input your text, choose an AI avatar and voice, and let HeyGen generate a high-quality video for you – all within n8n!  \n\n✅ Ideal for:  \nContent creators & marketers 🏆  \nAutomating personalized video messages 📩  \nAI-powered video tutorials & training materials 🎓  \n\n🔧 How It Works  \n1️⃣ Provide a text script – This will be spoken in the AI-generated video.  \n2️⃣ Select an Avatar & Voice – Choose from a variety of AI-generated avatars and voices.  \n3️⃣ Run the workflow – HeyGen processes your request and generates a video.  \n4️⃣ Download your video – Get the direct link to your AI-powered video!  \n\n⚡ Setup Instructions\n\n1️⃣ Get Your HeyGen API Key  \nSign up for a HeyGen account.  \nGo to your account settings and retrieve your API Key.  \n\n2️⃣ Configure n8n Credentials  \nIn n8n, create new credentials and select \"Custom Auth\" as the authentication type.\nIn the Name provide : X-Api-Key\nAnd in the value paste your API key from Heygen\nUpdate the 2 http node with the right credentials.\n\n3️⃣ Select an AI Avatar & Voice  \nBrowse available avatars & voices in your HeyGen account.  \nCopy the Avatar ID and Voice ID for your video.  \n\n4️⃣ Run the Workflow  \nEnter your text, avatar ID, and voice ID.  \nExecute the workflow – your video will be generated automatically!  \n\n🎯 Why Use This Workflow?  \n✔️ Fully Automated – No manual editing required!  \n✔️ Realistic AI Avatars – Choose from a variety of digital avatars.  \n✔️ Seamless Integration – Works directly within your n8n workflow.  \n✔️ Scalable & Fast – Generate multiple videos in minutes.  \n\n🔗 Start automating AI-powered video creation today with n8n & HeyGen!  \n",
+  "totalViews": 11435,
+  "source": "official",
+  "user": {
+    "id": 91529,
+    "name": "Emmanuel Bernard",
+    "username": "n8ninja",
+    "bio": "🎉 Do you want to master AI automation, so you can save time and build cool stuff?\n\nI’ve created a welcoming Skool community for non-technical yet resourceful learners.",
+    "verified": true,
+    "links": "[\"https://www.skool.com/the-ai-atelier\"]",
+    "avatar": "https://gravatar.com/avatar/6c38a38d8002fa989515b5c11340ca14512f929dfd15a5a57422950f58441b12?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-03-01T18:04:31.929Z",
+  "path": "official/template_3054/workflow.json"
+}

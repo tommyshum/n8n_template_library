@@ -1,0 +1,83 @@
+{
+  "id": 3820,
+  "name": "Dynamically switch between LLMs for AI Agents using LangChain Code",
+  "description": "Dynamically switch between LLMs for AI Agents using LangChain Code\n\nPurpose\n\nThis example workflow demonstrates a way to connect multiple LLMs to a single AI Agent/LangChain Node and programmatically use one – or in this case loop through them.\n\nWhat it does\n\nThis AI workflow takes in customer complaints and generates a response that is being validated before returned. If the answer was not satisfactory, the response will be generated again with a more capable model.\n\nHow it works\n\nA LangChain Code Node allows multiple LLMs to be connected to a single Basic LLM Chain. On every call only one LLM is actually being connected to the Basic LLM Chain, which is determined by the index defined in a previous Node.\nThe AI output is later validated by a Sentiment Analysis Node\nIf the result was not satisfactory, it loops back to the beginning and executes the same query with the next available LLM\nThe loop ends either when the result passed the requirements or when all LLMs have been used before.\n\nSetup\nClone the workflow and select the belonging credentials. You'll need an OpenAI Account, alternatively you can swap the LLM nodes with ones from a different provider like Anthropic after the import.\n\nHow to use\n\nBeware that the order of the used LLMs is determined by the order they have been added to the workflow, not by the position on the canvas.\n\nAfter cloning this workflow into your environment, open the chat and send this example message:\n\n&gt; I really love waiting two weeks just to get a keyboard that doesn’t even work. Great job. Any chance I could actually use the thing I paid for sometime this month?\n\nMost likely you will see that the first validation fails, causing it to loop back to the generation node and try again with the next available LLM.\n\nSince AI responses are unpredictable, the results and number of tries will differ for each run.\n\nDisclaimer\nPlease note, that this workflow can only run on self-hosted n8n instances, since it requires the LangChain Code Node.",
+  "totalViews": 908,
+  "source": "official",
+  "user": {
+    "id": 91699,
+    "name": "Mario",
+    "username": "octionic",
+    "bio": "Workflow Optimization Expert | Software Architect. Use my link to book an initial consultation for custom built workflows using n8n.",
+    "verified": true,
+    "links": "[\"https://octionic.com\"]",
+    "avatar": "https://gravatar.com/avatar/48bf351cec848d87566d8cc78c9a783ec4807408366648de04cfe955d7a5ba21?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "LangChain Code",
+      "type": "@n8n/n8n-nodes-langchain.code",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Miscellaneous"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Sentiment Analysis",
+      "type": "@n8n/n8n-nodes-langchain.sentimentAnalysis",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-05-01T12:28:53.112Z",
+  "path": "official/template_3820/workflow.json"
+}

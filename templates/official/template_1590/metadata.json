@@ -1,0 +1,60 @@
+{
+  "id": 1590,
+  "name": "Upload invoices from Gmail to Google Drive",
+  "description": "Upload invoices from Gmail to Google Drive daily",
+  "totalViews": 4139,
+  "source": "official",
+  "user": {
+    "id": 27785,
+    "name": "Jason",
+    "username": "berrylands",
+    "bio": null,
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/10569f462df5c4b4f16bac445b9ff4f10769f512570f5ae8d43b78f32f73f851?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2022-04-12T20:39:32.002Z",
+  "path": "official/template_1590/workflow.json"
+}

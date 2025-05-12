@@ -1,0 +1,34 @@
+{
+  "id": 1829,
+  "name": "Create Mautic contact on a new Shopify customer",
+  "description": "This workflow creates a new contact in Mautic when a new customer is created in Shopify. By default, the workflow will fill the first name, last name, and email address. You can add any other fields you require.\n\nPrerequisites\n\nShopify account and Shopify credentials.\nMautic account and Mautic credentials.\n\nHow it works\n\nTriggers on a new customer in Shopify.\nSends the required data to Mautic to create a new contact.",
+  "totalViews": 755,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Marketing",
+    "Communication"
+  ],
+  "nodes": [
+    {
+      "name": "Mautic",
+      "type": "n8n-nodes-base.mautic",
+      "categories": [
+        "Marketing",
+        "Communication"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2022-11-23T10:20:09.749Z",
+  "path": "official/template_1829/workflow.json"
+}

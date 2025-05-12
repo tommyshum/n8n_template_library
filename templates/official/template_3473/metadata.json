@@ -1,0 +1,88 @@
+{
+  "id": 3473,
+  "name": "Scalable Multi-Agent Chat Using @mentions",
+  "description": "Summary\n\nEngage multiple, uniquely configured AI agents (using different models via OpenRouter) in a single conversation. Trigger specific agents with @mentions or let them all respond. Easily scalable by editing simple JSON settings.\n\nOverview\n\nThis workflow is for users who want to experiment with or utilize multiple AI agents with distinct personalities, instructions, and underlying models within a single chat interface, without complex setup. It solves the problem of managing and interacting with diverse AI assistants simultaneously for tasks like brainstorming, comparative analysis, or role-playing scenarios.\n\nIt enables dynamic conversations with multiple AI assistants simultaneously within a single chat interface. You can:\n\nDefine multiple unique AI agents.\nConfigure each agent with its own name, system instructions, and LLM model (via OpenRouter).\nInteract with specific agents using @AgentName mentions.\nHave all agents respond (in random order) if no specific agents are mentioned.\nMaintain conversation history across multiple turns.\n\nIt's designed for flexibility and scalability, allowing you to easily add or modify agents without complex workflow restructuring.\n\nKey Features\n\nMulti-Agent Interaction:** Chat with several distinct AI personalities at once.\nIndividual Agent Configuration:** Customize name, system prompt, and LLM for each agent.\nOpenRouter Integration:** Access a wide variety of LLMs compatible with OpenRouter.\nMention-Based Triggering:** Direct messages to specific agents using @AgentName.\nAll-Agent Fallback:** Engages all defined agents randomly if no mentions are used.\nScalable Setup:** Agent configuration is centralized in a single Code node (as JSON).\nConversation Memory:** Remembers previous interactions within the session.\n\nHow to Set Up\n\nConfigure Settings (Code Nodes):\n    Open the Define Global Settings Code node: Edit the JSON to set user details (name, location, notes) and add any system message instructions that all agents should follow.\n    Open the Define Agent Settings Code node: Edit the JSON to define your agents. Add or remove agent objects as needed. For each agent, specify:\n        \"name\": The unique name for the agent (used for @mentions).\n        \"model\": The OpenRouter model identifier (e.g., \"openai/gpt-4o\", \"anthropic/claude-3.7-sonnet\").\n        \"systemMessage\": Specific instructions or persona for this agent.\nAdd OpenRouter Credentials:\n    Locate the AI Agent node.\n    Click the OpenRouter Chat Model node connected below it via the Language Model input.\n    In the 'Credential for OpenRouter API' field, select or create your OpenRouter API credentials.\n\nHow to Use\n\nStart a conversation using the Chat Trigger input.\nTo address specific agents, include @AgentName in your message. Agents will respond sequentially in the order they are mentioned.\n    Example: \"@Gemma @Claude, please continue the count: 1\" will trigger Gemma first, followed by Claude.\nIf your message contains no @mentions, all agents defined in Define Agent Settings will respond in a randomized order.\n    Example: \"What are your thoughts on the future of AI?\" will trigger Chad, Claude, and Gemma (based on your default settings) in a random sequence.\nThe workflow will collect responses from all triggered agents and return them as a single, formatted message.\n\nHow It Works (Technical Details)\n\nSettings Nodes: Define Global Settings and Define Agent Settings load your configurations.\nMention Extraction: The Extract mentions Code node parses the user's input (chatInput) from the When chat message received trigger. It looks for @AgentName patterns matching the names defined in Define Agent Settings.\nAgent Selection:\n    If mentions are found, it creates a list of the corresponding agent configurations in the order they were mentioned.\n    If no mentions are found, it creates a list of all defined agent configurations and shuffles them randomly.\nLooping: The Loop Over Items node iterates through the selected agent list.\nDynamic Agent Execution: Inside the loop:\n    An If node (First loop?) checks if it's the first agent responding. If yes (true path -&gt; Set user message as input), it passes the original user message to the Agent. If no (false path -&gt; Set last Assistant message as input), it passes the previous agent's formatted output (lastAssistantMessage) to the next agent, creating a sequential chain.\n    The AI Agent node receives the input message. Its System Message and the Model in the connected OpenRouter Chat Model node are dynamically populated using expressions referencing the current agent's data from the loop ({{ $('Loop Over Items').item.json.* }}).\n    The Simple Memory node provides conversation history to the AI Agent.\n    The agent's response is formatted (e.g., AgentName:\\n\\nResponse) in the Set lastAssistantMessage node.\nResponse Aggregation: After the loop finishes, the Combine and format responses Code node gathers all the lastAssistantMessage outputs and joins them into a single text block, separated by horizontal rules (---), ready to be sent back to the user.\n\nBenefits\n\nScalability & Flexibility:** Instead of complex branching logic, adding, removing, or modifying agents only requires editing simple JSON in the Define Agent Settings node, making setup and maintenance significantly easier, especially for those managing multiple assistants.\nModel Choice:** Use the best model for each agent's specific task or persona via OpenRouter.\nCentralized Configuration:** Keeps agent setup tidy and manageable.\n\nLimitations\n\nSequential Responses:** Agents respond one after another based on mention order (or randomly), not in parallel.\nNo Direct Agent-to-Agent Interaction (within a turn):* Agents cannot directly call or reply to each other *during the processing of a single user message. Agent B sees Agent A's response only because the workflow passes it as input in the next loop iteration.\nDelayed Output:* The user receives the combined response only *after all triggered agents have completed their generation.",
+  "totalViews": 9253,
+  "source": "official",
+  "user": {
+    "id": 93668,
+    "name": "Jon Doran",
+    "username": "jondoran",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/ab9ba42e4020de1c012fcb716f96c14a4e293ca8f605bbb0f34bf1dfb84fc99c?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "OpenRouter Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-04-08T12:49:14.252Z",
+  "path": "official/template_3473/workflow.json"
+}

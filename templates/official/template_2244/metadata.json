@@ -1,0 +1,52 @@
+{
+  "id": 2244,
+  "name": "Dynamically replace images in Google Slides via API",
+  "description": "🎉 Do you want to master AI automation, so you can save time and build cool stuff? \n\nI’ve created a welcoming Skool community for non-technical yet resourceful learners.\n\n👉🏻 Join the AI Atelier 👈🏻\n\nThis workflow exposes an API endpoint that lets you dynamically replace an image in Google Slides, perfect for automating deck presentations like updating backgrounds or client logos.\n\n*📺 Youtube Overview 📺 *\n\nHere's how to get started:\n\nStep 1: Set Up a Key Identifier in Google Slides\nAdd a unique key identifier to the images you want to replace.\nClick on the image.\nGo to Format Options and then Alt Text.\nEnter your unique identifier, like client_logo or background.\n\nStep 2: Use a POST Request to Update the Image\nSend a POST request to the workflow endpoint with the following parameters in the body:\npresentation_id: The ID of your Google Slides presentation.\nYou can find it in the URL of your Google presentation: https://docs.google.com/presentation/d/&lt;this-part&gt;/edit)\nimage_key: The unique identifier you created.\nimage_url: The URL of the new image.\n\nThat's it! The specified image in your Google Slides presentation will be replaced with the new one from the provided URL.\n\nThis workflow is designed to be flexible, allowing you to use the same identifier across multiple slides and presentations. I hope it streamlines your slide automation process!\n\nExample Curl Request to execute: \ncurl --location 'https://workflow.url' \\\n--form 'presentation_id=\"google-presentation-id\"' \\\n--form 'image_key=\"background\"' \\\n--form 'image_url=\"https://picsum.photos/536/354\"'\nHappy automating!\nThe n8Ninja 🥷",
+  "totalViews": 2422,
+  "source": "official",
+  "user": {
+    "id": 91529,
+    "name": "Emmanuel Bernard",
+    "username": "n8ninja",
+    "bio": "🎉 Do you want to master AI automation, so you can save time and build cool stuff?\n\nI’ve created a welcoming Skool community for non-technical yet resourceful learners.",
+    "verified": true,
+    "links": "[\"https://www.skool.com/the-ai-atelier\"]",
+    "avatar": "https://gravatar.com/avatar/6c38a38d8002fa989515b5c11340ca14512f929dfd15a5a57422950f58441b12?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-04-28T09:14:19.066Z",
+  "path": "official/template_2244/workflow.json"
+}

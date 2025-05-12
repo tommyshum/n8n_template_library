@@ -1,0 +1,137 @@
+{
+  "id": 2919,
+  "name": "WordPress Auto-Blogging Pro - Content Automation Machine for SEO topics",
+  "description": "The best content automation in the market! This advanced workflow not only creates and publishes SEO-optimized blog posts to your WordPress website but also backs up all content and images to a designated folder in your Google Drive. In addition, It generates a unique image for each chapter and a featured image for the overall article, and it automatically collects internal website links—seamlessly inserting them throughout each chapter and the entire article. This integrated approach enhances on-page SEO, improves navigation, and streamlines your content creation process, saving you time while ensuring your work is securely stored.\n\nHow it works\n\nTriggers upon adding a new row to a Google Sheets.\nGenerates a full blog post by writing content based on customizable parameters such as topic, target audience, length, style, and seed keyword.\nGenerates and adds images for each chapter as well as a featured image for the article.\nGathers internal website links and strategically embeds them within each chapter and throughout the article, boosting SEO and enhancing user navigation.\nPublishes the blog post directly to your WordPress website.\nSaves all content (blog post and images) to Google Drive, organizing them in a folder named after the blog post title.\n\nUnique features\n\nFull Automation: The workflow is designed to be 100% automated. Once imported and configured, it can run without manual intervention.\nSimple Activation: It can be easily triggered through the Google Spreadsheets interface. You simply add a new row to a Google Sheet.\nCustomization Options: Offers a wide array of customization options, including topic, category, target audience, word count, number of chapters, length of introduction and conclusion, and writing style. It also allows for the inclusion of calls-to-action (CTAs) and company/product introductions.\nAutomatic Content Saving: After writing a blog post, all content and images are automatically saved to Google Drive, preventing data loss. The folder is even named after the title of the blog post.\nSEO-Optimized Content: It's designed to create content optimized for SEO using seed keywords.\nAI Model Flexibility: It’s super easy to switch between different AI models through the Open Router node.\nRate Limit Handling: Includes \"Wait\" nodes to avoid rate limits.\nInternal Link Limit: Limits the number of internal links to 20 by default.\n\nSet up steps\n\nInstall the workflow template: Import the JSON file into your n8n instance.\nConnect the workflow to your accounts: This includes linking your WordPress website, Google Drive, and AI models (such as OpenAI GPT-4o).\nConfigure the Google Sheet: Ensure your Google Sheet is set up to trigger the workflow upon adding a new row and that the input data is correctly formatted.\nCustomize the workflow: Adjust parameters like topic, target audience, and writing style to match your specific content needs. Optimize prompts for best results.\nTest the workflow: Use low-cost AI models and image settings initially to ensure everything runs smoothly.\nTailor Further as Needed: Modify workflow elements to align perfectly with your needs and content strategy.",
+  "totalViews": 4037,
+  "source": "official",
+  "user": {
+    "id": 92741,
+    "name": "Daniel Ng",
+    "username": "danielng",
+    "bio": "A Growth Hacker, Digital Marketer & AI Automation Builder with 10+ years of experience in Digital Marketing & Workflow Automation. Based in Helsinki, Finland. For questions about my templates and customization, contact me at: daniel@aiautomationpro.org",
+    "verified": true,
+    "links": "[\"https://aiautomationpro.org/\"]",
+    "avatar": "https://gravatar.com/avatar/7e5e8e658b30fd9740edb159e9120a88edf324d14e7115e2229cf6876f2253a3?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Marketing",
+    "Core Nodes",
+    "Development",
+    "Data & Storage",
+    "Miscellaneous",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Edit Image",
+      "type": "n8n-nodes-base.editImage",
+      "categories": [
+        "Marketing",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Files",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Wordpress",
+      "type": "n8n-nodes-base.wordpress",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Google Docs",
+      "type": "n8n-nodes-base.googleDocs",
+      "categories": [
+        "Miscellaneous"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 9,
+  "createdAt": "2025-02-16T16:48:40.938Z",
+  "path": "official/template_2919/workflow.json"
+}

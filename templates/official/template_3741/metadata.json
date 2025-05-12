@@ -1,0 +1,102 @@
+{
+  "id": 3741,
+  "name": "The Ultimate Instagram Automation for High-Quality Images & Text with GPT-Image",
+  "description": "\n\nThis n8n workflow revolutionizes Instagram content creation by automating everything from idea input to publishing high-quality, AI-generated posts with realistic images or infographics. Whether you're an entrepreneur, a content creator, or a marketer, this workflow lets you consistently deliver professional-grade posts without manual effort.\n\nIt leverages power of OpenAI Image Generator to generate engaging captions, create stunning visuals, and publish directly to Instagram — fully automated!\n\nIt allows you to generate and post highly relevant images with statistics, graphs, and charts, hyper-realistic images, or any custom image style you want.\n\nWhat is included?\n\n✅ 1 n8n Workflow (.json) file\n\n✅ 4 Video Guidance Tutorials:\n\nSetup Tutorial**: How to set up this workflow from scratch.\nInstagram Connection Tutorial**: How to connect n8n to Instagram (and all other Facebook products).\nGoogle Cloud Storage Connection Tutorial**: How to upload and host images on Google Cloud.\nGoogle Product Integration Tutorial**: How to connect n8n with all Google products.\n\nWho is this for?\n\nThis template is ideal for:\n\nContent creators who want to automate Instagram posting with AI assistance.\nEntrepreneurs and brands aiming to build a consistent social media presence.\nSocial media managers seeking to save time while maintaining high-quality output.\nAnyone looking to auto-generate professional posts without needing graphic design skills.\n\nWhat problem is this workflow solving?\n\nBuilding a consistent, high-quality Instagram feed is time-consuming.\n\nThis workflow solves key challenges by:\n\nAutomating research, writing, image generation, hosting, and publishing.\nSaving hours of manual content creation work each week.\nAllowing easy scalability of your Instagram marketing efforts.\nGiving the option to create data-driven infographics or hyper-realistic images.\nEnsuring posts stay engaging, informative, and visually appealing — without creative burnout.\n\nWhat this workflow does\n\nThis workflow automates the following steps:\n\nIdea Input**: Accepts a post idea through a form or scheduled posting based on a default niche.\nResearch & Caption Generation**: Uses Web Search and GPT to research the topic and generate an engaging Instagram caption with trending hashtags.\nImage Generation**:\n    Option 1: Generate an infographic with statistics, graphs, and charts.\n    Option 2: Create a hyperrealistic, AI-generated photo based on real-world elements (fully customizable to any image style).\nPublishing: Posts the image and caption automatically to **Instagram via the Facebook Graph API.\n\nSetup\n\nTrigger Options:\n    By Schedule: Configure regular post publishing.\n    By Form: Submit a post idea anytime manually.\nChoose Image Style:\n    Enable graphs/statistics for data-driven visuals.\n    Choose hyperrealistic images for lifestyle, travel, fashion, and more.\nCustomize Language and Niche:\n    Set your default language (English by default) and niche topic.\nAPI Keys:\n    Insert your OpenAI API Key and Tavily API Key inside the workflow for activation.\nConnect Your Accounts:\n    OpenAI for text and image generation.\n    Google Cloud Storage for image hosting (please refer to the video guidance).\n    Facebook Graph API for publishing to Instagram (please refer to the video guidance)..\n\nHow to Customize This Workflow\n\nPost Style**: Adjust the AI prompt settings to tweak the tone and style of your Instagram captions.\nImage Look**: Customize the image generation prompt to change image style, themes, and resolutions.\nFrequency**: Modify schedule triggers to post as frequently (or infrequently) as you like.\n\nCategory\n\nMarketing | Social Media Automation | Content Creation",
+  "totalViews": 946,
+  "source": "official",
+  "user": {
+    "id": 92701,
+    "name": "Tianyi",
+    "username": "muzi",
+    "bio": "Ph.D. in Machine Learning from the University of Toulouse.\nExperienced automation consultant specializing in optimizing workflows for Content creation and Marketing teams. ",
+    "verified": true,
+    "links": "[\"www.linkedin.com/in/tianyi-li-v\"]",
+    "avatar": "https://gravatar.com/avatar/43163225998120af2d88664551ec779ceb7518ef30b5a6c27f81649a0fb641d0?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Facebook Graph API",
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "categories": [
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Google Cloud Storage",
+      "type": "n8n-nodes-base.googleCloudStorage",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-04-26T21:00:10.432Z",
+  "path": "official/template_3741/workflow.json"
+}

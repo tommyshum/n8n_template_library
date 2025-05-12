@@ -1,0 +1,138 @@
+{
+  "id": 2377,
+  "name": "Turn Emails into AI-Enhanced Tasks in Notion (Multi-User Support) with Gmail, Airtable and Softr",
+  "description": "Purpose\n\nThis workflow automatically creates Tasks from forwarded Emails, similar to Asana, but better. Emails are processed by AI and converted to rather actionable task.\n\nIn addition this workflow is build in a way, that multiple users can share this single process by setting up their individual configuration through a user friendly portal (internal tool) instead of the need to manage their own workflows.\n\nDemo\n\nHow it works\n\nOne Gmail account is used to process inbound mails from different users.\nA custom web portal enables users to define “routes”. Thats where the mapping between an automatically generated Gmail Alias and a Notion Database URL, including the personal API Token, happens.\nUsing a Gmail Trigger, new entries are split by the Email Alias, so the corresponding route can be retrieved from the Database connected to the portal.\nEvery Email then gets processed by AI to get generate an actionable task and get a short summary of the original Email as well as some metadata.\nBased on a predefined structure a new Page is created in the corresponding Notion Database.\nFinally the Email is marked as “processed” in Gmail.\nIf an error happens, the route gets paused for a possible overflow and the user gets notified by Email.\n\nSetup\n\nCreate a new Google account (alternatively you can use an existing one and set up rules to keep your inbox organized)\nCreate two Labels in Gmail: “Processed” and “Error”\nClone this Softr template including the Airtable dataset and publish the application\nClone this workflow and choose credentials (Gmail, Airtable)\nFollow the additional instructions provided within the workflow notes\nEnable the workflow, so it runs automatically in the background\n\nHow to use\n\nOpen published Softr application\nRegister as a new user\nCreate a new route containing the Notion API key and the Notion Database URL\nExpand the new entry to copy the Email address\nSave the address as a new contact in your Email provider of choice\nForward an Email to it and watch how it gets converted to an actionable task\n\nDisclamer\n\nAirtable was chosen, so you can setup this template fairly quickly. It is advised to replace the persistence by something you own, like a self hosted SQL server, since we are dealing with sensitive information of multiple users\nThis solution is only meant for building internal tools, unless you own an embed license for n8n.",
+  "totalViews": 7020,
+  "source": "official",
+  "user": {
+    "id": 91699,
+    "name": "Mario",
+    "username": "octionic",
+    "bio": "Workflow Optimization Expert | Software Architect. Use my link to book an initial consultation for custom built workflows using n8n.",
+    "verified": true,
+    "links": "[\"https://octionic.com\"]",
+    "avatar": "https://gravatar.com/avatar/48bf351cec848d87566d8cc78c9a783ec4807408366648de04cfe955d7a5ba21?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Calculator",
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 8,
+  "createdAt": "2024-08-12T12:05:20.461Z",
+  "path": "official/template_2377/workflow.json"
+}

@@ -1,0 +1,18 @@
+{
+  "id": 996,
+  "name": "Split In Batches node currentRunIndex example",
+  "totalViews": 2338,
+  "purchaseUrl": null,
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "description": "This workflow demonstrates how to use currentRunIndex to get the running index.\n\n\n\nFunction node: This node generates mock data for the workflow. Replace it with the node whose data you want to split into batches.\n\nSplitInBatches node: This node splits the data with the batch size equal to 1. Based on your use-case, set the value of the Batch Size.\n\nIF node: This node checks the running index. If the running index equals 5 the node returns true and breaks the loop.\nThe node uses the expression {{$node[\"SplitInBatches\"].context[\"currentRunIndex\"];}}, which returns the running index.\n\nSet node: This node prints a message Loop Ended. Based on your use-case, connect the false output of the IF node to the input of the node you want to execute if the condition is false.\n",
+  "createdAt": "2021-03-19T13:50:43.095Z",
+  "nodes": []
+}

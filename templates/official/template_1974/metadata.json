@@ -1,0 +1,55 @@
+{
+  "id": 1974,
+  "name": "Monitor Security Advisories",
+  "description": "This n8n workflow automates the monitoring and notification of Palo Alto Networks security advisories. It is triggered manually from within the n8n UI or scheduled to run daily at midnight using the Schedule Trigger. The workflow begins by fetching the latest security advisories from Palo Alto Networks' RSS feed.\n\nEach advisory is then processed, and relevant information is extracted and categorized, including the advisory type, subject, and severity. The workflow checks the publication date of each advisory to ensure that it was posted within the last 24 hours, filtering out older advisories.\n\nThe workflow then splits into two paths based on the advisory type: GlobalProtect and Traps. In the GlobalProtect path, advisories related to GlobalProtect are identified and used to create Jira issues. The Jira issues include a summary with the advisory title and a description that provides details about the advisory, its severity, link, and publication date.\n\nIn the Traps path, advisories related to Traps are recognized, and dummy data (which should be replaced with logic to retrieve valid user emails) is generated for sample purposes. These email addresses are then used to send email notifications using the Gmail node. Each email's subject includes the type of advisory, while the body contains the advisory title and a link for more information.\n\nPotential issues when setting up this workflow for the first time might involve configuring the Schedule Trigger to match the desired time zone. Additionally, ensuring that the Jira and Gmail nodes are configured correctly with the required credentials and email addresses is crucial. The placeholder for generating dummy data for email recipients should be replaced with logic to retrieve valid user emails. Proper error handling and testing with real and sample advisories can help identify and resolve any potential issues during setup.",
+  "totalViews": 4797,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Productivity",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Jira Software",
+      "type": "n8n-nodes-base.jira",
+      "categories": [
+        "Development",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Customer Datastore (n8n training)",
+      "type": "n8n-nodes-base.n8nTrainingCustomerDatastore",
+      "categories": [],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2023-11-13T08:45:18.395Z",
+  "path": "official/template_1974/workflow.json"
+}

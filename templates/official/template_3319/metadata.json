@@ -1,0 +1,34 @@
+{
+  "id": 3319,
+  "name": "Add new incoming emails to a Google Sheets spreadsheet as a new row",
+  "description": "This n8n workflow automates the process of capturing and storing incoming email details in a structured spreadsheet format, such as Google Sheets or Excel. Whenever a new email is received, the workflow extracts key details—including the sender’s email, subject, email body, and optional attachments—and logs them as a new row in the spreadsheet.\n\nYou can customise this workflow to extract additional details, filter emails based on specific criteria, or send notifications when new entries are added.\n\nPre-conditions & Requirements\n\nBefore setting up this workflow, ensure that:\n\nYou have access to the email provider (e.g., Gmail, Outlook, or IMAP-supported email services).\nThe Gmail Node must be enabled in n8n.\nYou must authenticate n8n with Google OAuth2 to access your inbox.\nEnsure that the Gmail API is enabled in the Google Cloud Console.\nYou have an existing Google Sheet where data will be stored.\nThe Google Sheets API is enabled.\nYou authenticate n8n with your Google account.\n\nSteps\n\nStep 1: Add the Gmail Trigger Node\n\nClick on \"Add Node\" and search for \"Gmail\".\nSelect \"Gmail Trigger\" and click to add it.\nUnder Authentication, click \"Create New\" and authenticate with your Google account. (If you have already connected your Google account, simply select it.)\nIn the Trigger Event field, select \"Message Received\".\nUnder Filters, you can specify:\n\tLabel/Mailbox: If you want to listen to emails from a specific folder (optional).\n\tFrom Address: If you only want to receive emails from specific senders (optional).\nClick \"Execute Node\" to test the connection.\nClick \"Save\".\n\nWhat This Does:\nThis node listens for new incoming emails in your Gmail inbox.\nStep 2: Store Email Data in Google Sheets\n\nClick on \"Add Node\" and search for \"Google Sheets\" (or Microsoft Excel, if applicable)\nUnder Authentication, connect your Google account\nSelect the target Spreadsheet and Sheet Name where the data will be stored\nSet the Operation to \"Append Row\"\nMap the extracted email data to the correct columns.\nClick \"Execute Node\" to test and verify data storage\nClick \"Save\"\n\nWhat This Does:\nThis node automatically adds a new row for each incoming email, ensuring a structured and searchable email log.\nFinal Step\nAttach both node and execute the workflow.\n\nWho’s behind this?\n\nWeblineIndia’s AI development team. \n\nWe've delivered 3500+ software projects across 25+ countries since 1999. From no-code automations to complex AI systems — our AI team builds tools that drive results. \n\nLooking to hire AI developers? Start with us.",
+  "totalViews": 3130,
+  "source": "official",
+  "user": {
+    "id": 92407,
+    "name": "WeblineIndia",
+    "username": "weblineindia",
+    "bio": "A Leading Software Engineering, Consulting & Outsourcing Services Company in USA & India serving Clients Globally since 1999.",
+    "verified": true,
+    "links": "[\"https://www.weblineindia.com/\"]",
+    "avatar": "https://gravatar.com/avatar/a229d43aefca4588581583c58bb37b4773aebbdf4c1fef86a08bb1d38eae91fa?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-03-25T11:09:29.929Z",
+  "path": "official/template_3319/workflow.json"
+}

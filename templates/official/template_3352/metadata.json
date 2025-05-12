@@ -1,0 +1,64 @@
+{
+  "id": 3352,
+  "name": "Health Check Websites with Google Sheets & Telegram Alerts",
+  "description": "What does this template do ? \n\nThis workflow performs scheduled health checks on a list of URLs stored in a Google Sheet. Every X minutes, it retrieves the URLs, sends HTTP requests to check their availability, and notifies a Telegram chat if any request fails.\n\nYou can easily replace Telegram with any other notification service supported by n8n, such as Slack, Discord, Email, or Microsoft Teams.\n\nUse Case\nIdeal for monitoring internal or external services, ensuring uptime and responsiveness. Integrate with your preferred messaging platform for real-time failure notifications—without setting up complex infrastructure.\n\nWhat the Workflow Does\n⏰ Triggers at regular intervals using Schedule Trigger  \n📄 Reads URLs from a Google Sheet  \n🌐 Sends HTTP requests to check URL health  \n🚨 Sends failure alerts (including error code and URL) to Telegram (or any service of your choice)  \n\nApps & Services Used\nGoogle Sheets  \nTelegram (or alternative notification service)  \nHTTP Request  \n\nPre-requisites\nTelegram bot and chat ID (if using Telegram)  \nConnected Google Sheet with a URLS column  (template)\n\nCustomization Tips\nAdjust the schedule interval in the trigger node  \nReplace Telegram with Slack, Email, Discord, or any other notification node  \nCustomize alert messages with more context or formatting  \nAdd filters, retries, or logging as needed  ",
+  "totalViews": 1915,
+  "source": "official",
+  "user": {
+    "id": 93487,
+    "name": "Hugues Stock",
+    "username": "hpstock",
+    "bio": "Hobbyist n8n automation maker, I build custom automations for people. ",
+    "verified": false,
+    "links": "[\"https://maia-ia.com\"]",
+    "avatar": "https://gravatar.com/avatar/1a7cd7b5f7f5229ddf80377864288d8f046aa0e5e72e2d7dbb14f91fc87ba076?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-03-29T15:45:43.053Z",
+  "path": "official/template_3352/workflow.json"
+}

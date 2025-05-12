@@ -1,0 +1,77 @@
+{
+  "id": 2054,
+  "name": "Meraki Packet Loss and Latency Alerts to Microsoft Teams",
+  "description": "This Template gives the ability to monitor all uplinks for your Meraki Dashboard and then alert your team in a method you prefer. This example is a Teams notification to our Dispatch Channel\n\n\n\nSetup will probably take around 30 minutes to 1h provided with the Template. Most time intensive steps are getting a Meraki API key which I go over and setting up the Teams node which n8n has good documentation for.\n\nTutorial & explanation https://www.youtube.com/watch?v=JvaN0dNwRNU",
+  "totalViews": 3741,
+  "source": "official",
+  "user": {
+    "id": 91391,
+    "name": "Gavin",
+    "username": "sniped-you-fool",
+    "bio": null,
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/c9bf5420133c3612bddb5a889d41f5868bb101104e18bb879589c541216010af?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Redis",
+      "type": "n8n-nodes-base.redis",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Microsoft Teams",
+      "type": "n8n-nodes-base.microsoftTeams",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2024-01-17T07:04:39.226Z",
+  "path": "official/template_2054/workflow.json"
+}

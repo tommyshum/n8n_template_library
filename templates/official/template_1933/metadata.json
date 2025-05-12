@@ -1,0 +1,49 @@
+{
+  "id": 1933,
+  "name": "Push JSON data into an App or to Spreadsheet file",
+  "description": "This workflow template shows how to load JSON data into a workflow and push that data into an App or convert it into a Spreadsheet file.\n\nSpecifically, this workflow shows how to make a generic API request that returns JSON. It then shows how to load that into a Google Sheets spreadsheet, or convert it to .CSV file format. However, you can use the general pattern to load data into any app or convert to any spreadsheet file format (such as .xlsx). ",
+  "totalViews": 8266,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2023-07-03T12:04:37.654Z",
+  "path": "official/template_1933/workflow.json"
+}

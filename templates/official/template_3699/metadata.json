@@ -1,0 +1,87 @@
+{
+  "id": 3699,
+  "name": "Daily Personalized Air & Pollen Health Alerts with Ambee API and AI via Email",
+  "description": "This workflow fetches real-time air quality and pollen data using Ambee’s APIs and sends a friendly, personalized daily summary by email. It uses a scheduler to automate data collection, AI-generated health tips, and clear, actionable messages—perfect for sensitive users (e.g. kids with asthma, allergy sufferers).\n \nUse Case: \nIdeal for individuals with respiratory conditions, allergies, or those who want to stay informed about environmental conditions affecting their health.​\n\nSet up steps\nEstimated time: 10–15 minutes\n You'll need:\nAmbee API key (free registration)\nOpenAI API key\nEmail credentials (Gmail)\nUser Profile\n\n💡 Keep in mind:\n\nYou’ll need to input your location coordinates (we’ve pre-filled Braunschweig as an example).\n\nThe AI Agent node uses a ready-made prompt that’s tailored for email—but feel free to adapt it to other messaging platforms.\n",
+  "totalViews": 78,
+  "source": "official",
+  "user": {
+    "id": 94043,
+    "name": "Ange Russell ",
+    "username": "angerussell",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/fb854bcd5a944df324ee6bae88e70b3938c9f094abb0e97a0471f3df99cbe375?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Think Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolThink",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-04-24T17:38:27.935Z",
+  "path": "official/template_3699/workflow.json"
+}

@@ -1,0 +1,32 @@
+{
+  "id": 1035,
+  "name": "Get all the slides from a presentation and get thumbnails of pages",
+  "description": "This workflow allows you to get all the slides from a presentation and get thumbnails of pages.\n\n\n\nGoogle Slides node: This Google Slides node will get all the slides from a presentation.\n\nGoogle Slides1 node: This node will return thumbnails of the pages that were returned by the previous node.\n\nBased on your use case, to upload the thumbnails to Dropbox, Google Drive, etc, you can use the respective nodes.",
+  "totalViews": 1677,
+  "source": "official",
+  "user": {
+    "id": 5176,
+    "name": "Harshil Agrawal",
+    "username": "harshil1712",
+    "bio": "",
+    "verified": true,
+    "links": "[\"harshil.dev\"]",
+    "avatar": "https://gravatar.com/avatar/1060ec3113fdd8cafb191f3728c0ac39436b3cd46be4dd518923e242fb708ef1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Marketing"
+  ],
+  "nodes": [
+    {
+      "name": "Google Slides",
+      "type": "n8n-nodes-base.googleSlides",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2021-04-13T08:29:18.539Z",
+  "path": "official/template_1035/workflow.json"
+}

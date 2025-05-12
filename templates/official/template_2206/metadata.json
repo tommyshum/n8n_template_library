@@ -1,0 +1,86 @@
+{
+  "id": 2206,
+  "name": "Translate Telegram audio messages with AI (55 supported languages)",
+  "description": "Use case\n\nThis workflow enables a Telegram bot that can:\n\nAccept speech input in one of 55 supported languages\nAutomatically detect the language spoken and translate the speech to another language \nResponds back with the translated speech output.\n\nThis allows users to communicate across language barriers by simply speaking to the bot, which will handle the translation seamlessly.\n\nHow does it work?\n\nTranslation\nIn the translation step the workflow converts the user's speech input to text and detects the language of the input text. \n\nIf it's English, it will translate to French. If it's French, it will translate to English.\n\nTo change the default translation languages, you can update the prompt in the AI node.\n\nOutput\nIn the output step, we provide the translated text output back to the user and speech output is generated in the translated language.\n\nSetup steps\nObtain Telegram API Token\nStart a chat with the BotFather.\nEnter /newbot and reply with your new bot's display name and username.\nCopy the bot token and use it in the Telegram node credentials in n8n.\n\nUpdate the Settings node to customize the desired languages\n\nActivate the flow \n\nFull list of supported languages\nAll supported languages: \n\n",
+  "totalViews": 10894,
+  "source": "official",
+  "user": {
+    "id": 91384,
+    "name": "Derek Cheung",
+    "username": "derekcheungsa",
+    "bio": "Derek is an engineer, instructor, and investor based in Canada. He is publicly building AI applications to solve real-world problems, leveraging his technical expertise to develop practical solutions.",
+    "verified": true,
+    "links": "[\"https://www.youtube.com/@derekcheungsa\"]",
+    "avatar": "https://gravatar.com/avatar/1d8dbb30401a76425734d4319abbaa38548b7572064ca080740bbfe60324772a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2024-03-29T00:05:32.559Z",
+  "path": "official/template_2206/workflow.json"
+}

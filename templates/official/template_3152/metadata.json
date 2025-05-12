@@ -1,0 +1,78 @@
+{
+  "id": 3152,
+  "name": "Track n8n Community Topics with Keywords and Save to Google Sheets",
+  "description": "This template is designed for community managers, developers, and enthusiasts who want to monitor and capture discussions on the n8n community forum by specific keywords. By tracking new topics that match your provided keyword, the workflow automatically logs them into a Google Sheet, helping you keep a pulse on trending discussions and manage community insights effortlessly.\n\nHow it Works\nKeyword Monitoring: The workflow continuously monitors the n8n community forum for new topics containing your specified keyword.\n\nData Extraction: When a matching topic is found, relevant details such as id, title, URL, and posting time are extracted.\n\nGoogle Sheets Integration: The extracted information is automatically appended as a new row in your Google Sheet, providing an organized log of community discussions.\n\nAlert Option: Optionally, you can add notifications (e.g., Slack messages or emails) to alert you when a new topic is captured, ensuring you never miss an important update.\n\nSet Up Steps\n\nImport the Workflow: Download and import the workflow into your n8n instance.\n\nConfigure Keyword Monitoring: In the HTTP Request node, set your desired keyword to filter the n8n community topics.\n\nSet Up Google Sheets: Connect your Google Sheets account and specify the target sheet where the new topics should be logged.\n\nCustomize Data Fields: Adjust the data extraction node parameters if you wish to capture additional details from each topic.\n\nDeploy and Test: Deploy the workflow and perform a test run to confirm that new topics matching the keyword are correctly added to your Google Sheet.\n\nSet Up Messaging Channels (Optional): Connect to Slack, Email or other providers to get instant messages when new topics are added into your Google Sheet.\n\nThis template streamlines the process of tracking community discussions, ensuring you have timely and organized insights to enhance your community engagement and strategic decision-making. Enjoy seamless monitoring and easy data management with this ready-to-use n8n workflow template!\n\n\n\n\n",
+  "totalViews": 524,
+  "source": "official",
+  "user": {
+    "id": 92764,
+    "name": "Hostinger",
+    "username": "hostinger",
+    "bio": "Hostinger aims to make online presence accessible to everyone worldwide – from developers to aspiring bloggers and business owners. With our fast hosting technology, AI-powered Website Builder, and easy-to-operate hPanel you can succeed online faster and easier.",
+    "verified": true,
+    "links": "[\"https://www.hostinger.com/vps/n8n-hosting\"]",
+    "avatar": "https://gravatar.com/avatar/be87ae832a10297a42d8d92ade9b7b680e2e0cdd81c519603277b10956e46c86?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Core Nodes",
+    "Data & Storage",
+    "Productivity",
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "categories": [
+        "Communication",
+        "HITL",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-03-13T14:06:59.563Z",
+  "path": "official/template_3152/workflow.json"
+}

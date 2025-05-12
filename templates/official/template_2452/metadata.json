@@ -1,0 +1,83 @@
+{
+  "id": 2452,
+  "name": "Automated Email Marketing Campaign Workflow ",
+  "description": "This n8n workflow demonstrates how to automate a large-scale personalized promotional email campaign, leveraging artificial intelligence to generate unique content for each recipient.\n\nSave time and increase the effectiveness of your marketing campaigns by allowing AI to handle the creation of personalized content and email sending.\n\nHow it works:\nThe workflow fetches recipient data from a Google Sheets document.\nIt validates email addresses and checks if recipients haven't been contacted before.\nFor each valid recipient, the AI agent (using GPT-3.5) generates a personalized email including the recipient's name, product introduction, exclusive offer, and a unique promotional link.\nThe personalized email is sent via SMTP to the recipient.\nThe workflow updates the Google Sheet to mark the recipient as contacted.\nA random delay is introduced between emails to mimic natural sending patterns and avoid triggering spam filters.\n\nRequirements:\nGoogle Sheets account for storing and managing recipient data.\nOpenAI account for access to the GPT-3.5 model.\nSMTP server for sending emails.\n\nCustomizing the workflow:\nThis example focuses on sending personalized promotional emails, but it could be extended to include follow-up sequences, tracking email opens and clicks, or integrating with a CRM system for more comprehensive customer management.",
+  "totalViews": 3958,
+  "source": "official",
+  "user": {
+    "id": 92022,
+    "name": "Badr",
+    "username": "b4dr",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/035184cdd91cc274d7293ceaed93c97d64e57fc49fc4ba8346956a812dc35b3e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Core Nodes",
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "categories": [
+        "Communication",
+        "HITL",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2024-10-06T08:56:05.676Z",
+  "path": "official/template_2452/workflow.json"
+}

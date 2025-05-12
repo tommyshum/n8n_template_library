@@ -1,0 +1,59 @@
+{
+  "id": 3475,
+  "name": "LinkedIn Company ICP Scoring Automation with Airtop & Google Sheets",
+  "description": "About The ICP Company Scoring Automation\n\nSorting through lists of potential leads manually to determine who's truly worth your sales team's time isn't just tedious, it's incredibly inefficient. Without proper qualification, your team might spend hours pursuing prospects who aren't the right fit for your product, while ideal customers slip through the cracks.\n\nHow to Automate Identifying Your Ideal Customers\n\nWith this automation, you'll learn how to automatically score and prioritize leads using data extracted directly from LinkedIn profiles via Airtop's integration with n8n. By the end, you'll have a fully automated workflow that analyzes prospects and calculates an Ideal Customer Profile (ICP) score, helping your sales team focus on high-potential opportunities.\n\nWhat You'll Need\n\nA free Airtop API key\nA copy of this Google Sheets\n\nUnderstanding the Process\n\nThis automation transforms how you qualify and prioritize leads by extracting real-time, accurate information directly from LinkedIn profiles. Unlike static databases that quickly become outdated, this workflow taps into the most current professional information available.\n\nThe workflow in this template:\n\nUses Airtop to extract comprehensive LinkedIn profile data\nAnalyzes the data to calculate an ICP score based on AI interest, technical depth, and seniority\nUpdates your Google Sheet with the enriched data and the ICP Company score\n\nCompany ICP Scoring Workflow\n\nOur company-focused workflow analyzes company LinkedIn profiles with a comprehensive set of criteria:\n\n Company Identity Extraction\n Company Scale Assessment\n Business Classification\n Technical Sophistication Assessment\n Investment Profile\n\nTo then calculate the ICP Scoring, it will focus on:\n\nAI Implementation Level: Low-5 pts, Medium-10 pts, High-25 pts\nTechnical Sophistication: Basic-5 pts, Intermediate-15 pts, Advanced-25 pts, Expert-35 pts\nEmployee Count: 0-9 employees-5 pts, 10-150 employees-25 pts, 150+ employees-30 pts\nAutomation Agency Status: True-20 pts, False-0 pts\nGeography: US/Europe Based-10 pts, Other-0 pts\n\nSetting Up Your Automation\n\nWe've created ready-to-use templates for both person and company ICP scoring. Here's how to get started:\n\nConfigure your connections\n\nConnect your Google Sheets account\nAdd your Airtop API key (obtain from the Airtop dashboard)\n\nSet up your Google Sheet\n\nEnsure your Google Sheet has the necessary columns for input data and result fields\nEnsure that columns Linkedin_URL_Company and ICP_Score_Company exist at least\n\nConfigure the Airtop module\n\nSet up the Airtop module to use the appropriate LinkedIn extraction prompt\nUse our provided prompt that extracts company profile data\n\nCustomization Options\n\nWhile our templates work out of the box, you might want to customize them for your specific needs:\n\nModify the ICP scoring criteria: Adjust the point values or add additional criteria specific to your business\nAdd notification triggers: Set up Slack or email notifications for high-value leads that exceed a certain ICP threshold\nImplement batch processing: Modify the workflow to process leads in batches to optimize performance\nAdd conditional logic: Create different scoring models for different industries or product lines\nIntegrate with your CRM: Integrate this automation with your preferred CRM to get the details added automatically for you\n\nReal-World Applications\n\nHere's how businesses are using this automation:\n\nAI Sales Platform: A B2B AI company could implement this workflow to process their trade show lead list of contacts. Within hours, they can identify the top 50 prospects based on ICP score.\n\nSaaS Analytics Tool: A SaaS company could implement LinkedIn enrichment to identify which companies fit best. The automation processes weekly leads and categorizes them into high, medium, and low priority tiers, allowing their sales team to focus on the most promising opportunities first.\n\nBest Practices\n\nTo get the most out of this automation:\n\nReview and refine your ICP criteria quarterly: What constitutes an ideal customer may evolve as your product and market develop\nCreate tiered follow-up processes: Develop different outreach strategies based on ICP score ranges\nPerform regular data validation: Periodically check the accuracy of the automated scoring against your actual sales results\n\nWhat's Next?\n\nNow that you've automated your ICP scoring with LinkedIn data, you might be interested in:\n\nSetting up automated outreach sequences based on ICP score thresholds\nCreating custom reporting dashboards to track conversion rates by ICP segment\nExpanding your scoring model to include additional data sources\nImplementing lead assignment automation based on ICP scores\n\n\nHappy automating!",
+  "totalViews": 45,
+  "source": "official",
+  "user": {
+    "id": 93583,
+    "name": "Airtop",
+    "username": "cesar-at-airtop",
+    "bio": "Airtop provides an intelligent browser automation API for AI agents, enabling seamless web interaction, including login, navigation, and data extraction from any site, even those with complex authentication - all with  natural language instructions.In simple terms, we allow you to automate anything humans can do online, on any site with just words",
+    "verified": true,
+    "links": "[\"https://www.airtop.ai/\"]",
+    "avatar": "https://gravatar.com/avatar/d5894c2c744b03ab0766a6d1846484ea7cc1a19e57310afad70044183766dbf4?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity",
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Airtop",
+      "type": "n8n-nodes-base.airtop",
+      "categories": [
+        "Productivity",
+        "Development"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-04-08T16:51:03.186Z",
+  "path": "official/template_3475/workflow.json"
+}

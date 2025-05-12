@@ -1,0 +1,38 @@
+{
+  "id": 3723,
+  "name": "Create or Find Stripe Customers and Automatically Generate Invoices",
+  "description": "Save hours of manual billing work with this Stripe automation workflow!  \nDesigned for entrepreneurs, SaaS founders, and online business owners, this template checks if a customer already exists in Stripe based on their email. If no customer is found, it automatically creates a new one, generates a draft invoice, adds a product line item using a Stripe Price ID, and finalizes the invoice — making it ready for payment.  \nThis workflow helps ensure clean customer data and efficient billing without manual input.\n\nHow it works\n\nSearch Stripe for an existing customer based on the provided email address.\nIf no customer is found, create a new one in Stripe automatically.\nGenerate a draft invoice associated with the customer.\nAdd a line item to the invoice using a Stripe Price ID.\nFinalize the invoice to make it ready to send or collect payment.\n\nSet up steps\n\nStripe account setup:  \n   Ensure you have a valid Stripe account.  \n   Create a restricted Stripe API key with permissions to read and write Customers, Invoices, and Invoice Items.  \n\nConnect Stripe to n8n:  \n   Set up an HTTP Basic Auth credential in n8n using your Stripe secret API key.  \n   No username is needed; the API key goes into the password field.\n\nCustomize dynamic data:  \n   Replace the sample email (test@example.com) with your real dynamic customer email input.  \n   Replace the example Price ID (price_fromStripeDashboard) with your actual product Price ID from the Stripe dashboard.\n\nTest your workflow:  \n   Manually trigger the workflow inside n8n to ensure customers and invoices are being created correctly.\n   Check your Stripe dashboard to confirm that new customers and invoices appear as expected.\n\nDeploy to production:  \n   Integrate this workflow with a real trigger (e.g., webhook, form submission) to automate the process live.\n\nTroubleshooting\n\nInvalid API Key**:  \n  Double-check that your Stripe API key is active and has the necessary permissions. Test it by making a simple API call manually if needed.\n\nInvoice Creation Fails**:  \n  Make sure you are using a valid Price ID from Stripe. The price must be active and available for the correct product.\n\nCustomer Not Found Error**:  \n  If the search fails due to formatting issues, ensure emails are valid and the query syntax matches Stripe's customer search format.\n\nAuthentication Errors**:  \n  If authentication fails, ensure you have selected HTTP Basic Auth in the HTTP Request nodes and left the username field empty.\n\nStripe prerequisites\n\nYou must have at least one active Price object created in your Stripe dashboard.  \nYour Stripe account must be live or have access to test mode if you're working in development.  \nEnsure your account has API access enabled for Customers, Invoices, and Products.",
+  "totalViews": 281,
+  "source": "official",
+  "user": {
+    "id": 93147,
+    "name": "Audun",
+    "username": "xqus",
+    "bio": "I’m an automagician who loves turning complex systems into simple, powerful workflows.\nHere to help you automate smarter and work easier.",
+    "verified": true,
+    "links": "[\"https://xqus.com/\"]",
+    "avatar": "https://gravatar.com/avatar/273c8f67ecb3e3ea711c36a448f1fd547ca9ad698ae800bebd69be68317f63d1?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-04-26T19:19:08.972Z",
+  "path": "official/template_3723/workflow.json"
+}

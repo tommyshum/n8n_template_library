@@ -1,0 +1,107 @@
+{
+  "id": 2924,
+  "name": "Hacker News Job Listing Scraper and Parser",
+  "description": "This automated workflow scrapes and processes the monthly \"Who is Hiring\" thread from Hacker News, transforming raw job listings into structured data for analysis or integration with other systems. Perfect for job seekers, recruiters, or anyone looking to monitor tech job market trends.\n\nHow it works\n\nAutomatically fetches the latest \"Who is Hiring\" thread from Hacker News\nExtracts and cleans relevant job posting data using the HN API\nSplits and processes individual job listings into structured format\nParses key information like location, role, requirements, and company details\nOutputs clean, structured data ready for analysis or export\n\nSet up steps\n\nConfigure API access to [Hacker News](https://github.com/HackerNews/API\n) (no authentication required)\nFollow the steps to get your cURL command from https://hn.algolia.com/ \nSet up desired output format (JSON structured data or custom format)\nOptional: Configure additional parsing rules for specific job listing information\nOptional: Set up integration with preferred storage or analysis tools\nThe workflow transforms unstructured job listings into clean, structured data following this pattern:\n\nInput: Raw HN thread comments\nProcess: Extract, clean, and parse text\nOutput: Structured job listing data\n\nThis template saves hours of manual work collecting and organizing job listings, making it easier to track and analyze tech job opportunities from Hacker News's popular monthly hiring threads.",
+  "totalViews": 3951,
+  "source": "official",
+  "user": {
+    "id": 92760,
+    "name": "Julian Kaiser",
+    "username": "jksr",
+    "bio": "Full Stack Developer turned AI & Automation Engineer, implementing intelligent solutions with custom code, LLMs & n8n. Use my link to book a free 30-minute call to discuss your AI challenges and see if my services might be a good fit for your needs.",
+    "verified": true,
+    "links": "[\"https://juliankaiser.neetocal.com/introduction-call\"]",
+    "avatar": "https://gravatar.com/avatar/b8108390ad4740aaba8fd05c203fc1d9418524cebf94cc2b9966a28b52120563?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-02-17T09:05:52.229Z",
+  "path": "official/template_2924/workflow.json"
+}

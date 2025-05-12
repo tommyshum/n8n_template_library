@@ -1,0 +1,56 @@
+{
+  "id": 2090,
+  "name": "Chat with a database using AI",
+  "description": "This workflow allows you to ask questions about data stored in a database using AI.\n\nTo use it, you'll need an OpenAI API key (although you could also swap in a model from another service).\n\nSupported databases:\nPostgres\nMySQL\nSQLite\n\nThe workflow uses n8n's embedded chat, but you could also modify it to work with a chat service such as Slack, MS Teams or WhatsApp.\n\nNote that to use this template, you need to be on n8n version 1.19.4 or later.",
+  "totalViews": 19353,
+  "source": "official",
+  "user": {
+    "id": 14122,
+    "name": "David Roberts",
+    "username": "davidn8n",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/4cda9c7c1c24fdb61896cac588296d1dad03655a439ab71ef34f4c62c0ba8524?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-02-13T14:54:57.421Z",
+  "path": "official/template_2090/workflow.json"
+}

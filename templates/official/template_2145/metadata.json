@@ -1,0 +1,32 @@
+{
+  "id": 2145,
+  "name": "When specific event created in Google Calendar, duplicate & rename Google File",
+  "description": "Who is this template for?\n\nThis template is for everyone who has to take notes during a call:\nTalent Acquisition Managers / Talent Acquisition Specialists / Recruiters\nHR professionals\nSales teams, customer success teams\nProduct teams / User Experience Designers / anyone conducting user research interviews\n\nUse case\n\nThis workflow allows specific events created on Google Calendar (or any other meeting scheduling tool like Calendly) to trigger the duplication and renaming of a specific template document. \n\nExample: \nFor each new screening call that is scheduled in your calendar, you want to create a draft of your screening interview template for the role, titled \"{Name of the candidate} | {Date of the interview}\", and located in your Google Drive in a specific folder\n\nThis workflow could then be extended to copy the link to the file on a Notion database that is shared with the team (check \"To go further\" section). \n\nThis workflow ensures that if you're jumping from calls to calls, you're already set up to take notes, and every document is tidied up and sorted in a structured way!\n\nHow it works\n\nThe workflow starts when a new event is created in Google Calendar\nThe Filter node then selects a specific type of events, depending on a chosen pattern (title includes a specific term, organizer is X, attendees include Y, etc.)\nThe workflow then searches for a specific folder in your Google Drive, where the file you want to duplicate is located\nThe workflow then searches for the specific file you want to duplicate\nThe last step allows to duplicate and rename the file with variables from your Google Calendar event \n\nSet up\n\nSet up credentials for Google Calendar, Google Drive, and Google File. You'll need a Google Workspace account. \nSet up the Filter node with the pattern you want to look for to retreive specific events in your calendar \nSet up the Google Drive you want to search in\nSet up the Google File you want to duplicate\nSet up variable at the last step to rename your duplicated file however you want it, or add a description\n\nTo go further\n\nHere's a few idea to enhance this workflow depending on your specific needs:\nInstead of a filter, separate your flow depending on your use case (ex: you have want to fetch different templates depending on the type of call it'll be). \nSwitch Google Calendar for another trigger (Calendly, Hubspot..)\n10 minutes before the event, send the duplicate Google File to the meeting organizer through Slack \nThe day after the event, if the event hasn't been cancelled, add the link to the Google File to your ATS, Hubspot, etc. ",
+  "totalViews": 2008,
+  "source": "official",
+  "user": {
+    "id": 91501,
+    "name": "Candice Capelle",
+    "username": "candicecpl",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/78bbae9349b470df5eba023c91c2eee1f23b113980b742403206678c4ba418ff?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-02-28T18:06:42.472Z",
+  "path": "official/template_2145/workflow.json"
+}

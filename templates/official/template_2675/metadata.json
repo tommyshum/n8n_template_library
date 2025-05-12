@@ -1,0 +1,49 @@
+{
+  "id": 2675,
+  "name": "Generate Stripe invoice and send it by email",
+  "description": "Generating Stripe invoices through the API can be tricky since it requires four steps to generate and send it via email to the customer.\n\nWith this workflow you can create Stripe invoices automatically and make Stripe send the invoices to the customer email.\n\nHow it works\n\nTo generate a Stripe invoice, you need to create a customer, specify the invoice items, create the invoice, and finalize it.\n\nWhat should be a simple task involves multiple steps.\n\nThis workflow simplifies the process by providing everything pre-built for you.\n\nWho is this for?\n\nAnyone who wants to generate invoices automatically and send them to the customer’s email.\n\nStripe will only send invoices to customers if you generate the invoice correctly through the API.\n.\n\nCheck out my other templates\n\n👉 https://n8n.io/creators/solomon/",
+  "totalViews": 1368,
+  "source": "official",
+  "user": {
+    "id": 91663,
+    "name": "Solomon",
+    "username": "solomon",
+    "bio": "Freelance consultant from Brazil, specializing in automations and data analysis. I work with select clients, addressing their toughest projects.\n\nFor business inquiries, email me at automations.solomon@gmail.com or message me on Telegram for a faster response.",
+    "verified": true,
+    "links": "[\"https://t.me/salomaoguilherme\"]",
+    "avatar": "https://gravatar.com/avatar/79aa147f090807fe0f618fb47a1de932669e385bb0c84bf3a7f891ae7d174256?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Finance & Accounting",
+    "Sales"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Stripe",
+      "type": "n8n-nodes-base.stripe",
+      "categories": [
+        "Finance & Accounting",
+        "Sales"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-12-26T23:01:02.981Z",
+  "path": "official/template_2675/workflow.json"
+}

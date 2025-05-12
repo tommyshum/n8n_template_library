@@ -1,0 +1,118 @@
+{
+  "id": 2812,
+  "name": "Scrape any web page into structured JSON data with ScrapeNinja and AI",
+  "totalViews": 13473,
+  "purchaseUrl": null,
+  "user": {
+    "id": 91927,
+    "name": "Anthony",
+    "username": "scrapeninja",
+    "bio": "I am a software engineer and technical lead with over 15 years of experience, and I am passionate about building and scaling SaaS products. ScrapeNinja.net (bootstrapped) has been the most exciting and challenging product I have built so far. ScrapeNinja is primarily aimed at fellow developers and founders of software products, and it tries to alleviate the major pains of reliable, observable and scalable web scraping and feeding data into LLMs. ",
+    "verified": true,
+    "links": "[\"https://pixeljets.com\"]",
+    "avatar": "https://gravatar.com/avatar/edbc5b9e7a0952395b10b4f8af8dfe7b157328e94f8a6776715a89edc27412e0?r=pg&d=retro&size=200"
+  },
+  "description": "Disclaimer: This template only works on self-hosted for now, as it uses a community node.\n\nUse Case\nWeb scrapers often break due to web page layout changes.\nThis workflow attempts to mitigate this problem by auto-generating web scraping data extractor code via LLM.\n\nHow It Works\nThis workflow leverages ScrapeNinja n8n community node to: \nscrape webpage HTML, \nfeed it into LLM (Google Gemini) and ask to write a JS extractor function code, then it \nexecutes the written JS extractor against scraped HTML to extract useful data from webpage (the code is safely executed in a sandbox)\n\nInstallation\nTo install ScrapeNinja n8n node, in your self-hosted instance, go to Settings -&gt; Community nodes, enter \"n8n-nodes-scrapeninja\", and install. \n\nMake sure you are using at least v0.3.0. \n\nSee this in action:\nhttps://www.linkedin.com/feed/update/urn:li:activity:7289659870935490560/\n\n",
+  "createdAt": "2025-01-28T07:07:34.371Z",
+  "nodes": [
+    {
+      "id": 1123,
+      "icon": "fa:link",
+      "name": "@n8n/n8n-nodes-langchain.chainLlm",
+      "codex": {
+        "data": {
+          "alias": [
+            "LangChain"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.chainllm/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Chains",
+              "Root Nodes"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Basic LLM Chain",
+        "color": "#909298"
+      },
+      "iconData": {
+        "icon": "link",
+        "type": "icon"
+      },
+      "displayName": "Basic LLM Chain",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1262,
+      "icon": "file:google.svg",
+      "name": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatgooglegemini/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Language Models",
+              "Root Nodes"
+            ],
+            "Language Models": [
+              "Chat Models (Recommended)"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Google Gemini Chat Model"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgNDggNDgiPjxkZWZzPjxwYXRoIGlkPSJhIiBkPSJNNDQuNSAyMEgyNHY4LjVoMTEuOEMzNC43IDMzLjkgMzAuMSAzNyAyNCAzN2MtNy4yIDAtMTMtNS44LTEzLTEzczUuOC0xMyAxMy0xM2MzLjEgMCA1LjkgMS4xIDguMSAyLjlsNi40LTYuNEMzNC42IDQuMSAyOS42IDIgMjQgMiAxMS44IDIgMiAxMS44IDIgMjRzOS44IDIyIDIyIDIyYzExIDAgMjEtOCAyMS0yMiAwLTEuMy0uMi0yLjctLjUtNCIvPjwvZGVmcz48Y2xpcFBhdGggaWQ9ImIiPjx1c2UgeGxpbms6aHJlZj0iI2EiIG92ZXJmbG93PSJ2aXNpYmxlIi8+PC9jbGlwUGF0aD48cGF0aCBmaWxsPSIjRkJCQzA1IiBkPSJNMCAzN1YxMWwxNyAxM3oiIGNsaXAtcGF0aD0idXJsKCNiKSIvPjxwYXRoIGZpbGw9IiNFQTQzMzUiIGQ9Im0wIDExIDE3IDEzIDctNi4xTDQ4IDE0VjBIMHoiIGNsaXAtcGF0aD0idXJsKCNiKSIvPjxwYXRoIGZpbGw9IiMzNEE4NTMiIGQ9Im0wIDM3IDMwLTIzIDcuOSAxTDQ4IDB2NDhIMHoiIGNsaXAtcGF0aD0idXJsKCNiKSIvPjxwYXRoIGZpbGw9IiM0Mjg1RjQiIGQ9Ik00OCA0OCAxNyAyNGwtNC0zIDM1LTEweiIgY2xpcC1wYXRoPSJ1cmwoI2IpIi8+PC9zdmc+"
+      },
+      "displayName": "Google Gemini Chat Model",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    }
+  ]
+}

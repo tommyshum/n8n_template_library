@@ -1,0 +1,77 @@
+{
+  "id": 1396,
+  "name": "Sync data between Google Drive and AWS S3",
+  "totalViews": 2518,
+  "purchaseUrl": null,
+  "user": {
+    "id": 12733,
+    "name": "Lorena",
+    "username": "lorenanda",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/df6358bcce2351cf878beab8f89b9f000f50588aaa728f7ea57127c1b85e7b06?r=pg&d=retro&size=200"
+  },
+  "description": "This workflow synchronizes files one-way from Google Drive to AWS S3.\n\n\n\nGoogle Drive Trigger node** triggers the workflow when a new file is added to the drive.\nAWS S3 node** gets all files stored in an S3 bucket.\nMerge node** merges the files from Google Drive and AWS S3 by key (file name) and keeps only the new file.\nAWS S3 node** uploads the new file in the S3 bucket.",
+  "createdAt": "2022-01-11T13:11:08.929Z",
+  "nodes": [
+    {
+      "id": 307,
+      "icon": "file:s3.svg",
+      "name": "n8n-nodes-base.awsS3",
+      "codex": {
+        "data": {
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/why-business-process-automation-with-n8n-can-change-your-daily-life/",
+                "icon": "🧬",
+                "label": "Why business process automation with n8n can change your daily life"
+              },
+              {
+                "url": "https://n8n.io/blog/aws-workflow-automation/",
+                "label": "7 no-code workflow automations for Amazon Web Services"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.awss3/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/aws/"
+              }
+            ]
+          },
+          "categories": [
+            "Development",
+            "Data & Storage"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"output\"]",
+      "defaults": {
+        "name": "AWS S3"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDY1IiBoZWlnaHQ9IjI1MDAiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIiB2aWV3Qm94PSIwIDAgMjU2IDMxMCI+PHBhdGggZmlsbD0iIzhDMzEyMyIgZD0iTTIwLjYyNCA1My42ODYgMCA2NHYxODEuMDJsMjAuNjI0IDEwLjI1NC4xMjQtLjE0OVY1My44Mjh6Ii8+PHBhdGggZmlsbD0iI0UwNTI0MyIgZD0iTTEzMSAyMjkgMjAuNjI0IDI1NS4yNzRWNTMuNjg2TDEzMSA3OS4zODd6Ii8+PHBhdGggZmlsbD0iIzhDMzEyMyIgZD0ibTgxLjE3OCAxODcuODY2IDQ2LjgxOCA1Ljk2LjI5NC0uNjc4LjI2My03Ni43Ny0uNTU3LS42LTQ2LjgxOCA1Ljg3NHoiLz48cGF0aCBmaWxsPSIjOEMzMTIzIiBkPSJtMTI3Ljk5NiAyMjkuMjk1IDEwNy4zNzEgMjYuMDM1LjE2OS0uMjY5LS4wMDMtMjAxLjE5NS0uMTctLjE4LTEwNy4zNjcgMjUuOTk2eiIvPjxwYXRoIGZpbGw9IiNFMDUyNDMiIGQ9Im0xNzQuODI3IDE4Ny44NjYtNDYuODMxIDUuOTZ2LTc4LjA0OGw0Ni44MzEgNS44NzR6Ii8+PHBhdGggZmlsbD0iIzVFMUYxOCIgZD0ibTE3NC44MjcgODkuNjMxLTQ2LjgzMSA4LjUzNS00Ni44MTgtOC41MzUgNDYuNzU5LTEyLjI1NnoiLz48cGF0aCBmaWxsPSIjRjJCMEE5IiBkPSJtMTc0LjgyNyAyMTkuODAxLTQ2LjgzMS04LjU5MS00Ni44MTggOC41OTEgNDYuNzYxIDEzLjA1M3oiLz48cGF0aCBmaWxsPSIjOEMzMTIzIiBkPSJtODEuMTc4IDg5LjYzMSA0Ni44MTgtMTEuNTg2LjM3OS0uMTE3Vi4zMTNMMTI3Ljk5NiAwIDgxLjE3OCAyMy40MTN6Ii8+PHBhdGggZmlsbD0iI0UwNTI0MyIgZD0ibTE3NC44MjcgODkuNjMxLTQ2LjgzMS0xMS41ODZWMGw0Ni44MzEgMjMuNDEzeiIvPjxwYXRoIGZpbGw9IiM4QzMxMjMiIGQ9Im0xMjcuOTk2IDMwOS40MjgtNDYuODIzLTIzLjQwNXYtNjYuMjE3bDQ2LjgyMyAxMS41ODIuNjg5Ljc4My0uMTg3IDc1LjkwNnoiLz48cGF0aCBmaWxsPSIjRTA1MjQzIiBkPSJtMTI3Ljk5NiAzMDkuNDI4IDQ2LjgyNy0yMy40MDV2LTY2LjIxN2wtNDYuODI3IDExLjU4MnpNMjM1LjM2NyA1My42ODYgMjU2IDY0djE4MS4wMmwtMjAuNjMzIDEwLjMxeiIvPjwvc3ZnPg=="
+      },
+      "displayName": "AWS S3",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 3,
+          "name": "Data & Storage"
+        },
+        {
+          "id": 5,
+          "name": "Development"
+        }
+      ]
+    }
+  ]
+}

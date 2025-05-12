@@ -1,0 +1,43 @@
+{
+  "id": 851,
+  "name": "Detect web visitors country by IP address with uProc",
+  "description": "Do you want to know where a web visitor lives? \n\nThis workflow enriches any lead by IP address using the uProc.io Location By IP address tool and sends an email in Spanish or English depending on the detected web visitor country.\n\n\n\nYou need to add your credentials (Email and API Key - real -) located at Integration section to n8n.\n\nNode \"Create IP and Email Item\" can be replaced by any other supported service with IP and Email values, like Mailchimp, Calendly, or MySQL.\n\nThe \"uProc\" node returns the location of the provided IP address. \n\n\"If\" node checks if the web visitor country code belongs to Spain (ES Isocode). If positive, we use the Spanish language in our emails. Otherwise, we will use the English language in our communications.\n\nDepending on the detected country code, we use the Amazon SES node to send the customized email adapted to the right language.",
+  "totalViews": 698,
+  "source": "official",
+  "user": {
+    "id": 5774,
+    "name": "Miquel Colomer",
+    "username": "mcolomer",
+    "bio": "As a passionate developer and AI agent creator, I’ve been at the forefront of automation, pioneering workflows and training AI to handle complex tasks seamlessly. I’m an early adopter and expert of n8n, having worked with its powerful capabilities to create automation solutions for diverse industries. I founded n8nhackers, the first AI-powered agency focused on n8n, where we help businesses transform their workflows with cutting-edge automation.",
+    "verified": true,
+    "links": "[\"https://n8nhackers.com\"]",
+    "avatar": "https://gravatar.com/avatar/c4974f5be3985d7f30465d2d963967905bcb2f9b8a8ecaf8ba4396bfbd034db2?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "Development",
+    "Data & Storage"
+  ],
+  "nodes": [
+    {
+      "name": "AWS SES",
+      "type": "n8n-nodes-base.awsSes",
+      "categories": [
+        "Communication",
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "uProc",
+      "type": "n8n-nodes-base.uproc",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2020-12-28T09:18:06.470Z",
+  "path": "official/template_851/workflow.json"
+}

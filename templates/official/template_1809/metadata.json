@@ -1,0 +1,32 @@
+{
+  "id": 1809,
+  "name": "Sync Shopify orders with Zendesk tickets",
+  "description": "This workflow automatically syncs Shopify orders with your Zendesk tickets. Using this workflow, Shopify orders will be added or have their information updated straight to your Zendesk tickets. \n\nPrerequisites\nShopify account and Shopify credentials\nZendesk account and Zendesk credentials\n\nHow it works\nShopify Trigger starts the workflow whenever an order is updated.\nZendesk node finds if the order already exists and has a ticket assigned.\nSet node keeps and passes only ticket ID.\nMerge by Key node combines the Shopify order data with the Zendesk ticket data.\nIf node splits the workflow conditionally, checks if the ticket already exists or not.\nIf order is new, Zendesk node creates a new ticket for the order.\n",
+  "totalViews": 976,
+  "source": "official",
+  "user": {
+    "id": 39668,
+    "name": "n8n Team",
+    "username": "n8n-team",
+    "bio": "Meet the official n8n team. We specialize in building workflows that transform intricate tasks into seamless operations.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/b3d1a47322f05a8be3d2e7bad6a80c29161bd58b91e4762cbb3ac25e5d0db5a8?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication"
+  ],
+  "nodes": [
+    {
+      "name": "Zendesk",
+      "type": "n8n-nodes-base.zendesk",
+      "categories": [
+        "Communication"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2022-10-07T10:16:55.733Z",
+  "path": "official/template_1809/workflow.json"
+}

@@ -1,0 +1,65 @@
+{
+  "id": 3806,
+  "name": "Track Amazon Product Prices with ScrapeOps API & Google Sheets Alerts",
+  "description": "Amazon Product Price Tracker\n\nThis workflow automatically monitors Amazon product prices, tracks price changes, and sends alerts when significant price fluctuations occur. Built with ScrapeOps' structured data API, it provides a reliable, maintenance-free solution for price tracking without worrying about anti-bot measures or complex selectors.\n\nWhat This Workflow Does\n\nMonitors multiple Amazon products simultaneously using their ASINs\nCalculates both absolute and percentage price changes\nSends customizable email alerts when prices cross defined thresholds\nMaintains a historical record of all price data for trend analysis\nUpdates a Google Sheets with the latest price information\n\nPrerequisites\n\nA ScrapeOps API key (register at https://scrapeops.io)\nGoogle account for Google Sheets integration\nSMTP email configuration for alerts\n\nSetup Instructions\n\nSpreadsheet Setup\n   Make a copy of the template spreadsheet: https://docs.google.com/spreadsheets/d/1hRv-TBXrpN6rkIU65WorttNHt-IPWas_An0sF4Of39U\n   Add your Amazon product ASINs in the \"Products to Monitor\" sheet\n   Set your desired alert thresholds for price increases/decreases\n\nWorkflow Configuration\n   Add your ScrapeOps API key to the \"Setup\" node\n   Update the spreadsheet URL in the \"Setup\" node with YOUR copy\n   Configure your email settings for notifications\n   Adjust the schedule frequency as needed (default: hourly)\n\nHow It Works\n\nThe workflow reads product ASINs from your Google Sheet, fetches current pricing data via ScrapeOps' Amazon Product API, calculates price changes, updates your spreadsheet, and sends alerts when price movements exceed your defined thresholds.\n\nUnlike traditional web scrapers that break when websites change, this solution uses ScrapeOps' reliable API that handles all the complexity of Amazon data extraction, ensuring consistent results without maintenance.\n\nAdditional Notes\n\nThis workflow is ideal for deal hunters, price comparison services, and e-commerce analytics\nThe alerting system can be extended to additional channels like Slack or Telegram\nScrapeOps handles all anti-bot measures, proxy management, and parsing complexities",
+  "totalViews": 207,
+  "source": "official",
+  "user": {
+    "id": 94164,
+    "name": "ScrapeOps",
+    "username": "scrapeops-main",
+    "bio": "ScrapeOps provides enterprise-grade web scraping infrastructure. Our tools eliminate common challenges like proxy management, anti-bot protection, and maintenance headaches. We power data-driven applications through reliable APIs and monitoring solutions. Explore our n8n workflows for seamless data extraction.",
+    "verified": false,
+    "links": "[\"https://scrapeops.io\"]",
+    "avatar": "https://gravatar.com/avatar/e0ee376db48ee06168229dc84ab59b48db6b7e537e083032fea16299acfec08f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Core Nodes",
+    "Data & Storage",
+    "Productivity",
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "categories": [
+        "Communication",
+        "HITL",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-04-30T15:25:45.450Z",
+  "path": "official/template_3806/workflow.json"
+}

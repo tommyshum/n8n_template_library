@@ -1,0 +1,76 @@
+{
+  "id": 3289,
+  "name": "🎥 Analyze YouTube Video for Summaries, Transcripts & Content + Google Gemini AI",
+  "description": "🎥 Analyze YouTube Video for Summaries, Transcripts & Content + Google Gemini\n\nWho is this for?\nThis workflow is ideal for content creators, video marketers, and research professionals who need to extract actionable insights, detailed transcripts, or metadata from YouTube videos efficiently. It is particularly useful for those leveraging AI tools to analyze video content and optimize audience engagement.\n\nWhat problem does this workflow solve? / Use case\nAnalyzing video content manually can be time-consuming and prone to errors. This workflow automates the process by extracting key metadata, generating summaries, and providing structured transcripts tailored to specific use cases. It helps users save time and ensures accurate data extraction for content optimization.\n\nWhat this workflow does\nExtracts audience-specific metadata (e.g., video type, tone, key topics, engagement drivers).\nGenerates customized outputs based on six prompt types:\n  Default: Actionable insights and strategies.\n  Transcribe: Verbatim transcription.\n  Timestamps: Timestamped dialogue.\n  Summary: Concise bullet-point summary.\n  Scene: Visual descriptions of settings and techniques.\n  Clips: High-engagement video segments with timestamps.\nSaves extracted data as a text file in Google Drive.\nSends analyzed outputs via Gmail or provides them in a completion form.\n\nSetup\nConfigure API keys:\n   Add your Google API key as an environment variable.\nInput requirements:\n   Provide the YouTube video ID (e.g., wBuULAoJxok).\n   Select a prompt type from the dropdown menu.\nConnect credentials:\n   Set up Google Drive and Gmail integrations in n8n.\n\nHow to customize this workflow to your needs\nModify the metadata prompt to extract additional fields relevant to your use case.\nAdjust the output format for summaries or transcripts based on your preferences (e.g., structured bullets or plain text).\nAdd nodes to integrate with other platforms like Slack or Notion for further collaboration.\n\nExample Usage\nInput: YouTube video ID (wBuULAoJxok) and prompt type (summary).\nOutput: A concise summary highlighting actionable insights, tools, and resources mentioned in the video.",
+  "totalViews": 4549,
+  "source": "official",
+  "user": {
+    "id": 92125,
+    "name": "Joseph LePage",
+    "username": "joe",
+    "bio": "As an AI Automation consultant based in Canada, I partner with forward-thinking organizations to implement AI solutions that streamline operations and drive growth.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/e7ca218dfc87b68344bbd66f40da01546d2f6fc1cf884267821e8a77e3e8410a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-03-22T22:53:17.485Z",
+  "path": "official/template_3289/workflow.json"
+}

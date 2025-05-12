@@ -1,0 +1,76 @@
+{
+  "id": 2746,
+  "name": "Post Hourly Crypto Market Summaries via Coingecko to X and to Email",
+  "description": "Description  \nThis workflow, delivers real-time cryptocurrency market updates (default: Bitcoin) by fetching data from the CoinGecko API. It formats the information into a visually engaging message and shares it on X (formerly Twitter) and via email. The workflow is set to trigger hourly but is fully customizable to suit different schedules or cryptocurrencies.\n\nKey Features  \nReal-Time Market Data Retrieval:** Fetches up-to-date cryptocurrency market data using CoinGecko API.  \nAI-Driven Message Formatting:** Converts raw data into a structured, engaging message.  \nSocial Media Integration:** Posts updates to X with OAuth2 authentication.  \nEmail Notifications:** Sends updates via email to specified recipients.  \nFlexible Customization:** Adaptable for tracking multiple cryptocurrencies or adding new notification channels.  \n\nWorkflow Steps  \nTrigger Workflow: Default is hourly, but the interval can be customized.  \nFetch Cryptocurrency Data: Retrieves market data using the CoinGecko API.  \nFormat the Message: Converts the data into a readable and visually appealing format.  \nPost Update on X: Shares the message on X (formerly Twitter).  \nSend Email Notifications: Sends the update to a specified email address.  \nOptional Notifications: Expand to additional channels like Slack or Telegram.",
+  "totalViews": 793,
+  "source": "official",
+  "user": {
+    "id": 92022,
+    "name": "Badr",
+    "username": "b4dr",
+    "bio": "",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/035184cdd91cc274d7293ceaed93c97d64e57fc49fc4ba8346956a812dc35b3e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Marketing",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "X (Formerly Twitter)",
+      "type": "n8n-nodes-base.twitter",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-01-17T11:18:56.845Z",
+  "path": "official/template_2746/workflow.json"
+}

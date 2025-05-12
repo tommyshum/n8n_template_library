@@ -1,0 +1,101 @@
+{
+  "id": 2560,
+  "name": "Send daily translated Calvin and Hobbes Comics to Discord",
+  "description": "How it works\nAutomates the retrieval of Calvin and Hobbes daily comics.\nExtracts the comic image URL from the website.\nTranslates comic dialogues to English and Korean.\nPosts the comic and translations to Discord daily.\n\nSet up steps\nEstimated setup time: ~10-15 minutes.\nUse a Schedule Trigger to automate the workflow at 9 AM daily.\nAdd nodes for parameter setup, HTTP request, data extraction, and integration with Discord.\nAdd detailed notes to each node in the workflow for easy understanding.",
+  "totalViews": 1191,
+  "source": "official",
+  "user": {
+    "id": 92056,
+    "name": "Nathan Lee",
+    "username": "datapopcorn",
+    "bio": "I'm a creator of n8n automation tool in Korea with 7 years of experience as a data analysis engineer. Currently, I'm running a Korean n8n community with about 400 people. I'm creating more than 20 workflows and promoting n8n tools.",
+    "verified": false,
+    "links": "[\"https://n8n.partnerlinks.io/datapopcorn\"]",
+    "avatar": "https://gravatar.com/avatar/1daced3ca89995495a5b72a645e605f9555fae4442e2d0d5a48258626324ec41?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Discord",
+      "type": "n8n-nodes-base.discord",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Information Extractor",
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2024-11-20T13:01:10.683Z",
+  "path": "official/template_2560/workflow.json"
+}

@@ -1,0 +1,34 @@
+{
+  "id": 3385,
+  "name": "Populate Retell Dynamic Variables with Google Sheets Data for Call Handling",
+  "description": "Overview\nThis workflow provides Retell agent builders with a simple way to populate dynamic variables using n8n.\nThe workflow fetches user information from a Google Sheet based on the phone number and sends it back to Retell.\nIt is based on Retell's Inbound Webhook Call.\nRetell is a service that lets you create Voice Agents that handle voice calls simply, based on a prompt or using a conversational flow builder.\n\nWho is it for\nFor builders of Retell's Voice Agents who want to make their agents more personalized.\n\nPrerequisites\nHave a Retell AI Account\nCreate a Retell agent\nPurchase a phone number and associate it with your agent\nCreate a Google Sheets - for example, make a copy of this one.\nYour Google Sheet must have at least one column with the phone number. The remaining columns will be used to populate your Retell agent’s dynamic variables.\nAll fields are returned as strings to Retell (variables are replaced as text)\n\nHow it works\nThe webhook call is received from Retell. We filter the call using their whitelisted IP address.\nIt extracts data from the webhook call and uses it to retrieve the user from Google Sheets.\nIt formats the data in the response to match Retell's expected format.\nRetell uses this data to replace dynamic variables in the prompts.\n\nHow to use it\nSee the description for screenshots!\nSet the webhook name (keep it as POST).\nCopy the Webhook URL (e.g., https://your-instance.app.n8n.cloud/webhook/retell-dynamic-variables) and paste it into Retell's interface. Navigate to \"Phone Numbers\", click on the phone number, and enable \"Add an inbound webhook\".\n\n\nIn your prompt (e.g., \"welcome message\"), use the variable with this syntax: {{variable_name}} (see Retell's documentation).\n\n\nThese variables will be dynamically replaced by the data in your Google Sheet.\n\nNotes\nIn Google Sheets, the phone number must start with '+.\nPhone numbers must be formatted like the example: with the +, extension, and no spaces.\nYou can use any database—just replace Google Sheets with your own, making sure to keep the phone number formatting consistent.\n\n👉 Reach out to us if you're interested in analysing your Retell Agent conversations.\n",
+  "totalViews": 223,
+  "source": "official",
+  "user": {
+    "id": 91624,
+    "name": "Agent Studio",
+    "username": "agentstudio",
+    "bio": "We are a product studio that helps organizations leverage no-code and generative AI to automate internal processes and launch new digital products.\nLinkedIn: https://www.linkedin.com/in/baptistej/",
+    "verified": true,
+    "links": "[\"https://agentstudio.io/\"]",
+    "avatar": "https://gravatar.com/avatar/e9cf0d0fccead46655b11b2ce215cf14d33ecdaa2ce52828f003574c1800e77a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "categories": [
+        "Data & Storage",
+        "Productivity"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2025-03-31T14:40:28.707Z",
+  "path": "official/template_3385/workflow.json"
+}

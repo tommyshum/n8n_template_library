@@ -1,0 +1,18 @@
+{
+  "id": 3229,
+  "name": "Activate and deactivate workflows on schedule using native n8n API",
+  "totalViews": 565,
+  "purchaseUrl": null,
+  "user": {
+    "id": 93022,
+    "name": "Olek",
+    "username": "olek",
+    "bio": "I am a **dataholic** (I trust, everything can be quantified and measured) and an **automation** enthusiast.\n\nQ of the day: Why spending 1 hour doing a routinal staff when you could spend 1 day automating it and having fun?\n\nPM me on [community.n8n.io](https://community.n8n.io/u/olek/summary) and let me know what do you think about this Q above.",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/5b8c3cf791c26e3e81edfcb5e01c3a5c02daa253c37970151f7c102aef58bbb5?r=pg&d=retro&size=200"
+  },
+  "description": "How it works\nThis workflow will activate and deactivate a selected other workflow on schedule.\n\n&gt; ⚠️ Warning!\n&gt; This approach won't work for trial users as it requires n8n API that is not available to trial users.\n&gt; See https://docs.n8n.io/api/ for details.\n\nSet up steps\nAdjust activation/deactivation schedule per your needs. Custom (cron) interval is a recommended approach.\nSet targeted Workflow ID. You will find it in the URL of the workflow you want to manage.\n\nSet n8n API credentials:\nCreate an API key: how to\nCreate n8n credentials using the API key: how to\n\nThis workflow uses n8n node.\n\n#DevOps #workflow-management\n\nOther useful stuff\n\nNeed a universal Error workflow to catch both execution and trigger errors? Here you go:\nError handling: Send email via Gmail on execution or trigger-level errors\n\nMore stuff by Olek and do not forget to backup your workflows often by automating.",
+  "createdAt": "2025-03-20T09:44:53.879Z",
+  "nodes": []
+}

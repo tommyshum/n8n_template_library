@@ -1,0 +1,63 @@
+{
+  "id": 3216,
+  "name": "Automated YouTube Subscription Notifications with RSS and Email",
+  "description": "Who is this template for?\nYou are in the bad habit of always checking your feed to see if there are new videos? This workflow will help you get rid of this habit by delivering an email notification for each new video posted from the channels you are subscribed to. No need to check your feed again: no email = no new video.\nExample email\n\nHow it works\nEvery hour (by default), we:\nFetch all your YouTube subscriptions from the YouTube Data v3 API.\nGet a list of the latest videos of each channel through RSS (we don't use YouTube's API for this step as it would put us over the daily quota).\nSend you a simple yet beautiful email for each new video that was published since the last run of the workflow. To go to the video, simply click on the thumbnail.\nCaveats\nBecause of the way this workflow is implemented, if your n8n instance stops, you will not get emails for the videos you missed when your instance is back online.\nThe situation could be improved if n8n gave us an easy way to access the last successful execution's timestamp.\n\nSet up instructions\nComplete the Set up credentials step when you first open the workflow. You'll need YouTube OAuth2 API and SMTP credentials.\nIn the Send an email for each new video step, set the email address from which the email will be sent (an email address that your SMTP credentials allow sending from) and the email address to which you are going to send the email to (can be the same).\nOptional steps\nFrom the Schedule Trigger step, you can change the check frequency (default: every hour).\nIf there are channels that you do not want notifications from, you can add their channel ID to the list in the Filter out channels step.\nTo get a channel's ID, go to its main page, click on the description, then \"Share channel\" and finally \"Copy channel ID\".\nBy default, shorts are excluded. But if you want them, simply remove the Filter out shorts step from the workflow.\n\nTemplate was created in n8n v1.84.0\n\n",
+  "totalViews": 656,
+  "source": "official",
+  "user": {
+    "id": 93288,
+    "name": "Sweenu",
+    "username": "sweenu",
+    "bio": "",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/37d1d6cea629f3745a0eec1624333cc01e5d4079be1fc30015b3cdfac5638a8e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Communication",
+    "HITL",
+    "Core Nodes",
+    "Development",
+    "Marketing"
+  ],
+  "nodes": [
+    {
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "categories": [
+        "Communication",
+        "HITL",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "YouTube",
+      "type": "n8n-nodes-base.youTube",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-03-19T09:57:21.462Z",
+  "path": "official/template_3216/workflow.json"
+}

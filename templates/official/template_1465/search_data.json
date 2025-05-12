@@ -1,0 +1,172 @@
+{
+  "id": 1465,
+  "name": "Collect absences from Google Calendars",
+  "totalViews": 3414,
+  "purchaseUrl": null,
+  "user": {
+    "id": 25789,
+    "name": "Jonathan",
+    "username": "jon-n8n",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/5240094f838126182ceefb50ca4a3cf75cc7dc0808efd4b9920d792e41bfc45e?r=pg&d=retro&size=200"
+  },
+  "description": "This workflow checks a Google Calendar at 8am on the first of each month to get anything that has been marked as a Holiday or Illness. It then merges the count for each person and sends an email with the list.\n\nTo use this workflow you will need to set the credentials to use for the Google Calendar node and Send Email node. You will also need to select the calendar ID and fill out the information in the send email node.\n\nThis workflow searches for Events that contain \"Holiday\" or \"Illness\" in the summary. If you want to change this you can modify it in the Switch node.",
+  "createdAt": "2022-02-17T15:07:27.127Z",
+  "nodes": [
+    {
+      "id": 11,
+      "icon": "fa:envelope",
+      "name": "n8n-nodes-base.emailSend",
+      "codex": {
+        "data": {
+          "alias": [
+            "SMTP",
+            "email",
+            "human",
+            "form",
+            "wait",
+            "hitl",
+            "approval"
+          ],
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/2021-the-year-to-automate-the-new-you-with-n8n/",
+                "icon": "☀️",
+                "label": "2021: The Year to Automate the New You with n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/build-your-own-virtual-assistant-with-n8n-a-step-by-step-guide/",
+                "icon": "👦",
+                "label": "Build your own virtual assistant with n8n: A step by step guide"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.sendemail/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/credentials/sendemail/"
+              }
+            ]
+          },
+          "categories": [
+            "Communication",
+            "HITL",
+            "Core Nodes"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0",
+          "subcategories": {
+            "HITL": [
+              "Human in the Loop"
+            ]
+          }
+        }
+      },
+      "group": "[\"output\"]",
+      "defaults": {
+        "name": "Send Email",
+        "color": "#00bb88"
+      },
+      "iconData": {
+        "icon": "envelope",
+        "type": "icon"
+      },
+      "displayName": "Send Email",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 6,
+          "name": "Communication"
+        },
+        {
+          "id": 9,
+          "name": "Core Nodes"
+        },
+        {
+          "id": 28,
+          "name": "HITL"
+        }
+      ]
+    },
+    {
+      "id": 317,
+      "icon": "file:googleCalendar.svg",
+      "name": "n8n-nodes-base.googleCalendar",
+      "codex": {
+        "data": {
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/how-to-host-virtual-coffee-breaks-with-n8n/",
+                "icon": "☕️",
+                "label": "How to host virtual coffee breaks with n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/supercharging-your-conference-registration-process-with-n8n/",
+                "icon": "🎫",
+                "label": "Supercharging your conference registration process with n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/automate-google-apps-for-productivity/",
+                "icon": "💡",
+                "label": "15 Google apps you can combine and automate to increase productivity"
+              },
+              {
+                "url": "https://n8n.io/blog/your-business-doesnt-need-you-to-operate/",
+                "icon": " 🖥️",
+                "label": "Hey founders! Your business doesn't need you to operate"
+              },
+              {
+                "url": "https://n8n.io/blog/5-workflow-automations-for-mattermost-that-we-love-at-n8n/",
+                "icon": "🤖",
+                "label": "5 workflow automation for Mattermost that we love at n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/tracking-time-spent-in-meetings-with-google-calendar-twilio-and-n8n/",
+                "icon": "🗓",
+                "label": "Tracking Time Spent in Meetings With Google Calendar, Twilio, and n8n"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googlecalendar/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/google/oauth-single-service/"
+              }
+            ]
+          },
+          "categories": [
+            "Productivity"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "Google Calendar"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiB2aWV3Qm94PSIwIDAgODEgODIiPjx1c2UgeGxpbms6aHJlZj0iI2EiIHg9Ii41IiB5PSIuNSIvPjxzeW1ib2wgaWQ9ImEiIG92ZXJmbG93PSJ2aXNpYmxlIj48ZyBmaWxsLXJ1bGU9Im5vbnplcm8iIHN0cm9rZT0ibm9uZSI+PHBhdGggZD0iTTYxLjA1MiAxOC45NDdIMTguOTQ3djQyLjEwNWg0Mi4xMDV6Ii8+PHBhdGggZmlsbD0iI2VhNDMzNSIgZD0iTTYxLjA1MyA4MCA4MCA2MS4wNTNINjEuMDUzeiIvPjxwYXRoIGZpbGw9IiNmYmJjMDQiIGQ9Ik04MCAxOC45NDdINjEuMDUzdjQyLjEwNUg4MHoiLz48cGF0aCBmaWxsPSIjMzRhODUzIiBkPSJNNjEuMDUyIDYxLjA1M0gxOC45NDdWODBoNDIuMTA1eiIvPjxwYXRoIGZpbGw9IiMxODgwMzgiIGQ9Ik0wIDYxLjA1M3YxMi42MzJBNi4zMTQgNi4zMTQgMCAwIDAgNi4zMTYgODBoMTIuNjMyVjYxLjA1M3oiLz48cGF0aCBmaWxsPSIjMTk2N2QyIiBkPSJNODAgMTguOTQ3VjYuMzE2QTYuMzE0IDYuMzE0IDAgMCAwIDczLjY4NSAwSDYxLjA1M3YxOC45NDd6Ii8+PHBhdGggZmlsbD0iIzQyODVmNCIgZD0iTTYxLjA1MyAwSDYuMzE2QTYuMzE0IDYuMzE0IDAgMCAwIDAgNi4zMTZ2NTQuNzM3aDE4Ljk0N1YxOC45NDdoNDIuMTA1VjB6TTI3LjU4NCA1MS42MTFjLTEuNTc0LTEuMDYzLTIuNjYzLTIuNjE2LTMuMjU4LTQuNjY4bDMuNjUzLTEuNTA1cS40OTggMS44OTQgMS43MzcgMi45MzdjMS4yMzkgMS4wNDMgMS44MjEgMS4wMzcgMi45ODkgMS4wMzdxMS43OTIgMCAzLjA3OS0xLjA4OWMxLjI4Ny0xLjA4OSAxLjI5LTEuNjUzIDEuMjktMi43NzRhMy40NCAzLjQ0IDAgMCAwLTEuMzU4LTIuODExYy0uOTA1LS43MjctMi4wNDItMS4wODktMy40LTEuMDg5aC0yLjExMXYtMy42MTZIMzIuMXExLjc1MiAwIDIuOTUzLS45NDdjMS4yMDEtLjk0NyAxLjItMS40OTUgMS4yLTIuNTk1cTAtMS40NjctMS4wNzQtMi4zNDJjLTEuMDc0LS44NzUtMS42MjEtLjg3OS0yLjcyMS0uODc5cS0xLjYxLS4wMDItMi41NTguODU4Yy0uOTQ4Ljg2LTEuMTA2IDEuMzAxLTEuMzc5IDIuMTExbC0zLjYxNi0xLjUwNWMuNDc5LTEuMzU4IDEuMzU4LTIuNTU4IDIuNjQ3LTMuNTk1czIuOTM3LTEuNTU4IDQuOTM3LTEuNTU4cTIuMjItLjAwMiAzLjk4OS44NThjMS43NjkuODYgMi4xMDUgMS4zNjggMi43NzQgMi4zNzlzMSAyLjE1MyAxIDMuNDE2cTAgMS45MzItLjkzMiAzLjI3NGMtLjkzMiAxLjM0Mi0xLjM4NCAxLjU3OS0yLjI4OSAyLjA1OHYuMjE2YTYuOTUgNi45NSAwIDAgMSAyLjkzNyAyLjI4OXExLjE0NiAxLjUzOCAxLjE0NyAzLjY4NGMuMDAxIDIuMTQ2LS4zNjMgMi43MTEtMS4wODkgMy44MzJzLTEuNzMyIDIuMDA1LTMuMDA1IDIuNjQ3Yy0xLjI3OS42NDItMi43MTYuOTY4LTQuMzExLjk2OC0xLjg0Ny4wMDUtMy41NTMtLjUyNi01LjEyNi0xLjU4OXptMjIuNDM3LTE4LjEyNi00LjAxIDIuOS0yLjAwNS0zLjA0MiA3LjE5NS01LjE4OWgyLjc1OHYyNC40NzloLTMuOTM3VjMzLjQ4NHoiLz48L2c+PC9zeW1ib2w+PC9zdmc+"
+      },
+      "displayName": "Google Calendar",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 4,
+          "name": "Productivity"
+        }
+      ]
+    }
+  ]
+}

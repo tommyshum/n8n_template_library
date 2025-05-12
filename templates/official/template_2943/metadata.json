@@ -1,0 +1,88 @@
+{
+  "id": 2943,
+  "name": "🌐🪛 AI Agent Chatbot with Jina.ai Webpage Scraper",
+  "description": "The 🌐🤖 AI Agent Chatbot with Jina.ai Webpage Scraper workflow is a powerful automation designed to integrate real-time web scraping capabilities into an AI-driven chatbot. Here's how it works and why it's important:\n\nHow It Works  \n💬 Chat Trigger: The workflow begins when a user sends a chat message, triggering the \"When chat message received\" node.  \n🧠 AI Agent Processing: The input is passed to the \"Jina.ai Web Scraping Agent,\" which uses advanced AI logic to interpret the user’s query and determine the information needed.  \n🌐 Web Scraping: The agent utilizes the \"HTTP Request\" node to scrape real-time data from a user-provided URL, enabling the chatbot to fetch and analyze live website content.  \n🗂️ Memory Management: The \"Window Buffer Memory\" node ensures context retention by storing and managing conversational history, allowing for seamless interactions.  \n🤖 Language Model Integration: The scraped data is processed using the \"gpt-4o-mini\" language model, which generates clear, accurate, and contextually relevant responses for the user.\n\nWhy It's Cool  \n⏱️ Real-Time Information Retrieval**: This workflow empowers users to access up-to-date web content directly through a chatbot, eliminating manual web searches.  \n✨ Enhanced User Experience**: By combining web scraping with conversational AI, it delivers precise answers tailored to user queries in real time.  \n🔄 Versatility**: It can be applied across various domains, such as customer support, research, or data analysis, making it a valuable tool for businesses and individuals alike.  \n⚙️ Automation Efficiency**: Automating web scraping and response generation saves time and effort while ensuring accuracy.\n\n\n",
+  "totalViews": 7325,
+  "source": "official",
+  "user": {
+    "id": 92125,
+    "name": "Joseph LePage",
+    "username": "joe",
+    "bio": "As an AI Automation consultant based in Canada, I partner with forward-thinking organizations to implement AI solutions that streamline operations and drive growth.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/e7ca218dfc87b68344bbd66f40da01546d2f6fc1cf884267821e8a77e3e8410a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "HTTP Request Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2025-02-19T05:22:47.532Z",
+  "path": "official/template_2943/workflow.json"
+}

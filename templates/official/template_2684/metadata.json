@@ -1,0 +1,34 @@
+{
+  "id": 2684,
+  "name": "Check if a Twitch Stream is Live",
+  "description": "Introduction:\n\nThis workflow template helps you determine if a Twitch user's stream is currently live or offline.\n\nSetup Instructions:\n\nThe Document node holds the sample Twitch username you wish to check, you may adapt it in your workflow by replacing this with a chain that contains the Twitch username you want to check. This value is passed to the GraphQL node query as $('Document').item.json.twitch so make sure to change this based on your workflow.\n\nHow it Works:\n\nThe important nodes here are the GrapQL and IF nodes. The GrapQL queries the Twitch API, and then the output returns a document with the stream property. The IF node then checks if this property has a value, if null means the user is offline, otherwise the user is online or live.\n\nCommon Use Cases:\nYou can use this with other workflow templates to post live stream alerts to Twitter/X, Bluesky, and Discord via webhooks, etc to notify your community to join youR stream. You may also use an LLM node to write a custom alert based on the value of property title\n\nHow to adjust this template\nIf you want to check a list of Twitch channels, you can simply exchange the Document set node in the beginning with your list of channels.\n\n\nFor more information on the GraphQL output please see the official Twitch API documentation: Get Streams",
+  "totalViews": 772,
+  "source": "official",
+  "user": {
+    "id": 92335,
+    "name": "Roger Filomeno",
+    "username": "godie",
+    "bio": "",
+    "verified": false,
+    "links": "[\"https://rogverse.fyi/\"]",
+    "avatar": "https://gravatar.com/avatar/cfa1e61b39623327cd21f885d88e3a3345d1a113e734b473074a2a959512ae61?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Development"
+  ],
+  "nodes": [
+    {
+      "name": "GraphQL",
+      "type": "n8n-nodes-base.graphql",
+      "categories": [
+        "Data & Storage",
+        "Development"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-12-30T11:06:35.454Z",
+  "path": "official/template_2684/workflow.json"
+}

@@ -1,0 +1,107 @@
+{
+  "id": 2346,
+  "name": "Enhance Customer Chat by Buffering Messages with Twilio and Redis",
+  "description": "This n8n workflow demonstrates a simple approach to improve chat UX by staggering an AI Agent's reply for users who send in a sequence of partial messages and in short bursts.\n\nHow it works\nTwilio webhook receives user's messages which are recorded in a message stack powered by Redis.\nThe execution is immediately paused for 5 seconds and then another check is done against the message stack for the latest message.\nThe purpose of this check lets use know if the user is sending more messages or if they are waiting for a reply.\nThe execution is aborted if the latest message on the stack differs from the incoming message and continues if they are the same.\nFor the latter, the agent receives the buffered messages up to that point and is able to respond to them in a single reply.\n\nRequirements\nA Twilio account and SMS-enabled phone number to receive messages.\nRedis instance for the messages stack.\nOpenAI account for the language model.\n\nCustomising the workflow\n\nThis workflow should work for other common messaging platforms such as Whatsapp and Telegram.\n\n5 seconds too long or too short? Adjust the wait threshold to suit your customers.",
+  "totalViews": 7941,
+  "source": "official",
+  "user": {
+    "id": 91804,
+    "name": "Jimleuk",
+    "username": "jimleuk",
+    "bio": "Freelance consultant based in the UK specialising in AI-powered automations. I work with select clients tackling their most challenging projects. For business enquiries, send me an email at hello@jimle.uk\n\nLinkedIn: https://www.linkedin.com/in/jimleuk/\nX/Twitter: https://x.com/jimle_uk",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/4ab99e51473df76838beeaac908747f7928c625f869794815cabe34016967d51?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Data & Storage",
+    "Communication",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Redis",
+      "type": "n8n-nodes-base.redis",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Twilio",
+      "type": "n8n-nodes-base.twilio",
+      "categories": [
+        "Communication",
+        "Development"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Chat Memory Manager",
+      "type": "@n8n/n8n-nodes-langchain.memoryManager",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2024-07-15T15:35:37.471Z",
+  "path": "official/template_2346/workflow.json"
+}

@@ -1,0 +1,205 @@
+{
+  "id": 2987,
+  "name": "Personal Portfolio CV  Rag Chatbot - with Conversation Store and Email Summary",
+  "description": "Personal Portfolio CV Rag Chatbot - with Conversation Store and Email Summary\n\nTarget Audience\nThis template is perfect for:\n\nIndividuals looking to create a working professional and interactive personal portfolio chatbot. \n\nDevelopers interested in integrating RAG Chatbot functionality with conversation storage.\n1. Description\nCreate a stunning Personal Portfolio CV with integrated RAG Chatbot capabilities, including conversation storage and daily email summaries.\n\n2.Features:\n\nTraining: Setup Ingestion stage\nUpload your CV to Google Drive and let the Drive trigger updates to read your resume cv and convert it into your vector database (RAG purpose). Modify any parts as needed.\n\nChat & Track:\n Use any frontend/backend interface to call the chat API and chat history API.\n\nReporting Daily Chat Conversations:\n Receive daily automatic summaries of chat conversations. Data stored via NocoDB.\n\n3.Setup Guide:\nStep-by-Step Instructions:\n\nEnsure all credentials are ready. Follow the notes provided.\n\nIngestion:\nUpload your CV to Google Drive.\nThe Drive triggers RAG update in your vector database. You can change the folder name, files and indexname of the vector database accordingly.\nChat:\nUse any frontend/backend interface to call the chat API (refer to the notes for details) .\n\n[optional] Use any frontend/backend interface to call the update chat history API (refer to the notes for details).\n\n3.Tracking Chat:\n\nGet daily automatic summaries of chat conversations.Format email conversations report as you like.\n\nYou are ready to go!\n\n\n",
+  "totalViews": 2759,
+  "source": "official",
+  "user": {
+    "id": 92876,
+    "name": "Sean Lon",
+    "username": "seanlon",
+    "bio": "I embarked on my coding journey at the age of 13, driven by a deep passion for AI, automation, and engineering. Over the years, I've taken on various roles including Developer, Engineer, Senior Engineer, Architect, Principal Engineer, Freelance Consultant, and Head of Engineering.",
+    "verified": true,
+    "links": "[\"https://seanlon.site\"]",
+    "avatar": "https://gravatar.com/avatar/1880b3f123439c4d0709778f8b82baf2071047f6071a42b9a744313faa0d235e?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Data & Storage",
+    "Communication",
+    "HITL",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "NocoDB",
+      "type": "n8n-nodes-base.nocoDb",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "categories": [
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Recursive Character Text Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Pinecone Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    },
+    {
+      "name": "Embeddings Google Gemini",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Vector Store Question Answer Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolVectorStore",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 13,
+  "createdAt": "2025-02-23T09:02:59.165Z",
+  "path": "official/template_2987/workflow.json"
+}

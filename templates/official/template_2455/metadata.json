@@ -1,0 +1,67 @@
+{
+  "id": 2455,
+  "name": "Check for Bargain Flights and get notified using Amadeus and Gmail",
+  "description": "What this template does\nThis workflow uses the Amadeus API, every day to check for bargain flights for an itinerary and price target of your choice. It then automatically emails you once it found a match.\n\nSetup\nCreate an api account on https://developers.amadeus.com/\nIn Amadeus Flight Search, connect to Oauth2 API:\n  -- Grant Type - Client Credentials\n  -- Access Token URL - https://test.api.amadeus.com/v1/security/oauth2/token\n  -- Client ID/Secret - from your account\nSet your details in Gmail\nSet your desired Origin/Destination airports in FromTo\nSet the dates ahead you wish to search in Get Dates (default is 7 days and 14 days)\nSet the price target in Under Price\n\nHow to test it\nAfter completing the setup steps above, just hit 'Test workflow'!",
+  "totalViews": 4663,
+  "source": "official",
+  "user": {
+    "id": 91959,
+    "name": "Jay Hartley",
+    "username": "jay",
+    "bio": "Low-code/no-code developer for automated solutions. Several years experience in automated workflow building for content creation management, distribution and marketing.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/6c7feb8fe0cc33e0668424a616614c0ddd1adecf273274b690c6b41dd8aea245?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-10-07T19:14:34.037Z",
+  "path": "official/template_2455/workflow.json"
+}

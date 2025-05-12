@@ -1,0 +1,116 @@
+{
+  "id": 3090,
+  "name": "✨📊Multi-AI Agent Chatbot for Postgres/Supabase DB and QuickCharts + Tool Router",
+  "description": "Multi-AI Agent Chatbot for Postgres/Supabase Databases and QuickChart Generation\n\nWho is this for?  \nThis workflow is ideal for data analysts, developers, and business intelligence teams who need an AI-powered chatbot to query Postgres/Supabase databases and generate dynamic charts for data visualization.\n\nWhat problem does this solve?  \nIt simplifies data exploration by combining conversational AI with database querying and chart generation. Users can interact with their database using natural language, retrieve insights, and visualize data without manual SQL queries or chart configuration.\n\nWhat this workflow does  \nAI-Powered Chat Interface:  \n   Accepts natural language prompts to query databases or generate charts.  \n   Routes user requests through a tool agent system to determine the appropriate action (query or chart).  \n\nDatabase Querying:  \n   Executes SQL queries on Postgres/Supabase databases based on user input.  \n   Retrieves schema information, table definitions, and specific data records.  \n\nDynamic Chart Generation:  \n   Uses QuickChart to create bar charts, line charts, or other visualizations from database records.  \n   Outputs a shareable chart URL or JSON configuration for further customization.  \n\nMemory Integration:  \n   Maintains chat history using Postgres memory nodes, enabling context-aware interactions.  \n\nWorkflow diagram showcasing AI agents, database querying, and chart generation paths.\n\nSetup  \nPrerequisites:  \n   A Postgres-compatible database (e.g., Supabase).  \n   API credentials for OpenAI.  \n\nConfiguration Steps:  \n   Add your database connection credentials in the Postgres nodes.  \n   Set up OpenAI credentials for GPT-4o-mini in the language model nodes.  \n   Adjust the QuickChart schema in the \"QuickChart Object Schema\" node to fit your use case.  \n\nTesting:  \n   Trigger the chat workflow via the \"When chat message received\" node.  \n   Test with prompts like \"Generate a bar chart of sales data\" or \"Show me all users in the database.\"\n\nHow to customize this workflow  \nModify AI Prompts**\nAdd Chart Types**\nIntegrate Other Tools**\n",
+  "totalViews": 9269,
+  "source": "official",
+  "user": {
+    "id": 92125,
+    "name": "Joseph LePage",
+    "username": "joe",
+    "bio": "As an AI Automation consultant based in Canada, I partner with forward-thinking organizations to implement AI solutions that streamline operations and drive growth.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/e7ca218dfc87b68344bbd66f40da01546d2f6fc1cf884267821e8a77e3e8410a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    },
+    {
+      "name": "Postgres Chat Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "Other memories"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-03-05T21:40:28.647Z",
+  "path": "official/template_3090/workflow.json"
+}

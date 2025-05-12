@@ -1,0 +1,60 @@
+{
+  "id": 2147,
+  "name": "Snooze Todoist tasks until 3 days before due date",
+  "description": "Use case\nThis workflow snoozes any Todoist tasks, by moving them into a Snoozed todoist list and unsnoozes them 3 days before due date. Helps keep inbox clear only of tasks you need to worry about soon.\n\nHow to setup\nAdd your Todoist creds\nCreate a Todoist project called snoozed\nSet the project ids in the relevant nodes\nAdd due dates to your tasks in Inbox. Watch them disappear to snoozed. Set their date to tomorrow, watch it return to inbox.\n\nHow to adjust this template\nAdjust the timeline.. Maybe 3 days is too close for you. Works mostly for me :)",
+  "totalViews": 576,
+  "source": "official",
+  "user": {
+    "id": 91243,
+    "name": "Mutasem",
+    "username": "mutasem",
+    "bio": "Team lead @ n8n",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/mutasemdmour/\"]",
+    "avatar": "https://gravatar.com/avatar/16d9c92db78317b6af7d0935bee34a47c522cb81d35c234ff76ea580ff1f6c29?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Productivity"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Todoist",
+      "type": "n8n-nodes-base.todoist",
+      "categories": [
+        "Productivity"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Crypto",
+      "type": "n8n-nodes-base.crypto",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Data Transformation"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2024-02-28T18:41:22.978Z",
+  "path": "official/template_2147/workflow.json"
+}

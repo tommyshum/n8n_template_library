@@ -1,0 +1,201 @@
+{
+  "id": 3329,
+  "name": "WooCommerce AI Post-Sales Chatbot with GPT-4o, RAG, Google Drive and Telegram",
+  "description": "This WooCommerce-integrated chatbot is designed to transform post-sales customer support by combining automation and artificial intelligence to deliver fast, secure, and personalized assistance. \n\nThe chatbot retrieves real-time order information, including shipping details and tracking numbers, after verifying the customer's identity through a strict email-based authentication system.\n\nBeyond order management, the chatbot answers frequently asked questions about return policies, delivery times, and terms of service using RAG. \n\nIf a request is too complex, the system seamlessly escalates it to a human operator via Telegram, guaranteeing no customer query goes unresolved. \n\nKey Features of the Chatbot  \nOrder Tracking: Retrieves real-time tracking information for WooCommerce orders, including carrier URLs and pickup dates.  \nOrder Details Retrieval: Provides customers with past/current order information after strict email verification.  \nPolicy & FAQ Assistance: Answers questions about shipping, returns, and store policies using a vectorized knowledge base (ToS tool).  \nIdentity Verification: Ensures privacy by requiring exact email-order matches before sharing sensitive data.  \nHuman Escalation: Transfers complex issues to human agents via Telegram when the AI cannot resolve them.  \nContext-Aware Conversations: Maintains dialogue context using memory buffers for seamless interactions.  \nWho Benefits from This Chatbot?  \nE-commerce Stores: WooCommerce businesses needing 24/7 automated post-sales support.  \nCustomer Support Teams: Reduces ticket volume by handling repetitive queries (tracking, policies).  \nSMBs: Small-to-medium businesses lacking resources for full-time support staff.  \nCustomers: Shoppers who want instant, self-service access to order status and FAQs.  \n\nHow It Works  \nCustomer Interaction: The workflow starts when a customer sends a chat message, triggering the AI agent.  \nIdentity Verification: The agent requests the order number and associated email, strictly verifying the match before proceeding.  \nOrder & Tracking Retrieval: Using WooCommerce API tools (get_order, get_tracking), it fetches order details and tracking information.  \nPolicy & Support: The ToS tool answers shipping and policy questions, while human_assistance escalates unresolved issues to a human agent via Telegram.  \nMemory & Context: A buffer memory retains conversation context for coherent interactions.  \n\nSet Up Steps  \nConfigure Qdrant Vector Store: Replace QDRANTURL and COLLECTION in the nodes to set up document storage.  \nAdd Telegram Chat ID: Insert your Telegram CHAT_ID in the human_assistance node for escalations.  \nIntegrate WooCommerce Tracking Plugin: Install the YITH WooCommerce Order Tracking plugin and update the HTTP request URL in the tracking node.  \nTest & Activate: Verify the workflow by testing order queries and ensuring proper email verification.  \n\nNeed help customizing?  \nContact me for consulting and support or add me on Linkedin. ",
+  "totalViews": 2490,
+  "source": "official",
+  "user": {
+    "id": 92207,
+    "name": "Davide",
+    "username": "n3witalia",
+    "bio": "Full-stack Web Developer based in Italy specialising in Marketing & AI-powered automations. For business enquiries, send me an email at info@n3w.it or add me on Linkedin.com/in/davideboizza",
+    "verified": true,
+    "links": "[\"https://n3w.it\"]",
+    "avatar": "https://gravatar.com/avatar/d41b8a0aa81139243509c58870f5b4be292824a507ab57d10ed066d8628ed8da?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Embeddings"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Token Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterTokenSplitter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Text Splitters"
+        ]
+      }
+    },
+    {
+      "name": "Calculator",
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    },
+    {
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Document Loaders"
+        ]
+      }
+    },
+    {
+      "name": "Qdrant Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreQdrant",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Vector Stores",
+          "Tools",
+          "Root Nodes"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "Vector Store Question Answer Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolVectorStore",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 12,
+  "createdAt": "2025-03-26T08:48:36.972Z",
+  "path": "official/template_3329/workflow.json"
+}

@@ -1,0 +1,94 @@
+{
+  "id": 2187,
+  "name": "Write a WordPress post with AI (starting from a few keywords)",
+  "description": "This n8n workflow template allows you to write WordPress posts by just providing a few keywords. It uses AI technology to write the text and to create the post's featured image. The text includes an introduction, chapters, and conclusions. Each chapter is written independently and this allows you to create also very long articles. The workflow uses technologies provided by Open AI: Chat GPT for the text and Dall-E for the image.\n\nI suggest reviewing the created posts before publishing them on your WordPress website.\n\nThe article generation might take some minutes as each chapter is created independently.\n\nFeatures\n\nEasy to use:** Easy web interface to start the generation of the WordPress post\nAI-powered:** Text and image generation is done by artificial intelligence\nLong-text ready:** Possibility to create very long articles\nConfigurable:** Possibility to provide as many keywords as you want, to choose the number of chapters and the length of the article\nPlugs into your WordPress:** Easily integrates with your WordPress website\nTweak it as you want:** Fine-tune the Open AI prompts and the workflow as you want\n\nWorkflow Steps\n\nUser form:** An n8n form is used to trigger the post creation\nSettings:** This node is used to set your WordPress URL (which is used later in the workflow)\nArticle structure:** First AI action that writes the introduction, the conclusions, and the chapter structure.\nData check:** Check that the data provided by the AI is valid\nChapters split/Chapters text:** Splits the data for each chapter in a separate item and generates each chapter's text with AI\nContent preparation:** Prepares the text for posting merging the introduction, the chapters, and the conclusions. Adds some basic HTML formatting\nDraft on WordPress:** Creates the draft post on WordPress\nFeatured image:** Creates a featured image and adds it to the post on WordPress\nUser feedback:** Sends a feedback to the user on the n8n form\n\nGetting Started\n\nTo deploy and use this template:\n\nImport the workflow into your n8n workspace\nSet your WordPress URL in the wordpress_url field in the \"Settings\" node. Include the slash (/) at the end of the URL\nSet up your Open AI n8n credentials by following this guide. The Open AI credentials are used by the Open AI nodes (\"Create post title and structure\", \"Create chapters text\", and \"Generate featured image\")\nSet up your WordPress n8n credentials by following this guide. The WordPress credentials are used by the WordPress and HTTP Request nodes (\"Post on Wordpress\", \"Upload media\", and \"Set image ID for the post\"). Pay attention that the \"Password\" in the WordPress credentials is not the user's password by the Application Password\n\nHow use the workflow to create a WordPress post\n\nActivate the workflow\nOpen the \"Form\" node and copy the \"Production URL\". This is the public URL of the form to AI-write the post\nOpen the URL in a browser and fill in the form\nWait a few minutes till you get the feedback in the form that the post was created\nGo to WordPress and check the newly created draft post. Review and publish your post!\n",
+  "totalViews": 60475,
+  "source": "official",
+  "user": {
+    "id": 91279,
+    "name": "Giulio",
+    "username": "gandreini",
+    "bio": "Product designer at n8n, founder of Mondo surf atlas and forecast",
+    "verified": false,
+    "links": "[\"https://www.linkedin.com/in/giulioandreini/\"]",
+    "avatar": "https://gravatar.com/avatar/8881c112afdb9ed815d053eef68dd3d35629caec4ec9ab505eb57e7279791230?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Marketing",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Wordpress",
+      "type": "n8n-nodes-base.wordpress",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Wikipedia",
+      "type": "@n8n/n8n-nodes-langchain.toolWikipedia",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Other Tools"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2024-03-22T10:05:07.828Z",
+  "path": "official/template_2187/workflow.json"
+}

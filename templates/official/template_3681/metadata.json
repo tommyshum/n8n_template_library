@@ -1,0 +1,71 @@
+{
+  "id": 3681,
+  "name": "Extract Amazon Best Seller Electronic Info with Bright Data and Google Gemini",
+  "description": "Who this is for?\n\nExtract Amazon Best Seller Electronic Info is an automated workflow that extracts best seller data from Amazon's Electronics section using Bright Data Web Unlocker, transform it into structured JSON using Google Gemini's LLM, and forwards a fully structured JSON response to a specified webhook for downstream use.\n\nThis workflow is tailored for:\n\neCommerce Analysts**\nWho need to monitor Amazon best-seller trends in the Electronics category and track changes in real-time or on a schedule.\n\nProduct Intelligence Teams**\nWho want structured insights on competitor offerings, including rankings, prices, ratings, and promotions.\n\nAI-powered Chatbot Developers**\nWho are building assistants capable of answering product-related queries with fresh, structured data from Amazon.\n\nGrowth Hackers & Marketers**\nLooking to automate competitive research and surface trending product data to inform pricing strategies.\n\nData Aggregators and Price Trackers**\nWho need reliable and smart scraping of Amazon data enriched with AI-driven parsing.\n\nWhat problem is this workflow solving?\nKeeping up with Amazon's best sellers in Electronics is a time-consuming, error-prone task when done manually.This workflow automates the process, ensuring:​\n\nAutomating Data Extraction from Amazon Best Sellers using Bright Data, ensuring reliable access to real-time, structured data.\n\nEnhancing Raw Data with Google Gemini, turning product lists into structured JSON using the Google Gemini LLM.\n\nSending Results to a Webhook, enabling seamless integration into dashboards, databases, or chatbots.\n\nWhat this workflow does\n\nThe workflow performs the following steps:​\n\nExtracts Amazon Best Seller Electronics page info using Bright Data's Web Unlocker API.\n\nProcesses the unstructured content using Google Gemini's Flash Exp model to extract structured product data.\n\nSends the structured information to a webhook endpoint.\n\nSetup\nSign up at Bright Data.\nNavigate to Proxies & Scraping and create a new Web Unlocker zone by selecting Web Unlocker API under Scraping Solutions.\nIn n8n, configure the Header Auth account under Credentials (Generic Auth Type: Header Authentication).\n\nThe Value field should be set with the\nBearer XXXXXXXXXXXXXX. The XXXXXXXXXXXXXX should be replaced by the Web Unlocker Token.\nIn n8n, configure the Google Gemini(PaLM) Api account with the Google Gemini API key (or access through Vertex AI or proxy).\nUpdate the Amazon URL with the Bright Data zone by navigating to the Amazon URL with the Bright Data Zone node.\nUpdate the Webhook HTTP Request node with the Webhook endpoint of your choice.\n\nHow to customize this workflow to your needs\n\nThis workflow is built to be flexible - whether you're a market researcher, e-commerce entrepreneur, or data analyst. Here's how you can adapt it to fit your specific use case:\n\nChange the Amazon Category**\nUpdate the Amazon URL with the topic of your interest such as Computers & Accessories, Home Audio, etc.\n\nCustomize the Gemini Prompt**\nUpdate the Gemini prompt to get different styles of output — comparison tables, summaries, feature highlights, etc.\n\nSend Output to Other Destinations**\nReplace the Webhook URL to forward output to:\n\nGoogle Sheets\nAirtable\nSlack or Discord\nCustom API endpoints\n\n\n\n",
+  "totalViews": 924,
+  "source": "official",
+  "user": {
+    "id": 93657,
+    "name": "Ranjan Dailata",
+    "username": "ranjancse",
+    "bio": "",
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/7b74fe44a7ad32db7c783b972deb5848a4b1f043377bce4039737ed66da8305f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Information Extractor",
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-04-23T23:12:11.729Z",
+  "path": "official/template_3681/workflow.json"
+}

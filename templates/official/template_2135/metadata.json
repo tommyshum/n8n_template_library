@@ -1,0 +1,70 @@
+{
+  "id": 2135,
+  "name": "Enrich new leads in Pipedrive and send an alert to Slack for high-quality ones",
+  "description": "Use Case\nThis workflow is beneficial when you're automatically adding new leads to your Pipedrive CRM. Usually, you'd have to manually review each lead to determine if they're a good fit. This process is time-consuming and increases the chances of missing important leads. This workflow ensures every new lead is promptly evaluated upon addition.\nWhat this workflow does\nThe workflow runs every 5 minutes. On every run, it checks your new Pipedrive leads and enriches them with Clearbit. It then marks items as enriched and checks if the company of the new lead matches certain criteria (in this case if they are B2B and have more than 100 employees) and sends a Slack alert to a channel for every match.\nPre Conditions\nYou must have Pipedrive, Clearbit, and Slack accounts. You also need to set up the custom fields Domain and Enriched at in Pipedrive.\nSetup\nGo to Company Settings -&gt; Data fields -&gt; Organization and add Domain as a custom field\nGo to Company Settings -&gt; Data fields -&gt; Leads and add Enriched at as a custom date field\nAdd your Pipedrive, Clearbit and Slack credentials.\nFill the setup node below. To get the ID of your custom domain fields, simply run the Show only custom organization fields and Show only custom lead fields nodes below and copy the keys of your domain, and enriched at fields.\nHow to adjust this workflow to your needs\nModify the criteria to suit your definition of an interesting lead.\nIf you only want to focus on interesting leads in Pipedrive, add a node that archives all others.\n\nThis workflow was built using n8n version 1.29.1\n",
+  "totalViews": 1514,
+  "source": "official",
+  "user": {
+    "id": 91250,
+    "name": "Niklas Hatje",
+    "username": "nik8n",
+    "bio": "Product Manager at n8n - Responsible for the creator program",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/niklashatje/\"]",
+    "avatar": "https://gravatar.com/avatar/e16a4426e166713c34626bdde856b1cd15bb6787481a7ead9b74318f19e6259d?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Sales",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Pipedrive",
+      "type": "n8n-nodes-base.pipedrive",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Clearbit",
+      "type": "n8n-nodes-base.clearbit",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2024-02-28T10:26:13.483Z",
+  "path": "official/template_2135/workflow.json"
+}

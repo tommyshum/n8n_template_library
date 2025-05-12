@@ -1,0 +1,236 @@
+{
+  "id": 2409,
+  "name": "Weekly reminder on your notion tasks with a deadline",
+  "totalViews": 1476,
+  "purchaseUrl": null,
+  "user": {
+    "id": 91963,
+    "name": "David",
+    "username": "unitize",
+    "bio": "You need help implementing a custom n8n workflow?\nFeel free to contact me via LinkedIn or my business website: unitize.de\n\nYou want to start using n8n?\nUse this affiliate link: https://n8n.partnerlinks.io/edr9c63lw12z",
+    "verified": false,
+    "links": "[\"https://www.linkedin.com/in/david-moors-95b9061b5/\"]",
+    "avatar": "https://gravatar.com/avatar/a9e5671c86ac556ed95d8c8f614afea1e67c3b09b507da53c15df3137b3910f8?r=pg&d=retro&size=200"
+  },
+  "description": "Who might benfit from this workflow?\nEveryone organizing him/herself by using a notion database for tasks but losing track on some important tasks having a deadline. The weekly reminder helps you to not forget about your notion tasks.\n\nHow it works:\nThe workflow fetches all your notion tasks from a desired database but the closed ones\nIt generates a html template for each tasks containing a headline and a short list of key data (prio, status deadline, tags)\nIt creates two groups based on the deadline date if a task is already overdue or not\nIt generates a complete html email containing both groups and some sugar around them\nIt sends the email to your desired email\nIt uses Pushover to send you a push notification to your phone\nIt is scheduled by the beginning of each week\n\nHow to set it up:\nFill out the \"Set Workflow vars\" node with your data\nConnect your notion account and select the database your tasks are stored at\ndefine the status filters to the ones you are using for your tasks\nSetup your email server to enable the email node to deliver your html email\nCreate a Pushover account and setup the authentication for the Pushover node\nAdjust the last html node to change email style for your desire\n\nHow to customize this workflow for your needs?\nYou might adjust the filtering of the notion fetch node to filter for other statuses than provided in the example.\nYou apply your custom design to the html email\nYou could remove the filter which is filtering for tasks having a deadline and just send yourself a reminder for all tasks\n\nYou need help implementing this or any other n8n workflow?\nFeel free to contact me via LinkedIn or my business website.\n\nYou want to start using n8n?\nUse this link to register for n8n\n(This is an affiliate link)\n\n",
+  "createdAt": "2024-09-12T07:58:50.225Z",
+  "nodes": [
+    {
+      "id": 11,
+      "icon": "fa:envelope",
+      "name": "n8n-nodes-base.emailSend",
+      "codex": {
+        "data": {
+          "alias": [
+            "SMTP",
+            "email",
+            "human",
+            "form",
+            "wait",
+            "hitl",
+            "approval"
+          ],
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/2021-the-year-to-automate-the-new-you-with-n8n/",
+                "icon": "☀️",
+                "label": "2021: The Year to Automate the New You with n8n"
+              },
+              {
+                "url": "https://n8n.io/blog/build-your-own-virtual-assistant-with-n8n-a-step-by-step-guide/",
+                "icon": "👦",
+                "label": "Build your own virtual assistant with n8n: A step by step guide"
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.sendemail/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/credentials/sendemail/"
+              }
+            ]
+          },
+          "categories": [
+            "Communication",
+            "HITL",
+            "Core Nodes"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0",
+          "subcategories": {
+            "HITL": [
+              "Human in the Loop"
+            ]
+          }
+        }
+      },
+      "group": "[\"output\"]",
+      "defaults": {
+        "name": "Send Email",
+        "color": "#00bb88"
+      },
+      "iconData": {
+        "icon": "envelope",
+        "type": "icon"
+      },
+      "displayName": "Send Email",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 6,
+          "name": "Communication"
+        },
+        {
+          "id": 9,
+          "name": "Core Nodes"
+        },
+        {
+          "id": 28,
+          "name": "HITL"
+        }
+      ]
+    },
+    {
+      "id": 383,
+      "icon": "file:pushover.svg",
+      "name": "n8n-nodes-base.pushover",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.pushover/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/pushover/"
+              }
+            ]
+          },
+          "categories": [
+            "Communication"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"input\"]",
+      "defaults": {
+        "name": "Pushover"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxjaXJjbGUgY3g9IjUxMiIgY3k9IjUxMiIgcj0iNTEyIiBzdHlsZT0iZmlsbDojMjQ5ZGYxIi8+PHBhdGggZD0ibTQ5NS42IDMxOS40IDEwNC0xMy43LTEwMS4zIDIyOC42YzE3LjgtMS40IDM1LjItNy40IDUyLjMtMTguMXMzMi45LTI0LjIgNDcuMi00MC40YzE0LjQtMTYuMiAyNi44LTM0LjIgMzcuMy01NC4xIDEwLjUtMTkuOCAxOC0zOS40IDIyLjYtNTguNSAyLjctMTEuOSA0LTIzLjMgMy44LTM0LjJzLTMuMS0yMC41LTguNi0yOC43LTEzLjgtMTQuOC0yNS0xOS44LTI2LjMtNy41LTQ1LjUtNy41Yy0yMi40IDAtNDQuNCAzLjYtNjYgMTAuOS0yMS43IDcuMy00MS43IDE3LjktNjAuMiAzMS44cy0zNC41IDMxLjItNDguMiA1MnEtMjAuNTUgMzEuMi0yOS40IDcwLjhjLTIuMyA4LjctMy42IDE1LjYtNC4xIDIwLjlzLS42IDkuNi0uMyAxM2MuMiAzLjQuNyA2LjEgMS40IDcuOXMxLjMgMy42IDEuNyA1LjVjLTIzLjMgMC00MC4zLTQuNy01MS0xNHMtMTMuMy0yNS43LTcuOS00OC45YzUuNS0yNC4yIDE3LjktNDcuMiAzNy4zLTY5LjFzNDIuNC00MS4yIDY5LjEtNTcuOCA1NS45LTI5LjkgODcuNi0zOS43cTQ3LjU1LTE0LjcgOTIuNy0xNC43YzI2LjUgMCA0OC43IDMuOCA2Ni43IDExLjNzMzIuMSAxNy41IDQyLjEgMjkuOCAxNi4zIDI2LjcgMTguOCA0My4xcTMuNzUgMjQuNi0yLjQgNTEuM2MtNSAyMS40LTE0LjUgNDMtMjguNCA2NC43cy0zMS40IDQxLjMtNTIuMyA1OC44Yy0yMSAxNy42LTQ1IDMxLjgtNzIuMiA0Mi44LTI3LjEgMTAuOS01NiAxNi40LTg2LjYgMTYuNGgtMy40bC04Ni45IDE5NUgzMDJ6IiBzdHlsZT0iZmlsbDojZmZmIi8+PC9zdmc+"
+      },
+      "displayName": "Pushover",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 6,
+          "name": "Communication"
+        }
+      ]
+    },
+    {
+      "id": 487,
+      "icon": "file:notion.svg",
+      "name": "n8n-nodes-base.notion",
+      "codex": {
+        "data": {
+          "resources": {
+            "generic": [
+              {
+                "url": "https://n8n.io/blog/5-tasks-you-can-automate-with-notion-api/",
+                "icon": "⚡️",
+                "label": "5 tasks you can automate with the new Notion API "
+              }
+            ],
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.notion/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/notion/"
+              }
+            ]
+          },
+          "categories": [
+            "Productivity"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0"
+        }
+      },
+      "group": "[\"output\"]",
+      "defaults": {
+        "name": "Notion"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik03LjU4Mjc2IDYuOTc2NzlDOC44MjA0NyA3Ljk4MjM4IDkuMjg0NzkgNy45MDU2NiAxMS42MDkxIDcuNzUwNTdMMzMuNTIwNiA2LjQzNDg4QzMzLjk4NTMgNi40MzQ4OCAzMy41OTg5IDUuOTcxMjcgMzMuNDQzOSA1Ljg5NDIzTDI5LjgwNDkgMy4yNjM0OEMyOS4xMDc2IDIuNzIyMTMgMjguMTc4NiAyLjEwMjE3IDI2LjM5ODIgMi4yNTcyNkw1LjE4MTE1IDMuODA0NzZDNC40MDczNiAzLjg4MTQ4IDQuMjUyODIgNC4yNjgzNyA0LjU2MDk2IDQuNTc4NDdMNy41ODI3NiA2Ljk3Njc5Wk04Ljg5ODI5IDEyLjA4MzNWMzUuMTM4MUM4Ljg5ODI5IDM2LjM3NzEgOS41MTc0NiAzNi44NDA3IDEwLjkxMSAzNi43NjRMMzQuOTkxOSAzNS4zNzA2QzM2LjM4NjIgMzUuMjkzOSAzNi41NDE1IDM0LjQ0MTcgMzYuNTQxNSAzMy40MzUyVjEwLjUzNTFDMzYuNTQxNSA5LjUzMDE5IDM2LjE1NDkgOC45ODgyOSAzNS4zMDE0IDkuMDY1NjRMMTAuMTM2NyAxMC41MzUxQzkuMjA3OTkgMTAuNjEzMSA4Ljg5ODIxIDExLjA3NzcgOC44OTgyMSAxMi4wODMzSDguODk4MjlaTTMyLjY3MDggMTMuMzJDMzIuODI1MiAxNC4wMTcgMzIuNjcwOCAxNC43MTMzIDMxLjk3MjUgMTQuNzkxN0wzMC44MTIzIDE1LjAyMjlWMzIuMDQzNEMyOS44MDQ5IDMyLjU4NDggMjguODc1OSAzMi44OTQ0IDI4LjEwMTggMzIuODk0NEMyNi44NjI1IDMyLjg5NDQgMjYuNTUyMSAzMi41MDcyIDI1LjYyMzcgMzEuMzQ3NEwxOC4wMzQzIDE5LjQzMjlWMzAuOTYwNUwyMC40MzU5IDMxLjUwMjRDMjAuNDM1OSAzMS41MDI0IDIwLjQzNTkgMzIuODk0NCAxOC40OTgzIDMyLjg5NDRMMTMuMTU2OCAzMy4yMDQyQzEzLjAwMTYgMzIuODk0NCAxMy4xNTY4IDMyLjEyMTQgMTMuNjk4NiAzMS45NjY1TDE1LjA5MjUgMzEuNTgwMlYxNi4zMzg1TDEzLjE1NzIgMTYuMTgzNEMxMy4wMDE5IDE1LjQ4NjQgMTMuMzg4NSAxNC40ODE0IDE0LjQ3MzMgMTQuNDAzNUwyMC4yMDM1IDE0LjAxNzJMMjguMTAxOCAyNi4wODY4VjE1LjQwOTdMMjYuMDg4MSAxNS4xNzg2QzI1LjkzMzUgMTQuMzI2NSAyNi41NTIxIDEzLjcwNzggMjcuMzI2NSAxMy42MzExTDMyLjY3MDggMTMuMzJaTTMuMzk5NzMgMS43MTU5OEwyNS40Njg4IDAuMDkwNzQ1N0MyOC4xNzkgLTAuMTQxNjg4IDI4Ljg3NjMgMC4wMTQwMjQ1IDMwLjU3OTYgMS4yNTEzNUwzNy42MjQzIDYuMjAyNzZDMzguNzg2NyA3LjA1NDIxIDM5LjE3NDIgNy4yODYwMiAzOS4xNzQyIDguMjE0MTlWMzUuMzcwNkMzOS4xNzQyIDM3LjA3MjYgMzguNTU0MiAzOC4wNzkxIDM2LjM4NjUgMzguMjMzMUwxMC43NTc3IDM5Ljc4MDdDOS4xMzA0OSAzOS44NTgzIDguMzU2MDcgMzkuNjI2NCA3LjUwMzkyIDM4LjU0MjZMMi4zMTYwOCAzMS44MTE3QzEuMzg2NTggMzAuNTcyNiAxIDI5LjY0NTcgMSAyOC41NjEzVjQuNDIyODNDMSAzLjAzMTA1IDEuNjIwMTkgMS44NzAwNSAzLjM5OTczIDEuNzE1OThWMS43MTU5OFoiIGZpbGw9ImJsYWNrIi8+Cjwvc3ZnPgo="
+      },
+      "displayName": "Notion",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 4,
+          "name": "Productivity"
+        }
+      ]
+    },
+    {
+      "id": 842,
+      "icon": "file:html.svg",
+      "name": "n8n-nodes-base.html",
+      "codex": {
+        "data": {
+          "alias": [
+            "extract",
+            "template",
+            "table"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.html/"
+              }
+            ]
+          },
+          "categories": [
+            "Core Nodes"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0",
+          "subcategories": {
+            "Core Nodes": [
+              "Data Transformation"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "HTML"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTguNjQwNjIgMEgxMC40Mzc1VjEuNzgxMjVIMTIuMDkzN1YwSDEzLjg5MDZWNS4zOTA2MkgxMi4wOTM3VjMuNTkzNzVIMTAuNDUzMVY1LjM5MDYySDguNjQwNjJNMTYuMjY1NiAxLjc5Njg3SDE0LjY3OTdWMEgxOS42NTYyVjEuNzk2ODdIMTguMDYyNVY1LjM5MDYySDE2LjI2NTZNMjAuNDQ1MyAwSDIyLjMyODFMMjMuNDg0NCAxLjg5ODQ0TDI0LjY0MDYgMEgyNi41MjM0VjUuMzkwNjJIMjQuNzI2NlYyLjcxODc1TDIzLjQ2ODcgNC42NTYyNUwyMi4yMTA5IDIuNzE4NzVWNS4zOTA2MkgyMC40NDUzTTI3LjQxNDEgMEgyOS4yMTA5VjMuNjA5MzdIMzEuNzU3OFY1LjM5MDYySDI3LjQxNDEiIGZpbGw9ImJsYWNrIi8+CjxwYXRoIGQ9Ik04LjU3ODEyIDM2Ljc5NjlMNiA3Ljg1OTM4SDM0LjM0MzdMMzEuNzY1NiAzNi43ODEyTDIwLjE0ODQgNDAiIGZpbGw9IiNFNDREMjYiLz4KPHBhdGggZD0iTTIwLjE3MTkgMzcuNTM5MVYxMC4yMzQ0SDMxLjc1NzhMMjkuNTQ2OSAzNC45MjE5IiBmaWxsPSIjRjE2NTI5Ii8+CjxwYXRoIGQ9Ik0xMS4yNjU2IDEzLjc3MzRIMjAuMTcxOVYxNy4zMjAzSDE1LjE1NjJMMTUuNDg0NCAyMC45NTMxSDIwLjE3MTlWMjQuNDkyMkgxMi4yMzQ0TTEyLjM5MDYgMjYuMjczNEgxNS45NTMxTDE2LjIwMzEgMjkuMTA5NEwyMC4xNzE5IDMwLjE3MTlWMzMuODc1TDEyLjg5MDYgMzEuODQzNyIgZmlsbD0iI0VCRUJFQiIvPgo8cGF0aCBkPSJNMjkuMDQ2OSAxMy43NzM0SDIwLjE1NjJWMTcuMzIwM0gyOC43MTg3TTI4LjM5ODQgMjAuOTUzMUgyMC4xNTYyVjI0LjVIMjQuNTMxMkwyNC4xMTcyIDI5LjEwOTRMMjAuMTU2MiAzMC4xNzE5VjMzLjg1OTRMMjcuNDIxOSAzMS44NDM3IiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K"
+      },
+      "displayName": "HTML",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 9,
+          "name": "Core Nodes"
+        }
+      ]
+    }
+  ]
+}

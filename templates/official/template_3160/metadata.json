@@ -1,0 +1,130 @@
+{
+  "id": 3160,
+  "name": "AI-Powered Technical Analyst with Perplexity R1 Research",
+  "description": "\n\nLeverage the latest AI technology to analyze financial charts and make informed trading decisions with our Technical Analysis AI Agent. This powerful workflow combines Claude Sonnet  3.7 vision capabilities with Perplexity deep reasoning and up-to-date internet information to deliver comprehensive market analysis.\n\nKey Capabilities:\n\nVisual Chart Analysis** - AI vision technology examines technical charts to identify key price points, volume patterns, and trend indicators\nFundamental Research Integration** - Combines technical analysis with real-time fundamental data using DeepSeek R1 reasoning\nFully Cited Reports** - Fundamental analysis backed by verifiable sources for confident decision-making\nAutomated Email Delivery** - Receive complete analysis reports directly to your inbox\n\nHow It Works:\n\nThis workflow orchestrates multiple AI components to analyze financial instruments:\n\nThe Technical Analysis Leader coordinates the entire analysis process\nChart analysis tool identifies the appropriate exchange and downloads Trading View charts\nAI Vision examines the chart for technical indicators including RSI, volume patterns, and support/resistance levels\nPerplexity tool conducts fundamental research using DeepSeek R1 reasoning capabilities\nAll data is synthesized into a comprehensive report with trading recommendations\nResults can be automatically emailed for reference\n\nSetup Instructions:\nQuick start video included in the template.\n\nGet API key from OpenRouter.ai to access the Sonnet 3.7 model\nGet API key from chart-img.com to access tradingview charts\nConnect the Gmail node for email delivery functionality\n\n\nIMPORTANT DISCLAIMER:\nThis tool provides technical analysis for informational purposes only and should not be construed as investment advice. This AI-powered technical analysis tool is designed to assist with market analysis but should not be used as the sole basis for any investment decision\n\n",
+  "totalViews": 1360,
+  "source": "official",
+  "user": {
+    "id": 91384,
+    "name": "Derek Cheung",
+    "username": "derekcheungsa",
+    "bio": "Derek is an engineer, instructor, and investor based in Canada. He is publicly building AI applications to solve real-world problems, leveraging his technical expertise to develop practical solutions.",
+    "verified": true,
+    "links": "[\"https://www.youtube.com/@derekcheungsa\"]",
+    "avatar": "https://gravatar.com/avatar/1d8dbb30401a76425734d4319abbaa38548b7572064ca080740bbfe60324772a?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    },
+    {
+      "name": "OpenRouter Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-03-14T04:04:16.479Z",
+  "path": "official/template_3160/workflow.json"
+}

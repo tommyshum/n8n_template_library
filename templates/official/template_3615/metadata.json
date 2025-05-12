@@ -1,0 +1,57 @@
+{
+  "id": 3615,
+  "name": "Verify Telegram Channel Subscriptions with Access Control using Postgres",
+  "description": "\nWho is this for?  \nThis workflow is for Telegram bot developers or marketers who want to verify user subscriptions to specific Telegram channels and optionally reward them with downloadable files.\n\nWhat problem is this workflow solving?  \nThis workflow ensures users have subscribed to required Telegram channels before they are granted access to resources or rewards, such as Google Drive files. It automates the subscription verification process, saving time and reducing manual effort.\n\nWhat this workflow does  \nVerifies if a user is subscribed to specific Telegram channels.  \nAllows adding and removing channel IDs for verification.  \nSends referral links to users for subscription checks.  \nOptionally grants access to Google Drive files upon successful verification (currently inactive)\nSetup  \nAdd the bot to your Telegram channels as an admin – this is required for the bot to check subscription status.  \nAdd channel IDs via the bot – these are the channels users will need to subscribe to.  \nSend the referral link to users you want to verify.  \nRemove channels anytime from the subscription check list if needed.  \nCreate tables in Postgres:  \n   Replace \"n8n\" in the provided SQL script with your DB schema name.  \n   Run the script in your Postgres DB.  \nAdd credentials:  \n   Telegram  \n   Postgres  \n\nHow to customize this workflow to your needs  \nModify the SQL script to suit your existing database structure.  \nAdjust the logic to enable or disable file delivery from Google Drive.  ",
+  "totalViews": 89,
+  "source": "official",
+  "user": {
+    "id": 93883,
+    "name": "Andrew",
+    "username": "boanse",
+    "bio": "Analyst-Developer",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/61d84d897d0411ddab1209f44480478b3e19bc319b0a3b69dd0419d51b2fbdd3?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Data & Storage",
+    "Communication",
+    "HITL"
+  ],
+  "nodes": [
+    {
+      "name": "Postgres",
+      "type": "n8n-nodes-base.postgres",
+      "categories": [
+        "Development",
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 3,
+  "createdAt": "2025-04-19T18:20:13.113Z",
+  "path": "official/template_3615/workflow.json"
+}

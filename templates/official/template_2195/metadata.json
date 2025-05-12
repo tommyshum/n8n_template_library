@@ -1,0 +1,38 @@
+{
+  "id": 2195,
+  "name": "Simplest way to create a Stripe Payment Link",
+  "description": "🎉 Do you want to master AI automation, so you can save time and build cool stuff? \n\nI’ve created a welcoming Skool community for non-technical yet resourceful learners.\n\n👉🏻 Join the AI Atelier 👈🏻\n\nAccepting payments via credit card online is a crucial component for the majority of businesses. Stripe provides a robust suite of tools for processing payments, yet many people still find it challenging to create a simple payment page and distribute it to their customers.\n\n📋 Blog post\n📺 Youtube Video\n\nThis n8n workflow aims to offer the simplest and most direct method for generating a Stripe payment link.\n\nFeatures\nQuick Stripe Payment Link Creation:** Simply enter a title and select a price to create a Stripe payment link in seconds.\n\nSet Up Steps\nConnect your Stripe credentials. \nFill the config node (currency).\n\nThis n8n workflow template is crafted to significantly reduce the creation time of a Stripe Payment link.\n\nCreated by the n8ninja.",
+  "totalViews": 4198,
+  "source": "official",
+  "user": {
+    "id": 91529,
+    "name": "Emmanuel Bernard",
+    "username": "n8ninja",
+    "bio": "🎉 Do you want to master AI automation, so you can save time and build cool stuff?\n\nI’ve created a welcoming Skool community for non-technical yet resourceful learners.",
+    "verified": true,
+    "links": "[\"https://www.skool.com/the-ai-atelier\"]",
+    "avatar": "https://gravatar.com/avatar/6c38a38d8002fa989515b5c11340ca14512f929dfd15a5a57422950f58441b12?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 1,
+  "createdAt": "2024-03-26T14:22:15.711Z",
+  "path": "official/template_2195/workflow.json"
+}

@@ -1,0 +1,124 @@
+{
+  "id": 3302,
+  "name": "Transform Press Releases (PDF & Word) into Polished Articles with Gmail & OpenAI",
+  "description": "This n8n workflow automates the transformation of press releases into polished articles. It converts the content of an email and its attachments (PDF or Word documents) into an AI-written article/blog post. \n\nWhat does it do?\nThis workflow assists editors and journalists in managing incoming press-releases from governments, companies, NGOs, or individuals. The result is a draft article that can easily be reviewed by the editor, who receives it in a reply email containing both the original input and the output, plus an AI-generated self-assessment. This self-assessment represents an additional feedback loop where the AI compares the input with the output to evaluate the quality and accuracy of its transformation.\n\nHow does it work?\nTriggered by incoming emails in Google, it first filters attachments, retaining only Word and PDF files while removing other formats like JPGs. The workflow then follows one of three paths:\n\n    If no attachments remain, it processes the inline email message directly.\n    For PDF attachments, it uses an extractor to obtain the document content.\n    For Word attachments, it extracts the text content by a http request.\n\nIn each case, the extracted content is then passed to an AI agent that converts the press release into a well-structured article according to predefined prompts. A separate AI evaluation step provides a self-assessment by comparing the output with the original input to ensure quality and accuracy. Finally, the workflow generates a reply email to the sender containing three components: the original input, the AI-generated article, and the self-assessment. This streamlined process helps editors and journalists efficiently manage incoming press releases, delivering draft articles that require minimal additional editing.\"  \n\nHow to set it up\n1. Configure Gmail Connection: \nCreate or use an existing Gmail address\nConnect it through the n8n credentials manager\nConfigure polling frequency according to your needs\nSet the trigger event to \"Message Received\"\n        Optional: Filter incoming emails by specifying authorized senders\nEnable the \"Download Attachments\" option\n\n2. Set Up AI Integration:\nCreate an OpenAI account if you don't have one\nCreate a new AI assistant or use an existing one\nCustomize the assistant with specific instructions, style guidelines, or response templates\nConfigure your API credentials in n8n to enable the connection\n\n3. Configure Google Drive Integration:\nConnect your Google Drive credentials in n8n\nSet the operation mode to \"Upload\"\nConfigure the input data field name as \"data\"\n-Set the file naming format to dynamic: {{ $json.fileName }}\n\n4. Configure HTTP Request Node:\nSet request method to \"POST\"\nEnter the appropriate Google API endpoint URL\nInclude all required authorization headers\nStructure the request body according to API specifications\nEnsure proper error handling for API responses\n\n5. Configure HTTP Request Node 2:\n\nSet request method to \"GET\"\nEnter the appropriate Google API endpoint URL\nInclude all required authorization headers\nConfigure query parameters as needed\nImplement response validation and error handling\n\n6.  Configure Self-Assessment Node:\n\nSet operation to \"Message a Model\"\nSelect an appropriate AI model (e.g., GPT-4, Claude)\nConfigure the following prompt in the Message field:\n\n\n\nPlease analyze and compare the following input and output content:\n\n(for example)\n\nOriginal Input:\n{{ $('HTTP Request3').item.json.data }}\n{{ $('Gmail Trigger').item.json.text }}\n\nGenerated Output:\n{{ $json.output }}\n\nProvide a detailed self-assessment that evaluates:\nContent accuracy and completeness\nStructure and readability improvements\nTone and style appropriateness\nAny information that may have been omitted or misrepresented\nOverall quality of the transformation\n\n7. Configure Reply Email Node:\n\nSet operation to \"Send\" and select your Gmail account\nConfigure the \"To\" field to respond to the original sender: {{ $('Gmail Trigger').item.json.from }}\nSet an appropriate subject line: RE: {{ $('Gmail Trigger').item.json.subject }}\nStructure the email body with clear sections using the following template:\n\nhandlebars\n\nEDITED ARTICLE*   \n\n{{ $('AI Article Writer 2').item.json.output }}\n\nSELF-ASSESSMENT*\nRating: 1 (poor) to 5 (excellent)\n{{ $json.message.content }}\n\nORIGINAL MESSAGE*\n\n{{ $('Gmail Trigger').item.json.text }}\n\nATTACHMENT CONTENT*\n\n{{ $('HTTP Request3').item.json.data }}\n\n    Note: Adjust the template fields according to the input source (PDF, Word document, or inline message). For inline messages, you may not need the \"ATTACHMENT CONTENT\" section.\n",
+  "totalViews": 1232,
+  "source": "official",
+  "user": {
+    "id": 93366,
+    "name": "Julian Reich ",
+    "username": "julianreich",
+    "bio": "",
+    "verified": false,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/854a7462ee146ea7dbe42fafb96cf53247b160886481cda58e4cb3e4e7e785c4?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Data & Storage",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "categories": [
+        "Data & Storage"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Anthropic Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Miscellaneous",
+          "Root Nodes"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 7,
+  "createdAt": "2025-03-24T08:01:17.609Z",
+  "path": "official/template_3302/workflow.json"
+}

@@ -1,0 +1,113 @@
+{
+  "id": 2219,
+  "name": "Transforming Emails into Podcasts ",
+  "description": "Transforming Emails into Podcasts 🎙️\n\nCheck out this channel for example.\n\nThe n8n workflow described here aims to revolutionize the way users engage with promotional emails by converting them into entertaining audio podcasts. This innovative project leverages automation through n8n to streamline tasks and enhance user experience.\n\nProject Benefit 🎧🌟\n\nThe primary goal of this project is to transform \"CATEGORY_PROMOTIONS\" emails into engaging audio content. By converting text into speech, users can enjoy promotional material hands-free, making it easier to consume information while on the go or relaxing. The workflow consists of several key steps orchestrated seamlessly to deliver a delightful experience to users.\n\nHow to Use the Workflow:\n\nGmail trigger Node: Initiates the workflow by fetching \"CATEGORY_PROMOTIONS\" emails at regular intervals.\n\n     The Gmail Trigger node in your N8N workflow is set to poll for new emails every minute and is configured to filter emails with the label \"CATEGORY_PROMOTIONS\" before triggering the workflow.\n\nSteps to Use Filters Inside the Gmail Trigger Node:\n\n\n\n   Configure Gmail Trigger Node:\n\n   Set \"Poll Times\" to \"Every Minute\" to check for new emails at regular intervals.\nEnable the \"Simple\" toggle if you want to simplify the node interface.\nUnder \"Filters\", specify the label IDs you want to filter by. In this case, it's set to \"CATEGORY_PROMOTIONS\".\nAdjust any additional options as needed.\n\n\n    // Configure Gmail Trigger node pollTimes: { item: [ { mode: \"everyMinute\" } ] }, simple: false, filters: { labelIds: [ \"CATEGORY_PROMOTIONS\" ] }, options: {}\n\n\n\n      Save and Execute:\n   Save your workflow and execute it to start monitoring your Gmail account for new emails with the specified label filter.\n\n     By following these steps, your workflow will effectively trigger based on new emails that match the \"CATEGORY_PROMOTIONS\" label in your Gmail account.\n\nGet message content Node: Extracts the email content for processing.\n      \nSummarization Chain Node: Generates concise summaries using advanced methods for better readability.\n   \nDelete the unnecessary items Node: Removes irrelevant details from the email content.\n   \nText to Free TTS Node: Converts the summary text into speech using Free TTS technology.\n   \nConvert from base64 to File Node: Transforms the audio data into a compatible file format.\n   \nMerge Text with Audio Node: Combines the text and audio components seamlessly.\n   \nAggregate in same cell Node: Gathers all processed data for finalization.\n   \nSend Message to Telegram Node: Dispatches the audio message along with a caption to a designated Telegram chat ID.\n\nBy automating these tasks, the workflow ensures efficient communication and delivers content in a more engaging format, fostering a positive user experience.\n\nConfiguration Instructions:\n\nThe configuration of this workflow involves setting up the necessary nodes and establishing connections between them. Each node performs a specific function crucial to the overall operation of the workflow. Additionally, credentials need to be provided for accessing Gmail and OpenAI services to enable seamless data processing and summarization.\n\nUtilizing Text-to-Speech API 🎧\n\nIn addition to n8n automation, an external Text-to-Speech API plays a pivotal role in generating audio content from text data. By sending a POST request with JSON data containing the text and voice preferences, users can quickly receive audio files of the converted content. The API offers a straightforward interface for text-to-speech conversion, making it ideal for creating audio clips efficiently.\n\nTo access this API, simply submit the desired text and voice selection to receive the generated speech audio file. The API endpoint can be accessed at https://tiktok-tts.weilnet.workers.dev/api/generation or through https://tiktokvoicegenerator.com/.\n\nIn conclusion, this n8n workflow coupled with a Text-to-Speech API presents a powerful solution for transforming emails into captivating podcasts, enhancing user engagement and communication effectiveness. By embracing automation and innovative technologies, this project aims to improve user experience and streamline content delivery processes. 🌈✨🚀",
+  "totalViews": 4778,
+  "source": "official",
+  "user": {
+    "id": 91423,
+    "name": "AlQaisi",
+    "username": "omar",
+    "bio": "I'm specialize in automation and AI, developing innovative solutions to enhance efficiency and drive innovation. With expertise in advanced technologies, I create predictive models for optimal resource allocation. Collaborating with teams, I implement customized automation solutions. Passionate about shaping the future of intelligent automation through digital transformation.",
+    "verified": true,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/d8ed2f53474f44e189350538560e2dbcc2299c9f38c80d30b6a2f56e8bbc7b1f?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "Summarization Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainSummarization",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Chains",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2024-04-08T21:09:20.159Z",
+  "path": "official/template_2219/workflow.json"
+}

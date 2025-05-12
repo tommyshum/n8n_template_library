@@ -1,0 +1,100 @@
+{
+  "id": 2758,
+  "name": "AI-Driven Lead Management and Inquiry Automation with ERPNext & n8n",
+  "description": "Overview\nThis workflow template automates lead management and customer inquiry processing by integrating ERPNext, AI agents, and email notifications. It streamlines the process of capturing leads, analyzing inquiries, and generating actionable responses. The workflow uses ERPNext to capture inquiries, analyzes them with AI, and notifies the appropriate team or individual, all while maintaining a professional approach.\n\nWhat This Template Does\nERPNext Webhook Integration:\n   Captures leads and inquiries through ERPNext webhooks.\n   Triggers the workflow when a new lead is created.\n\nAI-Powered Inquiry Analysis:\n   Uses AI to extract key details from lead notes (e.g., customer name, organization, inquiry summary).\n   Classifies inquiries as valid or invalid based on relevance to products, services, or solutions.\n\nContact Assignment:\n   Matches inquiries to the appropriate contact(s) using a Google Sheets database or ERPNext contact information.\n   Handles multiple contacts if required.\n\nEmail Notifications:\n   Generates professional email notifications for valid inquiries.\n   Sends emails to the appropriate contact(s) with inquiry details and action steps.\n\nInvalid Lead Handling:\n   Identifies invalid inquiries (e.g., unrelated to products or services) and flags them for follow-up or dismissal.\n\nCustom Email Formatting:\n   Converts plain text into professionally formatted HTML emails.\n   Ensures that communication is clear, concise, and visually appealing.\n\nHow It Works\n\nStep 1: Capture Lead Data\nWebhook in ERPNext:**\n  Create a webhook in ERPNext for the \"Lead\" DocType.\n  Set the trigger to on_insert to capture new leads in real-time.\n\nLead Details:**\n  The workflow fetches lead details, including notes, contact information, and the source of the lead.\n\nStep 2: Validate and Analyze Inquiry\nAI Agent for Analysis:**\n  An AI agent analyzes the lead notes to extract key details and classify the inquiry as valid or invalid.\n  The analysis includes checking the relevance of the inquiry to products, services, or solutions offered by the company.\n\nInvalid Leads:**\n  If the inquiry is invalid, the workflow flags it and stops further processing.\n\nStep 3: Assign Contact(s)\nGoogle Sheets Integration:**\n  Uses a Google Sheets database to map products, services, or solutions to responsible contacts.\n  Ensures that inquiries are directed to the right person or team.\n\nMultiple Contacts:**\n  Handles cases where multiple contacts are responsible for a particular product or service.\n\nStep 4: Generate and Send Email Notifications\nAI-Generated Emails:**\n  The workflow generates a professional email summarizing the inquiry.\n  Emails include details like customer name, organization, inquiry summary, and action steps.\n\nCustom HTML Formatting:**\n  Emails are converted to HTML for a polished and professional appearance.\n\nSend Notifications:**\n  Sends email notifications through Microsoft Outlook or another configured email client.\n  Optionally, notifies via WhatsApp or SMS for urgent inquiries.\n\nStep 5: Post-Inquiry Actions\nERPNext Record Updates:**\n  Updates the lead record in ERPNext with relevant details, including inquiry status and contact information.\n\nSetup Instructions\n\nPrerequisites\nERPNext:\n   A configured ERPNext instance with lead data and a webhook for the \"Lead\" DocType.\nGoogle Sheets:\n   A sheet mapping products, services, or solutions to responsible contacts.\nAI Integration:\n   Credentials for OpenAI or other supported AI platforms.\nEmail Client:\n   Credentials for Microsoft Outlook or another email client.\n\nStep-by-Step Setup\nERPNext Configuration:\n   Create a webhook for the \"Lead\" DocType in ERPNext.\n   Test the webhook with sample data to ensure proper integration.\n\nWorkflow Import:\n   Import the workflow template into n8n.\n   Configure nodes with your API credentials for ERPNext, Google Sheets, and AI tools.\n\nGoogle Sheets Integration:\n   Prepare a Google Sheet with columns for product, service, or solution and the responsible contact(s).\n   Link the sheet to the workflow.\n\nAI Agent Configuration:\n   Customize the AI agent’s prompts to align with your business’s products and services.\n   Adjust criteria for valid and invalid inquiries as needed.\n\nEmail Setup:\n   Configure the email client node with your email service credentials.\n   Customize the email template for your organization.\n\nTesting:\n   Run the workflow with sample leads to validate the entire process.\n   Check email notifications, contact assignments, and record updates in ERPNext.\n\nDos and Don’ts\n\nDos:\nTest Thoroughly:** Test the workflow with various scenarios before deploying in production.\nSecure Credentials:** Keep API and email credentials secure to avoid unauthorized access.\nCustomize Prompts:** Tailor AI prompts to match your business needs and language style.\nUse Professional Email Templates:** Ensure emails are clear and well-formatted.\n\nDon’ts:\nSkip Validation:** Always validate inquiry data to avoid sending irrelevant notifications.\nOverload the Workflow:** Avoid adding unnecessary nodes that can slow down processing.\nIgnore Errors:** Monitor logs and address errors promptly for a smooth workflow.\n\nResources\nGET n8n Now  \n\nN8N COURSE  \nn8n Book  \n\nYouTube Tutorial:**  \n  Watch the full step-by-step tutorial on setting up this workflow:  \n  SyncBricks YouTube Channel\n\nCourses and Training:**  \n  Learn more about ERPNext and AI automation through my comprehensive courses:  \n  SyncBricks LMS\n\nSupport and Contact:**  \n  Email: amjid@amjidali.com  \n  Website: SyncBricks  \n  LinkedIn: Amjid Ali\n\n",
+  "totalViews": 4546,
+  "source": "official",
+  "user": {
+    "id": 92318,
+    "name": "Amjid Ali",
+    "username": "amjid",
+    "bio": "**Amjid Ali** is an automation expert and AI enthusiast specializing in creating intelligent workflows using low-code platforms like **n8n**. With a passion for simplifying complex processes, he designs solutions that enhance productivity and streamline operations. As an active contributor to the **n8n Creator Hub**, Amjid shares innovative use cases, practical templates, and best practices, empowering the community to unlock the full potential of workflow automation.",
+    "verified": true,
+    "links": "[\"https://amjidali.com\"]",
+    "avatar": "https://gravatar.com/avatar/8760ed64a38ed65da42983737659c7e295e4a7f14b59ed5ce1b0b1077435f573?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Development",
+    "Core Nodes",
+    "Communication",
+    "HITL",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers"
+        ]
+      }
+    },
+    {
+      "name": "Microsoft Outlook",
+      "type": "n8n-nodes-base.microsoftOutlook",
+      "categories": [
+        "Communication",
+        "HITL"
+      ],
+      "subcategories": {
+        "HITL": [
+          "Human in the Loop"
+        ]
+      }
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 5,
+  "createdAt": "2025-01-20T20:28:59.526Z",
+  "path": "official/template_2758/workflow.json"
+}

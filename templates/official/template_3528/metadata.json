@@ -1,0 +1,110 @@
+{
+  "id": 3528,
+  "name": "Advanced AI-Powered YouTube SEO Optimization & Auto-Update",
+  "description": "Optimize Existing YouTube Video Metadata using AI and YouTube API\n\nThis n8n workflow automatically enhances the Search Engine Optimization (SEO) of your existing YouTube videos. Provide a video link, and the workflow fetches its current data, uses advanced SEO techniques with AI to generate optimized titles, descriptions, and tags, and then updates the video directly on your YouTube channel.\n\nWho is this for?\nThis workflow is designed for:\n\nContent Creators & YouTubers: \nWho want to improve the visibility and reach of their existing video library without manual effort.\n\nDigital Marketers & Social Media Managers: Who manage YouTube channels and need an efficient way to revitalize older or underperforming content.\nAgencies: \nManaging multiple client YouTube channels and looking for scalable optimization solutions.\n\nWhat problem is this workflow solving? / Use Case\nMany creators have a backlog of published videos that aren't reaching their full potential due to suboptimal titles, descriptions, or tags. Manually reviewing and updating each video is time-consuming and requires SEO expertise.\n\nThis workflow solves that by:\n\nAutomating the re-optimization process: Saving significant time and effort.\nLeveraging AI for SEO: Generating high-quality, relevant metadata based on the video's content.\nRevitalizing existing content: Giving older videos a fresh chance to be discovered by the YouTube algorithm and new viewers.\nImproving discoverability: Helping your videos rank better in Youtube and appear more often in recommendations.\n\nWhat this workflow does\nInput: \nTakes a YouTube video URL as the starting point (e.g., via a manual trigger or form).\nFetch Data: \nConnects to the YouTube API using the provided link to retrieve the video's current title, description, tags, and potentially transcript data (if accessible and configured).\nAI Analysis & Generation: \nSends the current metadata and video information to an AI model (like OpenAI, Google AI, or Anthropic - depending on your setup). \n\nThe AI analyzes the content and generates new, SEO-optimized suggestions for the:\n Video Title\n Video Description\n Video Tags\nUpdate Video: \nConnects to the YouTube API again using appropriate permissions and updates the specific video with the newly generated title, description, and tags, replacing the old ones.\nHow to customize this workflow to your needs\nTo use this workflow, you will need to:\n\nConfigure Credentials:\n YouTube: Set up YouTube API credentials in n8n. You'll likely need OAuth2 credentials that allow editing video metadata (youtube.force-ssl scope). Follow Google Cloud Console instructions to create these.\n AI Service: Set up credentials for your chosen AI provider (e.g., OpenAI API Key, Google AI API Key) in n8n.\n Connect Credentials: Select your configured YouTube and AI credentials in the respective nodes within the workflow.\n (Optional) Review AI Prompts: Check the prompts used in the AI node(s) to ensure they align with your desired tone and optimization strategy.",
+  "totalViews": 360,
+  "source": "official",
+  "user": {
+    "id": 93758,
+    "name": "Lucas Correia",
+    "username": "lucascorrei4",
+    "bio": "Brazilian Software Engineer passionate about productivity AI tools. Looking to connect with others on building and integrating AI agents into web apps.",
+    "verified": false,
+    "links": "[\"https://focusorganize.com\"]",
+    "avatar": "https://gravatar.com/avatar/d13a2afd18bdf50c5c9c5d345c7ec2254ee33b3af21c8560c9a2cf116a3a6d77?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Marketing",
+    "Development",
+    "Core Nodes",
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "YouTube",
+      "type": "n8n-nodes-base.youTube",
+      "categories": [
+        "Marketing"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "categories": [
+        "Development",
+        "Core Nodes"
+      ],
+      "subcategories": {
+        "Core Nodes": [
+          "Helpers",
+          "Data Transformation"
+        ]
+      }
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Output Parsers"
+        ]
+      }
+    },
+    {
+      "name": "DeepSeek Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatDeepSeek",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 6,
+  "createdAt": "2025-04-12T16:30:20.635Z",
+  "path": "official/template_3528/workflow.json"
+}

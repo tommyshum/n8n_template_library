@@ -1,0 +1,88 @@
+{
+  "id": 2554,
+  "name": "MongoDB AI Agent - Intelligent Movie Recommendations",
+  "description": "\nWho is this for?\nThis workflow is designed for:\nDatabase administrators and developers working with MongoDB\nContent managers handling movie databases\nOrganizations looking to implement AI-powered search and recommendation systems\nDevelopers interested in combining LangChain, OpenAI, and MongoDB capabilities\n\nWhat problem does this workflow solve?\nTraditional database queries can be complex and require specific MongoDB syntax knowledge. This workflow addresses:\nThe complexity of writing MongoDB aggregation pipelines\nThe need for natural language interaction with movie databases\nThe challenge of maintaining user preferences and favorites\nThe gap between AI language models and database operations\n\nWhat this workflow does\nThis workflow creates an intelligent agent that:\nAccepts natural language queries about movies\nTranslates user requests into MongoDB aggregation pipelines\nQueries a movie database containing detailed information including:\n   Plot summaries\n   Genre classifications\n   Cast and director information\n   Runtime and release dates\n   Ratings and awards\nProvides contextual responses using OpenAI's language model\nAllows users to save favorite movies to the database\nMaintains conversation context using a window buffer memory\n\nSetup\nRequired Credentials:\n   OpenAI API credentials\n   MongoDB connection details\n\nNode Configuration:\n   Configure the MongoDB connection in the MongoDBAggregate node\n   Set up the OpenAI Chat Model with your API key\n   Ensure the webhook trigger is properly configured for receiving chat messages\n\nDatabase Requirements:\n   A MongoDB collection named \"movies\" with the specified document structure\n   Proper indexes for efficient querying\n   Appropriate user permissions for read/write operations\n\nHow to customize this workflow\nModify the Document Structure:\n   Update the tool description in the MongoDBAggregate node to match your collection schema\n   Adjust the aggregation pipeline templates for your specific use case\n\nEnhance the AI Agent:\n   Customize the prompt in the \"AI Agent - Movie Recommendation\" node\n   Modify the window buffer memory size based on your context needs\n   Add additional tools for more functionality\n\nExtend Functionality:\n   Add more MongoDB operations beyond aggregation\n   Implement additional workflows for different types of queries\n   Create custom error handling and validation\n   Add user authentication and rate limiting\n\nIntegration Options:\n   Connect to external APIs for additional movie data\n   Add webhook endpoints for different platforms\n   Implement caching mechanisms for frequent queries\n   Add data transformation nodes for specific output formats\n\nThis workflow serves as a foundation that can be adapted to various use cases beyond movie recommendations, such as e-commerce product search, content management systems, or any scenario requiring intelligent database interaction.",
+  "totalViews": 1881,
+  "source": "official",
+  "user": {
+    "id": 92173,
+    "name": "Pavel Duchovny",
+    "username": "pash",
+    "bio": "Developer imagination == Innovation ✓\n\nExperienced DBA & DevOps engineer & Web Developer. Develop and deploy automation of servers, infrastructure and security to the cloud. Scaling, upgrading and designing Big scaled systems and databases .\n\nSpecializing in designing and building big data solutions in both RDBMS and NoSql echosystems.\n\nHardworking and innovative personality.",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/3f44811eec962f32f82ce2ad6c503da4b174a073c965aeece97e0e6c80ebfa9d?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "AI",
+    "Langchain"
+  ],
+  "nodes": [
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Agents",
+          "Root Nodes"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Language Models",
+          "Root Nodes"
+        ],
+        "Language Models": [
+          "Chat Models (Recommended)"
+        ]
+      }
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Memory"
+        ],
+        "Memory": [
+          "For beginners"
+        ]
+      }
+    },
+    {
+      "name": "Call n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "categories": [
+        "AI",
+        "Langchain"
+      ],
+      "subcategories": {
+        "AI": [
+          "Tools"
+        ],
+        "Tools": [
+          "Recommended Tools"
+        ]
+      }
+    }
+  ],
+  "nodeCount": 4,
+  "createdAt": "2024-11-17T12:54:00.225Z",
+  "path": "official/template_2554/workflow.json"
+}

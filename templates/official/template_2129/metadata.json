@@ -1,0 +1,40 @@
+{
+  "id": 2129,
+  "name": "Enrich lead that booked a call on Calendly and save it on Hubspot",
+  "description": "Use Case\nWhen having a call with a new potential customer, one of the keys to getting the most out of the call is to find out as much information as you can about them before the call. Normally this involves a lot of manual research before every call. This workflow automates this tedious work for you.\nWhat this workflow does\nThe workflow runs every time a new call is booked via your Calendly. It then filters out personal emails, before enriching the email. If the email is attached to a company it enriches the company and upserts it in your Hubspot CRM.\nSetup\nAdd Clearbit, Hubspot, and Calendly credentials.\nClick on Test workflow.\nBook a meeting on Calendly so the event starts the workflow.\nBe aware that you can adapt this workflow to work with your enrichment tool, CRM, and booking tool of choice.",
+  "totalViews": 1707,
+  "source": "official",
+  "user": {
+    "id": 91472,
+    "name": "Ricardo Espinoza",
+    "username": "n8nricardoe105",
+    "bio": "Software engineer at n8n.io",
+    "verified": true,
+    "links": "[\"https://google.com\"]",
+    "avatar": "https://gravatar.com/avatar/38ce96166b806b3aa86c8a9bea13b4e5b59c347750d6f8e18629028a74595eda?r=pg&d=retro&size=200"
+  },
+  "categories": [
+    "Sales"
+  ],
+  "nodes": [
+    {
+      "name": "HubSpot",
+      "type": "n8n-nodes-base.hubspot",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    },
+    {
+      "name": "Clearbit",
+      "type": "n8n-nodes-base.clearbit",
+      "categories": [
+        "Sales"
+      ],
+      "subcategories": {}
+    }
+  ],
+  "nodeCount": 2,
+  "createdAt": "2024-02-23T14:18:58.663Z",
+  "path": "official/template_2129/workflow.json"
+}

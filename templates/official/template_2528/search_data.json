@@ -1,0 +1,79 @@
+{
+  "id": 2528,
+  "name": "Sync Google Calendar Events to Outlook",
+  "totalViews": 3937,
+  "purchaseUrl": null,
+  "user": {
+    "id": 92132,
+    "name": "Alexander Bentlund",
+    "username": "nld-alex",
+    "bio": "Gen-AI creator that fell in love with n8n's simplicity and diversitity.",
+    "verified": false,
+    "links": "[\"\"]",
+    "avatar": "https://gravatar.com/avatar/1cd002ee45ad6bd46aa53abf75f64049d4876f5cd292f98ee1a47be36e724af4?r=pg&d=retro&size=200"
+  },
+  "description": "What this workflow does\nThis workflow is used as a bridge between your private Google Calendar to your Work Outlook Calendar. The same mentality can be used with other calendar types.\n\nDescription\nSend a copy of a Google Calendar event to your Outlook work account as a reminder to yourself or co-workers that you are booked for private matters like \"Dentist appointment\", \"Taking kids to Disney Land\" etc.\n\nHow it works\nCreate event\n-- You create a Google Calendar event.\n-- A trigger in n8n reacts and collects the event info.\n-- An Outlook event is created with the same information in your Outlook Calendar.\nCancel\n-- You cancel an event in Google Calendar\n-- A trigger in n8n reacts and collects the canceled event info.\n-- Using the Outlook node to getAll events searches for the event in your Outlook Calendar.\n-- If the event is found it is then deleted.\n-- An email with the details of the cancelation is then sent to your Outook e-mail address.\n\nThe n8n Merge node is used to combine results from two different nodes that are necessary to create the cancelled event e-mail notification.\n\nImportant notice\nMake sure you use a dedicated Google Calendar for private events that will be displayed in your work Outlook calendar in order to avoid displaying unwanted calendar events that you do not wish to share with your co-workers.\n\nRequirements\nActive workflow*\nGoogle Calendar OAuth2 API\nMicrosoft Outlook OAuth2 API\n\n.*The Google Calendar trigger is activated only if this workflow is active. You can however TEST the workflow in the editor by clicking “Test step”. You will then receive a response from Google Calendar that you can use in order to view what data Google Sends.\n",
+  "createdAt": "2024-11-05T10:07:58.573Z",
+  "nodes": [
+    {
+      "id": 433,
+      "icon": "file:outlook.svg",
+      "name": "n8n-nodes-base.microsoftOutlook",
+      "codex": {
+        "data": {
+          "alias": [
+            "email",
+            "human",
+            "form",
+            "wait",
+            "hitl",
+            "approval"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.microsoftoutlook/"
+              }
+            ],
+            "credentialDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/credentials/microsoft/"
+              }
+            ]
+          },
+          "categories": [
+            "Communication",
+            "HITL"
+          ],
+          "nodeVersion": "1.0",
+          "codexVersion": "1.0",
+          "subcategories": {
+            "HITL": [
+              "Human in the Loop"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Microsoft Outlook"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiB2aWV3Qm94PSIwIDAgODEgODEiPjx1c2UgeGxpbms6aHJlZj0iI2EiIHg9Ii41IiB5PSIuNSIvPjxzeW1ib2wgaWQ9ImEiIG92ZXJmbG93PSJ2aXNpYmxlIj48cGF0aCBmaWxsPSIjMjM3MmJhIiBzdHJva2U9Im5vbmUiIGQ9Ik03Ny45IDE5LjJINDYuODZWMEwwIDguMjMyVjcxLjk4TDQ2Ljg2IDgwVjYxLjg0N0g3Ny45YzEuMjY2IDAgMi4xLTEuMDU1IDIuMS0yLjFWMjEuMzJjMC0xLjI2Ni0uODQ0LTIuMS0yLjEtMi4xek0yMS45NTIgNTQuNDZjLTE1LjQtMS4wNTUtMTQuNzc2LTI5LjEzLjQyMi0yOS45NzQgMTYuNjc1LS44NDQgMTYuMjUzIDMxLjAzLS40MjIgMjkuOTc0bTU1LjUxNSA0LjY0NEg0Ni44NlYzNS4wNGw5LjUgOS4wNzdjLjQyMi40MjIuODQ0LjYzMyAxLjQ3Ny42MzNzMS4wNTUtLjIgMS40NzgtLjYzM0w3Ny40NjcgMjcuMjN6bTAtMzUuNDYyLTE5LjYzIDE4LjE1M0w0Ni44NiAzMS40NXYtOS43aDMwLjM5NnYxLjloLjJ6bS01NS4wOTIgNi41NDNjLTguMjMyLjQyMi04LjQ0MyAxOC4zNjQtLjIgMTguNTc1IDguNjU0LjQyMiA4LjY1NC0xOC45OTcuMi0xOC41NzUiLz48L3N5bWJvbD48L3N2Zz4="
+      },
+      "displayName": "Microsoft Outlook",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 6,
+          "name": "Communication"
+        },
+        {
+          "id": 28,
+          "name": "HITL"
+        }
+      ]
+    }
+  ]
+}
